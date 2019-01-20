@@ -89,12 +89,16 @@ Boss1_232:
     enemyCreateRel("Boss1_at1", 0.0f, 0.0f, 100, 0, 0);
 !*
 	wait(60);
-	callSeparate("Boss1_at2");
+	callToSlot("Boss1_at2", 1);
 	moveRandom(60, 4, 1.7f);
 160:
 	moveRandom(60, 4, 1.7f);
 220:
 	moveRandom(60, 4, 1.7f);
+	terminateSlot(1);
+!L
+	bulletShoot(0);
+!*
 	wait(170);
 	$A = 12;
 	%B = 0.04908738521234051935097880286374f;
@@ -150,8 +154,12 @@ sub Boss1_at2()
 {
 	var;
 	noop();
+	goto END @ 0;
+START:
 	waitDiff(60, 50, 50, 40);
 	bulletShoot(0);
+END:
+	goto START @ 0;
 	return();
 }
 
