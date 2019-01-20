@@ -126,7 +126,7 @@ sub Boss1_at1()
 	%D = %LOCAL2F;
 	%E = %LOCAL1F;
 	$F = $LOCAL1;
-	setFlags(32);
+	setFlags(3);
 	setHitbox(28.0f, 28.0f);
 	enemySetTrajectory(%E, 0.8f);
 	enemyChangeMovement(370, 4, -999999.0f, 0.0f);
