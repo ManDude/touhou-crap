@@ -199,12 +199,12 @@ Boss2_992:
     playSE(31);
     wait($C);
     ins_269(0);
-    callSeperate("Boss2_at1", _ff (0.0f + (%RANDRAD / _f(16))));
+    callSeparate("Boss2_at1", _ff (0.0f + (%RANDRAD / _f(16))));
     wait($C);
-    callSeperate("Boss2_at2", _ff (3.1415927f + (%RANDRAD / _f(16))));
+    callSeparate("Boss2_at2", _ff (3.1415927f + (%RANDRAD / _f(16))));
     wait($C);
-    callSeperate("Boss2_at2b", _ff (0.7853982f + (%RANDRAD / _f(16))));
-    callSeperate("Boss2_at1b", _ff (2.3561945f + (%RANDRAD / _f(16))));
+    callSeparate("Boss2_at2b", _ff (0.7853982f + (%RANDRAD / _f(16))));
+    callSeparate("Boss2_at1b", _ff (2.3561945f + (%RANDRAD / _f(16))));
     wait(60);
     call("Boss2_at3");
     wait(60);
@@ -408,10 +408,10 @@ Boss3_1088:
     playSE(31);
     wait($C);
     ins_269(0);
-    callSeperate("Boss3_at1", _SS 0, _SS 10, _ff 0.0f, _ff 0.05235988f);
-    callSeperate("Boss3_at1", _SS 1, _SS 10, _ff 3.1415927f, _ff -0.05235988f);
-    callSeperate("Boss3_at1", _SS 2, _SS 6, _ff (-1.5707964f + (%RANDRAD / _f(4))), _ff 0.05235988f);
-    callSeperate("Boss3_at1", _SS 3, _SS 6, _ff (-1.5707964f + (%RANDRAD / _f(4))), _ff -0.05235988f);
+    callSeparate("Boss3_at1", _SS 0, _SS 10, _ff 0.0f, _ff 0.05235988f);
+    callSeparate("Boss3_at1", _SS 1, _SS 10, _ff 3.1415927f, _ff -0.05235988f);
+    callSeparate("Boss3_at1", _SS 2, _SS 6, _ff (-1.5707964f + (%RANDRAD / _f(4))), _ff 0.05235988f);
+    callSeparate("Boss3_at1", _SS 3, _SS 6, _ff (-1.5707964f + (%RANDRAD / _f(4))), _ff -0.05235988f);
     wait(200);
     moveRandom(60, 4, 2.0f);
     wait(61);
@@ -570,7 +570,7 @@ BossCard1_1244:
 BossCard1_1656:
     if $H-- goto BossCard1_1244 @ 0;
 !HL
-    callSeperate("BossCard1LaserAt3", _fS 0);
+    callSeparate("BossCard1LaserAt3", _fS 0);
 !*
     wait(210);
     %G = (%G * _f(-1));
@@ -607,7 +607,7 @@ BossCard1_2236:
 BossCard1_2648:
     if $I-- goto BossCard1_2236 @ 0;
 !HL
-    callSeperate("BossCard1LaserAt3", _fS 0);
+    callSeparate("BossCard1LaserAt3", _fS 0);
 !*
     wait(210);
     moveByTime(60, 4, 0.0f, 144.0f);
@@ -626,14 +626,14 @@ sub BossCard1Laser()
     %B = %LOCAL1F;
     setFlags(797);
     setKillbox(60.0f, 60.0f);
-    callSeperate("MBossCard1LaserHit");
+    callSeparate("MBossCard1LaserHit");
     wait(60);
     ins_275(0, 1);
     $LOCAL1 = 1;
     playSE(19);
-    callSeperate("BossCard1LaserAt2", _ff %B);
+    callSeparate("BossCard1LaserAt2", _ff %B);
     wait(60);
-    callSeperate("BossCard1LaserAt", _ff %B);
+    callSeparate("BossCard1LaserAt", _ff %B);
     ins_275(0, 2);
     $LOCAL1 = 2;
     wait(30);
@@ -787,7 +787,7 @@ sub BossCard2()
 90:
     noop();
     setMoveArea(0.0f, 192.0f, 280.0f, 16.0f);
-    callSeperate("BossCard2At2");
+    callSeparate("BossCard2At2");
     goto BossCard2_1312 @ 90;
 BossCard2_776:
     %B = _f(-192);
@@ -861,10 +861,10 @@ sub BossCard2At2()
     goto BossCard2At2_208 @ 0;
 BossCard2At2_60:
 !NHL
-    callSeperate("BossCard2At3");
+    callSeparate("BossCard2At3");
 !*
     wait(61);
-    callSeperate("BossCard2At");
+    callSeparate("BossCard2At");
     waitDiff(180, 60, 30, 20);
     moveRandom(60, 4, 3.5f);
 BossCard2At2_208:
@@ -902,7 +902,7 @@ sub BossCard2Laser()
     %B = %LOCAL1F;
     setFlags(797);
     setKillbox(60.0f, 60.0f);
-    callSeperate("MBossCard1LaserHit");
+    callSeparate("MBossCard1LaserHit");
     playSE(58);
     wait(60);
     ins_275(0, 1);
@@ -1113,11 +1113,11 @@ BossCard3_764:
     enemyCreateRel("BossCard3Laser", 0.0f, 0.0f, 100, 10, 0);
 BossCard3_1300:
 !EN
-    callSeperate("BossCard3At");
+    callSeparate("BossCard3At");
 !HL
-    callSeperate("BossCard3AtH");
+    callSeparate("BossCard3AtH");
 !L
-    callSeperate("BossCard3At");
+    callSeparate("BossCard3At");
 !*
     wait(16000);
 BossCard3_1420:
@@ -1181,16 +1181,16 @@ sub BossCard3Laser()
     %B = %LOCAL1F;
     setFlags(797);
     setKillbox(20.0f, 20.0f);
-    callSeperate("BossCard3LaserRot", _ff %B);
-    callSeperate("MBossCard1LaserHit");
-    callSeperate("BossCard3LaserMove");
+    callSeparate("BossCard3LaserRot", _ff %B);
+    callSeparate("MBossCard1LaserHit");
+    callSeparate("BossCard3LaserMove");
     playSE(52);
     wait(60);
     ins_275(0, 1);
     $LOCAL1 = 1;
     playSE(19);
     wait(60000);
-    callSeperate("BossCard1LaserAt", _ff %B);
+    callSeparate("BossCard1LaserAt", _ff %B);
     ins_275(0, 2);
     $LOCAL1 = 2;
     wait(30);
@@ -1398,13 +1398,13 @@ sub BossCard4Laser()
     %B = %LOCAL1F;
     setFlags(797);
     setKillbox(60.0f, 60.0f);
-    callSeperate("MBossCard1LaserHit");
+    callSeparate("MBossCard1LaserHit");
     wait(60);
     ins_275(0, 1);
     $LOCAL1 = 1;
     playSE(19);
     wait(60);
-    callSeperate("BossCard4LaserAt", _ff %B);
+    callSeparate("BossCard4LaserAt", _ff %B);
     ins_275(0, 2);
     $LOCAL1 = 2;
     wait(30);

@@ -54,7 +54,7 @@ sub Cir00(A B C)
     wait(40);
     ins_259(0, $A);
     wait(30);
-    callSeperate("Cir00_at");
+    callSeparate("Cir00_at");
     unsetFlags(3);
     setHitbox(24.0f, 24.0f);
     setKillbox(16.0f, 16.0f);
@@ -131,7 +131,7 @@ sub Cir01(A B C)
     $F = 1;
     anmSelect(1);
     ins_259(0, $A);
-    callSeperate("Cir01_at");
+    callSeparate("Cir01_at");
     setHitbox(24.0f, 24.0f);
     setKillbox(16.0f, 16.0f);
     0.0f;
@@ -229,7 +229,7 @@ sub Cir02(A B C)
     $F = 1;
     anmSelect(1);
     ins_259(0, $A);
-    callSeperate("Cir02_at");
+    callSeparate("Cir02_at");
     setHitbox(24.0f, 24.0f);
     setKillbox(16.0f, 16.0f);
     0.0f;
@@ -349,7 +349,7 @@ sub Girl00(A B)
     enemySetTrajectory(1.5707964f, 4.0f);
     enemyChangeMovement(60, 0, -999999.0f, 0.0f);
     wait(30);
-    callSeperate("Girl00_at");
+    callSeparate("Girl00_at");
     setAttack(0, -1, -1, "Girl00Dead");
     wait(90);
     enemySetTrajectory(%ANGLE_PLAYER, 0.0f);
@@ -359,7 +359,7 @@ sub Girl00(A B)
     1;
     eq();
     jumpIfEqual(Girl00_552, 0);
-    callSeperate("Girl00_at");
+    callSeparate("Girl00_at");
 Girl00_552:
     goto Girl00_596 @ 0;
 Girl00_576:
@@ -446,7 +446,7 @@ sub Girl01()
     enemySetTrajectory(1.5707964f, 7.0f);
     enemyChangeMovement(40, 0, -999999.0f, 0.0f);
     wait(40);
-    callSeperate("Girl01_at");
+    callSeparate("Girl01_at");
     enemySetTrajectory(1.5707964f, 0.0f);
     enemyChangeMovement(120, 0, 0.0f, 1.0f);
 6000:
@@ -537,7 +537,7 @@ sub Girl01b()
     enemySetTrajectory(1.5707964f, %B);
     enemyChangeMovement($C, 0, -999999.0f, 0.0f);
     wait($C);
-    callSeperate("Girl01_at");
+    callSeparate("Girl01_at");
     enemySetTrajectory(1.5707964f, 0.0f);
     enemyChangeMovement(120, 0, 0.0f, 1.0f);
 6000:
@@ -1088,7 +1088,7 @@ MainSub05_1876:
 sub MainSub06()
 {
     var A B C D E F;
-    callSeperate("MainSub06b");
+    callSeparate("MainSub06b");
     $C = 9;
     goto MainSub06_480 @ 0;
 MainSub06_132:
@@ -1487,7 +1487,7 @@ sub MbossGirl00()
     divf();
     addf();
     enemyChangeMovement(60, 0, [-1.0f], 2.0f);
-    callSeperate("MBossGirl00_at");
+    callSeparate("MBossGirl00_at");
     wait(240);
     delete();
     goto MbossGirl00_516 @ 0;
@@ -1518,7 +1518,7 @@ sub MbossGirl01()
     divf();
     subf();
     enemyChangeMovement(60, 0, [-1.0f], 2.0f);
-    callSeperate("MBossGirl01_at");
+    callSeparate("MBossGirl01_at");
     wait(240);
     delete();
     goto MbossGirl01_516 @ 0;
@@ -1619,19 +1619,19 @@ sub main()
     var A B C;
     setFlags(32);
 	call("MainBossDebug");
-    callSeperate("LogoEnemy");
+    callSeparate("LogoEnemy");
     wait(100);
-    callSeperate("MainSub00");
+    callSeparate("MainSub00");
     wait(560);
-    callSeperate("MainSub01");
+    callSeparate("MainSub01");
     wait(800);
-    callSeperate("MainSub02");
+    callSeparate("MainSub02");
     wait(800);
-    callSeperate("MainSub03");
+    callSeparate("MainSub03");
     wait(950);
     enemyCreateAbs("MBoss", -128.0f, -32.0f, 40, 1000, 1);
     wait(1620);
-    callSeperate("MainSub04");
+    callSeparate("MainSub04");
     wait(460);
     call("MainSub05");
     wait(90);

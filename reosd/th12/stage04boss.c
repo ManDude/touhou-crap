@@ -1632,7 +1632,7 @@ START:
 	if $B != 0 goto CALL @ 120;
 	moveRandom(60, 4, 1.5f);
 CALL:
-	callSeperate("BossCardMetalMemory_At", _ff %A);
+	callSeparate("BossCardMetalMemory_At", _ff %A);
 	%A = %A + 0.24166097335306101834328026025227f;
 	$B = $B + 1;
 	wait(10);
@@ -1705,7 +1705,7 @@ START:
 	moveRandom(60, 4, 1.5f);
 CALL:
 	$B % 2;
-	callSeperate("BossCardMetalMemory_HL_at", _ff %A, _SS [-1]);
+	callSeparate("BossCardMetalMemory_HL_at", _ff %A, _SS [-1]);
 	%A = %A + 0.24166097335306101834328026025227f;
 	$B = $B + 1;
 140:
@@ -1782,9 +1782,9 @@ sub BossCardWaFi()
 	bulletSetComplexTransform(1, 5, 0, 8192, -999999, -999999, -999999.0f, -999999.0f);
 	$A = 0;
 120:
-	callSeperate("BossCardWaFi_at2");
+	callSeparate("BossCardWaFi_at2");
 START:
-	callSeperate("BossCardWaFi_at", _SS $A);
+	callSeparate("BossCardWaFi_at", _SS $A);
 180:
 	moveRandom(90, 4, 1.5f);
 330:
@@ -2553,7 +2553,7 @@ sub BossCardWoEa()
 60:
 	playSE(31);
 120:
-	callSeperate("BossCardWoEa_at1");
+	callSeparate("BossCardWoEa_at1");
 START:
 	%B = [-9987.0f] * 32.0f;
 	moveByTime(30, 1, %B, 16.0f);
@@ -2563,7 +2563,7 @@ START:
 	%C = %C + 80.0f;
 150:
 	moveByTime(60, 4, %B, %C);
-	callSeperate("BossCardWoEa_at2", _SS $A);
+	callSeparate("BossCardWoEa_at2", _SS $A);
 240:
 	callToSlot("BossCardWoEa_at", 1);
 330:
@@ -2612,7 +2612,7 @@ sub BossCardWoEa_at2(A)
 {
 	var B C D E;
 !HL
-	callSeperate("BossCardWoEa_at2b", _SS $A);
+	callSeparate("BossCardWoEa_at2b", _SS $A);
 !ENHL
 	$A % 2;
 	jumpIfEqual(RETURN, 0);
@@ -2895,29 +2895,29 @@ sub BossCardWoMe()
 !ENHL
     moveByTime(60, 4, 0.0f, 160.0f);
 120:
-	callSeperate("BossCardWoMe_atLaser");
+	callSeparate("BossCardWoMe_atLaser");
 START:
 155:
 	$A;
 	jumpIfEqual(SKIP, 155);
-	callSeperate("BossCardWoMe_at2", _ff %B);
+	callSeparate("BossCardWoMe_at2", _ff %B);
 167:
-	callSeperate("BossCardWoMe_at2", _ff (%B * -1.0f));
+	callSeparate("BossCardWoMe_at2", _ff (%B * -1.0f));
 178:
-	callSeperate("BossCardWoMe_at2", _ff %B);
+	callSeparate("BossCardWoMe_at2", _ff %B);
 188:
-	callSeperate("BossCardWoMe_at2", _ff (%B * -1.0f));
+	callSeparate("BossCardWoMe_at2", _ff (%B * -1.0f));
 197:
-	callSeperate("BossCardWoMe_at2", _ff %B);
+	callSeparate("BossCardWoMe_at2", _ff %B);
 205:
-	callSeperate("BossCardWoMe_at2", _ff (%B * -1.0f));
+	callSeparate("BossCardWoMe_at2", _ff (%B * -1.0f));
 SKIP:
 210:
-	callSeperate("BossCardWoMe_at1", _ff %ANGLE_PLAYER);
-	callSeperate("BossCardWoMe_at1", _ff (%ANGLE_PLAYER + 1.2566370614359172953850573533118f));
-	callSeperate("BossCardWoMe_at1", _ff (%ANGLE_PLAYER + 2.5132741228718345907701147066236f));
-	callSeperate("BossCardWoMe_at1", _ff (%ANGLE_PLAYER + 3.7699111843077518861551720599354f));
-	callSeperate("BossCardWoMe_at1", _ff (%ANGLE_PLAYER + 5.0265482457436691815402294132472f));
+	callSeparate("BossCardWoMe_at1", _ff %ANGLE_PLAYER);
+	callSeparate("BossCardWoMe_at1", _ff (%ANGLE_PLAYER + 1.2566370614359172953850573533118f));
+	callSeparate("BossCardWoMe_at1", _ff (%ANGLE_PLAYER + 2.5132741228718345907701147066236f));
+	callSeparate("BossCardWoMe_at1", _ff (%ANGLE_PLAYER + 3.7699111843077518861551720599354f));
+	callSeparate("BossCardWoMe_at1", _ff (%ANGLE_PLAYER + 5.0265482457436691815402294132472f));
 360:
 	$A = $A + 1;
 	goto START @ 120;

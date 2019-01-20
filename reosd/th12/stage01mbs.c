@@ -223,11 +223,11 @@ sub MBossCard1()
 120:
     noop();
     ins_263(0, 119);
-    callSeperate("MBossCard1_at");
+    callSeparate("MBossCard1_at");
     goto MBossCard1_784 @ 350;
 MBossCard1_700:
 150:
-    callSeperate("MBossCard1_at2");
+    callSeparate("MBossCard1_at2");
     wait(120);
 230:
     moveRandom(120, 4, 2.0f);

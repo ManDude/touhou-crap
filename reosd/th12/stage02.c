@@ -33,7 +33,7 @@ sub MainGirl00()
     setKillbox(28.0f, 28.0f);
     setDeathItem(_S(1 + ($RAND % 2)));
     setExtraItem([-1], 1);
-    callSeperate("MainGirl00_at");
+    callSeparate("MainGirl00_at");
     %A = %ANGLE_PLAYER;
     enemySetTrajectory(%A, 2.4f);
     %A = (%A - 2.454369f);
@@ -442,36 +442,36 @@ sub main()
 {
     var;
     setFlags(32);
-    callSeperate("LogoEnemy");
+    callSeparate("LogoEnemy");
 330:
     noop();
-    callSeperate("MainSub00");
+    callSeparate("MainSub00");
 984:
-    callSeperate("MainSub01a");
+    callSeparate("MainSub01a");
 1006:
-    callSeperate("MainSub02");
+    callSeparate("MainSub02");
 1340:
-    callSeperate("MainSub01b");
+    callSeparate("MainSub01b");
 1362:
-    callSeperate("MainSub02");
+    callSeparate("MainSub02");
 1696:
-    callSeperate("MainSub01a");
+    callSeparate("MainSub01a");
 1718:
-    callSeperate("MainSub02");
+    callSeparate("MainSub02");
 2052:
-    callSeperate("MainSub01b");
+    callSeparate("MainSub01b");
 2074:
-    callSeperate("MainSub02");
+    callSeparate("MainSub02");
 2588:
     enemyCreateAbs("MBoss", 0.0f, -32.0f, 10000, 100000, 1);
 3588:
-    callSeperate("MainSub03");
+    callSeparate("MainSub03");
 4623:
-    callSeperate("MainSub04");
-    callSeperate("MainSub04a");
+    callSeparate("MainSub04");
+    callSeparate("MainSub04a");
 5213:
-    callSeperate("MainSub04");
-    callSeperate("MainSub04b");
+    callSeparate("MainSub04");
+    callSeparate("MainSub04b");
 5983:
     dialogueStart(0);
 5984:

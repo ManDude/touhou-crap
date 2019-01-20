@@ -73,7 +73,7 @@ sub Fairy00()
     setKillbox(28.0f, 28.0f);
     enemySetTrajectory(1.5707964f, 2.0f);
 !L
-    callSeperate("FairyBasicShoot00");
+    callSeparate("FairyBasicShoot00");
 40:
 !*
     enemyChangeMovement(80, 0, -0.3926991f, 2.0f);
@@ -92,7 +92,7 @@ sub Fairy01()
     setKillbox(28.0f, 28.0f);
     enemySetTrajectory(1.5707964f, 2.0f);
 !L
-    callSeperate("FairyBasicShoot00");
+    callSeparate("FairyBasicShoot00");
 100:
 !*
     enemyChangeMovement(100, 0, 3.5342917f, 2.0f);
@@ -111,7 +111,7 @@ sub Fairy02()
 60:
     enemySetTrajectory(1.5707964f, 0.0f);
 70:
-    callSeperate("FairyRedShoot00");
+    callSeparate("FairyRedShoot00");
 130:
     enemyChangeMovement(60, 0, 4.712389f, 5.0f);
 190:
@@ -132,7 +132,7 @@ sub Fairy03()
     enemySetTrajectory(1.5707964f, 0.0f);
 70:
 !L
-    callSeperate("FairyRedShoot01");
+    callSeparate("FairyRedShoot01");
 130:
 !*
     enemyChangeMovement(60, 0, 4.712389f, 5.0f);
@@ -281,37 +281,37 @@ MainSub03_236:
 sub MainSub04()
 {
     var;
-    callSeperate("MainSub04a", _ff -160.0f, _SS 0);
+    callSeparate("MainSub04a", _ff -160.0f, _SS 0);
     wait(60);
-    callSeperate("MainSub04b", _ff 64.0f, _SS 1);
+    callSeparate("MainSub04b", _ff 64.0f, _SS 1);
     wait(50);
-    callSeperate("MainSub04b", _ff -64.0f, _SS 0);
+    callSeparate("MainSub04b", _ff -64.0f, _SS 0);
     wait(50);
-    callSeperate("MainSub04a", _ff 160.0f, _SS 1);
+    callSeparate("MainSub04a", _ff 160.0f, _SS 1);
     wait(50);
-    callSeperate("MainSub04b", _ff -168.0f, _SS 0);
+    callSeparate("MainSub04b", _ff -168.0f, _SS 0);
     wait(40);
-    callSeperate("MainSub04b", _ff 112.0f, _SS 1);
+    callSeparate("MainSub04b", _ff 112.0f, _SS 1);
     wait(40);
-    callSeperate("MainSub04a", _ff -48.0f, _SS 0);
+    callSeparate("MainSub04a", _ff -48.0f, _SS 0);
     wait(30);
-    callSeperate("MainSub04b", _ff 152.0f, _SS 1);
+    callSeparate("MainSub04b", _ff 152.0f, _SS 1);
     wait(30);
-    callSeperate("MainSub04b", _ff -160.0f, _SS 0);
+    callSeparate("MainSub04b", _ff -160.0f, _SS 0);
     wait(30);
-    callSeperate("MainSub04a", _ff 48.0f, _SS 1);
+    callSeparate("MainSub04a", _ff 48.0f, _SS 1);
     wait(20);
-    callSeperate("MainSub04b", _ff -168.0f, _SS 0);
+    callSeparate("MainSub04b", _ff -168.0f, _SS 0);
     wait(20);
-    callSeperate("MainSub04b", _ff 112.0f, _SS 1);
+    callSeparate("MainSub04b", _ff 112.0f, _SS 1);
     wait(20);
-    callSeperate("MainSub04a", _ff -48.0f, _SS 0);
+    callSeparate("MainSub04a", _ff -48.0f, _SS 0);
     wait(10);
-    callSeperate("MainSub04b", _ff 152.0f, _SS 1);
+    callSeparate("MainSub04b", _ff 152.0f, _SS 1);
     wait(10);
-    callSeperate("MainSub04b", _ff -160.0f, _SS 0);
+    callSeparate("MainSub04b", _ff -160.0f, _SS 0);
     wait(10);
-    callSeperate("MainSub04a", _ff 48.0f, _SS 1);
+    callSeparate("MainSub04a", _ff 48.0f, _SS 1);
     return();
 }
 
@@ -340,43 +340,43 @@ MainSub04b_184:
 sub MainSub05()
 {
     var;
-    callSeperate("MainSub05a", _SS 1);
+    callSeparate("MainSub05a", _SS 1);
     wait(10);
-    callSeperate("MainSub05a", _SS 0);
+    callSeparate("MainSub05a", _SS 0);
     wait(10);
-    callSeperate("MainSub05b", _SS 1);
+    callSeparate("MainSub05b", _SS 1);
     wait(10);
-    callSeperate("MainSub05a", _SS 0);
+    callSeparate("MainSub05a", _SS 0);
     wait(10);
-    callSeperate("MainSub05b", _SS 1);
+    callSeparate("MainSub05b", _SS 1);
     wait(10);
-    callSeperate("MainSub05a", _SS 0);
+    callSeparate("MainSub05a", _SS 0);
     wait(10);
-    callSeperate("MainSub05a", _SS 1);
+    callSeparate("MainSub05a", _SS 1);
     wait(10);
-    callSeperate("MainSub05b", _SS 0);
+    callSeparate("MainSub05b", _SS 0);
     wait(10);
-    callSeperate("MainSub05b", _SS 1);
+    callSeparate("MainSub05b", _SS 1);
     wait(10);
-    callSeperate("MainSub05a", _SS 0);
+    callSeparate("MainSub05a", _SS 0);
     wait(10);
-    callSeperate("MainSub05a", _SS 0);
+    callSeparate("MainSub05a", _SS 0);
     wait(10);
-    callSeperate("MainSub05a", _SS 1);
+    callSeparate("MainSub05a", _SS 1);
     wait(10);
-    callSeperate("MainSub05a", _SS 0);
+    callSeparate("MainSub05a", _SS 0);
     wait(10);
-    callSeperate("MainSub05b", _SS 1);
+    callSeparate("MainSub05b", _SS 1);
     wait(10);
-    callSeperate("MainSub05b", _SS 0);
+    callSeparate("MainSub05b", _SS 0);
     wait(10);
-    callSeperate("MainSub05a", _SS 1);
+    callSeparate("MainSub05a", _SS 1);
     wait(10);
-    callSeperate("MainSub05a", _SS 0);
+    callSeparate("MainSub05a", _SS 0);
     wait(10);
-    callSeperate("MainSub05b", _SS 1);
+    callSeparate("MainSub05b", _SS 1);
     wait(10);
-    callSeperate("MainSub05b", _SS 0);
+    callSeparate("MainSub05b", _SS 0);
     wait(10);
     return();
 }
@@ -465,37 +465,37 @@ sub MainSub08()
     $A = 4;
     goto MainSub08_1188 @ 0;
 MainSub08_100:
-    callSeperate("MainSub08a", _ff -160.0f, _SS 0);
+    callSeparate("MainSub08a", _ff -160.0f, _SS 0);
     wait(30);
-    callSeperate("MainSub08b", _ff 64.0f, _SS 1);
+    callSeparate("MainSub08b", _ff 64.0f, _SS 1);
     wait(30);
-    callSeperate("MainSub08b", _ff -64.0f, _SS 0);
+    callSeparate("MainSub08b", _ff -64.0f, _SS 0);
     wait(30);
-    callSeperate("MainSub08a", _ff 160.0f, _SS 1);
+    callSeparate("MainSub08a", _ff 160.0f, _SS 1);
     wait(30);
-    callSeperate("MainSub08b", _ff -168.0f, _SS 0);
+    callSeparate("MainSub08b", _ff -168.0f, _SS 0);
     wait(30);
-    callSeperate("MainSub08b", _ff 112.0f, _SS 1);
+    callSeparate("MainSub08b", _ff 112.0f, _SS 1);
     wait(30);
-    callSeperate("MainSub08a", _ff -48.0f, _SS 0);
+    callSeparate("MainSub08a", _ff -48.0f, _SS 0);
     wait(30);
-    callSeperate("MainSub08b", _ff 152.0f, _SS 1);
+    callSeparate("MainSub08b", _ff 152.0f, _SS 1);
     wait(30);
-    callSeperate("MainSub08b", _ff -160.0f, _SS 0);
+    callSeparate("MainSub08b", _ff -160.0f, _SS 0);
     wait(30);
-    callSeperate("MainSub08a", _ff 48.0f, _SS 1);
+    callSeparate("MainSub08a", _ff 48.0f, _SS 1);
     wait(30);
-    callSeperate("MainSub08b", _ff -168.0f, _SS 0);
+    callSeparate("MainSub08b", _ff -168.0f, _SS 0);
     wait(30);
-    callSeperate("MainSub08b", _ff 112.0f, _SS 1);
+    callSeparate("MainSub08b", _ff 112.0f, _SS 1);
     wait(30);
-    callSeperate("MainSub08a", _ff -48.0f, _SS 0);
+    callSeparate("MainSub08a", _ff -48.0f, _SS 0);
     wait(30);
-    callSeperate("MainSub08b", _ff 152.0f, _SS 1);
+    callSeparate("MainSub08b", _ff 152.0f, _SS 1);
     wait(30);
-    callSeperate("MainSub08b", _ff -160.0f, _SS 0);
+    callSeparate("MainSub08b", _ff -160.0f, _SS 0);
     wait(30);
-    callSeperate("MainSub08a", _ff 48.0f, _SS 1);
+    callSeparate("MainSub08a", _ff 48.0f, _SS 1);
     wait(30);
 MainSub08_1188:
     if $A-- goto MainSub08_100 @ 0;
@@ -601,35 +601,35 @@ sub main()
     var;
     setFlags(32);
     wait(120);
-    callSeperate("LogoEnemy");
+    callSeparate("LogoEnemy");
 128:
     noop();
-    callSeperate("MainSub00");
+    callSeparate("MainSub00");
 256:
-    callSeperate("MainSub01");
+    callSeparate("MainSub01");
 432:
-    callSeperate("MainSub02");
-    callSeperate("MainSub03");
+    callSeparate("MainSub02");
+    callSeparate("MainSub03");
 640:
-    callSeperate("MainSub04");
+    callSeparate("MainSub04");
 1220:
-    callSeperate("MainSub05");
+    callSeparate("MainSub05");
 1600:
-    callSeperate("MainSub06");
+    callSeparate("MainSub06");
 1696:
-    callSeperate("MainSub07");
+    callSeparate("MainSub07");
 2008:
     enemyCreateAbs("MBoss", 0.0f, -32.0f, 40, 1000, 1);
 2408:
-    callSeperate("MainSub08");
+    callSeparate("MainSub08");
 4498:
-    callSeperate("MainSub09");
+    callSeparate("MainSub09");
 4610:
-    callSeperate("MainSub10");
+    callSeparate("MainSub10");
 4738:
-    callSeperate("MainSub11");
+    callSeparate("MainSub11");
 4866:
-    callSeperate("MainSub10");
+    callSeparate("MainSub10");
 5278:
     dialogueStart(0);
 5279:

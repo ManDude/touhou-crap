@@ -69,7 +69,7 @@ sub Cir00(A B C)
     wait(40);
     ins_259(0, $A);
     wait(30);
-    callSeperate("Cir00_at");
+    callSeparate("Cir00_at");
     unsetFlags(3);
     setHitbox(24.0f, 24.0f);
     setKillbox(16.0f, 16.0f);
@@ -194,7 +194,7 @@ sub Girl00()
     setExtraItem(2, 20);
     setExtraItem(1, 20);
     setItemArea(64.0f, 64.0f);
-    callSeperate("Girl00_at");
+    callSeparate("Girl00_at");
     enemySetTrajectory(1.9634954f, 8.0f);
     enemyChangeMovement(30, 0, -999999.0f, 0.0f);
     wait(200);
@@ -239,7 +239,7 @@ sub Girl00b()
     setExtraItem(2, 20);
     setExtraItem(1, 20);
     setItemArea(64.0f, 64.0f);
-    callSeperate("Girl00_at");
+    callSeparate("Girl00_at");
     enemySetTrajectory(1.9634954f, 8.0f);
     enemyChangeMovement(30, 0, -999999.0f, 0.0f);
     wait(200);
@@ -257,7 +257,7 @@ sub Girl01(A B)
     setFlags(64);
     setHitbox(24.0f, 24.0f);
     setKillbox(16.0f, 16.0f);
-    callSeperate("Girl01_at");
+    callSeparate("Girl01_at");
     enemySetTrajectory(3.1415927f, 4.0f);
     enemyChangeMovement(60, 0, -999999.0f, 2.0f);
     wait(60);
@@ -313,7 +313,7 @@ sub Girl02()
     setExtraItem(2, 20);
     setExtraItem(1, 20);
     setItemArea(64.0f, 64.0f);
-    callSeperate("Girl02_at");
+    callSeparate("Girl02_at");
     enemySetTrajectory(1.5707964f, 5.0f);
     enemyChangeMovement(90, 0, -999999.0f, 0.0f);
     wait(230);
@@ -387,7 +387,7 @@ sub Girl02c()
     setExtraItem(2, 20);
     setExtraItem(1, 20);
     setItemArea(64.0f, 64.0f);
-    callSeperate("Girl02_at");
+    callSeparate("Girl02_at");
     enemySetTrajectory(1.5707964f, 5.0f);
     enemyChangeMovement(90, 0, -999999.0f, 0.0f);
     wait(230);
@@ -406,7 +406,7 @@ sub Girl03(A B)
     setFlags(64);
     setHitbox(24.0f, 24.0f);
     setKillbox(16.0f, 16.0f);
-    callSeperate("Girl03_at");
+    callSeparate("Girl03_at");
     enemySetTrajectory(3.1415927f, 4.0f);
     ins_329(60, 0.0f, %ANGLE_PLAYER, 1.0f);
     wait(80);
@@ -456,7 +456,7 @@ sub Girl04(A B)
     setFlags(64);
     setHitbox(24.0f, 24.0f);
     setKillbox(16.0f, 16.0f);
-    callSeperate("RGirl04_at");
+    callSeparate("RGirl04_at");
     enemySetTrajectory(3.1415927f, 4.0f);
     wait(50);
     enemyChangeMovement(100, 0, 0.3926991f, 3.0f);
@@ -473,7 +473,7 @@ sub Girl04b(A B)
     setFlags(64);
     setHitbox(24.0f, 24.0f);
     setKillbox(16.0f, 16.0f);
-    callSeperate("RGirl04b_at");
+    callSeparate("RGirl04b_at");
     enemySetTrajectory(3.1415927f, 4.0f);
     wait(30);
     enemyChangeMovement(100, 0, -0.3926991f, 3.0f);
@@ -729,7 +729,7 @@ sub MainSub02()
 sub MainSub03()
 {
     var A B C D E F G;
-    callSeperate("MainSub03se");
+    callSeparate("MainSub03se");
     enemyCreateRel("RCir00", -128.0f, 128.0f, 100, 1000, 10);
     enemyCreateRel("RCir00", 128.0f, 128.0f, 100, 1000, 10);
     wait(90);
@@ -982,7 +982,7 @@ sub MainSub04()
     enemyCreateRelFlippedNoBoss("BGirl03", -256.0f, 160.0f, 50, 1000, 1);
     wait(10);
     enemyCreateRelFlippedNoBoss("BGirl03", -256.0f, 144.0f, 50, 1000, 1);
-    callSeperate("MainSub04B");
+    callSeparate("MainSub04B");
     enemyCreateRelNoBoss("BGirl03", 256.0f, 64.0f, 50, 1000, 1);
     wait(10);
     enemyCreateRelNoBoss("BGirl03", 256.0f, 80.0f, 50, 1000, 1);
@@ -1006,7 +1006,7 @@ sub MainSub04()
     enemyCreateRelNoBoss("BGirl03", 256.0f, 160.0f, 50, 1000, 1);
     wait(10);
     enemyCreateRelNoBoss("BGirl03", 256.0f, 144.0f, 50, 1000, 1);
-    callSeperate("MainSub04B");
+    callSeparate("MainSub04B");
     enemyCreateRelNoBoss("BGirl03", 256.0f, 64.0f, 50, 1000, 1);
     wait(10);
     enemyCreateRelNoBoss("BGirl03", 256.0f, 80.0f, 50, 1000, 1);
@@ -1031,7 +1031,7 @@ sub MainSub04()
     wait(10);
     enemyCreateRelNoBoss("BGirl03", 256.0f, 144.0f, 50, 1000, 1);
     moveDirect(0.0f, -64.0f);
-    callSeperate("MainSub04B");
+    callSeparate("MainSub04B");
     enemyCreateRelNoBoss("BGirl03", 256.0f, 64.0f, 50, 1000, 1);
     wait(10);
     enemyCreateRelNoBoss("BGirl03", 256.0f, 80.0f, 50, 1000, 1);
@@ -1055,7 +1055,7 @@ sub MainSub04()
     enemyCreateRelNoBoss("BGirl03", 256.0f, 160.0f, 50, 1000, 1);
     wait(10);
     enemyCreateRelNoBoss("BGirl03", 256.0f, 144.0f, 50, 1000, 1);
-    callSeperate("MainSub04B");
+    callSeparate("MainSub04B");
     enemyCreateRelNoBoss("BGirl03", 256.0f, 64.0f, 50, 1000, 1);
     wait(10);
     enemyCreateRelNoBoss("BGirl03", 256.0f, 80.0f, 50, 1000, 1);
@@ -1348,12 +1348,12 @@ sub main()
     setFlags(44);
 	call("MainBossDebug");
     ins_280("MapleEnemy", 0, 0, 100, 1000, 0);
-    callSeperate("LogoEnemy");
+    callSeparate("LogoEnemy");
 	wait(120);
 60:
     noop();
     wait(60);
-    callSeperate("MainSub00");
+    callSeparate("MainSub00");
     wait(600);
     call("MainSub01");
     wait(260);
