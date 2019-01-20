@@ -1,5 +1,5 @@
 anim { "enemy.anm"; "stgenm02.anm"; }
-ecli { "default.ecl"; "stage02mbs.ecl"; "stage02boss.ecl"; "pdh.ecl"; }
+ecli { "default.ecl"; "stage02mbs.ecl"; "stage02boss.ecl"; }
 
 sub LogoEnemy()
 {
@@ -442,7 +442,6 @@ sub main()
 {
     var;
     setFlags(32);
-	call("MainBossDebug");
     callSeperate("LogoEnemy");
 330:
     noop();
