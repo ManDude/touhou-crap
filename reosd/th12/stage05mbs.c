@@ -1,6 +1,7 @@
 sub MBoss()
 {
     var A;
+    setCheckpoint(24);
     setBossMode(0);
     $MISS_COUNT = 0;
     $BOMB_COUNT = 0;
