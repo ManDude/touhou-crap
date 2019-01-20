@@ -106,10 +106,9 @@ sub MBossCard1_at1()
 	bulletSetType(0, 2);
 	bulletSetSprite(0, 8, 2);
 	bulletSetAngle(0, 0.0f, 0.0f);
-	bulletSetComplexTransform(0, 1, 0, 1, -999999, -999999, -999999.0f, -999999.0f);
 	bulletSetComplexTransform(0, 0, 0, 2, 1, -999999, -999999.0f, -999999.0f);
 !HL
-	bulletSetComplexTransform(0, 2, 0, 256, 1, 14, -999999.0f, -999999.0f);
+	bulletSetComplexTransform(0, 1, 0, 256, 1, 13, -999999.0f, -999999.0f);
 !E
 	bulletSetCount(0, 16, 1);
 	bulletSetSpeed(0, 3.0f, 1.2f);
@@ -136,7 +135,7 @@ sub MBossCard1_at1()
 	bulletSetType(0, 0);
 	bulletSetSprite(0, 20, 3);
 	bulletSetCount(0, 11, 4);
-	bulletSetComplexTransform(0, 2, 0, 0, -999999, -999999, -999999.0f, -999999.0f);
+	bulletSetComplexTransform(0, 0, 0, 2, 1, -999999, -999999.0f, -999999.0f);
 !E
 	bulletSetAngle(0, 0.0f, 0.20943951023931954923084289221863f);
 	bulletSetSpeed(0, 3.5f, 1.2f);
@@ -184,10 +183,9 @@ sub MBossCard1_at2()
 	bulletSetType(0, 2);
 	bulletSetSprite(0, 8, 2);
 	bulletSetAngle(0, 0.0f, 0.0f);
-	bulletSetComplexTransform(0, 1, 0, 1, -999999, -999999, -999999.0f, -999999.0f);
 	bulletSetComplexTransform(0, 0, 0, 2, 1, -999999, -999999.0f, -999999.0f);
 !HL
-	bulletSetComplexTransform(0, 2, 0, 256, 1, 14, -999999.0f, -999999.0f);
+	bulletSetComplexTransform(0, 1, 0, 256, 1, 13, -999999.0f, -999999.0f);
 !E
 	bulletSetCount(0, 16, 1);
 	bulletSetSpeed(0, 3.0f, 1.2f);
@@ -214,7 +212,7 @@ sub MBossCard1_at2()
 	bulletSetType(0, 0);
 	bulletSetSprite(0, 20, 3);
 	bulletSetCount(0, 11, 4);
-	bulletSetComplexTransform(0, 2, 0, 0, -999999, -999999, -999999.0f, -999999.0f);
+	bulletSetComplexTransform(0, 0, 0, 2, 1, -999999, -999999.0f, -999999.0f);
 !E
 	bulletSetAngle(0, 0.0f, 0.20943951023931954923084289221863f);
 	bulletSetSpeed(0, 3.5f, 1.2f);
@@ -271,16 +269,14 @@ MBossDead_484:
     bulletClear_ni(640.0f);
 MBossDead_504:
     clearEnemies();
-    anmScriptSelect(0, 0);
     setLife(100000);
     setBossMode(-1);
     clearItems();
+    setDeathItem(7);
     if ($POWER == 400) goto MBossDead_864 @ 0;
-    setDeathItem(1);
     setExtraItem(1, 60);
     goto MBossDead_908 @ 0;
 MBossDead_864:
-    setDeathItem(2);
     setExtraItem(2, 60);
 MBossDead_908:
     setItemArea(48.0f, 48.0f);
