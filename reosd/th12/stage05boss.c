@@ -7,15 +7,16 @@ sub Boss()
     anmSelect(2);
     anmScriptSelect(0, 0);
     setFlags(64);
-    setHitbox(48.0f, 48.0f);
-    setKillbox(48.0f, 48.0f);
+    setHitbox(56.0f, 56.0f);
+    setKillbox(56.0f, 56.0f);
     setInvincible(60);
-    setLife(12000);
-    moveByTime(60, 4, 0.0f, 112.0f);
+    setLife(15000);
+	moveDirect(-224.0f, 128.0f);
+    moveByTime(60, 4, 0.0f, 128.0f);
     setCheckpoint(24);
 60:
     waitDialogue();
-    setMoveArea(0.0f, 112.0f, 280.0f, 64.0f);
+    setMoveArea(0.0f, 90.0f, 320.0f, 84.0f);
     anmSelect(0);
     ins_259(1, 95);
     ins_259(2, 158);
@@ -27,170 +28,129 @@ sub Boss()
 
 sub Boss1()
 {
-    var;
+    var A B;
+	setLife(19000);
     resetBossTime();
-    setAttack(0, 2000, 2640, "BossCard1");
-    setLifebar(0, 2000.0f, -24448);
+    setAttack(0, 1400, 2700, "BossCard1");
+    setLifebar(0, 1400.0f, -24448);
     setCheckpoint(24);
-    setBossLives(3);
+    setBossLives(2);
     anmSelect(2);
     anmScriptSelect(0, 0);
-    goto Boss1_856 @ 0;
+100:
+    goto Boss1_856 @ 100;
+	bulletCreate(0);
+	bulletSetType(0, 2);
+	bulletSetSprite(0, 20, 3);
+	bulletSetCount_diff(0, 8, 16, 16, 16, 1, 1, 2, 2);
+	bulletSetSpeed_diff(0, 1.8f, 2.0f, 2.5f, 3.0f, 1.0f, 1.0f, 1.0f, 1.0f);
+	bulletSetAngle(0, 0.0f, 0.15707963267948966192313216916398f);
+	bulletSetComplexTransform(0, 0, 0, 2, 1, -999999, -999999.0f, -999999.0f);
+	bulletCreate(1);
+	bulletSetType(1, 1);
+	bulletSetSprite(1, 20, 2);
+	bulletSetCount_diff(1, 2, 2, 4, 4, 6, 8, 8, 8);
+	bulletSetSpeed_diff(1, 3.0f, 4.0f, 4.0f, 4.0f, 1.2f, 1.2f, 1.2f, 1.2f);
 Boss1_232:
     ins_263(0, 119);
-    playSE(31);
-    wait(40);
-    ins_269(0);
-    callSeperate("Boss1_at1");
-!NHL
-    callSeperate("Boss1_at2");
-!*
-    callSeperate("Boss1_at3");
-    wait(30);
+	%LOCAL1F = 0.78539816339744830961566084581988f;
+	%LOCAL2F = 0.6283185307179586476925286766559f;
+	$LOCAL1 = 6;
+    enemyCreateRel("Boss1_at1", 0.0f, 0.0f, 100, 0, 0);
+	%LOCAL1F = 0.0f;
+	%LOCAL2F = -0.31415926535897932384626433832795f;
+	$LOCAL1 = 10;
+    enemyCreateRel("Boss1_at1", 0.0f, 0.0f, 100, 0, 0);
+	%LOCAL1F = 2.3561944901923449288469825374596f;
+	%LOCAL2F = -0.6283185307179586476925286766559f;
+	$LOCAL1 = 10;
+    enemyCreateRel("Boss1_at1", 0.0f, 0.0f, 100, 0, 0);
+	%LOCAL1F = 3.1415926535897932384626433832795f;
+	%LOCAL2F = 0.31415926535897932384626433832795f;
+	$LOCAL1 = 6;
+    enemyCreateRel("Boss1_at1", 0.0f, 0.0f, 100, 0, 0);
+!L
+	%LOCAL1F = 1.1780972450961724644234912687298f;
+	%LOCAL2F = 0.6283185307179586476925286766559f;
+	$LOCAL1 = 6;
+    enemyCreateRel("Boss1_at1", 0.0f, 0.0f, 100, 0, 0);
+	%LOCAL1F = 1.9634954084936207740391521145497f;
+	%LOCAL2F = -0.6283185307179586476925286766559f;
+	$LOCAL1 = 10;
+    enemyCreateRel("Boss1_at1", 0.0f, 0.0f, 100, 0, 0);
 !HL
-    callSeperate("Boss1_at1b");
+	%LOCAL1F = 0.39269908169872415480783042290994f;
+	%LOCAL2F = -0.31415926535897932384626433832795f;
+	$LOCAL1 = 10;
+    enemyCreateRel("Boss1_at1", 0.0f, 0.0f, 100, 0, 0);
+	%LOCAL1F = 2.7488935718910690836548129603696f;
+	%LOCAL2F = 0.31415926535897932384626433832795f;
+	$LOCAL1 = 6;
+    enemyCreateRel("Boss1_at1", 0.0f, 0.0f, 100, 0, 0);
 !*
-    waitDiff(130, 130, 100, 60);
-    moveRandom(60, 4, 2.0f);
-    wait(61);
-    ins_263(0, 119);
-    playSE(31);
-    wait(40);
-    ins_269(0);
-    callSeperate("Boss1_at1b");
-!NHL
-    callSeperate("Boss1_at2");
-!*
-    callSeperate("Boss1_at3");
-    wait(30);
-!HL
-    callSeperate("Boss1_at1");
-!*
-    waitDiff(130, 130, 100, 60);
-    moveRandom(60, 4, 2.0f);
-    wait(61);
+	wait(60);
+	callSeparate("Boss1_at2");
+	moveRandom(60, 4, 1.7f);
+160:
+	moveRandom(60, 4, 1.7f);
+220:
+	moveRandom(60, 4, 1.7f);
+	wait(170);
+	$A = 12;
+	%B = 0.04908738521234051935097880286374f;
+	goto LOOP_END @ 220;
+LOOP_START:
+	bulletSetAngle(1, 1.5707963267948966192313216916398f, %B);
+	%B = %B + 0.31415926535897932384626433832795f;
+	wait(8);
+LOOP_END:
+	if $A-- goto LOOP_START @ 220;
+	wait(60);
+290:
+	noop();
+300:
 Boss1_856:
-    if 1 goto Boss1_232 @ 0;
+    if 1 goto Boss1_232 @ 100;
     return();
 }
 
 sub Boss1_at1()
 {
-    var A B;
-    bulletCreate(0);
-    bulletSetSprite(0, 0, 13);
-    bulletSetAngle(0, 1.5707964f, 1.5707964f);
-    bulletSetSpeed(0, 3.0f, 3.0f);
-    laserSetSize(0, -1.0f, -1.0f, -1.0f, 16.0f);
-    laserSetTime(0, 42, -1, -1, -1, 0);
-    bulletSetSE(0, 19, -1);
-    bulletSetComplexTransform(0, 0, 0, 8, 10, -999999, -0.1f, 0.07853982f);
-    bulletSetComplexTransform(0, 1, 0, 8, 20, -999999, -0.05f, -0.07853982f);
-    bulletSetComplexTransform(0, 2, 0, 8, 20, -999999, 0.05f, 0.07853982f);
-    bulletSetComplexTransform(0, 3, 0, 8, 20, -999999, 0.05f, 0.07853982f);
-    bulletSetComplexTransform(0, 4, 0, 8, 20, -999999, 0.05f, 0.07853982f);
-    bulletSetComplexTransform(0, 5, 0, 8, 20, -999999, 0.05f, -0.07853982f);
-    bulletSetComplexTransform(0, 6, 0, 8, 20, -999999, 0.0f, -0.07853982f);
-    bulletSetComplexTransform(0, 7, 0, 8, 10, -999999, 0.0f, -0.07853982f);
-    bulletSetSE(0, 19, -1);
-    %A = %RANDRAD;
-    $B = 16;
-    goto Boss1_at1_884 @ 0;
-Boss1_at1_760:
-    bulletSetAngle(0, %A, 0.0f);
-    laserCurvedShoot(0);
-    %A = (%A + 0.392699f);
-Boss1_at1_884:
-    if $B-- goto Boss1_at1_760 @ 0;
-    return();
-}
-
-sub Boss1_at1b()
-{
-    var A B;
-    bulletCreate(0);
-    bulletSetSprite(0, 0, 13);
-    bulletSetAngle(0, 1.5707964f, 1.5707964f);
-    bulletSetSpeed(0, 3.0f, 3.0f);
-    laserSetSize(0, -1.0f, -1.0f, -1.0f, 16.0f);
-    laserSetTime(0, 42, -1, -1, -1, 0);
-    bulletSetSE(0, 19, -1);
-    bulletSetComplexTransform(0, 0, 0, 8, 10, -999999, -0.1f, -0.07853982f);
-    bulletSetComplexTransform(0, 1, 0, 8, 20, -999999, -0.05f, 0.07853982f);
-    bulletSetComplexTransform(0, 2, 0, 8, 20, -999999, 0.05f, -0.07853982f);
-    bulletSetComplexTransform(0, 3, 0, 8, 20, -999999, 0.05f, -0.07853982f);
-    bulletSetComplexTransform(0, 4, 0, 8, 20, -999999, 0.05f, -0.07853982f);
-    bulletSetComplexTransform(0, 5, 0, 8, 20, -999999, 0.05f, 0.07853982f);
-    bulletSetComplexTransform(0, 6, 0, 8, 20, -999999, 0.0f, 0.07853982f);
-    bulletSetComplexTransform(0, 7, 0, 8, 10, -999999, 0.0f, 0.07853982f);
-    bulletSetSE(0, 19, -1);
-    %A = %RANDRAD;
-    $B = 16;
-    goto Boss1_at1b_884 @ 0;
-Boss1_at1b_760:
-    bulletSetAngle(0, %A, 0.0f);
-    laserCurvedShoot(0);
-    %A = (%A + 0.392699f);
-Boss1_at1b_884:
-    if $B-- goto Boss1_at1b_760 @ 0;
-    return();
+	var A B C D E F;
+	%C = 0.0f;
+	%D = %LOCAL2F;
+	%E = %LOCAL1F;
+	$F = $LOCAL1;
+	setFlags(32);
+	setHitbox(28.0f, 28.0f);
+	enemyChangeMovement(370, 4, %E, 0.8f);
+	bulletCreate(0);
+	bulletSetType(0, 1);
+	bulletSetSprite(0, 7, $F);
+	bulletSetCount_diff(0, 4, 5, 5, 5, 1, 1, 1, 1);
+	bulletSetSpeed_diff(0, 1.2f, 1.6f, 1.8f, 2.0f, 1.2f, 1.2f, 1.2f, 1.2f);
+50:
+	$A = 240 / 6;
+	goto END @ 56;
+START:
+	bulletSetAngle(0, %C, 0.02617993877991494365385536152733f);
+	bulletShoot(0);
+	$B = $A % 16;
+	%C = %C + %D;
+56:
+END:
+	if $A-- goto START @ 50;
+116:
+	delete();
 }
 
 sub Boss1_at2()
 {
-    var A B;
-    wait(60);
-    bulletCreate(1);
-    bulletSetSprite(1, 0, 2);
-    bulletSetAngle(1, 1.5707964f, 1.5707964f);
-    bulletSetSpeed(1, 3.0f, 3.0f);
-    laserSetSize(1, -1.0f, -1.0f, -1.0f, 16.0f);
-    laserSetTime(1, 42, -1, -1, -1, 0);
-    bulletSetSE(0, 19, -1);
-    bulletSetComplexTransform(1, 0, 0, 8, 10, -999999, -0.1f, -0.07853982f);
-    bulletSetComplexTransform(1, 1, 0, 8, 20, -999999, -0.05f, 0.07853982f);
-    bulletSetComplexTransform(1, 2, 0, 8, 20, -999999, 0.0f, -0.07853982f);
-    bulletSetComplexTransform(1, 3, 0, 8, 20, -999999, 0.0f, 0.07853982f);
-    bulletSetComplexTransform(1, 4, 0, 8, 20, -999999, 0.05f, -0.07853982f);
-    bulletSetComplexTransform(1, 5, 0, 8, 20, -999999, 0.05f, 0.07853982f);
-    bulletSetComplexTransform(1, 6, 0, 8, 20, -999999, 0.05f, -0.07853982f);
-    bulletSetComplexTransform(1, 7, 0, 8, 10, -999999, 0.1f, 0.07853982f);
-    bulletSetSE(1, 19, -1);
-    %A = %RANDRAD;
-    $B = 16;
-    goto Boss1_at2_904 @ 0;
-Boss1_at2_780:
-    bulletSetAngle(1, %A, 0.0f);
-    laserCurvedShoot(1);
-    %A = (%A + 0.392699f);
-Boss1_at2_904:
-    if $B-- goto Boss1_at2_780 @ 0;
-    return();
-}
-
-sub Boss1_at3()
-{
-    var A B;
-    wait(120);
-    bulletCreate(2);
-    bulletSetType(2, 2);
-    bulletSetSprite(2, 17, 2);
-    bulletSetCount(2, 32, 1);
-    bulletSetAngle(2, 0.0f, 0.032724924f);
-    bulletSetSpeed(2, 1.0f, 1.0f);
-    bulletSetComplexTransform(2, 0, 1, 2, 1, -999999, -999999.0f, -999999.0f);
-    bulletSetComplexTransform(2, 1, 0, 268435456, 1, -999999, -999999.0f, -999999.0f);
-    bulletSetComplexTransform(2, 2, 0, 4, 120, -999999, 0.025f, -999999.0f);
-    %A = -1.570796f;
-    setIntValDiff($B, 1, 1, 1, 6);
-    goto Boss1_at3_524 @ 0;
-Boss1_at3_456:
-    bulletSetAngle(2, %RANDRAD, 0.0f);
-    bulletShoot(2);
-    wait(10);
-Boss1_at3_524:
-    if $B-- goto Boss1_at3_456 @ 0;
-    return();
+	var;
+	noop();
+	waitDiff(60, 50, 50, 40);
+	bulletShoot(0);
+	return();
 }
 
 sub Boss2()
