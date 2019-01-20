@@ -38,7 +38,6 @@ sub Boss1()
     anmSelect(2);
     anmScriptSelect(0, 0);
 100:
-    goto Boss1_856 @ 100;
 	bulletCreate(0);
 	bulletSetType(0, 2);
 	bulletSetSprite(0, 20, 3);
@@ -51,6 +50,7 @@ sub Boss1()
 	bulletSetSprite(1, 20, 2);
 	bulletSetCount_diff(1, 2, 2, 4, 4, 6, 8, 8, 8);
 	bulletSetSpeed_diff(1, 3.0f, 4.0f, 4.0f, 4.0f, 1.2f, 1.2f, 1.2f, 1.2f);
+    goto Boss1_856 @ 300;
 Boss1_232:
     ins_263(0, 119);
 	%LOCAL1F = 0.78539816339744830961566084581988f;
@@ -101,6 +101,7 @@ Boss1_232:
 	goto LOOP_END @ 220;
 LOOP_START:
 	bulletSetAngle(1, 1.5707963267948966192313216916398f, %B);
+	bulletShoot(1);
 	%B = %B + 0.31415926535897932384626433832795f;
 	wait(8);
 LOOP_END:
@@ -117,13 +118,14 @@ Boss1_856:
 sub Boss1_at1()
 {
 	var A B C D E F;
-	%C = 0.0f;
+	%C = %RANDRAD;
 	%D = %LOCAL2F;
 	%E = %LOCAL1F;
 	$F = $LOCAL1;
 	setFlags(32);
 	setHitbox(28.0f, 28.0f);
-	enemyChangeMovement(370, 4, %E, 0.8f);
+	enemySetTrajectory(%E, 0.8f);
+	enemyChangeMovement(370, 4, -999999.0f, 0.0f);
 	bulletCreate(0);
 	bulletSetType(0, 1);
 	bulletSetSprite(0, 7, $F);
