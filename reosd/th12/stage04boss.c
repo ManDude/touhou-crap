@@ -2871,7 +2871,7 @@ sub BossCardWoMe()
 	bulletCreate(1);
 	bulletSetSprite(1, 30, 11);
 	bulletSetSE(1, 19, -1);
-	laserSetTime(1, 45, 30, 90, 15, 0);
+	laserSetTime(1, 50, 30, 75, 15, 14);
 	laserSetSize(1, 0.0f, 500.0f, 0.0f, 12.0f);
 	bulletCreate(2);
 	bulletSetType(2, 0);
@@ -2936,7 +2936,7 @@ sub BossCardWoMe_at1(A)
 !L
 	$B = 9;
 !ENHL
-	%C = 0.26179938779914943653855361527329f;
+	%C = 0.31415926535897932384626433832795f;
 	$D = 1;
 	%E = 0.0f;
 	%F = 0.0f - %C;
