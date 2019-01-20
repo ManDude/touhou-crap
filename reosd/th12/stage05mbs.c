@@ -12,7 +12,7 @@ sub MBoss()
     anmSelect(3);
     anmScriptSelect(0, 0);
     setFlags(64);
-    setHitbox(56.0f, 56.0f);
+    setHitbox(48.0f, 48.0f);
     setKillbox(48.0f, 48.0f);
     setLife(15000);
 	moveDirect(-224.0f, 128.0f);
@@ -255,12 +255,12 @@ START:
 sub MBossDead()
 {
     var A B;
-    setFlags(28);
+	setFlags(140);
     endSpellcard();
     unsetMoveArea();
     setAttack(0, -1, 0, "");
     setAttack(1, -1, 0, "");
-    enemyChangeMovement(60, 4, -999999.0f, 0.0f);
+    enemyChangeMovement(0, 0, 0.0f, 0.0f);
     playSE(28);
     unless ($TIMEOUT == 0) goto MBossDead_484 @ 0;
     bulletClear(640.0f);
@@ -289,6 +289,7 @@ MBossDead_908:
 sub MBossEscape()
 {
     var A;
+	setFlags(140);
     setAttack(0, -1, 0, "");
     setAttack(1, -1, 0, "");
     endSpellcard();
@@ -300,7 +301,6 @@ MBossEscape_264:
     bulletClear_ni(640.0f);
 MBossEscape_284:
     clearEnemies();
-    anmScriptSelect(0, 0);
     setLife(100000);
     setBossMode(-1);
     setFlags(16);
