@@ -353,6 +353,7 @@ sub MBoss_at1(angInc startAng)
     var finalAng count;
     $count = 10;
     bulletCreate(0);
+	bulletSetType(0, 1);
     bulletSetSprite(0, 20, 3);
 !E
     bulletSetSpeed(0, 2.8f, 1.0f);
@@ -361,11 +362,12 @@ sub MBoss_at1(angInc startAng)
     bulletSetSpeed(0, 3.2f, 1.0f);
 	bulletSetCount(0, 8, 1);
 !*
+	bulletSetOffset(0, 0.0f, -12.0f);
 	%finalAng = %startAng;
     goto MBoss_at1_1060 @ 0;
 MBoss_at1_812:
-	%finalAng = %finalAng + %angInc;
     bulletSetAngle(0, %finalAng, 0.28559933214452665804205848938905f);
+	%finalAng = %finalAng + %angInc;
 	bulletShoot(0);
 	wait(8);
 MBoss_at1_1060:
@@ -378,6 +380,7 @@ sub MBoss_at2(angInc startAng)
     var finalAng count;
     $count = 10;
     bulletCreate(0);
+	bulletSetType(0, 1);
     bulletSetSprite(0, 8, 2);
     bulletSetSpeed(0, 2.0f, 1.0f);
 !E
@@ -389,11 +392,12 @@ sub MBoss_at2(angInc startAng)
 !L
 	bulletSetCount(0, 5, 3);
 !*
+	bulletSetOffset(0, 0.0f, -12.0f);
 	%finalAng = %startAng;
     goto MBoss_at1_1060 @ 0;
 MBoss_at1_812:
-	%finalAng = %finalAng + %angInc;
     bulletSetAngle(0, %finalAng, 0.04487989505128276054946633404685f);
+	%finalAng = %finalAng + %angInc;
 	bulletShoot(0);
 	wait(3);
 MBoss_at1_1060:
