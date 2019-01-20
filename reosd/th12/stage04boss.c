@@ -230,11 +230,11 @@ NO_NEGA:
 	laserSetSize(1, 500.0f, 500.0f, 0.0f, 48.0f);
 	bulletSetDistance(1, 0.0f);
 !EN
-	laserSetTime(1, 0, 20, 70, 20, 0);
+	laserSetTime(1, 0, 20, 50, 20, 14);
 !H
-	laserSetTime(1, 0, 16, 58, 16, 0);
+	laserSetTime(1, 0, 16, 42, 16, 14);
 !L
-	laserSetTime(1, 0, 15, 54, 15, 0);
+	laserSetTime(1, 0, 15, 39, 15, 14);
 !ENHL
 	[-9941];
 	jumpIfNEqual(LASER2, 0);
@@ -291,11 +291,11 @@ ANGLE_CONT:
 	eq();
 	jumpIfEqual(LASER_2_SKIPMOVE, 0);
 !EN
-	laserSetTime(1, 30, 20, 90, 20, 0);
+	laserSetTime(1, 30, 20, 70, 20, 14);
 !H
-	laserSetTime(1, 25, 16, 75, 16, 0);
+	laserSetTime(1, 25, 16, 59, 16, 14);
 !L
-	laserSetTime(1, 23, 15, 70, 15, 0);
+	laserSetTime(1, 23, 15, 55, 15, 14);
 !ENHL
 	[-9941];
 	jumpIfNEqual(LASER2_2, 0);
