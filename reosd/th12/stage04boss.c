@@ -476,7 +476,7 @@ SB:
     setAttack(0, 1800, $A, "BossCardWaterMonsoon");
     setLifebar(0, 1800.0f, -8347393);
 !N
-    setAttack(0, 1600, $A, "BossCardMetalMemory_HL");
+    setAttack(0, 1600, $A, "BossCardMetalMemory");
     setLifebar(0, 1600.0f, -6250336);
 !HL
     setAttack(0, 1800, $A, "BossCardMetalGold");
@@ -2213,16 +2213,16 @@ sub BossCardWaterMonsoon_rain()
 	bulletSetComplexTransform(0, 1, 1, 1024, 600, 1, -999999.0f, -999999.0f);
 	bulletSetComplexTransform(0, 2, 0, 4, 9999, -999999, 0.016f, 1.3089969389957471826927680763665f);
 SHOOT:
-	[-9987.0f] * 208.0f;
-	bulletSetOffset_abs(0, [-1.0f], 0.0f);
+	bulletSetOffset_abs(0, _f(%RANDF2 * 208.0f), 0.0f);
 	bulletSetSprite(0, 28, 7);
 	bulletShoot(0);
 !NHL
-	[-9987.0f] * 208.0f;
-	bulletSetOffset_abs(0, [-1.0f], 0.0f);
+	unless (($RAND % 3) > (2 - $RANK)) goto END @ 0;
+	bulletSetOffset_abs(0, _f(%RANDF2 * 208.0f), 0.0f);
 	bulletSetSprite(0, 28, 6);
 	bulletShoot(0);
-!ENHL
+END:
+!*
 	wait(12);
 	goto SHOOT @ 0;
 	return();
