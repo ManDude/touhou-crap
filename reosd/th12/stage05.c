@@ -494,7 +494,6 @@ sub MainBossDebug()
 {
     var;
 10:
-    dialogueStart(-1);
     ins_700(3);
     enemyCreateAbs("Boss", -144.0f, -16.0f, 40, 1000, 1);
     waitDialogue();
