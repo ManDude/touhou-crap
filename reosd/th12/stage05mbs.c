@@ -273,14 +273,9 @@ MBossDead_504:
     setBossMode(-1);
     clearItems();
     setDeathItem(7);
-    if ($POWER == 400) goto MBossDead_864 @ 0;
-    setExtraItem(1, 60);
-    goto MBossDead_908 @ 0;
-MBossDead_864:
-    setExtraItem(2, 60);
-MBossDead_908:
-    setItemArea(48.0f, 48.0f);
+    setExtraItem(2, 30);
     dropItems();
+	call("ItemDrop", _SS 60, _ff 48.0f, _ff 48.0f);
 	call("MBossEscape");
     delete();
     delete();
