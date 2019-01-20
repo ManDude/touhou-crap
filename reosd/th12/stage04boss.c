@@ -1628,13 +1628,14 @@ sub BossCardMetalMemory()
 	$B = 1;
 120:
 START:
-	$B = $B % 8;
+	$B = $B % 6;
 	if $B != 0 goto CALL @ 120;
 	moveRandom(60, 4, 1.5f);
 CALL:
 	callSeperate("BossCardMetalMemory_At", _ff %A);
 	%A = %A + 0.24166097335306101834328026025227f;
 	$B = $B + 1;
+	wait(10);
 140:
 END:
 	goto START @ 120;
