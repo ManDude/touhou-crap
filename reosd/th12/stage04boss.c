@@ -3368,9 +3368,9 @@ BossDead_380:
     bulletClear_ni(10000.0f);
     endSpellcard();
     clearEnemies();
+    call("ItemDrop", _SS 60, _ff 48.0f, _ff 48.0f);
     clearItems();
     setDeathItem(4);
-    setExtraItem(1, 20);
     setExtraItem(2, 40);
     setItemArea(48.0f, 48.0f);
     dropItems();
