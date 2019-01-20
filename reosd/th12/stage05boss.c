@@ -96,7 +96,7 @@ Boss1_232:
 220:
 	moveRandom(60, 4, 1.7f);
 	terminateSlot(1);
-!L
+!EL
 	bulletShoot(0);
 !*
 	wait(170);
