@@ -101,9 +101,9 @@ Ecl_EtBreak_ni_216:
     delete();
 }
 
-sub ItemDrop()
+sub ItemDrop(A B C)
 {
-	var A B C;
+	var;
 	clearItems();
 	setItemArea(%B, %C);
 	if ($POWER == 400) goto POINT @ 0;
@@ -116,9 +116,9 @@ END:
 	return();
 }
 
-sub ItemDropBasic()
+sub ItemDropBasic(A)
 {
-	var A;
+	var;
 	clearItems();
 	if ($POWER == 400) goto POINT @ 0;
     setExtraItem(1, $A);
