@@ -45,11 +45,13 @@ sub Boss1()
 	bulletSetSpeed_diff(0, 1.8f, 2.0f, 2.5f, 3.0f, 1.0f, 1.0f, 1.0f, 1.0f);
 	bulletSetAngle(0, 0.0f, 0.15707963267948966192313216916398f);
 	bulletSetComplexTransform(0, 0, 0, 2, 1, -999999, -999999.0f, -999999.0f);
+	bulletSetOffset(0, 0.0f, -12.0f);
 	bulletCreate(1);
 	bulletSetType(1, 1);
 	bulletSetSprite(1, 20, 2);
 	bulletSetCount_diff(1, 2, 2, 4, 4, 6, 8, 8, 8);
 	bulletSetSpeed_diff(1, 3.0f, 4.0f, 4.0f, 4.0f, 1.2f, 1.2f, 1.2f, 1.2f);
+	bulletSetOffset(1, 0.0f, -12.0f);
     goto Boss1_856 @ 300;
 Boss1_232:
     ins_263(0, 119);
@@ -529,17 +531,16 @@ sub BossCard1()
     moveByTime(0, 0, 0.0f, 0.0f);
     $MISS_COUNT = 0;
     $BOMB_COUNT = 0;
-    setAttack(0, 0, 2700, "Boss2");
+    setAttack(0, 0, 1800, "Boss2");
 !EN
-    ins_437(61, 2700, 500000, "宝塔「レイディアントトレジャー」");
+    ins_437(61, 2700, 500000, "幻在「クロックコープス」");
 !H
-    ins_439(63, 2700, 500000, "宝塔「レイディアントトレジャーガン」");
+    ins_439(63, 2700, 500000, "幻幽「ジャック・ザ・ルドビレ」");
 !L
-    ins_422(64, 2700, 500000, "宝塔「レイディアントトレジャーガン」");
+    ins_422(64, 2700, 500000, "幻幽「ジャック・ザ・ルドビレ」");
 !*
     setCheckpoint(43);
-    moveByTime(60, 4, 0.0f, 144.0f);
-    setMoveArea(0.0f, 128.0f, 280.0f, 256.0f);
+    moveByTime(60, 4, 0.0f, 112.0f);
     wait(60);
     ins_263(0, 119);
     playSE(31);
