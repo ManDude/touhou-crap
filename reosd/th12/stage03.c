@@ -11,6 +11,14 @@ sub BCir00()
     delete();
 }
 
+sub BGirl00()
+{
+    var A;
+    setExtraItem(2, 3);
+    call("Girl00", _SS 0, _SS 1);
+    delete();
+}
+
 sub BGirl01()
 {
     var A;
@@ -275,6 +283,15 @@ sub GCir00()
     delete();
 }
 
+sub GGirl00()
+{
+    var A;
+	setExtraItem(1, 2);
+	setExtraItem(2, 1);
+    call("Girl00", _SS 10, _SS 1);
+    delete();
+}
+
 sub GGirl01()
 {
     var A;
@@ -305,25 +322,53 @@ sub GGirl04b()
     delete();
 }
 
-sub Girl00()
+sub Girl00(A B)
 {
-    var A;
+    var ang spd E F;
     anmSelect(1);
-    anmScriptSelect(0, 45);
-    anmScriptSelect(1, 98);
+    anmScriptSelect(0, $A);
     setFlags(64);
-    setHitbox(24.0f, 24.0f);
-    setKillbox(16.0f, 16.0f);
-    clearItems();
-    setExtraItem(2, 10);
-    setExtraItem(1, 10);
-    callSeparate("Girl00_at");
-    enemySetTrajectory(%ANGLE_PLAYER, 8.0f);
-    enemyChangeMovement(30, 0, -999999.0f, 0.0f);
-    wait(120);
-    enemySetTrajectory(0.0f, 1.0f);
-6000:
-    noop();
+    setHitbox(28.0f, 28.0f);
+    setKillbox(28.0f, 28.0f);
+    enemySetTrajectory(1.5707963267948966192313216916398f, 1.5f);
+40:
+	enemyChangeMovement(30, 0, -999999.0f, 0.0f);
+70:
+	%ang = %ANGLE_PLAYER;
+	%spd = 1.6f;
+	setIntValDiff($E, 15, 30, 30, 30);
+	bulletCreate(0);
+	bulletSetType(0, 1);
+	bulletSetSprite(0, 8, 6);
+	bulletSetCount_diff(0, 1, 1, 3, 5, 1, 1, 1, 1);
+	bulletSetComplexTransform(0, 0, 0, 2, 1, -999999, -999999.0f, -999999.0f);
+!HL
+	bulletCreate(1);
+	bulletSetType(1, 2);
+	bulletSetSprite(1, 3, 6);
+	bulletSetCount(1, 16, 1);
+	bulletSetSpeed(1, 1.6f, 0.0f);
+	bulletSetAngle(1, %ang, 0.39269908169872415480783042290994f);
+	bulletSetComplexTransform(1, 0, 0, 2, 1, -999999, -999999.0f, -999999.0f);
+	bulletShoot(1);
+!*
+	goto END @ 72;
+START:
+	bulletSetSpeed(0, %spd, 0.0f);
+!EN
+	bulletSetAngle(0, %ang, 0.13089969389957471826927680763665f);
+!H
+	bulletSetAngle(0, %ang, 0.39269908169872415480783042290994f);
+!L
+	bulletSetAngle(0, %ang, 0.26179938779914943653855361527329f);
+!*
+	bulletShoot(0);
+	%spd = %spd + 0.21f;
+END:
+72:
+	if $E-- goto START @ 70;
+	enemySetTrajectory(_f(0.78539816339744830961566084581988f + _f(%RANDF * 1.5707963267948966192313216916398f)), 1.5f);
+10000:
     delete();
 }
 
@@ -781,31 +826,26 @@ END:
 sub MainSub02()
 {
     var A;
-    enemyCreateRel("BCir00", 160.0f, 128.0f, 120, 1000, 1);
-    wait(30);
-    enemyCreateRel("BCir00", 128.0f, 144.0f, 120, 1000, 1);
-    wait(30);
-    enemyCreateRel("BCir00", 64.0f, 96.0f, 120, 1000, 1);
-    wait(30);
-    enemyCreateRel("BCir00", 0.0f, 128.0f, 120, 1000, 1);
-    wait(30);
-    enemyCreateRel("BCir00", -160.0f, 128.0f, 120, 1000, 1);
-    wait(30);
-    enemyCreateRel("BCir00", -128.0f, 144.0f, 120, 1000, 1);
-    wait(30);
-    enemyCreateRel("BCir00", -64.0f, 96.0f, 120, 1000, 1);
-    wait(30);
-    enemyCreateRel("BCir00", 0.0f, 128.0f, 120, 1000, 1);
-    wait(30);
-    $A = 10;
-    goto MainSub02_1148 @ 0;
-MainSub02_644:
-    enemyCreateRel("BCir00", _f(_f(-112) + (%RANDF2 * _f(64))), _f(_f(128) + (%RANDF2 * _f(32))), 120, 1000, 1);
-    wait(10);
-    enemyCreateRel("BCir00", _f(_f(112) + (%RANDF2 * _f(64))), _f(_f(128) + (%RANDF2 * _f(32))), 120, 1000, 1);
-    wait(10);
-MainSub02_1148:
-    if $A-- goto MainSub02_644 @ 0;
+    enemyCreateRel("BGirl00", 128.0f, -32.0f, 400, 1000, 1);
+    enemyCreateRel("BGirl00", -128.0f, -32.0f, 400, 1000, 1);
+	wait(60);
+    enemyCreateRel("RGirl00", 96.0f, -32.0f, 400, 1000, 1);
+    enemyCreateRel("RGirl00", -96.0f, -32.0f, 400, 1000, 1);
+	wait(60);
+    enemyCreateRel("GGirl00", 64.0f, -32.0f, 400, 1000, 1);
+    enemyCreateRel("GGirl00", -64.0f, -32.0f, 400, 1000, 1);
+	wait(60);
+    enemyCreateRel("YGirl00", 32.0f, -32.0f, 400, 1000, 1);
+    enemyCreateRel("YGirl00", -32.0f, -32.0f, 400, 1000, 1);
+	wait(60);
+    enemyCreateRel("GGirl00", 64.0f, -32.0f, 400, 1000, 1);
+    enemyCreateRel("GGirl00", -64.0f, -32.0f, 400, 1000, 1);
+	wait(60);
+    enemyCreateRel("RGirl00", 96.0f, -32.0f, 400, 1000, 1);
+    enemyCreateRel("RGirl00", -96.0f, -32.0f, 400, 1000, 1);
+	wait(60);
+    enemyCreateRel("BGirl00", 128.0f, -32.0f, 400, 1000, 1);
+    enemyCreateRel("BGirl00", -128.0f, -32.0f, 400, 1000, 1);
     return();
 }
 
@@ -1061,6 +1101,14 @@ sub RCir00()
     delete();
 }
 
+sub RGirl00()
+{
+    var;
+    setExtraItem(1, 3);
+    call("Girl00", _SS 5, _SS 1);
+    delete();
+}
+
 sub RGirl01()
 {
     var A;
@@ -1146,6 +1194,15 @@ RGirl04b_at_584:
     return();
 }
 
+sub YGirl00()
+{
+    var;
+    setExtraItem(1, 1);
+    setExtraItem(2, 2);
+    call("Girl00", _SS 15, _SS 1);
+    delete();
+}
+
 sub YGirl01()
 {
     var A;
@@ -1189,7 +1246,7 @@ sub main()
 802:
     callSeparate("MainSub01b");
 1110:
-	noop();
+    callSeparate("MainSub02");
 1730:
 	noop();
 1816:
