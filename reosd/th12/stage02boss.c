@@ -348,7 +348,7 @@ sub BossCard1EN()
 	$MISS_COUNT = 0;
 	$BOMB_COUNT = 0;
 	attack(0, 0, 1800, "Boss2");
-	ins_437(11, 1800, 500000, "氷符「アイシクルフォール」");
+	cardE(11, 1800, 500000, "氷符「アイシクルフォール」");
 	stageProg(43);
 	enmPosTime(120, 4, 0.0f, 96.0f);
 	ins_263(0, 119);
@@ -444,7 +444,7 @@ sub BossCard1HL()
 	$BOMB_COUNT = 0;
 	$CAPTURED = 1;
 	attack(0, 0, 2100, "Boss2");
-	ins_439(13, 2100, 500000, "雹符「ヘイルストーム」");
+	cardH(13, 2100, 500000, "雹符「ヘイルストーム」");
 	stageProg(43);
 	enmPosTime(120, 4, 0.0f, 96.0f);
 	bulletCreate(0);
@@ -505,7 +505,7 @@ sub BossCard2()
 	call("ResetMovement");
 	$MISS_COUNT = 0;
 	$BOMB_COUNT = 0;
-	ins_437(14, 2400, 500000, "凍符「パーフェクトフリーズ」");
+	cardE(14, 2400, 500000, "凍符「パーフェクトフリーズ」");
 	enmPosTime(120, 4, 0.0f, 96.0f);
 	invinc(120);
 	stageProg(44);
@@ -650,7 +650,7 @@ BossCard3_504:
 	enmPosTime(0, 0, 0.0f, 0.0f);
 	$MISS_COUNT = 0;
 	$BOMB_COUNT = 0;
-	ins_438(18, 2400, 500000, "雪符「ダイアモンドブリザード」");
+	cardN(18, 2400, 500000, "雪符「ダイアモンドブリザード」");
 	enmPosTime(120, 4, 0.0f, 96.0f);
 	stageProg(44);
 	bulletCreate(0);

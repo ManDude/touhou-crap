@@ -762,7 +762,7 @@ sub BossCardEaMe()
 	[-9949] = 0;
 	[-9948] = 0;
 	call("BossCheckItems");
-	ins_437(31, 2400, 500000, "土＆金符「エメラルドメガリス」");
+	cardE(31, 2400, 500000, "土＆金符「エメラルドメガリス」");
 	invinc(120);
 	stageProg(43);
 	enmPosTime(120, 4, 0.0f, 80.0f);
@@ -843,7 +843,7 @@ sub BossCardEarthTrilithon()
 	[-9949] = 0;
 	[-9948] = 0;
 	call("BossSetNextNon", _SS 2100);
-	ins_437(17, 2100, 500000, "土符「レイジィトリリトン」");
+	cardE(17, 2100, 500000, "土符「レイジィトリリトン」");
 	invinc(120);
 	stageProg(43);
 	enmPosTime(60, 4, 0.0f, 80.0f);
@@ -899,7 +899,7 @@ sub BossCardEarthTrilithonHL()
 	[-9949] = 0;
 	[-9948] = 0;
 	call("BossSetNextNon", _SS 2100);
-	ins_437(21, 2100, 500000, "土符「レイジィトリリトン上級」");
+	cardE(21, 2100, 500000, "土符「レイジィトリリトン上級」");
 	invinc(120);
 	stageProg(43);
 	enmPosTime(60, 4, 0.0f, 80.0f);
@@ -957,7 +957,7 @@ sub BossCardEarthTrilithonShake()
 	[-9949] = 0;
 	[-9948] = 0;
 	call("BossSetNextNon", _SS 2100);
-	ins_437(25, 2100, 500000, "土符「トリリトンシェイク」");
+	cardE(25, 2100, 500000, "土符「トリリトンシェイク」");
 	invinc(120);
 	stageProg(43);
 	enmPosTime(120, 4, 0.0f, 80.0f);
@@ -1026,7 +1026,7 @@ sub BossCardFiEa()
 	[-9949] = 0;
 	[-9948] = 0;
 	call("BossCheckItems");
-	ins_437(27, 2400, 500000, "火＆土符「ラーヴァクロムレク」");
+	cardE(27, 2400, 500000, "火＆土符「ラーヴァクロムレク」");
 	invinc(120);
 	stageProg(43);
 	enmPosTime(120, 4, 0.0f, 80.0f);
@@ -1119,7 +1119,7 @@ sub BossCardFireAgni()
 	[-9949] = 0;
 	[-9948] = 0;
 	call("BossSetNextNon", _SS 1800);
-	ins_437(14, 1800, 500000, "火符「アグニシャイン」");
+	cardE(14, 1800, 500000, "火符「アグニシャイン」");
 	invinc(120);
 	stageProg(43);
 	enmPosTime(60, 4, 0.0f, 80.0f);
@@ -1183,7 +1183,7 @@ sub BossCardFireAgniHL()
 	[-9949] = 0;
 	[-9948] = 0;
 	call("BossSetNextNon", _SS 1800);
-	ins_437(19, 1800, 500000, "火符「アグニシャイン上級」");
+	cardE(19, 1800, 500000, "火符「アグニシャイン上級」");
 	invinc(120);
 	stageProg(43);
 	enmPosTime(60, 4, 0.0f, 80.0f);
@@ -1248,7 +1248,7 @@ sub BossCardFireAgniRad()
 	[-9949] = 0;
 	[-9948] = 0;
 	call("BossSetNextNon", _SS 1800);
-	ins_437(22, 1800, 500000, "火符「アグニレイディアンス」");
+	cardE(22, 1800, 500000, "火符「アグニレイディアンス」");
 	invinc(120);
 	stageProg(43);
 	enmPosTime(120, 4, 0.0f, 80.0f);
@@ -1319,7 +1319,7 @@ sub BossCardMeWa()
 	[-9949] = 0;
 	[-9948] = 0;
 	call("BossCheckItems");
-	ins_437(30, 2400, 500000, "金＆水符「マーキュリポイズン」");
+	cardE(30, 2400, 500000, "金＆水符「マーキュリポイズン」");
 	invinc(120);
 	stageProg(43);
 	enmPosTime(120, 4, 0.0f, 80.0f);
@@ -1389,7 +1389,7 @@ sub BossCardMetalDragon()
 	[-9949] = 0;
 	[-9948] = 0;
 	call("BossSetNextNon", _SS 2100);
-	ins_437(26, 2100, 500000, "金符「シルバードラゴン」");
+	cardE(26, 2100, 500000, "金符「シルバードラゴン」");
 	invinc(120);
 	stageProg(43);
 	enmPosTime(120, 4, 0.0f, 80.0f);
@@ -1437,7 +1437,7 @@ sub BossCardMetalFatigue()
 	[-9949] = 0;
 	[-9948] = 0;
 	call("BossSetNextNon", _SS 2100);
-	ins_437(18, 2100, 500000, "金符「メタルファティーグ」");
+	cardE(18, 2100, 500000, "金符「メタルファティーグ」");
 	invinc(120);
 	stageProg(43);
 	enmPosTime(60, 4, 0.0f, 80.0f);
@@ -1484,7 +1484,7 @@ sub BossCardMetalGold()
 	[-9949] = 0;
 	[-9948] = 0;
 	call("BossSetNextNon", _SS 2100);
-	ins_437(67, 2100, 500000, "金符「エレメンタアウレア」");
+	cardE(67, 2100, 500000, "金符「エレメンタアウレア」");
 	invinc(120);
 	stageProg(43);
 	enmPosTime(60, 4, 0.0f, 80.0f);
@@ -1605,7 +1605,7 @@ sub BossCardMetalMemory()
 	[-9949] = 0;
 	[-9948] = 0;
 	call("BossSetNextNon", _SS 1800);
-	ins_437(65, 1800, 500000, "金符「メモリーアロイー」");
+	cardE(65, 1800, 500000, "金符「メモリーアロイー」");
 	invinc(120);
 	stageProg(43);
 	enmPosTime(60, 4, 0.0f, 112.0f);
@@ -1674,7 +1674,7 @@ sub BossCardMetalMemory_HL()
 	[-9949] = 0;
 	[-9948] = 0;
 	call("BossSetNextNon", _SS 1800);
-	ins_437(66, 1800, 500000, "金符「メモリーアロイー上級」");
+	cardE(66, 1800, 500000, "金符「メモリーアロイー上級」");
 	invinc(120);
 	stageProg(43);
 	enmPosTime(60, 4, 0.0f, 112.0f);
@@ -1756,7 +1756,7 @@ sub BossCardWaFi()
 	[-9949] = 0;
 	[-9948] = 0;
 	call("BossCheckItems");
-	ins_437(71, 2400, 500000, "水＆火符「テンペレートガイザー」");
+	cardE(71, 2400, 500000, "水＆火符「テンペレートガイザー」");
 	invinc(120);
 	stageProg(43);
 	enmPosTime(60, 4, 0.0f, 80.0f);
@@ -1947,7 +1947,7 @@ sub BossCardWaWo()
 	[-9949] = 0;
 	[-9948] = 0;
 	call("BossCheckItems");
-	ins_437(29, 2400, 500000, "水＆木符「ウォーターエルフ」");
+	cardE(29, 2400, 500000, "水＆木符「ウォーターエルフ」");
 	invinc(120);
 	stageProg(43);
 	enmPosTime(120, 4, 0.0f, 80.0f);
@@ -2034,7 +2034,7 @@ sub BossCardWaterBury()
 	[-9949] = 0;
 	[-9948] = 0;
 	call("BossSetNextNon", _SS 2100);
-	ins_437(23, 2100, 500000, "水符「ベリーインレイク」");
+	cardE(23, 2100, 500000, "水符「ベリーインレイク」");
 	invinc(120);
 	stageProg(43);
 	enmPosTime(60, 4, 0.0f, 80.0f);
@@ -2149,9 +2149,9 @@ sub BossCardWaterMonsoon()
 	[-9948] = 0;
 	call("BossSetNextNon", _SS 2100);
 !EN
-	ins_437(67, 2100, 500000, "水符「タイダルウェイブ」");
+	cardE(67, 2100, 500000, "水符「タイダルウェイブ」");
 !HL
-	ins_439(69, 2100, 500000, "水符「ウェットモンスーン」");
+	cardH(69, 2100, 500000, "水符「ウェットモンスーン」");
 !ENHL
 	invinc(120);
 	stageProg(43);
@@ -2388,7 +2388,7 @@ sub BossCardWaterUndine()
 	[-9949] = 0;
 	[-9948] = 0;
 	call("BossSetNextNon", _SS 2100);
-	ins_437(15, 2100, 500000, "水符「プリンセスウンディネ」");
+	cardE(15, 2100, 500000, "水符「プリンセスウンディネ」");
 	invinc(120);
 	stageProg(43);
 	enmPosTime(60, 4, 0.0f, 80.0f);
@@ -2497,7 +2497,7 @@ sub BossCardWoEa()
 	[-9949] = 0;
 	[-9948] = 0;
 	call("BossCheckItems");
-	ins_437(70, 2400, 500000, "木＆土符「イモータルゴレムパウンディン」");
+	cardE(70, 2400, 500000, "木＆土符「イモータルゴレムパウンディン」");
 	setMoveArea(0.0f, 80.0f, 320.0f, 64.0f);
 	invinc(120);
 	stageProg(43);
@@ -2736,7 +2736,7 @@ sub BossCardWoFi()
 	[-9949] = 0;
 	[-9948] = 0;
 	call("BossCheckItems");
-	ins_437(71, 2400, 500000, "木＆火符「フォレストブレイズ」");
+	cardE(71, 2400, 500000, "木＆火符「フォレストブレイズ」");
 	invinc(120);
 	stageProg(43);
 	enmPosTime(120, 4, 0.0f, 80.0f);
@@ -2835,7 +2835,7 @@ sub BossCardWoMe()
 	[-9949] = 0;
 	[-9948] = 0;
 	call("BossCheckItems");
-	ins_437(72, 999999, 500000, "木＆金符「チルクイトスバイタ」");
+	cardE(72, 999999, 500000, "木＆金符「チルクイトスバイタ」");
 	invinc(120);
 	stageProg(43);
 	enmPosTime(120, 4, 0.0f, 160.0f);
@@ -3070,7 +3070,7 @@ sub BossCardWoodGreen()
 	[-9949] = 0;
 	[-9948] = 0;
 	call("BossSetNextNon", _SS 2100);
-	ins_437(24, 2100, 500000, "木符「グリーンストーム」");
+	cardE(24, 2100, 500000, "木符「グリーンストーム」");
 	invinc(120);
 	stageProg(43);
 	enmPosTime(120, 4, 0.0f, 80.0f);
@@ -3154,7 +3154,7 @@ sub BossCardWoodSylphae()
 	[-9949] = 0;
 	[-9948] = 0;
 	call("BossSetNextNon", _SS 2100);
-	ins_437(16, 2100, 500000, "木符「シルフィホルン」");
+	cardE(16, 2100, 500000, "木符「シルフィホルン」");
 	invinc(120);
 	stageProg(43);
 	enmPosTime(60, 4, 0.0f, 80.0f);
@@ -3239,7 +3239,7 @@ sub BossCardWoodSylphaeHL()
 	[-9949] = 0;
 	[-9948] = 0;
 	call("BossSetNextNon", _SS 2100);
-	ins_437(20, 2100, 500000, "木符「シルフィホルン上級」");
+	cardE(20, 2100, 500000, "木符「シルフィホルン上級」");
 	invinc(120);
 	stageProg(43);
 	enmPosTime(60, 4, 0.0f, 80.0f);

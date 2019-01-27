@@ -549,7 +549,7 @@ sub BossCard1()
 	$MISS_COUNT = 0;
 	$BOMB_COUNT = 0;
 	attack(0, 0, 1500, "Boss2");
-	ins_437(2, 1500, 700000, "夜符「ナイトバード」");
+	cardE(2, 1500, 700000, "夜符「ナイトバード」");
 	stageProg(43);
 	enmPosTime(120, 4, 0.0f, 96.0f);
 	setMoveArea(0.0f, 128.0f, 280.0f, 256.0f);
@@ -634,7 +634,7 @@ sub BossCard2()
 	$MISS_COUNT = 0;
 	$BOMB_COUNT = 0;
 	attack(0, 0, 1500, "BossDead");
-	ins_437(6, 1500, 700000, "闇符「ディマーケイション」");
+	cardE(6, 1500, 700000, "闇符「ディマーケイション」");
 	enmPosTime(120, 4, 0.0f, 96.0f);
 	invinc(120);
 	stageProg(44);

@@ -216,7 +216,7 @@ sub MBossCard1()
 	attack(0, 0, 1320, "MBossDead");
 	timeoutAt(0, "MBossEscape");
 !HL
-	ins_439(0, 1320, 640000, "月符「ムーンライトレイ」");
+	cardH(0, 1320, 640000, "月符「ムーンライトレイ」");
 !*
 	enmPosTime(120, 4, 0.0f, 96.0f);
 	setMoveArea(0.0f, 96.0f, 320.0f, 96.0f);
