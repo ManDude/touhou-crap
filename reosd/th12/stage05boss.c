@@ -545,7 +545,7 @@ sub BossCard1()
 	bulletCreate(0);
 	bulletSetType(0, 8);
 !EN
-	bulletSetSprite(0, 9, 6);
+	bulletSetSprite(0, 7, 6);
 	bulletSetSpeed(0, 4.0f, 1.2f);
 	bulletSetAngle(0, 3.1415926535897932384626433832795f, -3.1415926535897932384626433832795f);
 !HL
@@ -577,16 +577,18 @@ sub BossCard1()
 194:
 !*
 	noop();
-	setTimeRate(_f(1.0f / 12.0f));
+    goto BossCard1_2812 @ 0;
+BossCard1_904:
+	setTimeRate(_f(1.0f / 9.0f));
 	setFlags(3);
 	$A = 0;
 	noop();
-	moveRandom(_S(90 / 12), 4, 2.5f);
-	wait(_S(90 / 12));
+	moveRandom(_S(90 / 9), 4, 2.5f);
+	call("BossCard1_at", _SS 1);
+	wait(_S(90 / 9));
 	setTimeRate(1.0f);
+	unsetFlags(3);
     %G = _f(120);
-    goto BossCard1_2812 @ 0;
-BossCard1_904:
     wait(1);
 BossCard1_2812:
     if 1 goto BossCard1_904 @ 0;
@@ -729,6 +731,35 @@ BossCard1LaserAt3_284:
 BossCard1LaserAt3_408:
     if $B-- goto BossCard1LaserAt3_284 @ 0;
     return();
+}
+
+sub BossCard1_at(et)
+{
+	var A B distanceFactor count waveCount angOff angInc;
+	$count = 9;
+	$waveCount = 10;
+	%distanceFactor = _f($waveCount);
+	%angOff = -0.78539816339744830961566084581988f;
+	%angInc = 1.5707963267948966192313216916398f / _f($count);
+	bulletCreate($et);
+	bulletSetType($et, 0);
+	bulletSetSprite($et, 20, 3);
+	bulletSetCount_diff($et, 1, 1, 3, 3, 1, 1, 1, 1);
+	bulletSetAngle($et, 0.0f, 0.52359877559829887307710723054658f);
+	bulletSetSpeed($et, 2.0f, 0.0f);
+	$A = $waveCount;
+	goto END @ 0;
+START:
+	$B = $count;
+	goto END2 @ 0;
+START2:
+	bulletShoot(0);
+END2:
+	if $B-- goto START2 @ 0;
+	wait(_S(90 / $waveCount));
+END:
+	if $A-- goto START @ 0;
+	return;
 }
 
 sub BossCard2()
