@@ -114,10 +114,90 @@ sub Ball00_Blue()
 	delete();
 }
 
+sub Ball00_Green()
+{
+	var;
+    call("Ball00", _SS 89, _SS 52, _SS 1);
+	delete();
+}
+
+sub Ball00_Purple()
+{
+	var;
+    call("Ball00", _SS 95, _SS 53, _SS 1);
+	delete();
+}
+
 sub Ball00_Red()
 {
 	var;
     call("Ball00", _SS 86, _SS 51, _SS 1);
+	delete();
+}
+
+sub Ball01(A B C)
+{
+	var D E;
+    anmSelect(1);
+    ins_263(1, 103);
+    ins_259(0, $A);
+	setHitbox(28.0f, 28.0f);
+	setKillbox(28.0f, 28.0f);
+!HL
+	bulletCreate(0);
+	bulletSetSprite(0, 8, 6);
+	bulletSetAngle(0, 0.0f, 0.13089969389957471826927680763665f);
+	bulletSetComplexTransform(0, 0, 0, 2, 1, -999999, -999999.0f, -999999.0f);
+!H
+	bulletSetType(0, 0);
+	bulletSetCount(0, 1, 1);
+	bulletSetSpeed(0, 2.0f, 0.0f);
+	callToSlot("Ball00atH", 1);
+!L
+	bulletSetType(0, 2);
+	bulletSetCount(0, 10, 2);
+	bulletSetSpeed(0, 3.0f, 1.0f);
+	callToSlot("Ball00atL", 1);
+!*
+	enemySetTrajectory(-1.0471975511965977461542144610932f, 4.0f);
+30:
+	unless %ANGLE_ABS > -1.5707963267948966192313216916398f goto MIR @ 30;
+	callSeparate("enm_rot_spd", _ff 0.03490658503988659153847381536977f, _SS 60);
+	goto MIR_END @ 30;
+MIR:
+	callSeparate("enm_rot_spd_m", _ff 0.03490658503988659153847381536977f, _SS 60);
+MIR_END:
+90:
+	terminateSlot(1);
+10000:
+	return();
+}
+
+sub Ball01_Blue()
+{
+	var;
+    call("Ball01", _SS 92, _SS 50, _SS 1);
+	delete();
+}
+
+sub Ball01_Green()
+{
+	var;
+    call("Ball01", _SS 89, _SS 52, _SS 1);
+	delete();
+}
+
+sub Ball01_Purple()
+{
+	var;
+    call("Ball01", _SS 95, _SS 53, _SS 1);
+	delete();
+}
+
+sub Ball01_Red()
+{
+	var;
+    call("Ball01", _SS 86, _SS 51, _SS 1);
 	delete();
 }
 
@@ -638,7 +718,7 @@ MainMsgDebug_184:
     return();
 }
 
-sub MainSub00()
+sub MainSub00a()
 {
     var A;
 	$A = 7;
@@ -653,7 +733,7 @@ END:
     return();
 }
 
-sub MainSub01()
+sub MainSub00b()
 {
     var A;
 	$A = 7;
@@ -668,35 +748,33 @@ END:
     return();
 }
 
+sub MainSub01a()
+{
+    var A;
+	$A = 6;
+	goto END @ 0;
+START:
+	enemyCreateRel("Ball01_Green", -224.0f, 192.0f, 30, 500, _S(_S($RAND % 2) + 1));
+	wait(8);
+	enemyCreateRel("Ball01_Purple", -224.0f, 192.0f, 30, 500, _S(_S($RAND % 2) + 1));
+	wait(8);
+END:
+	if $A-- goto START @ 0;
+    return();
+}
+
 sub MainSub01b()
 {
-    var;
-    enemyCreateRel("BGirl01", -96.0f, -24.0f, 50, 1000, 1);
-    enemyCreateRel("BGirl01", 96.0f, -24.0f, 50, 1000, 1);
-    wait(30);
-    enemyCreateRel("BGirl01", -144.0f, -24.0f, 50, 1000, 1);
-    enemyCreateRel("BGirl01", 144.0f, -24.0f, 50, 1000, 1);
-    wait(30);
-    enemyCreateRel("BGirl01", -192.0f, -24.0f, 50, 1000, 1);
-    enemyCreateRel("BGirl01", 192.0f, -24.0f, 50, 1000, 1);
-    wait(30);
-    enemyCreateRel("BGirl01", -224.0f, 64.0f, 30, 1000, 1);
-    enemyCreateRel("BGirl01", 224.0f, 64.0f, 30, 1000, 1);
-    wait(30);
-    enemyCreateRel("BGirl01", -224.0f, 128.0f, 30, 1000, 11);
-    enemyCreateRel("BGirl01", 224.0f, 128.0f, 30, 1000, 14);
-    wait(60);
-    enemyCreateRel("BGirl01", -224.0f, 64.0f, 50, 1000, 1);
-    enemyCreateRel("BGirl01", 224.0f, 64.0f, 50, 1000, 1);
-    wait(30);
-    enemyCreateRel("BGirl01", -192.0f, -24.0f, 30, 1000, 1);
-    enemyCreateRel("BGirl01", 192.0f, -24.0f, 30, 1000, 1);
-    wait(30);
-    enemyCreateRel("BGirl01", -144.0f, -24.0f, 30, 1000, 1);
-    enemyCreateRel("BGirl01", 144.0f, -24.0f, 30, 1000, 1);
-    wait(30);
-    enemyCreateRel("BGirl01", -96.0f, -24.0f, 30, 1000, 1);
-    enemyCreateRel("BGirl01", 96.0f, -24.0f, 30, 1000, 1);
+    var A;
+	$A = 6;
+	goto END @ 0;
+START:
+	enemyCreateRelFlipped("Ball01_Green", 224.0f, 192.0f, 30, 500, _S(_S($RAND % 2) + 1));
+	wait(8);
+	enemyCreateRelFlipped("Ball01_Purple", 224.0f, 192.0f, 30, 500, _S(_S($RAND % 2) + 1));
+	wait(8);
+END:
+	if $A-- goto START @ 0;
     return();
 }
 
@@ -1103,13 +1181,13 @@ sub main()
     callSeparate("LogoEnemy");
 400:
     noop();
-    callSeparate("MainSub00");
+    callSeparate("MainSub00a");
 512:
-    callSeparate("MainSub01");
+    callSeparate("MainSub00b");
 706:
-	noop();
+    callSeparate("MainSub01a");
 802:
-	noop();
+    callSeparate("MainSub01b");
 1110:
 	noop();
 1730:
