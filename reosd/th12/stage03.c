@@ -372,118 +372,42 @@ END:
     delete();
 }
 
-sub Girl00_at()
+sub Girl01()
 {
-    var A B C;
-    bulletCreate(0);
-    bulletSetType(0, 1);
-    bulletSetSprite(0, 11, 4);
-    bulletSetCount_diff(0, 5, 5, 3, 5, 1, 1, 1, 1);
-    bulletSetAngle(0, 0.0f, 0.032724924f);
-    bulletSetSpeed_diff(0, 1.5f, 1.5f, 3.0f, 5.5f, 1.0f, 1.0f, 1.0f, 2.0f);
-    bulletSetComplexTransform(0, 0, 1, 2, 1, -999999, -999999.0f, -999999.0f);
-    bulletSetComplexTransform(0, 1, 1, 1, -999999, -999999, -999999.0f, -999999.0f);
-    wait(30);
-    %A = %ANGLE_PLAYER;
-    $B = 1;
-    setIntValDiff($C, 4, 8, 12, 16);
-    goto Girl00_at_792 @ 0;
-Girl00_at_496:
-    bulletSetAngle(0, %A, 0.19634955f);
-!E
-    bulletSetSpeed(0, 1.5f, 0.0f);
-!N
-    bulletSetSpeed(0, 2.0f, 0.0f);
-!H
-    bulletSetSpeed(0, 2.5f, 0.0f);
-!L
-    bulletSetSpeed(0, 4.0f, 0.0f);
-!*
-    bulletSetCount(0, $B, 1);
-    bulletShoot(0);
-    waitDiff(15, 10, 7, 5);
-    $B = ($B + 1);
-Girl00_at_792:
-    if $C-- goto Girl00_at_496 @ 0;
-    return();
-}
-
-sub Girl01(A B)
-{
-    var;
+    var spd;
     anmSelect(1);
-    anmScriptSelect(0, $A);
+    anmScriptSelect(0, 45);
     setFlags(64);
-    setHitbox(24.0f, 24.0f);
-    setKillbox(16.0f, 16.0f);
-    callSeparate("Girl01_at");
-    enemySetTrajectory(%ANGLE_PLAYER, 6.0f);
-    enemyChangeMovement(60, 0, -999999.0f, 0.0f);
-60:
-    wait(120);
-    enemySetTrajectory(%ANGLE_PLAYER, 0.0f);
-    enemyChangeMovement(60, 0, -999999.0f, -6.0f);
-    goto Girl01_356 @ 60;
-Girl01_336:
-    wait(1000);
-Girl01_356:
-    if 1 goto Girl01_336 @ 60;
-    return();
-}
-
-sub Girl01_at()
-{
-    var A B C D;
-    wait(30);
-    bulletCreate(0);
-    bulletSetType(0, 0);
-    bulletSetSprite(0, 4, 4);
-    bulletSetCount_diff(0, 1, 1, 1, 1, 1, 1, 1, 1);
-    bulletSetAngle(0, 0.0f, 0.5235988f);
-    bulletSetSpeed_diff(0, 2.0f, 2.0f, 3.0f, 5.5f, 1.0f, 1.0f, 1.0f, 2.0f);
-    bulletSetComplexTransform(0, 0, 1, 2, 1, -999999, -999999.0f, -999999.0f);
-    bulletSetComplexTransform(0, 1, 1, 1, -999999, -999999, -999999.0f, -999999.0f);
-    setIntValDiff($A, 3, 6, 6, 6);
-    goto Girl01_at_456 @ 0;
-Girl01_at_416:
-    bulletShoot(0);
-    wait(3);
-Girl01_at_456:
-    if $A-- goto Girl01_at_416 @ 0;
-    unless ($RANK == 0) goto Girl01_at_596 @ 0;
-    return();
-Girl01_at_596:
-    wait(20);
-    $B = 6;
-    goto Girl01_at_720 @ 0;
-Girl01_at_680:
-    bulletShoot(0);
-    wait(3);
-Girl01_at_720:
-    if $B-- goto Girl01_at_680 @ 0;
-    unless ($RANK == 1) goto Girl01_at_860 @ 0;
-    return();
-Girl01_at_860:
-    wait(20);
-    $C = 6;
-    goto Girl01_at_984 @ 0;
-Girl01_at_944:
-    bulletShoot(0);
-    wait(3);
-Girl01_at_984:
-    if $C-- goto Girl01_at_944 @ 0;
-    unless ($RANK == 2) goto Girl01_at_1124 @ 0;
-    return();
-Girl01_at_1124:
-    wait(20);
-    $D = 6;
-    goto Girl01_at_1248 @ 0;
-Girl01_at_1208:
-    bulletShoot(0);
-    wait(3);
-Girl01_at_1248:
-    if $D-- goto Girl01_at_1208 @ 0;
-    return();
+    setHitbox(28.0f, 28.0f);
+    setKillbox(28.0f, 28.0f);
+    enemySetTrajectory(1.5707963267948966192313216916398f, 1.5f);
+40:
+	enemyChangeMovement(30, 0, -999999.0f, 0.0f);
+70:
+	%spd = %RANDF + 1.0f;
+	bulletCreate(0);
+	bulletSetType(0, 0);
+	bulletSetSprite(0, 5, 2);
+	bulletSetCount_diff(0, 8, 16, 24, 24, 1, 1, 1, 3);
+!EN
+	bulletSetSpeed(0, %spd, 0.0f);
+!HL
+	bulletSetSpeed(0, %spd, 1.0f);
+!E
+	bulletSetAngle(0, 0.0f, 0.52359877559829887307710723054658f);
+!N
+	bulletSetAngle(0, 0.0f, 0.26179938779914943653855361527329f);
+!H
+	bulletSetAngle(0, 0.0f, 0.20943951023931954923084289221863f);
+!L
+	bulletSetAngle(0, 0.0f, 0.22439947525641380274733167023425f);
+!*
+	bulletSetComplexTransform(0, 0, 0, 2, 1, -999999, -999999.0f, -999999.0f);
+	bulletShoot(0);
+100:
+	enemySetTrajectory(_f(0.78539816339744830961566084581988f + _f(%RANDF * 1.5707963267948966192313216916398f)), -1.5f);
+10000:
+    delete();
 }
 
 sub Girl02()
@@ -849,43 +773,16 @@ sub MainSub02()
     return();
 }
 
-sub MainSub02b()
-{
-    var A;
-    enemyCreateRel("BCir00", 160.0f, 128.0f, 120, 1000, 1);
-    wait(30);
-    enemyCreateRel("BCir00", -160.0f, 128.0f, 120, 1000, 1);
-    wait(30);
-    enemyCreateRel("BCir00", 128.0f, 144.0f, 120, 1000, 1);
-    wait(30);
-    enemyCreateRel("BCir00", -128.0f, 144.0f, 120, 1000, 1);
-    wait(30);
-    enemyCreateRel("BCir00", 64.0f, 96.0f, 120, 1000, 1);
-    wait(30);
-    enemyCreateRel("BCir00", -64.0f, 96.0f, 120, 1000, 1);
-    wait(30);
-    enemyCreateRel("PCir00", 0.0f, 128.0f, 120, 1000, 13);
-    wait(30);
-    $A = 10;
-    goto MainSub02b_1080 @ 0;
-MainSub02b_576:
-    enemyCreateRel("BCir00", _f(_f(-112) + (%RANDF2 * _f(64))), _f(_f(128) + (%RANDF2 * _f(32))), 120, 1000, 1);
-    wait(10);
-    enemyCreateRel("BCir00", _f(_f(112) + (%RANDF2 * _f(64))), _f(_f(128) + (%RANDF2 * _f(32))), 120, 1000, 1);
-    wait(10);
-MainSub02b_1080:
-    if $A-- goto MainSub02b_576 @ 0;
-    return();
-}
-
 sub MainSub03()
 {
-    var;
-    enemyCreateRel("Girl02", 0.0f, -24.0f, 800, 1000, 12);
-    wait(120);
-    enemyCreateRelFlipped("Girl02", 160.0f, -24.0f, 800, 1000, 15);
-    wait(120);
-    enemyCreateRel("Girl02", -160.0f, -24.0f, 800, 1000, 14);
+    var A;
+	$A = 5;
+	goto END @ 0;
+START:
+    enemyCreateRel("Girl01", _f(%RANDF2 * 192.0f), -32.0f, 400, 1000, 1);
+	wait(20);
+END:
+	if $A-- goto START @ 0;
     return();
 }
 
@@ -1248,7 +1145,7 @@ sub main()
 1110:
     callSeparate("MainSub02");
 1730:
-	noop();
+    callSeparate("MainSub03");
 1816:
 	noop();
 1908:
