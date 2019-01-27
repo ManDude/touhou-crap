@@ -16,16 +16,17 @@ sub MBoss()
 	anm(2);
 	anmScr(0, 0);
 	setFlags(64);
-	hitbox(48.0f, 48.0f);
-	killbox(40.0f, 40.0f);
-	life(8500);
-	lifebar(0, 1700.0f, -32640);
-	attack(0, 1700, 1800, "MBossCard1");
-	setBossFog(160.0f, 11497327);
+	hitbox(56.0f, 56.0f);
+	killbox(56.0f, 56.0f);
+	life(13000);
+	lifebar(0, 1300.0f, -32640);
+	attack(0, 1300, 1800, "MBossCard1");
 	stageProg(6);
-	enmPosTime(60, 4, 0.0f, 128.0f);
-	wait(60);
-	setMoveArea(0.0f, 128.0f, 280.0f, 64.0f);
+	enmPos(160.0f, -96.0f);
+	enmPosTime(100, 1, 0.0f, 150.0f);
+	invinc(100);
+	wait(100);
+	setMoveArea(0.0f, 96.0f, 320.0f, 96.0f);
 	call("MBoss1");
 	goto MBoss_736 @ 0;
 MBoss_716:
@@ -37,15 +38,26 @@ MBoss_736:
 
 sub MBoss1()
 {
-	var;
+	var A B C D;
+	setBossFog(160.0f, 11497327);
+30:
+	$A = 160;
+	$B = $A % 2;
+	unless $B == 0 goto AT2 @ 30;
+	call("MBoss1_at1");
+	goto AT_END @ 30;
+AT2:
+	call("MBoss1_at2");
+AT_END:
 	goto MBoss1_160 @ 0;
 MBoss1_60:
 	callSep("MBoss_at1");
 	wait(60);
 	enmRand(60, 4, 3.0f);
 	wait(58);
+90:
 MBoss1_160:
-	if 1 goto MBoss1_60 @ 0;
+	if 1 goto MBoss1_60 @ 30;
 	return();
 }
 
@@ -99,9 +111,9 @@ MBossCard1_736:
 	attack(0, 0, 3000, "MBossDead");
 	timeoutAt(0, "MBossEscape");
 !EN
-	ins_437(26, 3000, 500000, "鉄拳「問答無用の妖怪拳」");
+	cardE(26, 3000, 500000, "鉄拳「問答無用の妖怪拳」");
 !H
-	ins_439(28, 3000, 500000, "神拳「雲上地獄突き」");
+	cardH(28, 3000, 500000, "神拳「雲上地獄突き」");
 !L
 	ins_422(29, 3000, 500000, "神拳「天海地獄突き」");
 !*
