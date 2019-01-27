@@ -541,88 +541,53 @@ sub BossCard1()
 !*
     setCheckpoint(43);
     moveByTime(60, 4, 0.0f, 112.0f);
-    wait(60);
+	setInvincible(120);
+	bulletCreate(0);
+	bulletSetType(0, 8);
+!EN
+	bulletSetSprite(0, 9, 6);
+	bulletSetSpeed(0, 4.0f, 1.2f);
+	bulletSetAngle(0, 3.1415926535897932384626433832795f, -3.1415926535897932384626433832795f);
+!HL
+	bulletSetSprite(0, 26, 0);
+	bulletSetAngle(0, 3.1415926535897932384626433832795f, 0.0f);
+!E
+	bulletSetCount(0, 32, 1);
+!N
+	bulletSetCount(0, 128, 1);
+!H
+	bulletSetCount(0, 20, 1);
+	bulletSetSpeed(0, 4.4f, 2.2f);
+!L
+	bulletSetCount(0, 35, 1);
+	bulletSetSpeed(0, 5.0f, 1.2f);
+120:
+!*
     ins_263(0, 119);
     playSE(31);
-    wait(60);
     ins_269(0);
-    setKillbox(60.0f, 60.0f);
+	wait(_S(32 * 4));
+140:
+!EHL
+	bulletShoot(0);
+!EN
+	wait(20);
+!N
+	bulletShoot(0);
+194:
+!*
+	noop();
+	setTimeRate(_f(1.0f / 12.0f));
+	setFlags(3);
+	$A = 0;
+	noop();
+	moveRandom(_S(90 / 12), 4, 2.5f);
+	wait(_S(90 / 12));
+	setTimeRate(1.0f);
     %G = _f(120);
     goto BossCard1_2812 @ 0;
 BossCard1_904:
-    ins_269(0);
-!E
-    %LOCAL1F = 3.141593f;
-!N
-    %LOCAL1F = 3.534292f;
-!H
-    %LOCAL1F = 3.141593f;
-!L
-    %LOCAL1F = 3.403392f;
-!*
-    $LOCAL4 = 49;
-    %LOCAL3F = 0.392699f;
-    playSE(58);
-    setIntValDiff($H, 6, 8, 10, 12);
-    goto BossCard1_1656 @ 0;
-BossCard1_1244:
-    ins_81(%E, %F, %LOCAL1F, 16.0f);
-    enemyCreateRel("BossCard1Laser", %E, %F, 100, 10, 0);
-!E
-    %LOCAL1F = (%LOCAL1F + 1.047198f);
-!N
-    %LOCAL1F = (%LOCAL1F + 0.785398f);
-!H
-    %LOCAL1F = (%LOCAL1F + 0.628319f);
-!L
-    %LOCAL1F = (%LOCAL1F + 0.523599f);
-!*
-    wait(3);
-BossCard1_1656:
-    if $H-- goto BossCard1_1244 @ 0;
-!HL
-    callSeparate("BossCard1LaserAt3", _fS 0);
-!*
-    wait(210);
-    %G = (%G * _f(-1));
-    moveByTime(60, 4, %G, 144.0f);
-    wait(61);
-    ins_269(0);
-!E
-    %LOCAL1F = 0.523599f;
-!N
-    %LOCAL1F = 0.0f;
-!H
-    %LOCAL1F = 0.314159f;
-!L
-    %LOCAL1F = 0.0f;
-!*
-    $LOCAL4 = 55;
-    %LOCAL3F = -0.392699f;
-    playSE(58);
-    setIntValDiff($I, 6, 8, 10, 12);
-    goto BossCard1_2648 @ 0;
-BossCard1_2236:
-    ins_81(%E, %F, %LOCAL1F, 16.0f);
-    enemyCreateRel("BossCard1Laser", %E, %F, 100, 10, 0);
-!E
-    %LOCAL1F = (%LOCAL1F + 1.047198f);
-!N
-    %LOCAL1F = (%LOCAL1F + 0.785398f);
-!H
-    %LOCAL1F = (%LOCAL1F + 0.628319f);
-!L
-    %LOCAL1F = (%LOCAL1F + 0.523599f);
-!*
-    wait(3);
-BossCard1_2648:
-    if $I-- goto BossCard1_2236 @ 0;
-!HL
-    callSeparate("BossCard1LaserAt3", _fS 0);
-!*
-    wait(210);
-    moveByTime(60, 4, 0.0f, 144.0f);
-    wait(61);
+    wait(1);
 BossCard1_2812:
     if 1 goto BossCard1_904 @ 0;
     return();
