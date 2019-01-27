@@ -31,6 +31,16 @@ sub BGirl01()
     delete();
 }
 
+sub BGirl02()
+{
+    var;
+    setExtraItem(2, 2);
+    anmSelect(1);
+    anmScriptSelect(1, 50);
+    call("Girl02", _SS 0, _SS 1);
+    delete();
+}
+
 sub BGirl04()
 {
     var A;
@@ -410,27 +420,49 @@ sub Girl01()
     delete();
 }
 
-sub Girl02()
+sub Girl02(A B)
 {
-    var A;
+    var C;
     anmSelect(1);
-    anmScriptSelect(0, 45);
-    anmScriptSelect(1, 98);
+    anmScriptSelect(0, $A);
     setFlags(64);
-    setHitbox(24.0f, 24.0f);
-    setKillbox(16.0f, 16.0f);
-    clearItems();
-    setExtraItem(2, 10);
-    setExtraItem(1, 10);
-    setItemArea(48.0f, 48.0f);
-    callSeparate("Girl02_at");
-    ins_328(%ANGLE_PLAYER, 4.0f);
-    enemyChangeMovement(60, 0, -999999.0f, 0.0f);
-    wait(60);
-    enemySetTrajectory(1.5707964f, 0.0f);
-    enemyChangeMovement(120, 0, 0.0f, 1.0f);
-6000:
-    noop();
+    setHitbox(28.0f, 28.0f);
+    setKillbox(28.0f, 28.0f);
+    enemySetTrajectory(1.5707964f, 2.0f);
+    bulletCreate(0);
+	bulletSetType(0, 0);
+	bulletSetSprite(0, 0, 1);
+	bulletSetCount_diff(0, 1, 3, 3, 7, 1, 1, 1, 1);
+!EN
+	bulletSetSpeed(0, 1.5f, 0.0f);
+!HL
+	bulletSetSpeed(0, 2.5f, 0.0f);
+!ENH
+	bulletSetAngle(0, 0.0f, 0.05235987755982988730771072305466f);
+!L
+	bulletSetAngle(0, 0.0f, 0.03490658503988659153847381536977f);
+!*
+	bulletSetComplexTransform(0, 0, 0, 2, 1, -999999, -999999.0f, -999999.0f);
+	setIntValDiff($C, 300, 190, 120, 90);
+	callToSlot("et_on_rate", 1, _SS 0, _SS $C, _SS 1);
+40:
+	unless %ABS_X < 0.0f goto MIR1 @ 40;
+	callToSlot("enm_rot_spd", 2, _ff -0.02454369260617025967548940143187f, _SS 80);
+	goto MIR1_END @ 40;
+MIR1:
+	callToSlot("enm_rot_spd_m", 2, _ff -0.02454369260617025967548940143187f, _SS 80);
+MIR1_END:
+120:
+	unless %ABS_X < 0.0f goto MIR2 @ 120;
+	callToSlot("enm_rot_spd", 2, _ff 0.0196349540849362077403915211455f, _SS 100);
+	goto MIR2_END @ 120;
+MIR2:
+	callToSlot("enm_rot_spd", 2, _ff 0.0196349540849362077403915211455f, _SS 100);
+MIR2_END:
+220:
+	terminateSlot(1);
+	terminateSlot(2);
+10000:
     delete();
 }
 
@@ -786,184 +818,75 @@ END:
     return();
 }
 
-sub MainSub04()
+sub MainSub04a()
 {
-    var;
-    enemyCreateRel("Girl03b", -64.0f, -24.0f, 300, 1000, 13);
-    enemyCreateRel("Girl03b", 64.0f, -24.0f, 300, 1000, 11);
-    wait(120);
-    enemyCreateRel("Girl03", -144.0f, -24.0f, 300, 1000, 2);
-    enemyCreateRel("Girl03", 144.0f, -24.0f, 300, 1000, 2);
-    wait(240);
-    enemyCreateRel("Girl03", -144.0f, -24.0f, 300, 1000, 2);
-    enemyCreateRel("Girl03", 144.0f, -24.0f, 300, 1000, 2);
-    wait(120);
-    enemyCreateRel("Girl03", -144.0f, -24.0f, 300, 1000, 2);
-    enemyCreateRel("Girl03", 144.0f, -24.0f, 300, 1000, 2);
-    wait(240);
-    enemyCreateRel("Girl03b", -64.0f, -24.0f, 300, 1000, 13);
-    enemyCreateRel("Girl03", 64.0f, -24.0f, 300, 1000, 2);
+    var A;
+	$A = 7;
+	goto END @ 0;
+START:
+    enemyCreateRel("RGirl02", -128.0f, -32.0f, 30, 300, _S(_S($RAND % 2) + 1));
+    enemyCreateRel("BGirl02", -96.0f, -32.0f, 30, 300, _S(_S($RAND % 2) + 1));
+    wait(12);
+END:
+	if $A-- goto START @ 0;
+    return();
+}
+
+sub MainSub04b()
+{
+    var A;
+	$A = 7;
+	goto END @ 0;
+START:
+    enemyCreateRelFlipped("RGirl02", 128.0f, -32.0f, 30, 300, _S(_S($RAND % 2) + 1));
+    enemyCreateRelFlipped("BGirl02", 96.0f, -32.0f, 30, 300, _S(_S($RAND % 2) + 1));
+    wait(12);
+END:
+	if $A-- goto START @ 0;
     return();
 }
 
 sub MainSub05()
 {
-    var A B C D E F G H I J K L M N;
-    $A = 5;
-    goto MainSub05_236 @ 0;
-MainSub05_100:
-    enemyCreateRel("BGirl04", 216.0f, 128.0f, 30, 1000, 2);
-    wait(10);
-    enemyCreateRel("RGirl04", 216.0f, 128.0f, 30, 1000, 2);
-    wait(10);
-MainSub05_236:
-    if $A-- goto MainSub05_100 @ 0;
-    $B = 5;
-    goto MainSub05_480 @ 0;
-MainSub05_344:
-    enemyCreateRelFlipped("BGirl04", -216.0f, 128.0f, 30, 1000, 2);
-    wait(10);
-    enemyCreateRelFlipped("RGirl04", -216.0f, 128.0f, 30, 1000, 2);
-    wait(10);
-MainSub05_480:
-    if $B-- goto MainSub05_344 @ 0;
-    $C = 5;
-    goto MainSub05_732 @ 0;
-MainSub05_588:
-    enemyCreateRel("BGirl04b", 216.0f, 192.0f, 30, 1000, 2);
-    wait(10);
-    enemyCreateRel("BGirl04b", 216.0f, 192.0f, 30, 1000, 2);
-    wait(10);
-MainSub05_732:
-    if $C-- goto MainSub05_588 @ 0;
-    $D = 5;
-    goto MainSub05_984 @ 0;
-MainSub05_840:
-    enemyCreateRelFlipped("BGirl04b", -216.0f, 192.0f, 30, 1000, 2);
-    wait(10);
-    enemyCreateRelFlipped("BGirl04b", -216.0f, 192.0f, 30, 1000, 2);
-    wait(10);
-MainSub05_984:
-    if $D-- goto MainSub05_840 @ 0;
-    $E = 5;
-    goto MainSub05_1228 @ 0;
-MainSub05_1092:
-    enemyCreateRel("BGirl04", 216.0f, 128.0f, 30, 1000, 2);
-    wait(10);
-    enemyCreateRel("BGirl04", 216.0f, 128.0f, 30, 1000, 2);
-    wait(10);
-MainSub05_1228:
-    if $E-- goto MainSub05_1092 @ 0;
-    $F = 5;
-    goto MainSub05_1472 @ 0;
-MainSub05_1336:
-    enemyCreateRelFlipped("BGirl04", -216.0f, 128.0f, 30, 1000, 2);
-    wait(10);
-    enemyCreateRelFlipped("BGirl04", -216.0f, 128.0f, 30, 1000, 2);
-    wait(10);
-MainSub05_1472:
-    if $F-- goto MainSub05_1336 @ 0;
-    enemyCreateRel("Girl03b", 0.0f, -24.0f, 300, 1000, 14);
-    wait(100);
-    $G = 5;
-    goto MainSub05_1792 @ 0;
-MainSub05_1648:
-    enemyCreateRel("BGirl04b", 216.0f, 192.0f, 30, 1000, 2);
-    wait(10);
-    enemyCreateRel("BGirl04b", 216.0f, 192.0f, 30, 1000, 2);
-    wait(10);
-MainSub05_1792:
-    if $G-- goto MainSub05_1648 @ 0;
-    $H = 5;
-    goto MainSub05_2044 @ 0;
-MainSub05_1900:
-    enemyCreateRelFlipped("BGirl04b", -216.0f, 192.0f, 30, 1000, 2);
-    wait(10);
-    enemyCreateRelFlipped("BGirl04b", -216.0f, 192.0f, 30, 1000, 2);
-    wait(10);
-MainSub05_2044:
-    if $H-- goto MainSub05_1900 @ 0;
-    $I = 5;
-    goto MainSub05_2288 @ 0;
-MainSub05_2152:
-    enemyCreateRel("RGirl04", 216.0f, 128.0f, 30, 1000, 2);
-    wait(10);
-    enemyCreateRel("RGirl04", 216.0f, 128.0f, 30, 1000, 2);
-    wait(10);
-MainSub05_2288:
-    if $I-- goto MainSub05_2152 @ 0;
-    $J = 5;
-    goto MainSub05_2532 @ 0;
-MainSub05_2396:
-    enemyCreateRelFlipped("RGirl04", -216.0f, 128.0f, 30, 1000, 2);
-    wait(10);
-    enemyCreateRelFlipped("RGirl04", -216.0f, 128.0f, 30, 1000, 2);
-    wait(10);
-MainSub05_2532:
-    if $J-- goto MainSub05_2396 @ 0;
-    enemyCreateRel("Girl03b", 0.0f, -24.0f, 300, 1000, 15);
-    wait(100);
-    $K = 5;
-    goto MainSub05_2852 @ 0;
-MainSub05_2708:
-    enemyCreateRel("RGirl04b", 216.0f, 192.0f, 30, 1000, 2);
-    wait(10);
-    enemyCreateRel("RGirl04b", 216.0f, 192.0f, 30, 1000, 2);
-    wait(10);
-MainSub05_2852:
-    if $K-- goto MainSub05_2708 @ 0;
-    $L = 5;
-    goto MainSub05_3104 @ 0;
-MainSub05_2960:
-    enemyCreateRelFlipped("RGirl04b", -216.0f, 192.0f, 30, 1000, 2);
-    wait(10);
-    enemyCreateRelFlipped("RGirl04b", -216.0f, 192.0f, 30, 1000, 2);
-    wait(10);
-MainSub05_3104:
-    if $L-- goto MainSub05_2960 @ 0;
-    callSeparate("MainSub05b");
-    $M = 5;
-    goto MainSub05_3380 @ 0;
-MainSub05_3244:
-    enemyCreateRel("RGirl04", 216.0f, 128.0f, 30, 1000, 2);
-    wait(10);
-    enemyCreateRel("RGirl04", 216.0f, 128.0f, 30, 1000, 2);
-    wait(10);
-MainSub05_3380:
-    if $M-- goto MainSub05_3244 @ 0;
-    $N = 5;
-    goto MainSub05_3632 @ 0;
-MainSub05_3488:
-    enemyCreateRel("RGirl04b", 216.0f, 192.0f, 30, 1000, 2);
-    wait(10);
-    enemyCreateRel("RGirl04b", 216.0f, 192.0f, 30, 1000, 2);
-    wait(10);
-MainSub05_3632:
-    if $N-- goto MainSub05_3488 @ 0;
+    var A;
+    enemyCreateRel("GGirl00", 64.0f, -32.0f, 400, 1000, 1);
+    enemyCreateRel("GGirl00", -64.0f, -32.0f, 400, 1000, 1);
+	wait(10);
+    enemyCreateRel("RGirl00", 96.0f, -32.0f, 400, 1000, 1);
+    enemyCreateRel("RGirl00", -96.0f, -32.0f, 400, 1000, 1);
+	wait(10);
+    enemyCreateRel("BGirl00", 128.0f, -32.0f, 400, 1000, 1);
+    enemyCreateRel("BGirl00", -128.0f, -32.0f, 400, 1000, 1);
     return();
 }
 
-sub MainSub05b()
+sub MainSub06a()
 {
-    var A B;
-    $A = 5;
-    goto MainSub05b_236 @ 0;
-MainSub05b_100:
-    enemyCreateRelFlipped("RGirl04", -216.0f, 128.0f, 30, 1000, 2);
-    wait(10);
-    enemyCreateRelFlipped("RGirl04", -216.0f, 128.0f, 30, 1000, 2);
-    wait(10);
-MainSub05b_236:
-    if $A-- goto MainSub05b_100 @ 0;
-    $B = 5;
-    goto MainSub05b_488 @ 0;
-MainSub05b_344:
-    enemyCreateRelFlipped("RGirl04b", -216.0f, 192.0f, 30, 1000, 2);
-    wait(10);
-    enemyCreateRelFlipped("RGirl04b", -216.0f, 192.0f, 30, 1000, 2);
-    wait(10);
-MainSub05b_488:
-    if $B-- goto MainSub05b_344 @ 0;
+    var A;
+	$A = 7;
+	goto END @ 0;
+START:
+	enemyCreateRel("Ball01_Green", -224.0f, 192.0f, 30, 500, _S(_S($RAND % 2) + 1));
+	wait(8);
+	enemyCreateRel("Ball01_Purple", -224.0f, 192.0f, 30, 500, _S(_S($RAND % 2) + 1));
+	wait(8);
+END:
+	if $A-- goto START @ 0;
+    return();
+}
+
+sub MainSub06b()
+{
+    var A;
+	$A = 7;
+	goto END @ 0;
+START:
+	enemyCreateRelFlipped("Ball01_Green", 224.0f, 192.0f, 30, 500, _S(_S($RAND % 2) + 1));
+	wait(8);
+	enemyCreateRelFlipped("Ball01_Purple", 224.0f, 192.0f, 30, 500, _S(_S($RAND % 2) + 1));
+	wait(8);
+END:
+	if $A-- goto START @ 0;
     return();
 }
 
@@ -1024,6 +947,16 @@ sub RGirl01n()
     anmSelect(1);
     anmScriptSelect(1, 51);
     call("Girl01", _SS 5, _SS 0);
+    delete();
+}
+
+sub RGirl02()
+{
+    var A;
+    anmSelect(1);
+    anmScriptSelect(1, 51);
+    setExtraItem(1, 2);
+    call("Girl02", _SS 5, _SS 1);
     delete();
 }
 
@@ -1134,7 +1067,6 @@ sub main()
     setFlags(32);
     callSeparate("LogoEnemy");
 400:
-    noop();
     callSeparate("MainSub00a");
 512:
     callSeparate("MainSub00b");
@@ -1147,42 +1079,42 @@ sub main()
 1730:
     callSeparate("MainSub03");
 1816:
-	noop();
+    callSeparate("MainSub04a");
 1908:
-	noop();
+    callSeparate("MainSub03");
 1994:
-	noop();
+    callSeparate("MainSub04b");
 2186:
-	noop();
+    callSeparate("MainSub03");
 2272:
-	noop();
+    callSeparate("MainSub04a");
 2364:
-	noop();
+    callSeparate("MainSub03");
 2450:
-	noop();
+    callSeparate("MainSub04b");
 2822:
-    callSeparate("MainSub00");
+    callSeparate("MainSub00a");
 2936:
-	noop();
+    callSeparate("MainSub03");
 2984:
-	noop();
+    callSeparate("MainSub00b");
 3098:
-	noop();
+    callSeparate("MainSub05");
 3208:
-    callSeparate("MainSub01");
+    callSeparate("MainSub06a");
 3322:
-	noop();
+    callSeparate("MainSub03");
 3370:
-    callSeparate("MainSub01");
+    callSeparate("MainSub06b");
 3484:
-	noop();
+    callSeparate("MainSub05");
 3804:
     enemyCreateAbs("MBoss", 128.0f, -32.0f, 13000, 100000, 1);
     waitKill();
     waitDialogue();
-    call("MainSub04");
+    call("MainSub04a");
     wait(240);
-    callSeparate("MainSub02b");
+    callSeparate("MainSub02");
     wait(660);
     call("MainSub05");
     wait(140);
