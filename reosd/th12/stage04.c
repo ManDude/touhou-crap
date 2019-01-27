@@ -71,16 +71,16 @@ sub Cir00(A B C)
 sub Cir00Dead()
 {
 	var;
-	bulletCreate(0);
-	bulletSetType(0, 0);
-	bulletSetSprite(0, 18, 4);
-	bulletSetCount_diff(0, 1, 1, 3, 3, 1, 1, 1, 1);
-	bulletSetAngle(0, 0.0f, 0.3926991f);
-	bulletSetSpeed_diff(0, 0.0f, 0.0f, 0.0f, 0.0f, 1.0f, 1.0f, 1.0f, 2.0f);
-	bulletSetComplexTransform(0, 0, 1, 2, 1, -999999, -999999.0f, -999999.0f);
-	bulletSetComplexTransform(0, 1, 0, 4, 60, -999999, 0.026666667f, -999999.0f);
+	etNew(0);
+	etMode(0, 0);
+	etSpr(0, 18, 4);
+	etCnt_rank(0, 1, 1, 3, 3, 1, 1, 1, 1);
+	etAng(0, 0.0f, 0.3926991f);
+	etSpd_rank(0, 0.0f, 0.0f, 0.0f, 0.0f, 1.0f, 1.0f, 1.0f, 2.0f);
+	etEx(0, 0, 1, 2, 1, -999999, -999999.0f, -999999.0f);
+	etEx(0, 1, 0, 4, 60, -999999, 0.026666667f, -999999.0f);
 	playSE(22);
-	bulletShoot(0);
+	etOn(0);
 	wait(1);
 	return();
 }
@@ -88,19 +88,19 @@ sub Cir00Dead()
 sub Cir00_at()
 {
 	var A B C D;
-	bulletCreate(0);
-	bulletSetType(0, 2);
-	bulletSetSprite(0, 12, 8);
-	bulletSetCount_diff(0, 1, 1, 2, 2, 1, 1, 1, 1);
-	bulletSetAngle(0, 0.0f, 0.05235988f);
-	bulletSetSpeed_diff(0, 1.0f, 1.0f, 2.0f, 2.5f, 1.0f, 1.0f, 1.0f, 1.0f);
-	bulletSetComplexTransform(0, 0, 1, 2, 1, -999999, -999999.0f, -999999.0f);
-	bulletSetDistance(0, 16.0f);
+	etNew(0);
+	etMode(0, 2);
+	etSpr(0, 12, 8);
+	etCnt_rank(0, 1, 1, 2, 2, 1, 1, 1, 1);
+	etAng(0, 0.0f, 0.05235988f);
+	etSpd_rank(0, 1.0f, 1.0f, 2.0f, 2.5f, 1.0f, 1.0f, 1.0f, 1.0f);
+	etEx(0, 0, 1, 2, 1, -999999, -999999.0f, -999999.0f);
+	etDist(0, 16.0f);
 	%A = %RANDRAD;
 	$D = 400;
 	goto Cir00_at_800 @ 0;
 Cir00_at_416:
-	bulletSetAngle(0, %A, 0.0f);
+	etAng(0, %A, 0.0f);
 	%A;
 	%RANDRAD;
 	2;
@@ -116,8 +116,8 @@ Cir00_at_416:
 	mulf();
 	2.8f;
 	addf();
-	bulletSetSpeed(0, [-1.0f], 1.0f);
-	bulletShoot(0);
+	etSpd(0, [-1.0f], 1.0f);
+	etOn(0);
 	wait_rank(12, 4, 4, 3);
 Cir00_at_800:
 	decrement($D);
@@ -161,16 +161,16 @@ sub Cir01(A B C)
 sub Cir01Dead()
 {
 	var;
-	bulletCreate(0);
-	bulletSetType(0, 0);
-	bulletSetSprite(0, 18, 4);
-	bulletSetCount_diff(0, 1, 1, 3, 3, 1, 1, 1, 1);
-	bulletSetAngle(0, 0.0f, 0.3926991f);
-	bulletSetSpeed_diff(0, 0.0f, 0.0f, 0.0f, 0.0f, 1.0f, 1.0f, 1.0f, 2.0f);
-	bulletSetComplexTransform(0, 0, 1, 2, 1, -999999, -999999.0f, -999999.0f);
-	bulletSetComplexTransform(0, 1, 0, 4, 60, -999999, 0.026666667f, -999999.0f);
+	etNew(0);
+	etMode(0, 0);
+	etSpr(0, 18, 4);
+	etCnt_rank(0, 1, 1, 3, 3, 1, 1, 1, 1);
+	etAng(0, 0.0f, 0.3926991f);
+	etSpd_rank(0, 0.0f, 0.0f, 0.0f, 0.0f, 1.0f, 1.0f, 1.0f, 2.0f);
+	etEx(0, 0, 1, 2, 1, -999999, -999999.0f, -999999.0f);
+	etEx(0, 1, 0, 4, 60, -999999, 0.026666667f, -999999.0f);
 	playSE(22);
-	bulletShoot(0);
+	etOn(0);
 	wait(1);
 	return();
 }
@@ -178,21 +178,21 @@ sub Cir01Dead()
 sub Cir01_at()
 {
 	var A B C D E;
-	bulletCreate(0);
-	bulletSetType(0, 3);
-	bulletSetSprite(0, 5, 6);
-	bulletSetCount_diff(0, 1, 2, 3, 4, 1, 1, 1, 1);
-	bulletSetAngle(0, 0.0f, 0.05235988f);
-	bulletSetSpeed_diff(0, 1.0f, 2.5f, 3.0f, 4.0f, 1.0f, 1.0f, 1.0f, 1.0f);
-	bulletSetComplexTransform(0, 0, 1, 2, 1, -999999, -999999.0f, -999999.0f);
-	bulletCreate(1);
-	bulletSetType(1, 3);
-	bulletSetSprite(1, 11, 9);
-	bulletSetCount_diff(1, 1, 2, 3, 4, 1, 1, 1, 1);
-	bulletSetAngle(1, 1.5707964f, 0.05235988f);
-	bulletSetSpeed_diff(1, 1.6f, 1.6f, 2.4f, 3.0f, 1.0f, 1.0f, 1.0f, 1.0f);
-	bulletSetComplexTransform(1, 0, 1, 2, 1, -999999, -999999.0f, -999999.0f);
-	bulletSetComplexTransform(1, 1, 0, 4, 60, -999999, 0.016666668f, -999.0f);
+	etNew(0);
+	etMode(0, 3);
+	etSpr(0, 5, 6);
+	etCnt_rank(0, 1, 2, 3, 4, 1, 1, 1, 1);
+	etAng(0, 0.0f, 0.05235988f);
+	etSpd_rank(0, 1.0f, 2.5f, 3.0f, 4.0f, 1.0f, 1.0f, 1.0f, 1.0f);
+	etEx(0, 0, 1, 2, 1, -999999, -999999.0f, -999999.0f);
+	etNew(1);
+	etMode(1, 3);
+	etSpr(1, 11, 9);
+	etCnt_rank(1, 1, 2, 3, 4, 1, 1, 1, 1);
+	etAng(1, 1.5707964f, 0.05235988f);
+	etSpd_rank(1, 1.6f, 1.6f, 2.4f, 3.0f, 1.0f, 1.0f, 1.0f, 1.0f);
+	etEx(1, 0, 1, 2, 1, -999999, -999999.0f, -999999.0f);
+	etEx(1, 1, 0, 4, 60, -999999, 0.016666668f, -999.0f);
 	%A = 1.570796f;
 	%D = 1.570796f;
 	$E = 400;
@@ -202,20 +202,20 @@ Cir01_at_732:
 	0;
 	neqi();
 	je(Cir01_at_1060, 0);
-	bulletSetAngle(0, %A, 0.5235988f);
+	etAng(0, %A, 0.5235988f);
 	%A;
 	0.1122f;
 	subf();
 	setf(%A);
-	bulletShoot(0);
-	bulletSetAngle(0, %D, 0.5235988f);
+	etOn(0);
+	etAng(0, %D, 0.5235988f);
 	%D;
 	0.1122f;
 	addf();
 	setf(%D);
-	bulletShoot(0);
+	etOn(0);
 Cir01_at_1060:
-	bulletShoot(1);
+	etOn(1);
 	wait(14);
 Cir01_at_1100:
 	decrement($E);
@@ -259,16 +259,16 @@ sub Cir02(A B C)
 sub Cir02Dead()
 {
 	var;
-	bulletCreate(0);
-	bulletSetType(0, 0);
-	bulletSetSprite(0, 18, 4);
-	bulletSetCount_diff(0, 1, 1, 3, 3, 1, 1, 1, 1);
-	bulletSetAngle(0, 0.0f, 0.3926991f);
-	bulletSetSpeed_diff(0, 0.0f, 0.0f, 0.0f, 0.0f, 1.0f, 1.0f, 1.0f, 2.0f);
-	bulletSetComplexTransform(0, 0, 1, 2, 1, -999999, -999999.0f, -999999.0f);
-	bulletSetComplexTransform(0, 1, 0, 4, 60, -999999, 0.026666667f, -999999.0f);
+	etNew(0);
+	etMode(0, 0);
+	etSpr(0, 18, 4);
+	etCnt_rank(0, 1, 1, 3, 3, 1, 1, 1, 1);
+	etAng(0, 0.0f, 0.3926991f);
+	etSpd_rank(0, 0.0f, 0.0f, 0.0f, 0.0f, 1.0f, 1.0f, 1.0f, 2.0f);
+	etEx(0, 0, 1, 2, 1, -999999, -999999.0f, -999999.0f);
+	etEx(0, 1, 0, 4, 60, -999999, 0.026666667f, -999999.0f);
 	playSE(22);
-	bulletShoot(0);
+	etOn(0);
 	wait(1);
 	return();
 }
@@ -276,23 +276,23 @@ sub Cir02Dead()
 sub Cir02_at()
 {
 	var A B C D;
-	bulletCreate(1);
-	bulletSetType(1, 3);
-	bulletSetSprite(1, 7, 7);
-	bulletSetCount_diff(1, 1, 2, 3, 4, 1, 1, 1, 1);
-	bulletSetAngle(1, 0.0f, 0.05235988f);
-	bulletSetSpeed_diff(1, 1.0f, 1.0f, 2.0f, 3.0f, 1.0f, 1.0f, 1.0f, 1.0f);
-	bulletSetComplexTransform(1, 0, 1, 2, 1, -999999, -999999.0f, -999999.0f);
-	bulletSetComplexTransform(1, 1, 0, 1024, 120, 0, -999999.0f, -999999.0f);
-	bulletSetComplexTransform(1, 2, 1, 4, 60, -999999, 0.016666668f, -999.0f);
+	etNew(1);
+	etMode(1, 3);
+	etSpr(1, 7, 7);
+	etCnt_rank(1, 1, 2, 3, 4, 1, 1, 1, 1);
+	etAng(1, 0.0f, 0.05235988f);
+	etSpd_rank(1, 1.0f, 1.0f, 2.0f, 3.0f, 1.0f, 1.0f, 1.0f, 1.0f);
+	etEx(1, 0, 1, 2, 1, -999999, -999999.0f, -999999.0f);
+	etEx(1, 1, 0, 1024, 120, 0, -999999.0f, -999999.0f);
+	etEx(1, 2, 1, 4, 60, -999999, 0.016666668f, -999.0f);
 	goto Cir02_at_652 @ 0;
 Cir02_at_408:
 	%A = %ANGLE_PLAYER;
 	seti_rank($D, 1, 2, 4, 4);
 	goto Cir02_at_576 @ 0;
 Cir02_at_508:
-	bulletSetAngle(1, %A, 0.0f);
-	bulletShoot(1);
+	etAng(1, %A, 0.0f);
+	etOn(1);
 	wait(2);
 Cir02_at_576:
 	decrement($D);
@@ -372,15 +372,15 @@ Girl00_596:
 sub Girl00Dead()
 {
 	var;
-	bulletCreate(0);
-	bulletSetType(0, 2);
-	bulletSetSprite(0, 18, 4);
-	bulletSetCount_diff(0, 8, 16, 24, 32, 1, 1, 1, 1);
-	bulletSetAngle(0, 0.0f, 0.3926991f);
-	bulletSetSpeed_diff(0, 0.0f, 0.0f, 0.0f, 0.0f, 1.0f, 1.0f, 1.0f, 2.0f);
-	bulletSetComplexTransform(0, 0, 1, 2, 1, -999999, -999999.0f, -999999.0f);
-	bulletSetComplexTransform(0, 1, 0, 4, 60, -999999, 0.06f, -999999.0f);
-	bulletShoot(0);
+	etNew(0);
+	etMode(0, 2);
+	etSpr(0, 18, 4);
+	etCnt_rank(0, 8, 16, 24, 32, 1, 1, 1, 1);
+	etAng(0, 0.0f, 0.3926991f);
+	etSpd_rank(0, 0.0f, 0.0f, 0.0f, 0.0f, 1.0f, 1.0f, 1.0f, 2.0f);
+	etEx(0, 0, 1, 2, 1, -999999, -999999.0f, -999999.0f);
+	etEx(0, 1, 0, 4, 60, -999999, 0.06f, -999999.0f);
+	etOn(0);
 	wait(1);
 	return();
 }
@@ -388,22 +388,22 @@ sub Girl00Dead()
 sub Girl00_at()
 {
 	var A B C;
-	bulletCreate(0);
-	bulletSetType(0, 1);
-	bulletSetSprite(0, 7, 4);
-	bulletSetCount_diff(0, 2, 2, 4, 6, 1, 1, 1, 1);
-	bulletSetAngle(0, 0.0f, 0.5235988f);
-	bulletSetSpeed_diff(0, 1.5f, 1.5f, 2.0f, 2.0f, 1.0f, 1.0f, 1.0f, 2.0f);
-	bulletSetComplexTransform(0, 0, 1, 2, 1, -999999, -999999.0f, -999999.0f);
-	bulletSetComplexTransform(0, 1, 1, 1, -999999, -999999, -999999.0f, -999999.0f);
+	etNew(0);
+	etMode(0, 1);
+	etSpr(0, 7, 4);
+	etCnt_rank(0, 2, 2, 4, 6, 1, 1, 1, 1);
+	etAng(0, 0.0f, 0.5235988f);
+	etSpd_rank(0, 1.5f, 1.5f, 2.0f, 2.0f, 1.0f, 1.0f, 1.0f, 2.0f);
+	etEx(0, 0, 1, 2, 1, -999999, -999999.0f, -999999.0f);
+	etEx(0, 1, 1, 1, -999999, -999999, -999999.0f, -999999.0f);
 	%A = 0.19635f;
 	seti_rank($B, 2, 4, 4, 4);
 	goto Girl00_at_628 @ 0;
 Girl00_at_436:
-	bulletSetAngle(0, 1.5707964f, %A);
-	bulletShoot(0);
-	bulletSetAngle(0, -1.5707964f, %A);
-	bulletShoot(0);
+	etAng(0, 1.5707964f, %A);
+	etOn(0);
+	etAng(0, -1.5707964f, %A);
+	etOn(0);
 	%A;
 	0.098175f;
 	addf();
@@ -415,10 +415,10 @@ Girl00_at_628:
 	seti_rank($C, 4, 6, 6, 6);
 	goto Girl00_at_924 @ 0;
 Girl00_at_732:
-	bulletSetAngle(0, 1.5707964f, %A);
-	bulletShoot(0);
-	bulletSetAngle(0, -1.5707964f, %A);
-	bulletShoot(0);
+	etAng(0, 1.5707964f, %A);
+	etOn(0);
+	etAng(0, -1.5707964f, %A);
+	etOn(0);
 	%A;
 	0.19635f;
 	addf();
@@ -475,15 +475,15 @@ Girl01At_324:
 	je(Girl01At_428, 0);
 	goto Girl01At_1060 @ 0;
 Girl01At_428:
-	bulletCreate(0);
-	bulletSetType(0, 1);
-	bulletSetSprite(0, 7, 3);
-	bulletSetCount(0, 3, 1);
-	bulletSetAngle(0, 0.0f, 0.032724924f);
-	bulletSetSpeed(0, -0.1f, 1.0f);
-	bulletSetComplexTransform(0, 0, 1, 2, 1, -999999, -999999.0f, -999999.0f);
-	bulletSetComplexTransform(0, 1, 0, 4096, 120, -999999, -999999.0f, -999999.0f);
-	bulletSetComplexTransform(0, 2, 0, 4, 60, -999999, -0.026666667f, -999.0f);
+	etNew(0);
+	etMode(0, 1);
+	etSpr(0, 7, 3);
+	etCnt(0, 3, 1);
+	etAng(0, 0.0f, 0.032724924f);
+	etSpd(0, -0.1f, 1.0f);
+	etEx(0, 0, 1, 2, 1, -999999, -999999.0f, -999999.0f);
+	etEx(0, 1, 0, 4096, 120, -999999, -999999.0f, -999999.0f);
+	etEx(0, 2, 0, 4, 60, -999999, -0.026666667f, -999.0f);
 	%D;
 	%RANDRAD;
 	16;
@@ -494,9 +494,9 @@ Girl01At_428:
 	addf();
 	addf();
 	setf(%D);
-	bulletSetDistance(0, 16.0f);
-	bulletSetAngle(0, %D, 0.032724924f);
-	bulletShoot(0);
+	etDist(0, 16.0f);
+	etAng(0, %D, 0.032724924f);
+	etOn(0);
 	wait_rank(7, 7, 5, 3);
 Girl01At_1016:
 	if 1 goto Girl01At_324 @ 0;
@@ -724,22 +724,22 @@ MBoss1_2824:
 sub MBossGirl00_at()
 {
 	var A B;
-	bulletCreate(0);
-	bulletSetType(0, 5);
-	bulletSetSprite(0, 9, 6);
-	bulletSetCount(0, [-9985], 1);
-	bulletSetAngle(0, [-9981.0f], 0.5235988f);
-	bulletSetSpeed(0, [-9980.0f], 1.0f);
-	bulletSetComplexTransform(0, 0, 1, 2, 1, -999999, -999999.0f, -999999.0f);
-	bulletSetComplexTransform(0, 1, 1, 1, -999999, -999999, -999999.0f, -999999.0f);
-	bulletSetComplexTransform(0, 2, 0, 1024, 60, 0, -999999.0f, -999999.0f);
+	etNew(0);
+	etMode(0, 5);
+	etSpr(0, 9, 6);
+	etCnt(0, [-9985], 1);
+	etAng(0, [-9981.0f], 0.5235988f);
+	etSpd(0, [-9980.0f], 1.0f);
+	etEx(0, 0, 1, 2, 1, -999999, -999999.0f, -999999.0f);
+	etEx(0, 1, 1, 1, -999999, -999999, -999999.0f, -999999.0f);
+	etEx(0, 2, 0, 1024, 60, 0, -999999.0f, -999999.0f);
 	$A = 2;
 	goto MBossGirl00_at_568 @ 0;
 MBossGirl00_at_400:
 	$B = 10;
 	goto MBossGirl00_at_504 @ 0;
 MBossGirl00_at_464:
-	bulletShoot(0);
+	etOn(0);
 	wait(3);
 MBossGirl00_at_504:
 	decrement($B);
@@ -754,22 +754,22 @@ MBossGirl00_at_568:
 sub MBossGirl01_at()
 {
 	var A B;
-	bulletCreate(0);
-	bulletSetType(0, 5);
-	bulletSetSprite(0, 9, 2);
-	bulletSetCount(0, [-9985], 1);
-	bulletSetAngle(0, [-9981.0f], 0.5235988f);
-	bulletSetSpeed(0, [-9980.0f], 1.0f);
-	bulletSetComplexTransform(0, 0, 1, 2, 1, -999999, -999999.0f, -999999.0f);
-	bulletSetComplexTransform(0, 1, 1, 1, -999999, -999999, -999999.0f, -999999.0f);
-	bulletSetComplexTransform(0, 2, 0, 1024, 60, 0, -999999.0f, -999999.0f);
+	etNew(0);
+	etMode(0, 5);
+	etSpr(0, 9, 2);
+	etCnt(0, [-9985], 1);
+	etAng(0, [-9981.0f], 0.5235988f);
+	etSpd(0, [-9980.0f], 1.0f);
+	etEx(0, 0, 1, 2, 1, -999999, -999999.0f, -999999.0f);
+	etEx(0, 1, 1, 1, -999999, -999999, -999999.0f, -999999.0f);
+	etEx(0, 2, 0, 1024, 60, 0, -999999.0f, -999999.0f);
 	$A = 2;
 	goto MBossGirl01_at_568 @ 0;
 MBossGirl01_at_400:
 	$B = 10;
 	goto MBossGirl01_at_504 @ 0;
 MBossGirl01_at_464:
-	bulletShoot(0);
+	etOn(0);
 	wait(3);
 MBossGirl01_at_504:
 	decrement($B);

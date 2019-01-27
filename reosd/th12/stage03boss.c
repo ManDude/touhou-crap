@@ -55,14 +55,14 @@ sub Boss1_at1()
 {
 	var A B C D E;
 	ins_269(0);
-	bulletCreate(0);
-	bulletSetSprite(0, 7, 4);
-	bulletSetAngle(0, 0.0f, 0.0f);
-	bulletSetSpeed(0, 0.0f, 0.0f);
+	etNew(0);
+	etSpr(0, 7, 4);
+	etAng(0, 0.0f, 0.0f);
+	etSpd(0, 0.0f, 0.0f);
 	laserSetSize(0, 0.0f, 128.0f, 0.0f, 14.0f);
-	bulletSetSE(0, 19, -1);
+	etSE(0, 19, -1);
 	setf_rank(%A, 0.033333335f, 0.03888889f, 0.055555556f, 0.055555556f);
-	bulletSetComplexTransform(0, 0, 0, 4, 90, -999999, %A, -999999.0f);
+	etEx(0, 0, 0, 4, 90, -999999, %A, -999999.0f);
 	unless ($RANK >= 2) goto Boss1_at1_420 @ 0;
 	callSep("Boss1_at3b");
 Boss1_at1_420:
@@ -73,8 +73,8 @@ Boss1_at1_420:
 	goto Boss1_at1_1108 @ 0;
 Boss1_at1_584:
 	ins_81(%C, %D, _f(%B + 1.5707964f), 64.0f);
-	bulletSetOffset(0, _f(%C - _f(8)), _f(%D - _f(32)));
-	bulletSetAngle(0, %B, %B);
+	etOfs(0, _f(%C - _f(8)), _f(%D - _f(32)));
+	etAng(0, %B, %B);
 	laserShoot(0);
 	%B = (%B + 0.19635f);
 !E
@@ -92,14 +92,14 @@ sub Boss1_at1b()
 {
 	var A B C D E;
 	ins_269(0);
-	bulletCreate(0);
-	bulletSetSprite(0, 7, 4);
-	bulletSetAngle(0, 0.0f, 0.0f);
-	bulletSetSpeed(0, 0.0f, 0.0f);
+	etNew(0);
+	etSpr(0, 7, 4);
+	etAng(0, 0.0f, 0.0f);
+	etSpd(0, 0.0f, 0.0f);
 	laserSetSize(0, 0.0f, 128.0f, 0.0f, 14.0f);
-	bulletSetSE(0, 19, -1);
+	etSE(0, 19, -1);
 	setf_rank(%A, 0.033333335f, 0.03888889f, 0.055555556f, 0.055555556f);
-	bulletSetComplexTransform(0, 0, 0, 4, 90, -999999, %A, -999999.0f);
+	etEx(0, 0, 0, 4, 90, -999999, %A, -999999.0f);
 	unless ($RANK >= 2) goto Boss1_at1b_420 @ 0;
 	callSep("Boss1_at3");
 Boss1_at1b_420:
@@ -110,8 +110,8 @@ Boss1_at1b_420:
 	goto Boss1_at1b_1108 @ 0;
 Boss1_at1b_584:
 	ins_81(%C, %D, _f(%B + 1.5707964f), 64.0f);
-	bulletSetOffset(0, _f(%C - _f(8)), _f(%D - _f(32)));
-	bulletSetAngle(0, %B, %B);
+	etOfs(0, _f(%C - _f(8)), _f(%D - _f(32)));
+	etAng(0, %B, %B);
 	laserShoot(0);
 	%B = (%B + 0.19635f);
 !E
@@ -128,21 +128,21 @@ Boss1_at1b_1108:
 sub Boss1_at2()
 {
 	var A B C D E;
-	bulletCreate(1);
-	bulletSetSprite(1, 7, 6);
-	bulletSetAngle(1, 0.0f, 0.0f);
-	bulletSetSpeed(1, 0.0f, 0.0f);
+	etNew(1);
+	etSpr(1, 7, 6);
+	etAng(1, 0.0f, 0.0f);
+	etSpd(1, 0.0f, 0.0f);
 	laserSetSize(1, 0.0f, 128.0f, 0.0f, 14.0f);
-	bulletSetSE(0, 19, -1);
+	etSE(0, 19, -1);
 	setf_rank(%D, 0.027777778f, 0.033333335f, 0.055555556f, 0.055555556f);
-	bulletSetComplexTransform(1, 0, 0, 4, 90, -999999, %D, -999999.0f);
+	etEx(1, 0, 0, 4, 90, -999999, %D, -999999.0f);
 	%A = -1.570796f;
 	seti_rank($E, 16, 32, 64, 56);
 	goto Boss1_at2_912 @ 0;
 Boss1_at2_388:
 	ins_81(%B, %C, _f(%A - 1.5707964f), 64.0f);
-	bulletSetOffset(1, _f(%B - _f(8)), _f(%C - _f(32)));
-	bulletSetAngle(1, %A, %A);
+	etOfs(1, _f(%B - _f(8)), _f(%C - _f(32)));
+	etAng(1, %A, %A);
 	laserShoot(1);
 	%A = (%A - 0.19635f);
 !E
@@ -160,24 +160,24 @@ sub Boss1_at3()
 {
 	var A B C D E;
 	setf_rank(%D, 2.0f, 3.0f, 4.0f, 4.0f);
-	bulletCreate(2);
-	bulletSetType(2, 1);
-	bulletSetSprite(2, 7, 10);
-	bulletSetCount(2, 1, 8);
-	bulletSetAngle(2, 0.0f, 0.0f);
-	bulletSetSpeed(2, %D, _f(%D - 0.5f));
-	bulletSetComplexTransform(2, 0, 0, 1024, 200, 0, -999999.0f, -999999.0f);
+	etNew(2);
+	etMode(2, 1);
+	etSpr(2, 7, 10);
+	etCnt(2, 1, 8);
+	etAng(2, 0.0f, 0.0f);
+	etSpd(2, %D, _f(%D - 0.5f));
+	etEx(2, 0, 0, 1024, 200, 0, -999999.0f, -999999.0f);
 	%D = (%D - _f(2));
 	%D = (_f(0) - %D);
-	bulletSetComplexTransform(2, 1, 1, 8, 90, -999999, _f(%D / _f(90)), 0.02617994f);
+	etEx(2, 1, 1, 8, 90, -999999, _f(%D / _f(90)), 0.02617994f);
 	%A = -1.570796f;
 	seti_rank($E, 16, 32, 32, 32);
 	goto Boss1_at3_1136 @ 0;
 Boss1_at3_688:
 	ins_81(%B, %C, _f(%A - 3.1415927f), 48.0f);
-	bulletSetOffset(2, _f(%B - _f(8)), _f(%C - _f(32)));
-	bulletSetAngle(2, %A, %A);
-	bulletShoot(2);
+	etOfs(2, _f(%B - _f(8)), _f(%C - _f(32)));
+	etAng(2, %A, %A);
+	etOn(2);
 	%A = (%A - 0.19635f);
 !E
 	%A = (%A - 0.19635f);
@@ -192,24 +192,24 @@ sub Boss1_at3b()
 {
 	var A B C D E;
 	setf_rank(%D, 2.0f, 3.0f, 4.0f, 4.0f);
-	bulletCreate(3);
-	bulletSetType(3, 1);
-	bulletSetSprite(3, 7, 10);
-	bulletSetCount(3, 1, 8);
-	bulletSetAngle(3, 0.0f, 0.0f);
-	bulletSetSpeed(3, %D, _f(%D - 0.5f));
-	bulletSetComplexTransform(3, 0, 0, 1024, 200, 0, -999999.0f, -999999.0f);
+	etNew(3);
+	etMode(3, 1);
+	etSpr(3, 7, 10);
+	etCnt(3, 1, 8);
+	etAng(3, 0.0f, 0.0f);
+	etSpd(3, %D, _f(%D - 0.5f));
+	etEx(3, 0, 0, 1024, 200, 0, -999999.0f, -999999.0f);
 	%D = (%D - _f(2));
 	%D = (_f(0) - %D);
-	bulletSetComplexTransform(3, 1, 1, 8, 90, -999999, _f(%D / _f(90)), -0.02617994f);
+	etEx(3, 1, 1, 8, 90, -999999, _f(%D / _f(90)), -0.02617994f);
 	%A = -1.570796f;
 	seti_rank($E, 16, 32, 32, 32);
 	goto Boss1_at3b_1136 @ 0;
 Boss1_at3b_688:
 	ins_81(%B, %C, _f(%A - 3.1415927f), 48.0f);
-	bulletSetOffset(3, _f(%B - _f(8)), _f(%C - _f(32)));
-	bulletSetAngle(3, %A, %A);
-	bulletShoot(3);
+	etOfs(3, _f(%B - _f(8)), _f(%C - _f(32)));
+	etAng(3, %A, %A);
+	etOn(3);
 	%A = (%A - 0.19635f);
 !E
 	%A = (%A - 0.19635f);
@@ -228,10 +228,10 @@ sub Boss2()
 	ins_21();
 	enmClear();
 	unless ($TIMEOUT == 0) goto Boss2_228 @ 0;
-	bulletClear(640.0f);
+	etClear(640.0f);
 	goto Boss2_248 @ 0;
 Boss2_228:
-	bulletClear_ni(640.0f);
+	etClear_ni(640.0f);
 Boss2_248:
 	$MISS_COUNT = 0;
 	$BOMB_COUNT = 0;
@@ -281,15 +281,15 @@ sub Boss2_at1()
 {
 	var A B C D;
 	ins_269(0);
-	bulletCreate(0);
-	bulletSetType(0, 1);
-	bulletSetSprite(0, 7, 6);
-	bulletSetCount_diff(0, 1, 1, 1, 1, 5, 5, 10, 10);
-	bulletSetAngle(0, 0.0f, 0.0f);
-	bulletSetSpeed_diff(0, 4.0f, 4.0f, 4.0f, 4.0f, 3.7f, 3.7f, 3.7f, 3.7f);
-	bulletSetComplexTransform(0, 0, 1, 2, 1, -999999, -999999.0f, -999999.0f);
-	bulletSetComplexTransform(0, 1, 0, 1024, 200, 0, -999999.0f, -999999.0f);
-	bulletSetComplexTransform(0, 2, 1, 8, 90, -999999, -0.022222223f, -0.02617994f);
+	etNew(0);
+	etMode(0, 1);
+	etSpr(0, 7, 6);
+	etCnt_rank(0, 1, 1, 1, 1, 5, 5, 10, 10);
+	etAng(0, 0.0f, 0.0f);
+	etSpd_rank(0, 4.0f, 4.0f, 4.0f, 4.0f, 3.7f, 3.7f, 3.7f, 3.7f);
+	etEx(0, 0, 1, 2, 1, -999999, -999999.0f, -999999.0f);
+	etEx(0, 1, 0, 1024, 200, 0, -999999.0f, -999999.0f);
+	etEx(0, 2, 1, 8, 90, -999999, -0.022222223f, -0.02617994f);
 	%A = -1.570796f;
 	callSep("Boss2_at2");
 	callSep("Boss2_at3");
@@ -297,9 +297,9 @@ sub Boss2_at1()
 	goto Boss2_at1_1016 @ 0;
 Boss2_at1_568:
 	ins_81(%B, %C, _f(%A + 1.5707964f), 64.0f);
-	bulletSetOffset(0, _f(%B - _f(8)), _f(%C - _f(32)));
-	bulletSetAngle(0, %A, %A);
-	bulletShoot(0);
+	etOfs(0, _f(%B - _f(8)), _f(%C - _f(32)));
+	etAng(0, %A, %A);
+	etOn(0);
 	%A = (%A + 0.19635f);
 !E
 	%A = (%A + 0.19635f);
@@ -314,15 +314,15 @@ sub Boss2_at1b()
 {
 	var A B C D;
 	ins_269(0);
-	bulletCreate(0);
-	bulletSetType(0, 1);
-	bulletSetSprite(0, 7, 4);
-	bulletSetCount_diff(0, 1, 1, 1, 1, 5, 5, 10, 5);
-	bulletSetAngle(0, 0.0f, 0.0f);
-	bulletSetSpeed_diff(0, 4.0f, 4.0f, 4.0f, 4.0f, 3.7f, 3.7f, 3.7f, 3.7f);
-	bulletSetComplexTransform(0, 0, 1, 2, 1, -999999, -999999.0f, -999999.0f);
-	bulletSetComplexTransform(0, 1, 0, 1024, 200, 0, -999999.0f, -999999.0f);
-	bulletSetComplexTransform(0, 2, 1, 8, 90, -999999, -0.022222223f, -0.02617994f);
+	etNew(0);
+	etMode(0, 1);
+	etSpr(0, 7, 4);
+	etCnt_rank(0, 1, 1, 1, 1, 5, 5, 10, 5);
+	etAng(0, 0.0f, 0.0f);
+	etSpd_rank(0, 4.0f, 4.0f, 4.0f, 4.0f, 3.7f, 3.7f, 3.7f, 3.7f);
+	etEx(0, 0, 1, 2, 1, -999999, -999999.0f, -999999.0f);
+	etEx(0, 1, 0, 1024, 200, 0, -999999.0f, -999999.0f);
+	etEx(0, 2, 1, 8, 90, -999999, -0.022222223f, -0.02617994f);
 	%A = -1.570796f;
 	callSep("Boss2_at2");
 	callSep("Boss2_at3b");
@@ -330,9 +330,9 @@ sub Boss2_at1b()
 	goto Boss2_at1b_1016 @ 0;
 Boss2_at1b_568:
 	ins_81(%B, %C, _f(%A + 1.5707964f), 64.0f);
-	bulletSetOffset(0, _f(%B - _f(8)), _f(%C - _f(32)));
-	bulletSetAngle(0, %A, %A);
-	bulletShoot(0);
+	etOfs(0, _f(%B - _f(8)), _f(%C - _f(32)));
+	etAng(0, %A, %A);
+	etOn(0);
 	%A = (%A + 0.19635f);
 !E
 	%A = (%A + 0.19635f);
@@ -346,23 +346,23 @@ Boss2_at1b_1016:
 sub Boss2_at2()
 {
 	var A B C D;
-	bulletCreate(1);
-	bulletSetType(1, 1);
-	bulletSetSprite(1, 7, 6);
-	bulletSetCount_diff(1, 1, 1, 1, 1, 5, 5, 10, 5);
-	bulletSetAngle(1, 0.0f, 0.0f);
-	bulletSetSpeed_diff(1, 4.0f, 4.0f, 4.0f, 4.0f, 3.7f, 3.7f, 3.7f, 3.7f);
-	bulletSetComplexTransform(1, 0, 1, 2, 1, -999999, -999999.0f, -999999.0f);
-	bulletSetComplexTransform(1, 1, 0, 1024, 200, 0, -999999.0f, -999999.0f);
-	bulletSetComplexTransform(1, 2, 1, 8, 90, -999999, -0.022222223f, 0.02617994f);
+	etNew(1);
+	etMode(1, 1);
+	etSpr(1, 7, 6);
+	etCnt_rank(1, 1, 1, 1, 1, 5, 5, 10, 5);
+	etAng(1, 0.0f, 0.0f);
+	etSpd_rank(1, 4.0f, 4.0f, 4.0f, 4.0f, 3.7f, 3.7f, 3.7f, 3.7f);
+	etEx(1, 0, 1, 2, 1, -999999, -999999.0f, -999999.0f);
+	etEx(1, 1, 0, 1024, 200, 0, -999999.0f, -999999.0f);
+	etEx(1, 2, 1, 8, 90, -999999, -0.022222223f, 0.02617994f);
 	%A = -1.570796f;
 	seti_rank($D, 16, 32, 32, 64);
 	goto Boss2_at2_932 @ 0;
 Boss2_at2_484:
 	ins_81(%B, %C, _f(%A - 1.5707964f), 64.0f);
-	bulletSetOffset(1, _f(%B - _f(8)), _f(%C - _f(32)));
-	bulletSetAngle(1, %A, %A);
-	bulletShoot(1);
+	etOfs(1, _f(%B - _f(8)), _f(%C - _f(32)));
+	etAng(1, %A, %A);
+	etOn(1);
 	%A = (%A - 0.19635f);
 !E
 	%A = (%A - 0.19635f);
@@ -376,23 +376,23 @@ Boss2_at2_932:
 sub Boss2_at3()
 {
 	var A B C D;
-	bulletCreate(2);
-	bulletSetType(2, 1);
-	bulletSetSprite(2, 7, 8);
-	bulletSetCount(2, 1, 8);
-	bulletSetAngle(2, 0.0f, 0.0f);
-	bulletSetSpeed(2, 4.0f, 3.5f);
-	bulletSetComplexTransform(2, 0, 1, 2, 1, -999999, -999999.0f, -999999.0f);
-	bulletSetComplexTransform(2, 1, 0, 1024, 200, 0, -999999.0f, -999999.0f);
-	bulletSetComplexTransform(2, 2, 1, 8, 90, -999999, -0.022222223f, 0.02617994f);
+	etNew(2);
+	etMode(2, 1);
+	etSpr(2, 7, 8);
+	etCnt(2, 1, 8);
+	etAng(2, 0.0f, 0.0f);
+	etSpd(2, 4.0f, 3.5f);
+	etEx(2, 0, 1, 2, 1, -999999, -999999.0f, -999999.0f);
+	etEx(2, 1, 0, 1024, 200, 0, -999999.0f, -999999.0f);
+	etEx(2, 2, 1, 8, 90, -999999, -0.022222223f, 0.02617994f);
 	%A = -1.570796f;
 	seti_rank($D, 16, 32, 32, 64);
 	goto Boss2_at3_884 @ 0;
 Boss2_at3_436:
 	ins_81(%B, %C, _f(%A - 3.1415927f), 48.0f);
-	bulletSetOffset(2, _f(%B - _f(8)), _f(%C - _f(32)));
-	bulletSetAngle(2, %A, %A);
-	bulletShoot(2);
+	etOfs(2, _f(%B - _f(8)), _f(%C - _f(32)));
+	etAng(2, %A, %A);
+	etOn(2);
 	%A = (%A - 0.19635f);
 !E
 	%A = (%A - 0.19635f);
@@ -406,23 +406,23 @@ Boss2_at3_884:
 sub Boss2_at3b()
 {
 	var A B C D;
-	bulletCreate(2);
-	bulletSetType(2, 1);
-	bulletSetSprite(2, 7, 8);
-	bulletSetCount(2, 1, 8);
-	bulletSetAngle(2, 0.0f, 0.0f);
-	bulletSetSpeed(2, 4.0f, 3.5f);
-	bulletSetComplexTransform(2, 0, 1, 2, 1, -999999, -999999.0f, -999999.0f);
-	bulletSetComplexTransform(2, 1, 0, 1024, 200, 0, -999999.0f, -999999.0f);
-	bulletSetComplexTransform(2, 2, 1, 8, 90, -999999, -0.022222223f, -0.02617994f);
+	etNew(2);
+	etMode(2, 1);
+	etSpr(2, 7, 8);
+	etCnt(2, 1, 8);
+	etAng(2, 0.0f, 0.0f);
+	etSpd(2, 4.0f, 3.5f);
+	etEx(2, 0, 1, 2, 1, -999999, -999999.0f, -999999.0f);
+	etEx(2, 1, 0, 1024, 200, 0, -999999.0f, -999999.0f);
+	etEx(2, 2, 1, 8, 90, -999999, -0.022222223f, -0.02617994f);
 	%A = -1.570796f;
 	seti_rank($D, 16, 32, 32, 64);
 	goto Boss2_at3b_884 @ 0;
 Boss2_at3b_436:
 	ins_81(%B, %C, _f(%A - 3.1415927f), 48.0f);
-	bulletSetOffset(2, _f(%B - _f(8)), _f(%C - _f(32)));
-	bulletSetAngle(2, %A, %A);
-	bulletShoot(2);
+	etOfs(2, _f(%B - _f(8)), _f(%C - _f(32)));
+	etAng(2, %A, %A);
+	etOn(2);
 	%A = (%A - 0.19635f);
 !E
 	%A = (%A - 0.19635f);
@@ -441,10 +441,10 @@ sub Boss3()
 	ins_21();
 	enmClear();
 	unless ($TIMEOUT == 0) goto Boss3_228 @ 0;
-	bulletClear(640.0f);
+	etClear(640.0f);
 	goto Boss3_248 @ 0;
 Boss3_228:
-	bulletClear_ni(640.0f);
+	etClear_ni(640.0f);
 Boss3_248:
 	$MISS_COUNT = 0;
 	$BOMB_COUNT = 0;
@@ -494,14 +494,14 @@ sub Boss3_at1()
 {
 	var A B C D;
 	ins_269(0);
-	bulletCreate(0);
-	bulletSetType(0, 1);
-	bulletSetSprite(0, 7, 6);
-	bulletSetCount_diff(0, 1, 1, 1, 1, 5, 5, 8, 8);
-	bulletSetAngle(0, 0.0f, 0.0f);
-	bulletSetSpeed_diff(0, 2.5f, 3.0f, 4.5f, 5.0f, 2.2f, 2.7f, 3.3f, 3.7f);
-	bulletSetComplexTransform(0, 0, 1, 2, 1, -999999, -999999.0f, -999999.0f);
-	bulletSetComplexTransform(0, 1, 0, 1024, 100, 0, -999999.0f, -999999.0f);
+	etNew(0);
+	etMode(0, 1);
+	etSpr(0, 7, 6);
+	etCnt_rank(0, 1, 1, 1, 1, 5, 5, 8, 8);
+	etAng(0, 0.0f, 0.0f);
+	etSpd_rank(0, 2.5f, 3.0f, 4.5f, 5.0f, 2.2f, 2.7f, 3.3f, 3.7f);
+	etEx(0, 0, 1, 2, 1, -999999, -999999.0f, -999999.0f);
+	etEx(0, 1, 0, 1024, 100, 0, -999999.0f, -999999.0f);
 	%A = -1.570796f;
 	callSep("Boss3_at2");
 	callSep("Boss3_at3");
@@ -509,9 +509,9 @@ sub Boss3_at1()
 	goto Boss3_at1_968 @ 0;
 Boss3_at1_520:
 	ins_81(%B, %C, _f(%A + 1.5707964f), 64.0f);
-	bulletSetOffset(0, _f(%B - _f(8)), _f(%C - _f(32)));
-	bulletSetAngle(0, %A, %A);
-	bulletShoot(0);
+	etOfs(0, _f(%B - _f(8)), _f(%C - _f(32)));
+	etAng(0, %A, %A);
+	etOn(0);
 	%A = (%A + 0.19635f);
 !E
 	%A = (%A + 0.19635f);
@@ -526,14 +526,14 @@ sub Boss3_at1b()
 {
 	var A B C D;
 	ins_269(0);
-	bulletCreate(0);
-	bulletSetType(0, 1);
-	bulletSetSprite(0, 7, 4);
-	bulletSetCount_diff(0, 1, 1, 1, 1, 5, 5, 8, 8);
-	bulletSetAngle(0, 0.0f, 0.0f);
-	bulletSetSpeed_diff(0, 2.5f, 3.0f, 4.5f, 5.0f, 2.2f, 2.7f, 3.3f, 3.7f);
-	bulletSetComplexTransform(0, 0, 1, 2, 1, -999999, -999999.0f, -999999.0f);
-	bulletSetComplexTransform(0, 1, 0, 1024, 100, 0, -999999.0f, -999999.0f);
+	etNew(0);
+	etMode(0, 1);
+	etSpr(0, 7, 4);
+	etCnt_rank(0, 1, 1, 1, 1, 5, 5, 8, 8);
+	etAng(0, 0.0f, 0.0f);
+	etSpd_rank(0, 2.5f, 3.0f, 4.5f, 5.0f, 2.2f, 2.7f, 3.3f, 3.7f);
+	etEx(0, 0, 1, 2, 1, -999999, -999999.0f, -999999.0f);
+	etEx(0, 1, 0, 1024, 100, 0, -999999.0f, -999999.0f);
 	%A = -1.570796f;
 	callSep("Boss3_at2");
 	callSep("Boss3_at3b");
@@ -541,9 +541,9 @@ sub Boss3_at1b()
 	goto Boss3_at1b_968 @ 0;
 Boss3_at1b_520:
 	ins_81(%B, %C, _f(%A + 1.5707964f), 64.0f);
-	bulletSetOffset(0, _f(%B - _f(8)), _f(%C - _f(32)));
-	bulletSetAngle(0, %A, %A);
-	bulletShoot(0);
+	etOfs(0, _f(%B - _f(8)), _f(%C - _f(32)));
+	etAng(0, %A, %A);
+	etOn(0);
 	%A = (%A + 0.19635f);
 !E
 	%A = (%A + 0.19635f);
@@ -557,22 +557,22 @@ Boss3_at1b_968:
 sub Boss3_at2()
 {
 	var A B C D;
-	bulletCreate(1);
-	bulletSetType(1, 1);
-	bulletSetSprite(1, 7, 6);
-	bulletSetCount_diff(1, 1, 1, 1, 1, 5, 5, 8, 8);
-	bulletSetAngle(1, 0.0f, 0.0f);
-	bulletSetSpeed_diff(1, 2.5f, 3.0f, 4.5f, 5.0f, 2.2f, 2.7f, 3.3f, 3.7f);
-	bulletSetComplexTransform(1, 0, 1, 2, 1, -999999, -999999.0f, -999999.0f);
-	bulletSetComplexTransform(1, 1, 0, 1024, 100, 0, -999999.0f, -999999.0f);
+	etNew(1);
+	etMode(1, 1);
+	etSpr(1, 7, 6);
+	etCnt_rank(1, 1, 1, 1, 1, 5, 5, 8, 8);
+	etAng(1, 0.0f, 0.0f);
+	etSpd_rank(1, 2.5f, 3.0f, 4.5f, 5.0f, 2.2f, 2.7f, 3.3f, 3.7f);
+	etEx(1, 0, 1, 2, 1, -999999, -999999.0f, -999999.0f);
+	etEx(1, 1, 0, 1024, 100, 0, -999999.0f, -999999.0f);
 	%A = -1.570796f;
 	seti_rank($D, 16, 32, 64, 64);
 	goto Boss3_at2_884 @ 0;
 Boss3_at2_436:
 	ins_81(%B, %C, _f(%A - 1.5707964f), 64.0f);
-	bulletSetOffset(1, _f(%B - _f(8)), _f(%C - _f(32)));
-	bulletSetAngle(1, %A, %A);
-	bulletShoot(1);
+	etOfs(1, _f(%B - _f(8)), _f(%C - _f(32)));
+	etAng(1, %A, %A);
+	etOn(1);
 	%A = (%A - 0.19635f);
 !E
 	%A = (%A - 0.19635f);
@@ -586,22 +586,22 @@ Boss3_at2_884:
 sub Boss3_at3()
 {
 	var A B C D;
-	bulletCreate(2);
-	bulletSetType(2, 1);
-	bulletSetSprite(2, 7, 8);
-	bulletSetCount_diff(2, 1, 1, 1, 1, 8, 8, 8, 8);
-	bulletSetAngle(2, 0.0f, 0.0f);
-	bulletSetSpeed_diff(2, 2.5f, 3.0f, 4.0f, 5.0f, 2.2f, 2.5f, 3.3f, 3.5f);
-	bulletSetComplexTransform(2, 0, 1, 2, 1, -999999, -999999.0f, -999999.0f);
-	bulletSetComplexTransform(2, 1, 0, 1024, 100, 0, -999999.0f, -999999.0f);
+	etNew(2);
+	etMode(2, 1);
+	etSpr(2, 7, 8);
+	etCnt_rank(2, 1, 1, 1, 1, 8, 8, 8, 8);
+	etAng(2, 0.0f, 0.0f);
+	etSpd_rank(2, 2.5f, 3.0f, 4.0f, 5.0f, 2.2f, 2.5f, 3.3f, 3.5f);
+	etEx(2, 0, 1, 2, 1, -999999, -999999.0f, -999999.0f);
+	etEx(2, 1, 0, 1024, 100, 0, -999999.0f, -999999.0f);
 	%A = -1.570796f;
 	seti_rank($D, 16, 32, 64, 64);
 	goto Boss3_at3_884 @ 0;
 Boss3_at3_436:
 	ins_81(%B, %C, _f(%A - 3.1415927f), 48.0f);
-	bulletSetOffset(2, _f(%B - _f(8)), _f(%C - _f(32)));
-	bulletSetAngle(2, %A, %A);
-	bulletShoot(2);
+	etOfs(2, _f(%B - _f(8)), _f(%C - _f(32)));
+	etAng(2, %A, %A);
+	etOn(2);
 	%A = (%A - 0.19635f);
 !E
 	%A = (%A - 0.19635f);
@@ -615,22 +615,22 @@ Boss3_at3_884:
 sub Boss3_at3b()
 {
 	var A B C D;
-	bulletCreate(2);
-	bulletSetType(2, 1);
-	bulletSetSprite(2, 7, 8);
-	bulletSetCount_diff(2, 1, 1, 1, 1, 8, 8, 8, 8);
-	bulletSetAngle(2, 0.0f, 0.0f);
-	bulletSetSpeed_diff(2, 2.5f, 3.0f, 4.0f, 5.0f, 2.2f, 2.5f, 3.3f, 3.5f);
-	bulletSetComplexTransform(2, 0, 1, 2, 1, -999999, -999999.0f, -999999.0f);
-	bulletSetComplexTransform(2, 1, 0, 1024, 100, 0, -999999.0f, -999999.0f);
+	etNew(2);
+	etMode(2, 1);
+	etSpr(2, 7, 8);
+	etCnt_rank(2, 1, 1, 1, 1, 8, 8, 8, 8);
+	etAng(2, 0.0f, 0.0f);
+	etSpd_rank(2, 2.5f, 3.0f, 4.0f, 5.0f, 2.2f, 2.5f, 3.3f, 3.5f);
+	etEx(2, 0, 1, 2, 1, -999999, -999999.0f, -999999.0f);
+	etEx(2, 1, 0, 1024, 100, 0, -999999.0f, -999999.0f);
 	%A = -1.570796f;
 	seti_rank($D, 16, 32, 64, 64);
 	goto Boss3_at3b_884 @ 0;
 Boss3_at3b_436:
 	ins_81(%B, %C, _f(%A - 3.1415927f), 48.0f);
-	bulletSetOffset(2, _f(%B - _f(8)), _f(%C - _f(32)));
-	bulletSetAngle(2, %A, %A);
-	bulletShoot(2);
+	etOfs(2, _f(%B - _f(8)), _f(%C - _f(32)));
+	etAng(2, %A, %A);
+	etOn(2);
 	%A = (%A - 0.19635f);
 !E
 	%A = (%A - 0.19635f);
@@ -724,27 +724,27 @@ BossCard1_1584:
 sub BossCard1ArmAt()
 {
 	var A B;
-	bulletCreate(0);
-	bulletSetType(0, 1);
-	bulletSetSprite(0, 3, 4);
-	bulletSetCount(0, 1, 1);
-	bulletSetAngle(0, 0.0f, 0.032724924f);
-	bulletSetSpeed(0, 0.0f, 1.0f);
-	bulletSetComplexTransform(0, 0, 1, 2, 1, -999999, -999999.0f, -999999.0f);
-	bulletSetComplexTransform(0, 1, 0, 268435456, 1, -999999, -999999.0f, -999999.0f);
-	bulletSetSE(0, -1, -1);
+	etNew(0);
+	etMode(0, 1);
+	etSpr(0, 3, 4);
+	etCnt(0, 1, 1);
+	etAng(0, 0.0f, 0.032724924f);
+	etSpd(0, 0.0f, 1.0f);
+	etEx(0, 0, 1, 2, 1, -999999, -999999.0f, -999999.0f);
+	etEx(0, 1, 0, 268435456, 1, -999999, -999999.0f, -999999.0f);
+	etSE(0, -1, -1);
 	%B = _f(176);
 	goto BossCard1ArmAt_1156 @ 0;
 BossCard1ArmAt_380:
 	%A = ((%RANDF * 3.0f) / _f(120));
-	bulletSetComplexTransform(0, 2, 0, 4, 120, -999999, _f((1.0f / _f(120)) + %A), -999999.0f);
-	bulletSetOffset(0, _f((%B + (%RANDF2 * _f(32))) - %FINAL_X), _f(_f(0) - %FINAL_Y));
+	etEx(0, 2, 0, 4, 120, -999999, _f((1.0f / _f(120)) + %A), -999999.0f);
+	etOfs(0, _f((%B + (%RANDF2 * _f(32))) - %FINAL_X), _f(_f(0) - %FINAL_Y));
 	%B = (%B - _f(12));
 !L
 	%B = (%B - _f(4));
 !*
-	bulletSetAngle(0, _f(1.5707964f + (%RANDRAD / _f(32))), 0.0f);
-	bulletShoot(0);
+	etAng(0, _f(1.5707964f + (%RANDRAD / _f(32))), 0.0f);
+	etOn(0);
 	wait(1);
 BossCard1ArmAt_1156:
 	if 1 goto BossCard1ArmAt_380 @ 0;
@@ -754,27 +754,27 @@ BossCard1ArmAt_1156:
 sub BossCard1ArmAtL()
 {
 	var A B;
-	bulletCreate(0);
-	bulletSetType(0, 1);
-	bulletSetSprite(0, 3, 4);
-	bulletSetCount(0, 1, 1);
-	bulletSetAngle(0, 0.0f, 0.032724924f);
-	bulletSetSpeed(0, 0.0f, 1.0f);
-	bulletSetComplexTransform(0, 0, 1, 2, 1, -999999, -999999.0f, -999999.0f);
-	bulletSetComplexTransform(0, 1, 0, 268435456, 1, -999999, -999999.0f, -999999.0f);
-	bulletSetSE(0, -1, -1);
+	etNew(0);
+	etMode(0, 1);
+	etSpr(0, 3, 4);
+	etCnt(0, 1, 1);
+	etAng(0, 0.0f, 0.032724924f);
+	etSpd(0, 0.0f, 1.0f);
+	etEx(0, 0, 1, 2, 1, -999999, -999999.0f, -999999.0f);
+	etEx(0, 1, 0, 268435456, 1, -999999, -999999.0f, -999999.0f);
+	etSE(0, -1, -1);
 	%B = _f(-176);
 	goto BossCard1ArmAtL_1156 @ 0;
 BossCard1ArmAtL_380:
 	%A = ((%RANDF * 3.0f) / _f(120));
-	bulletSetComplexTransform(0, 2, 0, 4, 120, -999999, _f((1.0f / _f(120)) + %A), -999999.0f);
-	bulletSetOffset(0, _f((%B + (%RANDF2 * _f(32))) - %FINAL_X), _f(_f(0) - %FINAL_Y));
+	etEx(0, 2, 0, 4, 120, -999999, _f((1.0f / _f(120)) + %A), -999999.0f);
+	etOfs(0, _f((%B + (%RANDF2 * _f(32))) - %FINAL_X), _f(_f(0) - %FINAL_Y));
 	%B = (%B + _f(12));
 !L
 	%B = (%B + _f(4));
 !*
-	bulletSetAngle(0, _f(1.5707964f + (%RANDRAD / _f(32))), 0.0f);
-	bulletShoot(0);
+	etAng(0, _f(1.5707964f + (%RANDRAD / _f(32))), 0.0f);
+	etOn(0);
 	wait(1);
 BossCard1ArmAtL_1156:
 	if 1 goto BossCard1ArmAtL_380 @ 0;
@@ -879,21 +879,21 @@ BossCard1At_424:
 BossCard1At_600:
 10:
 	noop();
-	bulletCreate(0);
-	bulletSetType(0, 3);
-	bulletSetSprite(0, 5, 4);
-	bulletSetCount(0, 3, 1);
-	bulletSetAngle(0, 0.0f, 0.032724924f);
-	bulletSetSpeed(0, 4.0f, 1.0f);
-	bulletSetComplexTransform(0, 0, 1, 2, 1, -999999, -999999.0f, -999999.0f);
-	bulletSetComplexTransform(0, 1, 0, 4, 30, -999999, -0.1f, -999999.0f);
-	bulletSetComplexTransform(0, 2, 0, 2048, 7, 8, -999999.0f, -999999.0f);
+	etNew(0);
+	etMode(0, 3);
+	etSpr(0, 5, 4);
+	etCnt(0, 3, 1);
+	etAng(0, 0.0f, 0.032724924f);
+	etSpd(0, 4.0f, 1.0f);
+	etEx(0, 0, 1, 2, 1, -999999, -999999.0f, -999999.0f);
+	etEx(0, 1, 0, 4, 30, -999999, -0.1f, -999999.0f);
+	etEx(0, 2, 0, 2048, 7, 8, -999999.0f, -999999.0f);
 	$D = 112;
 	goto BossCard1At_1404 @ 10;
 BossCard1At_980:
-	bulletSetDistance(0, %B);
-	bulletSetAngle(0, %C, 0.7662421f);
-	bulletShoot(0);
+	etDist(0, %B);
+	etAng(0, %C, 0.7662421f);
+	etOn(0);
 	%B = (%B - _f(1));
 	unless ($A == 0) goto BossCard1At_1308 @ 10;
 	%C = (%C - 0.124174f);
@@ -1194,55 +1194,55 @@ BossCard2_1860:
 sub BossCard2ArmAt()
 {
 	var;
-	bulletCreate(0);
-	bulletSetType(0, 3);
-	bulletSetSprite(0, 3, 4);
-	bulletSetCount_diff(0, 6, 10, 14, 14, 1, 1, 1, 1);
-	bulletSetAngle(0, 0.0f, 0.032724924f);
-	bulletSetSpeed_diff(0, 0.0f, 0.0f, 0.0f, 0.0f, 1.0f, 1.0f, 1.0f, 1.0f);
-	bulletSetComplexTransform(0, 0, 1, 2, 1, -999999, -999999.0f, -999999.0f);
-	bulletSetComplexTransform(0, 1, 0, 268435456, 1, -999999, -999999.0f, -999999.0f);
-	bulletSetSE(0, -1, -1);
-	bulletSetComplexTransform(0, 2, 0, 4096, 60, -999999, -999999.0f, -999999.0f);
-	bulletSetComplexTransform(0, 3, 0, 4, 120, -999999, 0.008333334f, -999999.0f);
-	bulletSetAngle(0, %RANDRAD, 0.0f);
-	bulletSetDistance(0, 64.0f);
-	bulletShoot(0);
+	etNew(0);
+	etMode(0, 3);
+	etSpr(0, 3, 4);
+	etCnt_rank(0, 6, 10, 14, 14, 1, 1, 1, 1);
+	etAng(0, 0.0f, 0.032724924f);
+	etSpd_rank(0, 0.0f, 0.0f, 0.0f, 0.0f, 1.0f, 1.0f, 1.0f, 1.0f);
+	etEx(0, 0, 1, 2, 1, -999999, -999999.0f, -999999.0f);
+	etEx(0, 1, 0, 268435456, 1, -999999, -999999.0f, -999999.0f);
+	etSE(0, -1, -1);
+	etEx(0, 2, 0, 4096, 60, -999999, -999999.0f, -999999.0f);
+	etEx(0, 3, 0, 4, 120, -999999, 0.008333334f, -999999.0f);
+	etAng(0, %RANDRAD, 0.0f);
+	etDist(0, 64.0f);
+	etOn(0);
 	return();
 }
 
 sub BossCard2ArmAtH()
 {
 	var;
-	bulletCreate(0);
-	bulletSetType(0, 3);
-	bulletSetSprite(0, 3, 4);
-	bulletSetCount_diff(0, 6, 14, 14, 14, 1, 1, 1, 1);
-	bulletSetAngle(0, 0.0f, 0.032724924f);
-	bulletSetSpeed_diff(0, 0.0f, 0.0f, 0.0f, 0.0f, 1.0f, 1.0f, 1.0f, 1.0f);
-	bulletSetComplexTransform(0, 0, 1, 2, 1, -999999, -999999.0f, -999999.0f);
-	bulletSetComplexTransform(0, 1, 0, 268435456, 1, -999999, -999999.0f, -999999.0f);
-	bulletSetSE(0, -1, -1);
-	bulletSetComplexTransform(0, 2, 0, 4096, 60, -999999, -999999.0f, -999999.0f);
-	bulletSetComplexTransform(0, 3, 0, 4, 120, -999999, 0.008333334f, -999999.0f);
-	bulletSetAngle(0, %RANDRAD, 0.0f);
-	bulletSetDistance(0, 48.0f);
-	bulletShoot(0);
+	etNew(0);
+	etMode(0, 3);
+	etSpr(0, 3, 4);
+	etCnt_rank(0, 6, 14, 14, 14, 1, 1, 1, 1);
+	etAng(0, 0.0f, 0.032724924f);
+	etSpd_rank(0, 0.0f, 0.0f, 0.0f, 0.0f, 1.0f, 1.0f, 1.0f, 1.0f);
+	etEx(0, 0, 1, 2, 1, -999999, -999999.0f, -999999.0f);
+	etEx(0, 1, 0, 268435456, 1, -999999, -999999.0f, -999999.0f);
+	etSE(0, -1, -1);
+	etEx(0, 2, 0, 4096, 60, -999999, -999999.0f, -999999.0f);
+	etEx(0, 3, 0, 4, 120, -999999, 0.008333334f, -999999.0f);
+	etAng(0, %RANDRAD, 0.0f);
+	etDist(0, 48.0f);
+	etOn(0);
 	unless ($RANK >= 3) goto BossCard2ArmAtH_1108 @ 0;
-	bulletCreate(0);
-	bulletSetType(0, 3);
-	bulletSetSprite(0, 3, 4);
-	bulletSetCount_diff(0, 6, 14, 14, 14, 1, 1, 1, 1);
-	bulletSetAngle(0, 0.0f, 0.032724924f);
-	bulletSetSpeed_diff(0, 0.0f, 0.0f, 0.0f, 0.0f, 1.0f, 1.0f, 1.0f, 1.0f);
-	bulletSetComplexTransform(0, 0, 1, 2, 1, -999999, -999999.0f, -999999.0f);
-	bulletSetComplexTransform(0, 1, 0, 268435456, 1, -999999, -999999.0f, -999999.0f);
-	bulletSetSE(0, -1, -1);
-	bulletSetComplexTransform(0, 2, 0, 4096, 60, -999999, -999999.0f, -999999.0f);
-	bulletSetComplexTransform(0, 3, 0, 4, 120, -999999, 0.008333334f, -999999.0f);
-	bulletSetAngle(0, %RANDRAD, 0.0f);
-	bulletSetDistance(0, 80.0f);
-	bulletShoot(0);
+	etNew(0);
+	etMode(0, 3);
+	etSpr(0, 3, 4);
+	etCnt_rank(0, 6, 14, 14, 14, 1, 1, 1, 1);
+	etAng(0, 0.0f, 0.032724924f);
+	etSpd_rank(0, 0.0f, 0.0f, 0.0f, 0.0f, 1.0f, 1.0f, 1.0f, 1.0f);
+	etEx(0, 0, 1, 2, 1, -999999, -999999.0f, -999999.0f);
+	etEx(0, 1, 0, 268435456, 1, -999999, -999999.0f, -999999.0f);
+	etSE(0, -1, -1);
+	etEx(0, 2, 0, 4096, 60, -999999, -999999.0f, -999999.0f);
+	etEx(0, 3, 0, 4, 120, -999999, 0.008333334f, -999999.0f);
+	etAng(0, %RANDRAD, 0.0f);
+	etDist(0, 80.0f);
+	etOn(0);
 BossCard2ArmAtH_1108:
 	return();
 }
@@ -1250,23 +1250,23 @@ BossCard2ArmAtH_1108:
 sub BossCard2ArmAtL()
 {
 	var A B;
-	bulletCreate(0);
-	bulletSetType(0, 1);
-	bulletSetSprite(0, 3, 4);
-	bulletSetCount(0, 1, 1);
-	bulletSetAngle(0, 0.0f, 0.032724924f);
-	bulletSetSpeed(0, 0.0f, 1.0f);
-	bulletSetComplexTransform(0, 0, 1, 2, 1, -999999, -999999.0f, -999999.0f);
-	bulletSetComplexTransform(0, 1, 0, 268435456, 1, -999999, -999999.0f, -999999.0f);
-	bulletSetSE(0, -1, -1);
+	etNew(0);
+	etMode(0, 1);
+	etSpr(0, 3, 4);
+	etCnt(0, 1, 1);
+	etAng(0, 0.0f, 0.032724924f);
+	etSpd(0, 0.0f, 1.0f);
+	etEx(0, 0, 1, 2, 1, -999999, -999999.0f, -999999.0f);
+	etEx(0, 1, 0, 268435456, 1, -999999, -999999.0f, -999999.0f);
+	etSE(0, -1, -1);
 	%B = _f(-176);
 	goto BossCard2ArmAtL_940 @ 0;
 BossCard2ArmAtL_380:
 	%A = ((%RANDF * 3.0f) / _f(120));
-	bulletSetOffset(0, _f((%B + (%RANDF2 * _f(32))) - %FINAL_X), _f(_f(0) - %FINAL_Y));
+	etOfs(0, _f((%B + (%RANDF2 * _f(32))) - %FINAL_X), _f(_f(0) - %FINAL_Y));
 	%B = (%B + _f(12));
-	bulletSetAngle(0, _f(1.5707964f + (%RANDRAD / _f(32))), 0.0f);
-	bulletShoot(0);
+	etAng(0, _f(1.5707964f + (%RANDRAD / _f(32))), 0.0f);
+	etOn(0);
 	wait(1);
 BossCard2ArmAtL_940:
 	if 1 goto BossCard2ArmAtL_380 @ 0;
@@ -1552,23 +1552,23 @@ BossCard3_848:
 sub BossCard3ArmAt()
 {
 	var;
-	bulletCreate(0);
-	bulletSetType(0, 2);
-	bulletSetSprite(0, 24, 0);
-	bulletSetCount(0, 1, 1);
-	bulletSetAngle(0, 0.0f, 0.032724924f);
-	bulletSetSpeed(0, 0.0f, 1.0f);
-	bulletSetComplexTransform(0, 0, 1, 2, 1, -999999, -999999.0f, -999999.0f);
-	bulletSetComplexTransform(0, 1, 0, 268435456, 1, -999999, -999999.0f, -999999.0f);
-	bulletSetSE(0, -1, -1);
-	bulletSetComplexTransform(0, 2, 0, 4096, 20, -999999, -999999.0f, -999999.0f);
-	bulletSetComplexTransform(0, 3, 0, 4, 120, -999999, 0.008333334f, -999999.0f);
+	etNew(0);
+	etMode(0, 2);
+	etSpr(0, 24, 0);
+	etCnt(0, 1, 1);
+	etAng(0, 0.0f, 0.032724924f);
+	etSpd(0, 0.0f, 1.0f);
+	etEx(0, 0, 1, 2, 1, -999999, -999999.0f, -999999.0f);
+	etEx(0, 1, 0, 268435456, 1, -999999, -999999.0f, -999999.0f);
+	etSE(0, -1, -1);
+	etEx(0, 2, 0, 4096, 20, -999999, -999999.0f, -999999.0f);
+	etEx(0, 3, 0, 4, 120, -999999, 0.008333334f, -999999.0f);
 	goto BossCard3ArmAt_808 @ 0;
 BossCard3ArmAt_436:
-	bulletSetComplexTransform(0, 3, 0, 4, 120, -999999, _f(((2.0f / _f(120)) + (%RANDF * 1.0f)) / _f(120)), -999999.0f);
-	bulletSetAngle(0, _f(%RANDRAD / _f(2)), 0.0f);
-	bulletSetDistance(0, 64.0f);
-	bulletShoot(0);
+	etEx(0, 3, 0, 4, 120, -999999, _f(((2.0f / _f(120)) + (%RANDF * 1.0f)) / _f(120)), -999999.0f);
+	etAng(0, _f(%RANDRAD / _f(2)), 0.0f);
+	etDist(0, 64.0f);
+	etOn(0);
 	wait_rank(8, 8, 16, 16);
 BossCard3ArmAt_808:
 	if 1 goto BossCard3ArmAt_436 @ 0;
@@ -1578,23 +1578,23 @@ BossCard3ArmAt_808:
 sub BossCard3ArmAtL()
 {
 	var A B;
-	bulletCreate(0);
-	bulletSetType(0, 1);
-	bulletSetSprite(0, 3, 4);
-	bulletSetCount(0, 1, 1);
-	bulletSetAngle(0, 0.0f, 0.032724924f);
-	bulletSetSpeed(0, 0.0f, 1.0f);
-	bulletSetComplexTransform(0, 0, 1, 2, 1, -999999, -999999.0f, -999999.0f);
-	bulletSetComplexTransform(0, 1, 0, 268435456, 1, -999999, -999999.0f, -999999.0f);
-	bulletSetSE(0, -1, -1);
+	etNew(0);
+	etMode(0, 1);
+	etSpr(0, 3, 4);
+	etCnt(0, 1, 1);
+	etAng(0, 0.0f, 0.032724924f);
+	etSpd(0, 0.0f, 1.0f);
+	etEx(0, 0, 1, 2, 1, -999999, -999999.0f, -999999.0f);
+	etEx(0, 1, 0, 268435456, 1, -999999, -999999.0f, -999999.0f);
+	etSE(0, -1, -1);
 	%B = _f(-176);
 	goto BossCard3ArmAtL_940 @ 0;
 BossCard3ArmAtL_380:
 	%A = ((%RANDF * 3.0f) / _f(120));
-	bulletSetOffset(0, _f((%B + (%RANDF2 * _f(32))) - %FINAL_X), _f(_f(0) - %FINAL_Y));
+	etOfs(0, _f((%B + (%RANDF2 * _f(32))) - %FINAL_X), _f(_f(0) - %FINAL_Y));
 	%B = (%B + _f(12));
-	bulletSetAngle(0, _f(1.5707964f + (%RANDRAD / _f(32))), 0.0f);
-	bulletShoot(0);
+	etAng(0, _f(1.5707964f + (%RANDRAD / _f(32))), 0.0f);
+	etOn(0);
 	wait(1);
 BossCard3ArmAtL_940:
 	if 1 goto BossCard3ArmAtL_380 @ 0;
@@ -1737,27 +1737,27 @@ BossCard3HeadAt_296:
 	seti_rank($F, 3, 3, 3, 2);
 	goto BossCard3HeadAt_1752 @ 0;
 BossCard3HeadAt_396:
-	bulletCreate($A);
-	bulletSetSprite($A, 7, 4);
-	bulletSetAngle($A, 0.0f, 0.0f);
-	bulletSetSpeed($A, 0.0f, 0.0f);
+	etNew($A);
+	etSpr($A, 7, 4);
+	etAng($A, 0.0f, 0.0f);
+	etSpd($A, 0.0f, 0.0f);
 	laserSetSize($A, 0.0f, 128.0f, 0.0f, 14.0f);
-	bulletSetSE(0, 19, -1);
-	bulletSetComplexTransform($A, 0, 0, 268435456, 0, -999999, -999999.0f, -999999.0f);
-	bulletSetComplexTransform($A, 1, 0, 4, 90, -999999, 0.011111111f, -999999.0f);
+	etSE(0, 19, -1);
+	etEx($A, 0, 0, 268435456, 0, -999999, -999999.0f, -999999.0f);
+	etEx($A, 1, 0, 4, 90, -999999, 0.011111111f, -999999.0f);
 	unless ($RANK <= 0) goto BossCard3HeadAt_812 @ 0;
-	bulletSetComplexTransform($A, 2, 0, 4, 50, -999999, 0.044444446f, -999999.0f);
+	etEx($A, 2, 0, 4, 50, -999999, 0.044444446f, -999999.0f);
 	goto BossCard3HeadAt_860 @ 0;
 BossCard3HeadAt_812:
-	bulletSetComplexTransform($A, 2, 0, 4, 50, -999999, 0.055555556f, -999999.0f);
+	etEx($A, 2, 0, 4, 50, -999999, 0.055555556f, -999999.0f);
 BossCard3HeadAt_860:
 	%G = %RANDRAD;
 	$J = 16;
 	goto BossCard3HeadAt_1332 @ 0;
 BossCard3HeadAt_964:
 	ins_81(%H, %I, %G, 12.0f);
-	bulletSetOffset($A, _f((%H - _f(8)) + %B), _f((%I - _f(32)) + %C));
-	bulletSetAngle($A, %G, %G);
+	etOfs($A, _f((%H - _f(8)) + %B), _f((%I - _f(32)) + %C));
+	etAng($A, %G, %G);
 	laserShoot($A);
 	%G = (%G + 0.392699f);
 BossCard3HeadAt_1332:
@@ -1907,7 +1907,7 @@ BossDead_308:
 BossDead_364:
 	enmClear();
 60:
-	bulletClear_all();
+	etClear_all();
 	cardEnd();
 	unless ($TIMEOUT == 0) goto BossDead_616 @ 60;
 	itemClear();

@@ -86,24 +86,24 @@ Cir00_468:
 sub Cir00Dead()
 {
 	var A;
-	bulletCreate(0);
-	bulletSetType(0, 0);
-	bulletSetSprite(0, 17, 4);
-	bulletSetCount_diff(0, 1, 1, 3, 3, 1, 1, 1, 1);
-	bulletSetAngle(0, 0.0f, 0.3926991f);
-	bulletSetSpeed_diff(0, 1.0f, 0.0f, 0.0f, 0.0f, 1.0f, 1.0f, 1.0f, 2.0f);
-	bulletSetComplexTransform(0, 0, 1, 2, 1, -999999, -999999.0f, -999999.0f);
-	bulletSetComplexTransform(0, 1, 0, 4, 60, -999999, 0.016666668f, -999999.0f);
+	etNew(0);
+	etMode(0, 0);
+	etSpr(0, 17, 4);
+	etCnt_rank(0, 1, 1, 3, 3, 1, 1, 1, 1);
+	etAng(0, 0.0f, 0.3926991f);
+	etSpd_rank(0, 1.0f, 0.0f, 0.0f, 0.0f, 1.0f, 1.0f, 1.0f, 2.0f);
+	etEx(0, 0, 1, 2, 1, -999999, -999999.0f, -999999.0f);
+	etEx(0, 1, 0, 4, 60, -999999, 0.016666668f, -999999.0f);
 !HL
-	bulletSetSprite(0, 26, 1);
+	etSpr(0, 26, 1);
 !*
 	playSE(22);
 	$A = 4;
 	goto Cir00Dead_672 @ 0;
 Cir00Dead_448:
-	bulletSetAngle(0, _f(%RANDRAD / _f(16)), 0.0f);
-	bulletSetSpeed(0, _f((%RANDF * 1.0f) + 2.0f), 0.0f);
-	bulletShoot(0);
+	etAng(0, _f(%RANDRAD / _f(16)), 0.0f);
+	etSpd(0, _f((%RANDF * 1.0f) + 2.0f), 0.0f);
+	etOn(0);
 Cir00Dead_672:
 	if $A-- goto Cir00Dead_448 @ 0;
 	wait(1);
@@ -113,19 +113,19 @@ Cir00Dead_672:
 sub Cir00_at()
 {
 	var A B C D;
-	bulletCreate(0);
-	bulletSetType(0, 2);
-	bulletSetSprite(0, 23, 0);
-	bulletSetCount_diff(0, 1, 1, 3, 4, 1, 1, 1, 1);
-	bulletSetAngle(0, 0.0f, 0.05235988f);
-	bulletSetSpeed_diff(0, 1.0f, 0.1f, 2.0f, 3.0f, 1.0f, 1.0f, 1.0f, 1.0f);
-	bulletSetComplexTransform(0, 0, 1, 2, 1, -999999, -999999.0f, -999999.0f);
-	bulletSetComplexTransform(0, 1, 0, 4, 90, -999999, 0.033333335f, -999999.0f);
+	etNew(0);
+	etMode(0, 2);
+	etSpr(0, 23, 0);
+	etCnt_rank(0, 1, 1, 3, 4, 1, 1, 1, 1);
+	etAng(0, 0.0f, 0.05235988f);
+	etSpd_rank(0, 1.0f, 0.1f, 2.0f, 3.0f, 1.0f, 1.0f, 1.0f, 1.0f);
+	etEx(0, 0, 1, 2, 1, -999999, -999999.0f, -999999.0f);
+	etEx(0, 1, 0, 4, 90, -999999, 0.033333335f, -999999.0f);
 	seti_rank($D, 8, 100, 100, 100);
 	goto Cir00_at_520 @ 0;
 Cir00_at_396:
-	bulletSetAngle(0, _f(%RANDRAD / _f(8)), 0.0f);
-	bulletShoot(0);
+	etAng(0, _f(%RANDRAD / _f(8)), 0.0f);
+	etOn(0);
 	wait(8);
 Cir00_at_520:
 	if $D-- goto Cir00_at_396 @ 0;
@@ -207,23 +207,23 @@ sub Girl00()
 sub Girl00_at()
 {
 	var A B;
-	bulletCreate(0);
-	bulletSetType(0, 3);
-	bulletSetSprite(0, 11, 2);
-	bulletSetCount_diff(0, 30, 30, 30, 30, 2, 5, 8, 10);
-	bulletSetAngle(0, 0.0f, 0.032724924f);
-	bulletSetSpeed_diff(0, 1.5f, 1.5f, 3.0f, 3.5f, 1.0f, 1.0f, 1.0f, 1.0f);
-	bulletSetComplexTransform(0, 0, 1, 2, 1, -999999, -999999.0f, -999999.0f);
-	bulletSetComplexTransform(0, 1, 1, 1, -999999, -999999, -999999.0f, -999999.0f);
+	etNew(0);
+	etMode(0, 3);
+	etSpr(0, 11, 2);
+	etCnt_rank(0, 30, 30, 30, 30, 2, 5, 8, 10);
+	etAng(0, 0.0f, 0.032724924f);
+	etSpd_rank(0, 1.5f, 1.5f, 3.0f, 3.5f, 1.0f, 1.0f, 1.0f, 1.0f);
+	etEx(0, 0, 1, 2, 1, -999999, -999999.0f, -999999.0f);
+	etEx(0, 1, 1, 1, -999999, -999999, -999999.0f, -999999.0f);
 	wait(30);
 	%A = %RANDRAD;
 	$B = 1;
-	bulletSetAngle(0, %A, 0.032724924f);
-	bulletShoot(0);
+	etAng(0, %A, 0.032724924f);
+	etOn(0);
 	wait(60);
-	bulletSetSprite(0, 11, 4);
-	bulletSetAngle(0, _f(%A + (3.1415927f / _f(30))), -0.032724924f);
-	bulletShoot(0);
+	etSpr(0, 11, 4);
+	etAng(0, _f(%A + (3.1415927f / _f(30))), -0.032724924f);
+	etOn(0);
 	return();
 }
 
@@ -273,15 +273,15 @@ Girl01_332:
 sub Girl01_at()
 {
 	var A B C D;
-	bulletCreate(0);
-	bulletSetType(0, 3);
-	bulletSetSprite(0, 24, 0);
-	bulletSetCount_diff(0, 1, 1, 1, 1, 1, 1, 1, 1);
-	bulletSetAngle(0, 1.5707964f, 0.5235988f);
-	bulletSetSpeed_diff(0, 2.0f, 2.0f, 3.0f, 4.0f, 1.0f, 1.0f, 1.0f, 2.0f);
-	bulletSetComplexTransform(0, 0, 1, 2, 1, -999999, -999999.0f, -999999.0f);
-	bulletSetComplexTransform(0, 1, 0, 1024, 30, 1, -999999.0f, -999999.0f);
-	bulletSetDistance(0, 16.0f);
+	etNew(0);
+	etMode(0, 3);
+	etSpr(0, 24, 0);
+	etCnt_rank(0, 1, 1, 1, 1, 1, 1, 1, 1);
+	etAng(0, 1.5707964f, 0.5235988f);
+	etSpd_rank(0, 2.0f, 2.0f, 3.0f, 4.0f, 1.0f, 1.0f, 1.0f, 2.0f);
+	etEx(0, 0, 1, 2, 1, -999999, -999999.0f, -999999.0f);
+	etEx(0, 1, 0, 1024, 30, 1, -999999.0f, -999999.0f);
+	etDist(0, 16.0f);
 	wait(_S($RAND % 30));
 	%C = 1.570796f;
 	$D = 600;
@@ -291,8 +291,8 @@ Girl01_at_540:
 	%B = ((_f($A) * 3.1415927f) / 16.0f);
 	%B = (%B - 0.392699f);
 	%C = (%C + 0.628319f);
-	bulletSetAngle(0, _f(%C + %B), 0.0f);
-	bulletShoot(0);
+	etAng(0, _f(%C + %B), 0.0f);
+	etOn(0);
 	wait_rank(120, 60, 30, 20);
 Girl01_at_1016:
 	if $D-- goto Girl01_at_540 @ 0;
@@ -327,19 +327,19 @@ sub Girl02()
 sub Girl02_at()
 {
 	var A B;
-	bulletCreate(0);
-	bulletSetType(0, 1);
-	bulletSetSprite(0, 11, 2);
-	bulletSetCount_diff(0, 2, 2, 4, 6, 1, 1, 1, 1);
-	bulletSetAngle(0, 0.0f, 0.032724924f);
-	bulletSetSpeed_diff(0, 1.0f, 1.0f, 3.0f, 3.5f, 1.0f, 1.0f, 1.0f, 2.0f);
-	bulletSetComplexTransform(0, 0, 1, 2, 1, -999999, -999999.0f, -999999.0f);
+	etNew(0);
+	etMode(0, 1);
+	etSpr(0, 11, 2);
+	etCnt_rank(0, 2, 2, 4, 6, 1, 1, 1, 1);
+	etAng(0, 0.0f, 0.032724924f);
+	etSpd_rank(0, 1.0f, 1.0f, 3.0f, 3.5f, 1.0f, 1.0f, 1.0f, 2.0f);
+	etEx(0, 0, 1, 2, 1, -999999, -999999.0f, -999999.0f);
 	wait(90);
 	%A = _f(0);
 	goto Girl02_at_604 @ 0;
 Girl02_at_372:
-	bulletSetAngle(0, 1.5707964f, %A);
-	bulletShoot(0);
+	etAng(0, 1.5707964f, %A);
+	etOn(0);
 	wait_rank(3, 2, 2, 2);
 	%A = (%A + 0.314159f);
 !E
@@ -422,15 +422,15 @@ Girl03_332:
 sub Girl03_at()
 {
 	var A B C D;
-	bulletCreate(0);
-	bulletSetType(0, 3);
-	bulletSetSprite(0, 24, 0);
-	bulletSetCount_diff(0, 1, 1, 1, 1, 1, 1, 1, 1);
-	bulletSetAngle(0, 1.5707964f, 0.5235988f);
-	bulletSetSpeed_diff(0, 2.0f, 2.0f, 3.0f, 3.5f, 1.0f, 1.0f, 1.0f, 2.0f);
-	bulletSetComplexTransform(0, 0, 1, 2, 1, -999999, -999999.0f, -999999.0f);
-	bulletSetComplexTransform(0, 1, 0, 1024, 30, 1, -999999.0f, -999999.0f);
-	bulletSetDistance(0, 16.0f);
+	etNew(0);
+	etMode(0, 3);
+	etSpr(0, 24, 0);
+	etCnt_rank(0, 1, 1, 1, 1, 1, 1, 1, 1);
+	etAng(0, 1.5707964f, 0.5235988f);
+	etSpd_rank(0, 2.0f, 2.0f, 3.0f, 3.5f, 1.0f, 1.0f, 1.0f, 2.0f);
+	etEx(0, 0, 1, 2, 1, -999999, -999999.0f, -999999.0f);
+	etEx(0, 1, 0, 1024, 30, 1, -999999.0f, -999999.0f);
+	etDist(0, 16.0f);
 	wait(_S($RAND % 10));
 	%C = 1.570796f;
 	$D = 600;
@@ -440,8 +440,8 @@ Girl03_at_540:
 	%B = ((_f($A) * 3.1415927f) / 16.0f);
 	%B = (%B - 0.392699f);
 	%C = (%C + 0.628319f);
-	bulletSetAngle(0, _f(%C + %B), 0.0f);
-	bulletShoot(0);
+	etAng(0, _f(%C + %B), 0.0f);
+	etOn(0);
 	wait_rank(60, 16, 12, 8);
 Girl03_at_1016:
 	if $D-- goto Girl03_at_540 @ 0;
@@ -1253,18 +1253,18 @@ sub RGirl04()
 sub RGirl04_at()
 {
 	var A;
-	bulletCreate(0);
-	bulletSetType(0, 0);
-	bulletSetSprite(0, 7, 6);
-	bulletSetCount_diff(0, 1, 1, 3, 3, 1, 1, 1, 1);
-	bulletSetAngle(0, 1.5707964f, 0.032724924f);
-	bulletSetSpeed_diff(0, 1.3f, 2.6f, 3.0f, 5.0f, 1.0f, 1.0f, 1.0f, 2.0f);
-	bulletSetComplexTransform(0, 0, 1, 2, 1, -999999, -999999.0f, -999999.0f);
+	etNew(0);
+	etMode(0, 0);
+	etSpr(0, 7, 6);
+	etCnt_rank(0, 1, 1, 3, 3, 1, 1, 1, 1);
+	etAng(0, 1.5707964f, 0.032724924f);
+	etSpd_rank(0, 1.3f, 2.6f, 3.0f, 5.0f, 1.0f, 1.0f, 1.0f, 2.0f);
+	etEx(0, 0, 1, 2, 1, -999999, -999999.0f, -999999.0f);
 	seti_rank($A, 1, 5, 8, 10);
 	goto RGirl04_at_484 @ 0;
 RGirl04_at_348:
-	bulletSetAngle(0, _f(%RANDRAD / _f(16)), 0.049087387f);
-	bulletShoot(0);
+	etAng(0, _f(%RANDRAD / _f(16)), 0.049087387f);
+	etOn(0);
 	wait_rank(20, 20, 10, 10);
 RGirl04_at_484:
 	if $A-- goto RGirl04_at_348 @ 0;
@@ -1286,18 +1286,18 @@ sub RGirl04b_at()
 	var A B;
 	seti_rank($A, 1, 4, 1, 2);
 	seti_rank($B, 60, 30, 30, 10);
-	bulletCreate(0);
-	bulletSetType(0, 0);
-	bulletSetSprite(0, 7, 6);
-	bulletSetCount_diff(0, 1, 1, 3, 5, 1, 1, 1, 1);
-	bulletSetAngle(0, 1.5707964f, 0.032724924f);
-	bulletSetSpeed_diff(0, 1.3f, 1.6f, 3.0f, 5.5f, 1.0f, 1.0f, 1.0f, 2.0f);
+	etNew(0);
+	etMode(0, 0);
+	etSpr(0, 7, 6);
+	etCnt_rank(0, 1, 1, 3, 5, 1, 1, 1, 1);
+	etAng(0, 1.5707964f, 0.032724924f);
+	etSpd_rank(0, 1.3f, 1.6f, 3.0f, 5.5f, 1.0f, 1.0f, 1.0f, 2.0f);
 	wait(_S($RAND % 60));
-	bulletSetComplexTransform(0, 0, 1, 2, 1, -999999, -999999.0f, -999999.0f);
+	etEx(0, 0, 1, 2, 1, -999999, -999999.0f, -999999.0f);
 	goto RGirl04b_at_584 @ 0;
 RGirl04b_at_460:
-	bulletSetAngle(0, _f(%RANDRAD / _f(16)), 0.049087387f);
-	bulletShoot(0);
+	etAng(0, _f(%RANDRAD / _f(16)), 0.049087387f);
+	etOn(0);
 	wait($B);
 RGirl04b_at_584:
 	if $A-- goto RGirl04b_at_460 @ 0;

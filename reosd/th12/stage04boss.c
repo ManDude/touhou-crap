@@ -129,26 +129,26 @@ sub Boss1_at()
 !HL
 	$A = [-9940] + 24;
 !ENHL
-	bulletCreate(0);
-	bulletSetOffset(0, 0.0f, -12.0f);
-	bulletSetType(0, 2);
-	bulletSetSprite(0, 3, 2);
+	etNew(0);
+	etOfs(0, 0.0f, -12.0f);
+	etMode(0, 2);
+	etSpr(0, 3, 2);
 !E
 	3;
 !NHL
 	4;
 !ENHL
-	bulletSetCount(0, $A, [-1]);
+	etCnt(0, $A, [-1]);
 !E
 	2.5f;
 !NHL
 	3.5f;
 !ENHL
-	bulletSetSpeed(0, [-1.0f], 1.2f);
-	bulletSetAngle(0, 0.0f, 0.0f);
-	bulletSetComplexTransform(0, 0, 0, 2, 2, -999999, -999999.0f, -999999.0f);
+	etSpd(0, [-1.0f], 1.2f);
+	etAng(0, 0.0f, 0.0f);
+	etEx(0, 0, 0, 2, 2, -999999, -999999.0f, -999999.0f);
 SHOOT:
-	bulletShoot(0);
+	etOn(0);
 	wait(40);
 	goto SHOOT @ 0;
 	return();
@@ -158,11 +158,11 @@ sub Boss1_at1(G)
 {
 	var A B C D E F H K;
 	[-9942] = 0;
-	bulletCreate(0);
-	bulletSetType(0, 2);
-	bulletSetSprite(0, 3, 2);
-	bulletSetAngle(0, 0.0f, 0.0f);
-	bulletSetComplexTransform(0, 0, 0, 2, 2, -999999, -999999.0f, -999999.0f);
+	etNew(0);
+	etMode(0, 2);
+	etSpr(0, 3, 2);
+	etAng(0, 0.0f, 0.0f);
+	etEx(0, 0, 0, 2, 2, -999999, -999999.0f, -999999.0f);
 !E
 	%K = 0.006041524f;
 !N
@@ -180,40 +180,40 @@ sub Boss1_at1(G)
 	if $H == 5 goto BULLET_5 @ 0;
 	if $H == 6 goto BULLET_6 @ 0;
 	if $H == 7 goto BULLET_7 @ 0;
-	bulletSetCount(0, 8, 1);
-	bulletSetSpeed(0, 1.5f, 1.2f);
+	etCnt(0, 8, 1);
+	etSpd(0, 1.5f, 1.2f);
 	goto CONT_BULLET @ 0;
 BULLET_1:
-	bulletSetCount(0, 10, 1);
-	bulletSetSpeed(0, 2.0f, 1.2f);
+	etCnt(0, 10, 1);
+	etSpd(0, 2.0f, 1.2f);
 	goto CONT_BULLET @ 0;
 BULLET_2:
-	bulletSetCount(0, 14, 1);
-	bulletSetSpeed(0, 2.4f, 1.2f);
+	etCnt(0, 14, 1);
+	etSpd(0, 2.4f, 1.2f);
 	goto CONT_BULLET @ 0;
 BULLET_3:
-	bulletSetCount(0, 10, 2);
-	bulletSetSpeed(0, 3.0f, 1.2f);
+	etCnt(0, 10, 2);
+	etSpd(0, 3.0f, 1.2f);
 	goto CONT_BULLET @ 0;
 BULLET_4:
-	bulletSetCount(0, 1, 2);
-	bulletSetSpeed(0, 2.0f, 1.2f);
+	etCnt(0, 1, 2);
+	etSpd(0, 2.0f, 1.2f);
 	goto CONT_BULLET @ 0;
 BULLET_5:
-	bulletSetCount(0, 1, 2);
-	bulletSetSpeed(0, 2.0f, 1.2f);
+	etCnt(0, 1, 2);
+	etSpd(0, 2.0f, 1.2f);
 	goto CONT_BULLET @ 0;
 BULLET_6:
-	bulletSetType(0, 0);
-	bulletSetCount(0, 2, 2);
-	bulletSetSpeed(0, 2.0f, 1.2f);
-	bulletSetAngle(0, 0.0f, 0.09817477f);
+	etMode(0, 0);
+	etCnt(0, 2, 2);
+	etSpd(0, 2.0f, 1.2f);
+	etAng(0, 0.0f, 0.09817477f);
 	goto CONT_BULLET @ 0;
 BULLET_7:
-	bulletSetType(0, 0);
-	bulletSetCount(0, 2, 2);
-	bulletSetSpeed(0, 2.5f, 1.2f);
-	bulletSetAngle(0, 0.0f, 0.09817477f);
+	etMode(0, 0);
+	etCnt(0, 2, 2);
+	etSpd(0, 2.5f, 1.2f);
+	etAng(0, 0.0f, 0.09817477f);
 CONT_BULLET:
 	$G;
 	je(NO_NEGA, 0);
@@ -224,11 +224,11 @@ NO_NEGA:
 	%D = 2.356194f;
 	%E = -2.356194f;
 	%F = -0.7853982f;
-	bulletCreate(1);
-	bulletSetSE(1, 19, -1);
-	bulletSetSpeed(1, 32.0f, 32.0f);
+	etNew(1);
+	etSE(1, 19, -1);
+	etSpd(1, 32.0f, 32.0f);
 	laserSetSize(1, 500.0f, 500.0f, 0.0f, 48.0f);
-	bulletSetDistance(1, 0.0f);
+	etDist(1, 0.0f);
 !EN
 	laserSetTime(1, 0, 20, 50, 20, 14);
 !H
@@ -238,18 +238,18 @@ NO_NEGA:
 !ENHL
 	[-9941];
 	jne(LASER2, 0);
-	bulletSetSprite(1, 7, 6);
+	etSpr(1, 7, 6);
 	goto LASER_END @ 0;
 LASER2:
-	bulletSetSprite(1, 7, 2);
+	etSpr(1, 7, 2);
 LASER_END:
-	bulletSetAngle(1, %C, 0.0f);
+	etAng(1, %C, 0.0f);
 	laserShootStatic(1, 1);
-	bulletSetAngle(1, %D, 0.0f);
+	etAng(1, %D, 0.0f);
 	laserShootStatic(1, 2);
-	bulletSetAngle(1, %E, 0.0f);
+	etAng(1, %E, 0.0f);
 	laserShootStatic(1, 3);
-	bulletSetAngle(1, %F, 0.0f);
+	etAng(1, %F, 0.0f);
 	laserShootStatic(1, 4);
 	laserSetRotSpeed(1, %K);
 	laserSetRotSpeed(2, %K);
@@ -299,18 +299,18 @@ ANGLE_CONT:
 !ENHL
 	[-9941];
 	jne(LASER2_2, 0);
-	bulletSetSprite(1, 7, 6);
+	etSpr(1, 7, 6);
 	goto LASER_END_2 @ 0;
 LASER2_2:
-	bulletSetSprite(1, 7, 2);
+	etSpr(1, 7, 2);
 LASER_END_2:
-	bulletSetAngle(1, %C, 0.0f);
+	etAng(1, %C, 0.0f);
 	laserShootStatic(1, 5);
-	bulletSetAngle(1, %D, 0.0f);
+	etAng(1, %D, 0.0f);
 	laserShootStatic(1, 6);
-	bulletSetAngle(1, %E, 0.0f);
+	etAng(1, %E, 0.0f);
 	laserShootStatic(1, 7);
-	bulletSetAngle(1, %F, 0.0f);
+	etAng(1, %F, 0.0f);
 	laserShootStatic(1, 8);
 	%K = %K * -1.0f;
 	laserSetRotSpeed(5, %K);
@@ -343,35 +343,35 @@ sub Boss1_at2(A)
 	var;
 	[-9942] < 2;
 	je(SHOOT3, 0);
-	bulletSetOffset(0, -45.0f, -32.0f);
-	bulletShoot(0);
-	bulletSetOffset(0, 45.0f, -32.0f);
-	bulletShoot(0);
-	bulletSetOffset(0, -46.0f, 32.0f);
-	bulletShoot(0);
-	bulletSetOffset(0, 46.0f, 32.0f);
-	bulletShoot(0);
+	etOfs(0, -45.0f, -32.0f);
+	etOn(0);
+	etOfs(0, 45.0f, -32.0f);
+	etOn(0);
+	etOfs(0, -46.0f, 32.0f);
+	etOn(0);
+	etOfs(0, 46.0f, 32.0f);
+	etOn(0);
 	[-9942];
 	je(END, 0);
 SHOOT3:
-	bulletSetOffset(0, -26.0f, -24.0f);
-	bulletShoot(0);
-	bulletSetOffset(0, 26.0f, -24.0f);
-	bulletShoot(0);
-	bulletSetOffset(0, -59.0f, 24.0f);
-	bulletShoot(0);
-	bulletSetOffset(0, 59.0f, 24.0f);
-	bulletShoot(0);
+	etOfs(0, -26.0f, -24.0f);
+	etOn(0);
+	etOfs(0, 26.0f, -24.0f);
+	etOn(0);
+	etOfs(0, -59.0f, 24.0f);
+	etOn(0);
+	etOfs(0, 59.0f, 24.0f);
+	etOn(0);
 	[-9942] >= 2;
 	je(END, 0);
-	bulletSetOffset(0, -4.0f, -4.0f);
-	bulletShoot(0);
-	bulletSetOffset(0, 4.0f, -4.0f);
-	bulletShoot(0);
-	bulletSetOffset(0, -64.0f, 4.0f);
-	bulletShoot(0);
-	bulletSetOffset(0, 64.0f, 4.0f);
-	bulletShoot(0);
+	etOfs(0, -4.0f, -4.0f);
+	etOn(0);
+	etOfs(0, 4.0f, -4.0f);
+	etOn(0);
+	etOfs(0, -64.0f, 4.0f);
+	etOn(0);
+	etOfs(0, 64.0f, 4.0f);
+	etOn(0);
 TYPE2:
 END:
 	[-9942] = [-9942] + 1;
@@ -389,10 +389,10 @@ sub Boss2()
 	0;
 	eqi();
 	je(Boss2_228, 0);
-	bulletClear(6400.0f);
+	etClear(6400.0f);
 	goto Boss2_248 @ 0;
 Boss2_228:
-	bulletClear_ni(6400.0f);
+	etClear_ni(6400.0f);
 Boss2_248:
 	[-9949] = 0;
 	[-9948] = 0;
@@ -531,23 +531,23 @@ END:
 sub Boss2_at()
 {
 	var A;
-	bulletCreate(0);
-	bulletSetOffset(0, 0.0f, -12.0f);
-	bulletSetType(0, 2);
-	bulletSetSprite(0, 3, 6);
+	etNew(0);
+	etOfs(0, 0.0f, -12.0f);
+	etMode(0, 2);
+	etSpr(0, 3, 6);
 	$A = [-9959] + 2;
 	[-9940] + 10;
-	bulletSetCount(0, [-1], $A);
+	etCnt(0, [-1], $A);
 !EN
 	4.0f;
 !HL
 	5.5f;
 !ENHL
-	bulletSetSpeed(0, [-1.0f], 1.5f);
-	bulletSetAngle(0, 0.0f, 0.0f);
-	bulletSetComplexTransform(0, 0, 0, 2, 2, -999999, -999999.0f, -999999.0f);
+	etSpd(0, [-1.0f], 1.5f);
+	etAng(0, 0.0f, 0.0f);
+	etEx(0, 0, 0, 2, 2, -999999, -999999.0f, -999999.0f);
 SHOOT:
-	bulletShoot(0);
+	etOn(0);
 	wait_rank(20, 15, 15, 10);
 	goto SHOOT @ 0;
 	return();
@@ -576,10 +576,10 @@ sub Boss3()
 	0;
 	eqi();
 	je(Boss3_248, 0);
-	bulletClear(640.0f);
+	etClear(640.0f);
 	goto Boss3_268 @ 0;
 Boss3_248:
-	bulletClear_ni(640.0f);
+	etClear_ni(640.0f);
 Boss3_268:
 	[-9949] = 0;
 	[-9948] = 0;
@@ -767,20 +767,20 @@ sub BossCardEaMe()
 	stageProg(43);
 	enmPosTime(120, 4, 0.0f, 80.0f);
 	ins_262(0, 0);
-	bulletCreate(0);
-	bulletSetType(0, 1);
-	bulletSetSprite(0, 26, 2);
+	etNew(0);
+	etMode(0, 1);
+	etSpr(0, 26, 2);
 !ENH
 	1;
 !L
 	3;
 !ENHL
-	bulletSetCount(0, [-1], 1);
-	bulletSetAngle(0, 1.5707963267948966192313216916398f, 0.52359877559829887307710723054658f);
-	bulletSetComplexTransform(0, 0, 0, 2, 2, -999999, -999999.0f, -999999.0f);
-	bulletCreate(1);
-	bulletSetType(1, 8);
-	bulletSetSprite(1, 5, 11);
+	etCnt(0, [-1], 1);
+	etAng(0, 1.5707963267948966192313216916398f, 0.52359877559829887307710723054658f);
+	etEx(0, 0, 0, 2, 2, -999999, -999999.0f, -999999.0f);
+	etNew(1);
+	etMode(1, 8);
+	etSpr(1, 5, 11);
 !E
 	4;
 !N
@@ -790,15 +790,15 @@ sub BossCardEaMe()
 !L
 	24;
 !ENHL
-	bulletSetCount(1, [-1], 1);
+	etCnt(1, [-1], 1);
 !EN
 	1.8f;
 !HL
 	2.4f;
 !ENHL
-	bulletSetSpeed(1, [-1.0f], 1.0f);
-	bulletSetAngle(1, 3.1415926535897932384626433832795f, -3.1415926535897932384626433832795f);
-	bulletSetComplexTransform(1, 0, 0, 2, 1, -999999, -999999.0f, -999999.0f);
+	etSpd(1, [-1.0f], 1.0f);
+	etAng(1, 3.1415926535897932384626433832795f, -3.1415926535897932384626433832795f);
+	etEx(1, 0, 0, 2, 1, -999999, -999999.0f, -999999.0f);
 	$A = 0;
 120:
 START:
@@ -806,20 +806,20 @@ START:
 	%C = %RANDF * 128.0f;
 	%B = %B - 144.0f;
 	%C = %C - 64.0f;
-	bulletSetOffset(0, %B, %C);
-	bulletSetOffset(1, %B, %C);
+	etOfs(0, %B, %C);
+	etOfs(1, %B, %C);
 	%B = %RANDF * 2.0f;
 	%B + 1.6f;
-	bulletSetSpeed(0, [-1.0f], 0.8f);
-	bulletShoot(0);
+	etSpd(0, [-1.0f], 0.8f);
+	etOn(0);
 	$A = $A % 18;
 	if $A != 7 goto NO_MOVE @ 120;
 	enmRand(90, 4, 1.5f);
 NO_MOVE:
 121:
 	%RANDRAD / 2.0f;
-	bulletSetComplexTransform(1, 2, 0, 16, 180, 1, [-1.0f], 1.7f);
-	bulletShoot(1);
+	etEx(1, 2, 0, 16, 180, 1, [-1.0f], 1.7f);
+	etOn(1);
 	$A = $A + 1;
 140:
 	goto START @ 120;
@@ -848,34 +848,34 @@ sub BossCardEarthTrilithon()
 	stageProg(43);
 	enmPosTime(60, 4, 0.0f, 80.0f);
 	ins_262(0, 0);
-	bulletCreate(0);
-	bulletSetType(0, 8);
-	bulletSetSprite(0, 5, 13);
+	etNew(0);
+	etMode(0, 8);
+	etSpr(0, 5, 13);
 !E
 	7;
 !N
 	10;
 !ENHL
-	bulletSetCount(0, [-1], 1);
-	bulletSetSpeed(0, 2.4f, 1.0f);
-	bulletSetAngle(0, 0.0f, 3.14159265f);
-	bulletSetComplexTransform(0, 0, 0, 2, 2, -999999, -999999.0f, -999999.0f);
-	bulletSetComplexTransform(0, 1, 0, 1, -999999, -999999, -999999.0f, -999999.0f);
-	bulletCreate(1);
-	bulletSetType(1, 0);
-	bulletSetSprite(1, 3, 6);
-	bulletSetCount(1, 7, 2);
-	bulletSetSpeed(1, 2.8f, 1.2f);
-	bulletSetAngle(1, 0.0f, 0.3490658f);
-	bulletSetComplexTransform(1, 0, 0, 2, 2, -999999, -999999.0f, -999999.0f);
+	etCnt(0, [-1], 1);
+	etSpd(0, 2.4f, 1.0f);
+	etAng(0, 0.0f, 3.14159265f);
+	etEx(0, 0, 0, 2, 2, -999999, -999999.0f, -999999.0f);
+	etEx(0, 1, 0, 1, -999999, -999999, -999999.0f, -999999.0f);
+	etNew(1);
+	etMode(1, 0);
+	etSpr(1, 3, 6);
+	etCnt(1, 7, 2);
+	etSpd(1, 2.8f, 1.2f);
+	etAng(1, 0.0f, 0.3490658f);
+	etEx(1, 0, 0, 2, 2, -999999, -999999.0f, -999999.0f);
 120:
 START:
 	%A = %RANDF * 3.1415926535897932384626433832795f;
 	%A - 1.5707963267948966192313216916398f;
-	bulletSetComplexTransform(0, 2, 1, 16, 180, 1, [-1.0f], 1.4f);
-	bulletShoot(0);
+	etEx(0, 2, 1, 16, 180, 1, [-1.0f], 1.4f);
+	etOn(0);
 	if [-9990.0f] >= [-9994.0f] goto END @ 120;
-	bulletShoot(1);
+	etOn(1);
 132:
 END:
 	goto START @ 120;
@@ -904,9 +904,9 @@ sub BossCardEarthTrilithonHL()
 	stageProg(43);
 	enmPosTime(60, 4, 0.0f, 80.0f);
 	ins_262(0, 0);
-	bulletCreate(0);
-	bulletSetType(0, 8);
-	bulletSetSprite(0, 5, 12);
+	etNew(0);
+	etMode(0, 8);
+	etSpr(0, 5, 12);
 !E
 	10;
 !N
@@ -914,26 +914,26 @@ sub BossCardEarthTrilithonHL()
 !H
 	15;
 !ENHL
-	bulletSetCount(0, [-1], 1);
-	bulletSetSpeed(0, 3.3f, 2.3f);
-	bulletSetAngle(0, 0.0f, 3.14159265f);
-	bulletSetComplexTransform(0, 0, 0, 2, 2, -999999, -999999.0f, -999999.0f);
-	bulletSetComplexTransform(0, 1, 0, 1, -999999, -999999, -999999.0f, -999999.0f);
-	bulletCreate(1);
-	bulletSetType(1, 0);
-	bulletSetSprite(1, 3, 6);
-	bulletSetCount(1, 7, 2);
-	bulletSetSpeed(1, 2.8f, 1.2f);
-	bulletSetAngle(1, 0.0f, 0.3490658f);
-	bulletSetComplexTransform(1, 0, 0, 2, 2, -999999, -999999.0f, -999999.0f);
+	etCnt(0, [-1], 1);
+	etSpd(0, 3.3f, 2.3f);
+	etAng(0, 0.0f, 3.14159265f);
+	etEx(0, 0, 0, 2, 2, -999999, -999999.0f, -999999.0f);
+	etEx(0, 1, 0, 1, -999999, -999999, -999999.0f, -999999.0f);
+	etNew(1);
+	etMode(1, 0);
+	etSpr(1, 3, 6);
+	etCnt(1, 7, 2);
+	etSpd(1, 2.8f, 1.2f);
+	etAng(1, 0.0f, 0.3490658f);
+	etEx(1, 0, 0, 2, 2, -999999, -999999.0f, -999999.0f);
 120:
 START:
 	%A = %RANDF * 3.1415926535897932384626433832795f;
 	%A - 1.5707963267948966192313216916398f;
-	bulletSetComplexTransform(0, 2, 1, 16, 50, 2, [-1.0f], 2.2f);
-	bulletShoot(0);
+	etEx(0, 2, 1, 16, 50, 2, [-1.0f], 2.2f);
+	etOn(0);
 	if [-9990.0f] >= [-9994.0f] goto END @ 120;
-	bulletShoot(1);
+	etOn(1);
 132:
 END:
 	goto START @ 120;
@@ -963,45 +963,45 @@ sub BossCardEarthTrilithonShake()
 	enmPosTime(120, 4, 0.0f, 80.0f);
 	ins_262(0, 0);
 	$B = 0;
-	bulletCreate(0);
-	bulletSetType(0, 8);
-	bulletSetSprite(0, 5, 12);
+	etNew(0);
+	etMode(0, 8);
+	etSpr(0, 5, 12);
 !H
 	12;
 !L
 	18;
 !ENHL
-	bulletSetCount(0, [-1], 1);
-	bulletSetSpeed(0, 2.4f, 1.0f);
-	bulletSetAngle(0, 0.0f, 3.14159265f);
-	bulletSetComplexTransform(0, 0, 0, 2, 2, -999999, -999999.0f, -999999.0f);
-	bulletSetComplexTransform(0, 1, 0, 1, -999999, -999999, -999999.0f, -999999.0f);
-	bulletCreate(1);
-	bulletSetType(1, 0);
-	bulletSetSprite(1, 3, 6);
-	bulletSetCount(1, 7, 2);
-	bulletSetSpeed(1, 2.8f, 1.2f);
-	bulletSetAngle(1, 0.0f, 0.3490658f);
-	bulletSetComplexTransform(1, 0, 0, 2, 2, -999999, -999999.0f, -999999.0f);
-	bulletCreate(2);
-	bulletSetType(2, 2);
-	bulletSetSprite(2, 26, 3);
-	bulletSetCount(2, 7, 1);
-	bulletSetSpeed(2, 3.4f, 1.2f);
-	bulletSetAngle(2, 0.0f, 0.3490658f);
-	bulletSetComplexTransform(2, 0, 0, 2, 2, -999999, -999999.0f, -999999.0f);
+	etCnt(0, [-1], 1);
+	etSpd(0, 2.4f, 1.0f);
+	etAng(0, 0.0f, 3.14159265f);
+	etEx(0, 0, 0, 2, 2, -999999, -999999.0f, -999999.0f);
+	etEx(0, 1, 0, 1, -999999, -999999, -999999.0f, -999999.0f);
+	etNew(1);
+	etMode(1, 0);
+	etSpr(1, 3, 6);
+	etCnt(1, 7, 2);
+	etSpd(1, 2.8f, 1.2f);
+	etAng(1, 0.0f, 0.3490658f);
+	etEx(1, 0, 0, 2, 2, -999999, -999999.0f, -999999.0f);
+	etNew(2);
+	etMode(2, 2);
+	etSpr(2, 26, 3);
+	etCnt(2, 7, 1);
+	etSpd(2, 3.4f, 1.2f);
+	etAng(2, 0.0f, 0.3490658f);
+	etEx(2, 0, 0, 2, 2, -999999, -999999.0f, -999999.0f);
 120:
 START:
 	%A = %RANDF * 3.1415926535897932384626433832795f;
 	%A - 1.5707963267948966192313216916398f;
-	bulletSetComplexTransform(0, 2, 1, 16, 90, 1, [-1.0f], 1.8f);
-	bulletShoot(0);
+	etEx(0, 2, 1, 16, 90, 1, [-1.0f], 1.8f);
+	etOn(0);
 	$B % 3;
 	jne(CHEESE, 120);
-	bulletShoot(2);
+	etOn(2);
 CHEESE:
 	if [-9990.0f] >= [-9994.0f] goto END @ 120;
-	bulletShoot(1);
+	etOn(1);
 END:
 	$B = $B + 1;
 132:
@@ -1031,9 +1031,9 @@ sub BossCardFiEa()
 	stageProg(43);
 	enmPosTime(120, 4, 0.0f, 80.0f);
 	ins_262(0, 0);
-	bulletCreate(0);
-	bulletSetType(0, 3);
-	bulletSetSprite(0, 24, 0);
+	etNew(0);
+	etMode(0, 3);
+	etSpr(0, 24, 0);
 !E
 	8;
 !N
@@ -1043,25 +1043,25 @@ sub BossCardFiEa()
 !L
 	20;
 !ENHL
-	bulletSetCount(0, [-1], 2);
-	bulletSetSpeed(0, 2.5f, 0.7f);
-	bulletSetSE(0, 24, -1);
-	bulletSetComplexTransform(0, 0, 0, 268435456, 0, -999999, -999999.0f, -999999.0f);
-	bulletCreate(1);
-	bulletSetType(1, 8);
-	bulletSetSprite(1, 5, 13);
-	bulletSetSpeed(1, 2.4f, 1.0f);
-	bulletSetAngle(1, 3.14159265f, 0.0f);
-	bulletSetComplexTransform(1, 0, 0, 2, 1, -999999, -999999.0f, -999999.0f);
-	bulletSetComplexTransform(1, 1, 0, 1, -999999, -999999, -999999.0f, -999999.0f);
+	etCnt(0, [-1], 2);
+	etSpd(0, 2.5f, 0.7f);
+	etSE(0, 24, -1);
+	etEx(0, 0, 0, 268435456, 0, -999999, -999999.0f, -999999.0f);
+	etNew(1);
+	etMode(1, 8);
+	etSpr(1, 5, 13);
+	etSpd(1, 2.4f, 1.0f);
+	etAng(1, 3.14159265f, 0.0f);
+	etEx(1, 0, 0, 2, 1, -999999, -999999.0f, -999999.0f);
+	etEx(1, 1, 0, 1, -999999, -999999, -999999.0f, -999999.0f);
 	$B = 0;
 120:
 START:
 	$A = 8;
 	goto LOOP1_END @ 128;
 LOOP1_START:
-	bulletSetAngle(0, %RANDRAD, 0.1308997f);
-	bulletShoot(0);
+	etAng(0, %RANDRAD, 0.1308997f);
+	etOn(0);
 LOOP1_END:
 128:
 	decrement($A);
@@ -1080,7 +1080,7 @@ LOOP1_END:
 !L
 	$C = $C + 24;
 !ENHL
-	bulletSetCount(1, $C, 1);
+	etCnt(1, $C, 1);
 	goto LOOP2_END @ 198;
 LOOP2_START:
 	%D = %RANDF * 3.1415926535897932384626433832795f;
@@ -1092,8 +1092,8 @@ LOOP2_START:
 !L
 	2.0f;
 !ENHL
-	bulletSetComplexTransform(1, 2, 1, 16, 130, 1, %D, [-1.0f]);
-	bulletShoot(1);
+	etEx(1, 2, 1, 16, 130, 1, %D, [-1.0f]);
+	etOn(1);
 198:
 LOOP2_END:
 	decrement($A);
@@ -1124,11 +1124,11 @@ sub BossCardFireAgni()
 	stageProg(43);
 	enmPosTime(60, 4, 0.0f, 80.0f);
 	ins_262(0, 0);
-	bulletCreate(0);
-	bulletSetType(0, 3);
-	bulletSetSprite(0, 24, 0);
-	bulletSetSE(0, 24, -1);
-	bulletSetComplexTransform(0, 0, 0, 268435456, 0, -999999, -999999.0f, -999999.0f);
+	etNew(0);
+	etMode(0, 3);
+	etSpr(0, 24, 0);
+	etSE(0, 24, -1);
+	etEx(0, 0, 0, 268435456, 0, -999999, -999999.0f, -999999.0f);
 120:
 START:
 	$A = 0;
@@ -1139,21 +1139,21 @@ START:
 !N
 	$C + 11;
 !ENHL
-	bulletSetCount(0, [-1], 1);
+	etCnt(0, [-1], 1);
 	goto END_LOOP @ 128;
 START_LOOP:
-	bulletSetSpeed(0, 2.2f, 0.7f);
-	bulletSetAngle(0, %RANDRAD, 0.1308997f);
-	bulletSetComplexTransform(0, 1, 0, 8, 128, -999999, 0.0f, 0.02454369f);
-	bulletShoot(0);
-	bulletSetSpeed(0, 1.5f, 0.7f);
-	bulletSetAngle(0, %RANDRAD, 0.1308997f);
-	bulletSetComplexTransform(0, 1, 0, 8, 128, -999999, 0.0f, -0.02454369f);
-	bulletShoot(0);
-	bulletSetSpeed(0, 0.7f, 0.7f);
-	bulletSetAngle(0, %RANDRAD, 0.1308997f);
-	bulletSetComplexTransform(0, 1, 0, 8, 128, -999999, 0.0f, 0.02454369f);
-	bulletShoot(0);
+	etSpd(0, 2.2f, 0.7f);
+	etAng(0, %RANDRAD, 0.1308997f);
+	etEx(0, 1, 0, 8, 128, -999999, 0.0f, 0.02454369f);
+	etOn(0);
+	etSpd(0, 1.5f, 0.7f);
+	etAng(0, %RANDRAD, 0.1308997f);
+	etEx(0, 1, 0, 8, 128, -999999, 0.0f, -0.02454369f);
+	etOn(0);
+	etSpd(0, 0.7f, 0.7f);
+	etAng(0, %RANDRAD, 0.1308997f);
+	etEx(0, 1, 0, 8, 128, -999999, 0.0f, 0.02454369f);
+	etOn(0);
 END_LOOP:
 128:
 	decrement($B);
@@ -1188,11 +1188,11 @@ sub BossCardFireAgniHL()
 	stageProg(43);
 	enmPosTime(60, 4, 0.0f, 80.0f);
 	ins_262(0, 0);
-	bulletCreate(0);
-	bulletSetType(0, 3);
-	bulletSetSprite(0, 24, 0);
-	bulletSetSE(0, 24, -1);
-	bulletSetComplexTransform(0, 0, 0, 268435456, 0, -999999, -999999.0f, -999999.0f);
+	etNew(0);
+	etMode(0, 3);
+	etSpr(0, 24, 0);
+	etSE(0, 24, -1);
+	etEx(0, 0, 0, 268435456, 0, -999999, -999999.0f, -999999.0f);
 120:
 START:
 	$A = 0;
@@ -1205,20 +1205,20 @@ START:
 !L
 	$C + 10;
 !ENHL
-	bulletSetCount(0, [-1], 2);
+	etCnt(0, [-1], 2);
 !ENH
-	bulletSetSpeed(0, 2.0f, 1.2f);
+	etSpd(0, 2.0f, 1.2f);
 !L
-	bulletSetSpeed(0, 2.5f, 1.2f);
+	etSpd(0, 2.5f, 1.2f);
 !ENHL
 	goto END_LOOP @ 128;
 START_LOOP:
-	bulletSetAngle(0, %RANDRAD, 0.1308997f);
-	bulletSetComplexTransform(0, 1, 0, 8, 128, -999999, 0.0f, 0.02454369f);
-	bulletShoot(0);
-	bulletSetAngle(0, %RANDRAD, 0.1308997f);
-	bulletSetComplexTransform(0, 1, 0, 8, 128, -999999, 0.0f, -0.02454369f);
-	bulletShoot(0);
+	etAng(0, %RANDRAD, 0.1308997f);
+	etEx(0, 1, 0, 8, 128, -999999, 0.0f, 0.02454369f);
+	etOn(0);
+	etAng(0, %RANDRAD, 0.1308997f);
+	etEx(0, 1, 0, 8, 128, -999999, 0.0f, -0.02454369f);
+	etOn(0);
 END_LOOP:
 128:
 	decrement($B);
@@ -1253,43 +1253,43 @@ sub BossCardFireAgniRad()
 	stageProg(43);
 	enmPosTime(120, 4, 0.0f, 80.0f);
 	ins_262(0, 0);
-	bulletCreate(1);
-	bulletSetType(1, 8);
-	bulletSetSprite(1, 26, 0);
+	etNew(1);
+	etMode(1, 8);
+	etSpr(1, 26, 0);
 !H
-	bulletSetCount(1, 2, 1);
-	bulletSetSpeed(1, 3.0f, 0.7f);
+	etCnt(1, 2, 1);
+	etSpd(1, 3.0f, 0.7f);
 !L
-	bulletSetCount(1, 6, 1);
-	bulletSetSpeed(1, 4.0f, 0.7f);
+	etCnt(1, 6, 1);
+	etSpd(1, 4.0f, 0.7f);
 !ENHL
-	bulletSetAngle(1, 3.14159265f, -3.14159265f);
-	bulletCreate(0);
-	bulletSetType(0, 3);
-	bulletSetSprite(0, 24, 0);
-	bulletSetSE(0, 24, -1);
-	bulletSetComplexTransform(0, 0, 0, 268435456, 0, -999999, -999999.0f, -999999.0f);
+	etAng(1, 3.14159265f, -3.14159265f);
+	etNew(0);
+	etMode(0, 3);
+	etSpr(0, 24, 0);
+	etSE(0, 24, -1);
+	etEx(0, 0, 0, 268435456, 0, -999999, -999999.0f, -999999.0f);
 120:
 START:
 	$A = 0;
 	$B = 8;
 	$C = $A / 5;
 	$C + 7;
-	bulletSetCount(0, [-1], 2);
+	etCnt(0, [-1], 2);
 !H
-	bulletSetSpeed(0, 1.5f, 0.5f);
+	etSpd(0, 1.5f, 0.5f);
 !L
-	bulletSetSpeed(0, 2.0f, 1.0f);
+	etSpd(0, 2.0f, 1.0f);
 !ENHL
 	goto END_LOOP @ 128;
 START_LOOP:
-	bulletSetAngle(0, %RANDRAD, 0.1308997f);
-	bulletSetComplexTransform(0, 1, 0, 8, 128, -999999, 0.0f, 0.02454369f);
-	bulletShoot(0);
-	bulletSetAngle(0, %RANDRAD, 0.1308997f);
-	bulletSetComplexTransform(0, 1, 0, 8, 128, -999999, 0.0f, -0.02454369f);
-	bulletShoot(0);
-	bulletShoot(1);
+	etAng(0, %RANDRAD, 0.1308997f);
+	etEx(0, 1, 0, 8, 128, -999999, 0.0f, 0.02454369f);
+	etOn(0);
+	etAng(0, %RANDRAD, 0.1308997f);
+	etEx(0, 1, 0, 8, 128, -999999, 0.0f, -0.02454369f);
+	etOn(0);
+	etOn(1);
 END_LOOP:
 128:
 	decrement($B);
@@ -1324,20 +1324,20 @@ sub BossCardMeWa()
 	stageProg(43);
 	enmPosTime(120, 4, 0.0f, 80.0f);
 	ins_262(0, 0);
-	bulletCreate(0);
-	bulletSetType(0, 2);
-	bulletSetSprite(0, 3, 14);
-	bulletSetSpeed(0, 1.5f, 0.8f);
-	bulletSetComplexTransform(0, 0, 0, 2, 2, -999999, -999999.0f, -999999.0f);
-	bulletSetComplexTransform(0, 1, 0, 1, -999999, -999999, -999999.0f, -999999.0f);
-	bulletSetComplexTransform(0, 2, 0, 8, 90, 1, 0.003f, 0.01227185f);
-	bulletCreate(1);
-	bulletSetType(1, 2);
-	bulletSetSprite(1, 3, 8);
-	bulletSetSpeed(1, 1.5f, 0.8f);
-	bulletSetComplexTransform(1, 0, 0, 2, 2, -999999, -999999.0f, -999999.0f);
-	bulletSetComplexTransform(1, 1, 0, 1, -999999, -999999, -999999.0f, -999999.0f);
-	bulletSetComplexTransform(1, 2, 0, 8, 90, 1, 0.003f, -0.01227185f);
+	etNew(0);
+	etMode(0, 2);
+	etSpr(0, 3, 14);
+	etSpd(0, 1.5f, 0.8f);
+	etEx(0, 0, 0, 2, 2, -999999, -999999.0f, -999999.0f);
+	etEx(0, 1, 0, 1, -999999, -999999, -999999.0f, -999999.0f);
+	etEx(0, 2, 0, 8, 90, 1, 0.003f, 0.01227185f);
+	etNew(1);
+	etMode(1, 2);
+	etSpr(1, 3, 8);
+	etSpd(1, 1.5f, 0.8f);
+	etEx(1, 0, 0, 2, 2, -999999, -999999.0f, -999999.0f);
+	etEx(1, 1, 0, 1, -999999, -999999, -999999.0f, -999999.0f);
+	etEx(1, 2, 0, 8, 90, 1, 0.003f, -0.01227185f);
 	$B = 0;
 120:
 START:
@@ -1354,13 +1354,13 @@ LOOP_START:
 !L
 	$D = $B + 28;
 !ENHL
-	bulletSetCount(0, $D, 2);
-	bulletSetAngle(0, %C, 0.3490658f);
-	bulletShoot(0);
+	etCnt(0, $D, 2);
+	etAng(0, %C, 0.3490658f);
+	etOn(0);
 140:
-	bulletSetCount(1, $D, 2);
-	bulletSetAngle(1, %C, -0.3490658f);
-	bulletShoot(1);
+	etCnt(1, $D, 2);
+	etAng(1, %C, -0.3490658f);
+	etOn(1);
 LOOP_END:
 160:
 	decrement($A);
@@ -1394,27 +1394,27 @@ sub BossCardMetalDragon()
 	stageProg(43);
 	enmPosTime(120, 4, 0.0f, 80.0f);
 	ins_262(0, 0);
-	bulletCreate(0);
-	bulletSetType(0, 2);
-	bulletSetSprite(0, 3, 15);
+	etNew(0);
+	etMode(0, 2);
+	etSpr(0, 3, 15);
 !EH
 	8;
 !NL
 	10;
 !EN
-	bulletSetCount(0, [-1], 2);
+	etCnt(0, [-1], 2);
 !HL
-	bulletSetCount(0, [-1], 3);
+	etCnt(0, [-1], 3);
 !ENHL
-	bulletSetSpeed(0, 6.0f, 0.5f);
-	bulletSetComplexTransform(0, 0, 0, 1, -999999, -999999, -999999.0f, -999999.0f);
+	etSpd(0, 6.0f, 0.5f);
+	etEx(0, 0, 0, 1, -999999, -999999, -999999.0f, -999999.0f);
 120:
 START:
 	%A = %RANDF * 2.5f;
 	%A = %A + 1.0f;
-	bulletSetComplexTransform(0, 1, 1, 64, 60, 1, %ANGLE_PLAYER, %A);
-	bulletSetAngle(0, %RANDRAD, 0.0f);
-	bulletShoot(0);
+	etEx(0, 1, 1, 64, 60, 1, %ANGLE_PLAYER, %A);
+	etAng(0, %RANDRAD, 0.0f);
+	etOn(0);
 170:
 	goto START @ 120;
 	return();
@@ -1442,22 +1442,22 @@ sub BossCardMetalFatigue()
 	stageProg(43);
 	enmPosTime(60, 4, 0.0f, 80.0f);
 	ins_262(0, 0);
-	bulletCreate(0);
-	bulletSetType(0, 2);
-	bulletSetSprite(0, 17, 6);
-	bulletSetCount(0, 8, 1);
-	bulletSetSpeed(0, 4.0f, 1.0f);
-	bulletSetComplexTransform(0, 0, 0, 1, -999999, -999999, -999999.0f, -999999.0f);
-	bulletSetComplexTransform(0, 0, 1, 268435456, 1, -999999, -999999.0f, -999999.0f);
+	etNew(0);
+	etMode(0, 2);
+	etSpr(0, 17, 6);
+	etCnt(0, 8, 1);
+	etSpd(0, 4.0f, 1.0f);
+	etEx(0, 0, 0, 1, -999999, -999999, -999999.0f, -999999.0f);
+	etEx(0, 0, 1, 268435456, 1, -999999, -999999.0f, -999999.0f);
 120:
 START:
 	$B = 8;
 	%A = %RANDRAD;
-	bulletSetAngle(0, %A, 0.0f);
+	etAng(0, %A, 0.0f);
 	goto LOOP_END @ 120;
 LOOP_START:
-	bulletSetComplexTransform(0, 1, 2, 64, 60, 1, %A, 2.0f);
-	bulletShoot(0);
+	etEx(0, 1, 2, 64, 60, 1, %A, 2.0f);
+	etOn(0);
 	%A = %A + 0.78539816339744830961566084581988f;
 LOOP_END:
 	decrement($B);
@@ -1489,29 +1489,29 @@ sub BossCardMetalGold()
 	stageProg(43);
 	enmPosTime(60, 4, 0.0f, 80.0f);
 	ins_262(0, 0);
-	bulletCreate(0);
-	bulletSetType(0, 2);
-	bulletSetSprite(0, 26, 3);
-	bulletSetCount(0, 3, 1);
-	bulletSetComplexTransform(0, 0, 1, 1, -999999, -999999, -999999.0f, -999999.0f);
-	bulletSetComplexTransform(0, 1, 0, 64, 60, 1, -999999.0f, 0.0f);
-	bulletSetComplexTransform(0, 2, 0, 8192, -999999, -999999, -999999.0f, -9999999.0f);
-	bulletCreate(1);
-	bulletSetType(1, 2);
-	bulletSetSprite(1, 17, 6);
-	bulletSetCount(1, 3, 1);
-	bulletSetComplexTransform(1, 0, 1, 1, -999999, -999999, -999999.0f, -999999.0f);
-	bulletSetComplexTransform(1, 1, 1, 268435456, 1, -999999, -999999.0f, -999999.0f);
-	bulletSetComplexTransform(1, 3, 0, 268435456, 0, -999999, -999999.0f, -999999.0f);
-	bulletSetComplexTransform(1, 4, 0, 64, 60, 1, -999999.0f, 0.0f);
-	bulletSetComplexTransform(1, 5, 0, 8192, -999999, -999999, -999999.0f, -9999999.0f);
-	bulletCreate(2);
-	bulletSetType(2, 2);
-	bulletSetSprite(2, 3, 13);
-	bulletSetCount(2, 3, 1);
-	bulletSetComplexTransform(2, 0, 1, 1, -999999, -999999, -999999.0f, -999999.0f);
-	bulletSetComplexTransform(2, 1, 1, 268435456, 1, -999999, -999999.0f, -999999.0f);
-	bulletSetComplexTransform(2, 4, 0, 268435456, 0, -999999, -999999.0f, -999999.0f);
+	etNew(0);
+	etMode(0, 2);
+	etSpr(0, 26, 3);
+	etCnt(0, 3, 1);
+	etEx(0, 0, 1, 1, -999999, -999999, -999999.0f, -999999.0f);
+	etEx(0, 1, 0, 64, 60, 1, -999999.0f, 0.0f);
+	etEx(0, 2, 0, 8192, -999999, -999999, -999999.0f, -9999999.0f);
+	etNew(1);
+	etMode(1, 2);
+	etSpr(1, 17, 6);
+	etCnt(1, 3, 1);
+	etEx(1, 0, 1, 1, -999999, -999999, -999999.0f, -999999.0f);
+	etEx(1, 1, 1, 268435456, 1, -999999, -999999.0f, -999999.0f);
+	etEx(1, 3, 0, 268435456, 0, -999999, -999999.0f, -999999.0f);
+	etEx(1, 4, 0, 64, 60, 1, -999999.0f, 0.0f);
+	etEx(1, 5, 0, 8192, -999999, -999999, -999999.0f, -9999999.0f);
+	etNew(2);
+	etMode(2, 2);
+	etSpr(2, 3, 13);
+	etCnt(2, 3, 1);
+	etEx(2, 0, 1, 1, -999999, -999999, -999999.0f, -999999.0f);
+	etEx(2, 1, 1, 268435456, 1, -999999, -999999.0f, -999999.0f);
+	etEx(2, 4, 0, 268435456, 0, -999999, -999999.0f, -999999.0f);
 120:
 START:
 !H
@@ -1540,13 +1540,13 @@ NEGA1:
 	%A = %A - 0.19634954084936207740391521145497f;
 CONT1:
 !ENHL
-	bulletSetAngle(0, %A, 0.0f);
-	bulletSetAngle(1, %A, 0.0f);
-	bulletSetAngle(2, %A, 0.0f);
-	bulletSetSpeed(0, %F, 0.0f);
-	bulletSetSpeed(1, %F, 0.0f);
-	bulletSetSpeed(2, %F, 0.0f);
-	bulletShoot(0);
+	etAng(0, %A, 0.0f);
+	etAng(1, %A, 0.0f);
+	etAng(2, %A, 0.0f);
+	etSpd(0, %F, 0.0f);
+	etSpd(1, %F, 0.0f);
+	etSpd(2, %F, 0.0f);
+	etOn(0);
 	goto LOOP1_END @ 120;
 LOOP1_START:
 !H
@@ -1554,12 +1554,12 @@ LOOP1_START:
 !L
 	$E = 4;
 !ENHL
-	bulletSetComplexTransform(1, 2, 0, 64, 60, 1, %A, 3.0f);
-	bulletSetComplexTransform(2, 2, 0, 64, 60, 1, %A, 3.0f);
+	etEx(1, 2, 0, 64, 60, 1, %A, 3.0f);
+	etEx(2, 2, 0, 64, 60, 1, %A, 3.0f);
 	goto LOOP2_END @ 120;
 LOOP2_START:
-	bulletSetComplexTransform(2, 3, 0, 64, 60, 1, %A, 1.4f);
-	bulletShoot(2);
+	etEx(2, 3, 0, 64, 60, 1, %A, 1.4f);
+	etOn(2);
 !H
 	%A = %A + 2.0943951023931954923084289221863f;
 !L
@@ -1568,7 +1568,7 @@ LOOP2_END:
 !ENHL
 	decrement($E);
 	jne(LOOP2_START, 120);
-	bulletShoot(1);
+	etOn(1);
 	%A = %A + 2.0943951023931954923084289221863f;
 LOOP1_END:
 	decrement($B);
@@ -1610,21 +1610,21 @@ sub BossCardMetalMemory()
 	stageProg(43);
 	enmPosTime(60, 4, 0.0f, 112.0f);
 	ins_262(0, 0);
-	bulletCreate(0);
-	bulletSetType(0, 3);
-	bulletSetSprite(0, 3, 0);
+	etNew(0);
+	etMode(0, 3);
+	etSpr(0, 3, 0);
 !E
 	3;
 !N
 	4;
 !ENHL
-	bulletSetCount(0, [-1], 1);
-	bulletSetSpeed(0, 1.8f, 1.0f);
+	etCnt(0, [-1], 1);
+	etSpd(0, 1.8f, 1.0f);
 	%A = %RANDRAD;
-	bulletSetDistance(0, 16.0f);
-	bulletSetComplexTransform(0, 0, 0, 2, 2, -999999, -999999.0f, -999999.0f);
+	etDist(0, 16.0f);
+	etEx(0, 0, 0, 2, 2, -999999, -999999.0f, -999999.0f);
 	[-9959] + 1;
-	bulletSetComplexTransform(0, 1, 0, 256, [-1], 13, -999999.0f, -999999.0f);
+	etEx(0, 1, 0, 256, [-1], 13, -999999.0f, -999999.0f);
 	$B = 1;
 120:
 START:
@@ -1648,8 +1648,8 @@ sub BossCardMetalMemory_At(A)
 	$B = 6;
 	goto END @ 0;
 SHOOT:
-	bulletSetAngle(0, %A, 0.0f);
-	bulletShoot(0);
+	etAng(0, %A, 0.0f);
+	etOn(0);
 	wait(4);
 END:
 	decrement($B);
@@ -1679,9 +1679,9 @@ sub BossCardMetalMemory_HL()
 	stageProg(43);
 	enmPosTime(60, 4, 0.0f, 112.0f);
 	ins_262(0, 0);
-	bulletCreate(0);
-	bulletSetType(0, 3);
-	bulletSetSprite(0, 3, 0);
+	etNew(0);
+	etMode(0, 3);
+	etSpr(0, 3, 0);
 !N
 	4;
 !H
@@ -1689,14 +1689,14 @@ sub BossCardMetalMemory_HL()
 !L
 	6;
 !ENHL
-	bulletSetCount(0, [-1], 1);
-	bulletSetSpeed(0, 2.0f, 1.0f);
+	etCnt(0, [-1], 1);
+	etSpd(0, 2.0f, 1.0f);
 	%A = %RANDRAD;
-	bulletSetDistance(0, 16.0f);
-	bulletSetComplexTransform(0, 0, 0, 2, 2, -999999, -999999.0f, -999999.0f);
+	etDist(0, 16.0f);
+	etEx(0, 0, 0, 2, 2, -999999, -999999.0f, -999999.0f);
 	[-9959];
-	bulletSetComplexTransform(0, 1, 0, 256, [-1], 13, -999999.0f, -999999.0f);
-	bulletSetComplexTransform(0, 2, 1, 8, 40, 0, 0.0f, 0.0f);
+	etEx(0, 1, 0, 256, [-1], 13, -999999.0f, -999999.0f);
+	etEx(0, 2, 1, 8, 40, 0, 0.0f, 0.0f);
 	$B = 1;
 120:
 START:
@@ -1720,18 +1720,18 @@ sub BossCardMetalMemory_HL_at(A C)
 	$B = 6;
 	goto END @ 0;
 SHOOT:
-	bulletSetAngle(0, %A, 0.0f);
+	etAng(0, %A, 0.0f);
 	if $C == 0 goto NEGA @ 0;
 	%D = 0.04188790204786390984616857844373f;
 	goto TRANSFORM @ 0;
 NEGA:
 	%D = -0.04188790204786390984616857844373f;
 TRANSFORM:
-	bulletSetComplexTransform(0, 3, 1, 8, 30, 0, 0.0f, %D);
-	bulletSetComplexTransform(0, 4, 1, 8, 60, 0, 0.0f, 0.0f);
+	etEx(0, 3, 1, 8, 30, 0, 0.0f, %D);
+	etEx(0, 4, 1, 8, 60, 0, 0.0f, 0.0f);
 	0.0f - %D;
-	bulletSetComplexTransform(0, 5, 1, 8, 30, 0, 0.0f, [-1.0f]);
-	bulletShoot(0);
+	etEx(0, 5, 1, 8, 30, 0, 0.0f, [-1.0f]);
+	etOn(0);
 	wait(4);
 END:
 	decrement($B);
@@ -1760,26 +1760,26 @@ sub BossCardWaFi()
 	invinc(120);
 	stageProg(43);
 	enmPosTime(60, 4, 0.0f, 80.0f);
-	bulletCreate(0);
-	bulletSetType(0, 8);
-	bulletSetCount(0, 2, 1);
-	bulletSetSE(0, 26, -1);
-	bulletSetSpeed(0, 2.0f, 0.5f);
-	bulletSetAngle(0, -1.2566370614359172953850573533118f, -1.8849555921538759430775860299677f);
-	bulletSetComplexTransform(0, 0, 0, 2, 2, -999999, -999999.0f, -999999.0f);
-	bulletSetComplexTransform(0, 1, 1, 4, 999, -999999, 0.04f, 1.5707963267948966192313216916398f);
-	bulletCreate(1);
-	bulletSetType(1, 8);
+	etNew(0);
+	etMode(0, 8);
+	etCnt(0, 2, 1);
+	etSE(0, 26, -1);
+	etSpd(0, 2.0f, 0.5f);
+	etAng(0, -1.2566370614359172953850573533118f, -1.8849555921538759430775860299677f);
+	etEx(0, 0, 0, 2, 2, -999999, -999999.0f, -999999.0f);
+	etEx(0, 1, 1, 4, 999, -999999, 0.04f, 1.5707963267948966192313216916398f);
+	etNew(1);
+	etMode(1, 8);
 	[-9959] + 1;
-	bulletSetCount(1, [-1], 1);
-	bulletSetSpeed(1, 2.0f, 1.6f);
-	bulletSetAngle(1, -2.3561944901923449288469825374596f, -0.78539816339744830961566084581988f);
-	bulletSetDistance(1, 32.0f);
-	bulletSetComplexTransform(1, 0, 0, 2, 2, -999999, -999999.0f, -999999.0f);
-	bulletSetComplexTransform(1, 1, 0, 4, 210, -999999, 0.03f, 1.5707963267948966192313216916398f);
-	bulletSetComplexTransform(1, 2, 0, 256, 1, 2, -999999.0f, -999999.0f);
-	bulletSetComplexTransform(1, 3, 0, 524288, 135921926, 1, 1.3f, 0.8f);
-	bulletSetComplexTransform(1, 5, 0, 8192, -999999, -999999, -999999.0f, -999999.0f);
+	etCnt(1, [-1], 1);
+	etSpd(1, 2.0f, 1.6f);
+	etAng(1, -2.3561944901923449288469825374596f, -0.78539816339744830961566084581988f);
+	etDist(1, 32.0f);
+	etEx(1, 0, 0, 2, 2, -999999, -999999.0f, -999999.0f);
+	etEx(1, 1, 0, 4, 210, -999999, 0.03f, 1.5707963267948966192313216916398f);
+	etEx(1, 2, 0, 256, 1, 2, -999999.0f, -999999.0f);
+	etEx(1, 3, 0, 524288, 135921926, 1, 1.3f, 0.8f);
+	etEx(1, 5, 0, 8192, -999999, -999999, -999999.0f, -999999.0f);
 	$A = 0;
 120:
 	callSep("BossCardWaFi_at2");
@@ -1800,27 +1800,27 @@ sub BossCardWaFi_at(A)
 	$A = $A + 9;
 	goto LOOP_END @ 0;
 LOOP_START:
-	bulletSetSprite(1, 28, 8);
-	bulletSetSpeed(1, 2.2f, 1.6f);
-	bulletSetComplexTransform(1, 4, 0, 1048576, 1, 0, -1.2566370614359172953850573533118f, -1.8849555921538759430775860299677f);
-	bulletShoot(1);
-	bulletSetComplexTransform(1, 4, 0, 8192, -999999, -999999, -999999.0f, -999999.0f);
-	bulletShoot(1);
-	bulletSetSpeed(1, 3.3f, 2.5f);
-	bulletShoot(1);
-	bulletShoot(1);
+	etSpr(1, 28, 8);
+	etSpd(1, 2.2f, 1.6f);
+	etEx(1, 4, 0, 1048576, 1, 0, -1.2566370614359172953850573533118f, -1.8849555921538759430775860299677f);
+	etOn(1);
+	etEx(1, 4, 0, 8192, -999999, -999999, -999999.0f, -999999.0f);
+	etOn(1);
+	etSpd(1, 3.3f, 2.5f);
+	etOn(1);
+	etOn(1);
 !HL
-	bulletSetSprite(1, 28, 7);
-	bulletSetSpeed(1, 2.2f, 1.6f);
-	bulletShoot(1);
-	bulletSetSpeed(1, 3.3f, 2.5f);
-	bulletShoot(1);
+	etSpr(1, 28, 7);
+	etSpd(1, 2.2f, 1.6f);
+	etOn(1);
+	etSpd(1, 3.3f, 2.5f);
+	etOn(1);
 !L
-	bulletSetSprite(1, 28, 6);
-	bulletSetSpeed(1, 2.2f, 1.6f);
-	bulletShoot(1);
-	bulletSetSpeed(1, 3.3f, 2.5f);
-	bulletShoot(1);
+	etSpr(1, 28, 6);
+	etSpd(1, 2.2f, 1.6f);
+	etOn(1);
+	etSpd(1, 3.3f, 2.5f);
+	etOn(1);
 !ENHL
 	wait_rank(6, 5, 5, 5);
 LOOP_END:
@@ -1836,93 +1836,93 @@ sub BossCardWaFi_at2()
 START:
 	$A % 1;
 	jne(BUL2, 0);
-	bulletSetSprite(0, 0, 1);
+	etSpr(0, 0, 1);
 	%B = %RANDF * 8.0f;
 	%B = %B + 440.0f;
 	[-9987.0f] * 192.0f;
-	bulletSetOffset_abs(0, [-1.0f], %B);
-	bulletShoot(0);
-	bulletSetSprite(0, 2, 1);
+	etOfs_abs(0, [-1.0f], %B);
+	etOn(0);
+	etSpr(0, 2, 1);
 	%B = %RANDF * 8.0f;
 	%B = %B + 440.0f;
 	[-9987.0f] * 192.0f;
-	bulletSetOffset_abs(0, [-1.0f], %B);
-	bulletShoot(0);
+	etOfs_abs(0, [-1.0f], %B);
+	etOn(0);
 BUL2:
 	$A % 2;
 	jne(BUL3, 0);
-	bulletSetSprite(0, 0, 1);
+	etSpr(0, 0, 1);
 	%B = %RANDF * 8.0f;
 	%B = %B + 440.0f;
 	[-9987.0f] * 192.0f;
-	bulletSetOffset_abs(0, [-1.0f], %B);
-	bulletShoot(0);
-	bulletSetSprite(0, 2, 1);
+	etOfs_abs(0, [-1.0f], %B);
+	etOn(0);
+	etSpr(0, 2, 1);
 	%B = %RANDF * 8.0f;
 	%B = %B + 440.0f;
 	[-9987.0f] * 192.0f;
-	bulletSetOffset_abs(0, [-1.0f], %B);
-	bulletShoot(0);
+	etOfs_abs(0, [-1.0f], %B);
+	etOn(0);
 BUL3:
 	$A % 3;
 	jne(BUL4, 0);
-	bulletSetSprite(0, 3, 1);
+	etSpr(0, 3, 1);
 	%B = %RANDF * 8.0f;
 	%B = %B + 440.0f;
 	[-9987.0f] * 192.0f;
-	bulletSetOffset_abs(0, [-1.0f], %B);
-	bulletShoot(0);
-	bulletSetSprite(0, 3, 2);
+	etOfs_abs(0, [-1.0f], %B);
+	etOn(0);
+	etSpr(0, 3, 2);
 	%B = %RANDF * 8.0f;
 	%B = %B + 440.0f;
 	[-9987.0f] * 192.0f;
-	bulletSetOffset_abs(0, [-1.0f], %B);
-	bulletShoot(0);
+	etOfs_abs(0, [-1.0f], %B);
+	etOn(0);
 BUL4:
 	$A % 4;
 	jne(BUL5, 0);
-	bulletSetSprite(0, 3, 1);
+	etSpr(0, 3, 1);
 	%B = %RANDF * 8.0f;
 	%B = %B + 440.0f;
 	[-9987.0f] * 192.0f;
-	bulletSetOffset_abs(0, [-1.0f], %B);
-	bulletShoot(0);
-	bulletSetSprite(0, 3, 2);
+	etOfs_abs(0, [-1.0f], %B);
+	etOn(0);
+	etSpr(0, 3, 2);
 	%B = %RANDF * 8.0f;
 	%B = %B + 440.0f;
 	[-9987.0f] * 192.0f;
-	bulletSetOffset_abs(0, [-1.0f], %B);
-	bulletShoot(0);
-	bulletSetSprite(0, 24, 0);
+	etOfs_abs(0, [-1.0f], %B);
+	etOn(0);
+	etSpr(0, 24, 0);
 	%B = %RANDF * 8.0f;
 	%B = %B + 440.0f;
 	[-9987.0f] * 192.0f;
-	bulletSetOffset_abs(0, [-1.0f], %B);
-	bulletShoot(0);
+	etOfs_abs(0, [-1.0f], %B);
+	etOn(0);
 BUL5:
 	$A % 5;
 	jne(BUL6, 0);
-	bulletSetSprite(0, 17, 1);
+	etSpr(0, 17, 1);
 	%B = %RANDF * 8.0f;
 	%B = %B + 440.0f;
 	[-9987.0f] * 192.0f;
-	bulletSetOffset_abs(0, [-1.0f], %B);
-	bulletShoot(0);
-	bulletSetSprite(0, 17, 1);
+	etOfs_abs(0, [-1.0f], %B);
+	etOn(0);
+	etSpr(0, 17, 1);
 	%B = %RANDF * 8.0f;
 	%B = %B + 440.0f;
 	[-9987.0f] * 192.0f;
-	bulletSetOffset_abs(0, [-1.0f], %B);
-	bulletShoot(0);
+	etOfs_abs(0, [-1.0f], %B);
+	etOn(0);
 BUL6:
 	$A % 5;
 	jne(BUL7, 0);
-	bulletSetSprite(0, 26, 0);
+	etSpr(0, 26, 0);
 	%B = %RANDF * 8.0f;
 	%B = %B + 440.0f;
 	[-9987.0f] * 192.0f;
-	bulletSetOffset_abs(0, [-1.0f], %B);
-	bulletShoot(0);
+	etOfs_abs(0, [-1.0f], %B);
+	etOn(0);
 BUL7:
 	wait(2);
 	$A = $A + 1;
@@ -1953,45 +1953,45 @@ sub BossCardWaWo()
 	enmPosTime(120, 4, 0.0f, 80.0f);
 	ins_262(0, 0);
 	$C = 0;
-	bulletCreate(0);
-	bulletSetType(0, 2);
-	bulletSetSprite(0, 3, 8);
-	bulletSetCount_diff(0, 18, 24, 30, 32, 2, 2, 2, 2);
-	bulletSetSpeed(0, 2.8f, 1.2f);
-	bulletSetAngle(0, 3.1415926535897932384626433832795f, 0.34906585039886591538473815369772f);
-	bulletSetComplexTransform(0, 0, 0, 2, 2, -999999, -999999.0f, -999999.0f);
-	bulletCreate(1);
-	bulletSetType(1, 0);
+	etNew(0);
+	etMode(0, 2);
+	etSpr(0, 3, 8);
+	etCnt_rank(0, 18, 24, 30, 32, 2, 2, 2, 2);
+	etSpd(0, 2.8f, 1.2f);
+	etAng(0, 3.1415926535897932384626433832795f, 0.34906585039886591538473815369772f);
+	etEx(0, 0, 0, 2, 2, -999999, -999999.0f, -999999.0f);
+	etNew(1);
+	etMode(1, 0);
 !EN
-	bulletSetSprite(1, 17, 3);
+	etSpr(1, 17, 3);
 !HL
-	bulletSetSprite(1, 26, 3);
+	etSpr(1, 26, 3);
 !ENHL
-	bulletSetCount_diff(1, 8, 10, 10, 10, 1, 1, 1, 1);
-	bulletSetSpeed(1, 1.8f, 0.7f);
-	bulletSetSE(1, -1, -1);
-	bulletCreate(2);
-	bulletSetType(2, 2);
-	bulletSetSprite(2, 3, 10);
-	bulletSetCount_diff(2, 16, 20, 20, 24, 2, 2, 2, 2);
-	bulletSetSpeed(2, 2.8f, 1.2f);
-	bulletSetAngle(2, 3.1415926535897932384626433832795f, 0.34906585039886591538473815369772f);
-	bulletSetComplexTransform(2, 0, 0, 2, 2, -999999, -999999.0f, -999999.0f);
+	etCnt_rank(1, 8, 10, 10, 10, 1, 1, 1, 1);
+	etSpd(1, 1.8f, 0.7f);
+	etSE(1, -1, -1);
+	etNew(2);
+	etMode(2, 2);
+	etSpr(2, 3, 10);
+	etCnt_rank(2, 16, 20, 20, 24, 2, 2, 2, 2);
+	etSpd(2, 2.8f, 1.2f);
+	etAng(2, 3.1415926535897932384626433832795f, 0.34906585039886591538473815369772f);
+	etEx(2, 0, 0, 2, 2, -999999, -999999.0f, -999999.0f);
 	%A = 0.0f;
 120:
 START:
 	endSlot(1);
-	bulletShoot(0);
-	bulletSetAngle(1, %A, 0.34906585039886591538473815369772f);
-	bulletShoot(1);
+	etOn(0);
+	etAng(1, %A, 0.34906585039886591538473815369772f);
+	etOn(1);
 	%B = %RANDF * 0.2243995f;
 	%B = %B - 0.1121997f;
 	%A = %A - %B;
 130:
 	$C;
 	je(NO_BUBBLE, 130);
-	bulletSetAngle(1, %A, 0.34906585039886591538473815369772f);
-	bulletShoot(1);
+	etAng(1, %A, 0.34906585039886591538473815369772f);
+	etOn(1);
 NO_BUBBLE:
 140:
 	callSlot("BossCardWaWo_at2", 1);
@@ -2011,7 +2011,7 @@ sub BossCardWaWo_at2()
 	var;
 	noop();
 START:
-	bulletShoot(2);
+	etOn(2);
 	wait(20);
 	goto START @ 0;
 	return();
@@ -2039,9 +2039,9 @@ sub BossCardWaterBury()
 	stageProg(43);
 	enmPosTime(60, 4, 0.0f, 80.0f);
 	ins_262(0, 0);
-	bulletCreate(0);
-	bulletSetType(0, 3);
-	bulletSetSprite(0, 24, 0);
+	etNew(0);
+	etMode(0, 3);
+	etSpr(0, 24, 0);
 	$C = 0;
 120:
 START:
@@ -2062,23 +2062,23 @@ LOOP_END:
 	$A = 8;
 	enmRand(90, 4, 1.5f);
 	%B = 0.0f;
-	bulletCreate(0);
-	bulletSetType(0, 0);
-	bulletSetSprite(0, 26, 1);
-	bulletSetCount(0, 10, 1);
+	etNew(0);
+	etMode(0, 0);
+	etSpr(0, 26, 1);
+	etCnt(0, 10, 1);
 !H
 	3.5f;
 !L
 	3.8f;
 !ENHL
-bulletSetSpeed(0, [-1.0f], 0.7f);
+etSpd(0, [-1.0f], 0.7f);
 SHOOT:
 !H
-	bulletSetAngle(0, %B, 0.3926991f);
+	etAng(0, %B, 0.3926991f);
 !L
-	bulletSetAngle(0, %B, 0.3141593f);
+	etAng(0, %B, 0.3141593f);
 !ENHL
-	bulletShoot(0);
+	etOn(0);
 	%D = %RANDF * 0.17453292519943295769236907684886f;
 	%D = %D - 0.08726646259971647884618453842443f;
 	%B = %B - %D;
@@ -2096,20 +2096,20 @@ END_LOOP:
 sub BossCardWaterBury_At()
 {
 	var;
-	bulletCreate(0);
-	bulletSetType(0, 2);
-	bulletSetSprite(0, 3, 6);
+	etNew(0);
+	etMode(0, 2);
+	etSpr(0, 3, 6);
 !H
 	24;
 !L
 	30;
 !ENHL
-	bulletSetCount(0, [-1], 2);
-	bulletSetSpeed(0, 3.0f, 1.8f);
-	bulletSetAngle(0, 0.0f, 0.3490658f);
-	bulletSetComplexTransform(0, 0, 0, 2, 2, -999999, -999999.0f, -999999.0f);
+	etCnt(0, [-1], 2);
+	etSpd(0, 3.0f, 1.8f);
+	etAng(0, 0.0f, 0.3490658f);
+	etEx(0, 0, 0, 2, 2, -999999, -999999.0f, -999999.0f);
 SHOOT:
-	bulletShoot(0);
+	etOn(0);
 	wait(22);
 	goto SHOOT @ 0;
 	return();
@@ -2118,15 +2118,15 @@ SHOOT:
 sub BossCardWaterBury_LaserAt(A)
 {
 	var;
-	bulletCreate(1);
-	bulletSetSprite(1, 30, 6);
+	etNew(1);
+	etSpr(1, 30, 6);
 	%ANGLE_PLAYER + %A;
-	bulletSetAngle(1, [-1.0f], 0.0f);
-	bulletSetSpeed(1, 24.0f, 0.0f);
+	etAng(1, [-1.0f], 0.0f);
+	etSpd(1, 24.0f, 0.0f);
 	laserSetSize(1, 0.0f, 640.0f, 0.0f, 8.0f);
 	laserSetTime(1, 20, 10, 50, 10, 0);
-	bulletSetComplexTransform(1, 0, 0, 268435456, 1, -999999, -999999.0f, -999999.0f);
-	bulletSetSE(1, 19, -1);
+	etEx(1, 0, 0, 268435456, 1, -999999, -999999.0f, -999999.0f);
+	etSE(1, 19, -1);
 	laserShootStatic(1, 1);
 	return();
 }
@@ -2157,9 +2157,9 @@ sub BossCardWaterMonsoon()
 	stageProg(43);
 	enmPosTime(60, 4, 0.0f, 80.0f);
 	ins_262(0, 0);
-	bulletCreate(0);
-	bulletSetType(0, 3);
-	bulletSetSprite(0, 24, 0);
+	etNew(0);
+	etMode(0, 3);
+	etSpr(0, 24, 0);
 	$C = 0;
 120:
 START:
@@ -2205,23 +2205,23 @@ START:
 sub BossCardWaterMonsoon_rain()
 {
 	var;
-	bulletCreate(0);
-	bulletSetType(0, 8);
-	bulletSetCount(0, 1, 1);
-	bulletSetSpeed(0, 2.0f, 1.7f);
-	bulletSetAngle(0, 1.642196159831028283741836313987f, 1.4993964937587649547208070692925f);
-	bulletSetComplexTransform(0, 0, 0, 2, 2, -999999, -999999.0f, -999999.0f);
-	bulletSetComplexTransform(0, 1, 1, 1024, 600, 1, -999999.0f, -999999.0f);
-	bulletSetComplexTransform(0, 2, 0, 4, 9999, -999999, 0.016f, 1.3089969389957471826927680763665f);
+	etNew(0);
+	etMode(0, 8);
+	etCnt(0, 1, 1);
+	etSpd(0, 2.0f, 1.7f);
+	etAng(0, 1.642196159831028283741836313987f, 1.4993964937587649547208070692925f);
+	etEx(0, 0, 0, 2, 2, -999999, -999999.0f, -999999.0f);
+	etEx(0, 1, 1, 1024, 600, 1, -999999.0f, -999999.0f);
+	etEx(0, 2, 0, 4, 9999, -999999, 0.016f, 1.3089969389957471826927680763665f);
 SHOOT:
-	bulletSetOffset_abs(0, _f(%RANDF2 * 208.0f), 0.0f);
-	bulletSetSprite(0, 28, 7);
-	bulletShoot(0);
+	etOfs_abs(0, _f(%RANDF2 * 208.0f), 0.0f);
+	etSpr(0, 28, 7);
+	etOn(0);
 !NHL
 	unless (($RAND % 3) > (2 - $RANK)) goto END @ 0;
-	bulletSetOffset_abs(0, _f(%RANDF2 * 208.0f), 0.0f);
-	bulletSetSprite(0, 28, 6);
-	bulletShoot(0);
+	etOfs_abs(0, _f(%RANDF2 * 208.0f), 0.0f);
+	etSpr(0, 28, 6);
+	etOn(0);
 END:
 !*
 	wait(12);
@@ -2232,19 +2232,19 @@ END:
 sub BossCardWaterMonsoon_rainH()
 {
 	var;
-	bulletCreate(3);
-	bulletSetType(3, 8);
-	bulletSetSprite(3, 28, 8);
-	bulletSetCount(3, 1, 1);
-	bulletSetSpeed(3, 2.0f, 1.7f);
-	bulletSetAngle(3, 1.642196159831028283741836313987f, 1.4993964937587649547208070692925f);
-	bulletSetComplexTransform(3, 0, 0, 2, 2, -999999, -999999.0f, -999999.0f);
-	bulletSetComplexTransform(3, 1, 1, 1024, 600, 1, -999999.0f, -999999.0f);
-	bulletSetComplexTransform(3, 2, 0, 4, 9999, -999999, 0.016f, 1.832595714594046055769875306913f);
+	etNew(3);
+	etMode(3, 8);
+	etSpr(3, 28, 8);
+	etCnt(3, 1, 1);
+	etSpd(3, 2.0f, 1.7f);
+	etAng(3, 1.642196159831028283741836313987f, 1.4993964937587649547208070692925f);
+	etEx(3, 0, 0, 2, 2, -999999, -999999.0f, -999999.0f);
+	etEx(3, 1, 1, 1024, 600, 1, -999999.0f, -999999.0f);
+	etEx(3, 2, 0, 4, 9999, -999999, 0.016f, 1.832595714594046055769875306913f);
 SHOOT:
 	[-9987.0f] * 208.0f;
-	bulletSetOffset_abs(3, [-1.0f], 0.0f);
-	bulletShoot(3);
+	etOfs_abs(3, [-1.0f], 0.0f);
+	etOn(3);
 	wait(16);
 	goto SHOOT @ 0;
 	return();
@@ -2253,28 +2253,28 @@ SHOOT:
 sub BossCardWaterMonsoon_wave1()
 {
 	var A B C D;
-	bulletCreate(1);
-	bulletSetType(1, 1);
-	bulletSetSprite(1, 3, 7);
-	bulletSetCount(1, 1, 1);
-	bulletSetSpeed(1, 1.5f, 1.0f);
-	bulletSetAngle(1, -1.5707963267948966192313216916398f, 0.0f);
-	bulletSetComplexTransform(1, 0, 0, 1024, 540, 0, -999999.0f, -999999.0f);
-	bulletSetComplexTransform(1, 1, 1, 268435456, 1, -999999, -999999.0f, -999999.0f);
-	bulletSetComplexTransform(1, 2, 2, 8, 40, -999999, 0.0f, -0.03926990816987241548078304229099f);
-	bulletSetComplexTransform(1, 3, 2, 8, 40, -999999, 0.0f, 0.03926990816987241548078304229099f);
-	bulletSetComplexTransform(1, 4, 2, 8, 40, -999999, 0.0f, -0.03926990816987241548078304229099f);
-	bulletSetComplexTransform(1, 5, 2, 8, 40, -999999, 0.0f, 0.03926990816987241548078304229099f);
-	bulletSetComplexTransform(1, 6, 2, 8, 40, -999999, 0.0f, -0.03926990816987241548078304229099f);
-	bulletSetComplexTransform(1, 7, 2, 8, 40, -999999, 0.0f, 0.03926990816987241548078304229099f);
-	bulletSetComplexTransform(1, 8, 2, 8, 40, -999999, 0.0f, -0.03926990816987241548078304229099f);
-	bulletSetComplexTransform(1, 9, 2, 8, 40, -999999, 0.0f, 0.03926990816987241548078304229099f);
-	bulletSetComplexTransform(1, 10, 2, 8, 40, -999999, 0.0f, -0.03926990816987241548078304229099f);
-	bulletSetComplexTransform(1, 11, 2, 8, 40, -999999, 0.0f, 0.03926990816987241548078304229099f);
-	bulletSetComplexTransform(1, 12, 2, 8, 40, -999999, 0.0f, -0.03926990816987241548078304229099f);
-	bulletSetComplexTransform(1, 13, 2, 8, 40, -999999, 0.0f, 0.03926990816987241548078304229099f);
-	bulletSetComplexTransform(1, 14, 2, 8, 40, -999999, 0.0f, -0.03926990816987241548078304229099f);
-	bulletSetComplexTransform(1, 15, 2, 8, 40, -999999, 0.0f, 0.03926990816987241548078304229099f);
+	etNew(1);
+	etMode(1, 1);
+	etSpr(1, 3, 7);
+	etCnt(1, 1, 1);
+	etSpd(1, 1.5f, 1.0f);
+	etAng(1, -1.5707963267948966192313216916398f, 0.0f);
+	etEx(1, 0, 0, 1024, 540, 0, -999999.0f, -999999.0f);
+	etEx(1, 1, 1, 268435456, 1, -999999, -999999.0f, -999999.0f);
+	etEx(1, 2, 2, 8, 40, -999999, 0.0f, -0.03926990816987241548078304229099f);
+	etEx(1, 3, 2, 8, 40, -999999, 0.0f, 0.03926990816987241548078304229099f);
+	etEx(1, 4, 2, 8, 40, -999999, 0.0f, -0.03926990816987241548078304229099f);
+	etEx(1, 5, 2, 8, 40, -999999, 0.0f, 0.03926990816987241548078304229099f);
+	etEx(1, 6, 2, 8, 40, -999999, 0.0f, -0.03926990816987241548078304229099f);
+	etEx(1, 7, 2, 8, 40, -999999, 0.0f, 0.03926990816987241548078304229099f);
+	etEx(1, 8, 2, 8, 40, -999999, 0.0f, -0.03926990816987241548078304229099f);
+	etEx(1, 9, 2, 8, 40, -999999, 0.0f, 0.03926990816987241548078304229099f);
+	etEx(1, 10, 2, 8, 40, -999999, 0.0f, -0.03926990816987241548078304229099f);
+	etEx(1, 11, 2, 8, 40, -999999, 0.0f, 0.03926990816987241548078304229099f);
+	etEx(1, 12, 2, 8, 40, -999999, 0.0f, -0.03926990816987241548078304229099f);
+	etEx(1, 13, 2, 8, 40, -999999, 0.0f, 0.03926990816987241548078304229099f);
+	etEx(1, 14, 2, 8, 40, -999999, 0.0f, -0.03926990816987241548078304229099f);
+	etEx(1, 15, 2, 8, 40, -999999, 0.0f, 0.03926990816987241548078304229099f);
 	%C = %RANDF * 16.0f;
 	%C = %C - 208.0f;
 !E
@@ -2300,8 +2300,8 @@ START:
 SHOOT:
 	%D = %B * _f($A);
 	%D = %D + %C;
-	bulletSetOffset_abs(1, %D, 496.0f);
-	bulletShoot(1);
+	etOfs_abs(1, %D, 496.0f);
+	etOn(1);
 LOOP_END:
 	decrement($A);
 	jne(SHOOT, 0);
@@ -2313,28 +2313,28 @@ LOOP_END:
 sub BossCardWaterMonsoon_wave2()
 {
 	var A B C D;
-	bulletCreate(2);
-	bulletSetType(2, 1);
-	bulletSetSprite(2, 3, 6);
-	bulletSetCount(2, 1, 1);
-	bulletSetSpeed(2, 1.5f, 1.0f);
-	bulletSetAngle(2, 1.5707963267948966192313216916398f, 0.0f);
-	bulletSetComplexTransform(2, 0, 0, 1024, 540, 0, -999999.0f, -999999.0f);
-	bulletSetComplexTransform(2, 1, 1, 268435456, 1, -999999, -999999.0f, -999999.0f);
-	bulletSetComplexTransform(2, 2, 2, 8, 40, -999999, 0.0f, -0.03926990816987241548078304229099f);
-	bulletSetComplexTransform(2, 3, 2, 8, 40, -999999, 0.0f, 0.03926990816987241548078304229099f);
-	bulletSetComplexTransform(2, 4, 2, 8, 40, -999999, 0.0f, -0.03926990816987241548078304229099f);
-	bulletSetComplexTransform(2, 5, 2, 8, 40, -999999, 0.0f, 0.03926990816987241548078304229099f);
-	bulletSetComplexTransform(2, 6, 2, 8, 40, -999999, 0.0f, -0.03926990816987241548078304229099f);
-	bulletSetComplexTransform(2, 7, 2, 8, 40, -999999, 0.0f, 0.03926990816987241548078304229099f);
-	bulletSetComplexTransform(2, 8, 2, 8, 40, -999999, 0.0f, -0.03926990816987241548078304229099f);
-	bulletSetComplexTransform(2, 9, 2, 8, 40, -999999, 0.0f, 0.03926990816987241548078304229099f);
-	bulletSetComplexTransform(2, 10, 2, 8, 40, -999999, 0.0f, -0.03926990816987241548078304229099f);
-	bulletSetComplexTransform(2, 11, 2, 8, 40, -999999, 0.0f, 0.03926990816987241548078304229099f);
-	bulletSetComplexTransform(2, 12, 2, 8, 40, -999999, 0.0f, -0.03926990816987241548078304229099f);
-	bulletSetComplexTransform(2, 13, 2, 8, 40, -999999, 0.0f, 0.03926990816987241548078304229099f);
-	bulletSetComplexTransform(2, 14, 2, 8, 40, -999999, 0.0f, -0.03926990816987241548078304229099f);
-	bulletSetComplexTransform(2, 15, 2, 8, 40, -999999, 0.0f, 0.03926990816987241548078304229099f);
+	etNew(2);
+	etMode(2, 1);
+	etSpr(2, 3, 6);
+	etCnt(2, 1, 1);
+	etSpd(2, 1.5f, 1.0f);
+	etAng(2, 1.5707963267948966192313216916398f, 0.0f);
+	etEx(2, 0, 0, 1024, 540, 0, -999999.0f, -999999.0f);
+	etEx(2, 1, 1, 268435456, 1, -999999, -999999.0f, -999999.0f);
+	etEx(2, 2, 2, 8, 40, -999999, 0.0f, -0.03926990816987241548078304229099f);
+	etEx(2, 3, 2, 8, 40, -999999, 0.0f, 0.03926990816987241548078304229099f);
+	etEx(2, 4, 2, 8, 40, -999999, 0.0f, -0.03926990816987241548078304229099f);
+	etEx(2, 5, 2, 8, 40, -999999, 0.0f, 0.03926990816987241548078304229099f);
+	etEx(2, 6, 2, 8, 40, -999999, 0.0f, -0.03926990816987241548078304229099f);
+	etEx(2, 7, 2, 8, 40, -999999, 0.0f, 0.03926990816987241548078304229099f);
+	etEx(2, 8, 2, 8, 40, -999999, 0.0f, -0.03926990816987241548078304229099f);
+	etEx(2, 9, 2, 8, 40, -999999, 0.0f, 0.03926990816987241548078304229099f);
+	etEx(2, 10, 2, 8, 40, -999999, 0.0f, -0.03926990816987241548078304229099f);
+	etEx(2, 11, 2, 8, 40, -999999, 0.0f, 0.03926990816987241548078304229099f);
+	etEx(2, 12, 2, 8, 40, -999999, 0.0f, -0.03926990816987241548078304229099f);
+	etEx(2, 13, 2, 8, 40, -999999, 0.0f, 0.03926990816987241548078304229099f);
+	etEx(2, 14, 2, 8, 40, -999999, 0.0f, -0.03926990816987241548078304229099f);
+	etEx(2, 15, 2, 8, 40, -999999, 0.0f, 0.03926990816987241548078304229099f);
 	%C = %RANDF * 16.0f;
 	%C = %C + 208.0f;
 !E
@@ -2361,8 +2361,8 @@ START:
 SHOOT:
 	%D = %B * _f($A);
 	%D = %C - %D;
-	bulletSetOffset_abs(2, %D, -48.0f);
-	bulletShoot(2);
+	etOfs_abs(2, %D, -48.0f);
+	etOn(2);
 LOOP_END:
 	decrement($A);
 	jne(SHOOT, 0);
@@ -2393,9 +2393,9 @@ sub BossCardWaterUndine()
 	stageProg(43);
 	enmPosTime(60, 4, 0.0f, 80.0f);
 	ins_262(0, 0);
-	bulletCreate(0);
-	bulletSetType(0, 3);
-	bulletSetSprite(0, 24, 0);
+	etNew(0);
+	etMode(0, 3);
+	etSpr(0, 24, 0);
 	$C = 0;
 120:
 START:
@@ -2417,22 +2417,22 @@ LOOP_END:
 	$A = 8;
 	enmRand(90, 4, 1.5f);
 	%B = 0.0f;
-	bulletCreate(0);
-	bulletSetType(0, 0);
-	bulletSetSprite(0, 17, 3);
-	bulletSetCount(0, 10, 1);
-	bulletSetSpeed(0, 2.5f, 0.7f);
-	bulletCreate(1);
-	bulletSetType(1, 0);
-	bulletSetSprite(1, 3, 6);
-	bulletSetSpeed(1, 0.7f, 0.7f);
+	etNew(0);
+	etMode(0, 0);
+	etSpr(0, 17, 3);
+	etCnt(0, 10, 1);
+	etSpd(0, 2.5f, 0.7f);
+	etNew(1);
+	etMode(1, 0);
+	etSpr(1, 3, 6);
+	etSpd(1, 0.7f, 0.7f);
 SHOOT:
-	bulletSetAngle(0, %B, 0.2243995f);
+	etAng(0, %B, 0.2243995f);
 	$C + 1;
-	bulletSetCount(1, [-1], 1);
-	bulletSetAngle(1, %B, 0.3490658f);
-	bulletShoot(0);
-	bulletShoot(1);
+	etCnt(1, [-1], 1);
+	etAng(1, %B, 0.3490658f);
+	etOn(0);
+	etOn(1);
 	%D = %RANDRAD + 3.14159265f;
 	%D = %D / 18.6666666666666666f;
 	%D = %D - 0.1121997f;
@@ -2451,15 +2451,15 @@ END_LOOP:
 sub BossCardWaterUndine_At()
 {
 	var;
-	bulletCreate(0);
-	bulletSetType(0, 0);
-	bulletSetSprite(0, 3, 6);
-	bulletSetCount(0, 16, 2);
-	bulletSetSpeed(0, 3.5f, 1.2f);
-	bulletSetAngle(0, 3.141593f, 0.3490658f);
-	bulletSetComplexTransform(0, 0, 0, 2, 2, -999999, -999999.0f, -999999.0f);
+	etNew(0);
+	etMode(0, 0);
+	etSpr(0, 3, 6);
+	etCnt(0, 16, 2);
+	etSpd(0, 3.5f, 1.2f);
+	etAng(0, 3.141593f, 0.3490658f);
+	etEx(0, 0, 0, 2, 2, -999999, -999999.0f, -999999.0f);
 SHOOT:
-	bulletShoot(0);
+	etOn(0);
 	wait(22);
 	goto SHOOT @ 0;
 	return();
@@ -2468,14 +2468,14 @@ SHOOT:
 sub BossCardWaterUndine_LaserAt(A)
 {
 	var;
-	bulletCreate(1);
-	bulletSetSprite(1, 30, 6);
+	etNew(1);
+	etSpr(1, 30, 6);
 	%ANGLE_PLAYER + %A;
-	bulletSetAngle(1, [-1.0f], 0.0f);
-	bulletSetSpeed(1, 4.0f, 0.0f);
+	etAng(1, [-1.0f], 0.0f);
+	etSpd(1, 4.0f, 0.0f);
 	laserSetSize(1, 0.0f, 96.0f, 0.0f, 6.0f);
-	bulletSetSE(1, 19, -1);
-	bulletSetComplexTransform(1, 0, 0, 268435456, 1, -999999, -999999.0f, -999999.0f);
+	etSE(1, 19, -1);
+	etEx(1, 0, 0, 268435456, 1, -999999, -999999.0f, -999999.0f);
 	laserShoot(1);
 	return();
 }
@@ -2503,9 +2503,9 @@ sub BossCardWoEa()
 	stageProg(43);
 	enmPosTime(60, 4, 0.0f, 80.0f);
 	ins_262(0, 0);
-	bulletCreate(0);
-	bulletSetType(0, 0);
-	bulletSetSprite(0, 17, 6);
+	etNew(0);
+	etMode(0, 0);
+	etSpr(0, 17, 6);
 !E
 	1;
 !N
@@ -2513,42 +2513,42 @@ sub BossCardWoEa()
 !HL
 	5;
 !ENHL
-	bulletSetCount(0, [-1], 1);
+	etCnt(0, [-1], 1);
 !EN
 	2.0f;
 !HL
 	2.5f;
 !ENHL
-	bulletSetSpeed(0, [-1.0f], 0.3f);
-	bulletSetAngle(0, 0.0f, 0.52359877559829887307710723054658f);
-	bulletSetSE(0, 26, -1);
-	bulletSetComplexTransform(0, 0, 0, 2, 2, -999999, -999999.0f, -999999.0f);
-	bulletCreate(1);
-	bulletSetType(1, 8);
-	bulletSetSprite(1, 5, 13);
-	bulletSetCount(1, 1, 1);
-	bulletSetSpeed(1, 1.0f, 0.7f);
-	bulletSetAngle(1, 1.9634954084936207740391521145497f, 1.1780972450961724644234912687298f);
-	bulletSetSE(1, 40, 43);
-	bulletSetComplexTransform(1, 0, 0, 2, 1, -999999, -999999.0f, -999999.0f);
-	bulletSetComplexTransform(1, 1, 0, 268435456, 1, -999999, -999999.0f, -999999.0f);
-	bulletSetComplexTransform(1, 2, 0, 4, 150, -999999, 0.0175f, 1.5707963267948966192313216916398f);
-	bulletSetComplexTransform(1, 3, 0, 256, 1, 2, -999999.0f, -999999.0f);
-	bulletSetComplexTransform(1, 4, 0, 268435456, 0, -999999, -999999.0f, -999999.0f);
-	bulletSetComplexTransform(1, 5, 0, 4, 900, -999999, 0.025f, 1.5707963267948966192313216916398f);
-	bulletCreate(2);
-	bulletSetType(2, 8);
-	bulletSetSprite(2, 5, 14);
+	etSpd(0, [-1.0f], 0.3f);
+	etAng(0, 0.0f, 0.52359877559829887307710723054658f);
+	etSE(0, 26, -1);
+	etEx(0, 0, 0, 2, 2, -999999, -999999.0f, -999999.0f);
+	etNew(1);
+	etMode(1, 8);
+	etSpr(1, 5, 13);
+	etCnt(1, 1, 1);
+	etSpd(1, 1.0f, 0.7f);
+	etAng(1, 1.9634954084936207740391521145497f, 1.1780972450961724644234912687298f);
+	etSE(1, 40, 43);
+	etEx(1, 0, 0, 2, 1, -999999, -999999.0f, -999999.0f);
+	etEx(1, 1, 0, 268435456, 1, -999999, -999999.0f, -999999.0f);
+	etEx(1, 2, 0, 4, 150, -999999, 0.0175f, 1.5707963267948966192313216916398f);
+	etEx(1, 3, 0, 256, 1, 2, -999999.0f, -999999.0f);
+	etEx(1, 4, 0, 268435456, 0, -999999, -999999.0f, -999999.0f);
+	etEx(1, 5, 0, 4, 900, -999999, 0.025f, 1.5707963267948966192313216916398f);
+	etNew(2);
+	etMode(2, 8);
+	etSpr(2, 5, 14);
 !H
-	bulletSetCount(2, 1, 1);
+	etCnt(2, 1, 1);
 !L
-	bulletSetCount(2, 2, 1);
+	etCnt(2, 2, 1);
 !ENHL
-	bulletSetSpeed(2, 1.5f, 0.4f);
-	bulletSetSE(2, 40, 43);
-	bulletSetComplexTransform(2, 0, 0, 2, 1, -999999, -999999.0f, -999999.0f);
-	bulletSetComplexTransform(2, 1, 1, 4, 900, -999999, 0.0175f, 1.5707963267948966192313216916398f);
-	bulletSetComplexTransform(2, 2, 2, 256, 1, 2, -999999.0f, -999999.0f);
+	etSpd(2, 1.5f, 0.4f);
+	etSE(2, 40, 43);
+	etEx(2, 0, 0, 2, 1, -999999, -999999.0f, -999999.0f);
+	etEx(2, 1, 1, 4, 900, -999999, 0.0175f, 1.5707963267948966192313216916398f);
+	etEx(2, 2, 2, 256, 1, 2, -999999.0f, -999999.0f);
 	$A = 2;
 60:
 	playSE(31);
@@ -2580,7 +2580,7 @@ sub BossCardWoEa_at()
 	var;
 	noop();
 START:
-	bulletShoot(0);
+	etOn(0);
 	wait_rank(45, 30, 24, 20);
 	goto START @ 0;
 	return();
@@ -2590,17 +2590,17 @@ sub BossCardWoEa_at1()
 {
 	var;
 	wait(30);
-	bulletCreate(3);
-	bulletSetType(3, 0);
-	bulletSetSprite(3, 3, 6);
-	bulletSetCount(3, 5, 5);
-	bulletSetSpeed(3, 2.8f, 1.0f);
-	bulletSetAngle(3, 0.0f, 0.39269908169872415480783042290994f);
-	bulletSetComplexTransform(3, 0, 0, 1, -999999, -999999, -999999.0f, -999999.0f);
-	bulletSetComplexTransform(3, 1, 0, 2, 2, -999999, -999999.0f, -999999.0f);
+	etNew(3);
+	etMode(3, 0);
+	etSpr(3, 3, 6);
+	etCnt(3, 5, 5);
+	etSpd(3, 2.8f, 1.0f);
+	etAng(3, 0.0f, 0.39269908169872415480783042290994f);
+	etEx(3, 0, 0, 1, -999999, -999999, -999999.0f, -999999.0f);
+	etEx(3, 1, 0, 2, 2, -999999, -999999.0f, -999999.0f);
 START:
 	if [-9990.0f] > [-9994.0f] goto END @ 0;
-	bulletShoot(3);
+	etOn(3);
 	wait(9);
 END:
 	wait(1);
@@ -2648,8 +2648,8 @@ LOOP_START:
 	%E = %RANDF * %B;
 	%E = %C + %E;
 	%RANDF * 8.0f;
-	bulletSetOffset_abs(1, %E, [-1.0f]);
-	bulletShoot(1);
+	etOfs_abs(1, %E, [-1.0f]);
+	etOn(1);
 	%C = %C + %B;
 LOOP_END:
 	decrement($D);
@@ -2699,14 +2699,14 @@ LOOP_START:
 	%E = %C + %E;
 	%F = %RANDF * 8.0f;
 	%F - 192.0f;
-	bulletSetOffset_abs(2, [-1.0f], %E);
-	bulletSetAngle(2, 0.78539816339744830961566084581988f, 0.39269908169872415480783042290994f);
-	bulletShoot(2);
+	etOfs_abs(2, [-1.0f], %E);
+	etAng(2, 0.78539816339744830961566084581988f, 0.39269908169872415480783042290994f);
+	etOn(2);
 	%F = %RANDF * 8.0f;
 	%F + 184.0f;
-	bulletSetOffset_abs(2, [-1.0f], %E);
-	bulletSetAngle(2, 2.7488935718910690836548129603696f, 2.3561944901923449288469825374596f);
-	bulletShoot(2);
+	etOfs_abs(2, [-1.0f], %E);
+	etAng(2, 2.7488935718910690836548129603696f, 2.3561944901923449288469825374596f);
+	etOn(2);
 	%C = %C + %B;
 LOOP_END:
 	decrement($D);
@@ -2741,9 +2741,9 @@ sub BossCardWoFi()
 	stageProg(43);
 	enmPosTime(120, 4, 0.0f, 80.0f);
 	ins_262(0, 0);
-	bulletCreate(0);
-	bulletSetType(0, 8);
-	bulletSetSprite(0, 24, 0);
+	etNew(0);
+	etMode(0, 8);
+	etSpr(0, 24, 0);
 !E
 	12;
 !NL
@@ -2751,42 +2751,42 @@ sub BossCardWoFi()
 !H
 	32;
 !ENHL
-	bulletSetCount(0, [-1], 1);
+	etCnt(0, [-1], 1);
 !EN
 	2.0f;
 !HL
 	2.5f;
 !ENHL
-	bulletSetSpeed(0, [-1.0f], 0.3f);
-	bulletSetAngle(0, 3.1415926535897932384626433832795f, -3.1415926535897932384626433832795f);
-	bulletSetSE(0, 24, -1);
-	bulletSetComplexTransform(0, 0, 0, 2, 1, -999999, -999999.0f, -999999.0f);
-	bulletSetComplexTransform(0, 1, 0, 268435456, 0, -999999, -999999.0f, -999999.0f);
-	bulletSetComplexTransform(0, 2, 0, 1, -999999, -999999, -999999.0f, -999999.0f);
-	bulletSetComplexTransform(0, 3, 0, 4, 9999, -999999, 0.012f, 2.3561944901923449288469825374597f);
-	bulletCreate(1);
-	bulletSetType(1, 8);
-	bulletSetSprite(1, 9, 2);
-	bulletSetAngle(1, 2.635447f, 2.076942f);
-	bulletSetComplexTransform(1, 0, 0, 2, 1, -999999, -999999.0f, -999999.0f);
-	bulletSetComplexTransform(1, 1, 0, 1, -999999, -999999, -999999.0f, -999999.0f);
-	bulletSetComplexTransform(1, 2, 1, 1024, 60, -999999, -999999.0f, -999999.0f);
-	bulletSetComplexTransform(1, 3, 0, 4, 60, -999999, 0.012f, 2.3561944901923449288469825374597f);
+	etSpd(0, [-1.0f], 0.3f);
+	etAng(0, 3.1415926535897932384626433832795f, -3.1415926535897932384626433832795f);
+	etSE(0, 24, -1);
+	etEx(0, 0, 0, 2, 1, -999999, -999999.0f, -999999.0f);
+	etEx(0, 1, 0, 268435456, 0, -999999, -999999.0f, -999999.0f);
+	etEx(0, 2, 0, 1, -999999, -999999, -999999.0f, -999999.0f);
+	etEx(0, 3, 0, 4, 9999, -999999, 0.012f, 2.3561944901923449288469825374597f);
+	etNew(1);
+	etMode(1, 8);
+	etSpr(1, 9, 2);
+	etAng(1, 2.635447f, 2.076942f);
+	etEx(1, 0, 0, 2, 1, -999999, -999999.0f, -999999.0f);
+	etEx(1, 1, 0, 1, -999999, -999999, -999999.0f, -999999.0f);
+	etEx(1, 2, 1, 1024, 60, -999999, -999999.0f, -999999.0f);
+	etEx(1, 3, 0, 4, 60, -999999, 0.012f, 2.3561944901923449288469825374597f);
 	$A = 0;
 120:
 START:
 	$A % 4;
 	jne(SKIP_FIRE, 120);
-	bulletShoot(0);
+	etOn(0);
 SKIP_FIRE:
 	%B = %RANDF * 384.0f;
 	%B = %B - [-9995.0f];
 	%C = 32.0f - [-9994.0f];
 	%B = %B - 192.0f;
-	bulletSetOffset(1, %B, %C);
-	bulletSetCount(1, 1, 1);
-	bulletSetSpeed(1, 1.2f, 0.3f);
-	bulletShoot(1);
+	etOfs(1, %B, %C);
+	etCnt(1, 1, 1);
+	etSpd(1, 1.2f, 0.3f);
+	etOn(1);
 	%B = %RANDF * 192.0f;
 	$A % 2;
 	jne(PREP2, 122);
@@ -2800,18 +2800,18 @@ PREP2:
 	%B = 380.0f - [-9995.0f];
 SHOOT:
 	%B = %B - 192.0f;
-	bulletSetOffset(1, %B, %C);
+	etOfs(1, %B, %C);
 !ENH
-	bulletSetCount(1, 1, 1);
+	etCnt(1, 1, 1);
 !L
-	bulletSetCount(1, 2, 1);
+	etCnt(1, 2, 1);
 !EN
 	1.2f;
 !HL
 	1.6f;
 !ENHL
-	bulletSetSpeed(1, [-1.0f], 0.3f);
-	bulletShoot(1);
+	etSpd(1, [-1.0f], 0.3f);
+	etOn(1);
 	$A = $A + 1;
 132:
 	goto START @ 120;
@@ -2841,10 +2841,10 @@ sub BossCardWoMe()
 	enmPosTime(120, 4, 0.0f, 160.0f);
 	unsetMoveArea();
 	ins_262(0, 0);
-	bulletCreate(0);
-	bulletSetType(0, 3);
-	bulletSetSprite(0, 0, 0);
-	bulletSetSpeed(0, 1.0f, 1.0f);
+	etNew(0);
+	etMode(0, 3);
+	etSpr(0, 0, 0);
+	etSpd(0, 1.0f, 1.0f);
 	laserSetSize(0, -1.0f, -1.0f, -1.0f, 24.0f);
 !E
 	30;
@@ -2856,32 +2856,32 @@ sub BossCardWoMe()
 	45;
 !ENHL
 	laserSetTime(0, [-1], -1, -1, -1, -1);
-	bulletSetSE(0, 19, -1);
-	bulletSetComplexTransform(0, 0, 0, 268435456, 0, -999999, -999999.0f, -999999.0f);
-	bulletSetComplexTransform(0, 1, 0, 8, 45, 1, 0.02f, 0.0f);
-	bulletSetComplexTransform(0, 2, 0, 4096, 30, -999999, -999999.0f, -999999.0f);
-	bulletSetComplexTransform(0, 4, 0, 8, 10, 1, -0.06f, 0.0f);
+	etSE(0, 19, -1);
+	etEx(0, 0, 0, 268435456, 0, -999999, -999999.0f, -999999.0f);
+	etEx(0, 1, 0, 8, 45, 1, 0.02f, 0.0f);
+	etEx(0, 2, 0, 4096, 30, -999999, -999999.0f, -999999.0f);
+	etEx(0, 4, 0, 8, 10, 1, -0.06f, 0.0f);
 !NHL
-	bulletSetComplexTransform(0, 6, 0, 8, 10, 1, -0.06f, 0.0f);
+	etEx(0, 6, 0, 8, 10, 1, -0.06f, 0.0f);
 !HL
-	bulletSetComplexTransform(0, 8, 0, 8, 10, 1, -0.06f, 0.0f);
+	etEx(0, 8, 0, 8, 10, 1, -0.06f, 0.0f);
 !L
-	bulletSetComplexTransform(0, 10, 0, 8, 10, 1, -0.06f, 0.0f);
+	etEx(0, 10, 0, 8, 10, 1, -0.06f, 0.0f);
 !ENHL
-	bulletCreate(1);
-	bulletSetSprite(1, 30, 11);
-	bulletSetSE(1, 19, -1);
+	etNew(1);
+	etSpr(1, 30, 11);
+	etSE(1, 19, -1);
 	laserSetTime(1, 50, 30, 75, 15, 14);
 	laserSetSize(1, 0.0f, 500.0f, 0.0f, 12.0f);
-	bulletCreate(2);
-	bulletSetType(2, 0);
+	etNew(2);
+	etMode(2, 0);
 !EN
-	bulletSetSprite(2, 17, 5);
+	etSpr(2, 17, 5);
 !HL
-	bulletSetSprite(2, 26, 2);
+	etSpr(2, 26, 2);
 !ENHL
-	bulletSetCount(2, 1, 1);
-	bulletSetComplexTransform(2, 0, 0, 2, 2, -999999, -999999.0f, -999999.0f);
+	etCnt(2, 1, 1);
+	etEx(2, 0, 0, 2, 2, -999999, -999999.0f, -999999.0f);
 	$A = 0;
 !E
 	%B = 0.39269908169872415480783042290994f;
@@ -2942,10 +2942,10 @@ sub BossCardWoMe_at1(A)
 	%F = 0.0f - %C;
 	goto END @ 0;
 START:
-	bulletSetAngle(1, _f(%E + %A), 0.0f);
+	etAng(1, _f(%E + %A), 0.0f);
 	%E = %RANDF * 8.0f;
 	%E + 11.111111111111111111111111111111f;
-	bulletSetSpeed(1, [-1.0f], 0.0f);
+	etSpd(1, [-1.0f], 0.0f);
 	laserShootStatic(1, $D);
 	%E = %RANDF * %C;
 	%F = %F + %C;
@@ -2982,9 +2982,9 @@ sub BossCardWoMe_at2(A)
 	%D = 2.0f;
 	goto END @ 0;
 START:
-	bulletSetAngle(2, %C, 0.0f);
-	bulletSetSpeed(2, %D, 0.0f);
-	bulletShoot(2);
+	etAng(2, %C, 0.0f);
+	etSpd(2, %D, 0.0f);
+	etOn(2);
 	%C = %C + %A;
 END:
 	%D = %D + %E;
@@ -3014,35 +3014,35 @@ MAIN_START:
 	%B = %RANDRAD;
 	goto END @ 0;
 START:
-	bulletSetAngle(0, %B, 0.0f);
+	etAng(0, %B, 0.0f);
 	%B = %B + %E;
 	%D = %C;
 	$RAND % 2;
 	jne(SKIP_NEG1, 0);
 	%D = %D * -1.0f;
 SKIP_NEG1:
-	bulletSetComplexTransform(0, 3, 0, 8, 10, 1, 0.06f, %D);
+	etEx(0, 3, 0, 8, 10, 1, 0.06f, %D);
 !NHL
 	%D = %C;
 	$RAND % 2;
 	jne(SKIP_NEG2, 0);
 	%D = %D * -1.0f;
 SKIP_NEG2:
-	bulletSetComplexTransform(0, 5, 0, 8, 10, 1, 0.06f, %D);
+	etEx(0, 5, 0, 8, 10, 1, 0.06f, %D);
 !HL
 	%D = %C;
 	$RAND % 2;
 	jne(SKIP_NEG3, 0);
 	%D = %D * -1.0f;
 SKIP_NEG3:
-	bulletSetComplexTransform(0, 7, 0, 8, 10, 1, 0.06f, %D);
+	etEx(0, 7, 0, 8, 10, 1, 0.06f, %D);
 !L
 	%D = %C;
 	$RAND % 2;
 	jne(SKIP_NEG4, 0);
 	%D = %D * -1.0f;
 SKIP_NEG4:
-	bulletSetComplexTransform(0, 9, 0, 8, 10, 1, 0.06f, %D);
+	etEx(0, 9, 0, 8, 10, 1, 0.06f, %D);
 !ENHL
 	laserCurvedShoot(0);
 END:
@@ -3076,30 +3076,30 @@ sub BossCardWoodGreen()
 	enmPosTime(120, 4, 0.0f, 80.0f);
 	ins_262(0, 0);
 	$B = 0;
-	bulletCreate(0);
-	bulletSetType(0, 3);
-	bulletSetSprite(0, 24, 0);
-	bulletCreate(0);
-	bulletSetType(0, 8);
-	bulletSetSprite(0, 9, 11);
-	bulletSetCount(0, 30, 1);
-	bulletSetSpeed(0, 2.0f, 0.3f);
-	bulletSetAngle(0, -3.14159265f, 3.14159265f);
-	bulletSetComplexTransform(0, 0, 0, 2, 2, -999999, -999999.0f, -999999.0f);
-	bulletSetComplexTransform(0, 1, 0, 1, -999999, -999999, -999999.0f, -999999.0f);
-	bulletSetComplexTransform(0, 2, 0, 4, 9999, -999999, 0.008f, 1.570796f);
-	bulletCreate(1);
-	bulletSetType(1, 8);
-	bulletSetSprite(1, 9, 10);
-	bulletSetCount(1, 1, 1);
+	etNew(0);
+	etMode(0, 3);
+	etSpr(0, 24, 0);
+	etNew(0);
+	etMode(0, 8);
+	etSpr(0, 9, 11);
+	etCnt(0, 30, 1);
+	etSpd(0, 2.0f, 0.3f);
+	etAng(0, -3.14159265f, 3.14159265f);
+	etEx(0, 0, 0, 2, 2, -999999, -999999.0f, -999999.0f);
+	etEx(0, 1, 0, 1, -999999, -999999, -999999.0f, -999999.0f);
+	etEx(0, 2, 0, 4, 9999, -999999, 0.008f, 1.570796f);
+	etNew(1);
+	etMode(1, 8);
+	etSpr(1, 9, 10);
+	etCnt(1, 1, 1);
 !H
-	bulletSetSpeed(1, 1.4f, 0.3f);
+	etSpd(1, 1.4f, 0.3f);
 !L
-	bulletSetSpeed(1, 2.0f, 0.3f);
+	etSpd(1, 2.0f, 0.3f);
 !ENHL
-	bulletSetAngle(1, 1.064651f, 0.5061455f);
-	bulletSetComplexTransform(1, 0, 0, 2, 2, -999999, -999999.0f, -999999.0f);
-	bulletSetComplexTransform(1, 1, 0, 1, -999999, -999999, -999999.0f, -999999.0f);
+	etAng(1, 1.064651f, 0.5061455f);
+	etEx(1, 0, 0, 2, 2, -999999, -999999.0f, -999999.0f);
+	etEx(1, 1, 0, 1, -999999, -999999, -999999.0f, -999999.0f);
 120:
 START:
 !H
@@ -3108,7 +3108,7 @@ START:
 	$B % 5;
 !ENHL
 	jne(SHOOT1, 120);
-	bulletShoot(0);
+	etOn(0);
 SHOOT1:
 	$B % 2;
 	jne(SHOOT2, 120);
@@ -3116,20 +3116,20 @@ SHOOT1:
 	%D = %C - [-9994.0f];
 	%C = 396.0f - [-9995.0f];
 	%C = %C - 192.0f;
-	bulletSetOffset(1, %C, %D);
-	bulletSetComplexTransform(1, 2, 0, 4, 9999, -999999, 0.008f, 2.356194f);
-	bulletSetAngle(1, 2.635447f, 2.076942f);
-	bulletShoot(1);
+	etOfs(1, %C, %D);
+	etEx(1, 2, 0, 4, 9999, -999999, 0.008f, 2.356194f);
+	etAng(1, 2.635447f, 2.076942f);
+	etOn(1);
 	goto LABEL3 @ 120;
 SHOOT2:
 	%C = %RANDF * 384.0f;
 	%D = %C - [-9994.0f];
 	%C = -12.0f - [-9995.0f];
 	%C = %C - 192.0f;
-	bulletSetOffset(1, %C, %D);
-	bulletSetComplexTransform(1, 2, 0, 4, 9999, -999999, 0.008f, 0.7853982f);
-	bulletSetAngle(1, 1.064651f, 0.5061455f);
-	bulletShoot(1);
+	etOfs(1, %C, %D);
+	etEx(1, 2, 0, 4, 9999, -999999, 0.008f, 0.7853982f);
+	etAng(1, 1.064651f, 0.5061455f);
+	etOn(1);
 LABEL3:
 	$B = $B + 1;
 125:
@@ -3159,46 +3159,46 @@ sub BossCardWoodSylphae()
 	stageProg(43);
 	enmPosTime(60, 4, 0.0f, 80.0f);
 	ins_262(0, 0);
-	bulletCreate(0);
-	bulletSetType(0, 3);
-	bulletSetSprite(0, 24, 0);
-	bulletSetComplexTransform(0, 0, 0, 268435456, 0, -999999, -999999.0f, -999999.0f);
+	etNew(0);
+	etMode(0, 3);
+	etSpr(0, 24, 0);
+	etEx(0, 0, 0, 268435456, 0, -999999, -999999.0f, -999999.0f);
 	$B = 0;
-	bulletCreate(0);
-	bulletSetType(0, 8);
-	bulletSetSprite(0, 9, 11);
+	etNew(0);
+	etMode(0, 8);
+	etSpr(0, 9, 11);
 !E
 	4;
 !N
 	10;
 !ENHL
-	bulletSetCount(0, [-1], 1);
-	bulletSetSpeed(0, 2.0f, 0.3f);
-	bulletSetAngle(0, -3.14159265f, 3.14159265f);
-	bulletSetComplexTransform(0, 0, 0, 2, 2, -999999, -999999.0f, -999999.0f);
-	bulletSetComplexTransform(0, 1, 0, 1, -999999, -999999, -999999.0f, -999999.0f);
-	bulletSetComplexTransform(0, 2, 0, 4, 9999, -999999, 0.012f, 2.356194f);
-	bulletCreate(1);
-	bulletSetType(1, 8);
-	bulletSetCount(1, 1, 1);
-	bulletSetSpeed(1, 1.2f, 0.3f);
-	bulletSetAngle(1, 2.635447f, 2.076942f);
-	bulletSetComplexTransform(1, 0, 0, 2, 2, -999999, -999999.0f, -999999.0f);
-	bulletSetComplexTransform(1, 1, 0, 1, -999999, -999999, -999999.0f, -999999.0f);
+	etCnt(0, [-1], 1);
+	etSpd(0, 2.0f, 0.3f);
+	etAng(0, -3.14159265f, 3.14159265f);
+	etEx(0, 0, 0, 2, 2, -999999, -999999.0f, -999999.0f);
+	etEx(0, 1, 0, 1, -999999, -999999, -999999.0f, -999999.0f);
+	etEx(0, 2, 0, 4, 9999, -999999, 0.012f, 2.356194f);
+	etNew(1);
+	etMode(1, 8);
+	etCnt(1, 1, 1);
+	etSpd(1, 1.2f, 0.3f);
+	etAng(1, 2.635447f, 2.076942f);
+	etEx(1, 0, 0, 2, 2, -999999, -999999.0f, -999999.0f);
+	etEx(1, 1, 0, 1, -999999, -999999, -999999.0f, -999999.0f);
 120:
 START:
 	$B % 6;
 	jne(LABEL1, 120);
-	bulletShoot(0);
+	etOn(0);
 LABEL1:
 	%C = %RANDF * 384.0f;
 	%C = %C - [-9995.0f];
 	%D = 32.0f - [-9994.0f];
 	%C = %C - 192.0f;
-	bulletSetOffset(1, %C, %D);
-	bulletSetSprite(1, 9, 10);
-	bulletSetComplexTransform(1, 2, 0, 4, 9999, -999999, 0.012f, 2.356194f);
-	bulletShoot(1);
+	etOfs(1, %C, %D);
+	etSpr(1, 9, 10);
+	etEx(1, 2, 0, 4, 9999, -999999, 0.012f, 2.356194f);
+	etOn(1);
 	%C = %RANDF * 192.0f;
 	$B % 2;
 	jne(LABEL2, 122);
@@ -3212,10 +3212,10 @@ LABEL2:
 	%C = 396.0f - [-9995.0f];
 LABEL3:
 	%C = %C - 192.0f;
-	bulletSetOffset(1, %C, %D);
-	bulletSetSprite(1, 9, 11);
-	bulletSetComplexTransform(1, 2, 0, 4, 9999, -999999, 0.0f, 2.356194f);
-	bulletShoot(1);
+	etOfs(1, %C, %D);
+	etSpr(1, 9, 11);
+	etEx(1, 2, 0, 4, 9999, -999999, 0.0f, 2.356194f);
+	etOn(1);
 	$B = $B + 1;
 126:
 	goto START @ 120;
@@ -3244,14 +3244,14 @@ sub BossCardWoodSylphaeHL()
 	stageProg(43);
 	enmPosTime(60, 4, 0.0f, 80.0f);
 	ins_262(0, 0);
-	bulletCreate(0);
-	bulletSetType(0, 3);
-	bulletSetSprite(0, 24, 0);
-	bulletSetComplexTransform(0, 0, 0, 268435456, 0, -999999, -999999.0f, -999999.0f);
+	etNew(0);
+	etMode(0, 3);
+	etSpr(0, 24, 0);
+	etEx(0, 0, 0, 268435456, 0, -999999, -999999.0f, -999999.0f);
 	$B = 0;
-	bulletCreate(0);
-	bulletSetType(0, 8);
-	bulletSetSprite(0, 9, 13);
+	etNew(0);
+	etMode(0, 8);
+	etSpr(0, 9, 13);
 !N
 	15;
 !H
@@ -3259,35 +3259,35 @@ sub BossCardWoodSylphaeHL()
 !L
 	27;
 !ENHL
-	bulletSetCount(0, [-1], 1);
-	bulletSetSpeed(0, 2.0f, 0.3f);
-	bulletSetAngle(0, -3.14159265f, 3.14159265f);
-	bulletSetComplexTransform(0, 0, 0, 2, 2, -999999, -999999.0f, -999999.0f);
-	bulletSetComplexTransform(0, 1, 0, 1, -999999, -999999, -999999.0f, -999999.0f);
-	bulletSetComplexTransform(0, 2, 0, 4, 9999, -999999, 0.012f, 0.7853982f);
-	bulletCreate(1);
-	bulletSetType(1, 8);
-	bulletSetCount(1, 1, 1);
-	bulletSetSpeed(1, 1.2f, 0.3f);
-	bulletSetAngle(1, 1.064651f, 0.5061455f);
-	bulletSetComplexTransform(1, 0, 0, 2, 2, -999999, -999999.0f, -999999.0f);
-	bulletSetComplexTransform(1, 1, 0, 1, -999999, -999999, -999999.0f, -999999.0f);
+	etCnt(0, [-1], 1);
+	etSpd(0, 2.0f, 0.3f);
+	etAng(0, -3.14159265f, 3.14159265f);
+	etEx(0, 0, 0, 2, 2, -999999, -999999.0f, -999999.0f);
+	etEx(0, 1, 0, 1, -999999, -999999, -999999.0f, -999999.0f);
+	etEx(0, 2, 0, 4, 9999, -999999, 0.012f, 0.7853982f);
+	etNew(1);
+	etMode(1, 8);
+	etCnt(1, 1, 1);
+	etSpd(1, 1.2f, 0.3f);
+	etAng(1, 1.064651f, 0.5061455f);
+	etEx(1, 0, 0, 2, 2, -999999, -999999.0f, -999999.0f);
+	etEx(1, 1, 0, 1, -999999, -999999, -999999.0f, -999999.0f);
 120:
 START:
 	$B % 6;
 	jne(LABEL1, 120);
-	bulletShoot(0);
+	etOn(0);
 LABEL1:
 	%C = %RANDF * 384.0f;
 	%C = %C - [-9995.0f];
 	%D = 32.0f - [-9994.0f];
 	%C = %C - 192.0f;
-	bulletSetOffset(1, %C, %D);
-	bulletSetSprite(1, 9, 10);
-	bulletSetCount(1, 1, 1);
-	bulletSetSpeed(1, 1.2f, 0.3f);
-	bulletSetComplexTransform(1, 2, 0, 4, 60, -999999, 0.012f, 0.7853982f);
-	bulletShoot(1);
+	etOfs(1, %C, %D);
+	etSpr(1, 9, 10);
+	etCnt(1, 1, 1);
+	etSpd(1, 1.2f, 0.3f);
+	etEx(1, 2, 0, 4, 60, -999999, 0.012f, 0.7853982f);
+	etOn(1);
 	%C = %RANDF * 192.0f;
 	$B % 2;
 	jne(LABEL2, 122);
@@ -3301,14 +3301,14 @@ LABEL2:
 	%C = -12.0f - [-9995.0f];
 LABEL3:
 	%C = %C - 192.0f;
-	bulletSetOffset(1, %C, %D);
-	bulletSetSprite(1, 9, 11);
+	etOfs(1, %C, %D);
+	etSpr(1, 9, 11);
 !L
-	bulletSetCount(1, 2, 1);
-	bulletSetSpeed(1, 1.5f, 0.3f);
+	etCnt(1, 2, 1);
+	etSpd(1, 1.5f, 0.3f);
 !ENHL
-	bulletSetComplexTransform(1, 2, 0, 4, 0, -999999, 0.0f, 2.356194f);
-	bulletShoot(1);
+	etEx(1, 2, 0, 4, 0, -999999, 0.0f, 2.356194f);
+	etOn(1);
 	$B = $B + 1;
 126:
 	goto START @ 120;
@@ -3321,7 +3321,7 @@ sub BossCheckItems()
 	setMoveArea(0.0f, 96.0f, 320.0f, 48.0f);
 	[-9940];
 	je(NO_ITEM, 0);
-	bulletClear(640.0f);
+	etClear(640.0f);
 	[-9986];
 	jne(NO_DROPS, 0);
 	itemClear();
@@ -3340,7 +3340,7 @@ NO_DROPS:
 	wait(120);
 	goto END @ 0;
 NO_ITEM:
-	bulletClear_ni(640.0f);
+	etClear_ni(640.0f);
 	[-9940] = 1;
 END:
 	return();
@@ -3365,7 +3365,7 @@ BossDead_324:
 	enmNewRel("Ecl_EtBreak2_ni", 0.0f, 0.0f, 9999, 0, 0);
 BossDead_380:
 60:
-	bulletClear_ni(10000.0f);
+	etClear_ni(10000.0f);
 	cardEnd();
 	enmClear();
 	call("ItemDrop", _SS 60, _ff 48.0f, _ff 48.0f);

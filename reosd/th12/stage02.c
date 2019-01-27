@@ -50,16 +50,16 @@ sub MainGirl00_at()
 	wait(10000);
 	return();
 !L
-	bulletCreate(0);
-	bulletSetType(0, 0);
-	bulletSetSprite(0, 0, 6);
-	bulletSetCount(0, 3, 1);
-	bulletSetSpeed(0, 3.0f, 0.0f);
-	bulletSetAngle(0, 0.0f, 0.1963495f);
-	bulletSetComplexTransform(0, 0, 0, 2, 2, -999999, -999999.0f, -999999.0f);
+	etNew(0);
+	etMode(0, 0);
+	etSpr(0, 0, 6);
+	etCnt(0, 3, 1);
+	etSpd(0, 3.0f, 0.0f);
+	etAng(0, 0.0f, 0.1963495f);
+	etEx(0, 0, 0, 2, 2, -999999, -999999.0f, -999999.0f);
 	wait(_S($RAND % 120));
 MainGirl00_at_352:
-	bulletShoot(0);
+	etOn(0);
 	wait(120);
 	goto MainGirl00_at_352 @ 0;
 	return();
@@ -92,17 +92,17 @@ MainGirl01_244:
 sub MainGirl01_at()
 {
 	var;
-	bulletCreate(0);
-	bulletSetOffset(0, 12.0f, -12.0f);
-	bulletSetType(0, 0);
-	bulletSetSprite(0, 5, 1);
-	bulletSetCount_diff(0, 3, 7, 9, 11, 1, 2, 3, 5);
+	etNew(0);
+	etOfs(0, 12.0f, -12.0f);
+	etMode(0, 0);
+	etSpr(0, 5, 1);
+	etCnt_rank(0, 3, 7, 9, 11, 1, 2, 3, 5);
 !ENH
 	1.9f;
 !L
 	2.9f;
 !*
-	bulletSetSpeed(0, [-1.0f], 0.8f);
+	etSpd(0, [-1.0f], 0.8f);
 !E
 	0.7853982f;
 !N
@@ -112,10 +112,10 @@ sub MainGirl01_at()
 !L
 	0.2617994f;
 !*
-	bulletSetAngle(0, 0.0f, [-1.0f]);
-	bulletSetComplexTransform(0, 0, 0, 2, 1, -999999, -999999.0f, -999999.0f);
-	bulletSetComplexTransform(0, 1, 0, 1, -999999, -999999, -999999.0f, -999999.0f);
-	bulletShoot(0);
+	etAng(0, 0.0f, [-1.0f]);
+	etEx(0, 0, 0, 2, 1, -999999, -999999.0f, -999999.0f);
+	etEx(0, 1, 0, 1, -999999, -999999, -999999.0f, -999999.0f);
+	etOn(0);
 	return();
 }
 
@@ -368,22 +368,22 @@ sub Thing00_at()
 	wait(10000);
 	return();
 !NHL
-	bulletCreate(0);
-	bulletSetSprite(0, 8, 11);
+	etNew(0);
+	etSpr(0, 8, 11);
 !NH
-	bulletSetType(0, 4);
-	bulletSetCount(0, 4, 1);
-	bulletSetSpeed(0, 2.5f, 0.0f);
+	etMode(0, 4);
+	etCnt(0, 4, 1);
+	etSpd(0, 2.5f, 0.0f);
 !L
-	bulletSetType(0, 2);
-	bulletSetCount(0, 10, 2);
-	bulletSetSpeed(0, 3.0f, 0.0f);
+	etMode(0, 2);
+	etCnt(0, 10, 2);
+	etSpd(0, 3.0f, 0.0f);
 !NHL
-	bulletSetAngle(0, 0.0f, 0.0f);
-	bulletSetComplexTransform(0, 0, 0, 2, 2, -999999, -999999.0f, -999999.0f);
+	etAng(0, 0.0f, 0.0f);
+	etEx(0, 0, 0, 2, 2, -999999, -999999.0f, -999999.0f);
 	wait(_S($RAND % 180));
 Thing00_at_432:
-	bulletShoot(0);
+	etOn(0);
 	wait(180);
 	goto Thing00_at_432 @ 0;
 	return();
@@ -392,9 +392,9 @@ Thing00_at_432:
 sub Thing00_dead()
 {
 	var;
-	bulletCreate(1);
-	bulletSetType(1, 4);
-	bulletSetSprite(1, 7, 2);
+	etNew(1);
+	etMode(1, 4);
+	etSpr(1, 7, 2);
 !E
 	2;
 !N
@@ -404,7 +404,7 @@ sub Thing00_dead()
 !L
 	10;
 !*
-	bulletSetCount(1, [-1], 1);
+	etCnt(1, [-1], 1);
 !EN
 	1.7f;
 !H
@@ -412,10 +412,10 @@ sub Thing00_dead()
 !L
 	2.5f;
 !*
-	bulletSetSpeed(1, [-1.0f], 0.0f);
-	bulletSetAngle(1, 0.0f, 0.0f);
-	bulletSetComplexTransform(1, 0, 0, 2, 2, -999999, -999999.0f, -999999.0f);
-	bulletShoot(1);
+	etSpd(1, [-1.0f], 0.0f);
+	etAng(1, 0.0f, 0.0f);
+	etEx(1, 0, 0, 2, 2, -999999, -999999.0f, -999999.0f);
+	etOn(1);
 	wait(1);
 	return();
 }

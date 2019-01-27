@@ -38,20 +38,20 @@ sub Boss1()
 	anm(2);
 	anmScr(0, 0);
 100:
-	bulletCreate(0);
-	bulletSetType(0, 2);
-	bulletSetSprite(0, 20, 3);
-	bulletSetCount_diff(0, 8, 16, 16, 16, 1, 1, 2, 2);
-	bulletSetSpeed_diff(0, 1.8f, 2.0f, 2.5f, 3.0f, 1.0f, 1.0f, 1.0f, 1.0f);
-	bulletSetAngle(0, 0.0f, 0.15707963267948966192313216916398f);
-	bulletSetComplexTransform(0, 0, 0, 2, 1, -999999, -999999.0f, -999999.0f);
-	bulletSetOffset(0, 0.0f, -12.0f);
-	bulletCreate(1);
-	bulletSetType(1, 1);
-	bulletSetSprite(1, 20, 2);
-	bulletSetCount_diff(1, 2, 2, 4, 4, 6, 8, 8, 8);
-	bulletSetSpeed_diff(1, 3.0f, 4.0f, 4.0f, 4.0f, 1.2f, 1.2f, 1.2f, 1.2f);
-	bulletSetOffset(1, 0.0f, -12.0f);
+	etNew(0);
+	etMode(0, 2);
+	etSpr(0, 20, 3);
+	etCnt_rank(0, 8, 16, 16, 16, 1, 1, 2, 2);
+	etSpd_rank(0, 1.8f, 2.0f, 2.5f, 3.0f, 1.0f, 1.0f, 1.0f, 1.0f);
+	etAng(0, 0.0f, 0.15707963267948966192313216916398f);
+	etEx(0, 0, 0, 2, 1, -999999, -999999.0f, -999999.0f);
+	etOfs(0, 0.0f, -12.0f);
+	etNew(1);
+	etMode(1, 1);
+	etSpr(1, 20, 2);
+	etCnt_rank(1, 2, 2, 4, 4, 6, 8, 8, 8);
+	etSpd_rank(1, 3.0f, 4.0f, 4.0f, 4.0f, 1.2f, 1.2f, 1.2f, 1.2f);
+	etOfs(1, 0.0f, -12.0f);
 	goto Boss1_856 @ 300;
 Boss1_232:
 	ins_263(0, 119);
@@ -99,15 +99,15 @@ Boss1_232:
 	enmRand(60, 4, 1.7f);
 	endSlot(1);
 !EL
-	bulletShoot(0);
+	etOn(0);
 !*
 	wait(170);
 	$A = 12;
 	%B = 0.04908738521234051935097880286374f;
 	goto LOOP_END @ 220;
 LOOP_START:
-	bulletSetAngle(1, 1.5707963267948966192313216916398f, %B);
-	bulletShoot(1);
+	etAng(1, 1.5707963267948966192313216916398f, %B);
+	etOn(1);
 	%B = %B + 0.31415926535897932384626433832795f;
 	wait(8);
 LOOP_END:
@@ -132,17 +132,17 @@ sub Boss1_at1()
 	hitbox(28.0f, 28.0f);
 	enmDir(%E, 0.8f);
 	enmDirTime(370, 4, -999999.0f, 0.0f);
-	bulletCreate(0);
-	bulletSetType(0, 1);
-	bulletSetSprite(0, 7, $F);
-	bulletSetCount_diff(0, 4, 5, 5, 5, 1, 1, 1, 1);
-	bulletSetSpeed_diff(0, 1.2f, 1.6f, 1.8f, 2.0f, 1.2f, 1.2f, 1.2f, 1.2f);
+	etNew(0);
+	etMode(0, 1);
+	etSpr(0, 7, $F);
+	etCnt_rank(0, 4, 5, 5, 5, 1, 1, 1, 1);
+	etSpd_rank(0, 1.2f, 1.6f, 1.8f, 2.0f, 1.2f, 1.2f, 1.2f, 1.2f);
 50:
 	$A = 240 / 6;
 	goto END @ 56;
 START:
-	bulletSetAngle(0, %C, 0.02617993877991494365385536152733f);
-	bulletShoot(0);
+	etAng(0, %C, 0.02617993877991494365385536152733f);
+	etOn(0);
 	$B = $A % 16;
 	%C = %C + %D;
 56:
@@ -159,7 +159,7 @@ sub Boss1_at2()
 	goto END @ 0;
 START:
 	wait_rank(60, 50, 50, 40);
-	bulletShoot(0);
+	etOn(0);
 END:
 	goto START @ 0;
 	return();
@@ -173,10 +173,10 @@ sub Boss2()
 	ins_21();
 	enmClear();
 	unless ($TIMEOUT == 0) goto Boss2_228 @ 0;
-	bulletClear(640.0f);
+	etClear(640.0f);
 	goto Boss2_248 @ 0;
 Boss2_228:
-	bulletClear_ni(640.0f);
+	etClear_ni(640.0f);
 Boss2_248:
 	$MISS_COUNT = 0;
 	$BOMB_COUNT = 0;
@@ -232,21 +232,21 @@ Boss2_1920:
 sub Boss2_at1(A)
 {
 	var B;
-	bulletCreate(0);
-	bulletSetSprite(0, 0, 13);
-	bulletSetAngle(0, -0.7853982f, -0.7853982f);
-	bulletSetSpeed(0, 6.0f, 6.0f);
+	etNew(0);
+	etSpr(0, 0, 13);
+	etAng(0, -0.7853982f, -0.7853982f);
+	etSpd(0, 6.0f, 6.0f);
 	laserSetSize(0, -1.0f, -1.0f, -1.0f, 16.0f);
 	laserSetTime(0, 42, -1, -1, -1, 0);
-	bulletSetSE(0, 19, -1);
-	bulletSetComplexTransform(0, 0, 0, 1024, 120, 0, -999999.0f, -999999.0f);
-	bulletSetComplexTransform(0, 1, 1, 8, 60, -999999, -0.083333336f, 0.05235988f);
-	bulletSetComplexTransform(0, 2, 1, 8, 60, -999999, 0.083333336f, 0.0f);
-	bulletSetSE(0, 19, -1);
+	etSE(0, 19, -1);
+	etEx(0, 0, 0, 1024, 120, 0, -999999.0f, -999999.0f);
+	etEx(0, 1, 1, 8, 60, -999999, -0.083333336f, 0.05235988f);
+	etEx(0, 2, 1, 8, 60, -999999, 0.083333336f, 0.0f);
+	etSE(0, 19, -1);
 	seti_rank($B, 6, 9, 12, 15);
 	goto Boss2_at1_828 @ 0;
 Boss2_at1_476:
-	bulletSetAngle(0, %A, 0.0f);
+	etAng(0, %A, 0.0f);
 	laserCurvedShoot(0);
 !E
 	%A = (%A - 0.392699f);
@@ -265,21 +265,21 @@ Boss2_at1_828:
 sub Boss2_at1b(A)
 {
 	var B;
-	bulletCreate(0);
-	bulletSetSprite(0, 0, 13);
-	bulletSetAngle(0, -0.7853982f, -0.7853982f);
-	bulletSetSpeed(0, 6.0f, 6.0f);
+	etNew(0);
+	etSpr(0, 0, 13);
+	etAng(0, -0.7853982f, -0.7853982f);
+	etSpd(0, 6.0f, 6.0f);
 	laserSetSize(0, -1.0f, -1.0f, -1.0f, 16.0f);
 	laserSetTime(0, 42, -1, -1, -1, 0);
-	bulletSetSE(0, 19, -1);
-	bulletSetComplexTransform(0, 0, 0, 1024, 120, 0, -999999.0f, -999999.0f);
-	bulletSetComplexTransform(0, 1, 1, 8, 60, -999999, -0.083333336f, 0.05235988f);
-	bulletSetComplexTransform(0, 2, 1, 8, 60, -999999, 0.083333336f, 0.02617994f);
-	bulletSetSE(0, 19, -1);
+	etSE(0, 19, -1);
+	etEx(0, 0, 0, 1024, 120, 0, -999999.0f, -999999.0f);
+	etEx(0, 1, 1, 8, 60, -999999, -0.083333336f, 0.05235988f);
+	etEx(0, 2, 1, 8, 60, -999999, 0.083333336f, 0.02617994f);
+	etSE(0, 19, -1);
 	$B = 9;
 	goto Boss2_at1b_604 @ 0;
 Boss2_at1b_480:
-	bulletSetAngle(0, %A, 0.0f);
+	etAng(0, %A, 0.0f);
 	laserCurvedShoot(0);
 	%A = (%A - 0.261799f);
 Boss2_at1b_604:
@@ -290,21 +290,21 @@ Boss2_at1b_604:
 sub Boss2_at2(A)
 {
 	var B;
-	bulletCreate(0);
-	bulletSetSprite(0, 0, 13);
-	bulletSetAngle(0, -0.7853982f, -0.7853982f);
-	bulletSetSpeed(0, 6.0f, 6.0f);
+	etNew(0);
+	etSpr(0, 0, 13);
+	etAng(0, -0.7853982f, -0.7853982f);
+	etSpd(0, 6.0f, 6.0f);
 	laserSetSize(0, -1.0f, -1.0f, -1.0f, 16.0f);
 	laserSetTime(0, 42, -1, -1, -1, 0);
-	bulletSetSE(0, 19, -1);
-	bulletSetComplexTransform(0, 0, 0, 1024, 120, 0, -999999.0f, -999999.0f);
-	bulletSetComplexTransform(0, 1, 1, 8, 60, -999999, -0.083333336f, -0.05235988f);
-	bulletSetComplexTransform(0, 2, 1, 8, 60, -999999, 0.083333336f, 0.0f);
-	bulletSetSE(0, 19, -1);
+	etSE(0, 19, -1);
+	etEx(0, 0, 0, 1024, 120, 0, -999999.0f, -999999.0f);
+	etEx(0, 1, 1, 8, 60, -999999, -0.083333336f, -0.05235988f);
+	etEx(0, 2, 1, 8, 60, -999999, 0.083333336f, 0.0f);
+	etSE(0, 19, -1);
 	seti_rank($B, 6, 9, 12, 15);
 	goto Boss2_at2_828 @ 0;
 Boss2_at2_476:
-	bulletSetAngle(0, %A, 0.0f);
+	etAng(0, %A, 0.0f);
 	laserCurvedShoot(0);
 !E
 	%A = (%A + 0.392699f);
@@ -323,21 +323,21 @@ Boss2_at2_828:
 sub Boss2_at2b(A)
 {
 	var B;
-	bulletCreate(0);
-	bulletSetSprite(0, 0, 13);
-	bulletSetAngle(0, -0.7853982f, -0.7853982f);
-	bulletSetSpeed(0, 6.0f, 6.0f);
+	etNew(0);
+	etSpr(0, 0, 13);
+	etAng(0, -0.7853982f, -0.7853982f);
+	etSpd(0, 6.0f, 6.0f);
 	laserSetSize(0, -1.0f, -1.0f, -1.0f, 16.0f);
 	laserSetTime(0, 42, -1, -1, -1, 0);
-	bulletSetSE(0, 19, -1);
-	bulletSetComplexTransform(0, 0, 0, 1024, 120, 0, -999999.0f, -999999.0f);
-	bulletSetComplexTransform(0, 1, 1, 8, 60, -999999, -0.083333336f, -0.05235988f);
-	bulletSetComplexTransform(0, 2, 1, 8, 60, -999999, 0.083333336f, -0.02617994f);
-	bulletSetSE(0, 19, -1);
+	etSE(0, 19, -1);
+	etEx(0, 0, 0, 1024, 120, 0, -999999.0f, -999999.0f);
+	etEx(0, 1, 1, 8, 60, -999999, -0.083333336f, -0.05235988f);
+	etEx(0, 2, 1, 8, 60, -999999, 0.083333336f, -0.02617994f);
+	etSE(0, 19, -1);
 	$B = 9;
 	goto Boss2_at2b_604 @ 0;
 Boss2_at2b_480:
-	bulletSetAngle(0, %A, 0.0f);
+	etAng(0, %A, 0.0f);
 	laserCurvedShoot(0);
 	%A = (%A + 0.261799f);
 Boss2_at2b_604:
@@ -348,18 +348,18 @@ Boss2_at2b_604:
 sub Boss2_at3()
 {
 	var A;
-	bulletCreate(2);
-	bulletSetType(2, 3);
-	bulletSetSprite(2, 17, 2);
-	bulletSetCount_diff(2, 32, 32, 32, 32, 1, 4, 4, 4);
-	bulletSetAngle(2, %RANDRAD, 0.0f);
-	bulletSetSpeed(2, 4.0f, 1.0f);
-	bulletSetComplexTransform(2, 0, 1, 2, 1, -999999, -999999.0f, -999999.0f);
-	bulletSetComplexTransform(2, 1, 0, 268435456, 1, -999999, -999999.0f, -999999.0f);
-	bulletSetComplexTransform(2, 2, 0, 4, 120, -999999, 0.025f, -999999.0f);
-	bulletSetDistance(2, 32.0f);
+	etNew(2);
+	etMode(2, 3);
+	etSpr(2, 17, 2);
+	etCnt_rank(2, 32, 32, 32, 32, 1, 4, 4, 4);
+	etAng(2, %RANDRAD, 0.0f);
+	etSpd(2, 4.0f, 1.0f);
+	etEx(2, 0, 1, 2, 1, -999999, -999999.0f, -999999.0f);
+	etEx(2, 1, 0, 268435456, 1, -999999, -999999.0f, -999999.0f);
+	etEx(2, 2, 0, 4, 120, -999999, 0.025f, -999999.0f);
+	etDist(2, 32.0f);
 	%A = -1.570796f;
-	bulletShoot(2);
+	etOn(2);
 	return();
 }
 
@@ -375,10 +375,10 @@ sub Boss3()
 	ins_21();
 	enmClear();
 	unless ($TIMEOUT == 0) goto Boss3_248 @ 0;
-	bulletClear(640.0f);
+	etClear(640.0f);
 	goto Boss3_268 @ 0;
 Boss3_248:
-	bulletClear_ni(640.0f);
+	etClear_ni(640.0f);
 Boss3_268:
 	$MISS_COUNT = 0;
 	$BOMB_COUNT = 0;
@@ -435,29 +435,29 @@ Boss3_1680:
 sub Boss3_at1(A B C D)
 {
 	var E F;
-	bulletCreate($A);
-	bulletSetSprite($A, 0, $B);
-	bulletSetAngle($A, -0.7853982f, -0.7853982f);
-	bulletSetSpeed($A, 5.1f, 5.1f);
+	etNew($A);
+	etSpr($A, 0, $B);
+	etAng($A, -0.7853982f, -0.7853982f);
+	etSpd($A, 5.1f, 5.1f);
 	laserSetSize($A, -1.0f, -1.0f, -1.0f, 16.0f);
 	laserSetTime($A, 32, -1, -1, -1, 0);
-	bulletSetSE(0, 19, -1);
-	bulletSetComplexTransform($A, 0, 0, 1024, 120, 0, -999999.0f, -999999.0f);
-	bulletSetComplexTransform($A, 2, 1, 8, 60, -999999, 0.083333336f, 0.0f);
-	bulletSetSE($A, 19, -1);
+	etSE(0, 19, -1);
+	etEx($A, 0, 0, 1024, 120, 0, -999999.0f, -999999.0f);
+	etEx($A, 2, 1, 8, 60, -999999, 0.083333336f, 0.0f);
+	etSE($A, 19, -1);
 	seti_rank($F, 10, 20, 30, 40);
 	goto Boss3_at1_1260 @ 0;
 Boss3_at1_428:
 	ins_89(%E, %C, %ANGLE_PLAYER);
 	unless ((%E < (3.1415927f / _f(3))) && (%E > (-3.1415927f / _f(3)))) goto Boss3_at1_780 @ 0;
-	bulletSetSprite($A, 0, 6);
-	bulletSetComplexTransform($A, 1, 1, 8, 60, -999999, -0.083333336f, 0.0f);
+	etSpr($A, 0, 6);
+	etEx($A, 1, 1, 8, 60, -999999, -0.083333336f, 0.0f);
 	goto Boss3_at1_856 @ 0;
 Boss3_at1_780:
-	bulletSetSprite($A, 0, 10);
-	bulletSetComplexTransform($A, 1, 1, 8, 60, -999999, -0.083333336f, %D);
+	etSpr($A, 0, 10);
+	etEx($A, 1, 1, 8, 60, -999999, -0.083333336f, %D);
 Boss3_at1_856:
-	bulletSetAngle($A, %C, 0.0f);
+	etAng($A, %C, 0.0f);
 	laserCurvedShoot($A);
 !E
 	%C = (%C - 0.785398f);
@@ -483,10 +483,10 @@ sub Boss4()
 	ins_21();
 	enmClear();
 	unless ($TIMEOUT == 0) goto Boss4_228 @ 0;
-	bulletClear(640.0f);
+	etClear(640.0f);
 	goto Boss4_248 @ 0;
 Boss4_228:
-	bulletClear_ni(640.0f);
+	etClear_ni(640.0f);
 Boss4_248:
 	$MISS_COUNT = 0;
 	$BOMB_COUNT = 0;
@@ -542,25 +542,25 @@ sub BossCard1()
 	stageProg(43);
 	enmPosTime(60, 4, 0.0f, 112.0f);
 	invinc(120);
-	bulletCreate(0);
-	bulletSetType(0, 8);
+	etNew(0);
+	etMode(0, 8);
 !EN
-	bulletSetSprite(0, 7, 6);
-	bulletSetSpeed(0, 4.0f, 1.2f);
-	bulletSetAngle(0, 3.1415926535897932384626433832795f, -3.1415926535897932384626433832795f);
+	etSpr(0, 7, 6);
+	etSpd(0, 4.0f, 1.2f);
+	etAng(0, 3.1415926535897932384626433832795f, -3.1415926535897932384626433832795f);
 !HL
-	bulletSetSprite(0, 26, 0);
-	bulletSetAngle(0, 3.1415926535897932384626433832795f, 0.0f);
+	etSpr(0, 26, 0);
+	etAng(0, 3.1415926535897932384626433832795f, 0.0f);
 !E
-	bulletSetCount(0, 32, 1);
+	etCnt(0, 32, 1);
 !N
-	bulletSetCount(0, 128, 1);
+	etCnt(0, 128, 1);
 !H
-	bulletSetCount(0, 20, 1);
-	bulletSetSpeed(0, 4.4f, 2.2f);
+	etCnt(0, 20, 1);
+	etSpd(0, 4.4f, 2.2f);
 !L
-	bulletSetCount(0, 35, 1);
-	bulletSetSpeed(0, 5.0f, 1.2f);
+	etCnt(0, 35, 1);
+	etSpd(0, 5.0f, 1.2f);
 120:
 !*
 	ins_263(0, 119);
@@ -569,11 +569,11 @@ sub BossCard1()
 	wait(_S(32 * 4));
 140:
 !EHL
-	bulletShoot(0);
+	etOn(0);
 !EN
 	wait(20);
 !N
-	bulletShoot(0);
+	etOn(0);
 194:
 !*
 	noop();
@@ -623,24 +623,24 @@ sub BossCard1LaserAt(A)
 {
 	var B C D E;
 	unless ($LOCAL4 == 55) goto BossCard1LaserAt_296 @ 0;
-	bulletCreate(0);
-	bulletSetType(0, 2);
-	bulletSetSprite(0, 24, 0);
-	bulletSetCount(0, 2, 1);
-	bulletSetAngle(0, 0.0f, 0.032724924f);
-	bulletSetSpeed(0, 0.4f, 1.0f);
+	etNew(0);
+	etMode(0, 2);
+	etSpr(0, 24, 0);
+	etCnt(0, 2, 1);
+	etAng(0, 0.0f, 0.032724924f);
+	etSpd(0, 0.4f, 1.0f);
 	goto BossCard1LaserAt_452 @ 0;
 BossCard1LaserAt_296:
-	bulletCreate(0);
-	bulletSetType(0, 2);
-	bulletSetSprite(0, 23, 0);
-	bulletSetCount(0, 2, 1);
-	bulletSetAngle(0, 0.0f, 0.032724924f);
-	bulletSetSpeed(0, 0.4f, 1.0f);
+	etNew(0);
+	etMode(0, 2);
+	etSpr(0, 23, 0);
+	etCnt(0, 2, 1);
+	etAng(0, 0.0f, 0.032724924f);
+	etSpd(0, 0.4f, 1.0f);
 BossCard1LaserAt_452:
-	bulletSetComplexTransform(0, 0, 1, 2, 1, -999999, -999999.0f, -999999.0f);
-	bulletSetComplexTransform(0, 1, 0, 268435456, 1, -999999, -999999.0f, -999999.0f);
-	bulletSetComplexTransform(0, 2, 0, 4, 120, -999999, 0.008333334f, -999999.0f);
+	etEx(0, 0, 1, 2, 1, -999999, -999999.0f, -999999.0f);
+	etEx(0, 1, 0, 268435456, 1, -999999, -999999.0f, -999999.0f);
+	etEx(0, 2, 0, 4, 120, -999999, 0.008333334f, -999999.0f);
 	%B = _f(0);
 	toRadianInterval(%A);
 	%E = %RANDRAD;
@@ -656,10 +656,10 @@ BossCard1LaserAt_720:
 !L
 	%B = (%B + _f(14));
 !*
-	bulletSetAngle(0, %E, 0.0f);
+	etAng(0, %E, 0.0f);
 	%E = (%E + %LOCAL3F);
-	bulletSetOffset(0, %C, %D);
-	bulletShoot(0);
+	etOfs(0, %C, %D);
+	etOn(0);
 	wait(1);
 BossCard1LaserAt_1228:
 	if 1 goto BossCard1LaserAt_720 @ 0;
@@ -669,45 +669,45 @@ BossCard1LaserAt_1228:
 sub BossCard1LaserAt2(A)
 {
 	var;
-	bulletCreate(1);
-	bulletSetSprite(1, 0, 13);
-	bulletSetAngle(1, %A, %A);
-	bulletSetSpeed(1, 8.0f, 8.0f);
+	etNew(1);
+	etSpr(1, 0, 13);
+	etAng(1, %A, %A);
+	etSpd(1, 8.0f, 8.0f);
 	laserSetSize(1, -1.0f, -1.0f, -1.0f, 16.0f);
 	laserSetTime(1, 42, -1, -1, -1, 0);
-	bulletSetSE(0, 19, -1);
-	bulletSetComplexTransform(1, 0, 0, 8, 5, -999999, 0.0f, 0.15707964f);
-	bulletSetComplexTransform(1, 1, 0, 8, 10, -999999, 0.0f, -0.15707964f);
-	bulletSetComplexTransform(1, 2, 0, 8, 10, -999999, 0.0f, 0.15707964f);
-	bulletSetComplexTransform(1, 3, 0, 8, 10, -999999, 0.0f, -0.15707964f);
-	bulletSetComplexTransform(1, 4, 0, 8, 10, -999999, 0.0f, 0.15707964f);
-	bulletSetComplexTransform(1, 5, 0, 8, 10, -999999, 0.0f, -0.15707964f);
-	bulletSetComplexTransform(1, 6, 0, 8, 10, -999999, 0.0f, 0.15707964f);
-	bulletSetComplexTransform(1, 7, 0, 8, 10, -999999, 0.0f, -0.15707964f);
-	bulletSetComplexTransform(1, 8, 0, 8, 10, -999999, 0.0f, 0.15707964f);
-	bulletSetComplexTransform(1, 9, 0, 8, 10, -999999, 0.0f, -0.15707964f);
-	bulletSetComplexTransform(1, 10, 0, 8, 10, -999999, 0.0f, 0.15707964f);
-	bulletSetSE(0, 19, -1);
+	etSE(0, 19, -1);
+	etEx(1, 0, 0, 8, 5, -999999, 0.0f, 0.15707964f);
+	etEx(1, 1, 0, 8, 10, -999999, 0.0f, -0.15707964f);
+	etEx(1, 2, 0, 8, 10, -999999, 0.0f, 0.15707964f);
+	etEx(1, 3, 0, 8, 10, -999999, 0.0f, -0.15707964f);
+	etEx(1, 4, 0, 8, 10, -999999, 0.0f, 0.15707964f);
+	etEx(1, 5, 0, 8, 10, -999999, 0.0f, -0.15707964f);
+	etEx(1, 6, 0, 8, 10, -999999, 0.0f, 0.15707964f);
+	etEx(1, 7, 0, 8, 10, -999999, 0.0f, -0.15707964f);
+	etEx(1, 8, 0, 8, 10, -999999, 0.0f, 0.15707964f);
+	etEx(1, 9, 0, 8, 10, -999999, 0.0f, -0.15707964f);
+	etEx(1, 10, 0, 8, 10, -999999, 0.0f, 0.15707964f);
+	etSE(0, 19, -1);
 	laserCurvedShoot(1);
-	bulletCreate(2);
-	bulletSetSprite(2, 0, 13);
-	bulletSetAngle(2, %A, %A);
-	bulletSetSpeed(2, 8.0f, 8.0f);
+	etNew(2);
+	etSpr(2, 0, 13);
+	etAng(2, %A, %A);
+	etSpd(2, 8.0f, 8.0f);
 	laserSetSize(2, -1.0f, -1.0f, -1.0f, 16.0f);
 	laserSetTime(2, 42, -1, -1, -1, 0);
-	bulletSetSE(0, 19, -1);
-	bulletSetComplexTransform(2, 0, 0, 8, 5, -999999, 0.0f, -0.15707964f);
-	bulletSetComplexTransform(2, 1, 0, 8, 10, -999999, 0.0f, 0.15707964f);
-	bulletSetComplexTransform(2, 2, 0, 8, 10, -999999, 0.0f, -0.15707964f);
-	bulletSetComplexTransform(2, 3, 0, 8, 10, -999999, 0.0f, 0.15707964f);
-	bulletSetComplexTransform(2, 4, 0, 8, 10, -999999, 0.0f, -0.15707964f);
-	bulletSetComplexTransform(2, 5, 0, 8, 10, -999999, 0.0f, 0.15707964f);
-	bulletSetComplexTransform(2, 6, 0, 8, 10, -999999, 0.0f, -0.15707964f);
-	bulletSetComplexTransform(2, 7, 0, 8, 10, -999999, 0.0f, 0.15707964f);
-	bulletSetComplexTransform(2, 8, 0, 8, 10, -999999, 0.0f, -0.15707964f);
-	bulletSetComplexTransform(2, 9, 0, 8, 10, -999999, 0.0f, 0.15707964f);
-	bulletSetComplexTransform(2, 10, 0, 8, 10, -999999, 0.0f, -0.15707964f);
-	bulletSetSE(0, 19, -1);
+	etSE(0, 19, -1);
+	etEx(2, 0, 0, 8, 5, -999999, 0.0f, -0.15707964f);
+	etEx(2, 1, 0, 8, 10, -999999, 0.0f, 0.15707964f);
+	etEx(2, 2, 0, 8, 10, -999999, 0.0f, -0.15707964f);
+	etEx(2, 3, 0, 8, 10, -999999, 0.0f, 0.15707964f);
+	etEx(2, 4, 0, 8, 10, -999999, 0.0f, -0.15707964f);
+	etEx(2, 5, 0, 8, 10, -999999, 0.0f, 0.15707964f);
+	etEx(2, 6, 0, 8, 10, -999999, 0.0f, -0.15707964f);
+	etEx(2, 7, 0, 8, 10, -999999, 0.0f, 0.15707964f);
+	etEx(2, 8, 0, 8, 10, -999999, 0.0f, -0.15707964f);
+	etEx(2, 9, 0, 8, 10, -999999, 0.0f, 0.15707964f);
+	etEx(2, 10, 0, 8, 10, -999999, 0.0f, -0.15707964f);
+	etSE(0, 19, -1);
 	laserCurvedShoot(2);
 	return();
 }
@@ -715,17 +715,17 @@ sub BossCard1LaserAt2(A)
 sub BossCard1LaserAt3(A)
 {
 	var B;
-	bulletCreate(3);
-	bulletSetSprite(3, 7, 13);
-	bulletSetAngle(3, 0.0f, 0.0f);
-	bulletSetSpeed(3, 2.0f, 2.0f);
+	etNew(3);
+	etSpr(3, 7, 13);
+	etAng(3, 0.0f, 0.0f);
+	etSpd(3, 2.0f, 2.0f);
 	laserSetSize(3, 0.0f, 128.0f, 0.0f, 14.0f);
-	bulletSetSE(0, 19, -1);
+	etSE(0, 19, -1);
 	wait(120);
 	seti_rank($B, 32, 32, 64, 56);
 	goto BossCard1LaserAt3_408 @ 0;
 BossCard1LaserAt3_284:
-	bulletSetAngle(3, %A, %A);
+	etAng(3, %A, %A);
 	laserShoot(3);
 	%A = (%A + 0.19635f);
 BossCard1LaserAt3_408:
@@ -741,19 +741,19 @@ sub BossCard1_at(et)
 	%distanceFactor = _f($waveCount);
 	%angOff = -0.78539816339744830961566084581988f;
 	%angInc = 1.5707963267948966192313216916398f / _f($count);
-	bulletCreate($et);
-	bulletSetType($et, 0);
-	bulletSetSprite($et, 20, 3);
-	bulletSetCount_diff($et, 1, 1, 3, 3, 1, 1, 1, 1);
-	bulletSetAngle($et, 0.0f, 0.52359877559829887307710723054658f);
-	bulletSetSpeed($et, 2.0f, 0.0f);
+	etNew($et);
+	etMode($et, 0);
+	etSpr($et, 20, 3);
+	etCnt_rank($et, 1, 1, 3, 3, 1, 1, 1, 1);
+	etAng($et, 0.0f, 0.52359877559829887307710723054658f);
+	etSpd($et, 2.0f, 0.0f);
 	$A = $waveCount;
 	goto END @ 0;
 START:
 	$B = $count;
 	goto END2 @ 0;
 START2:
-	bulletShoot(0);
+	etOn(0);
 END2:
 	if $B-- goto START2 @ 0;
 	wait(_S(90 / $waveCount));
@@ -823,21 +823,21 @@ BossCard2_1400:
 sub BossCard2At()
 {
 	var A B C D;
-	bulletCreate(0);
-	bulletSetType(0, 3);
-	bulletSetSprite(0, 11, 13);
-	bulletSetCount(0, 2, 1);
-	bulletSetAngle(0, 1.5707964f, 0.032724924f);
-	bulletSetSpeed(0, 0.5f, 1.0f);
-	bulletSetComplexTransform(0, 0, 1, 2, 1, -999999, -999999.0f, -999999.0f);
+	etNew(0);
+	etMode(0, 3);
+	etSpr(0, 11, 13);
+	etCnt(0, 2, 1);
+	etAng(0, 1.5707964f, 0.032724924f);
+	etSpd(0, 0.5f, 1.0f);
+	etEx(0, 0, 1, 2, 1, -999999, -999999.0f, -999999.0f);
 	%A = _f(0);
 	seti_rank($B, 4, 4, 4, 8);
 	goto BossCard2At_700 @ 0;
 BossCard2At_340:
-	bulletSetOffset(0, %A, _f(%RANDF * 8.0f));
-	bulletShoot(0);
-	bulletSetOffset(0, _f(_f(0) - %A), _f(%RANDF * 8.0f));
-	bulletShoot(0);
+	etOfs(0, %A, _f(%RANDF * 8.0f));
+	etOn(0);
+	etOfs(0, _f(_f(0) - %A), _f(%RANDF * 8.0f));
+	etOn(0);
 	%A = (%A + _f(8));
 	wait(2);
 BossCard2At_700:
@@ -849,10 +849,10 @@ BossCard2At_808:
 	$D = 4;
 	goto BossCard2At_1308 @ 0;
 BossCard2At_948:
-	bulletSetOffset(0, %A, _f(%RANDF * 8.0f));
-	bulletShoot(0);
-	bulletSetOffset(0, _f(_f(0) - %A), _f(%RANDF * 8.0f));
-	bulletShoot(0);
+	etOfs(0, %A, _f(%RANDF * 8.0f));
+	etOn(0);
+	etOfs(0, _f(_f(0) - %A), _f(%RANDF * 8.0f));
+	etOn(0);
 	%A = (%A + _f(8));
 	wait(2);
 BossCard2At_1308:
@@ -882,18 +882,18 @@ BossCard2At2_208:
 sub BossCard2At3()
 {
 	var A;
-	bulletCreate(4);
-	bulletSetType(4, 0);
-	bulletSetSprite(4, 17, 6);
-	bulletSetCount(4, 9, 1);
-	bulletSetAngle(4, 0.0f, 0.2617994f);
-	bulletSetSpeed(4, 1.7f, 1.0f);
-	bulletSetComplexTransform(4, 0, 1, 2, 1, -999999, -999999.0f, -999999.0f);
-	bulletSetComplexTransform(4, 1, 0, 268435456, 1, -999999, -999999.0f, -999999.0f);
+	etNew(4);
+	etMode(4, 0);
+	etSpr(4, 17, 6);
+	etCnt(4, 9, 1);
+	etAng(4, 0.0f, 0.2617994f);
+	etSpd(4, 1.7f, 1.0f);
+	etEx(4, 0, 1, 2, 1, -999999, -999999.0f, -999999.0f);
+	etEx(4, 1, 0, 268435456, 1, -999999, -999999.0f, -999999.0f);
 	seti_rank($A, 1, 1, 1, 1);
 	goto BossCard2At3_400 @ 0;
 BossCard2At3_348:
-	bulletShoot(4);
+	etOn(4);
 	wait_rank(40, 40, 40, 30);
 BossCard2At3_400:
 	if $A-- goto BossCard2At3_348 @ 0;
@@ -927,24 +927,24 @@ sub BossCard2LaserAt()
 {
 	var A B C D E;
 	unless ($LOCAL4 == 55) goto BossCard2LaserAt_296 @ 0;
-	bulletCreate(0);
-	bulletSetType(0, 2);
-	bulletSetSprite(0, 24, 0);
-	bulletSetCount(0, 2, 1);
-	bulletSetAngle(0, 0.0f, 0.032724924f);
-	bulletSetSpeed(0, 0.4f, 1.0f);
+	etNew(0);
+	etMode(0, 2);
+	etSpr(0, 24, 0);
+	etCnt(0, 2, 1);
+	etAng(0, 0.0f, 0.032724924f);
+	etSpd(0, 0.4f, 1.0f);
 	goto BossCard2LaserAt_452 @ 0;
 BossCard2LaserAt_296:
-	bulletCreate(0);
-	bulletSetType(0, 2);
-	bulletSetSprite(0, 23, 0);
-	bulletSetCount(0, 2, 1);
-	bulletSetAngle(0, 0.0f, 0.032724924f);
-	bulletSetSpeed(0, 0.4f, 1.0f);
+	etNew(0);
+	etMode(0, 2);
+	etSpr(0, 23, 0);
+	etCnt(0, 2, 1);
+	etAng(0, 0.0f, 0.032724924f);
+	etSpd(0, 0.4f, 1.0f);
 BossCard2LaserAt_452:
-	bulletSetComplexTransform(0, 0, 1, 2, 1, -999999, -999999.0f, -999999.0f);
-	bulletSetComplexTransform(0, 1, 0, 268435456, 1, -999999, -999999.0f, -999999.0f);
-	bulletSetComplexTransform(0, 2, 0, 4, 120, -999999, 0.008333334f, -999999.0f);
+	etEx(0, 0, 1, 2, 1, -999999, -999999.0f, -999999.0f);
+	etEx(0, 1, 0, 268435456, 1, -999999, -999999.0f, -999999.0f);
+	etEx(0, 2, 0, 4, 120, -999999, 0.008333334f, -999999.0f);
 	%B = _f(0);
 	toRadianInterval(%A);
 	%E = %RANDRAD;
@@ -952,10 +952,10 @@ BossCard2LaserAt_452:
 BossCard2LaserAt_720:
 	ins_81(%C, %D, %A, %B);
 	%B = (%B + _f(16));
-	bulletSetAngle(0, %E, 0.0f);
+	etAng(0, %E, 0.0f);
 	%E = (%E + %LOCAL3F);
-	bulletSetOffset(0, %C, %D);
-	bulletShoot(0);
+	etOfs(0, %C, %D);
+	etOn(0);
 	wait(1);
 BossCard2LaserAt_1000:
 	if 1 goto BossCard2LaserAt_720 @ 0;
@@ -965,45 +965,45 @@ BossCard2LaserAt_1000:
 sub BossCard2LaserAt2()
 {
 	var A;
-	bulletCreate(1);
-	bulletSetSprite(1, 0, 13);
-	bulletSetAngle(1, %A, %A);
-	bulletSetSpeed(1, 8.0f, 8.0f);
+	etNew(1);
+	etSpr(1, 0, 13);
+	etAng(1, %A, %A);
+	etSpd(1, 8.0f, 8.0f);
 	laserSetSize(1, -1.0f, -1.0f, -1.0f, 16.0f);
 	laserSetTime(1, 42, -1, -1, -1, 0);
-	bulletSetSE(0, 19, -1);
-	bulletSetComplexTransform(1, 0, 0, 8, 5, -999999, 0.0f, 0.15707964f);
-	bulletSetComplexTransform(1, 1, 0, 8, 10, -999999, 0.0f, -0.15707964f);
-	bulletSetComplexTransform(1, 2, 0, 8, 10, -999999, 0.0f, 0.15707964f);
-	bulletSetComplexTransform(1, 3, 0, 8, 10, -999999, 0.0f, -0.15707964f);
-	bulletSetComplexTransform(1, 4, 0, 8, 10, -999999, 0.0f, 0.15707964f);
-	bulletSetComplexTransform(1, 5, 0, 8, 10, -999999, 0.0f, -0.15707964f);
-	bulletSetComplexTransform(1, 6, 0, 8, 10, -999999, 0.0f, 0.15707964f);
-	bulletSetComplexTransform(1, 7, 0, 8, 10, -999999, 0.0f, -0.15707964f);
-	bulletSetComplexTransform(1, 8, 0, 8, 10, -999999, 0.0f, 0.15707964f);
-	bulletSetComplexTransform(1, 9, 0, 8, 10, -999999, 0.0f, -0.15707964f);
-	bulletSetComplexTransform(1, 10, 0, 8, 10, -999999, 0.0f, 0.15707964f);
-	bulletSetSE(0, 19, -1);
+	etSE(0, 19, -1);
+	etEx(1, 0, 0, 8, 5, -999999, 0.0f, 0.15707964f);
+	etEx(1, 1, 0, 8, 10, -999999, 0.0f, -0.15707964f);
+	etEx(1, 2, 0, 8, 10, -999999, 0.0f, 0.15707964f);
+	etEx(1, 3, 0, 8, 10, -999999, 0.0f, -0.15707964f);
+	etEx(1, 4, 0, 8, 10, -999999, 0.0f, 0.15707964f);
+	etEx(1, 5, 0, 8, 10, -999999, 0.0f, -0.15707964f);
+	etEx(1, 6, 0, 8, 10, -999999, 0.0f, 0.15707964f);
+	etEx(1, 7, 0, 8, 10, -999999, 0.0f, -0.15707964f);
+	etEx(1, 8, 0, 8, 10, -999999, 0.0f, 0.15707964f);
+	etEx(1, 9, 0, 8, 10, -999999, 0.0f, -0.15707964f);
+	etEx(1, 10, 0, 8, 10, -999999, 0.0f, 0.15707964f);
+	etSE(0, 19, -1);
 	laserCurvedShoot(1);
-	bulletCreate(2);
-	bulletSetSprite(2, 0, 13);
-	bulletSetAngle(2, %A, %A);
-	bulletSetSpeed(2, 8.0f, 8.0f);
+	etNew(2);
+	etSpr(2, 0, 13);
+	etAng(2, %A, %A);
+	etSpd(2, 8.0f, 8.0f);
 	laserSetSize(2, -1.0f, -1.0f, -1.0f, 16.0f);
 	laserSetTime(2, 42, -1, -1, -1, 0);
-	bulletSetSE(0, 19, -1);
-	bulletSetComplexTransform(2, 0, 0, 8, 5, -999999, 0.0f, -0.15707964f);
-	bulletSetComplexTransform(2, 1, 0, 8, 10, -999999, 0.0f, 0.15707964f);
-	bulletSetComplexTransform(2, 2, 0, 8, 10, -999999, 0.0f, -0.15707964f);
-	bulletSetComplexTransform(2, 3, 0, 8, 10, -999999, 0.0f, 0.15707964f);
-	bulletSetComplexTransform(2, 4, 0, 8, 10, -999999, 0.0f, -0.15707964f);
-	bulletSetComplexTransform(2, 5, 0, 8, 10, -999999, 0.0f, 0.15707964f);
-	bulletSetComplexTransform(2, 6, 0, 8, 10, -999999, 0.0f, -0.15707964f);
-	bulletSetComplexTransform(2, 7, 0, 8, 10, -999999, 0.0f, 0.15707964f);
-	bulletSetComplexTransform(2, 8, 0, 8, 10, -999999, 0.0f, -0.15707964f);
-	bulletSetComplexTransform(2, 9, 0, 8, 10, -999999, 0.0f, 0.15707964f);
-	bulletSetComplexTransform(2, 10, 0, 8, 10, -999999, 0.0f, -0.15707964f);
-	bulletSetSE(0, 19, -1);
+	etSE(0, 19, -1);
+	etEx(2, 0, 0, 8, 5, -999999, 0.0f, -0.15707964f);
+	etEx(2, 1, 0, 8, 10, -999999, 0.0f, 0.15707964f);
+	etEx(2, 2, 0, 8, 10, -999999, 0.0f, -0.15707964f);
+	etEx(2, 3, 0, 8, 10, -999999, 0.0f, 0.15707964f);
+	etEx(2, 4, 0, 8, 10, -999999, 0.0f, -0.15707964f);
+	etEx(2, 5, 0, 8, 10, -999999, 0.0f, 0.15707964f);
+	etEx(2, 6, 0, 8, 10, -999999, 0.0f, -0.15707964f);
+	etEx(2, 7, 0, 8, 10, -999999, 0.0f, 0.15707964f);
+	etEx(2, 8, 0, 8, 10, -999999, 0.0f, -0.15707964f);
+	etEx(2, 9, 0, 8, 10, -999999, 0.0f, 0.15707964f);
+	etEx(2, 10, 0, 8, 10, -999999, 0.0f, -0.15707964f);
+	etSE(0, 19, -1);
 	laserCurvedShoot(2);
 	return();
 }
@@ -1011,17 +1011,17 @@ sub BossCard2LaserAt2()
 sub BossCard2LaserAt3()
 {
 	var A B;
-	bulletCreate(3);
-	bulletSetSprite(3, 7, 13);
-	bulletSetAngle(3, 0.0f, 0.0f);
-	bulletSetSpeed(3, 2.0f, 2.0f);
+	etNew(3);
+	etSpr(3, 7, 13);
+	etAng(3, 0.0f, 0.0f);
+	etSpd(3, 2.0f, 2.0f);
 	laserSetSize(3, 0.0f, 128.0f, 0.0f, 14.0f);
-	bulletSetSE(0, 19, -1);
+	etSE(0, 19, -1);
 	wait(120);
 	seti_rank($B, 32, 32, 64, 56);
 	goto BossCard2LaserAt3_408 @ 0;
 BossCard2LaserAt3_284:
-	bulletSetAngle(3, %A, %A);
+	etAng(3, %A, %A);
 	laserShoot(3);
 	%A = (%A + 0.19635f);
 BossCard2LaserAt3_408:
@@ -1138,17 +1138,17 @@ sub BossCard3At()
 	wait(120);
 	goto BossCard3At_460 @ 0;
 BossCard3At_80:
-	bulletCreate(2);
-	bulletSetType(2, 3);
-	bulletSetSprite(2, 19, 1);
-	bulletSetCount(2, 12, 1);
-	bulletSetAngle(2, %RANDRAD, 0.2617994f);
-	bulletSetSpeed(2, 1.0f, 1.0f);
-	bulletSetComplexTransform(2, 0, 1, 2, 1, -999999, -999999.0f, -999999.0f);
-	bulletSetComplexTransform(2, 1, 0, 268435456, 1, -999999, -999999.0f, -999999.0f);
-	bulletSetComplexTransform(2, 2, 0, 4, 120, -999999, 0.025f, -999999.0f);
+	etNew(2);
+	etMode(2, 3);
+	etSpr(2, 19, 1);
+	etCnt(2, 12, 1);
+	etAng(2, %RANDRAD, 0.2617994f);
+	etSpd(2, 1.0f, 1.0f);
+	etEx(2, 0, 1, 2, 1, -999999, -999999.0f, -999999.0f);
+	etEx(2, 1, 0, 268435456, 1, -999999, -999999.0f, -999999.0f);
+	etEx(2, 2, 0, 4, 120, -999999, 0.025f, -999999.0f);
 	%A = -1.570796f;
-	bulletShoot(2);
+	etOn(2);
 	wait(60);
 BossCard3At_460:
 	if 1 goto BossCard3At_80 @ 0;
@@ -1162,17 +1162,17 @@ sub BossCard3AtH()
 	%A = %RANDRAD;
 	goto BossCard3AtH_536 @ 0;
 BossCard3AtH_120:
-	bulletCreate(2);
-	bulletSetType(2, 3);
-	bulletSetSprite(2, 19, 1);
-	bulletSetCount(2, 2, 1);
-	bulletSetAngle(2, %A, 0.2617994f);
-	bulletSetSpeed(2, 1.0f, 1.0f);
-	bulletSetComplexTransform(2, 0, 1, 2, 1, -999999, -999999.0f, -999999.0f);
-	bulletSetComplexTransform(2, 1, 0, 268435456, 1, -999999, -999999.0f, -999999.0f);
-	bulletSetComplexTransform(2, 2, 0, 4, 120, -999999, 0.025f, -999999.0f);
+	etNew(2);
+	etMode(2, 3);
+	etSpr(2, 19, 1);
+	etCnt(2, 2, 1);
+	etAng(2, %A, 0.2617994f);
+	etSpd(2, 1.0f, 1.0f);
+	etEx(2, 0, 1, 2, 1, -999999, -999999.0f, -999999.0f);
+	etEx(2, 1, 0, 268435456, 1, -999999, -999999.0f, -999999.0f);
+	etEx(2, 2, 0, 4, 120, -999999, 0.025f, -999999.0f);
 	%A = (%A + 0.242701f);
-	bulletShoot(2);
+	etOn(2);
 	wait(6);
 BossCard3AtH_536:
 	if 1 goto BossCard3AtH_120 @ 0;
@@ -1210,45 +1210,45 @@ sub BossCard3LaserAt2()
 	var A;
 	goto BossCard3LaserAt2_1648 @ 0;
 BossCard3LaserAt2_60:
-	bulletCreate(1);
-	bulletSetSprite(1, 0, 13);
-	bulletSetAngle(1, %A, %A);
-	bulletSetSpeed(1, 8.0f, 8.0f);
+	etNew(1);
+	etSpr(1, 0, 13);
+	etAng(1, %A, %A);
+	etSpd(1, 8.0f, 8.0f);
 	laserSetSize(1, -1.0f, -1.0f, -1.0f, 16.0f);
 	laserSetTime(1, 42, -1, -1, -1, 0);
-	bulletSetSE(0, 19, -1);
-	bulletSetComplexTransform(1, 0, 0, 8, 5, -999999, 0.0f, 0.15707964f);
-	bulletSetComplexTransform(1, 1, 0, 8, 10, -999999, 0.0f, -0.15707964f);
-	bulletSetComplexTransform(1, 2, 0, 8, 10, -999999, 0.0f, 0.15707964f);
-	bulletSetComplexTransform(1, 3, 0, 8, 10, -999999, 0.0f, -0.15707964f);
-	bulletSetComplexTransform(1, 4, 0, 8, 10, -999999, 0.0f, 0.15707964f);
-	bulletSetComplexTransform(1, 5, 0, 8, 10, -999999, 0.0f, -0.15707964f);
-	bulletSetComplexTransform(1, 6, 0, 8, 10, -999999, 0.0f, 0.15707964f);
-	bulletSetComplexTransform(1, 7, 0, 8, 10, -999999, 0.0f, -0.15707964f);
-	bulletSetComplexTransform(1, 8, 0, 8, 10, -999999, 0.0f, 0.15707964f);
-	bulletSetComplexTransform(1, 9, 0, 8, 10, -999999, 0.0f, -0.15707964f);
-	bulletSetComplexTransform(1, 10, 0, 8, 10, -999999, 0.0f, 0.15707964f);
-	bulletSetSE(0, 19, -1);
+	etSE(0, 19, -1);
+	etEx(1, 0, 0, 8, 5, -999999, 0.0f, 0.15707964f);
+	etEx(1, 1, 0, 8, 10, -999999, 0.0f, -0.15707964f);
+	etEx(1, 2, 0, 8, 10, -999999, 0.0f, 0.15707964f);
+	etEx(1, 3, 0, 8, 10, -999999, 0.0f, -0.15707964f);
+	etEx(1, 4, 0, 8, 10, -999999, 0.0f, 0.15707964f);
+	etEx(1, 5, 0, 8, 10, -999999, 0.0f, -0.15707964f);
+	etEx(1, 6, 0, 8, 10, -999999, 0.0f, 0.15707964f);
+	etEx(1, 7, 0, 8, 10, -999999, 0.0f, -0.15707964f);
+	etEx(1, 8, 0, 8, 10, -999999, 0.0f, 0.15707964f);
+	etEx(1, 9, 0, 8, 10, -999999, 0.0f, -0.15707964f);
+	etEx(1, 10, 0, 8, 10, -999999, 0.0f, 0.15707964f);
+	etSE(0, 19, -1);
 	laserCurvedShoot(1);
-	bulletCreate(2);
-	bulletSetSprite(2, 0, 13);
-	bulletSetAngle(2, %A, %A);
-	bulletSetSpeed(2, 8.0f, 8.0f);
+	etNew(2);
+	etSpr(2, 0, 13);
+	etAng(2, %A, %A);
+	etSpd(2, 8.0f, 8.0f);
 	laserSetSize(2, -1.0f, -1.0f, -1.0f, 16.0f);
 	laserSetTime(2, 42, -1, -1, -1, 0);
-	bulletSetSE(0, 19, -1);
-	bulletSetComplexTransform(2, 0, 0, 8, 5, -999999, 0.0f, -0.15707964f);
-	bulletSetComplexTransform(2, 1, 0, 8, 10, -999999, 0.0f, 0.15707964f);
-	bulletSetComplexTransform(2, 2, 0, 8, 10, -999999, 0.0f, -0.15707964f);
-	bulletSetComplexTransform(2, 3, 0, 8, 10, -999999, 0.0f, 0.15707964f);
-	bulletSetComplexTransform(2, 4, 0, 8, 10, -999999, 0.0f, -0.15707964f);
-	bulletSetComplexTransform(2, 5, 0, 8, 10, -999999, 0.0f, 0.15707964f);
-	bulletSetComplexTransform(2, 6, 0, 8, 10, -999999, 0.0f, -0.15707964f);
-	bulletSetComplexTransform(2, 7, 0, 8, 10, -999999, 0.0f, 0.15707964f);
-	bulletSetComplexTransform(2, 8, 0, 8, 10, -999999, 0.0f, -0.15707964f);
-	bulletSetComplexTransform(2, 9, 0, 8, 10, -999999, 0.0f, 0.15707964f);
-	bulletSetComplexTransform(2, 10, 0, 8, 10, -999999, 0.0f, -0.15707964f);
-	bulletSetSE(0, 19, -1);
+	etSE(0, 19, -1);
+	etEx(2, 0, 0, 8, 5, -999999, 0.0f, -0.15707964f);
+	etEx(2, 1, 0, 8, 10, -999999, 0.0f, 0.15707964f);
+	etEx(2, 2, 0, 8, 10, -999999, 0.0f, -0.15707964f);
+	etEx(2, 3, 0, 8, 10, -999999, 0.0f, 0.15707964f);
+	etEx(2, 4, 0, 8, 10, -999999, 0.0f, -0.15707964f);
+	etEx(2, 5, 0, 8, 10, -999999, 0.0f, 0.15707964f);
+	etEx(2, 6, 0, 8, 10, -999999, 0.0f, -0.15707964f);
+	etEx(2, 7, 0, 8, 10, -999999, 0.0f, 0.15707964f);
+	etEx(2, 8, 0, 8, 10, -999999, 0.0f, -0.15707964f);
+	etEx(2, 9, 0, 8, 10, -999999, 0.0f, 0.15707964f);
+	etEx(2, 10, 0, 8, 10, -999999, 0.0f, -0.15707964f);
+	etSE(0, 19, -1);
 	laserCurvedShoot(2);
 	wait(180);
 BossCard3LaserAt2_1648:
@@ -1423,26 +1423,26 @@ sub BossCard4LaserAt(A)
 {
 	var B C D E;
 	unless ($LOCAL4 == 67) goto BossCard4LaserAt_296 @ 0;
-	bulletCreate(0);
-	bulletSetType(0, 2);
-	bulletSetSprite(0, 24, 0);
-	bulletSetCount(0, 1, 1);
-	bulletSetAngle(0, 0.0f, 0.032724924f);
-	bulletSetSpeed(0, 0.2f, 1.0f);
+	etNew(0);
+	etMode(0, 2);
+	etSpr(0, 24, 0);
+	etCnt(0, 1, 1);
+	etAng(0, 0.0f, 0.032724924f);
+	etSpd(0, 0.2f, 1.0f);
 	goto BossCard4LaserAt_452 @ 0;
 BossCard4LaserAt_296:
-	bulletCreate(0);
-	bulletSetType(0, 2);
-	bulletSetSprite(0, 23, 0);
-	bulletSetCount(0, 1, 1);
-	bulletSetAngle(0, 0.0f, 0.032724924f);
-	bulletSetSpeed(0, 0.2f, 1.0f);
+	etNew(0);
+	etMode(0, 2);
+	etSpr(0, 23, 0);
+	etCnt(0, 1, 1);
+	etAng(0, 0.0f, 0.032724924f);
+	etSpd(0, 0.2f, 1.0f);
 BossCard4LaserAt_452:
-	bulletSetSE(0, 22, -1);
-	bulletSetComplexTransform(0, 0, 1, 2, 1, -999999, -999999.0f, -999999.0f);
-	bulletSetComplexTransform(0, 1, 0, 268435456, 1, -999999, -999999.0f, -999999.0f);
-	bulletSetComplexTransform(0, 2, 0, 4096, 60, -999999, -999999.0f, -999999.0f);
-	bulletSetComplexTransform(0, 3, 0, 4, 60, -999999, 0.011666667f, -999999.0f);
+	etSE(0, 22, -1);
+	etEx(0, 0, 1, 2, 1, -999999, -999999.0f, -999999.0f);
+	etEx(0, 1, 0, 268435456, 1, -999999, -999999.0f, -999999.0f);
+	etEx(0, 2, 0, 4096, 60, -999999, -999999.0f, -999999.0f);
+	etEx(0, 3, 0, 4, 60, -999999, 0.011666667f, -999999.0f);
 	%B = _f(0);
 	toRadianInterval(%A);
 	%E = %RANDRAD;
@@ -1450,10 +1450,10 @@ BossCard4LaserAt_452:
 BossCard4LaserAt_796:
 	ins_81(%C, %D, %A, %B);
 	%B = (%B + _f(16));
-	bulletSetAngle(0, %E, 0.0f);
+	etAng(0, %E, 0.0f);
 	%E = (%E + %LOCAL3F);
-	bulletSetOffset(0, %C, %D);
-	bulletShoot(0);
+	etOfs(0, %C, %D);
+	etOn(0);
 	wait(1);
 BossCard4LaserAt_1076:
 	if 1 goto BossCard4LaserAt_796 @ 0;
@@ -1463,45 +1463,45 @@ BossCard4LaserAt_1076:
 sub BossCard4LaserAt2()
 {
 	var A;
-	bulletCreate(1);
-	bulletSetSprite(1, 0, 13);
-	bulletSetAngle(1, %A, %A);
-	bulletSetSpeed(1, 8.0f, 8.0f);
+	etNew(1);
+	etSpr(1, 0, 13);
+	etAng(1, %A, %A);
+	etSpd(1, 8.0f, 8.0f);
 	laserSetSize(1, -1.0f, -1.0f, -1.0f, 16.0f);
 	laserSetTime(1, 42, -1, -1, -1, 0);
-	bulletSetSE(0, 19, -1);
-	bulletSetComplexTransform(1, 0, 0, 8, 5, -999999, 0.0f, 0.15707964f);
-	bulletSetComplexTransform(1, 1, 0, 8, 10, -999999, 0.0f, -0.15707964f);
-	bulletSetComplexTransform(1, 2, 0, 8, 10, -999999, 0.0f, 0.15707964f);
-	bulletSetComplexTransform(1, 3, 0, 8, 10, -999999, 0.0f, -0.15707964f);
-	bulletSetComplexTransform(1, 4, 0, 8, 10, -999999, 0.0f, 0.15707964f);
-	bulletSetComplexTransform(1, 5, 0, 8, 10, -999999, 0.0f, -0.15707964f);
-	bulletSetComplexTransform(1, 6, 0, 8, 10, -999999, 0.0f, 0.15707964f);
-	bulletSetComplexTransform(1, 7, 0, 8, 10, -999999, 0.0f, -0.15707964f);
-	bulletSetComplexTransform(1, 8, 0, 8, 10, -999999, 0.0f, 0.15707964f);
-	bulletSetComplexTransform(1, 9, 0, 8, 10, -999999, 0.0f, -0.15707964f);
-	bulletSetComplexTransform(1, 10, 0, 8, 10, -999999, 0.0f, 0.15707964f);
-	bulletSetSE(0, 19, -1);
+	etSE(0, 19, -1);
+	etEx(1, 0, 0, 8, 5, -999999, 0.0f, 0.15707964f);
+	etEx(1, 1, 0, 8, 10, -999999, 0.0f, -0.15707964f);
+	etEx(1, 2, 0, 8, 10, -999999, 0.0f, 0.15707964f);
+	etEx(1, 3, 0, 8, 10, -999999, 0.0f, -0.15707964f);
+	etEx(1, 4, 0, 8, 10, -999999, 0.0f, 0.15707964f);
+	etEx(1, 5, 0, 8, 10, -999999, 0.0f, -0.15707964f);
+	etEx(1, 6, 0, 8, 10, -999999, 0.0f, 0.15707964f);
+	etEx(1, 7, 0, 8, 10, -999999, 0.0f, -0.15707964f);
+	etEx(1, 8, 0, 8, 10, -999999, 0.0f, 0.15707964f);
+	etEx(1, 9, 0, 8, 10, -999999, 0.0f, -0.15707964f);
+	etEx(1, 10, 0, 8, 10, -999999, 0.0f, 0.15707964f);
+	etSE(0, 19, -1);
 	laserCurvedShoot(1);
-	bulletCreate(2);
-	bulletSetSprite(2, 0, 13);
-	bulletSetAngle(2, %A, %A);
-	bulletSetSpeed(2, 8.0f, 8.0f);
+	etNew(2);
+	etSpr(2, 0, 13);
+	etAng(2, %A, %A);
+	etSpd(2, 8.0f, 8.0f);
 	laserSetSize(2, -1.0f, -1.0f, -1.0f, 16.0f);
 	laserSetTime(2, 42, -1, -1, -1, 0);
-	bulletSetSE(0, 19, -1);
-	bulletSetComplexTransform(2, 0, 0, 8, 5, -999999, 0.0f, -0.15707964f);
-	bulletSetComplexTransform(2, 1, 0, 8, 10, -999999, 0.0f, 0.15707964f);
-	bulletSetComplexTransform(2, 2, 0, 8, 10, -999999, 0.0f, -0.15707964f);
-	bulletSetComplexTransform(2, 3, 0, 8, 10, -999999, 0.0f, 0.15707964f);
-	bulletSetComplexTransform(2, 4, 0, 8, 10, -999999, 0.0f, -0.15707964f);
-	bulletSetComplexTransform(2, 5, 0, 8, 10, -999999, 0.0f, 0.15707964f);
-	bulletSetComplexTransform(2, 6, 0, 8, 10, -999999, 0.0f, -0.15707964f);
-	bulletSetComplexTransform(2, 7, 0, 8, 10, -999999, 0.0f, 0.15707964f);
-	bulletSetComplexTransform(2, 8, 0, 8, 10, -999999, 0.0f, -0.15707964f);
-	bulletSetComplexTransform(2, 9, 0, 8, 10, -999999, 0.0f, 0.15707964f);
-	bulletSetComplexTransform(2, 10, 0, 8, 10, -999999, 0.0f, -0.15707964f);
-	bulletSetSE(0, 19, -1);
+	etSE(0, 19, -1);
+	etEx(2, 0, 0, 8, 5, -999999, 0.0f, -0.15707964f);
+	etEx(2, 1, 0, 8, 10, -999999, 0.0f, 0.15707964f);
+	etEx(2, 2, 0, 8, 10, -999999, 0.0f, -0.15707964f);
+	etEx(2, 3, 0, 8, 10, -999999, 0.0f, 0.15707964f);
+	etEx(2, 4, 0, 8, 10, -999999, 0.0f, -0.15707964f);
+	etEx(2, 5, 0, 8, 10, -999999, 0.0f, 0.15707964f);
+	etEx(2, 6, 0, 8, 10, -999999, 0.0f, -0.15707964f);
+	etEx(2, 7, 0, 8, 10, -999999, 0.0f, 0.15707964f);
+	etEx(2, 8, 0, 8, 10, -999999, 0.0f, -0.15707964f);
+	etEx(2, 9, 0, 8, 10, -999999, 0.0f, 0.15707964f);
+	etEx(2, 10, 0, 8, 10, -999999, 0.0f, -0.15707964f);
+	etSE(0, 19, -1);
 	laserCurvedShoot(2);
 	return();
 }
@@ -1509,17 +1509,17 @@ sub BossCard4LaserAt2()
 sub BossCard4LaserAt3()
 {
 	var A B;
-	bulletCreate(3);
-	bulletSetSprite(3, 7, 13);
-	bulletSetAngle(3, 0.0f, 0.0f);
-	bulletSetSpeed(3, 2.0f, 2.0f);
+	etNew(3);
+	etSpr(3, 7, 13);
+	etAng(3, 0.0f, 0.0f);
+	etSpd(3, 2.0f, 2.0f);
 	laserSetSize(3, 0.0f, 128.0f, 0.0f, 14.0f);
-	bulletSetSE(0, 19, -1);
+	etSE(0, 19, -1);
 	wait(120);
 	seti_rank($B, 32, 32, 64, 56);
 	goto BossCard4LaserAt3_408 @ 0;
 BossCard4LaserAt3_284:
-	bulletSetAngle(3, %A, %A);
+	etAng(3, %A, %A);
 	laserShoot(3);
 	%A = (%A + 0.19635f);
 BossCard4LaserAt3_408:
@@ -1543,7 +1543,7 @@ BossDead_308:
 BossDead_364:
 	enmClear();
 60:
-	bulletClear_all();
+	etClear_all();
 	cardEnd();
 	unless ($TIMEOUT == 0) goto BossDead_616 @ 60;
 	itemClear();

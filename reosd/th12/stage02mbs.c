@@ -93,16 +93,16 @@ sub MBoss1_at1()
 	%B = 2.0f;
 	%C = 1.4f;
 	%D = 1.5707964f;
-	bulletCreate(0);
-	bulletSetType(0, 3);
-	bulletSetSprite(0, 8, 10);
-	bulletSetCount_diff(0, 1, 1, 2, 4, 1, 2, 2, 2);
-	bulletSetComplexTransform(0, 0, 0, 2, 2, -999999, -999999.0f, -999999.0f);
-	bulletSetComplexTransform(0, 1, 0, 1, -999999, -999999, -999999.0f, -999999.0f);
+	etNew(0);
+	etMode(0, 3);
+	etSpr(0, 8, 10);
+	etCnt_rank(0, 1, 1, 2, 4, 1, 2, 2, 2);
+	etEx(0, 0, 0, 2, 2, -999999, -999999.0f, -999999.0f);
+	etEx(0, 1, 0, 1, -999999, -999999, -999999.0f, -999999.0f);
 MBoss1_at1_436:
-	bulletSetSpeed(0, %B, %C);
-	bulletSetAngle(0, %D, 0.0f);
-	bulletShoot(0);
+	etSpd(0, %B, %C);
+	etAng(0, %D, 0.0f);
+	etOn(0);
 	%B = (%B + 0.05f);
 	wait(1);
 	%C = (%C - 0.02f);
@@ -119,16 +119,16 @@ sub MBoss1_at2()
 	%B = 2.0f;
 	%C = 1.4f;
 	%D = 1.5707964f;
-	bulletCreate(0);
-	bulletSetType(0, 3);
-	bulletSetSprite(0, 8, 2);
-	bulletSetCount_diff(0, 1, 1, 2, 4, 1, 2, 2, 2);
-	bulletSetComplexTransform(0, 0, 0, 2, 2, -999999, -999999.0f, -999999.0f);
-	bulletSetComplexTransform(0, 1, 0, 1, -999999, -999999, -999999.0f, -999999.0f);
+	etNew(0);
+	etMode(0, 3);
+	etSpr(0, 8, 2);
+	etCnt_rank(0, 1, 1, 2, 4, 1, 2, 2, 2);
+	etEx(0, 0, 0, 2, 2, -999999, -999999.0f, -999999.0f);
+	etEx(0, 1, 0, 1, -999999, -999999, -999999.0f, -999999.0f);
 MBoss1_at2_436:
-	bulletSetSpeed(0, %B, %C);
-	bulletSetAngle(0, %D, 0.0f);
-	bulletShoot(0);
+	etSpd(0, %B, %C);
+	etAng(0, %D, 0.0f);
+	etOn(0);
 	%B = (%B + 0.05f);
 	wait(1);
 	%C = (%C - 0.02f);
@@ -141,12 +141,12 @@ sub MBoss1_at3()
 {
 	var A;
 	wait(40);
-	bulletCreate(0);
-	bulletCreate(1);
-	bulletSetType(0, 0);
-	bulletSetType(1, 0);
-	bulletSetSprite(0, 9, 15);
-	bulletSetSprite(1, 9, 6);
+	etNew(0);
+	etNew(1);
+	etMode(0, 0);
+	etMode(1, 0);
+	etSpr(0, 9, 15);
+	etSpr(1, 9, 6);
 !E
 	$A = 1;
 !N
@@ -156,32 +156,32 @@ sub MBoss1_at3()
 !L
 	$A = 9;
 !*
-	bulletSetCount(0, $A, 2);
-	bulletSetCount(1, $A, 1);
+	etCnt(0, $A, 2);
+	etCnt(1, $A, 1);
 !ENH
-	bulletSetSpeed(0, 4.5f, 2.0f);
-	bulletSetSpeed(1, 3.0f, 2.0f);
+	etSpd(0, 4.5f, 2.0f);
+	etSpd(1, 3.0f, 2.0f);
 !L
-	bulletSetSpeed(0, 6.0f, 2.0f);
-	bulletSetSpeed(1, 4.0f, 2.0f);
+	etSpd(0, 6.0f, 2.0f);
+	etSpd(1, 4.0f, 2.0f);
 !EN
-	bulletSetAngle(0, 0.0f, 0.5235988f);
-	bulletSetAngle(1, 0.0f, 0.5235988f);
+	etAng(0, 0.0f, 0.5235988f);
+	etAng(1, 0.0f, 0.5235988f);
 !H
-	bulletSetAngle(0, 0.0f, 0.31415927f);
-	bulletSetAngle(1, 0.0f, 0.31415927f);
+	etAng(0, 0.0f, 0.31415927f);
+	etAng(1, 0.0f, 0.31415927f);
 !L
-	bulletSetAngle(0, 0.0f, 0.19634955f);
-	bulletSetAngle(1, 0.0f, 0.19634955f);
+	etAng(0, 0.0f, 0.19634955f);
+	etAng(1, 0.0f, 0.19634955f);
 !*
-	bulletSetComplexTransform(0, 0, 0, 2, 2, -999999, -999999.0f, -999999.0f);
-	bulletSetComplexTransform(0, 1, 0, 32, 40, 1, 0.0f, 4.0f);
-	bulletSetComplexTransform(1, 0, 0, 2, 2, -999999, -999999.0f, -999999.0f);
+	etEx(0, 0, 0, 2, 2, -999999, -999999.0f, -999999.0f);
+	etEx(0, 1, 0, 32, 40, 1, 0.0f, 4.0f);
+	etEx(1, 0, 0, 2, 2, -999999, -999999.0f, -999999.0f);
 	$A = 16;
 	goto MBoss1_at3_972 @ 0;
 MBoss1_at3_912:
-	bulletShoot(0);
-	bulletShoot(1);
+	etOn(0);
+	etOn(1);
 	wait(10);
 MBoss1_at3_972:
 	if $A-- goto MBoss1_at3_912 @ 0;
@@ -201,10 +201,10 @@ sub MBossDead()
 	enmDirTime(60, 4, -999999.0f, 0.0f);
 	playSE(28);
 	if $TIMEOUT goto MBossDead_340 @ 0;
-	bulletClear(640.0f);
+	etClear(640.0f);
 	goto MBossDead_360 @ 0;
 MBossDead_340:
-	bulletClear_ni(640.0f);
+	etClear_ni(640.0f);
 MBossDead_360:
 	itemClear();
 	itemMain(7);
@@ -228,10 +228,10 @@ sub MBossEscape()
 	cardEnd();
 	unsetMoveArea();
 	if $TIMEOUT goto MBossEscape_192 @ 0;
-	bulletClear(640.0f);
+	etClear(640.0f);
 	goto MBossEscape_212 @ 0;
 MBossEscape_192:
-	bulletClear_ni(640.0f);
+	etClear_ni(640.0f);
 MBossEscape_212:
 	itemClear();
 !ENH

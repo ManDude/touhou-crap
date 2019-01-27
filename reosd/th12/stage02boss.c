@@ -65,45 +65,45 @@ sub Boss1_at1()
 	%A = 0.06544985f;
 !*
 	$B = 3;
-	bulletCreate(0);
-	bulletSetOffset(0, 0.0f, -12.0f);
-	bulletSetComplexTransform(0, 0, 0, 2, 2, -999999, -999999.0f, -999999.0f);
+	etNew(0);
+	etOfs(0, 0.0f, -12.0f);
+	etEx(0, 0, 0, 2, 2, -999999, -999999.0f, -999999.0f);
 41:
 	goto Boss1_at1_1252 @ 111;
 Boss1_at1_388:
 	%C = %ANGLE_PLAYER;
-	bulletSetAngle(0, %C, %A);
-	bulletSetType(0, 1);
-	bulletSetSprite(0, 9, 6);
-	bulletSetCount(0, 3, 1);
-	bulletSetSpeed(0, 6.0f, 1.0f);
-	bulletShoot(0);
+	etAng(0, %C, %A);
+	etMode(0, 1);
+	etSpr(0, 9, 6);
+	etCnt(0, 3, 1);
+	etSpd(0, 6.0f, 1.0f);
+	etOn(0);
 43:
-	bulletSetCount(0, 4, 1);
-	bulletSetSpeed(0, 5.5f, 1.0f);
-	bulletShoot(0);
+	etCnt(0, 4, 1);
+	etSpd(0, 5.5f, 1.0f);
+	etOn(0);
 45:
-	bulletSetCount(0, 5, 1);
-	bulletSetSpeed(0, 5.0f, 1.0f);
-	bulletShoot(0);
+	etCnt(0, 5, 1);
+	etSpd(0, 5.0f, 1.0f);
+	etOn(0);
 47:
-	bulletSetCount(0, 6, 1);
-	bulletSetSpeed(0, 4.5f, 1.0f);
-	bulletShoot(0);
+	etCnt(0, 6, 1);
+	etSpd(0, 4.5f, 1.0f);
+	etOn(0);
 49:
-	bulletSetCount(0, 7, 1);
-	bulletSetSpeed(0, 4.0f, 1.0f);
-	bulletShoot(0);
+	etCnt(0, 7, 1);
+	etSpd(0, 4.0f, 1.0f);
+	etOn(0);
 51:
-	bulletSetCount(0, 8, 1);
-	bulletSetSpeed(0, 3.5f, 1.0f);
-	bulletShoot(0);
+	etCnt(0, 8, 1);
+	etSpd(0, 3.5f, 1.0f);
+	etOn(0);
 !HL
-	bulletSetType(0, 3);
-	bulletSetSprite(0, 3, 6);
-	bulletSetCount_diff(0, 0, 0, 18, 34, 1, 1, 1, 2);
-	bulletSetSpeed(0, 4.0f, 1.0f);
-	bulletShoot(0);
+	etMode(0, 3);
+	etSpr(0, 3, 6);
+	etCnt_rank(0, 0, 0, 18, 34, 1, 1, 1, 2);
+	etSpd(0, 4.0f, 1.0f);
+	etOn(0);
 !E
 	0.03926991f;
 !N
@@ -128,22 +128,22 @@ sub Boss1_at2()
 	var A B;
 	enmDir(-999999.0f, 3.0f);
 	$A = 3;
-	bulletCreate(0);
-	bulletSetOffset(0, 0.0f, -12.0f);
-	bulletSetType(0, 2);
-	bulletSetSprite(0, 5, 6);
-	bulletSetAngle(0, 0.0f, 0.0f);
-	bulletSetComplexTransform(0, 0, 0, 2, 2, -999999, -999999.0f, -999999.0f);
-	bulletCreate(1);
-	bulletSetOffset(1, 0.0f, -12.0f);
-	bulletSetType(1, 2);
-	bulletSetSprite(1, 9, 15);
+	etNew(0);
+	etOfs(0, 0.0f, -12.0f);
+	etMode(0, 2);
+	etSpr(0, 5, 6);
+	etAng(0, 0.0f, 0.0f);
+	etEx(0, 0, 0, 2, 2, -999999, -999999.0f, -999999.0f);
+	etNew(1);
+	etOfs(1, 0.0f, -12.0f);
+	etMode(1, 2);
+	etSpr(1, 9, 15);
 !E
 	20;
 !NHL
 	36;
 !*
-	bulletSetCount(1, [-1], 1);
+	etCnt(1, [-1], 1);
 !E
 	2.3f;
 !N
@@ -153,11 +153,11 @@ sub Boss1_at2()
 !L
 	5.3f;
 !*
-	bulletSetSpeed(1, [-1.0f], 1.0f);
-	bulletSetAngle(1, 0.0f, 0.0f);
-	bulletSetComplexTransform(1, 0, 0, 2, 2, -999999, -999999.0f, -999999.0f);
-	bulletSetComplexTransform(1, 1, 0, 32, 60, 1, 0.0f, 4.0f);
-	bulletSetComplexTransform(1, 2, 1, 1024, 999, 0, -999999.0f, -999999.0f);
+	etSpd(1, [-1.0f], 1.0f);
+	etAng(1, 0.0f, 0.0f);
+	etEx(1, 0, 0, 2, 2, -999999, -999999.0f, -999999.0f);
+	etEx(1, 1, 0, 32, 60, 1, 0.0f, 4.0f);
+	etEx(1, 2, 1, 1024, 999, 0, -999999.0f, -999999.0f);
 1:
 	goto Boss1_at2_1488 @ 21;
 Boss1_at2_748:
@@ -166,22 +166,22 @@ Boss1_at2_748:
 	enmDirTime(0, 0, -999999.0f, 0.0f);
 	enmPosTime(0, 0, -999999.0f, 0.0f);
 	enmRand(60, 4, 3.0f);
-	bulletSetCount_diff(0, 12, 20, 28, 28, 1, 1, 1, 2);
-	bulletSetSpeed(0, 2.3f, 1.0f);
-	bulletShoot(0);
+	etCnt_rank(0, 12, 20, 28, 28, 1, 1, 1, 2);
+	etSpd(0, 2.3f, 1.0f);
+	etOn(0);
 	$B = ($BOSS4 * 3);
 	$B = (20 - $B);
 	wait($B);
-	bulletShoot(1);
+	etOn(1);
 	wait($B);
-	bulletSetCount_diff(0, 10, 18, 20, 20, 1, 1, 1, 2);
+	etCnt_rank(0, 10, 18, 20, 20, 1, 1, 1, 2);
 !E
 	4.3f;
 !NHL
 	2.3f;
 !*
-	bulletSetSpeed(0, [-1.0f], 1.0f);
-	bulletShoot(0);
+	etSpd(0, [-1.0f], 1.0f);
+	etOn(0);
 	$B = ($BOSS4 * 5);
 	$B = (40 - $B);
 	wait($B);
@@ -198,10 +198,10 @@ sub Boss2()
 	ins_21();
 	enmClear();
 	unless ($TIMEOUT == 0) goto Boss2_228 @ 0;
-	bulletClear(640.0f);
+	etClear(640.0f);
 	goto Boss2_248 @ 0;
 Boss2_228:
-	bulletClear_ni(640.0f);
+	etClear_ni(640.0f);
 Boss2_248:
 	$MISS_COUNT = 0;
 	$BOMB_COUNT = 0;
@@ -242,10 +242,10 @@ sub Boss2_at1()
 {
 	var A;
 	enmRand(60, 4, 3.0f);
-	bulletCreate(0);
-	bulletSetType(0, 2);
-	bulletSetOffset(0, 0.0f, -12.0f);
-	bulletSetSprite(0, 5, 6);
+	etNew(0);
+	etMode(0, 2);
+	etOfs(0, 0.0f, -12.0f);
+	etSpr(0, 5, 6);
 !E
 	$BOSS1 + 5;
 !N
@@ -255,7 +255,7 @@ sub Boss2_at1()
 !L
 	$BOSS1 + 20;
 !*
-	bulletSetCount_diff(0, [-1], [-1], [-1], [-1], 1, 1, 1, 2);
+	etCnt_rank(0, [-1], [-1], [-1], [-1], 1, 1, 1, 2);
 !E
 	2.5f;
 !N
@@ -263,24 +263,24 @@ sub Boss2_at1()
 !HL
 	4.5f;
 !*
-	bulletSetSpeed(0, [-1.0f], 1.0f);
-	bulletSetAngle(0, 0.0f, 0.0f);
-	bulletSetComplexTransform(0, 0, 0, 2, 2, -999999, -999999.0f, -999999.0f);
-	bulletCreate(1);
-	bulletSetOffset(1, 0.0f, -12.0f);
-	bulletSetType(1, 2);
-	bulletSetSprite(1, 0, 5);
-	bulletSetCount(1, 8, 1);
-	bulletSetSpeed(1, 1.8f, 1.0f);
-	bulletSetAngle(1, 0.0f, 0.0f);
-	bulletSetComplexTransform(1, 0, 0, 2, 2, -999999, -999999.0f, -999999.0f);
-	bulletSetComplexTransform(1, 1, 0, 1, -999999, -999999, -999999.0f, -999999.0f);
+	etSpd(0, [-1.0f], 1.0f);
+	etAng(0, 0.0f, 0.0f);
+	etEx(0, 0, 0, 2, 2, -999999, -999999.0f, -999999.0f);
+	etNew(1);
+	etOfs(1, 0.0f, -12.0f);
+	etMode(1, 2);
+	etSpr(1, 0, 5);
+	etCnt(1, 8, 1);
+	etSpd(1, 1.8f, 1.0f);
+	etAng(1, 0.0f, 0.0f);
+	etEx(1, 0, 0, 2, 2, -999999, -999999.0f, -999999.0f);
+	etEx(1, 1, 0, 1, -999999, -999999, -999999.0f, -999999.0f);
 	$A = 8;
 	goto END @ 20;
 START:
-	bulletShoot(0);
+	etOn(0);
 10:
-	bulletShoot(1);
+	etOn(1);
 20:
 END:
 	if $A-- goto START @ 0;
@@ -292,33 +292,33 @@ sub Boss2_at2()
 	var A;
 	enmRand(60, 4, 3.0f);
 !HL
-	bulletCreate(1);
-	bulletSetOffset(1, 0.0f, -12.0f);
-	bulletSetType(1, 2);
-	bulletSetSprite(1, 5, 6);
-	bulletSetCount_diff(1, 0, 0, 16, 32, 0, 0, 2, 2);
-	bulletSetSpeed(1, 2.5f, 1.0f);
-	bulletSetAngle(1, 0.0f, 0.0f);
-	bulletSetComplexTransform(1, 0, 0, 2, 2, -999999, -999999.0f, -999999.0f);
+	etNew(1);
+	etOfs(1, 0.0f, -12.0f);
+	etMode(1, 2);
+	etSpr(1, 5, 6);
+	etCnt_rank(1, 0, 0, 16, 32, 0, 0, 2, 2);
+	etSpd(1, 2.5f, 1.0f);
+	etAng(1, 0.0f, 0.0f);
+	etEx(1, 0, 0, 2, 2, -999999, -999999.0f, -999999.0f);
 !*
-	bulletCreate(0);
-	bulletSetSpeed(0, 4.0f, 0.0f);
+	etNew(0);
+	etSpd(0, 4.0f, 0.0f);
 	laserSetSize(0, 0.0f, 192.0f, 0.0f, 6.0f);
-	bulletSetSE(0, 19, -1);
-	bulletSetComplexTransform(0, 0, 0, 268435456, 1, -999999, -999999.0f, -999999.0f);
+	etSE(0, 19, -1);
+	etEx(0, 0, 0, 268435456, 1, -999999, -999999.0f, -999999.0f);
 	$A = 3;
 	goto END @ 50;
 START:
 !HL
-	bulletShoot(1);
+	etOn(1);
 !*
-	bulletSetSprite(0, 30, 6);
-	bulletSetAngle(0, [-9989.0f], 0.0f);
+	etSpr(0, 30, 6);
+	etAng(0, [-9989.0f], 0.0f);
 	laserShoot(0);
-	bulletSetSprite(0, 30, 5);
-	bulletSetAngle(0, _f([-9989.0f] + 0.39269908169872415480783042290994f), 0.0f);
+	etSpr(0, 30, 5);
+	etAng(0, _f([-9989.0f] + 0.39269908169872415480783042290994f), 0.0f);
 	laserShoot(0);
-	bulletSetAngle(0, _f([-9989.0f] - 0.39269908169872415480783042290994f), 0.0f);
+	etAng(0, _f([-9989.0f] - 0.39269908169872415480783042290994f), 0.0f);
 	laserShoot(0);
 50:
 END:
@@ -353,23 +353,23 @@ sub BossCard1EN()
 	enmPosTime(120, 4, 0.0f, 96.0f);
 	ins_263(0, 119);
 	invinc(120);
-	bulletCreate(0);
-	bulletSetOffset(0, 0.0f, -12.0f);
-	bulletSetType(0, 1);
-	bulletSetSprite(0, 9, 6);
-	bulletSetSpeed(0, 7.0f, 0.5f);
-	bulletSetComplexTransform(0, 0, 0, 2, 2, -999999, -999999.0f, -999999.0f);
-	bulletSetComplexTransform(0, 2, 1, 1024, 9999, 0, -999999.0f, -999999.0f);
+	etNew(0);
+	etOfs(0, 0.0f, -12.0f);
+	etMode(0, 1);
+	etSpr(0, 9, 6);
+	etSpd(0, 7.0f, 0.5f);
+	etEx(0, 0, 0, 2, 2, -999999, -999999.0f, -999999.0f);
+	etEx(0, 2, 1, 1024, 9999, 0, -999999.0f, -999999.0f);
 !NHL
-	bulletCreate(1);
-	bulletSetOffset(1, 0.0f, -12.0f);
-	bulletSetType(1, 0);
-	bulletSetSprite(1, 3, 13);
-	bulletSetCount(1, 5, 1);
-	bulletSetSpeed(1, 2.5f, 0.5f);
-	bulletSetAngle(1, 0.0f, 0.2617994f);
-	bulletSetComplexTransform(1, 0, 0, 2, 2, -999999, -999999.0f, -999999.0f);
-	bulletSetComplexTransform(1, 1, 0, 1024, 9999, 0, -999999.0f, -999999.0f);
+	etNew(1);
+	etOfs(1, 0.0f, -12.0f);
+	etMode(1, 0);
+	etSpr(1, 3, 13);
+	etCnt(1, 5, 1);
+	etSpd(1, 2.5f, 0.5f);
+	etAng(1, 0.0f, 0.2617994f);
+	etEx(1, 0, 0, 2, 2, -999999, -999999.0f, -999999.0f);
+	etEx(1, 1, 0, 1024, 9999, 0, -999999.0f, -999999.0f);
 120:
 !*
 	$A = 0;
@@ -381,7 +381,7 @@ BossCard1EN_964:
 BossCard1EN_1108:
 	%E = (%RANDF * 0.049087387f);
 	%F = (%C + %E);
-	bulletSetComplexTransform(0, 1, 0, 16, 60, 1, 1.5707964f, 1.6f);
+	etEx(0, 1, 0, 16, 60, 1, 1.5707964f, 1.6f);
 	if ($A >= 3) goto BossCard1EN_1452 @ 120;
 	$G = 3;
 	goto BossCard1EN_1636 @ 120;
@@ -395,13 +395,13 @@ BossCard1EN_1636:
 !HL
 	$G = ($G + 1);
 !*
-	bulletSetCount(0, 1, $G);
-	bulletSetAngle(0, %F, 0.0f);
-	bulletShoot(0);
+	etCnt(0, 1, $G);
+	etAng(0, %F, 0.0f);
+	etOn(0);
 	%F = (%D - %E);
-	bulletSetAngle(0, %F, 0.0f);
-	bulletSetComplexTransform(0, 1, 0, 16, 60, 1, -1.5707964f, 1.6f);
-	bulletShoot(0);
+	etAng(0, %F, 0.0f);
+	etEx(0, 1, 0, 16, 60, 1, -1.5707964f, 1.6f);
+	etOn(0);
 	%C = (%C + 0.09817477f);
 	%D = (%D - 0.09817477f);
 !NHL
@@ -416,7 +416,7 @@ BossCard1EN_2436:
 	$H = ($B % 3);
 BossCard1EN_2512:
 	if $H goto BossCard1EN_2576 @ 120;
-	bulletShoot(1);
+	etOn(1);
 BossCard1EN_2576:
 147:
 !*
@@ -447,13 +447,13 @@ sub BossCard1HL()
 	cardH(13, 2100, 500000, "雹符「ヘイルストーム」");
 	stageProg(43);
 	enmPosTime(120, 4, 0.0f, 96.0f);
-	bulletCreate(0);
-	bulletSetOffset(0, 0.0f, -12.0f);
-	bulletSetType(0, 3);
-	bulletSetSprite(0, 9, 6);
-	bulletSetSpeed(0, 5.5f, 1.5f);
-	bulletSetComplexTransform(0, 0, 0, 2, 4, -999999, -999999.0f, -999999.0f);
-	bulletSetComplexTransform(0, 1, 1, 128, 99999, -999999, -999999.0f, -999999.0f);
+	etNew(0);
+	etOfs(0, 0.0f, -12.0f);
+	etMode(0, 3);
+	etSpr(0, 9, 6);
+	etSpd(0, 5.5f, 1.5f);
+	etEx(0, 0, 0, 2, 4, -999999, -999999.0f, -999999.0f);
+	etEx(0, 1, 1, 128, 99999, -999999, -999999.0f, -999999.0f);
 120:
 	$A = 0;
 	%B = 1.4f;
@@ -465,7 +465,7 @@ START:
 !L
 	($A + 13);
 !*
-	bulletSetCount(0, [-1], 3);
+	etCnt(0, [-1], 3);
 	goto SHOOT_END @ 140;
 SHOOT_START:
 	if ($A % 2) goto JUMP1 @ 120;
@@ -474,9 +474,9 @@ SHOOT_START:
 JUMP1:
 	%D = (%D - 0.39269908169872415480783042290994f);
 JUMP2:
-	bulletSetAngle(0, _f(%RANDRAD), 0.0f);
-	bulletSetComplexTransform(0, 1, 0, 64, 60, 1, %D, %B);
-	bulletShoot(0);
+	etAng(0, _f(%RANDRAD), 0.0f);
+	etEx(0, 1, 0, 64, 60, 1, %D, %B);
+	etOn(0);
 140:
 SHOOT_END:
 	if $C-- goto SHOOT_START @ 120;
@@ -511,22 +511,22 @@ sub BossCard2()
 	stageProg(44);
 120:
 	noop();
-	bulletCreate(0);
-	bulletSetOffset(0, 0.0f, -12.0f);
-	bulletSetType(0, 1);
-	bulletSetCount(0, 1, 1);
+	etNew(0);
+	etOfs(0, 0.0f, -12.0f);
+	etMode(0, 1);
+	etCnt(0, 1, 1);
 	%BOSS1F = 4.0f;
 	%BOSS2F = 1.0f;
-	bulletSetAngle(0, 0.0f, 0.0f);
-	bulletSetComplexTransform(0, 0, 1, 2, 2, -999999, -999999.0f, -999999.0f);
-	bulletSetComplexTransform(0, 2, 0, 2048, 5, 15, -999999.0f, -999999.0f);
-	bulletSetComplexTransform(0, 3, 0, 64, 0, 1, -999999.0f, 0.0f);
-	bulletSetComplexTransform(0, 4, 0, 4, 240, -999999, 0.0f, 0.0f);
-	bulletCreate(1);
-	bulletSetOffset(1, 0.0f, -12.0f);
-	bulletSetType(1, 0);
-	bulletSetSprite(1, 3, 6);
-	bulletSetComplexTransform(1, 0, 1, 2, 2, -999999, -999999.0f, -999999.0f);
+	etAng(0, 0.0f, 0.0f);
+	etEx(0, 0, 1, 2, 2, -999999, -999999.0f, -999999.0f);
+	etEx(0, 2, 0, 2048, 5, 15, -999999.0f, -999999.0f);
+	etEx(0, 3, 0, 64, 0, 1, -999999.0f, 0.0f);
+	etEx(0, 4, 0, 4, 240, -999999, 0.0f, 0.0f);
+	etNew(1);
+	etOfs(1, 0.0f, -12.0f);
+	etMode(1, 0);
+	etSpr(1, 3, 6);
+	etEx(1, 0, 1, 2, 2, -999999, -999999.0f, -999999.0f);
 	$A = 0;
 CARD_START:
 	enmRand(120, 4, 2.0f);
@@ -568,25 +568,25 @@ LOOP1_END:
 LOOP2_START:
 	if ($A >= 3) goto JUMP1 @ 275;
 275:
-	bulletSetCount(1, 8, 3);
-	bulletSetSpeed(1, 5.0f, 2.0f);
-	bulletSetAngle(1, 0.0f, 0.39269908169872415480783042290994f);
-	bulletShoot(1);
+	etCnt(1, 8, 3);
+	etSpd(1, 5.0f, 2.0f);
+	etAng(1, 0.0f, 0.39269908169872415480783042290994f);
+	etOn(1);
 	goto LOOP2_END @ 295;
 285:
 JUMP1:
 	if ($A >= 6) goto JUMP2 @ 285;
-	bulletSetCount(1, 10, 3);
-	bulletSetSpeed(1, 5.0f, 2.0f);
-	bulletSetAngle(1, 0.0f, 0.39269908169872415480783042290994f);
-	bulletShoot(1);
+	etCnt(1, 10, 3);
+	etSpd(1, 5.0f, 2.0f);
+	etAng(1, 0.0f, 0.39269908169872415480783042290994f);
+	etOn(1);
 	goto LOOP2_END @ 295;
 295:
 JUMP2:
-	bulletSetCount(1, 10, 3);
-	bulletSetSpeed(1, 6.0f, 2.0f);
-	bulletSetAngle(1, 0.0f, 0.19634954084936207740391521145497f);
-	bulletShoot(1);
+	etCnt(1, 10, 3);
+	etSpd(1, 6.0f, 2.0f);
+	etAng(1, 0.0f, 0.19634954084936207740391521145497f);
+	etOn(1);
 LOOP2_END:
 	if $B-- goto LOOP2_START @ 265;
 415:
@@ -599,15 +599,15 @@ LOOP2_END:
 sub BossCard2_at(A spr)
 {
 	var B;
-	bulletSetSprite($A, 5, $spr);
-	bulletSetComplexTransform($A, 1, 0, 4, $BOSS2, -999999, 0.0f, 0.0f);
+	etSpr($A, 5, $spr);
+	etEx($A, 1, 0, 4, $BOSS2, -999999, 0.0f, 0.0f);
 	$B = $BOSS1;
 	goto END @ 0;
 START:
-	bulletSetSpeed($A, _f((%BOSS1F * %RANDF) + %BOSS2F), _f(%BOSS2F));
-	bulletSetAngle($A, _f(%RANDRAD), 0.0f);
-	bulletSetComplexTransform($A, 5, 0, 4, 220, -999999, 0.01f, _f(%RANDRAD));
-	bulletShoot($A);
+	etSpd($A, _f((%BOSS1F * %RANDF) + %BOSS2F), _f(%BOSS2F));
+	etAng($A, _f(%RANDRAD), 0.0f);
+	etEx($A, 5, 0, 4, 220, -999999, 0.01f, _f(%RANDRAD));
+	etOn($A);
 END:
 	if $B-- goto START @ 0;
 	return();
@@ -621,10 +621,10 @@ sub BossCard3()
 	ins_21();
 	enmClear();
 	unless ($TIMEOUT == 0) goto BossCard3_484 @ 0;
-	bulletClear(640.0f);
+	etClear(640.0f);
 	goto BossCard3_504 @ 0;
 BossCard3_484:
-	bulletClear_ni(640.0f);
+	etClear_ni(640.0f);
 BossCard3_504:
 	$MISS_COUNT = 0;
 	$BOMB_COUNT = 0;
@@ -653,16 +653,16 @@ BossCard3_504:
 	cardN(18, 2400, 500000, "雪符「ダイアモンドブリザード」");
 	enmPosTime(120, 4, 0.0f, 96.0f);
 	stageProg(44);
-	bulletCreate(0);
-	bulletSetType(0, 8);
-	bulletSetSprite(0, 9, 6);
-	bulletSetCount_diff(0, 10, 14, 18, 28, 1, 1, 1, 1);
-	bulletSetSpeed(0, 2.3f, 0.4f);
-	bulletSetAngle(0, 3.1415926535897932384626433832795f, -3.1415926535897932384626433832795f);
-	bulletSetComplexTransform(0, 0, 0, 2, 2, -999999, -999999.0f, -999999.0f);
-	bulletSetComplexTransform(0, 1, 0, 1, -999999, -999999, -999999.0f, -999999.0f);
-	bulletSetOffset(0, 0.0f, -12.0f);
-	bulletShoot(0);
+	etNew(0);
+	etMode(0, 8);
+	etSpr(0, 9, 6);
+	etCnt_rank(0, 10, 14, 18, 28, 1, 1, 1, 1);
+	etSpd(0, 2.3f, 0.4f);
+	etAng(0, 3.1415926535897932384626433832795f, -3.1415926535897932384626433832795f);
+	etEx(0, 0, 0, 2, 2, -999999, -999999.0f, -999999.0f);
+	etEx(0, 1, 0, 1, -999999, -999999, -999999.0f, -999999.0f);
+	etOfs(0, 0.0f, -12.0f);
+	etOn(0);
 180:
 CARD_START:
 	enmRand(120, 4, 1.2f);
@@ -672,8 +672,8 @@ STR:
 190:
 	%A = %RANDF2 * 64.0f;
 	%RANDF2 * 64.0f;
-	bulletSetOffset(0, [-1.0f], %A);
-	bulletShoot(0);
+	etOfs(0, [-1.0f], %A);
+	etOn(0);
 END:
 	if $B-- goto STR @ 180;
 	goto CARD_START @ 180;
@@ -696,7 +696,7 @@ BossDead_308:
 BossDead_364:
 	enmClear();
 60:
-	bulletClear_ni(1000.0f);
+	etClear_ni(1000.0f);
 	cardEnd();
 	shake(30, 12, 0);
 	ins_263(0, 79);

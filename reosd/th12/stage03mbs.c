@@ -68,10 +68,10 @@ sub MBossCard1()
 	ins_21();
 	enmClear();
 	unless ($TIMEOUT == 0) goto MBossCard1_208 @ 0;
-	bulletClear(640.0f);
+	etClear(640.0f);
 	goto MBossCard1_228 @ 0;
 MBossCard1_208:
-	bulletClear_ni(640.0f);
+	etClear_ni(640.0f);
 MBossCard1_228:
 	$MISS_COUNT = 0;
 	$BOMB_COUNT = 0;
@@ -195,24 +195,24 @@ MBossCard1_3300:
 sub MBossCard1ArmAt()
 {
 	var A B;
-	bulletCreate(0);
-	bulletSetType(0, 1);
-	bulletSetSprite(0, 3, 4);
-	bulletSetCount(0, 1, 1);
-	bulletSetAngle(0, 0.0f, 0.032724924f);
-	bulletSetSpeed(0, 0.0f, 1.0f);
-	bulletSetComplexTransform(0, 0, 1, 2, 1, -999999, -999999.0f, -999999.0f);
-	bulletSetComplexTransform(0, 1, 0, 268435456, 1, -999999, -999999.0f, -999999.0f);
-	bulletSetComplexTransform(0, 2, 0, 4, 120, -999999, 0.008333334f, -999999.0f);
+	etNew(0);
+	etMode(0, 1);
+	etSpr(0, 3, 4);
+	etCnt(0, 1, 1);
+	etAng(0, 0.0f, 0.032724924f);
+	etSpd(0, 0.0f, 1.0f);
+	etEx(0, 0, 1, 2, 1, -999999, -999999.0f, -999999.0f);
+	etEx(0, 1, 0, 268435456, 1, -999999, -999999.0f, -999999.0f);
+	etEx(0, 2, 0, 4, 120, -999999, 0.008333334f, -999999.0f);
 	wait(60);
 	goto MBossCard1ArmAt_680 @ 0;
 MBossCard1ArmAt_380:
 	setf_rank(%B, 300.0f, 384.0f, 384.0f, 384.0f);
 	unless (%FINAL_Y < %B) goto MBossCard1ArmAt_660 @ 0;
 	ins_81(%A, %B, %RANDRAD, _f(%RANDF2 * _f(64)));
-	bulletSetOffset(0, %A, %B);
-	bulletSetAngle(0, %RANDRAD, 0.0f);
-	bulletShoot(0);
+	etOfs(0, %A, %B);
+	etAng(0, %RANDRAD, 0.0f);
+	etOn(0);
 MBossCard1ArmAt_660:
 	wait(2);
 MBossCard1ArmAt_680:
@@ -305,21 +305,21 @@ MBossCard1At_424:
 MBossCard1At_600:
 10:
 	noop();
-	bulletCreate(0);
-	bulletSetType(0, 3);
-	bulletSetSprite(0, 5, 4);
-	bulletSetCount(0, 3, 1);
-	bulletSetAngle(0, 0.0f, 0.032724924f);
-	bulletSetSpeed(0, 4.0f, 1.0f);
-	bulletSetComplexTransform(0, 0, 1, 2, 1, -999999, -999999.0f, -999999.0f);
-	bulletSetComplexTransform(0, 1, 0, 4, 30, -999999, -0.1f, -999999.0f);
-	bulletSetComplexTransform(0, 2, 0, 2048, 7, 8, -999999.0f, -999999.0f);
+	etNew(0);
+	etMode(0, 3);
+	etSpr(0, 5, 4);
+	etCnt(0, 3, 1);
+	etAng(0, 0.0f, 0.032724924f);
+	etSpd(0, 4.0f, 1.0f);
+	etEx(0, 0, 1, 2, 1, -999999, -999999.0f, -999999.0f);
+	etEx(0, 1, 0, 4, 30, -999999, -0.1f, -999999.0f);
+	etEx(0, 2, 0, 2048, 7, 8, -999999.0f, -999999.0f);
 	$D = 112;
 	goto MBossCard1At_1404 @ 10;
 MBossCard1At_980:
-	bulletSetDistance(0, %B);
-	bulletSetAngle(0, %C, 0.7662421f);
-	bulletShoot(0);
+	etDist(0, %B);
+	etAng(0, %C, 0.7662421f);
+	etOn(0);
 	%B = (%B - _f(1));
 	unless ($A == 0) goto MBossCard1At_1308 @ 10;
 	%C = (%C - 0.124174f);
@@ -346,10 +346,10 @@ sub MBossDead()
 	enmDirTime(60, 4, -999999.0f, 0.0f);
 	playSE(28);
 	unless ($TIMEOUT == 0) goto MBossDead_484 @ 0;
-	bulletClear(640.0f);
+	etClear(640.0f);
 	goto MBossDead_504 @ 0;
 MBossDead_484:
-	bulletClear_ni(640.0f);
+	etClear_ni(640.0f);
 MBossDead_504:
 	anmScr(0, 0);
 	life(100000);
@@ -388,10 +388,10 @@ sub MBossEscape()
 	cardEnd();
 	unsetMoveArea();
 	unless ($TIMEOUT == 0) goto MBossEscape_264 @ 0;
-	bulletClear(640.0f);
+	etClear(640.0f);
 	goto MBossEscape_284 @ 0;
 MBossEscape_264:
-	bulletClear_ni(640.0f);
+	etClear_ni(640.0f);
 MBossEscape_284:
 	enmClear();
 	anmScr(0, 0);
@@ -409,14 +409,14 @@ sub MBoss_at1()
 {
 	var A B C D E;
 	ins_269(0);
-	bulletCreate(0);
-	bulletSetSprite(0, 7, 4);
-	bulletSetAngle(0, 0.0f, 0.0f);
-	bulletSetSpeed(0, 0.0f, 0.0f);
+	etNew(0);
+	etSpr(0, 7, 4);
+	etAng(0, 0.0f, 0.0f);
+	etSpd(0, 0.0f, 0.0f);
 	laserSetSize(0, 0.0f, 128.0f, 0.0f, 14.0f);
-	bulletSetSE(0, 19, -1);
+	etSE(0, 19, -1);
 	setf_rank(%A, 0.027777778f, 0.033333335f, 0.06111111f, 0.03888889f);
-	bulletSetComplexTransform(0, 0, 0, 4, 90, -999999, %A, -999999.0f);
+	etEx(0, 0, 0, 4, 90, -999999, %A, -999999.0f);
 	%B = -1.570796f;
 	callSep("MBoss_at2");
 	callSep("MBoss_at3");
@@ -424,8 +424,8 @@ sub MBoss_at1()
 	goto MBoss_at1_1072 @ 0;
 MBoss_at1_472:
 	ins_81(%C, %D, _f(%B + 1.5707964f), 64.0f);
-	bulletSetOffset(0, _f(%C - _f(8)), _f(%D - _f(32)));
-	bulletSetAngle(0, %B, %B);
+	etOfs(0, _f(%C - _f(8)), _f(%D - _f(32)));
+	etAng(0, %B, %B);
 	laserShoot(0);
 !E
 	%B = (%B + 0.392699f);
@@ -445,21 +445,21 @@ MBoss_at1_1072:
 sub MBoss_at2()
 {
 	var A B C D E;
-	bulletCreate(1);
-	bulletSetSprite(1, 7, 6);
-	bulletSetAngle(1, 0.0f, 0.0f);
-	bulletSetSpeed(1, 0.0f, 0.0f);
+	etNew(1);
+	etSpr(1, 7, 6);
+	etAng(1, 0.0f, 0.0f);
+	etSpd(1, 0.0f, 0.0f);
 	laserSetSize(1, 0.0f, 128.0f, 0.0f, 14.0f);
-	bulletSetSE(0, 19, -1);
+	etSE(0, 19, -1);
 	setf_rank(%D, 0.027777778f, 0.033333335f, 0.06111111f, 0.03888889f);
-	bulletSetComplexTransform(1, 0, 0, 4, 90, -999999, %D, -999999.0f);
+	etEx(1, 0, 0, 4, 90, -999999, %D, -999999.0f);
 	%A = -1.570796f;
 	seti_rank($E, 16, 24, 64, 64);
 	goto MBoss_at2_988 @ 0;
 MBoss_at2_388:
 	ins_81(%B, %C, _f(%A - 1.5707964f), 64.0f);
-	bulletSetOffset(1, _f(%B - _f(8)), _f(%C - _f(32)));
-	bulletSetAngle(1, %A, %A);
+	etOfs(1, _f(%B - _f(8)), _f(%C - _f(32)));
+	etAng(1, %A, %A);
 	laserShoot(1);
 !E
 	%A = (%A - 0.392699f);
@@ -479,21 +479,21 @@ MBoss_at2_988:
 sub MBoss_at3()
 {
 	var A B C D E;
-	bulletCreate(2);
-	bulletSetSprite(2, 7, 10);
-	bulletSetAngle(2, 0.0f, 0.0f);
-	bulletSetSpeed(2, 0.0f, 0.0f);
+	etNew(2);
+	etSpr(2, 7, 10);
+	etAng(2, 0.0f, 0.0f);
+	etSpd(2, 0.0f, 0.0f);
 	laserSetSize(2, 0.0f, 128.0f, 0.0f, 14.0f);
-	bulletSetSE(0, 19, -1);
+	etSE(0, 19, -1);
 	setf_rank(%D, 0.027777778f, 0.033333335f, 0.06111111f, 0.03888889f);
-	bulletSetComplexTransform(2, 0, 0, 4, 90, -999999, %D, -999999.0f);
+	etEx(2, 0, 0, 4, 90, -999999, %D, -999999.0f);
 	%A = -1.570796f;
 	seti_rank($E, 16, 24, 64, 64);
 	goto MBoss_at3_988 @ 0;
 MBoss_at3_388:
 	ins_81(%B, %C, _f(%A - 3.1415927f), 48.0f);
-	bulletSetOffset(2, _f(%B - _f(8)), _f(%C - _f(32)));
-	bulletSetAngle(2, %A, %A);
+	etOfs(2, _f(%B - _f(8)), _f(%C - _f(32)));
+	etAng(2, %A, %A);
 	laserShoot(2);
 !E
 	%A = (%A - 0.392699f);

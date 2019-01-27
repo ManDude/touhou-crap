@@ -7,7 +7,7 @@ sub Ecl_EtBreak()
 	setFlags(32);
 	goto Ecl_EtBreak_216 @ 1;
 Ecl_EtBreak_120:
-	bulletClear(%B);
+	etClear(%B);
 	%B;
 1:
 	12;
@@ -25,7 +25,7 @@ sub Ecl_EtBreak2()
 	setFlags(32);
 	goto Ecl_EtBreak2_216 @ 1;
 Ecl_EtBreak2_120:
-	bulletClear(%B);
+	etClear(%B);
 	%B;
 1:
 	8;
@@ -43,7 +43,7 @@ sub Ecl_EtBreak2_ni()
 	setFlags(32);
 	goto Ecl_EtBreak2_ni_216 @ 1;
 Ecl_EtBreak2_ni_120:
-	bulletClear_ni(%B);
+	etClear_ni(%B);
 	%B;
 1:
 	8;
@@ -72,7 +72,7 @@ END_CHECK:
 	goto Ecl_EtBreak2_216 @ 1;
 Ecl_EtBreak2_120:
 	enmPos(%PLAYER_X, %PLAYER_Y);
-	bulletClear(%C);
+	etClear(%C);
 	%B;
 1:
 	8;
@@ -90,7 +90,7 @@ sub Ecl_EtBreak_ni()
 	setFlags(32);
 	goto Ecl_EtBreak_ni_216 @ 1;
 Ecl_EtBreak_ni_120:
-	bulletClear_ni(%B);
+	etClear_ni(%B);
 	%B;
 1:
 	12;
@@ -196,7 +196,7 @@ sub UFO_EtBreak()
 	%A = 16.0f;
 	goto UFO_EtBreak_196 @ 1;
 UFO_EtBreak_100:
-	bulletClear(%A);
+	etClear(%A);
 	%A;
 1:
 	6;
@@ -214,7 +214,7 @@ sub UFO_EtBreak2()
 	setFlags(32);
 	goto UFO_EtBreak2_216 @ 1;
 UFO_EtBreak2_120:
-	bulletClear(%B);
+	etClear(%B);
 	%B;
 1:
 	16;
@@ -412,7 +412,7 @@ sub et_ofs_r()
 {
 	var A B C D;
 	ins_81(%C, %D, %RANDRAD, _f(%B * %RANDF));
-	bulletSetOffset($A, %C, %D);
+	etOfs($A, %C, %D);
 	return();
 }
 
@@ -422,7 +422,7 @@ sub et_on_rate(et rate delay)
 	wait(_S(_S($RAND % $rate) * $delay));
 	goto END @ 0;
 START:
-	bulletShoot($et);
+	etOn($et);
 	wait($rate);
 END:
 	goto START @ 0;

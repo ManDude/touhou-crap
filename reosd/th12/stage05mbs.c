@@ -103,25 +103,25 @@ sub MBossCard1_at1()
 {
 	var A;
 	enmPosTime(40, 4, -96.0f, 144.0f);
-	bulletCreate(0);
-	bulletSetType(0, 2);
-	bulletSetSprite(0, 8, 2);
-	bulletSetAngle(0, 0.0f, 0.0f);
-	bulletSetComplexTransform(0, 0, 0, 2, 1, -999999, -999999.0f, -999999.0f);
+	etNew(0);
+	etMode(0, 2);
+	etSpr(0, 8, 2);
+	etAng(0, 0.0f, 0.0f);
+	etEx(0, 0, 0, 2, 1, -999999, -999999.0f, -999999.0f);
 !HL
-	bulletSetComplexTransform(0, 1, 0, 256, 1, 13, -999999.0f, -999999.0f);
+	etEx(0, 1, 0, 256, 1, 13, -999999.0f, -999999.0f);
 !E
-	bulletSetCount(0, 16, 1);
-	bulletSetSpeed(0, 3.0f, 1.2f);
+	etCnt(0, 16, 1);
+	etSpd(0, 3.0f, 1.2f);
 !N
-	bulletSetCount(0, 24, 3);
-	bulletSetSpeed(0, 3.0f, 1.2f);
+	etCnt(0, 24, 3);
+	etSpd(0, 3.0f, 1.2f);
 !H
-	bulletSetCount(0, 15, 2);
-	bulletSetSpeed(0, 1.5f, 0.8f);
+	etCnt(0, 15, 2);
+	etSpd(0, 1.5f, 0.8f);
 !L
-	bulletSetCount(0, 19, 2);
-	bulletSetSpeed(0, 1.5f, 0.8f);
+	etCnt(0, 19, 2);
+	etSpd(0, 1.5f, 0.8f);
 !*
 	callSlot("MBossCard1_at1_et0", 0);
 30:
@@ -132,27 +132,27 @@ sub MBossCard1_at1()
 	endSlot(0);
 80:
 	$A = 3;
-	bulletCreate(0);
-	bulletSetType(0, 0);
-	bulletSetSprite(0, 20, 3);
-	bulletSetCount(0, 11, 4);
-	bulletSetComplexTransform(0, 0, 0, 2, 1, -999999, -999999.0f, -999999.0f);
+	etNew(0);
+	etMode(0, 0);
+	etSpr(0, 20, 3);
+	etCnt(0, 11, 4);
+	etEx(0, 0, 0, 2, 1, -999999, -999999.0f, -999999.0f);
 !E
-	bulletSetAngle(0, 0.0f, 0.20943951023931954923084289221863f);
-	bulletSetSpeed(0, 3.5f, 1.2f);
+	etAng(0, 0.0f, 0.20943951023931954923084289221863f);
+	etSpd(0, 3.5f, 1.2f);
 !N
-	bulletSetAngle(0, 0.0f, 0.20943951023931954923084289221863f);
-	bulletSetSpeed(0, 4.5f, 1.2f);
+	etAng(0, 0.0f, 0.20943951023931954923084289221863f);
+	etSpd(0, 4.5f, 1.2f);
 !H
-	bulletSetAngle(0, 0.0f, 0.31415926535897932384626433832795f);
-	bulletSetSpeed(0, 5.5f, 1.2f);
+	etAng(0, 0.0f, 0.31415926535897932384626433832795f);
+	etSpd(0, 5.5f, 1.2f);
 !L
-	bulletSetAngle(0, 0.0f, 0.31415926535897932384626433832795f);
-	bulletSetSpeed(0, 6.5f, 1.2f);
+	etAng(0, 0.0f, 0.31415926535897932384626433832795f);
+	etSpd(0, 6.5f, 1.2f);
 !*
 	goto END @ 98;
 START:
-	bulletShoot(0);
+	etOn(0);
 98:
 END:
 	if ($A--) goto START @ 80;
@@ -170,7 +170,7 @@ sub MBossCard1_at1_et0()
 	var;
 	noop();
 START:
-	bulletShoot(0);
+	etOn(0);
 6:
 	goto START @ 0;
 	return();
@@ -180,25 +180,25 @@ sub MBossCard1_at2()
 {
 	var A;
 	enmPosTime(40, 4, 96.0f, 144.0f);
-	bulletCreate(0);
-	bulletSetType(0, 2);
-	bulletSetSprite(0, 8, 2);
-	bulletSetAngle(0, 0.0f, 0.0f);
-	bulletSetComplexTransform(0, 0, 0, 2, 1, -999999, -999999.0f, -999999.0f);
+	etNew(0);
+	etMode(0, 2);
+	etSpr(0, 8, 2);
+	etAng(0, 0.0f, 0.0f);
+	etEx(0, 0, 0, 2, 1, -999999, -999999.0f, -999999.0f);
 !HL
-	bulletSetComplexTransform(0, 1, 0, 256, 1, 13, -999999.0f, -999999.0f);
+	etEx(0, 1, 0, 256, 1, 13, -999999.0f, -999999.0f);
 !E
-	bulletSetCount(0, 16, 1);
-	bulletSetSpeed(0, 3.0f, 1.2f);
+	etCnt(0, 16, 1);
+	etSpd(0, 3.0f, 1.2f);
 !N
-	bulletSetCount(0, 24, 3);
-	bulletSetSpeed(0, 3.0f, 1.2f);
+	etCnt(0, 24, 3);
+	etSpd(0, 3.0f, 1.2f);
 !H
-	bulletSetCount(0, 12, 2);
-	bulletSetSpeed(0, 1.5f, 0.8f);
+	etCnt(0, 12, 2);
+	etSpd(0, 1.5f, 0.8f);
 !L
-	bulletSetCount(0, 16, 2);
-	bulletSetSpeed(0, 1.5f, 0.8f);
+	etCnt(0, 16, 2);
+	etSpd(0, 1.5f, 0.8f);
 !*
 	callSlot("MBossCard1_at2_et0", 1);
 30:
@@ -209,27 +209,27 @@ sub MBossCard1_at2()
 	endSlot(1);
 80:
 	$A = 3;
-	bulletCreate(0);
-	bulletSetType(0, 0);
-	bulletSetSprite(0, 20, 3);
-	bulletSetCount(0, 11, 4);
-	bulletSetComplexTransform(0, 0, 0, 2, 1, -999999, -999999.0f, -999999.0f);
+	etNew(0);
+	etMode(0, 0);
+	etSpr(0, 20, 3);
+	etCnt(0, 11, 4);
+	etEx(0, 0, 0, 2, 1, -999999, -999999.0f, -999999.0f);
 !E
-	bulletSetAngle(0, 0.0f, 0.20943951023931954923084289221863f);
-	bulletSetSpeed(0, 3.5f, 1.2f);
+	etAng(0, 0.0f, 0.20943951023931954923084289221863f);
+	etSpd(0, 3.5f, 1.2f);
 !N
-	bulletSetAngle(0, 0.0f, 0.20943951023931954923084289221863f);
-	bulletSetSpeed(0, 4.5f, 1.2f);
+	etAng(0, 0.0f, 0.20943951023931954923084289221863f);
+	etSpd(0, 4.5f, 1.2f);
 !H
-	bulletSetAngle(0, 0.0f, 0.31415926535897932384626433832795f);
-	bulletSetSpeed(0, 5.5f, 1.2f);
+	etAng(0, 0.0f, 0.31415926535897932384626433832795f);
+	etSpd(0, 5.5f, 1.2f);
 !L
-	bulletSetAngle(0, 0.0f, 0.31415926535897932384626433832795f);
-	bulletSetSpeed(0, 6.5f, 1.2f);
+	etAng(0, 0.0f, 0.31415926535897932384626433832795f);
+	etSpd(0, 6.5f, 1.2f);
 !*
 	goto END @ 98;
 START:
-	bulletShoot(0);
+	etOn(0);
 98:
 END:
 	if ($A--) goto START @ 80;
@@ -247,7 +247,7 @@ sub MBossCard1_at2_et0()
 	var;
 	noop();
 START:
-	bulletShoot(0);
+	etOn(0);
 6:
 	goto START @ 0;
 	return();
@@ -264,10 +264,10 @@ sub MBossDead()
 	enmDirTime(0, 0, 0.0f, 0.0f);
 	playSE(28);
 	unless ($TIMEOUT == 0) goto MBossDead_484 @ 0;
-	bulletClear(640.0f);
+	etClear(640.0f);
 	goto MBossDead_504 @ 0;
 MBossDead_484:
-	bulletClear_ni(640.0f);
+	etClear_ni(640.0f);
 MBossDead_504:
 	enmClear();
 	life(100000);
@@ -291,10 +291,10 @@ sub MBossEscape()
 	cardEnd();
 	unsetMoveArea();
 	unless ($TIMEOUT == 0) goto MBossEscape_264 @ 0;
-	bulletClear(640.0f);
+	etClear(640.0f);
 	goto MBossEscape_284 @ 0;
 MBossEscape_264:
-	bulletClear_ni(640.0f);
+	etClear_ni(640.0f);
 MBossEscape_284:
 	enmClear();
 	life(100000);
@@ -312,23 +312,23 @@ sub MBoss_at1(angInc startAng)
 {
 	var finalAng count;
 	$count = 10;
-	bulletCreate(0);
-	bulletSetType(0, 1);
-	bulletSetSprite(0, 20, 3);
+	etNew(0);
+	etMode(0, 1);
+	etSpr(0, 20, 3);
 !E
-	bulletSetSpeed(0, 2.8f, 1.0f);
-	bulletSetCount(0, 4, 1);
+	etSpd(0, 2.8f, 1.0f);
+	etCnt(0, 4, 1);
 !NHL
-	bulletSetSpeed(0, 3.2f, 1.0f);
-	bulletSetCount(0, 8, 1);
+	etSpd(0, 3.2f, 1.0f);
+	etCnt(0, 8, 1);
 !*
-	bulletSetOffset(0, 0.0f, -12.0f);
+	etOfs(0, 0.0f, -12.0f);
 	%finalAng = %startAng;
 	goto MBoss_at1_1060 @ 0;
 MBoss_at1_812:
-	bulletSetAngle(0, %finalAng, 0.28559933214452665804205848938905f);
+	etAng(0, %finalAng, 0.28559933214452665804205848938905f);
 	%finalAng = %finalAng + %angInc;
-	bulletShoot(0);
+	etOn(0);
 	wait(8);
 MBoss_at1_1060:
 	if $count-- goto MBoss_at1_812 @ 0;
@@ -339,26 +339,26 @@ sub MBoss_at2(angInc startAng)
 {
 	var finalAng count;
 	$count = 10;
-	bulletCreate(0);
-	bulletSetType(0, 1);
-	bulletSetSprite(0, 8, 2);
-	bulletSetSpeed(0, 2.0f, 1.0f);
+	etNew(0);
+	etMode(0, 1);
+	etSpr(0, 8, 2);
+	etSpd(0, 2.0f, 1.0f);
 !E
-	bulletSetCount(0, 4, 1);
+	etCnt(0, 4, 1);
 !N
-	bulletSetCount(0, 4, 2);
+	etCnt(0, 4, 2);
 !H
-	bulletSetCount(0, 5, 2);
+	etCnt(0, 5, 2);
 !L
-	bulletSetCount(0, 5, 3);
+	etCnt(0, 5, 3);
 !*
-	bulletSetOffset(0, 0.0f, -12.0f);
+	etOfs(0, 0.0f, -12.0f);
 	%finalAng = %startAng;
 	goto MBoss_at1_1060 @ 0;
 MBoss_at1_812:
-	bulletSetAngle(0, %finalAng, 0.04487989505128276054946633404685f);
+	etAng(0, %finalAng, 0.04487989505128276054946633404685f);
 	%finalAng = %finalAng + %angInc;
-	bulletShoot(0);
+	etOn(0);
 	wait(3);
 MBoss_at1_1060:
 	if $count-- goto MBoss_at1_812 @ 0;
