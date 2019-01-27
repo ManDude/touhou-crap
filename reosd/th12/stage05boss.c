@@ -759,7 +759,7 @@ END2:
 	wait(_S(90 / $waveCount));
 END:
 	if $A-- goto START @ 0;
-	return;
+	return();
 }
 
 sub BossCard2()
