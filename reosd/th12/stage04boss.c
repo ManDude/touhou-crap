@@ -2,38 +2,38 @@
 
 sub Boss()
 {
-    var A;
-    setBossMode(0);
-    anmSelect(2);
-    ins_262(0, 0);
-    setFlags(64);
-    setHitbox(56.0f, 64.0f);
-    setKillbox(48.0f, 56.0f);
-    moveByTime(60, 4, 0.0f, 128.0f);
-	setInvincible(60);
-	setExtraItem(8, 1);
-	dropItems();
+	var A;
+	boss(0);
+	anm(2);
+	ins_262(0, 0);
+	setFlags(64);
+	hitbox(56.0f, 64.0f);
+	killbox(48.0f, 56.0f);
+	enmPosTime(60, 4, 0.0f, 128.0f);
+	invinc(60);
+	itemEx(8, 1);
+	itemDrop();
 60:
-    waitDialogue();
-    setMoveArea(0.0f, 96.0f, 320.0f, 48.0f);
-    anmSelect(0);
-    ins_259(1, 95);
-    ins_259(2, 158);
-    anmSelect(2);
-    setBossFog(160.0f, 16728031);
-    call("Boss1");
-    delete();
+	msgWait();
+	setMoveArea(0.0f, 96.0f, 320.0f, 48.0f);
+	anm(0);
+	ins_259(1, 95);
+	ins_259(2, 158);
+	anm(2);
+	setBossFog(160.0f, 16728031);
+	call("Boss1");
+	delete();
 }
 
 sub Boss1()
 {
-    var A;
+	var A;
 	$A = 2400;
 	[-9941] = 0;
-    resetBossTime();
-	setLife(17000);
+	resetBoss();
+	life(17000);
 !E
-    setAttack(0, 0, $A, "Boss2");
+	attack(0, 0, $A, "Boss2");
 	goto CONT @ 0;
 !NHL
 	if [-9945] == 0 goto RB @ 0;
@@ -44,79 +44,79 @@ sub Boss1()
 	if [-9945] == 5 goto SB @ 0;
 RA:
 !N
-    setAttack(0, 1600, $A, "BossCardFireAgni");
-    setLifebar(0, 1600.0f, -24448);
+	attack(0, 1600, $A, "BossCardFireAgni");
+	lifebar(0, 1600.0f, -24448);
 !HL
-    setAttack(0, 1700, $A, "BossCardFireAgniHL");
-    setLifebar(0, 1700.0f, -24448);
+	attack(0, 1700, $A, "BossCardFireAgniHL");
+	lifebar(0, 1700.0f, -24448);
 !ENHL
 	goto CONT @ 0;
 RB:
 !N
-    setAttack(0, 1600, $A, "BossCardWaterUndine");
+	attack(0, 1600, $A, "BossCardWaterUndine");
 !HL
-    setAttack(0, 1600, $A, "BossCardWaterBury");
+	attack(0, 1600, $A, "BossCardWaterBury");
 !ENHL
-    setLifebar(0, 1600.0f, -8347393);
+	lifebar(0, 1600.0f, -8347393);
 	goto CONT @ 0;
 MA:
 !N
-    setAttack(0, 1600, $A, "BossCardWoodSylphae");
+	attack(0, 1600, $A, "BossCardWoodSylphae");
 !HL
-    setAttack(0, 1600, $A, "BossCardWoodSylphaeHL");
+	attack(0, 1600, $A, "BossCardWoodSylphaeHL");
 !ENHL
-    setLifebar(0, 1600.0f, -8323200);
+	lifebar(0, 1600.0f, -8323200);
 	goto CONT @ 0;
 MB:
 !N
-    setAttack(0, 1800, $A, "BossCardEarthTrilithon");
+	attack(0, 1800, $A, "BossCardEarthTrilithon");
 !HL
-    setAttack(0, 1800, $A, "BossCardEarthTrilithonHL");
+	attack(0, 1800, $A, "BossCardEarthTrilithonHL");
 !ENHL
-    setLifebar(0, 1800.0f, -128);
+	lifebar(0, 1800.0f, -128);
 	goto CONT @ 0;
 SA:
 !N
-    setAttack(0, 1600, $A, "BossCardMetalMemory");
+	attack(0, 1600, $A, "BossCardMetalMemory");
 !HL
-    setAttack(0, 1600, $A, "BossCardMetalMemory_HL");
+	attack(0, 1600, $A, "BossCardMetalMemory_HL");
 !ENHL
-    setLifebar(0, 1600.0f, -6250336);
+	lifebar(0, 1600.0f, -6250336);
 	goto CONT @ 0;
 SB:
 !NHL
-    setAttack(0, 2000, $A, "BossCardWaterMonsoon");
+	attack(0, 2000, $A, "BossCardWaterMonsoon");
 !ENHL
-    setLifebar(0, 2000.0f, -8347393);
+	lifebar(0, 2000.0f, -8347393);
 CONT:
-    setCheckpoint(24);
-    setBossLives(2);
-    anmSelect(2);
-    ins_262(0, 0);
-    ins_263(0, 119);
-    playSE(31);
+	stageProg(24);
+	lives(2);
+	anm(2);
+	ins_262(0, 0);
+	ins_263(0, 119);
+	playSE(31);
 Boss1_276:
-    ins_269(0);
+	ins_269(0);
 100:
 	[-9940] = 0;
 START:
 	[-9940] % 2;
-	jumpIfNEqual(ATTACK2, 100);
-    call("Boss1_at1", _SS 4);
+	jne(ATTACK2, 100);
+	call("Boss1_at1", _SS 4);
 	goto END @ 100;
 ATTACK2:
-    call("Boss1_at1", _SS 0);
+	call("Boss1_at1", _SS 0);
 END:
-	moveRandom(90, 4, 2.5f);
-	callToSlot("Boss1_at", 1);
+	enmRand(90, 4, 2.5f);
+	callSlot("Boss1_at", 1);
 	wait(90);
-	moveByTime(90, 4, 0.0f, 128.0f);
+	enmPosTime(90, 4, 0.0f, 128.0f);
 	wait(90);
-	terminateSlot(1);
+	endSlot(1);
 	[-9940] = [-9940] + 1;
 	goto START @ 40;
-    if 1 goto Boss1_276 @ 0;
-    return();
+	if 1 goto Boss1_276 @ 0;
+	return();
 }
 
 sub Boss1_at()
@@ -216,7 +216,7 @@ BULLET_7:
 	bulletSetAngle(0, 0.0f, 0.09817477f);
 CONT_BULLET:
 	$G;
-	jumpIfEqual(NO_NEGA, 0);
+	je(NO_NEGA, 0);
 NEGA:
 	%K = %K * -1.0f;
 NO_NEGA:
@@ -225,7 +225,7 @@ NO_NEGA:
 	%E = -2.356194f;
 	%F = -0.7853982f;
 	bulletCreate(1);
-    bulletSetSE(1, 19, -1);
+	bulletSetSE(1, 19, -1);
 	bulletSetSpeed(1, 32.0f, 32.0f);
 	laserSetSize(1, 500.0f, 500.0f, 0.0f, 48.0f);
 	bulletSetDistance(1, 0.0f);
@@ -237,7 +237,7 @@ NO_NEGA:
 	laserSetTime(1, 0, 15, 39, 15, 14);
 !ENHL
 	[-9941];
-	jumpIfNEqual(LASER2, 0);
+	jne(LASER2, 0);
 	bulletSetSprite(1, 7, 6);
 	goto LASER_END @ 0;
 LASER2:
@@ -273,8 +273,8 @@ START:
 !L
 	93;
 !ENHL
-	eq();
-	jumpIfEqual(ANGLE_CONT, 0);
+	eqi();
+	je(ANGLE_CONT, 0);
 	laserSetRotSpeed(1, 0.0f);
 	laserSetRotSpeed(2, 0.0f);
 	laserSetRotSpeed(3, 0.0f);
@@ -288,8 +288,8 @@ ANGLE_CONT:
 !L
 	46;
 !ENHL
-	eq();
-	jumpIfEqual(LASER_2_SKIPMOVE, 0);
+	eqi();
+	je(LASER_2_SKIPMOVE, 0);
 !EN
 	laserSetTime(1, 30, 20, 70, 20, 14);
 !H
@@ -298,7 +298,7 @@ ANGLE_CONT:
 	laserSetTime(1, 23, 15, 55, 15, 14);
 !ENHL
 	[-9941];
-	jumpIfNEqual(LASER2_2, 0);
+	jne(LASER2_2, 0);
 	bulletSetSprite(1, 7, 6);
 	goto LASER_END_2 @ 0;
 LASER2_2:
@@ -319,7 +319,7 @@ LASER_END_2:
 	laserSetRotSpeed(8, %K);
 LASER_2_SKIPMOVE:
 	[-9940];
-	jumpIfEqual(SHOOT_SKIP, 0);
+	je(SHOOT_SKIP, 0);
 !E
 	$B % 60;
 !N
@@ -327,14 +327,14 @@ LASER_2_SKIPMOVE:
 !HL
 	$B % 40;
 !ENHL
-	jumpIfNEqual(SHOOT_SKIP, 0);
+	jne(SHOOT_SKIP, 0);
 	call("Boss1_at2", _SS $H);
 SHOOT_SKIP:
 	$B = $B + 1;
 LOOP_END:
 1:
 	decrement($A);
-	jumpIfNEqual(START, 0);
+	jne(START, 0);
 	return();
 }
 
@@ -342,7 +342,7 @@ sub Boss1_at2(A)
 {
 	var;
 	[-9942] < 2;
-	jumpIfEqual(SHOOT3, 0);
+	je(SHOOT3, 0);
 	bulletSetOffset(0, -45.0f, -32.0f);
 	bulletShoot(0);
 	bulletSetOffset(0, 45.0f, -32.0f);
@@ -352,7 +352,7 @@ sub Boss1_at2(A)
 	bulletSetOffset(0, 46.0f, 32.0f);
 	bulletShoot(0);
 	[-9942];
-	jumpIfEqual(END, 0);
+	je(END, 0);
 SHOOT3:
 	bulletSetOffset(0, -26.0f, -24.0f);
 	bulletShoot(0);
@@ -363,7 +363,7 @@ SHOOT3:
 	bulletSetOffset(0, 59.0f, 24.0f);
 	bulletShoot(0);
 	[-9942] >= 2;
-	jumpIfEqual(END, 0);
+	je(END, 0);
 	bulletSetOffset(0, -4.0f, -4.0f);
 	bulletShoot(0);
 	bulletSetOffset(0, 4.0f, -4.0f);
@@ -380,29 +380,29 @@ END:
 
 sub Boss2()
 {
-    var A B;
-    setLife(16000);
-    resetBossTime();
-    ins_21();
-    clearEnemies();
-    [-9986];
-    0;
-    eq();
-    jumpIfEqual(Boss2_228, 0);
-    bulletClear(6400.0f);
-    goto Boss2_248 @ 0;
+	var A B;
+	life(16000);
+	resetBoss();
+	ins_21();
+	enmClear();
+	[-9986];
+	0;
+	eqi();
+	je(Boss2_228, 0);
+	bulletClear(6400.0f);
+	goto Boss2_248 @ 0;
 Boss2_228:
-    bulletClear_ni(6400.0f);
+	bulletClear_ni(6400.0f);
 Boss2_248:
-    [-9949] = 0;
-    [-9948] = 0;
-    enemySetTrajectory(0.0f, 0.0f);
-    enemyChangeMovement(0, 0, 0.0f, 0.0f);
-    moveByTime(0, 0, 0.0f, 0.0f);
-    endSpellcard();
-    ins_529(0);
-    ins_445();
-    playSE(28);
+	[-9949] = 0;
+	[-9948] = 0;
+	enmDir(0.0f, 0.0f);
+	enmDirTime(0, 0, 0.0f, 0.0f);
+	enmPosTime(0, 0, 0.0f, 0.0f);
+	cardEnd();
+	ins_529(0);
+	ins_445();
+	playSE(28);
 	$A = 2400;
 	[-9941] = 1;
 	if [-9945] == 0 goto RB @ 0;
@@ -413,119 +413,119 @@ Boss2_248:
 	if [-9945] == 5 goto SB @ 0;
 RA:
 !E
-    setAttack(0, 1600, $A, "BossCardFireAgni");
-    setLifebar(0, 1600.0f, -24448);
+	attack(0, 1600, $A, "BossCardFireAgni");
+	lifebar(0, 1600.0f, -24448);
 !N
-    setAttack(0, 1800, $A, "BossCardEarthTrilithonHL");
-    setLifebar(0, 1800.0f, -128);
+	attack(0, 1800, $A, "BossCardEarthTrilithonHL");
+	lifebar(0, 1800.0f, -128);
 !HL
-    setAttack(0, 1800, $A, "BossCardEarthTrilithonShake");
-    setLifebar(0, 1800.0f, -128);
+	attack(0, 1800, $A, "BossCardEarthTrilithonShake");
+	lifebar(0, 1800.0f, -128);
 !ENHL
 	goto CONT @ 0;
 RB:
 !E
-    setAttack(0, 1600, $A, "BossCardWaterUndine");
-    setLifebar(0, 1600.0f, -8347393);
+	attack(0, 1600, $A, "BossCardWaterUndine");
+	lifebar(0, 1600.0f, -8347393);
 !N
-    setAttack(0, 1600, $A, "BossCardWoodSylphaeHL");
-    setLifebar(0, 1600.0f, -8323200);
+	attack(0, 1600, $A, "BossCardWoodSylphaeHL");
+	lifebar(0, 1600.0f, -8323200);
 !HL
-    setAttack(0, 1600, $A, "BossCardWoodGreen");
-    setLifebar(0, 1600.0f, -8323200);
+	attack(0, 1600, $A, "BossCardWoodGreen");
+	lifebar(0, 1600.0f, -8323200);
 !ENHL
 	goto CONT @ 0;
 MA:
 !E
-    setAttack(0, 1600, $A, "BossCardWoodSylphae");
-    setLifebar(0, 1600.0f, -8323200);
+	attack(0, 1600, $A, "BossCardWoodSylphae");
+	lifebar(0, 1600.0f, -8323200);
 !N
-    setAttack(0, 1600, $A, "BossCardFireAgniHL");
-    setLifebar(0, 1600.0f, -24448);
+	attack(0, 1600, $A, "BossCardFireAgniHL");
+	lifebar(0, 1600.0f, -24448);
 !HL
-    setAttack(0, 1800, $A, "BossCardFireAgniRad");
-    setLifebar(0, 1800.0f, -24448);
+	attack(0, 1800, $A, "BossCardFireAgniRad");
+	lifebar(0, 1800.0f, -24448);
 !ENHL
 	goto CONT @ 0;
 MB:
 !E
-    setAttack(0, 1800, $A, "BossCardEarthTrilithon");
-    setLifebar(0, 1800.0f, -128);
+	attack(0, 1800, $A, "BossCardEarthTrilithon");
+	lifebar(0, 1800.0f, -128);
 !N
-    setAttack(0, 1800, $A, "BossCardMetalFatigue");
-    setLifebar(0, 1800.0f, -6250336);
+	attack(0, 1800, $A, "BossCardMetalFatigue");
+	lifebar(0, 1800.0f, -6250336);
 !HL
-    setAttack(0, 1800, $A, "BossCardMetalDragon");
-    setLifebar(0, 1800.0f, -6250336);
+	attack(0, 1800, $A, "BossCardMetalDragon");
+	lifebar(0, 1800.0f, -6250336);
 !ENHL
 	goto CONT @ 0;
 SA:
 !E
-    setAttack(0, 1600, $A, "BossCardMetalMemory");
-    setLifebar(0, 1600.0f, -6250336);
+	attack(0, 1600, $A, "BossCardMetalMemory");
+	lifebar(0, 1600.0f, -6250336);
 !N
-    setAttack(0, 1600, $A, "BossCardWoodSylphae");
-    setLifebar(0, 1600.0f, -8323200);
+	attack(0, 1600, $A, "BossCardWoodSylphae");
+	lifebar(0, 1600.0f, -8323200);
 !HL
-    setAttack(0, 1600, $A, "BossCardWoodSylphaeHL");
-    setLifebar(0, 1600.0f, -8323200);
+	attack(0, 1600, $A, "BossCardWoodSylphaeHL");
+	lifebar(0, 1600.0f, -8323200);
 !ENHL
 	goto CONT @ 0;
 SB:
 !E
-    setAttack(0, 1800, $A, "BossCardWaterMonsoon");
-    setLifebar(0, 1800.0f, -8347393);
+	attack(0, 1800, $A, "BossCardWaterMonsoon");
+	lifebar(0, 1800.0f, -8347393);
 !N
-    setAttack(0, 1600, $A, "BossCardMetalMemory");
-    setLifebar(0, 1600.0f, -6250336);
+	attack(0, 1600, $A, "BossCardMetalMemory");
+	lifebar(0, 1600.0f, -6250336);
 !HL
-    setAttack(0, 1800, $A, "BossCardMetalGold");
-    setLifebar(0, 1800.0f, -6250336);
+	attack(0, 1800, $A, "BossCardMetalGold");
+	lifebar(0, 1800.0f, -6250336);
 CONT:
 !ENHL
-    setCheckpoint(24);
-    setBossLives(1);
-    anmSelect(2);
-    ins_262(0, 0);
-    ins_263(0, 119);
-    playSE(31);
-    [-9986];
-    0;
-    eq();
-    jumpIfEqual(Boss1_276, 0);
-    clearItems();
+	stageProg(24);
+	lives(1);
+	anm(2);
+	ins_262(0, 0);
+	ins_263(0, 119);
+	playSE(31);
+	[-9986];
+	0;
+	eqi();
+	je(Boss1_276, 0);
+	itemClear();
 	if [-9930] == 400 goto POINT @ 0;
-	setDeathItem(1);
-    setExtraItem(1, 59);
+	itemMain(1);
+	itemEx(1, 59);
 	goto SKIP @ 0;
 POINT:
-	setDeathItem(2);
-    setExtraItem(2, 59);
+	itemMain(2);
+	itemEx(2, 59);
 SKIP:
-    setItemArea(64.0f, 64.0f);
-    dropItems();
+	itemArea(64.0f, 64.0f);
+	itemDrop();
 Boss1_276:
-    ins_269(0);
+	ins_269(0);
 120:
 	[-9940] = 0;
 START:
 	[-9940] % 2;
-	jumpIfNEqual(ATTACK2, 100);
-    call("Boss1_at1", _SS 4);
+	jne(ATTACK2, 100);
+	call("Boss1_at1", _SS 4);
 	goto END @ 100;
 ATTACK2:
-    call("Boss1_at1", _SS 0);
+	call("Boss1_at1", _SS 0);
 END:
-	moveRandom(90, 4, 2.5f);
-	callToSlot("Boss2_at", 1);
+	enmRand(90, 4, 2.5f);
+	callSlot("Boss2_at", 1);
 	wait(90);
-	moveByTime(90, 4, 0.0f, 128.0f);
+	enmPosTime(90, 4, 0.0f, 128.0f);
 	wait(90);
-	terminateSlot(1);
+	endSlot(1);
 	[-9940] = [-9940] + 1;
 	goto START @ 40;
-    if 1 goto Boss1_276 @ 0;
-    return();
+	if 1 goto Boss1_276 @ 0;
+	return();
 }
 
 sub Boss2_at()
@@ -548,14 +548,14 @@ sub Boss2_at()
 	bulletSetComplexTransform(0, 0, 0, 2, 2, -999999, -999999.0f, -999999.0f);
 SHOOT:
 	bulletShoot(0);
-	waitDiff(20, 15, 15, 10);
+	wait_rank(20, 15, 15, 10);
 	goto SHOOT @ 0;
 	return();
 }
 
 sub Boss3()
 {
-    var A B C;
+	var A B C;
 	[-9940] = 0;
 	$A = 2400;
 !E
@@ -568,47 +568,47 @@ sub Boss3()
 	$B = 5100;
 	%C = 5100.0f;
 !ENHL
-    setLife($B);
-    resetBossTime();
-    ins_21();
-    clearEnemies();
-    [-9986];
-    0;
-    eq();
-    jumpIfEqual(Boss3_248, 0);
-    bulletClear(640.0f);
-    goto Boss3_268 @ 0;
+	life($B);
+	resetBoss();
+	ins_21();
+	enmClear();
+	[-9986];
+	0;
+	eqi();
+	je(Boss3_248, 0);
+	bulletClear(640.0f);
+	goto Boss3_268 @ 0;
 Boss3_248:
-    bulletClear_ni(640.0f);
+	bulletClear_ni(640.0f);
 Boss3_268:
-    [-9949] = 0;
-    [-9948] = 0;
-    enemySetTrajectory(0.0f, 0.0f);
-    enemyChangeMovement(0, 0, 0.0f, 0.0f);
-    moveByTime(0, 0, 0.0f, 0.0f);
-    endSpellcard();
-    ins_529(0);
-    ins_445();
-    playSE(28);
-    setBossLives(0);
-    setInvincible(120);
-    [-9986];
-    0;
-    eq();
-    jumpIfEqual(Boss3_8321, 0);
-    clearItems();
+	[-9949] = 0;
+	[-9948] = 0;
+	enmDir(0.0f, 0.0f);
+	enmDirTime(0, 0, 0.0f, 0.0f);
+	enmPosTime(0, 0, 0.0f, 0.0f);
+	cardEnd();
+	ins_529(0);
+	ins_445();
+	playSE(28);
+	lives(0);
+	invinc(120);
+	[-9986];
+	0;
+	eqi();
+	je(Boss3_8321, 0);
+	itemClear();
 	if [-9930] == 400 goto POINT @ 0;
-	setDeathItem(1);
-    setExtraItem(1, 59);
+	itemMain(1);
+	itemEx(1, 59);
 	goto SKIP @ 0;
 POINT:
-	setDeathItem(2);
-    setExtraItem(2, 59);
+	itemMain(2);
+	itemEx(2, 59);
 SKIP:
-    setItemArea(64.0f, 64.0f);
-    dropItems();
+	itemArea(64.0f, 64.0f);
+	itemDrop();
 Boss3_8321:
-    playSE(28);
+	playSE(28);
 	if [-9945] == 0 goto RB @ 0;
 	if [-9945] == 1 goto RA @ 0;
 	if [-9945] == 2 goto MA @ 0;
@@ -616,157 +616,157 @@ Boss3_8321:
 	if [-9945] == 4 goto SA @ 0;
 	if [-9945] == 5 goto SB @ 0;
 RA:
-    setLifebar(0, %C, -12160);
+	lifebar(0, %C, -12160);
 !NHL
 	%C - 1700.0f;
-    setLifebar(1, [-1.0f], -7298864);
+	lifebar(1, [-1.0f], -7298864);
 !HL
 	%C - 3400.0f;
-    setLifebar(2, [-1.0f], -4140928);
+	lifebar(2, [-1.0f], -4140928);
 !ENHL
 	wait(120);
-    setAttack(0, $B, $A, "BossCardFiEa");
+	attack(0, $B, $A, "BossCardFiEa");
 !NHL
 	$B - 1700;
-    setAttack(1, [-1], $A, "BossCardMeWa");
+	attack(1, [-1], $A, "BossCardMeWa");
 !HL
 	$B - 3400;
-    setAttack(2, [-1], $A, "BossCardWoFi");
+	attack(2, [-1], $A, "BossCardWoFi");
 !ENHL
 	goto Boss3_832 @ 0;
 RB:
-    setLifebar(0, %C, -8335168);
+	lifebar(0, %C, -8335168);
 !NHL
 	%C - 1700.0f;
-    setLifebar(1, [-1.0f], -7298864);
+	lifebar(1, [-1.0f], -7298864);
 !HL
 	%C - 3400.0f;
-    setLifebar(2, [-1.0f], -3092336);
+	lifebar(2, [-1.0f], -3092336);
 !ENHL
 	wait(120);
-    setAttack(0, $B, $A, "BossCardWaWo");
+	attack(0, $B, $A, "BossCardWaWo");
 !NHL
 	$B - 1700;
-    setAttack(1, [-1], $A, "BossCardMeWa");
+	attack(1, [-1], $A, "BossCardMeWa");
 !HL
 	$B - 3400;
-    setAttack(2, [-1], $A, "BossCardEaMe");
+	attack(2, [-1], $A, "BossCardEaMe");
 !ENHL
 	goto Boss3_832 @ 0;
 MA:
-    setLifebar(0, %C, -4140928);
+	lifebar(0, %C, -4140928);
 !NHL
 	%C - 1700.0f;
-    setLifebar(1, [-1.0f], -3092336);
+	lifebar(1, [-1.0f], -3092336);
 !HL
 	%C - 3400.0f;
-    setLifebar(2, [-1.0f], -12160);
+	lifebar(2, [-1.0f], -12160);
 !ENHL
 	wait(120);
-    setAttack(0, $B, $A, "BossCardWoFi");
+	attack(0, $B, $A, "BossCardWoFi");
 !NHL
 	$B - 1700;
-    setAttack(1, [-1], $A, "BossCardEaMe");
+	attack(1, [-1], $A, "BossCardEaMe");
 !HL
 	$B - 3400;
-    setAttack(2, [-1], $A, "BossCardFiEa");
+	attack(2, [-1], $A, "BossCardFiEa");
 !ENHL
 	goto Boss3_832 @ 0;
 MB:
-    setLifebar(0, %C, -3092336);
+	lifebar(0, %C, -3092336);
 !NHL
 	%C - 1700.0f;
-    setLifebar(1, [-1.0f], -8335168);
+	lifebar(1, [-1.0f], -8335168);
 !HL
 	%C - 3400.0f;
-    setLifebar(2, [-1.0f], -7298864);
+	lifebar(2, [-1.0f], -7298864);
 !ENHL
 	wait(120);
-    setAttack(0, $B, $A, "BossCardEaMe");
+	attack(0, $B, $A, "BossCardEaMe");
 !NHL
 	$B - 1700;
-    setAttack(1, [-1], $A, "BossCardWaWo");
+	attack(1, [-1], $A, "BossCardWaWo");
 !HL
 	$B - 3400;
-    setAttack(2, [-1], $A, "BossCardMeWa");
+	attack(2, [-1], $A, "BossCardMeWa");
 !ENHL
 	goto Boss3_832 @ 0;
 SA:
-    setLifebar(0, %C, -4128896);
+	lifebar(0, %C, -4128896);
 !NHL
 	%C - 1700.0f;
-    setLifebar(1, [-1.0f], -4153152);
+	lifebar(1, [-1.0f], -4153152);
 !HL
 	%C - 3400.0f;
-    setLifebar(2, [-1.0f], -12160);
+	lifebar(2, [-1.0f], -12160);
 !ENHL
 	wait(120);
-    setAttack(0, $B, $A, "BossCardWoEa");
+	attack(0, $B, $A, "BossCardWoEa");
 !NHL
 	$B - 1700;
-    setAttack(1, [-1], $A, "BossCardWaFi");
+	attack(1, [-1], $A, "BossCardWaFi");
 !HL
 	$B - 3400;
-    setAttack(2, [-1], $A, "BossCardFiEa");
+	attack(2, [-1], $A, "BossCardFiEa");
 !ENHL
 	goto Boss3_832 @ 0;
 SB:
-    setLifebar(0, %C, -7298864);
+	lifebar(0, %C, -7298864);
 !NHL
 	%C - 1700.0f;
-    setLifebar(1, [-1.0f], -7286640);
+	lifebar(1, [-1.0f], -7286640);
 !HL
 	%C - 3400.0f;
-    setLifebar(2, [-1.0f], -8335168);
+	lifebar(2, [-1.0f], -8335168);
 !ENHL
 	wait(120);
-    setAttack(0, $B, $A, "BossCardMeWa");
+	attack(0, $B, $A, "BossCardMeWa");
 !NHL
 	$B - 1700;
-    setAttack(1, [-1], $A, "BossCardWoMe");
+	attack(1, [-1], $A, "BossCardWoMe");
 !HL
 	$B - 3400;
-    setAttack(2, [-1], $A, "BossCardWaWo");
+	attack(2, [-1], $A, "BossCardWaWo");
 Boss3_832:
 !ENH
 	[-9959] + 1;
-	setAttack([-1], 0, $A, "BossDead");
+	attack([-1], 0, $A, "BossDead");
 !L
-	setAttack(3, 0, $A, "BossDead");
+	attack(3, 0, $A, "BossDead");
 !ENHL
-    setCheckpoint(25);
-    ins_263(0, 119);
+	stageProg(25);
+	ins_263(0, 119);
 	goto B @ 0;
 A:
 	noop();
 1:
 B:
 	goto A @ 0;
-    return();
+	return();
 }
 
 sub BossCardEaMe()
 {
-    var A B C;
-    resetBossTime();
-    ins_21();
-    clearEnemies();
-    enemyCreateRel("Ecl_EtBreak", 0.0f, 0.0f, 9999, 0, 0);
-    endSpellcard();
-    ins_529(0);
-    ins_445();
-    playSE(28);
-    enemySetTrajectory(0.0f, 0.0f);
-    enemyChangeMovement(0, 0, 0.0f, 0.0f);
-    moveByTime(0, 0, 0.0f, 0.0f);
-    [-9949] = 0;
-    [-9948] = 0;
+	var A B C;
+	resetBoss();
+	ins_21();
+	enmClear();
+	enmNewRel("Ecl_EtBreak", 0.0f, 0.0f, 9999, 0, 0);
+	cardEnd();
+	ins_529(0);
+	ins_445();
+	playSE(28);
+	enmDir(0.0f, 0.0f);
+	enmDirTime(0, 0, 0.0f, 0.0f);
+	enmPosTime(0, 0, 0.0f, 0.0f);
+	[-9949] = 0;
+	[-9948] = 0;
 	call("BossCheckItems");
-    ins_437(31, 2400, 500000, "土＆金符「エメラルドメガリス」");
-	setInvincible(120);
-    setCheckpoint(43);
-    moveByTime(120, 4, 0.0f, 80.0f);
-    ins_262(0, 0);
+	ins_437(31, 2400, 500000, "土＆金符「エメラルドメガリス」");
+	invinc(120);
+	stageProg(43);
+	enmPosTime(120, 4, 0.0f, 80.0f);
+	ins_262(0, 0);
 	bulletCreate(0);
 	bulletSetType(0, 1);
 	bulletSetSprite(0, 26, 2);
@@ -814,7 +814,7 @@ START:
 	bulletShoot(0);
 	$A = $A % 18;
 	if $A != 7 goto NO_MOVE @ 120;
-	moveRandom(90, 4, 1.5f);
+	enmRand(90, 4, 1.5f);
 NO_MOVE:
 121:
 	%RANDRAD / 2.0f;
@@ -828,26 +828,26 @@ NO_MOVE:
 
 sub BossCardEarthTrilithon()
 {
-    var A B C;
-    resetBossTime();
-    ins_21();
-    clearEnemies();
-    enemyCreateRel("Ecl_EtBreak", 0.0f, 0.0f, 9999, 0, 0);
-    endSpellcard();
-    ins_529(0);
-    ins_445();
-    playSE(28);
-    enemySetTrajectory(0.0f, 0.0f);
-    enemyChangeMovement(0, 0, 0.0f, 0.0f);
-    moveByTime(0, 0, 0.0f, 0.0f);
-    [-9949] = 0;
-    [-9948] = 0;
-    call("BossSetNextNon", _SS 2100);
-    ins_437(17, 2100, 500000, "土符「レイジィトリリトン」");
-	setInvincible(120);
-    setCheckpoint(43);
-    moveByTime(60, 4, 0.0f, 80.0f);
-    ins_262(0, 0);
+	var A B C;
+	resetBoss();
+	ins_21();
+	enmClear();
+	enmNewRel("Ecl_EtBreak", 0.0f, 0.0f, 9999, 0, 0);
+	cardEnd();
+	ins_529(0);
+	ins_445();
+	playSE(28);
+	enmDir(0.0f, 0.0f);
+	enmDirTime(0, 0, 0.0f, 0.0f);
+	enmPosTime(0, 0, 0.0f, 0.0f);
+	[-9949] = 0;
+	[-9948] = 0;
+	call("BossSetNextNon", _SS 2100);
+	ins_437(17, 2100, 500000, "土符「レイジィトリリトン」");
+	invinc(120);
+	stageProg(43);
+	enmPosTime(60, 4, 0.0f, 80.0f);
+	ins_262(0, 0);
 	bulletCreate(0);
 	bulletSetType(0, 8);
 	bulletSetSprite(0, 5, 13);
@@ -879,31 +879,31 @@ START:
 132:
 END:
 	goto START @ 120;
-    return();
+	return();
 }
 
 sub BossCardEarthTrilithonHL()
 {
-    var A;
-    resetBossTime();
-    ins_21();
-    clearEnemies();
-    enemyCreateRel("Ecl_EtBreak", 0.0f, 0.0f, 9999, 0, 0);
-    endSpellcard();
-    ins_529(0);
-    ins_445();
-    playSE(28);
-    enemySetTrajectory(0.0f, 0.0f);
-    enemyChangeMovement(0, 0, 0.0f, 0.0f);
-    moveByTime(0, 0, 0.0f, 0.0f);
-    [-9949] = 0;
-    [-9948] = 0;
-    call("BossSetNextNon", _SS 2100);
-    ins_437(21, 2100, 500000, "土符「レイジィトリリトン上級」");
-	setInvincible(120);
-    setCheckpoint(43);
-    moveByTime(60, 4, 0.0f, 80.0f);
-    ins_262(0, 0);
+	var A;
+	resetBoss();
+	ins_21();
+	enmClear();
+	enmNewRel("Ecl_EtBreak", 0.0f, 0.0f, 9999, 0, 0);
+	cardEnd();
+	ins_529(0);
+	ins_445();
+	playSE(28);
+	enmDir(0.0f, 0.0f);
+	enmDirTime(0, 0, 0.0f, 0.0f);
+	enmPosTime(0, 0, 0.0f, 0.0f);
+	[-9949] = 0;
+	[-9948] = 0;
+	call("BossSetNextNon", _SS 2100);
+	ins_437(21, 2100, 500000, "土符「レイジィトリリトン上級」");
+	invinc(120);
+	stageProg(43);
+	enmPosTime(60, 4, 0.0f, 80.0f);
+	ins_262(0, 0);
 	bulletCreate(0);
 	bulletSetType(0, 8);
 	bulletSetSprite(0, 5, 12);
@@ -937,31 +937,31 @@ START:
 132:
 END:
 	goto START @ 120;
-    return();
+	return();
 }
 
 sub BossCardEarthTrilithonShake()
 {
-    var A B;
-    resetBossTime();
-    ins_21();
-    clearEnemies();
-    enemyCreateRel("Ecl_EtBreak", 0.0f, 0.0f, 9999, 0, 0);
-    endSpellcard();
-    ins_529(0);
-    ins_445();
-    playSE(28);
-    enemySetTrajectory(0.0f, 0.0f);
-    enemyChangeMovement(0, 0, 0.0f, 0.0f);
-    moveByTime(0, 0, 0.0f, 0.0f);
-    [-9949] = 0;
-    [-9948] = 0;
-    call("BossSetNextNon", _SS 2100);
-    ins_437(25, 2100, 500000, "土符「トリリトンシェイク」");
-	setInvincible(120);
-    setCheckpoint(43);
-    moveByTime(120, 4, 0.0f, 80.0f);
-    ins_262(0, 0);
+	var A B;
+	resetBoss();
+	ins_21();
+	enmClear();
+	enmNewRel("Ecl_EtBreak", 0.0f, 0.0f, 9999, 0, 0);
+	cardEnd();
+	ins_529(0);
+	ins_445();
+	playSE(28);
+	enmDir(0.0f, 0.0f);
+	enmDirTime(0, 0, 0.0f, 0.0f);
+	enmPosTime(0, 0, 0.0f, 0.0f);
+	[-9949] = 0;
+	[-9948] = 0;
+	call("BossSetNextNon", _SS 2100);
+	ins_437(25, 2100, 500000, "土符「トリリトンシェイク」");
+	invinc(120);
+	stageProg(43);
+	enmPosTime(120, 4, 0.0f, 80.0f);
+	ins_262(0, 0);
 	$B = 0;
 	bulletCreate(0);
 	bulletSetType(0, 8);
@@ -997,7 +997,7 @@ START:
 	bulletSetComplexTransform(0, 2, 1, 16, 90, 1, [-1.0f], 1.8f);
 	bulletShoot(0);
 	$B % 3;
-	jumpIfNEqual(CHEESE, 120);
+	jne(CHEESE, 120);
 	bulletShoot(2);
 CHEESE:
 	if [-9990.0f] >= [-9994.0f] goto END @ 120;
@@ -1006,31 +1006,31 @@ END:
 	$B = $B + 1;
 132:
 	goto START @ 120;
-    return();
+	return();
 }
 
 sub BossCardFiEa()
 {
-    var A B C D;
-    resetBossTime();
-    ins_21();
-    clearEnemies();
-    enemyCreateRel("Ecl_EtBreak", 0.0f, 0.0f, 9999, 0, 0);
-    endSpellcard();
-    ins_529(0);
-    ins_445();
-    playSE(28);
-    enemySetTrajectory(0.0f, 0.0f);
-    enemyChangeMovement(0, 0, 0.0f, 0.0f);
-    moveByTime(0, 0, 0.0f, 0.0f);
-    [-9949] = 0;
-    [-9948] = 0;
+	var A B C D;
+	resetBoss();
+	ins_21();
+	enmClear();
+	enmNewRel("Ecl_EtBreak", 0.0f, 0.0f, 9999, 0, 0);
+	cardEnd();
+	ins_529(0);
+	ins_445();
+	playSE(28);
+	enmDir(0.0f, 0.0f);
+	enmDirTime(0, 0, 0.0f, 0.0f);
+	enmPosTime(0, 0, 0.0f, 0.0f);
+	[-9949] = 0;
+	[-9948] = 0;
 	call("BossCheckItems");
-    ins_437(27, 2400, 500000, "火＆土符「ラーヴァクロムレク」");
-	setInvincible(120);
-    setCheckpoint(43);
-    moveByTime(120, 4, 0.0f, 80.0f);
-    ins_262(0, 0);
+	ins_437(27, 2400, 500000, "火＆土符「ラーヴァクロムレク」");
+	invinc(120);
+	stageProg(43);
+	enmPosTime(120, 4, 0.0f, 80.0f);
+	ins_262(0, 0);
 	bulletCreate(0);
 	bulletSetType(0, 3);
 	bulletSetSprite(0, 24, 0);
@@ -1065,9 +1065,9 @@ LOOP1_START:
 LOOP1_END:
 128:
 	decrement($A);
-	jumpIfNEqual(LOOP1_START, 120);
+	jne(LOOP1_START, 120);
 188:
-	moveRandom(90, 4, 1.5f);
+	enmRand(90, 4, 1.5f);
 	$B = $B + 1;
 	$A = 3;
 	$C = $B * 2;
@@ -1097,38 +1097,38 @@ LOOP2_START:
 198:
 LOOP2_END:
 	decrement($A);
-	jumpIfNEqual(LOOP2_START, 188);
+	jne(LOOP2_START, 188);
 	goto START @ 120;
 	return();
 }
 
 sub BossCardFireAgni()
 {
-    var A B C;
-    resetBossTime();
-    ins_21();
-    clearEnemies();
-    enemyCreateRel("Ecl_EtBreak", 0.0f, 0.0f, 9999, 0, 0);
-    endSpellcard();
-    ins_529(0);
-    ins_445();
-    playSE(28);
-    enemySetTrajectory(0.0f, 0.0f);
-    enemyChangeMovement(0, 0, 0.0f, 0.0f);
-    moveByTime(0, 0, 0.0f, 0.0f);
-    [-9949] = 0;
-    [-9948] = 0;
-    call("BossSetNextNon", _SS 1800);
-    ins_437(14, 1800, 500000, "火符「アグニシャイン」");
-	setInvincible(120);
-    setCheckpoint(43);
-    moveByTime(60, 4, 0.0f, 80.0f);
-    ins_262(0, 0);
+	var A B C;
+	resetBoss();
+	ins_21();
+	enmClear();
+	enmNewRel("Ecl_EtBreak", 0.0f, 0.0f, 9999, 0, 0);
+	cardEnd();
+	ins_529(0);
+	ins_445();
+	playSE(28);
+	enmDir(0.0f, 0.0f);
+	enmDirTime(0, 0, 0.0f, 0.0f);
+	enmPosTime(0, 0, 0.0f, 0.0f);
+	[-9949] = 0;
+	[-9948] = 0;
+	call("BossSetNextNon", _SS 1800);
+	ins_437(14, 1800, 500000, "火符「アグニシャイン」");
+	invinc(120);
+	stageProg(43);
+	enmPosTime(60, 4, 0.0f, 80.0f);
+	ins_262(0, 0);
 	bulletCreate(0);
 	bulletSetType(0, 3);
 	bulletSetSprite(0, 24, 0);
 	bulletSetSE(0, 24, -1);
-    bulletSetComplexTransform(0, 0, 0, 268435456, 0, -999999, -999999.0f, -999999.0f);
+	bulletSetComplexTransform(0, 0, 0, 268435456, 0, -999999, -999999.0f, -999999.0f);
 120:
 START:
 	$A = 0;
@@ -1157,42 +1157,42 @@ START_LOOP:
 END_LOOP:
 128:
 	decrement($B);
-	jumpIfNEqual(START_LOOP, 120);
+	jne(START_LOOP, 120);
 248:
-	moveRandom(90, 4, 1.5f);
+	enmRand(90, 4, 1.5f);
 	$A = $A + 1;
 258:
 	goto START @ 120;
-    return();
+	return();
 }
 
 sub BossCardFireAgniHL()
 {
-    var A B C;
-    resetBossTime();
-    ins_21();
-    clearEnemies();
-    enemyCreateRel("Ecl_EtBreak", 0.0f, 0.0f, 9999, 0, 0);
-    endSpellcard();
-    ins_529(0);
-    ins_445();
-    playSE(28);
-    enemySetTrajectory(0.0f, 0.0f);
-    enemyChangeMovement(0, 0, 0.0f, 0.0f);
-    moveByTime(0, 0, 0.0f, 0.0f);
-    [-9949] = 0;
-    [-9948] = 0;
-    call("BossSetNextNon", _SS 1800);
-    ins_437(19, 1800, 500000, "火符「アグニシャイン上級」");
-	setInvincible(120);
-    setCheckpoint(43);
-    moveByTime(60, 4, 0.0f, 80.0f);
-    ins_262(0, 0);
+	var A B C;
+	resetBoss();
+	ins_21();
+	enmClear();
+	enmNewRel("Ecl_EtBreak", 0.0f, 0.0f, 9999, 0, 0);
+	cardEnd();
+	ins_529(0);
+	ins_445();
+	playSE(28);
+	enmDir(0.0f, 0.0f);
+	enmDirTime(0, 0, 0.0f, 0.0f);
+	enmPosTime(0, 0, 0.0f, 0.0f);
+	[-9949] = 0;
+	[-9948] = 0;
+	call("BossSetNextNon", _SS 1800);
+	ins_437(19, 1800, 500000, "火符「アグニシャイン上級」");
+	invinc(120);
+	stageProg(43);
+	enmPosTime(60, 4, 0.0f, 80.0f);
+	ins_262(0, 0);
 	bulletCreate(0);
 	bulletSetType(0, 3);
 	bulletSetSprite(0, 24, 0);
 	bulletSetSE(0, 24, -1);
-    bulletSetComplexTransform(0, 0, 0, 268435456, 0, -999999, -999999.0f, -999999.0f);
+	bulletSetComplexTransform(0, 0, 0, 268435456, 0, -999999, -999999.0f, -999999.0f);
 120:
 START:
 	$A = 0;
@@ -1222,37 +1222,37 @@ START_LOOP:
 END_LOOP:
 128:
 	decrement($B);
-	jumpIfNEqual(START_LOOP, 120);
+	jne(START_LOOP, 120);
 248:
-	moveRandom(90, 4, 1.5f);
+	enmRand(90, 4, 1.5f);
 	$A = $A + 1;
 258:
 	goto START @ 120;
-    return();
+	return();
 }
 
 sub BossCardFireAgniRad()
 {
-    var A B C;
-    resetBossTime();
-    ins_21();
-    clearEnemies();
-    enemyCreateRel("Ecl_EtBreak", 0.0f, 0.0f, 9999, 0, 0);
-    endSpellcard();
-    ins_529(0);
-    ins_445();
-    playSE(28);
-    enemySetTrajectory(0.0f, 0.0f);
-    enemyChangeMovement(0, 0, 0.0f, 0.0f);
-    moveByTime(0, 0, 0.0f, 0.0f);
-    [-9949] = 0;
-    [-9948] = 0;
-    call("BossSetNextNon", _SS 1800);
-    ins_437(22, 1800, 500000, "火符「アグニレイディアンス」");
-	setInvincible(120);
-    setCheckpoint(43);
-    moveByTime(120, 4, 0.0f, 80.0f);
-    ins_262(0, 0);
+	var A B C;
+	resetBoss();
+	ins_21();
+	enmClear();
+	enmNewRel("Ecl_EtBreak", 0.0f, 0.0f, 9999, 0, 0);
+	cardEnd();
+	ins_529(0);
+	ins_445();
+	playSE(28);
+	enmDir(0.0f, 0.0f);
+	enmDirTime(0, 0, 0.0f, 0.0f);
+	enmPosTime(0, 0, 0.0f, 0.0f);
+	[-9949] = 0;
+	[-9948] = 0;
+	call("BossSetNextNon", _SS 1800);
+	ins_437(22, 1800, 500000, "火符「アグニレイディアンス」");
+	invinc(120);
+	stageProg(43);
+	enmPosTime(120, 4, 0.0f, 80.0f);
+	ins_262(0, 0);
 	bulletCreate(1);
 	bulletSetType(1, 8);
 	bulletSetSprite(1, 26, 0);
@@ -1268,7 +1268,7 @@ sub BossCardFireAgniRad()
 	bulletSetType(0, 3);
 	bulletSetSprite(0, 24, 0);
 	bulletSetSE(0, 24, -1);
-    bulletSetComplexTransform(0, 0, 0, 268435456, 0, -999999, -999999.0f, -999999.0f);
+	bulletSetComplexTransform(0, 0, 0, 268435456, 0, -999999, -999999.0f, -999999.0f);
 120:
 START:
 	$A = 0;
@@ -1293,37 +1293,37 @@ START_LOOP:
 END_LOOP:
 128:
 	decrement($B);
-	jumpIfNEqual(START_LOOP, 120);
+	jne(START_LOOP, 120);
 248:
-	moveRandom(90, 4, 1.5f);
+	enmRand(90, 4, 1.5f);
 	$A = $A + 1;
 258:
 	goto START @ 120;
-    return();
+	return();
 }
 
 sub BossCardMeWa()
 {
-    var A B C D;
-    resetBossTime();
-    ins_21();
-    clearEnemies();
-    enemyCreateRel("Ecl_EtBreak", 0.0f, 0.0f, 9999, 0, 0);
-    endSpellcard();
-    ins_529(0);
-    ins_445();
-    playSE(28);
-    enemySetTrajectory(0.0f, 0.0f);
-    enemyChangeMovement(0, 0, 0.0f, 0.0f);
-    moveByTime(0, 0, 0.0f, 0.0f);
-    [-9949] = 0;
-    [-9948] = 0;
+	var A B C D;
+	resetBoss();
+	ins_21();
+	enmClear();
+	enmNewRel("Ecl_EtBreak", 0.0f, 0.0f, 9999, 0, 0);
+	cardEnd();
+	ins_529(0);
+	ins_445();
+	playSE(28);
+	enmDir(0.0f, 0.0f);
+	enmDirTime(0, 0, 0.0f, 0.0f);
+	enmPosTime(0, 0, 0.0f, 0.0f);
+	[-9949] = 0;
+	[-9948] = 0;
 	call("BossCheckItems");
-    ins_437(30, 2400, 500000, "金＆水符「マーキュリポイズン」");
-	setInvincible(120);
-    setCheckpoint(43);
-    moveByTime(120, 4, 0.0f, 80.0f);
-    ins_262(0, 0);
+	ins_437(30, 2400, 500000, "金＆水符「マーキュリポイズン」");
+	invinc(120);
+	stageProg(43);
+	enmPosTime(120, 4, 0.0f, 80.0f);
+	ins_262(0, 0);
 	bulletCreate(0);
 	bulletSetType(0, 2);
 	bulletSetSprite(0, 3, 14);
@@ -1364,8 +1364,8 @@ LOOP_START:
 LOOP_END:
 160:
 	decrement($A);
-	jumpIfNEqual(LOOP_START, 120);
-	moveRandom(90, 4, 1.5f);
+	jne(LOOP_START, 120);
+	enmRand(90, 4, 1.5f);
 	$B = $B + 1;
 210:
 	goto START @ 120;
@@ -1374,26 +1374,26 @@ LOOP_END:
 
 sub BossCardMetalDragon()
 {
-    var A B;
-    resetBossTime();
-    ins_21();
-    clearEnemies();
-    enemyCreateRel("Ecl_EtBreak", 0.0f, 0.0f, 9999, 0, 0);
-    endSpellcard();
-    ins_529(0);
-    ins_445();
-    playSE(28);
-    enemySetTrajectory(0.0f, 0.0f);
-    enemyChangeMovement(0, 0, 0.0f, 0.0f);
-    moveByTime(0, 0, 0.0f, 0.0f);
-    [-9949] = 0;
-    [-9948] = 0;
-    call("BossSetNextNon", _SS 2100);
-    ins_437(26, 2100, 500000, "金符「シルバードラゴン」");
-	setInvincible(120);
-    setCheckpoint(43);
-    moveByTime(120, 4, 0.0f, 80.0f);
-    ins_262(0, 0);
+	var A B;
+	resetBoss();
+	ins_21();
+	enmClear();
+	enmNewRel("Ecl_EtBreak", 0.0f, 0.0f, 9999, 0, 0);
+	cardEnd();
+	ins_529(0);
+	ins_445();
+	playSE(28);
+	enmDir(0.0f, 0.0f);
+	enmDirTime(0, 0, 0.0f, 0.0f);
+	enmPosTime(0, 0, 0.0f, 0.0f);
+	[-9949] = 0;
+	[-9948] = 0;
+	call("BossSetNextNon", _SS 2100);
+	ins_437(26, 2100, 500000, "金符「シルバードラゴン」");
+	invinc(120);
+	stageProg(43);
+	enmPosTime(120, 4, 0.0f, 80.0f);
+	ins_262(0, 0);
 	bulletCreate(0);
 	bulletSetType(0, 2);
 	bulletSetSprite(0, 3, 15);
@@ -1422,26 +1422,26 @@ START:
 
 sub BossCardMetalFatigue()
 {
-    var A B;
-    resetBossTime();
-    ins_21();
-    clearEnemies();
-    enemyCreateRel("Ecl_EtBreak", 0.0f, 0.0f, 9999, 0, 0);
-    endSpellcard();
-    ins_529(0);
-    ins_445();
-    playSE(28);
-    enemySetTrajectory(0.0f, 0.0f);
-    enemyChangeMovement(0, 0, 0.0f, 0.0f);
-    moveByTime(0, 0, 0.0f, 0.0f);
-    [-9949] = 0;
-    [-9948] = 0;
-    call("BossSetNextNon", _SS 2100);
-    ins_437(18, 2100, 500000, "金符「メタルファティーグ」");
-	setInvincible(120);
-    setCheckpoint(43);
-    moveByTime(60, 4, 0.0f, 80.0f);
-    ins_262(0, 0);
+	var A B;
+	resetBoss();
+	ins_21();
+	enmClear();
+	enmNewRel("Ecl_EtBreak", 0.0f, 0.0f, 9999, 0, 0);
+	cardEnd();
+	ins_529(0);
+	ins_445();
+	playSE(28);
+	enmDir(0.0f, 0.0f);
+	enmDirTime(0, 0, 0.0f, 0.0f);
+	enmPosTime(0, 0, 0.0f, 0.0f);
+	[-9949] = 0;
+	[-9948] = 0;
+	call("BossSetNextNon", _SS 2100);
+	ins_437(18, 2100, 500000, "金符「メタルファティーグ」");
+	invinc(120);
+	stageProg(43);
+	enmPosTime(60, 4, 0.0f, 80.0f);
+	ins_262(0, 0);
 	bulletCreate(0);
 	bulletSetType(0, 2);
 	bulletSetSprite(0, 17, 6);
@@ -1461,7 +1461,7 @@ LOOP_START:
 	%A = %A + 0.78539816339744830961566084581988f;
 LOOP_END:
 	decrement($B);
-	jumpIfNEqual(LOOP_START, 120);
+	jne(LOOP_START, 120);
 160:
 	goto START @ 120;
 	return();
@@ -1469,26 +1469,26 @@ LOOP_END:
 
 sub BossCardMetalGold()
 {
-    var A B C D E F;
-    resetBossTime();
-    ins_21();
-    clearEnemies();
-    enemyCreateRel("Ecl_EtBreak", 0.0f, 0.0f, 9999, 0, 0);
-    endSpellcard();
-    ins_529(0);
-    ins_445();
-    playSE(28);
-    enemySetTrajectory(0.0f, 0.0f);
-    enemyChangeMovement(0, 0, 0.0f, 0.0f);
-    moveByTime(0, 0, 0.0f, 0.0f);
-    [-9949] = 0;
-    [-9948] = 0;
-    call("BossSetNextNon", _SS 2100);
-    ins_437(67, 2100, 500000, "金符「エレメンタアウレア」");
-	setInvincible(120);
-    setCheckpoint(43);
-    moveByTime(60, 4, 0.0f, 80.0f);
-    ins_262(0, 0);
+	var A B C D E F;
+	resetBoss();
+	ins_21();
+	enmClear();
+	enmNewRel("Ecl_EtBreak", 0.0f, 0.0f, 9999, 0, 0);
+	cardEnd();
+	ins_529(0);
+	ins_445();
+	playSE(28);
+	enmDir(0.0f, 0.0f);
+	enmDirTime(0, 0, 0.0f, 0.0f);
+	enmPosTime(0, 0, 0.0f, 0.0f);
+	[-9949] = 0;
+	[-9948] = 0;
+	call("BossSetNextNon", _SS 2100);
+	ins_437(67, 2100, 500000, "金符「エレメンタアウレア」");
+	invinc(120);
+	stageProg(43);
+	enmPosTime(60, 4, 0.0f, 80.0f);
+	ins_262(0, 0);
 	bulletCreate(0);
 	bulletSetType(0, 2);
 	bulletSetSprite(0, 26, 3);
@@ -1521,12 +1521,12 @@ START:
 !ENHL
 	%A = %RANDRAD;
 	%F = 1.0f;
-	moveRandom(80, 4, 1.5f);
+	enmRand(80, 4, 1.5f);
 	goto MAINLOOP_END @ 120;
 MAINLOOP_START:
 	$B = 3;
 	$D % 2;
-	jumpIfNEqual(NEGA1, 120);
+	jne(NEGA1, 120);
 !H
 	%A = %A + 0.26179938779914943653855361527329f;
 !L
@@ -1567,13 +1567,13 @@ LOOP2_START:
 LOOP2_END:
 !ENHL
 	decrement($E);
-	jumpIfNEqual(LOOP2_START, 120);
+	jne(LOOP2_START, 120);
 	bulletShoot(1);
 	%A = %A + 2.0943951023931954923084289221863f;
 LOOP1_END:
 	decrement($B);
-	jumpIfNEqual(LOOP1_START, 120);
-	waitDiff(9, 8, 6, 6);
+	jne(LOOP1_START, 120);
+	wait_rank(9, 8, 6, 6);
 !H
 	%F = %F + 0.15f;
 !L
@@ -1581,8 +1581,8 @@ LOOP1_END:
 MAINLOOP_END:
 !ENHL
 	decrement($C);
-	jumpIfNEqual(MAINLOOP_START, 120);
-	waitDiff(60, 60, 48, 45);
+	jne(MAINLOOP_START, 120);
+	wait_rank(60, 60, 48, 45);
 	$D = $D + 1;
 	goto START @ 120;
 	return();
@@ -1590,26 +1590,26 @@ MAINLOOP_END:
 
 sub BossCardMetalMemory()
 {
-    var A B;
-    resetBossTime();
-    ins_21();
-    clearEnemies();
-    enemyCreateRel("Ecl_EtBreak", 0.0f, 0.0f, 9999, 0, 0);
-    endSpellcard();
-    ins_529(0);
-    ins_445();
-    playSE(28);
-    enemySetTrajectory(0.0f, 0.0f);
-    enemyChangeMovement(0, 0, 0.0f, 0.0f);
-    moveByTime(0, 0, 0.0f, 0.0f);
-    [-9949] = 0;
-    [-9948] = 0;
-    call("BossSetNextNon", _SS 1800);
-    ins_437(65, 1800, 500000, "金符「メモリーアロイー」");
-	setInvincible(120);
-    setCheckpoint(43);
-    moveByTime(60, 4, 0.0f, 112.0f);
-    ins_262(0, 0);
+	var A B;
+	resetBoss();
+	ins_21();
+	enmClear();
+	enmNewRel("Ecl_EtBreak", 0.0f, 0.0f, 9999, 0, 0);
+	cardEnd();
+	ins_529(0);
+	ins_445();
+	playSE(28);
+	enmDir(0.0f, 0.0f);
+	enmDirTime(0, 0, 0.0f, 0.0f);
+	enmPosTime(0, 0, 0.0f, 0.0f);
+	[-9949] = 0;
+	[-9948] = 0;
+	call("BossSetNextNon", _SS 1800);
+	ins_437(65, 1800, 500000, "金符「メモリーアロイー」");
+	invinc(120);
+	stageProg(43);
+	enmPosTime(60, 4, 0.0f, 112.0f);
+	ins_262(0, 0);
 	bulletCreate(0);
 	bulletSetType(0, 3);
 	bulletSetSprite(0, 3, 0);
@@ -1630,16 +1630,16 @@ sub BossCardMetalMemory()
 START:
 	$B = $B % 6;
 	if $B != 0 goto CALL @ 120;
-	moveRandom(60, 4, 1.5f);
+	enmRand(60, 4, 1.5f);
 CALL:
-	callSeparate("BossCardMetalMemory_At", _ff %A);
+	callSep("BossCardMetalMemory_At", _ff %A);
 	%A = %A + 0.24166097335306101834328026025227f;
 	$B = $B + 1;
 	wait(10);
 140:
 END:
 	goto START @ 120;
-    return();
+	return();
 }
 
 sub BossCardMetalMemory_At(A)
@@ -1653,32 +1653,32 @@ SHOOT:
 	wait(4);
 END:
 	decrement($B);
-	jumpIfNEqual(SHOOT, 0);
+	jne(SHOOT, 0);
 	return();
 }
 
 sub BossCardMetalMemory_HL()
 {
-    var A B;
-    resetBossTime();
-    ins_21();
-    clearEnemies();
-    enemyCreateRel("Ecl_EtBreak", 0.0f, 0.0f, 9999, 0, 0);
-    endSpellcard();
-    ins_529(0);
-    ins_445();
-    playSE(28);
-    enemySetTrajectory(0.0f, 0.0f);
-    enemyChangeMovement(0, 0, 0.0f, 0.0f);
-    moveByTime(0, 0, 0.0f, 0.0f);
-    [-9949] = 0;
-    [-9948] = 0;
-    call("BossSetNextNon", _SS 1800);
-    ins_437(66, 1800, 500000, "金符「メモリーアロイー上級」");
-	setInvincible(120);
-    setCheckpoint(43);
-    moveByTime(60, 4, 0.0f, 112.0f);
-    ins_262(0, 0);
+	var A B;
+	resetBoss();
+	ins_21();
+	enmClear();
+	enmNewRel("Ecl_EtBreak", 0.0f, 0.0f, 9999, 0, 0);
+	cardEnd();
+	ins_529(0);
+	ins_445();
+	playSE(28);
+	enmDir(0.0f, 0.0f);
+	enmDirTime(0, 0, 0.0f, 0.0f);
+	enmPosTime(0, 0, 0.0f, 0.0f);
+	[-9949] = 0;
+	[-9948] = 0;
+	call("BossSetNextNon", _SS 1800);
+	ins_437(66, 1800, 500000, "金符「メモリーアロイー上級」");
+	invinc(120);
+	stageProg(43);
+	enmPosTime(60, 4, 0.0f, 112.0f);
+	ins_262(0, 0);
 	bulletCreate(0);
 	bulletSetType(0, 3);
 	bulletSetSprite(0, 3, 0);
@@ -1702,16 +1702,16 @@ sub BossCardMetalMemory_HL()
 START:
 	$B = $B % 8;
 	if $B != 0 goto CALL @ 120;
-	moveRandom(60, 4, 1.5f);
+	enmRand(60, 4, 1.5f);
 CALL:
 	$B % 2;
-	callSeparate("BossCardMetalMemory_HL_at", _ff %A, _SS [-1]);
+	callSep("BossCardMetalMemory_HL_at", _ff %A, _SS [-1]);
 	%A = %A + 0.24166097335306101834328026025227f;
 	$B = $B + 1;
 140:
 END:
 	goto START @ 120;
-    return();
+	return();
 }
 
 sub BossCardMetalMemory_HL_at(A C)
@@ -1735,31 +1735,31 @@ TRANSFORM:
 	wait(4);
 END:
 	decrement($B);
-	jumpIfNEqual(SHOOT, 0);
+	jne(SHOOT, 0);
 	return();
 }
 
 sub BossCardWaFi()
 {
-    var A B C D;
-    resetBossTime();
-    ins_21();
-    clearEnemies();
-    enemyCreateRel("Ecl_EtBreak", 0.0f, 0.0f, 9999, 0, 0);
-    endSpellcard();
-    ins_529(0);
-    ins_445();
-    playSE(28);
-    enemySetTrajectory(0.0f, 0.0f);
-    enemyChangeMovement(0, 0, 0.0f, 0.0f);
-    moveByTime(0, 0, 0.0f, 0.0f);
-    [-9949] = 0;
-    [-9948] = 0;
+	var A B C D;
+	resetBoss();
+	ins_21();
+	enmClear();
+	enmNewRel("Ecl_EtBreak", 0.0f, 0.0f, 9999, 0, 0);
+	cardEnd();
+	ins_529(0);
+	ins_445();
+	playSE(28);
+	enmDir(0.0f, 0.0f);
+	enmDirTime(0, 0, 0.0f, 0.0f);
+	enmPosTime(0, 0, 0.0f, 0.0f);
+	[-9949] = 0;
+	[-9948] = 0;
 	call("BossCheckItems");
-    ins_437(71, 2400, 500000, "水＆火符「テンペレートガイザー」");
-	setInvincible(120);
-    setCheckpoint(43);
-    moveByTime(60, 4, 0.0f, 80.0f);
+	ins_437(71, 2400, 500000, "水＆火符「テンペレートガイザー」");
+	invinc(120);
+	stageProg(43);
+	enmPosTime(60, 4, 0.0f, 80.0f);
 	bulletCreate(0);
 	bulletSetType(0, 8);
 	bulletSetCount(0, 2, 1);
@@ -1782,11 +1782,11 @@ sub BossCardWaFi()
 	bulletSetComplexTransform(1, 5, 0, 8192, -999999, -999999, -999999.0f, -999999.0f);
 	$A = 0;
 120:
-	callSeparate("BossCardWaFi_at2");
+	callSep("BossCardWaFi_at2");
 START:
-	callSeparate("BossCardWaFi_at", _SS $A);
+	callSep("BossCardWaFi_at", _SS $A);
 180:
-	moveRandom(90, 4, 1.5f);
+	enmRand(90, 4, 1.5f);
 330:
 	$A = $A + 1;
 	goto START @ 120;
@@ -1822,10 +1822,10 @@ LOOP_START:
 	bulletSetSpeed(1, 3.3f, 2.5f);
 	bulletShoot(1);
 !ENHL
-	waitDiff(6, 5, 5, 5);
+	wait_rank(6, 5, 5, 5);
 LOOP_END:
 	decrement($A);
-	jumpIfNEqual(LOOP_START, 0);
+	jne(LOOP_START, 0);
 	return();
 }
 
@@ -1835,7 +1835,7 @@ sub BossCardWaFi_at2()
 	$A = 0;
 START:
 	$A % 1;
-	jumpIfNEqual(BUL2, 0);
+	jne(BUL2, 0);
 	bulletSetSprite(0, 0, 1);
 	%B = %RANDF * 8.0f;
 	%B = %B + 440.0f;
@@ -1850,7 +1850,7 @@ START:
 	bulletShoot(0);
 BUL2:
 	$A % 2;
-	jumpIfNEqual(BUL3, 0);
+	jne(BUL3, 0);
 	bulletSetSprite(0, 0, 1);
 	%B = %RANDF * 8.0f;
 	%B = %B + 440.0f;
@@ -1865,7 +1865,7 @@ BUL2:
 	bulletShoot(0);
 BUL3:
 	$A % 3;
-	jumpIfNEqual(BUL4, 0);
+	jne(BUL4, 0);
 	bulletSetSprite(0, 3, 1);
 	%B = %RANDF * 8.0f;
 	%B = %B + 440.0f;
@@ -1880,7 +1880,7 @@ BUL3:
 	bulletShoot(0);
 BUL4:
 	$A % 4;
-	jumpIfNEqual(BUL5, 0);
+	jne(BUL5, 0);
 	bulletSetSprite(0, 3, 1);
 	%B = %RANDF * 8.0f;
 	%B = %B + 440.0f;
@@ -1901,7 +1901,7 @@ BUL4:
 	bulletShoot(0);
 BUL5:
 	$A % 5;
-	jumpIfNEqual(BUL6, 0);
+	jne(BUL6, 0);
 	bulletSetSprite(0, 17, 1);
 	%B = %RANDF * 8.0f;
 	%B = %B + 440.0f;
@@ -1916,7 +1916,7 @@ BUL5:
 	bulletShoot(0);
 BUL6:
 	$A % 5;
-	jumpIfNEqual(BUL7, 0);
+	jne(BUL7, 0);
 	bulletSetSprite(0, 26, 0);
 	%B = %RANDF * 8.0f;
 	%B = %B + 440.0f;
@@ -1932,26 +1932,26 @@ BUL7:
 
 sub BossCardWaWo()
 {
-    var A B C;
-    resetBossTime();
-    ins_21();
-    clearEnemies();
-    enemyCreateRel("Ecl_EtBreak", 0.0f, 0.0f, 9999, 0, 0);
-    endSpellcard();
-    ins_529(0);
-    ins_445();
-    playSE(28);
-    enemySetTrajectory(0.0f, 0.0f);
-    enemyChangeMovement(0, 0, 0.0f, 0.0f);
-    moveByTime(0, 0, 0.0f, 0.0f);
-    [-9949] = 0;
-    [-9948] = 0;
+	var A B C;
+	resetBoss();
+	ins_21();
+	enmClear();
+	enmNewRel("Ecl_EtBreak", 0.0f, 0.0f, 9999, 0, 0);
+	cardEnd();
+	ins_529(0);
+	ins_445();
+	playSE(28);
+	enmDir(0.0f, 0.0f);
+	enmDirTime(0, 0, 0.0f, 0.0f);
+	enmPosTime(0, 0, 0.0f, 0.0f);
+	[-9949] = 0;
+	[-9948] = 0;
 	call("BossCheckItems");
-    ins_437(29, 2400, 500000, "水＆木符「ウォーターエルフ」");
-	setInvincible(120);
-    setCheckpoint(43);
-    moveByTime(120, 4, 0.0f, 80.0f);
-    ins_262(0, 0);
+	ins_437(29, 2400, 500000, "水＆木符「ウォーターエルフ」");
+	invinc(120);
+	stageProg(43);
+	enmPosTime(120, 4, 0.0f, 80.0f);
+	ins_262(0, 0);
 	$C = 0;
 	bulletCreate(0);
 	bulletSetType(0, 2);
@@ -1980,7 +1980,7 @@ sub BossCardWaWo()
 	%A = 0.0f;
 120:
 START:
-	terminateSlot(1);
+	endSlot(1);
 	bulletShoot(0);
 	bulletSetAngle(1, %A, 0.34906585039886591538473815369772f);
 	bulletShoot(1);
@@ -1989,16 +1989,16 @@ START:
 	%A = %A - %B;
 130:
 	$C;
-	jumpIfEqual(NO_BUBBLE, 130);
+	je(NO_BUBBLE, 130);
 	bulletSetAngle(1, %A, 0.34906585039886591538473815369772f);
 	bulletShoot(1);
 NO_BUBBLE:
 140:
-	callToSlot("BossCardWaWo_at2", 1);
-	moveRandom(90, 4, 1.4f);
+	callSlot("BossCardWaWo_at2", 1);
+	enmRand(90, 4, 1.4f);
 	$C = $C + 1;
 	$C % 8;
-	jumpIfNEqual(NO_RESET, 140);
+	jne(NO_RESET, 140);
 	%A = 0.0f;
 190:
 NO_RESET:
@@ -2019,26 +2019,26 @@ START:
 
 sub BossCardWaterBury()
 {
-    var A B C D;
-    resetBossTime();
-    ins_21();
-    clearEnemies();
-    enemyCreateRel("Ecl_EtBreak", 0.0f, 0.0f, 9999, 0, 0);
-    endSpellcard();
-    ins_529(0);
-    ins_445();
-    playSE(28);
-    enemySetTrajectory(0.0f, 0.0f);
-    enemyChangeMovement(0, 0, 0.0f, 0.0f);
-    moveByTime(0, 0, 0.0f, 0.0f);
-    [-9949] = 0;
-    [-9948] = 0;
-    call("BossSetNextNon", _SS 2100);
-    ins_437(23, 2100, 500000, "水符「ベリーインレイク」");
-	setInvincible(120);
-    setCheckpoint(43);
-    moveByTime(60, 4, 0.0f, 80.0f);
-    ins_262(0, 0);
+	var A B C D;
+	resetBoss();
+	ins_21();
+	enmClear();
+	enmNewRel("Ecl_EtBreak", 0.0f, 0.0f, 9999, 0, 0);
+	cardEnd();
+	ins_529(0);
+	ins_445();
+	playSE(28);
+	enmDir(0.0f, 0.0f);
+	enmDirTime(0, 0, 0.0f, 0.0f);
+	enmPosTime(0, 0, 0.0f, 0.0f);
+	[-9949] = 0;
+	[-9948] = 0;
+	call("BossSetNextNon", _SS 2100);
+	ins_437(23, 2100, 500000, "水符「ベリーインレイク」");
+	invinc(120);
+	stageProg(43);
+	enmPosTime(60, 4, 0.0f, 80.0f);
+	ins_262(0, 0);
 	bulletCreate(0);
 	bulletSetType(0, 3);
 	bulletSetSprite(0, 24, 0);
@@ -2046,7 +2046,7 @@ sub BossCardWaterBury()
 120:
 START:
 	$A = 12;
-	callToSlot("BossCardWaterBury_At", 1);
+	callSlot("BossCardWaterBury_At", 1);
 	%B = 3.14159265f / 8.0f;
 	goto LOOP_END @ 130;
 LASER_START:
@@ -2057,10 +2057,10 @@ LASER_START:
 130:
 LOOP_END:
 	decrement($A);
-	jumpIfNEqual(LASER_START, 120);
-	terminateSlot(1);
+	jne(LASER_START, 120);
+	endSlot(1);
 	$A = 8;
-	moveRandom(90, 4, 1.5f);
+	enmRand(90, 4, 1.5f);
 	%B = 0.0f;
 	bulletCreate(0);
 	bulletSetType(0, 0);
@@ -2085,12 +2085,12 @@ SHOOT:
 140:
 END_LOOP:
 	decrement($A);
-	jumpIfNEqual(SHOOT, 130);
-	moveRandom(90, 4, 1.5f);
+	jne(SHOOT, 130);
+	enmRand(90, 4, 1.5f);
 	$C = $C + 1;
 190:
 	goto START @ 120;
-    return();
+	return();
 }
 
 sub BossCardWaterBury_At()
@@ -2118,88 +2118,88 @@ SHOOT:
 sub BossCardWaterBury_LaserAt(A)
 {
 	var;
-    bulletCreate(1);
-    bulletSetSprite(1, 30, 6);
+	bulletCreate(1);
+	bulletSetSprite(1, 30, 6);
 	%ANGLE_PLAYER + %A;
-    bulletSetAngle(1, [-1.0f], 0.0f);
-    bulletSetSpeed(1, 24.0f, 0.0f);
-    laserSetSize(1, 0.0f, 640.0f, 0.0f, 8.0f);
+	bulletSetAngle(1, [-1.0f], 0.0f);
+	bulletSetSpeed(1, 24.0f, 0.0f);
+	laserSetSize(1, 0.0f, 640.0f, 0.0f, 8.0f);
 	laserSetTime(1, 20, 10, 50, 10, 0);
-    bulletSetComplexTransform(1, 0, 0, 268435456, 1, -999999, -999999.0f, -999999.0f);
-    bulletSetSE(1, 19, -1);
+	bulletSetComplexTransform(1, 0, 0, 268435456, 1, -999999, -999999.0f, -999999.0f);
+	bulletSetSE(1, 19, -1);
 	laserShootStatic(1, 1);
 	return();
 }
 
 sub BossCardWaterMonsoon()
 {
-    var A B C D;
-    resetBossTime();
-    ins_21();
-    clearEnemies();
-    enemyCreateRel("Ecl_EtBreak", 0.0f, 0.0f, 9999, 0, 0);
-    endSpellcard();
-    ins_529(0);
-    ins_445();
-    playSE(28);
-    enemySetTrajectory(0.0f, 0.0f);
-    enemyChangeMovement(0, 0, 0.0f, 0.0f);
-    moveByTime(0, 0, 0.0f, 0.0f);
-    [-9949] = 0;
-    [-9948] = 0;
-    call("BossSetNextNon", _SS 2100);
+	var A B C D;
+	resetBoss();
+	ins_21();
+	enmClear();
+	enmNewRel("Ecl_EtBreak", 0.0f, 0.0f, 9999, 0, 0);
+	cardEnd();
+	ins_529(0);
+	ins_445();
+	playSE(28);
+	enmDir(0.0f, 0.0f);
+	enmDirTime(0, 0, 0.0f, 0.0f);
+	enmPosTime(0, 0, 0.0f, 0.0f);
+	[-9949] = 0;
+	[-9948] = 0;
+	call("BossSetNextNon", _SS 2100);
 !EN
-    ins_437(67, 2100, 500000, "水符「タイダルウェイブ」");
+	ins_437(67, 2100, 500000, "水符「タイダルウェイブ」");
 !HL
-    ins_439(69, 2100, 500000, "水符「ウェットモンスーン」");
+	ins_439(69, 2100, 500000, "水符「ウェットモンスーン」");
 !ENHL
-	setInvincible(120);
-    setCheckpoint(43);
-    moveByTime(60, 4, 0.0f, 80.0f);
-    ins_262(0, 0);
+	invinc(120);
+	stageProg(43);
+	enmPosTime(60, 4, 0.0f, 80.0f);
+	ins_262(0, 0);
 	bulletCreate(0);
 	bulletSetType(0, 3);
 	bulletSetSprite(0, 24, 0);
 	$C = 0;
 120:
 START:
-	callToSlot("BossCardWaterMonsoon_rain", 1);
+	callSlot("BossCardWaterMonsoon_rain", 1);
 !HL
-	callToSlot("BossCardWaterMonsoon_rainH", 4);
+	callSlot("BossCardWaterMonsoon_rainH", 4);
 132:
 !ENHL
-	callToSlot("BossCardWaterMonsoon_wave1", 2);
+	callSlot("BossCardWaterMonsoon_wave1", 2);
 !HL
-	callToSlot("BossCardWaterMonsoon_wave2", 3);
+	callSlot("BossCardWaterMonsoon_wave2", 3);
 240:
 !ENHL
-	moveRandom(90, 4, 1.5f);
+	enmRand(90, 4, 1.5f);
 360:
 !EN
-	callToSlot("BossCardWaterMonsoon_rain", 3);
+	callSlot("BossCardWaterMonsoon_rain", 3);
 367:
-	callToSlot("BossCardWaterMonsoon_rain", 4);
+	callSlot("BossCardWaterMonsoon_rain", 4);
 372:
 !HL
-	terminateSlot(3);
+	endSlot(3);
 !ENHL
-	terminateSlot(2);
+	endSlot(2);
 374:
 !EN
-	callToSlot("BossCardWaterMonsoon_rain", 5);
+	callSlot("BossCardWaterMonsoon_rain", 5);
 480:
 !ENHL
-	moveRandom(90, 4, 1.5f);
+	enmRand(90, 4, 1.5f);
 !EN
-	terminateSlot(3);
+	endSlot(3);
 487:
-	terminateSlot(4);
+	endSlot(4);
 494:
-	terminateSlot(5);
+	endSlot(5);
 540:
 !ENHL
 	goto START @ 120;
-    return();
+	return();
 }
 
 sub BossCardWaterMonsoon_rain()
@@ -2261,20 +2261,20 @@ sub BossCardWaterMonsoon_wave1()
 	bulletSetAngle(1, -1.5707963267948966192313216916398f, 0.0f);
 	bulletSetComplexTransform(1, 0, 0, 1024, 540, 0, -999999.0f, -999999.0f);
 	bulletSetComplexTransform(1, 1, 1, 268435456, 1, -999999, -999999.0f, -999999.0f);
-    bulletSetComplexTransform(1, 2, 2, 8, 40, -999999, 0.0f, -0.03926990816987241548078304229099f);
-    bulletSetComplexTransform(1, 3, 2, 8, 40, -999999, 0.0f, 0.03926990816987241548078304229099f);
-    bulletSetComplexTransform(1, 4, 2, 8, 40, -999999, 0.0f, -0.03926990816987241548078304229099f);
-    bulletSetComplexTransform(1, 5, 2, 8, 40, -999999, 0.0f, 0.03926990816987241548078304229099f);
-    bulletSetComplexTransform(1, 6, 2, 8, 40, -999999, 0.0f, -0.03926990816987241548078304229099f);
-    bulletSetComplexTransform(1, 7, 2, 8, 40, -999999, 0.0f, 0.03926990816987241548078304229099f);
-    bulletSetComplexTransform(1, 8, 2, 8, 40, -999999, 0.0f, -0.03926990816987241548078304229099f);
-    bulletSetComplexTransform(1, 9, 2, 8, 40, -999999, 0.0f, 0.03926990816987241548078304229099f);
-    bulletSetComplexTransform(1, 10, 2, 8, 40, -999999, 0.0f, -0.03926990816987241548078304229099f);
-    bulletSetComplexTransform(1, 11, 2, 8, 40, -999999, 0.0f, 0.03926990816987241548078304229099f);
-    bulletSetComplexTransform(1, 12, 2, 8, 40, -999999, 0.0f, -0.03926990816987241548078304229099f);
-    bulletSetComplexTransform(1, 13, 2, 8, 40, -999999, 0.0f, 0.03926990816987241548078304229099f);
-    bulletSetComplexTransform(1, 14, 2, 8, 40, -999999, 0.0f, -0.03926990816987241548078304229099f);
-    bulletSetComplexTransform(1, 15, 2, 8, 40, -999999, 0.0f, 0.03926990816987241548078304229099f);
+	bulletSetComplexTransform(1, 2, 2, 8, 40, -999999, 0.0f, -0.03926990816987241548078304229099f);
+	bulletSetComplexTransform(1, 3, 2, 8, 40, -999999, 0.0f, 0.03926990816987241548078304229099f);
+	bulletSetComplexTransform(1, 4, 2, 8, 40, -999999, 0.0f, -0.03926990816987241548078304229099f);
+	bulletSetComplexTransform(1, 5, 2, 8, 40, -999999, 0.0f, 0.03926990816987241548078304229099f);
+	bulletSetComplexTransform(1, 6, 2, 8, 40, -999999, 0.0f, -0.03926990816987241548078304229099f);
+	bulletSetComplexTransform(1, 7, 2, 8, 40, -999999, 0.0f, 0.03926990816987241548078304229099f);
+	bulletSetComplexTransform(1, 8, 2, 8, 40, -999999, 0.0f, -0.03926990816987241548078304229099f);
+	bulletSetComplexTransform(1, 9, 2, 8, 40, -999999, 0.0f, 0.03926990816987241548078304229099f);
+	bulletSetComplexTransform(1, 10, 2, 8, 40, -999999, 0.0f, -0.03926990816987241548078304229099f);
+	bulletSetComplexTransform(1, 11, 2, 8, 40, -999999, 0.0f, 0.03926990816987241548078304229099f);
+	bulletSetComplexTransform(1, 12, 2, 8, 40, -999999, 0.0f, -0.03926990816987241548078304229099f);
+	bulletSetComplexTransform(1, 13, 2, 8, 40, -999999, 0.0f, 0.03926990816987241548078304229099f);
+	bulletSetComplexTransform(1, 14, 2, 8, 40, -999999, 0.0f, -0.03926990816987241548078304229099f);
+	bulletSetComplexTransform(1, 15, 2, 8, 40, -999999, 0.0f, 0.03926990816987241548078304229099f);
 	%C = %RANDF * 16.0f;
 	%C = %C - 208.0f;
 !E
@@ -2304,7 +2304,7 @@ SHOOT:
 	bulletShoot(1);
 LOOP_END:
 	decrement($A);
-	jumpIfNEqual(SHOOT, 0);
+	jne(SHOOT, 0);
 12:
 	goto START @ 0;
 	return();
@@ -2321,20 +2321,20 @@ sub BossCardWaterMonsoon_wave2()
 	bulletSetAngle(2, 1.5707963267948966192313216916398f, 0.0f);
 	bulletSetComplexTransform(2, 0, 0, 1024, 540, 0, -999999.0f, -999999.0f);
 	bulletSetComplexTransform(2, 1, 1, 268435456, 1, -999999, -999999.0f, -999999.0f);
-    bulletSetComplexTransform(2, 2, 2, 8, 40, -999999, 0.0f, -0.03926990816987241548078304229099f);
-    bulletSetComplexTransform(2, 3, 2, 8, 40, -999999, 0.0f, 0.03926990816987241548078304229099f);
-    bulletSetComplexTransform(2, 4, 2, 8, 40, -999999, 0.0f, -0.03926990816987241548078304229099f);
-    bulletSetComplexTransform(2, 5, 2, 8, 40, -999999, 0.0f, 0.03926990816987241548078304229099f);
-    bulletSetComplexTransform(2, 6, 2, 8, 40, -999999, 0.0f, -0.03926990816987241548078304229099f);
-    bulletSetComplexTransform(2, 7, 2, 8, 40, -999999, 0.0f, 0.03926990816987241548078304229099f);
-    bulletSetComplexTransform(2, 8, 2, 8, 40, -999999, 0.0f, -0.03926990816987241548078304229099f);
-    bulletSetComplexTransform(2, 9, 2, 8, 40, -999999, 0.0f, 0.03926990816987241548078304229099f);
-    bulletSetComplexTransform(2, 10, 2, 8, 40, -999999, 0.0f, -0.03926990816987241548078304229099f);
-    bulletSetComplexTransform(2, 11, 2, 8, 40, -999999, 0.0f, 0.03926990816987241548078304229099f);
-    bulletSetComplexTransform(2, 12, 2, 8, 40, -999999, 0.0f, -0.03926990816987241548078304229099f);
-    bulletSetComplexTransform(2, 13, 2, 8, 40, -999999, 0.0f, 0.03926990816987241548078304229099f);
-    bulletSetComplexTransform(2, 14, 2, 8, 40, -999999, 0.0f, -0.03926990816987241548078304229099f);
-    bulletSetComplexTransform(2, 15, 2, 8, 40, -999999, 0.0f, 0.03926990816987241548078304229099f);
+	bulletSetComplexTransform(2, 2, 2, 8, 40, -999999, 0.0f, -0.03926990816987241548078304229099f);
+	bulletSetComplexTransform(2, 3, 2, 8, 40, -999999, 0.0f, 0.03926990816987241548078304229099f);
+	bulletSetComplexTransform(2, 4, 2, 8, 40, -999999, 0.0f, -0.03926990816987241548078304229099f);
+	bulletSetComplexTransform(2, 5, 2, 8, 40, -999999, 0.0f, 0.03926990816987241548078304229099f);
+	bulletSetComplexTransform(2, 6, 2, 8, 40, -999999, 0.0f, -0.03926990816987241548078304229099f);
+	bulletSetComplexTransform(2, 7, 2, 8, 40, -999999, 0.0f, 0.03926990816987241548078304229099f);
+	bulletSetComplexTransform(2, 8, 2, 8, 40, -999999, 0.0f, -0.03926990816987241548078304229099f);
+	bulletSetComplexTransform(2, 9, 2, 8, 40, -999999, 0.0f, 0.03926990816987241548078304229099f);
+	bulletSetComplexTransform(2, 10, 2, 8, 40, -999999, 0.0f, -0.03926990816987241548078304229099f);
+	bulletSetComplexTransform(2, 11, 2, 8, 40, -999999, 0.0f, 0.03926990816987241548078304229099f);
+	bulletSetComplexTransform(2, 12, 2, 8, 40, -999999, 0.0f, -0.03926990816987241548078304229099f);
+	bulletSetComplexTransform(2, 13, 2, 8, 40, -999999, 0.0f, 0.03926990816987241548078304229099f);
+	bulletSetComplexTransform(2, 14, 2, 8, 40, -999999, 0.0f, -0.03926990816987241548078304229099f);
+	bulletSetComplexTransform(2, 15, 2, 8, 40, -999999, 0.0f, 0.03926990816987241548078304229099f);
 	%C = %RANDF * 16.0f;
 	%C = %C + 208.0f;
 !E
@@ -2365,7 +2365,7 @@ SHOOT:
 	bulletShoot(2);
 LOOP_END:
 	decrement($A);
-	jumpIfNEqual(SHOOT, 0);
+	jne(SHOOT, 0);
 12:
 	goto START @ 0;
 	return();
@@ -2373,26 +2373,26 @@ LOOP_END:
 
 sub BossCardWaterUndine()
 {
-    var A B C D;
-    resetBossTime();
-    ins_21();
-    clearEnemies();
-    enemyCreateRel("Ecl_EtBreak", 0.0f, 0.0f, 9999, 0, 0);
-    endSpellcard();
-    ins_529(0);
-    ins_445();
-    playSE(28);
-    enemySetTrajectory(0.0f, 0.0f);
-    enemyChangeMovement(0, 0, 0.0f, 0.0f);
-    moveByTime(0, 0, 0.0f, 0.0f);
-    [-9949] = 0;
-    [-9948] = 0;
-    call("BossSetNextNon", _SS 2100);
-    ins_437(15, 2100, 500000, "水符「プリンセスウンディネ」");
-	setInvincible(120);
-    setCheckpoint(43);
-    moveByTime(60, 4, 0.0f, 80.0f);
-    ins_262(0, 0);
+	var A B C D;
+	resetBoss();
+	ins_21();
+	enmClear();
+	enmNewRel("Ecl_EtBreak", 0.0f, 0.0f, 9999, 0, 0);
+	cardEnd();
+	ins_529(0);
+	ins_445();
+	playSE(28);
+	enmDir(0.0f, 0.0f);
+	enmDirTime(0, 0, 0.0f, 0.0f);
+	enmPosTime(0, 0, 0.0f, 0.0f);
+	[-9949] = 0;
+	[-9948] = 0;
+	call("BossSetNextNon", _SS 2100);
+	ins_437(15, 2100, 500000, "水符「プリンセスウンディネ」");
+	invinc(120);
+	stageProg(43);
+	enmPosTime(60, 4, 0.0f, 80.0f);
+	ins_262(0, 0);
 	bulletCreate(0);
 	bulletSetType(0, 3);
 	bulletSetSprite(0, 24, 0);
@@ -2400,7 +2400,7 @@ sub BossCardWaterUndine()
 120:
 START:
 	$A = 12;
-	callToSlot("BossCardWaterUndine_At", 1);
+	callSlot("BossCardWaterUndine_At", 1);
 	%B = 3.14159265f / 8.0f;
 	goto LOOP_END @ 130;
 LASER_START:
@@ -2412,10 +2412,10 @@ LASER_START:
 130:
 LOOP_END:
 	decrement($A);
-	jumpIfNEqual(LASER_START, 120);
-	terminateSlot(1);
+	jne(LASER_START, 120);
+	endSlot(1);
 	$A = 8;
-	moveRandom(90, 4, 1.5f);
+	enmRand(90, 4, 1.5f);
 	%B = 0.0f;
 	bulletCreate(0);
 	bulletSetType(0, 0);
@@ -2440,12 +2440,12 @@ SHOOT:
 140:
 END_LOOP:
 	decrement($A);
-	jumpIfNEqual(SHOOT, 130);
-	moveRandom(90, 4, 1.5f);
+	jne(SHOOT, 130);
+	enmRand(90, 4, 1.5f);
 	$C = $C + 1;
 190:
 	goto START @ 120;
-    return();
+	return();
 }
 
 sub BossCardWaterUndine_At()
@@ -2468,41 +2468,41 @@ SHOOT:
 sub BossCardWaterUndine_LaserAt(A)
 {
 	var;
-    bulletCreate(1);
-    bulletSetSprite(1, 30, 6);
+	bulletCreate(1);
+	bulletSetSprite(1, 30, 6);
 	%ANGLE_PLAYER + %A;
-    bulletSetAngle(1, [-1.0f], 0.0f);
-    bulletSetSpeed(1, 4.0f, 0.0f);
-    laserSetSize(1, 0.0f, 96.0f, 0.0f, 6.0f);
-    bulletSetSE(1, 19, -1);
-    bulletSetComplexTransform(1, 0, 0, 268435456, 1, -999999, -999999.0f, -999999.0f);
+	bulletSetAngle(1, [-1.0f], 0.0f);
+	bulletSetSpeed(1, 4.0f, 0.0f);
+	laserSetSize(1, 0.0f, 96.0f, 0.0f, 6.0f);
+	bulletSetSE(1, 19, -1);
+	bulletSetComplexTransform(1, 0, 0, 268435456, 1, -999999, -999999.0f, -999999.0f);
 	laserShoot(1);
 	return();
 }
 
 sub BossCardWoEa()
 {
-    var A B C D;
-    resetBossTime();
-    ins_21();
-    clearEnemies();
-    enemyCreateRel("Ecl_EtBreak", 0.0f, 0.0f, 9999, 0, 0);
-    endSpellcard();
-    ins_529(0);
-    ins_445();
-    playSE(28);
-    enemySetTrajectory(0.0f, 0.0f);
-    enemyChangeMovement(0, 0, 0.0f, 0.0f);
-    moveByTime(0, 0, 0.0f, 0.0f);
-    [-9949] = 0;
-    [-9948] = 0;
+	var A B C D;
+	resetBoss();
+	ins_21();
+	enmClear();
+	enmNewRel("Ecl_EtBreak", 0.0f, 0.0f, 9999, 0, 0);
+	cardEnd();
+	ins_529(0);
+	ins_445();
+	playSE(28);
+	enmDir(0.0f, 0.0f);
+	enmDirTime(0, 0, 0.0f, 0.0f);
+	enmPosTime(0, 0, 0.0f, 0.0f);
+	[-9949] = 0;
+	[-9948] = 0;
 	call("BossCheckItems");
-    ins_437(70, 2400, 500000, "木＆土符「イモータルゴレムパウンディン」");
-    setMoveArea(0.0f, 80.0f, 320.0f, 64.0f);
-	setInvincible(120);
-    setCheckpoint(43);
-    moveByTime(60, 4, 0.0f, 80.0f);
-    ins_262(0, 0);
+	ins_437(70, 2400, 500000, "木＆土符「イモータルゴレムパウンディン」");
+	setMoveArea(0.0f, 80.0f, 320.0f, 64.0f);
+	invinc(120);
+	stageProg(43);
+	enmPosTime(60, 4, 0.0f, 80.0f);
+	ins_262(0, 0);
 	bulletCreate(0);
 	bulletSetType(0, 0);
 	bulletSetSprite(0, 17, 6);
@@ -2553,22 +2553,22 @@ sub BossCardWoEa()
 60:
 	playSE(31);
 120:
-	callSeparate("BossCardWoEa_at1");
+	callSep("BossCardWoEa_at1");
 START:
 	%B = [-9987.0f] * 32.0f;
-	moveByTime(30, 1, %B, 16.0f);
+	enmPosTime(30, 1, %B, 16.0f);
 	%C = %RANDF + 2.0f;
 	%B = %B * %C;
 	%C = %RANDF * 32.0f;
 	%C = %C + 80.0f;
 150:
-	moveByTime(60, 4, %B, %C);
-	callSeparate("BossCardWoEa_at2", _SS $A);
+	enmPosTime(60, 4, %B, %C);
+	callSep("BossCardWoEa_at2", _SS $A);
 240:
-	callToSlot("BossCardWoEa_at", 1);
+	callSlot("BossCardWoEa_at", 1);
 330:
 	playSE(31);
-	terminateSlot(1);
+	endSlot(1);
 360:
 	$A = $A + 1;
 	goto START @ 120;
@@ -2581,7 +2581,7 @@ sub BossCardWoEa_at()
 	noop();
 START:
 	bulletShoot(0);
-	waitDiff(45, 30, 24, 20);
+	wait_rank(45, 30, 24, 20);
 	goto START @ 0;
 	return();
 }
@@ -2612,10 +2612,10 @@ sub BossCardWoEa_at2(A)
 {
 	var B C D E;
 !HL
-	callSeparate("BossCardWoEa_at2b", _SS $A);
+	callSep("BossCardWoEa_at2b", _SS $A);
 !ENHL
 	$A % 2;
-	jumpIfEqual(RETURN, 0);
+	je(RETURN, 0);
 SKIP_CHECK:
 	$A = $A / 2;
 !E
@@ -2653,11 +2653,11 @@ LOOP_START:
 	%C = %C + %B;
 LOOP_END:
 	decrement($D);
-	jumpIfNEqual(LOOP_START, 0);
-	waitDiff(8, 8, 7, 6);
+	jne(LOOP_START, 0);
+	wait_rank(8, 8, 7, 6);
 END:
 	decrement($A);
-	jumpIfNEqual(START, 0);
+	jne(START, 0);
 RETURN:
 	return();
 }
@@ -2666,7 +2666,7 @@ sub BossCardWoEa_at2b(A)
 {
 	var B C D E F;
 	$A % 2;
-	jumpIfNEqual(RETURN, 0);
+	jne(RETURN, 0);
 	$A = $A / 2;
 !E
 	$A = $A + 1;
@@ -2710,37 +2710,37 @@ LOOP_START:
 	%C = %C + %B;
 LOOP_END:
 	decrement($D);
-	jumpIfNEqual(LOOP_START, 0);
-	waitDiff(8, 8, 7, 6);
+	jne(LOOP_START, 0);
+	wait_rank(8, 8, 7, 6);
 END:
 	decrement($A);
-	jumpIfNEqual(START, 0);
+	jne(START, 0);
 RETURN:
 	return();
 }
 
 sub BossCardWoFi()
 {
-    var A B C D;
-    resetBossTime();
-    ins_21();
-    clearEnemies();
-    enemyCreateRel("Ecl_EtBreak", 0.0f, 0.0f, 9999, 0, 0);
-    endSpellcard();
-    ins_529(0);
-    ins_445();
-    playSE(28);
-    enemySetTrajectory(0.0f, 0.0f);
-    enemyChangeMovement(0, 0, 0.0f, 0.0f);
-    moveByTime(0, 0, 0.0f, 0.0f);
-    [-9949] = 0;
-    [-9948] = 0;
+	var A B C D;
+	resetBoss();
+	ins_21();
+	enmClear();
+	enmNewRel("Ecl_EtBreak", 0.0f, 0.0f, 9999, 0, 0);
+	cardEnd();
+	ins_529(0);
+	ins_445();
+	playSE(28);
+	enmDir(0.0f, 0.0f);
+	enmDirTime(0, 0, 0.0f, 0.0f);
+	enmPosTime(0, 0, 0.0f, 0.0f);
+	[-9949] = 0;
+	[-9948] = 0;
 	call("BossCheckItems");
-    ins_437(71, 2400, 500000, "木＆火符「フォレストブレイズ」");
-	setInvincible(120);
-    setCheckpoint(43);
-    moveByTime(120, 4, 0.0f, 80.0f);
-    ins_262(0, 0);
+	ins_437(71, 2400, 500000, "木＆火符「フォレストブレイズ」");
+	invinc(120);
+	stageProg(43);
+	enmPosTime(120, 4, 0.0f, 80.0f);
+	ins_262(0, 0);
 	bulletCreate(0);
 	bulletSetType(0, 8);
 	bulletSetSprite(0, 24, 0);
@@ -2776,7 +2776,7 @@ sub BossCardWoFi()
 120:
 START:
 	$A % 4;
-	jumpIfNEqual(SKIP_FIRE, 120);
+	jne(SKIP_FIRE, 120);
 	bulletShoot(0);
 SKIP_FIRE:
 	%B = %RANDF * 384.0f;
@@ -2789,7 +2789,7 @@ SKIP_FIRE:
 	bulletShoot(1);
 	%B = %RANDF * 192.0f;
 	$A % 2;
-	jumpIfNEqual(PREP2, 122);
+	jne(PREP2, 122);
 122:
 	%C = %B - [-9994.0f];
 	%B = 380.0f - [-9995.0f];
@@ -2820,27 +2820,27 @@ SHOOT:
 
 sub BossCardWoMe()
 {
-    var A B;
-    resetBossTime();
-    ins_21();
-    clearEnemies();
-    enemyCreateRel("Ecl_EtBreak", 0.0f, 0.0f, 9999, 0, 0);
-    endSpellcard();
-    ins_529(0);
-    ins_445();
-    playSE(28);
-    enemySetTrajectory(0.0f, 0.0f);
-    enemyChangeMovement(0, 0, 0.0f, 0.0f);
-    moveByTime(0, 0, 0.0f, 0.0f);
-    [-9949] = 0;
-    [-9948] = 0;
+	var A B;
+	resetBoss();
+	ins_21();
+	enmClear();
+	enmNewRel("Ecl_EtBreak", 0.0f, 0.0f, 9999, 0, 0);
+	cardEnd();
+	ins_529(0);
+	ins_445();
+	playSE(28);
+	enmDir(0.0f, 0.0f);
+	enmDirTime(0, 0, 0.0f, 0.0f);
+	enmPosTime(0, 0, 0.0f, 0.0f);
+	[-9949] = 0;
+	[-9948] = 0;
 	call("BossCheckItems");
-    ins_437(72, 999999, 500000, "木＆金符「チルクイトスバイタ」");
-	setInvincible(120);
-    setCheckpoint(43);
-    moveByTime(120, 4, 0.0f, 160.0f);
+	ins_437(72, 999999, 500000, "木＆金符「チルクイトスバイタ」");
+	invinc(120);
+	stageProg(43);
+	enmPosTime(120, 4, 0.0f, 160.0f);
 	unsetMoveArea();
-    ins_262(0, 0);
+	ins_262(0, 0);
 	bulletCreate(0);
 	bulletSetType(0, 3);
 	bulletSetSprite(0, 0, 0);
@@ -2893,31 +2893,31 @@ sub BossCardWoMe()
 	%B = 0.26179938779914943653855361527329f;
 60:
 !ENHL
-    moveByTime(60, 4, 0.0f, 160.0f);
+	enmPosTime(60, 4, 0.0f, 160.0f);
 120:
-	callSeparate("BossCardWoMe_atLaser");
+	callSep("BossCardWoMe_atLaser");
 START:
 155:
 	$A;
-	jumpIfEqual(SKIP, 155);
-	callSeparate("BossCardWoMe_at2", _ff %B);
+	je(SKIP, 155);
+	callSep("BossCardWoMe_at2", _ff %B);
 167:
-	callSeparate("BossCardWoMe_at2", _ff (%B * -1.0f));
+	callSep("BossCardWoMe_at2", _ff (%B * -1.0f));
 178:
-	callSeparate("BossCardWoMe_at2", _ff %B);
+	callSep("BossCardWoMe_at2", _ff %B);
 188:
-	callSeparate("BossCardWoMe_at2", _ff (%B * -1.0f));
+	callSep("BossCardWoMe_at2", _ff (%B * -1.0f));
 197:
-	callSeparate("BossCardWoMe_at2", _ff %B);
+	callSep("BossCardWoMe_at2", _ff %B);
 205:
-	callSeparate("BossCardWoMe_at2", _ff (%B * -1.0f));
+	callSep("BossCardWoMe_at2", _ff (%B * -1.0f));
 SKIP:
 210:
-	callSeparate("BossCardWoMe_at1", _ff %ANGLE_PLAYER);
-	callSeparate("BossCardWoMe_at1", _ff (%ANGLE_PLAYER + 1.2566370614359172953850573533118f));
-	callSeparate("BossCardWoMe_at1", _ff (%ANGLE_PLAYER + 2.5132741228718345907701147066236f));
-	callSeparate("BossCardWoMe_at1", _ff (%ANGLE_PLAYER + 3.7699111843077518861551720599354f));
-	callSeparate("BossCardWoMe_at1", _ff (%ANGLE_PLAYER + 5.0265482457436691815402294132472f));
+	callSep("BossCardWoMe_at1", _ff %ANGLE_PLAYER);
+	callSep("BossCardWoMe_at1", _ff (%ANGLE_PLAYER + 1.2566370614359172953850573533118f));
+	callSep("BossCardWoMe_at1", _ff (%ANGLE_PLAYER + 2.5132741228718345907701147066236f));
+	callSep("BossCardWoMe_at1", _ff (%ANGLE_PLAYER + 3.7699111843077518861551720599354f));
+	callSep("BossCardWoMe_at1", _ff (%ANGLE_PLAYER + 5.0265482457436691815402294132472f));
 360:
 	$A = $A + 1;
 	goto START @ 120;
@@ -2950,15 +2950,15 @@ START:
 	%E = %RANDF * %C;
 	%F = %F + %C;
 	$B % 2;
-	jumpIfNEqual(NO_NEGA, 0);
+	jne(NO_NEGA, 0);
 	%F = %F * -1.0f;
 NO_NEGA:
 	%E = %E + %F;
 	$D = $D + 1;
-	waitDiff(8, 8, 8, 7);
+	wait_rank(8, 8, 8, 7);
 END:
 	decrement($B);
-	jumpIfNEqual(START, 0);
+	jne(START, 0);
 	return();
 }
 
@@ -2989,7 +2989,7 @@ START:
 END:
 	%D = %D + %E;
 	decrement($B);
-	jumpIfNEqual(START, 0);
+	jne(START, 0);
 	return();
 }
 
@@ -3018,28 +3018,28 @@ START:
 	%B = %B + %E;
 	%D = %C;
 	$RAND % 2;
-	jumpIfNEqual(SKIP_NEG1, 0);
+	jne(SKIP_NEG1, 0);
 	%D = %D * -1.0f;
 SKIP_NEG1:
 	bulletSetComplexTransform(0, 3, 0, 8, 10, 1, 0.06f, %D);
 !NHL
 	%D = %C;
 	$RAND % 2;
-	jumpIfNEqual(SKIP_NEG2, 0);
+	jne(SKIP_NEG2, 0);
 	%D = %D * -1.0f;
 SKIP_NEG2:
 	bulletSetComplexTransform(0, 5, 0, 8, 10, 1, 0.06f, %D);
 !HL
 	%D = %C;
 	$RAND % 2;
-	jumpIfNEqual(SKIP_NEG3, 0);
+	jne(SKIP_NEG3, 0);
 	%D = %D * -1.0f;
 SKIP_NEG3:
 	bulletSetComplexTransform(0, 7, 0, 8, 10, 1, 0.06f, %D);
 !L
 	%D = %C;
 	$RAND % 2;
-	jumpIfNEqual(SKIP_NEG4, 0);
+	jne(SKIP_NEG4, 0);
 	%D = %D * -1.0f;
 SKIP_NEG4:
 	bulletSetComplexTransform(0, 9, 0, 8, 10, 1, 0.06f, %D);
@@ -3047,34 +3047,34 @@ SKIP_NEG4:
 	laserCurvedShoot(0);
 END:
 	decrement($A);
-	jumpIfNEqual(START, 0);
-	waitDiff(80, 70, 60, 60);
+	jne(START, 0);
+	wait_rank(80, 70, 60, 60);
 	goto MAIN_START @ 0;
 	return();
 }
 
 sub BossCardWoodGreen()
 {
-    var B C D;
-    resetBossTime();
-    ins_21();
-    clearEnemies();
-    enemyCreateRel("Ecl_EtBreak", 0.0f, 0.0f, 9999, 0, 0);
-    endSpellcard();
-    ins_529(0);
-    ins_445();
-    playSE(28);
-    enemySetTrajectory(0.0f, 0.0f);
-    enemyChangeMovement(0, 0, 0.0f, 0.0f);
-    moveByTime(0, 0, 0.0f, 0.0f);
-    [-9949] = 0;
-    [-9948] = 0;
-    call("BossSetNextNon", _SS 2100);
-    ins_437(24, 2100, 500000, "木符「グリーンストーム」");
-	setInvincible(120);
-    setCheckpoint(43);
-    moveByTime(120, 4, 0.0f, 80.0f);
-    ins_262(0, 0);
+	var B C D;
+	resetBoss();
+	ins_21();
+	enmClear();
+	enmNewRel("Ecl_EtBreak", 0.0f, 0.0f, 9999, 0, 0);
+	cardEnd();
+	ins_529(0);
+	ins_445();
+	playSE(28);
+	enmDir(0.0f, 0.0f);
+	enmDirTime(0, 0, 0.0f, 0.0f);
+	enmPosTime(0, 0, 0.0f, 0.0f);
+	[-9949] = 0;
+	[-9948] = 0;
+	call("BossSetNextNon", _SS 2100);
+	ins_437(24, 2100, 500000, "木符「グリーンストーム」");
+	invinc(120);
+	stageProg(43);
+	enmPosTime(120, 4, 0.0f, 80.0f);
+	ins_262(0, 0);
 	$B = 0;
 	bulletCreate(0);
 	bulletSetType(0, 3);
@@ -3107,11 +3107,11 @@ START:
 !L
 	$B % 5;
 !ENHL
-	jumpIfNEqual(SHOOT1, 120);
+	jne(SHOOT1, 120);
 	bulletShoot(0);
 SHOOT1:
 	$B % 2;
-	jumpIfNEqual(SHOOT2, 120);
+	jne(SHOOT2, 120);
 	%C = %RANDF * 384.0f;
 	%D = %C - [-9994.0f];
 	%C = 396.0f - [-9995.0f];
@@ -3134,35 +3134,35 @@ LABEL3:
 	$B = $B + 1;
 125:
 	goto START @ 120;
-    return();
+	return();
 }
 
 sub BossCardWoodSylphae()
 {
-    var B C D;
-    resetBossTime();
-    ins_21();
-    clearEnemies();
-    enemyCreateRel("Ecl_EtBreak", 0.0f, 0.0f, 9999, 0, 0);
-    endSpellcard();
-    ins_529(0);
-    ins_445();
-    playSE(28);
-    enemySetTrajectory(0.0f, 0.0f);
-    enemyChangeMovement(0, 0, 0.0f, 0.0f);
-    moveByTime(0, 0, 0.0f, 0.0f);
-    [-9949] = 0;
-    [-9948] = 0;
-    call("BossSetNextNon", _SS 2100);
-    ins_437(16, 2100, 500000, "木符「シルフィホルン」");
-	setInvincible(120);
-    setCheckpoint(43);
-    moveByTime(60, 4, 0.0f, 80.0f);
-    ins_262(0, 0);
+	var B C D;
+	resetBoss();
+	ins_21();
+	enmClear();
+	enmNewRel("Ecl_EtBreak", 0.0f, 0.0f, 9999, 0, 0);
+	cardEnd();
+	ins_529(0);
+	ins_445();
+	playSE(28);
+	enmDir(0.0f, 0.0f);
+	enmDirTime(0, 0, 0.0f, 0.0f);
+	enmPosTime(0, 0, 0.0f, 0.0f);
+	[-9949] = 0;
+	[-9948] = 0;
+	call("BossSetNextNon", _SS 2100);
+	ins_437(16, 2100, 500000, "木符「シルフィホルン」");
+	invinc(120);
+	stageProg(43);
+	enmPosTime(60, 4, 0.0f, 80.0f);
+	ins_262(0, 0);
 	bulletCreate(0);
 	bulletSetType(0, 3);
 	bulletSetSprite(0, 24, 0);
-    bulletSetComplexTransform(0, 0, 0, 268435456, 0, -999999, -999999.0f, -999999.0f);
+	bulletSetComplexTransform(0, 0, 0, 268435456, 0, -999999, -999999.0f, -999999.0f);
 	$B = 0;
 	bulletCreate(0);
 	bulletSetType(0, 8);
@@ -3188,7 +3188,7 @@ sub BossCardWoodSylphae()
 120:
 START:
 	$B % 6;
-	jumpIfNEqual(LABEL1, 120);
+	jne(LABEL1, 120);
 	bulletShoot(0);
 LABEL1:
 	%C = %RANDF * 384.0f;
@@ -3201,7 +3201,7 @@ LABEL1:
 	bulletShoot(1);
 	%C = %RANDF * 192.0f;
 	$B % 2;
-	jumpIfNEqual(LABEL2, 122);
+	jne(LABEL2, 122);
 122:
 	%D = %C - [-9994.0f];
 	%C = 396.0f - [-9995.0f];
@@ -3219,35 +3219,35 @@ LABEL3:
 	$B = $B + 1;
 126:
 	goto START @ 120;
-    return();
+	return();
 }
 
 sub BossCardWoodSylphaeHL()
 {
-    var B C D;
-    resetBossTime();
-    ins_21();
-    clearEnemies();
-    enemyCreateRel("Ecl_EtBreak", 0.0f, 0.0f, 9999, 0, 0);
-    endSpellcard();
-    ins_529(0);
-    ins_445();
-    playSE(28);
-    enemySetTrajectory(0.0f, 0.0f);
-    enemyChangeMovement(0, 0, 0.0f, 0.0f);
-    moveByTime(0, 0, 0.0f, 0.0f);
-    [-9949] = 0;
-    [-9948] = 0;
-    call("BossSetNextNon", _SS 2100);
-    ins_437(20, 2100, 500000, "木符「シルフィホルン上級」");
-	setInvincible(120);
-    setCheckpoint(43);
-    moveByTime(60, 4, 0.0f, 80.0f);
-    ins_262(0, 0);
+	var B C D;
+	resetBoss();
+	ins_21();
+	enmClear();
+	enmNewRel("Ecl_EtBreak", 0.0f, 0.0f, 9999, 0, 0);
+	cardEnd();
+	ins_529(0);
+	ins_445();
+	playSE(28);
+	enmDir(0.0f, 0.0f);
+	enmDirTime(0, 0, 0.0f, 0.0f);
+	enmPosTime(0, 0, 0.0f, 0.0f);
+	[-9949] = 0;
+	[-9948] = 0;
+	call("BossSetNextNon", _SS 2100);
+	ins_437(20, 2100, 500000, "木符「シルフィホルン上級」");
+	invinc(120);
+	stageProg(43);
+	enmPosTime(60, 4, 0.0f, 80.0f);
+	ins_262(0, 0);
 	bulletCreate(0);
 	bulletSetType(0, 3);
 	bulletSetSprite(0, 24, 0);
-    bulletSetComplexTransform(0, 0, 0, 268435456, 0, -999999, -999999.0f, -999999.0f);
+	bulletSetComplexTransform(0, 0, 0, 268435456, 0, -999999, -999999.0f, -999999.0f);
 	$B = 0;
 	bulletCreate(0);
 	bulletSetType(0, 8);
@@ -3275,7 +3275,7 @@ sub BossCardWoodSylphaeHL()
 120:
 START:
 	$B % 6;
-	jumpIfNEqual(LABEL1, 120);
+	jne(LABEL1, 120);
 	bulletShoot(0);
 LABEL1:
 	%C = %RANDF * 384.0f;
@@ -3290,7 +3290,7 @@ LABEL1:
 	bulletShoot(1);
 	%C = %RANDF * 192.0f;
 	$B % 2;
-	jumpIfNEqual(LABEL2, 122);
+	jne(LABEL2, 122);
 122:
 	%D = %C - [-9994.0f];
 	%C = -12.0f - [-9995.0f];
@@ -3312,35 +3312,35 @@ LABEL3:
 	$B = $B + 1;
 126:
 	goto START @ 120;
-    return();
+	return();
 }
 
 sub BossCheckItems()
 {
 	var;
-    setMoveArea(0.0f, 96.0f, 320.0f, 48.0f);
+	setMoveArea(0.0f, 96.0f, 320.0f, 48.0f);
 	[-9940];
-	jumpIfEqual(NO_ITEM, 0);
-    bulletClear(640.0f);
-    [-9986];
-    jumpIfNEqual(NO_DROPS, 0);
-    clearItems();
+	je(NO_ITEM, 0);
+	bulletClear(640.0f);
+	[-9986];
+	jne(NO_DROPS, 0);
+	itemClear();
 	if [-9930] == 400 goto POINT @ 0;
-	setDeathItem(1);
-    setExtraItem(1, 59);
+	itemMain(1);
+	itemEx(1, 59);
 	goto SKIP @ 0;
 POINT:
-	setDeathItem(2);
-    setExtraItem(2, 59);
+	itemMain(2);
+	itemEx(2, 59);
 SKIP:
-    setItemArea(64.0f, 64.0f);
-    dropItems();
+	itemArea(64.0f, 64.0f);
+	itemDrop();
 NO_DROPS:
-	setInvincible(120);
+	invinc(120);
 	wait(120);
 	goto END @ 0;
 NO_ITEM:
-    bulletClear_ni(640.0f);
+	bulletClear_ni(640.0f);
 	[-9940] = 1;
 END:
 	return();
@@ -3348,50 +3348,50 @@ END:
 
 sub BossDead()
 {
-    var A;
-    clearEnemies();
-    setFlags(140);
-    ins_263(0, 79);
-    playSE(5);
-    ins_263(0, 129);
-    enemySetTrajectory(%RANDRAD, 0.4f);
-    [-9986];
-    0;
-    eq();
-    jumpIfEqual(BossDead_324, 0);
-    enemyCreateRel("Ecl_EtBreak2", 0.0f, 0.0f, 9999, 0, 0);
-    goto BossDead_380 @ 0;
+	var A;
+	enmClear();
+	setFlags(140);
+	ins_263(0, 79);
+	playSE(5);
+	ins_263(0, 129);
+	enmDir(%RANDRAD, 0.4f);
+	[-9986];
+	0;
+	eqi();
+	je(BossDead_324, 0);
+	enmNewRel("Ecl_EtBreak2", 0.0f, 0.0f, 9999, 0, 0);
+	goto BossDead_380 @ 0;
 BossDead_324:
-    enemyCreateRel("Ecl_EtBreak2_ni", 0.0f, 0.0f, 9999, 0, 0);
+	enmNewRel("Ecl_EtBreak2_ni", 0.0f, 0.0f, 9999, 0, 0);
 BossDead_380:
 60:
-    bulletClear_ni(10000.0f);
-    endSpellcard();
-    clearEnemies();
-    call("ItemDrop", _SS 60, _ff 48.0f, _ff 48.0f);
-    clearItems();
-    setDeathItem(4);
-    setExtraItem(2, 40);
-    setItemArea(48.0f, 48.0f);
-    dropItems();
-    screenShake(30, 12, 0);
-    ins_263(0, 79);
-    ins_263(0, 130);
-    playSE(5);
-    setBossMode(-1);
-    delete();
-    delete();
+	bulletClear_ni(10000.0f);
+	cardEnd();
+	enmClear();
+	call("ItemDrop", _SS 60, _ff 48.0f, _ff 48.0f);
+	itemClear();
+	itemMain(4);
+	itemEx(2, 40);
+	itemArea(48.0f, 48.0f);
+	itemDrop();
+	shake(30, 12, 0);
+	ins_263(0, 79);
+	ins_263(0, 130);
+	playSE(5);
+	boss(-1);
+	delete();
+	delete();
 }
 
 sub BossSetNextNon(A)
 {
 	var;
 	[-9941];
-	jumpIfEqual(NON2, 0);
-    setAttack(0, 0, $A, "Boss3");
+	je(NON2, 0);
+	attack(0, 0, $A, "Boss3");
 	return();
 NON2:
-    setAttack(0, 0, $A, "Boss2");
+	attack(0, 0, $A, "Boss2");
 	return();
 }
 
