@@ -1065,6 +1065,7 @@ sub main()
 {
 	var A B C;
 	setFlags(32);
+	call("MainMBossDebug");
 	callSep("LogoEnemy");
 400:
 	callSep("MainSub00a");

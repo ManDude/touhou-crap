@@ -10,6 +10,7 @@ sub MBoss()
 	enmClear();
 	resetBoss();
 	enmNewRel("Ecl_EtBreak_ni", 0.0f, 0.0f, 9999, 0, 0);
+	enmNewRel("Enemy_Auto_Power_Full", 0.0f, 0.0f, 9999, 0, 0);
 	anm(0);
 	ins_259(1, 95);
 	ins_259(2, 158);
@@ -38,10 +39,25 @@ MBoss_736:
 
 sub MBoss1()
 {
-	var A B C D;
+	var A B;
 	setBossFog(160.0f, 11497327);
 30:
 	$A = 160;
+!HL
+	etNew(0);
+	etMode(0, 2);
+	etSpr(0, 7, 2);
+	etAng(0, 0.0f, 0.03490658503988659153847381536977f);
+	etEx(0, 0, 0, 2, 1, -999999, -999999.0f, -999999.0f);
+!H
+	etCnt(0, 24, 1);
+	etSpd(0, 2.5f, 0.0f);
+!L
+	etCnt(0, 32, 2);
+	etSpd(0, 3.0f, 2.0f);
+!*
+	goto MBoss1_160 @ 90;
+MBoss1_60:
 	$B = $A % 2;
 	unless $B == 0 goto AT2 @ 30;
 	call("MBoss1_at1");
@@ -49,18 +65,62 @@ sub MBoss1()
 AT2:
 	call("MBoss1_at2");
 AT_END:
-	goto MBoss1_160 @ 0;
-MBoss1_60:
-	callSep("MBoss_at1");
-	wait(60);
-	enmRand(60, 4, 3.0f);
-	wait(58);
+!HL
+	callSlot("et_on_rate", 1, _SS 0, _SS 30, _SS 1);
+!*
+	enmRand(50, 1, 5.0f);
+	wait(100);
+!HL
+	endSlot(1);
 90:
 MBoss1_160:
-	if 1 goto MBoss1_60 @ 30;
+!*
+	if $A-- goto MBoss1_60 @ 30;
 	return();
 }
 
+sub MBoss1_at1()
+{
+	var A B E;
+	ins_269(0);
+	$E = 8;
+20:
+	%A = %RANDF2 * 16.0f;
+	%B = %RANDF2 * 16.0f;
+	etNew(1);
+	etMode(1, 7);
+	etSpr(1, 3, 6);
+	etCnt_rank(1, 12, 16, 20, 24, 1, 1, 1, 1);
+	etSpd(1, 3.0f, 1.7f);
+	etAng(1, 0.0f, 0.0f);
+	etEx(1, 0, 0, 2, 1, -999999, -999999.0f, -999999.0f);
+	goto MBoss_at1_1072 @ 28;
+MBoss_at1_472:
+	etOfs(1, %A, %B);
+	etOn(1);
+	%A = %A + _f(%RANDF2 * 16.0f);
+	%B = %B + _f(%RANDF * 24.0f);
+28:
+MBoss_at1_1072:
+	if $E-- goto MBoss_at1_472 @ 20;
+68:
+	return();
+}
+
+sub MBoss1_at2()
+{
+	var;
+	etNew(1);
+	etMode(1, 3);
+	etSpr(1, 5, 2);
+	etAng(1, 0.0f, 0.0f);
+	etSpd(1, 1.1f, 0.6f);
+	etCnt_rank(1, 64, 76, 88, 96, 1, 1, 1, 1);
+	etEx(1, 0, 0, 2, 1, -999999, -999999.0f, -999999.0f);
+	etOn(1);
+10:
+	return();
+}
 sub MBossCard1()
 {
 	var A;
@@ -403,110 +463,5 @@ MBossEscape_284:
 	stageProg(0);
 	delete();
 	delete();
-}
-
-sub MBoss_at1()
-{
-	var A B C D E;
-	ins_269(0);
-	etNew(0);
-	etSpr(0, 7, 4);
-	etAng(0, 0.0f, 0.0f);
-	etSpd(0, 0.0f, 0.0f);
-	laserSetSize(0, 0.0f, 128.0f, 0.0f, 14.0f);
-	etSE(0, 19, -1);
-	setf_rank(%A, 0.027777778f, 0.033333335f, 0.06111111f, 0.03888889f);
-	etEx(0, 0, 0, 4, 90, -999999, %A, -999999.0f);
-	%B = -1.570796f;
-	callSep("MBoss_at2");
-	callSep("MBoss_at3");
-	seti_rank($E, 16, 24, 64, 64);
-	goto MBoss_at1_1072 @ 0;
-MBoss_at1_472:
-	ins_81(%C, %D, _f(%B + 1.5707964f), 64.0f);
-	etOfs(0, _f(%C - _f(8)), _f(%D - _f(32)));
-	etAng(0, %B, %B);
-	laserShoot(0);
-!E
-	%B = (%B + 0.392699f);
-!N
-	%B = (%B + 0.19635f);
-!H
-	%B = (%B + 0.19635f);
-!L
-	%B = (%B + 0.098175f);
-!*
-	wait(1);
-MBoss_at1_1072:
-	if $E-- goto MBoss_at1_472 @ 0;
-	return();
-}
-
-sub MBoss_at2()
-{
-	var A B C D E;
-	etNew(1);
-	etSpr(1, 7, 6);
-	etAng(1, 0.0f, 0.0f);
-	etSpd(1, 0.0f, 0.0f);
-	laserSetSize(1, 0.0f, 128.0f, 0.0f, 14.0f);
-	etSE(0, 19, -1);
-	setf_rank(%D, 0.027777778f, 0.033333335f, 0.06111111f, 0.03888889f);
-	etEx(1, 0, 0, 4, 90, -999999, %D, -999999.0f);
-	%A = -1.570796f;
-	seti_rank($E, 16, 24, 64, 64);
-	goto MBoss_at2_988 @ 0;
-MBoss_at2_388:
-	ins_81(%B, %C, _f(%A - 1.5707964f), 64.0f);
-	etOfs(1, _f(%B - _f(8)), _f(%C - _f(32)));
-	etAng(1, %A, %A);
-	laserShoot(1);
-!E
-	%A = (%A - 0.392699f);
-!N
-	%A = (%A - 0.19635f);
-!H
-	%A = (%A - 0.19635f);
-!L
-	%A = (%A - 0.098175f);
-!*
-	wait(1);
-MBoss_at2_988:
-	if $E-- goto MBoss_at2_388 @ 0;
-	return();
-}
-
-sub MBoss_at3()
-{
-	var A B C D E;
-	etNew(2);
-	etSpr(2, 7, 10);
-	etAng(2, 0.0f, 0.0f);
-	etSpd(2, 0.0f, 0.0f);
-	laserSetSize(2, 0.0f, 128.0f, 0.0f, 14.0f);
-	etSE(0, 19, -1);
-	setf_rank(%D, 0.027777778f, 0.033333335f, 0.06111111f, 0.03888889f);
-	etEx(2, 0, 0, 4, 90, -999999, %D, -999999.0f);
-	%A = -1.570796f;
-	seti_rank($E, 16, 24, 64, 64);
-	goto MBoss_at3_988 @ 0;
-MBoss_at3_388:
-	ins_81(%B, %C, _f(%A - 3.1415927f), 48.0f);
-	etOfs(2, _f(%B - _f(8)), _f(%C - _f(32)));
-	etAng(2, %A, %A);
-	laserShoot(2);
-!E
-	%A = (%A - 0.392699f);
-!N
-	%A = (%A - 0.19635f);
-!H
-	%A = (%A - 0.19635f);
-!L
-	%A = (%A - 0.098175f);
-!*
-	wait(1);
-MBoss_at3_988:
-	if $E-- goto MBoss_at3_388 @ 0;
-	return();
 }
 

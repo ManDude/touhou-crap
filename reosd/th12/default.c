@@ -101,6 +101,16 @@ Ecl_EtBreak_ni_216:
 	delete();
 }
 
+sub Enemy_Auto_Power_Full()
+{
+	var;
+	setFlags(32);
+	enmPos(%PLAYER_X, %PLAYER_Y);
+	itemMain(8);
+	itemDrop();
+	delete();
+}
+
 sub ItemDrop(A B C)
 {
 	var;
