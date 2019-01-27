@@ -43,6 +43,84 @@ sub BGirl04b()
     delete();
 }
 
+sub Ball00(A B C)
+{
+	var D E;
+    anmSelect(1);
+    ins_263(1, 103);
+    ins_259(0, $A);
+	setHitbox(28.0f, 28.0f);
+	setKillbox(28.0f, 28.0f);
+!HL
+	bulletCreate(0);
+	bulletSetSprite(0, 8, 6);
+	bulletSetAngle(0, 0.0f, 0.13089969389957471826927680763665f);
+	bulletSetComplexTransform(0, 0, 0, 2, 1, -999999, -999999.0f, -999999.0f);
+!H
+	bulletSetType(0, 0);
+	bulletSetCount(0, 1, 1);
+	bulletSetSpeed(0, 2.0f, 0.0f);
+	callToSlot("Ball00atH", 1);
+!L
+	bulletSetType(0, 2);
+	bulletSetCount(0, 10, 2);
+	bulletSetSpeed(0, 3.0f, 1.0f);
+	callToSlot("Ball00atL", 1);
+!*
+	enemySetTrajectory(0.52359877559829887307710723054658f, 4.5f);
+30:
+	unless %ANGLE_ABS < 1.5707963267948966192313216916398f goto MIR @ 30;
+	callSeparate("enm_rot_spd", _ff -0.06544984694978735913463840381832f, _SS 85);
+	goto MIR_END @ 30;
+MIR:
+	callSeparate("enm_rot_spd_m", _ff -0.06544984694978735913463840381832f, _SS 85);
+MIR_END:
+115:
+	terminateSlot(1);
+10000:
+	return();
+}
+
+sub Ball00atH()
+{
+	var;
+	noop();
+	goto END @ 0;
+START:
+	bulletShoot(0);
+	wait(60);
+END:
+	goto START @ 0;
+	return();
+}
+
+sub Ball00atL()
+{
+	var;
+	wait(_S($RAND % 200));
+	goto END @ 0;
+START:
+	bulletShoot(0);
+	wait(200);
+END:
+	goto START @ 0;
+	return();
+}
+
+sub Ball00_Blue()
+{
+	var;
+    call("Ball00", _SS 92, _SS 50, _SS 1);
+	delete();
+}
+
+sub Ball00_Red()
+{
+	var;
+    call("Ball00", _SS 86, _SS 51, _SS 1);
+	delete();
+}
+
 sub Cir00(A B C)
 {
     var D E F;
@@ -505,7 +583,7 @@ sub Girl04b(A B)
 sub LogoEnemy()
 {
     var;
-    wait(220);
+    wait(120);
     logoShow();
     return();
 }
@@ -562,40 +640,31 @@ MainMsgDebug_184:
 
 sub MainSub00()
 {
-    var;
-    enemyCreateRel("Girl00", 96.0f, -24.0f, 800, 1000, 13);
+    var A;
+	$A = 7;
+	goto END @ 0;
+START:
+	enemyCreateRel("Ball00_Red", -224.0f, 64.0f, 30, 500, _S(_S($RAND % 2) + 1));
+	wait(8);
+	enemyCreateRel("Ball00_Blue", -224.0f, 64.0f, 30, 500, _S(_S($RAND % 2) + 1));
+	wait(8);
+END:
+	if $A-- goto START @ 0;
     return();
 }
 
 sub MainSub01()
 {
-    var;
-    enemyCreateRel("RGirl01", -96.0f, -24.0f, 50, 1000, 1);
-    enemyCreateRel("RGirl01", 96.0f, -24.0f, 50, 1000, 1);
-    wait(30);
-    enemyCreateRel("RGirl01", -144.0f, -24.0f, 50, 1000, 1);
-    enemyCreateRel("RGirl01", 144.0f, -24.0f, 50, 1000, 1);
-    wait(30);
-    enemyCreateRel("RGirl01", -192.0f, -24.0f, 50, 1000, 1);
-    enemyCreateRel("RGirl01", 192.0f, -24.0f, 50, 1000, 1);
-    wait(30);
-    enemyCreateRel("RGirl01", -224.0f, 64.0f, 30, 1000, 1);
-    enemyCreateRel("RGirl01", 224.0f, 64.0f, 30, 1000, 1);
-    wait(30);
-    enemyCreateRel("YGirl01", -224.0f, 128.0f, 30, 1000, 11);
-    enemyCreateRel("YGirl01", 224.0f, 128.0f, 30, 1000, 14);
-    wait(60);
-    enemyCreateRel("RGirl01", -224.0f, 64.0f, 50, 1000, 1);
-    enemyCreateRel("RGirl01", 224.0f, 64.0f, 50, 1000, 1);
-    wait(30);
-    enemyCreateRel("RGirl01", -192.0f, -24.0f, 30, 1000, 1);
-    enemyCreateRel("RGirl01", 192.0f, -24.0f, 30, 1000, 1);
-    wait(30);
-    enemyCreateRel("RGirl01", -144.0f, -24.0f, 30, 1000, 1);
-    enemyCreateRel("RGirl01", 144.0f, -24.0f, 30, 1000, 1);
-    wait(30);
-    enemyCreateRel("RGirl01", -96.0f, -24.0f, 30, 1000, 1);
-    enemyCreateRel("RGirl01", 96.0f, -24.0f, 30, 1000, 1);
+    var A;
+	$A = 7;
+	goto END @ 0;
+START:
+	enemyCreateRelFlipped("Ball00_Blue", 224.0f, 64.0f, 30, 500, _S(_S($RAND % 2) + 1));
+	wait(8);
+	enemyCreateRelFlipped("Ball00_Red", 224.0f, 64.0f, 30, 500, _S(_S($RAND % 2) + 1));
+	wait(8);
+END:
+	if $A-- goto START @ 0;
     return();
 }
 
@@ -1032,20 +1101,51 @@ sub main()
     var A B C;
     setFlags(32);
     callSeparate("LogoEnemy");
-60:
+400:
     noop();
-    wait(60);
     callSeparate("MainSub00");
-    wait(400);
+512:
     callSeparate("MainSub01");
-    wait(420);
-    callSeparate("MainSub02");
-    wait(800);
-    callSeparate("MainSub03");
-    wait(600);
-    callSeparate("MainSub01b");
-    wait(440);
-    enemyCreateAbs("MBoss", -128.0f, -32.0f, 40, 1000, 1);
+706:
+	noop();
+802:
+	noop();
+1110:
+	noop();
+1730:
+	noop();
+1816:
+	noop();
+1908:
+	noop();
+1994:
+	noop();
+2186:
+	noop();
+2272:
+	noop();
+2364:
+	noop();
+2450:
+	noop();
+2822:
+    callSeparate("MainSub00");
+2936:
+	noop();
+2984:
+	noop();
+3098:
+	noop();
+3208:
+    callSeparate("MainSub01");
+3322:
+	noop();
+3370:
+    callSeparate("MainSub01");
+3484:
+	noop();
+3804:
+    enemyCreateAbs("MBoss", 128.0f, -32.0f, 13000, 100000, 1);
     waitKill();
     waitDialogue();
     call("MainSub04");
@@ -1059,13 +1159,13 @@ sub main()
     enemyCreateAbs("Boss", -144.0f, -16.0f, 40, 1000, 1);
     waitDialogue();
     waitKill();
-120:
+3924:
     dialogueStart(1);
     waitDialogue();
-    goto main_816 @ 120;
+    goto main_816 @ 3924;
 main_796:
     wait(1000);
 main_816:
-    if 1 goto main_796 @ 120;
+    if 1 goto main_796 @ 3924;
     delete();
 }
