@@ -468,7 +468,7 @@ Boss3_at1_856:
 !L
 	%C = (%C - 0.19635f);
 !*
-	toRadianInterval(%C);
+	normRad(%C);
 	wait_rank(20, 10, 10, 10);
 Boss3_at1_1260:
 	if $F-- goto Boss3_at1_428 @ 0;
@@ -642,7 +642,7 @@ BossCard1LaserAt_452:
 	etEx(0, 1, 0, 268435456, 1, -999999, -999999.0f, -999999.0f);
 	etEx(0, 2, 0, 4, 120, -999999, 0.008333334f, -999999.0f);
 	%B = _f(0);
-	toRadianInterval(%A);
+	normRad(%A);
 	%E = %RANDRAD;
 	goto BossCard1LaserAt_1228 @ 0;
 BossCard1LaserAt_720:
@@ -946,7 +946,7 @@ BossCard2LaserAt_452:
 	etEx(0, 1, 0, 268435456, 1, -999999, -999999.0f, -999999.0f);
 	etEx(0, 2, 0, 4, 120, -999999, 0.008333334f, -999999.0f);
 	%B = _f(0);
-	toRadianInterval(%A);
+	normRad(%A);
 	%E = %RANDRAD;
 	goto BossCard2LaserAt_1000 @ 0;
 BossCard2LaserAt_720:
@@ -1444,7 +1444,7 @@ BossCard4LaserAt_452:
 	etEx(0, 2, 0, 4096, 60, -999999, -999999.0f, -999999.0f);
 	etEx(0, 3, 0, 4, 60, -999999, 0.011666667f, -999999.0f);
 	%B = _f(0);
-	toRadianInterval(%A);
+	normRad(%A);
 	%E = %RANDRAD;
 	goto BossCard4LaserAt_1076 @ 0;
 BossCard4LaserAt_796:
