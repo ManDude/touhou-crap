@@ -416,6 +416,19 @@ sub et_ofs_r()
     return();
 }
 
+sub et_on_rate(et rate delay)
+{
+	var;
+	wait(_S(_S($RAND % $rate) * $delay));
+	goto END @ 0;
+START:
+	bulletShoot($et);
+	wait($rate);
+END:
+	goto START @ 0;
+	return();
+}
+
 sub test()
 {
     var A B;
