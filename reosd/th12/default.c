@@ -386,7 +386,7 @@ sub enm_rot_spd(rotSpeed time)
 	goto END @ 0;
 START:
 	%B = %B + %rotSpeed;
-	enemyChangeMovement(1, 0, %B, -999999.0f);
+    enemySetTrajectory(%B, -999999.0f);
 	wait(1);
 END:
 	if $A-- goto START @ 0;
@@ -401,7 +401,7 @@ sub enm_rot_spd_m(rotSpeed time)
 	goto END @ 0;
 START:
 	%B = %B + %rotSpeed;
-	enemyChangeMovement(1, 0, %B, -999999.0f);
+    enemySetTrajectory(%B, -999999.0f);
 	wait(1);
 END:
 	if $A-- goto START @ 0;
