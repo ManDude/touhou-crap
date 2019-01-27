@@ -378,6 +378,36 @@ UFO_Red_1280:
     return();
 }
 
+sub enm_rot_spd(rotSpeed time)
+{
+	var A B;
+	$A = $time;
+	%B = %ANGLE_ABS;
+	goto END @ 0;
+START:
+	%B = %B + %rotSpeed;
+	enemyChangeMovement(1, 0, %B, -999999.0f);
+	wait(1);
+END:
+	if $A-- goto START @ 0;
+	return();
+}
+
+sub enm_rot_spd_m(rotSpeed time)
+{
+	var A B;
+	$A = $time;
+	%B = 3.1415926535897932384626433832795f - %ANGLE_ABS;
+	goto END @ 0;
+START:
+	%B = %B + %rotSpeed;
+	enemyChangeMovement(1, 0, %B, -999999.0f);
+	wait(1);
+END:
+	if $A-- goto START @ 0;
+	return();
+}
+
 sub et_ofs_r()
 {
     var A B C D;
@@ -394,3 +424,4 @@ sub test()
     %B = _f($A + 7);
     return();
 }
+
