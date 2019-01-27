@@ -1,5 +1,5 @@
 anim { "enemy.anm"; "stgenm03.anm"; }
-ecli { "default.ecl"; }
+ecli { "default.ecl"; "stage03boss.ecl"; "stage03mbs.ecl"; }
 
 sub BCir00()
 {
