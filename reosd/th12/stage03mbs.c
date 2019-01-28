@@ -25,7 +25,7 @@ sub MBoss()
 	timeoutAt(0, "MBossEscape");
 	stageProg(6);
 	enmPos(160.0f, -96.0f);
-	enmPosTime(100, 2, 0.0f, 150.0f);
+	enmPosTime(100, 1, 0.0f, 150.0f);
 	invinc(100);
 	wait(100);
 	setMoveArea(0.0f, 96.0f, 320.0f, 96.0f);
@@ -69,7 +69,7 @@ AT_END:
 !HL
 	callSlot("et_on_rate", 1, _SS 0, _SS 30, _SS 1);
 !*
-	enmRand(50, 2, 5.0f);
+	enmRand(50, 1, 5.0f);
 	wait(50);
 !HL
 	endSlot(1);
@@ -232,8 +232,56 @@ END:
 
 sub MBossCard1H()
 {
-	var;
+	var A B C D;
 	wait(120);
+	etNew(0);
+	etMode(0, 3);
+	etSpr(0, 9, 13);
+	etSpd(0, 4.0f, 0.6f);
+	etEx(0, 0, 0, 2, 1, -999999, -999999.0f, -999999.0f);
+	etEx(0, 1, 0, 32, 60, 2, 2.6179938779914943653855361527329f, 1.6f);
+!H
+	etCnt(0, 5, 1);
+!L
+	etCnt(0, 6, 1);
+!*
+	etNew(1);
+	etCopy(1, 0);
+	etEx(1, 1, 0, 32, 60, 2, 3.6651914291880921115397506138261f, 1.6f);
+	etNew(2);
+	etMode(2, 2);
+	etSpr(2, 9, 2);
+	etAng(2, 0.0f, 0.0f);
+	etEx(2, 0, 0, 2, 1, -999999, -999999.0f, -999999.0f);
+!H
+	etCnt(2, 48, 1);
+	etSpd(2, 1.3f, 0.6f);
+!L
+	etCnt(2, 52, 1);
+	etSpd(2, 1.6f, 0.6f);
+!*
+	goto END @ 1;
+START:
+	etAng(0, %A, 0.0f);
+	etOn(0);
+	etAng(1, %B, 0.0f);
+	etOn(1);
+	%A = %A + 0.14835298641951801403851371532153f;
+	%B = %B + 0.16580627893946130980775062300642f;
+	normRad(%A);
+	normRad(%B);
+	$D = 6;
+	goto END2 @ 1;
+START2:
+	$C = $TIME % 120;
+	unless $C == 0 goto NO_SHOOT2 @ 0;
+	etOn(2);
+NO_SHOOT2:
+1:
+END2:
+	if $D-- goto START2 @ 0;
+END:
+	goto START @ 0;
 	return();
 }
 
