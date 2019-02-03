@@ -41,12 +41,18 @@ sub BGirl02()
 	delete();
 }
 
+sub BGirl03()
+{
+	var;
+	itemEx(2, 3);
+	call("Girl03", _SS 0, _SS 1);
+	delete();
+}
+
 sub BGirl04()
 {
-	var A;
-	itemMain(2);
-	anm(1);
-	anmScr(1, 50);
+	var;
+	itemEx(2, 3);
 	call("Girl04", _SS 0, _SS 1);
 	delete();
 }
@@ -312,12 +318,20 @@ sub GGirl01()
 	delete();
 }
 
+sub GGirl03()
+{
+	var;
+	itemEx(1, 2);
+	itemEx(2, 1);
+	call("Girl03", _SS 10, _SS 1);
+	delete();
+}
+
 sub GGirl04()
 {
-	var A;
-	itemMain(9);
-	anm(1);
-	anmScr(1, 52);
+	var;
+	itemEx(1, 2);
+	itemEx(2, 1);
 	call("Girl04", _SS 10, _SS 1);
 	delete();
 }
@@ -499,164 +513,85 @@ Girl02_at_672:
 	return();
 }
 
-sub Girl02b()
+sub Girl03(A B)
 {
-	var A;
+	var C ang spd;
 	anm(1);
-	anmScr(0, 40);
-	setFlags(64);
-	hitbox(24.0f, 24.0f);
-	killbox(16.0f, 16.0f);
-	callSep("Girl02b_at");
-	itemClear();
-	itemMain(1);
-	itemEx(1, 19);
-	enmDir(_f(1.5707964f + (%RANDRAD / _f(16))), 5.0f);
-	enmDirTime(60, 0, 1.5707964f, 0.0f);
-600:
-	enmDir(-1.5707964f, 2.0f);
-6600:
-	noop();
-	delete();
-}
-
-sub Girl02b_at()
-{
-	var A B;
+	anmScr(0, $A);
+	hitbox(28.0f, 28.0f);
+	killbox(28.0f, 28.0f);
+	enmDir(1.5707963267948966192313216916398f, 1.5f);
+40:
+	enmDirTime(30, 0, -999999.0f, 0.0f);
+70:
+!E
+	$C = 12;
+!NHL
+	$C = 16;
+!*
+	%ang = 1.5707963267948966192313216916398f;
+	%spd = 1.6f;
 	etNew(0);
 	etMode(0, 1);
-	etSpr(0, 7, 4);
-	etAmt_rank(0, 1, 4, 3, 5, 1, 2, 1, 1);
-	etAng(0, 0.0f, 0.032724924f);
-	etSpd_rank(0, 1.5f, 1.5f, 3.0f, 5.5f, 1.0f, 1.0f, 1.0f, 2.0f);
-	etEx(0, 0, 1, 2, 1, -999999, -999999.0f, -999999.0f);
-	etEx(0, 1, 1, 1, -999999, -999999, -999999.0f, -999999.0f);
-	%A = _f(0);
-	$B = 40;
-	goto Girl02b_at_584 @ 0;
-Girl02b_at_440:
-	etAng(0, -1.5707964f, %A);
-	%A = (%A + 0.261799f);
+	etSpr(0, 8, 6);
+	etAmt_rank(0, 1, 1, 1, 5, 1, 1, 1, 1);
+	etEx(0, 0, 0, 2, 1, -999999, -999999.0f, -999999.0f);
+!H
+	etNew(1);
+	etMode(1, 2);
+	etSpr(1, 3, 6);
+	etAmt(1, 16, 1);
+	etSpd(1, 1.6f, 0.0f);
+	etEx(1, 0, 0, 2, 1, -999999, -999999.0f, -999999.0f);
+	etAng(1, %ang, 0.39269908169872415480783042290994f);
+	etOn(1);
+	goto END @ 72;
+START:
+!*
+	etSpd(0, %spd, 0.0f);
+!EN
+	etAng(0, %ang, 0.13089969389957471826927680763665f);
+!H
+	etAng(0, %ang, 0.39269908169872415480783042290994f);
+!L
+	etAng(0, %ang, 0.52359877559829887307710723054658f);
+!*
 	etOn(0);
-	wait(5);
-Girl02b_at_584:
-	if $B-- goto Girl02b_at_440 @ 0;
+	%spd = %spd + 0.3f;
+72:
+END:
+	if $C-- goto START @ 70;
+	enmDir(_f(0.78539816339744830961566084581988f + _f(%RANDF * 1.5707963267948966192313216916398f)), -1.5f);
+10000:
 	return();
-}
-
-sub Girl03()
-{
-	var A;
-	anm(1);
-	anmScr(0, 40);
-	setFlags(64);
-	hitbox(24.0f, 24.0f);
-	killbox(16.0f, 16.0f);
-	itemClear();
-	itemEx(2, 15);
-	itemEx(1, 15);
-	itemArea(48.0f, 48.0f);
-	callSep("Girl03_at");
-	ins_328(%ANGLE_PLAYER, 4.0f);
-	enmDirTime(60, 0, -999999.0f, 0.0f);
-	wait(300);
-	enmDirTime(120, 0, -1.5707964f, 1.0f);
-6000:
-	noop();
-	delete();
-}
-
-sub Girl03_at()
-{
-	var A;
-	etNew(0);
-	etMode(0, 3);
-	etSpr(0, 11, 3);
-	etAmt_rank(0, 4, 8, 8, 8, 6, 6, 9, 12);
-	etAng(0, 0.0f, 0.032724924f);
-	etSpd_rank(0, 1.5f, 1.5f, 3.0f, 3.0f, 1.0f, 1.0f, 1.0f, 1.0f);
-	etEx(0, 0, 1, 2, 1, -999999, -999999.0f, -999999.0f);
-	etDist(0, 16.0f);
-	wait(30);
-	etAng(0, 1.5707964f, 0.024543693f);
-	etSpd(0, 2.0f, 1.5f);
-	etOn(0);
-	etAng(0, 1.5707964f, -0.024543693f);
-	etSpd(0, 2.0f, 1.5f);
-	etOn(0);
-	wait(60);
-	setf_rank(%A, 0.7853982f, 0.3926991f, 0.3926991f, 0.3926991f);
-	etAng(0, %A, 0.024543693f);
-	etSpd(0, 2.0f, 1.5f);
-	etOn(0);
-	etAng(0, %A, -0.024543693f);
-	etSpd(0, 2.0f, 1.5f);
-	etOn(0);
-	wait(60);
-	etAng(0, 1.5707964f, 0.024543693f);
-	etSpd(0, 2.0f, 1.5f);
-	etOn(0);
-	etAng(0, 1.5707964f, -0.024543693f);
-	etSpd(0, 2.0f, 1.5f);
-	etOn(0);
-	wait(60);
-	return();
-}
-
-sub Girl03b()
-{
-	var A;
-	anm(1);
-	anmScr(0, 45);
-	anmScr(1, 98);
-	setFlags(64);
-	setFlags(2);
-	hitbox(24.0f, 24.0f);
-	killbox(16.0f, 16.0f);
-	itemClear();
-	itemEx(2, 15);
-	itemEx(1, 15);
-	itemArea(48.0f, 48.0f);
-	callSep("Girl03_at");
-	ins_328(%ANGLE_PLAYER, 4.0f);
-	enmDirTime(60, 0, -999999.0f, 0.0f);
-	wait(300);
-	enmDirTime(120, 0, -1.5707964f, 1.0f);
-6000:
-	noop();
-	delete();
 }
 
 sub Girl04(A B)
 {
-	var;
+	var C spd ang;
 	anm(1);
 	anmScr(0, $A);
-	setFlags(64);
-	hitbox(24.0f, 24.0f);
-	killbox(16.0f, 16.0f);
-	callSep("RGirl04_at");
-	enmDir(3.1415927f, 4.0f);
-	wait(50);
-	enmDirTime(100, 0, 0.3926991f, 3.0f);
-6000:
-	noop();
-	return();
-}
-
-sub Girl04b(A B)
-{
-	var;
-	anm(1);
-	anmScr(0, $A);
-	setFlags(64);
-	hitbox(24.0f, 24.0f);
-	killbox(16.0f, 16.0f);
-	callSep("RGirl04b_at");
-	enmDir(3.1415927f, 4.0f);
-	wait(30);
-	enmDirTime(100, 0, -0.3926991f, 3.0f);
-6000:
+	hitbox(28.0f, 28.0f);
+	killbox(28.0f, 28.0f);
+	enmDir(1.5707963267948966192313216916398f, 2.5f);
+40:
+	enmDirTime(30, 0, -999999.0f, 0.0f);
+70:
+	%C = 16;
+	%spd = 1.6f;
+	%ang = 1.5707963267948966192313216916398f;
+	etNew(0);
+	etMode(0, 8);
+	etSpr(0, 3, 15);
+	etAmt_rank(0, 8, 14, 20, 22, 1, 1, 1, 1);
+	etSpd(0, 2.0f, 0.3f);
+	etAng(0, 0.0f, -3.1415926535897932384626433832795f);
+	etEx(0, 0, 0, 2, 2, -999999, -999999.0f, -999999.0f);
+	etEx(0, 1, 0, 1, -999999, -999999, -999999.0f, -999999.0f);
+	etEx(0, 2, 0, 4, 999999, -999999, 0.025f, 1.5707963267948966192313216916398f);
+	etOn(0);
+	enmDir(_f(0.78539816339744830961566084581988f + _f(%RANDF * 1.5707963267948966192313216916398f)), -1.5f);
+10000:
 	noop();
 	return();
 }
@@ -890,6 +825,108 @@ END:
 	return();
 }
 
+sub MainSub07(off)
+{
+	var;
+	enmNewRel("RGirl03", _f(-128.0f - %off), -32.0f, 450, 1000, _S(_S($RAND % 2) + 1));
+	enmNewRelMir("RGirl03", _f(128.0f + %off), -32.0f, 450, 1000, _S(_S($RAND % 2) + 1));
+	wait(30);
+	enmNewRel("BGirl03", _f(-64.0f - %off), -32.0f, 450, 1000, _S(_S($RAND % 2) + 1));
+	enmNewRelMir("BGirl03", _f(64.0f + %off), -32.0f, 450, 1000, _S(_S($RAND % 2) + 1));
+	wait(30);
+	enmNewRel("GGirl03", _f(0.0f - %off), -32.0f, 450, 1000, _S(_S($RAND % 2) + 1));
+	enmNewRelMir("GGirl03", _f(0.0f + %off), -32.0f, 450, 1000, _S(_S($RAND % 2) + 1));
+	wait(30);
+	return();
+}
+
+sub MainSub08()
+{
+	var A;
+	$A = 6;
+	enmNewRelMir("Ball01_Green", 224.0f, 192.0f, 30, 500, _S(_S($RAND % 2) + 1));
+	wait(8);
+	goto END @ 0;
+START:
+	enmNewRel("Ball01_Green", -224.0f, 192.0f, 30, 500, _S(_S($RAND % 2) + 1));
+	wait(8);
+	enmNewRelMir("Ball01_Purple", 224.0f, 192.0f, 30, 500, _S(_S($RAND % 2) + 1));
+	wait(8);
+END:
+	if $A-- goto START @ 0;
+	return();
+}
+
+sub MainSub08b()
+{
+	var A;
+	$A = 6;
+	enmNewRelMir("Ball01_Green", 224.0f, 192.0f, 30, 500, _S(_S($RAND % 2) + 1));
+	wait(4);
+	goto END @ 0;
+START:
+	enmNewRel("Ball01_Green", -224.0f, 192.0f, 30, 500, _S(_S($RAND % 2) + 1));
+	wait(4);
+	enmNewRelMir("Ball01_Purple", 224.0f, 192.0f, 30, 500, _S(_S($RAND % 2) + 1));
+	wait(4);
+END:
+	if $A-- goto START @ 0;
+	return();
+}
+
+sub MainSub09(off)
+{
+	var;
+	enmNewRel("GGirl04", _f(-128.0f - %off), -32.0f, 350, 1000, _S(_S($RAND % 2) + 1));
+	enmNewRelMir("GGirl04", _f(128.0f + %off), -32.0f, 350, 1000, _S(_S($RAND % 2) + 1));
+	wait(30);
+	enmNewRel("BGirl04", _f(-64.0f - %off), -32.0f, 350, 1000, _S(_S($RAND % 2) + 1));
+	enmNewRelMir("BGirl04", _f(64.0f + %off), -32.0f, 350, 1000, _S(_S($RAND % 2) + 1));
+	wait(30);
+	enmNewRel("RGirl04", _f(-0.0f - %off), -32.0f, 350, 1000, _S(_S($RAND % 2) + 1));
+	enmNewRelMir("RGirl04", _f(0.0f + %off), -32.0f, 350, 1000, _S(_S($RAND % 2) + 1));
+	wait(30);
+	return();
+}
+
+sub MainSub10()
+{
+	var;
+	enmNewRel("RGirl04", -132.0f, -32.0f, 350, 1000, 1);
+	wait(30);
+	enmNewRel("RGirl04", -4.0f, -32.0f, 350, 1000, 1);
+	return();
+}
+
+sub MainSub11()
+{
+	var;
+	enmNewRel("RGirl04", -132.0f, -32.0f, 350, 1000, 1);
+	enmNewRelMir("RGirl04", 132.0f, -32.0f, 350, 1000, 1);
+	return();
+}
+
+sub MainSub12()
+{
+	var;
+	enmNewRel("RGirl03", -160.0f, -32.0f, 450, 1000, 1);
+	enmNewRelMir("RGirl03", 160.0f, -32.0f, 450, 1000, 1);
+	wait(10);
+	enmNewRel("BGirl03", -112.0f, -32.0f, 450, 1000, 1);
+	enmNewRelMir("BGirl03", 112.0f, -32.0f, 450, 1000, 1);
+	wait(10);
+	enmNewRel("GGirl03", -64.0f, -32.0f, 450, 1000, 1);
+	enmNewRelMir("GGirl03", 64.0f, -32.0f, 450, 1000, 1);
+	wait(10);
+	enmNewRel("YGirl03", -16.0f, -32.0f, 450, 1000, 1);
+	enmNewRelMir("YGirl03", 16.0f, -32.0f, 450, 1000, 1);
+	wait(10);
+	enmNewRel("BGirl03", 32.0f, -32.0f, 450, 1000, 1);
+	enmNewRelMir("BGirl03", -32.0f, -32.0f, 450, 1000, 1);
+	wait(10);
+	return();
+}
+
 sub MapleEnemy()
 {
 	var A;
@@ -960,12 +997,18 @@ sub RGirl02()
 	delete();
 }
 
+sub RGirl03()
+{
+	var;
+	itemEx(1, 3);
+	call("Girl03", _SS 5, _SS 1);
+	delete();
+}
+
 sub RGirl04()
 {
-	var A;
-	anm(1);
-	anmScr(1, 51);
-	itemMain(1);
+	var;
+	itemEx(1, 3);
 	call("Girl04", _SS 5, _SS 1);
 	delete();
 }
@@ -1043,6 +1086,15 @@ sub YGirl01()
 	delete();
 }
 
+sub YGirl03()
+{
+	var;
+	itemEx(1, 1);
+	itemEx(2, 2);
+	call("Girl03", _SS 15, _SS 1);
+	delete();
+}
+
 sub YGirl04()
 {
 	var A;
@@ -1065,7 +1117,7 @@ sub main()
 {
 	var A B C;
 	setFlags(32);
-	call("MainMBossDebug");
+	goto DEBUG_LBL @ 3816;
 	callSep("LogoEnemy");
 400:
 	callSep("MainSub00a");
@@ -1111,26 +1163,65 @@ sub main()
 	callSep("MainSub05");
 3804:
 	enmNew("MBoss", 128.0f, -32.0f, 13000, 100000, 1);
+3805:
 	killWait();
+	msgBegin(3);
+3806:
 	msgWait();
-	call("MainSub04a");
-	wait(240);
-	callSep("MainSub02");
-	wait(660);
-	call("MainSub05");
-	wait(140);
+3816:
+DEBUG_LBL:
+	callSep("MainSub07", _ff 0.0f);
+3884:
+	callSep("MainSub08");
+3990:
+	callSep("MainSub07", _ff 32.0f);
+4178:
+	callSep("MainSub09", _ff 0.0f);
+4242:
+	callSep("MainSub08b");
+4294:
+	callSep("MainSub08b");
+4470:
+	callSep("MainSub09", _ff 4.0f);
+4560:
+	callSep("MainSub07", _ff -16.0f);
+4650:
+	callSep("MainSub10");
+4684:
+	callSep("MainSub08b");
+4736:
+	callSep("MainSub08b");
+4814:
+	callSep("MainSub08b");
+4866:
+	callSep("MainSub08b");
+4944:
+	callSep("MainSub08b");
+4996:
+	callSep("MainSub08b");
+5074:
+	callSep("MainSub08b");
+5126:
+	callSep("MainSub08b");
+5334:
+	callSep("MainSub11");
+5414:
+	callSep("MainSub12");
+5854:
+	enmNew("Boss", -144.0f, -16.0f, 40, 300000, 1);
+5914:
 	msgBegin(0);
+5915:
 	msgWait();
-	enmNew("Boss", -144.0f, -16.0f, 40, 1000, 1);
-	msgWait();
+5917:
 	killWait();
-3924:
 	msgBegin(1);
+5918:
 	msgWait();
-	goto main_816 @ 3924;
+	goto main_816 @ 5918;
 main_796:
 	wait(1000);
 main_816:
-	if 1 goto main_796 @ 3924;
+	if 1 goto main_796 @ 5918;
 	delete();
 }
