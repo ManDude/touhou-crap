@@ -10,7 +10,6 @@ sub MBoss()
 	enmClear();
 	resetBoss();
 	enmNewRel("Ecl_EtBreak_ni", 0.0f, 0.0f, 9999, 0, 0);
-	enmNewRel("Enemy_Auto_Power_Full", 0.0f, 0.0f, 9999, 0, 0);
 	anm(0);
 	ins_259(1, 95);
 	ins_259(2, 158);

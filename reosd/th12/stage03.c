@@ -841,7 +841,8 @@ sub main()
 {
 	var A B C;
 	setFlags(32);
-	goto DEBUG_LBL @ 3816;
+	enmNewRel("Enemy_Auto_Power_Full", 0.0f, 0.0f, 9999, 0, 0);
+	goto DEBUG_LBL @ 5854;
 	callSep("LogoEnemy");
 400:
 	callSep("MainSub00a");
@@ -893,7 +894,6 @@ sub main()
 3806:
 	msgWait();
 3816:
-DEBUG_LBL:
 	callSep("MainSub07", _ff 0.0f);
 3884:
 	callSep("MainSub08");
@@ -932,7 +932,8 @@ DEBUG_LBL:
 5414:
 	callSep("MainSub12");
 5854:
-	enmNew("Boss", -144.0f, -16.0f, 40, 300000, 1);
+DEBUG_LBL:
+	enmNew("Boss", 160.0f, -96.0f, 40, 300000, 1);
 5914:
 	msgBegin(0);
 5915:

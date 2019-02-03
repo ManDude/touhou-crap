@@ -3,220 +3,106 @@
 sub Boss()
 {
 	var A;
-	boss(0);
 	anm(2);
 	anmScr(0, 0);
 	setFlags(64);
-	hitbox(48.0f, 48.0f);
-	killbox(48.0f, 48.0f);
-	invinc(60);
+	boss(0);
+	hitbox(56.0f, 56.0f);
+	killbox(56.0f, 56.0f);
 	life(10900);
-	enmPosTime(60, 4, 0.0f, 128.0f);
-60:
+	enmPos(160.0f, -96.0f);
+	enmPosTime(100, 1, 0.0f, 150.0f);
+	wait(100);
+	setMoveArea(0.0f, 128.0f, 320.0f, 112.0f);
+	invinc(61);
+61:
 	msgWait();
-	setMoveArea(0.0f, 112.0f, 280.0f, 64.0f);
 	anm(0);
 	ins_259(1, 95);
 	ins_259(2, 158);
 	anm(2);
 	setBossFog(160.0f, 16728031);
+	life(14000);
 	call("Boss1");
 	delete();
 }
 
 sub Boss1()
 {
-	var;
 	resetBoss();
-	attack(0, 1700, 2640, "BossCard1");
-	lifebar(0, 1700.0f, -24448);
+	attack(0, 1900, 1800, "BossCard1");
+	lifebar(0, 1900.0f, -24448);
 	stageProg(24);
 	lives(2);
+	setMoveArea(0.0f, 96.0f, 320.0f, 96.0f);
 	anm(2);
 	anmScr(0, 0);
 	ins_263(0, 119);
 	playSE(31);
+	wait(50);
+	$LOCAL1 = 0;
 	goto Boss1_476 @ 0;
 Boss1_276:
-	callSep("Boss1_at1");
-	wait(60);
-	enmRand(60, 4, 3.0f);
-	wait(90);
-	callSep("Boss1_at1b");
-	wait(60);
-	enmRand(60, 4, 3.0f);
-	wait(90);
+	call("Boss1_at");
+	$LOCAL1 = $LOCAL1 + 1;
+	wait(120);
 Boss1_476:
 	if 1 goto Boss1_276 @ 0;
 	return();
 }
 
-sub Boss1_at1()
+sub Boss1_at()
 {
-	var A B C D E;
-	ins_269(0);
+	var ang spd C D E F;
+	%ang = %RANDRAD;
+	%spd = 2.0f;
+	$C = 30;
+	$D = $LOCAL1 + 5;
+	unless $D >= 10 goto JMP1 @ 0;
+	$D = 10;
+JMP1:
+	seti_rank($D, _S($D - 1), $D, _S($D + 2), _S($D + 5));
+	$E = $LOCAL1 % 2;
 	etNew(0);
-	etSpr(0, 7, 4);
-	etAng(0, 0.0f, 0.0f);
-	etSpd(0, 0.0f, 0.0f);
-	laserSetSize(0, 0.0f, 128.0f, 0.0f, 14.0f);
-	etSE(0, 19, -1);
-	setf_rank(%A, 0.033333335f, 0.03888889f, 0.055555556f, 0.055555556f);
-	etEx(0, 0, 0, 4, 90, -999999, %A, -999999.0f);
-	unless ($RANK >= 2) goto Boss1_at1_420 @ 0;
-	callSep("Boss1_at3b");
-Boss1_at1_420:
-	%B = -1.570796f;
-	callSep("Boss1_at2");
-	callSep("Boss1_at3");
-	seti_rank($E, 16, 32, 64, 56);
-	goto Boss1_at1_1108 @ 0;
-Boss1_at1_584:
-	ins_81(%C, %D, _f(%B + 1.5707964f), 64.0f);
-	etOfs(0, _f(%C - _f(8)), _f(%D - _f(32)));
-	etAng(0, %B, %B);
-	laserShoot(0);
-	%B = (%B + 0.19635f);
-!E
-	%B = (%B + 0.19635f);
-!L
-	%B = (%B - 0.049087f);
-!*
-	wait(1);
-Boss1_at1_1108:
-	if $E-- goto Boss1_at1_584 @ 0;
-	return();
-}
-
-sub Boss1_at1b()
-{
-	var A B C D E;
-	ins_269(0);
-	etNew(0);
-	etSpr(0, 7, 4);
-	etAng(0, 0.0f, 0.0f);
-	etSpd(0, 0.0f, 0.0f);
-	laserSetSize(0, 0.0f, 128.0f, 0.0f, 14.0f);
-	etSE(0, 19, -1);
-	setf_rank(%A, 0.033333335f, 0.03888889f, 0.055555556f, 0.055555556f);
-	etEx(0, 0, 0, 4, 90, -999999, %A, -999999.0f);
-	unless ($RANK >= 2) goto Boss1_at1b_420 @ 0;
-	callSep("Boss1_at3");
-Boss1_at1b_420:
-	%B = -1.570796f;
-	callSep("Boss1_at2");
-	callSep("Boss1_at3b");
-	seti_rank($E, 16, 32, 64, 56);
-	goto Boss1_at1b_1108 @ 0;
-Boss1_at1b_584:
-	ins_81(%C, %D, _f(%B + 1.5707964f), 64.0f);
-	etOfs(0, _f(%C - _f(8)), _f(%D - _f(32)));
-	etAng(0, %B, %B);
-	laserShoot(0);
-	%B = (%B + 0.19635f);
-!E
-	%B = (%B + 0.19635f);
-!L
-	%B = (%B - 0.049087f);
-!*
-	wait(1);
-Boss1_at1b_1108:
-	if $E-- goto Boss1_at1b_584 @ 0;
-	return();
-}
-
-sub Boss1_at2()
-{
-	var A B C D E;
-	etNew(1);
-	etSpr(1, 7, 6);
-	etAng(1, 0.0f, 0.0f);
-	etSpd(1, 0.0f, 0.0f);
-	laserSetSize(1, 0.0f, 128.0f, 0.0f, 14.0f);
-	etSE(0, 19, -1);
-	setf_rank(%D, 0.027777778f, 0.033333335f, 0.055555556f, 0.055555556f);
-	etEx(1, 0, 0, 4, 90, -999999, %D, -999999.0f);
-	%A = -1.570796f;
-	seti_rank($E, 16, 32, 64, 56);
-	goto Boss1_at2_912 @ 0;
-Boss1_at2_388:
-	ins_81(%B, %C, _f(%A - 1.5707964f), 64.0f);
-	etOfs(1, _f(%B - _f(8)), _f(%C - _f(32)));
-	etAng(1, %A, %A);
-	laserShoot(1);
-	%A = (%A - 0.19635f);
-!E
-	%A = (%A - 0.19635f);
-!L
-	%A = (%A + 0.049087f);
-!*
-	wait(1);
-Boss1_at2_912:
-	if $E-- goto Boss1_at2_388 @ 0;
-	return();
-}
-
-sub Boss1_at3()
-{
-	var A B C D E;
-	setf_rank(%D, 2.0f, 3.0f, 4.0f, 4.0f);
-	etNew(2);
-	etMode(2, 1);
-	etSpr(2, 7, 10);
-	etAmt(2, 1, 8);
-	etAng(2, 0.0f, 0.0f);
-	etSpd(2, %D, _f(%D - 0.5f));
-	etEx(2, 0, 0, 1024, 200, 0, -999999.0f, -999999.0f);
-	%D = (%D - _f(2));
-	%D = (_f(0) - %D);
-	etEx(2, 1, 1, 8, 90, -999999, _f(%D / _f(90)), 0.02617994f);
-	%A = -1.570796f;
-	seti_rank($E, 16, 32, 32, 32);
-	goto Boss1_at3_1136 @ 0;
-Boss1_at3_688:
-	ins_81(%B, %C, _f(%A - 3.1415927f), 48.0f);
-	etOfs(2, _f(%B - _f(8)), _f(%C - _f(32)));
-	etAng(2, %A, %A);
-	etOn(2);
-	%A = (%A - 0.19635f);
-!E
-	%A = (%A - 0.19635f);
-!*
-	wait(1);
-Boss1_at3_1136:
-	if $E-- goto Boss1_at3_688 @ 0;
-	return();
-}
-
-sub Boss1_at3b()
-{
-	var A B C D E;
-	setf_rank(%D, 2.0f, 3.0f, 4.0f, 4.0f);
-	etNew(3);
-	etMode(3, 1);
-	etSpr(3, 7, 10);
-	etAmt(3, 1, 8);
-	etAng(3, 0.0f, 0.0f);
-	etSpd(3, %D, _f(%D - 0.5f));
-	etEx(3, 0, 0, 1024, 200, 0, -999999.0f, -999999.0f);
-	%D = (%D - _f(2));
-	%D = (_f(0) - %D);
-	etEx(3, 1, 1, 8, 90, -999999, _f(%D / _f(90)), -0.02617994f);
-	%A = -1.570796f;
-	seti_rank($E, 16, 32, 32, 32);
-	goto Boss1_at3b_1136 @ 0;
-Boss1_at3b_688:
-	ins_81(%B, %C, _f(%A - 3.1415927f), 48.0f);
-	etOfs(3, _f(%B - _f(8)), _f(%C - _f(32)));
-	etAng(3, %A, %A);
-	etOn(3);
-	%A = (%A - 0.19635f);
-!E
-	%A = (%A - 0.19635f);
-!*
-	wait(1);
-Boss1_at3b_1136:
-	if $E-- goto Boss1_at3b_688 @ 0;
+	etMode(0, 2);
+	etSpr(0, 9, 2);
+	etAmt(0, $D, 1);
+	etEx(0, 0, 0, 2, 1, -999999, -999999.0f, -999999.0f);
+	etOfs(0, 0.0f, -12.0f);
+	goto END1 @ 0;
+START1:
+	etSpd(0, %spd, 0.6f);
+	etAng(0, %ang, 0.0f);
+	etOn(0);
+	unless $E == 0 goto JMP2_1 @ 0;
+	%ang = %ang + 0.09817477042468103870195760572748f;
+	goto JMP2_2 @ 0;
+JMP2_1:
+	%ang = %ang - 0.09817477042468103870195760572748f;
+JMP2_2:
+	%spd = %spd + 0.05f;
+	wait(4);
+END1:
+	if $C-- goto START1 @ 0;
+	enmRand(40, 1, 5.0f);
+	$C = 16;
+	%F = 0.03926990816987241548078304229099f;
+	goto END2 @ 0;
+START2:
+	etSpd(0, %spd, 0.6f);
+	etAng(0, %ang, 0.0f);
+	etOn(0);
+	unless $E == 0 goto JMP3_1 @ 0;
+	%ang = %ang + %F;
+	goto JMP3_2 @ 0;
+JMP3_1:
+	%ang = %ang - %F;
+JMP3_2:
+	%F = %F + 0.06544984694978735913463840381832f;
+	%spd = %spd + 0.06f;
+	wait(2);
+END2:
+	if $C-- goto START2 @ 0;
 	return();
 }
 
