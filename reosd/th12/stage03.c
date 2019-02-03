@@ -1,33 +1,11 @@
 anim { "enemy.anm"; "stgenm03.anm"; }
 ecli { "default.ecl"; "stage03boss.ecl"; "stage03mbs.ecl"; }
 
-sub BCir00()
-{
-	var A;
-	itemClear();
-	itemMain(2);
-	itemEx(2, 4);
-	call("Cir00", _SS 92, _SS 50, _SS 1);
-	delete();
-}
-
 sub BGirl00()
 {
 	var A;
 	itemEx(2, 3);
 	call("Girl00", _SS 0, _SS 1);
-	delete();
-}
-
-sub BGirl01()
-{
-	var A;
-	itemClear();
-	itemMain(2);
-	itemEx(2, 3);
-	anm(1);
-	anmScr(1, 50);
-	call("Girl01", _SS 0, _SS 1);
 	delete();
 }
 
@@ -57,16 +35,6 @@ sub BGirl04()
 	delete();
 }
 
-sub BGirl04b()
-{
-	var A;
-	itemMain(2);
-	anm(1);
-	anmScr(1, 50);
-	call("Girl04b", _SS 0, _SS 1);
-	delete();
-}
-
 sub Ball00(A B C)
 {
 	var D E;
@@ -75,6 +43,8 @@ sub Ball00(A B C)
 	ins_259(0, $A);
 	hitbox(28.0f, 28.0f);
 	killbox(28.0f, 28.0f);
+	itemEx(1, 1);
+	itemEx(2, 1);
 !HL
 	etNew(0);
 	etSpr(0, 8, 6);
@@ -167,6 +137,8 @@ sub Ball01(A B C)
 	ins_259(0, $A);
 	hitbox(28.0f, 28.0f);
 	killbox(28.0f, 28.0f);
+	itemEx(1, 1);
+	itemEx(2, 1);
 !HL
 	etNew(0);
 	etSpr(0, 8, 6);
@@ -225,96 +197,12 @@ sub Ball01_Red()
 	delete();
 }
 
-sub Cir00(A B C)
-{
-	var D E F;
-	$F = 1;
-!NHL
-	attack(0, 0, -1, "Cir00Dead");
-!*
-	setFlags(3);
-	playSE(40);
-	anm(1);
-	ins_263(1, 103);
-	wait(40);
-	ins_259(0, $A);
-	wait(30);
-	callSep("Cir00_at");
-	unsetFlags(3);
-	hitbox(24.0f, 24.0f);
-	killbox(16.0f, 16.0f);
-	enmDir(1.5707964f, 1.0f);
-	goto Cir00_436 @ 0;
-Cir00_416:
-	wait(1000);
-Cir00_436:
-	if 1 goto Cir00_416 @ 0;
-	return();
-}
-
-sub Cir00Dead()
-{
-	var;
-	etNew(0);
-	etMode(0, 0);
-	etSpr(0, 18, 4);
-	etAmt_rank(0, 1, 1, 3, 3, 1, 1, 1, 1);
-	etAng(0, 0.0f, 0.3926991f);
-	etSpd_rank(0, 0.0f, 0.0f, 0.0f, 0.0f, 1.0f, 1.0f, 1.0f, 2.0f);
-	etEx(0, 0, 1, 2, 1, -999999, -999999.0f, -999999.0f);
-	etEx(0, 1, 0, 4, 60, -999999, 0.026666667f, -999999.0f);
-	playSE(22);
-	etOn(0);
-	wait(1);
-	return();
-}
-
-sub Cir00_at()
-{
-	var A B C D;
-	etNew(0);
-	etMode(0, 2);
-	etSpr(0, 5, 7);
-	etAmt_rank(0, 1, 1, 3, 4, 1, 1, 1, 1);
-	etAng(0, 0.0f, 0.05235988f);
-	etSpd_rank(0, 1.0f, 1.0f, 2.0f, 2.0f, 1.0f, 1.0f, 1.0f, 1.0f);
-	etEx(0, 0, 1, 2, 1, -999999, -999999.0f, -999999.0f);
-	etDist(0, 16.0f);
-	$D = 10;
-	goto Cir00_at_444 @ 0;
-Cir00_at_376:
-	etAng(0, %RANDRAD, 0.0f);
-	etOn(0);
-	wait(12);
-Cir00_at_444:
-	if $D-- goto Cir00_at_376 @ 0;
-	return();
-}
-
-sub GCir00()
-{
-	var A;
-	itemMain(9);
-	call("Cir00", _SS 89, _SS 52, _SS 1);
-	delete();
-}
-
 sub GGirl00()
 {
 	var A;
 	itemEx(1, 2);
 	itemEx(2, 1);
 	call("Girl00", _SS 10, _SS 1);
-	delete();
-}
-
-sub GGirl01()
-{
-	var A;
-	itemMain(9);
-	anm(1);
-	anmScr(1, 52);
-	call("Girl01", _SS 10, _SS 1);
 	delete();
 }
 
@@ -333,16 +221,6 @@ sub GGirl04()
 	itemEx(1, 2);
 	itemEx(2, 1);
 	call("Girl04", _SS 10, _SS 1);
-	delete();
-}
-
-sub GGirl04b()
-{
-	var A;
-	itemMain(9);
-	anm(1);
-	anmScr(1, 52);
-	call("Girl04b", _SS 10, _SS 1);
 	delete();
 }
 
@@ -478,39 +356,6 @@ MIR2_END:
 	endSlot(2);
 10000:
 	delete();
-}
-
-sub Girl02_at()
-{
-	var A;
-	etNew(0);
-	etMode(0, 2);
-	etSpr(0, 11, 3);
-	etAmt_rank(0, 3, 3, 3, 3, 8, 8, 14, 18);
-	etAng(0, 0.0f, 0.032724924f);
-	etSpd_rank(0, 1.5f, 1.5f, 3.0f, 5.5f, 1.0f, 1.0f, 1.0f, 2.0f);
-	etEx(0, 0, 1, 2, 1, -999999, -999999.0f, -999999.0f);
-	etEx(0, 1, 1, 1, -999999, -999999, -999999.0f, -999999.0f);
-	$A = 3;
-	goto Girl02_at_672 @ 0;
-Girl02_at_400:
-	etAng(0, 0.0f, 0.024543693f);
-	etSpd(0, 3.0f, 2.0f);
-!L
-	etSpd(0, 3.5f, 1.5f);
-!*
-	etOn(0);
-	wait_rank(50, 30, 30, 30);
-	etAng(0, 0.0f, -0.024543693f);
-	etSpd(0, 3.0f, 2.0f);
-!L
-	etSpd(0, 3.5f, 1.5f);
-!*
-	etOn(0);
-	wait_rank(50, 30, 30, 30);
-Girl02_at_672:
-	if $A-- goto Girl02_at_400 @ 0;
-	return();
 }
 
 sub Girl03(A B)
@@ -940,50 +785,11 @@ MapleEnemy_124:
 	delete();
 }
 
-sub PCir00()
-{
-	var A;
-	call("Cir00", _SS 95, _SS 53, _SS 1);
-	delete();
-}
-
-sub RCir00()
-{
-	var A;
-	itemMain(1);
-	itemClear();
-	itemMain(1);
-	itemEx(1, 4);
-	call("Cir00", _SS 86, _SS 51, _SS 1);
-	delete();
-}
-
 sub RGirl00()
 {
 	var;
 	itemEx(1, 3);
 	call("Girl00", _SS 5, _SS 1);
-	delete();
-}
-
-sub RGirl01()
-{
-	var A;
-	itemClear();
-	itemMain(1);
-	itemEx(1, 2);
-	anm(1);
-	anmScr(1, 51);
-	call("Girl01", _SS 5, _SS 1);
-	delete();
-}
-
-sub RGirl01n()
-{
-	var A;
-	anm(1);
-	anmScr(1, 51);
-	call("Girl01", _SS 5, _SS 0);
 	delete();
 }
 
@@ -1013,60 +819,6 @@ sub RGirl04()
 	delete();
 }
 
-sub RGirl04_at()
-{
-	var A;
-	etNew(0);
-	etMode(0, 0);
-	etSpr(0, 7, 6);
-	etAmt_rank(0, 1, 1, 3, 3, 1, 1, 1, 1);
-	etAng(0, 1.5707964f, 0.032724924f);
-	etSpd_rank(0, 1.3f, 2.6f, 3.0f, 5.0f, 1.0f, 1.0f, 1.0f, 2.0f);
-	etEx(0, 0, 1, 2, 1, -999999, -999999.0f, -999999.0f);
-	seti_rank($A, 1, 5, 8, 10);
-	goto RGirl04_at_484 @ 0;
-RGirl04_at_348:
-	etAng(0, _f(%RANDRAD / _f(16)), 0.049087387f);
-	etOn(0);
-	wait_rank(20, 20, 10, 10);
-RGirl04_at_484:
-	if $A-- goto RGirl04_at_348 @ 0;
-	return();
-}
-
-sub RGirl04b()
-{
-	var A;
-	anm(1);
-	anmScr(1, 51);
-	itemMain(1);
-	call("Girl04b", _SS 5, _SS 1);
-	delete();
-}
-
-sub RGirl04b_at()
-{
-	var A B;
-	seti_rank($A, 1, 4, 1, 2);
-	seti_rank($B, 60, 30, 30, 10);
-	etNew(0);
-	etMode(0, 0);
-	etSpr(0, 7, 6);
-	etAmt_rank(0, 1, 1, 3, 5, 1, 1, 1, 1);
-	etAng(0, 1.5707964f, 0.032724924f);
-	etSpd_rank(0, 1.3f, 1.6f, 3.0f, 5.5f, 1.0f, 1.0f, 1.0f, 2.0f);
-	wait(_S($RAND % 60));
-	etEx(0, 0, 1, 2, 1, -999999, -999999.0f, -999999.0f);
-	goto RGirl04b_at_584 @ 0;
-RGirl04b_at_460:
-	etAng(0, _f(%RANDRAD / _f(16)), 0.049087387f);
-	etOn(0);
-	wait($B);
-RGirl04b_at_584:
-	if $A-- goto RGirl04b_at_460 @ 0;
-	return();
-}
-
 sub YGirl00()
 {
 	var;
@@ -1076,40 +828,12 @@ sub YGirl00()
 	delete();
 }
 
-sub YGirl01()
-{
-	var A;
-	anm(1);
-	anmScr(1, 53);
-	anmScr(2, 99);
-	call("Girl01", _SS 15, _SS 1);
-	delete();
-}
-
 sub YGirl03()
 {
 	var;
 	itemEx(1, 1);
 	itemEx(2, 2);
 	call("Girl03", _SS 15, _SS 1);
-	delete();
-}
-
-sub YGirl04()
-{
-	var A;
-	anm(1);
-	anmScr(1, 53);
-	call("Girl04", _SS 15, _SS 1);
-	delete();
-}
-
-sub YGirl04b()
-{
-	var A;
-	anm(1);
-	anmScr(1, 53);
-	call("Girl04b", _SS 15, _SS 1);
 	delete();
 }
 
