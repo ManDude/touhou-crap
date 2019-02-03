@@ -163,7 +163,7 @@ sub Boss1_at3()
 	etNew(2);
 	etMode(2, 1);
 	etSpr(2, 7, 10);
-	etCnt(2, 1, 8);
+	etAmt(2, 1, 8);
 	etAng(2, 0.0f, 0.0f);
 	etSpd(2, %D, _f(%D - 0.5f));
 	etEx(2, 0, 0, 1024, 200, 0, -999999.0f, -999999.0f);
@@ -195,7 +195,7 @@ sub Boss1_at3b()
 	etNew(3);
 	etMode(3, 1);
 	etSpr(3, 7, 10);
-	etCnt(3, 1, 8);
+	etAmt(3, 1, 8);
 	etAng(3, 0.0f, 0.0f);
 	etSpd(3, %D, _f(%D - 0.5f));
 	etEx(3, 0, 0, 1024, 200, 0, -999999.0f, -999999.0f);
@@ -284,7 +284,7 @@ sub Boss2_at1()
 	etNew(0);
 	etMode(0, 1);
 	etSpr(0, 7, 6);
-	etCnt_rank(0, 1, 1, 1, 1, 5, 5, 10, 10);
+	etAmt_rank(0, 1, 1, 1, 1, 5, 5, 10, 10);
 	etAng(0, 0.0f, 0.0f);
 	etSpd_rank(0, 4.0f, 4.0f, 4.0f, 4.0f, 3.7f, 3.7f, 3.7f, 3.7f);
 	etEx(0, 0, 1, 2, 1, -999999, -999999.0f, -999999.0f);
@@ -317,7 +317,7 @@ sub Boss2_at1b()
 	etNew(0);
 	etMode(0, 1);
 	etSpr(0, 7, 4);
-	etCnt_rank(0, 1, 1, 1, 1, 5, 5, 10, 5);
+	etAmt_rank(0, 1, 1, 1, 1, 5, 5, 10, 5);
 	etAng(0, 0.0f, 0.0f);
 	etSpd_rank(0, 4.0f, 4.0f, 4.0f, 4.0f, 3.7f, 3.7f, 3.7f, 3.7f);
 	etEx(0, 0, 1, 2, 1, -999999, -999999.0f, -999999.0f);
@@ -349,7 +349,7 @@ sub Boss2_at2()
 	etNew(1);
 	etMode(1, 1);
 	etSpr(1, 7, 6);
-	etCnt_rank(1, 1, 1, 1, 1, 5, 5, 10, 5);
+	etAmt_rank(1, 1, 1, 1, 1, 5, 5, 10, 5);
 	etAng(1, 0.0f, 0.0f);
 	etSpd_rank(1, 4.0f, 4.0f, 4.0f, 4.0f, 3.7f, 3.7f, 3.7f, 3.7f);
 	etEx(1, 0, 1, 2, 1, -999999, -999999.0f, -999999.0f);
@@ -379,7 +379,7 @@ sub Boss2_at3()
 	etNew(2);
 	etMode(2, 1);
 	etSpr(2, 7, 8);
-	etCnt(2, 1, 8);
+	etAmt(2, 1, 8);
 	etAng(2, 0.0f, 0.0f);
 	etSpd(2, 4.0f, 3.5f);
 	etEx(2, 0, 1, 2, 1, -999999, -999999.0f, -999999.0f);
@@ -409,7 +409,7 @@ sub Boss2_at3b()
 	etNew(2);
 	etMode(2, 1);
 	etSpr(2, 7, 8);
-	etCnt(2, 1, 8);
+	etAmt(2, 1, 8);
 	etAng(2, 0.0f, 0.0f);
 	etSpd(2, 4.0f, 3.5f);
 	etEx(2, 0, 1, 2, 1, -999999, -999999.0f, -999999.0f);
@@ -497,7 +497,7 @@ sub Boss3_at1()
 	etNew(0);
 	etMode(0, 1);
 	etSpr(0, 7, 6);
-	etCnt_rank(0, 1, 1, 1, 1, 5, 5, 8, 8);
+	etAmt_rank(0, 1, 1, 1, 1, 5, 5, 8, 8);
 	etAng(0, 0.0f, 0.0f);
 	etSpd_rank(0, 2.5f, 3.0f, 4.5f, 5.0f, 2.2f, 2.7f, 3.3f, 3.7f);
 	etEx(0, 0, 1, 2, 1, -999999, -999999.0f, -999999.0f);
@@ -529,7 +529,7 @@ sub Boss3_at1b()
 	etNew(0);
 	etMode(0, 1);
 	etSpr(0, 7, 4);
-	etCnt_rank(0, 1, 1, 1, 1, 5, 5, 8, 8);
+	etAmt_rank(0, 1, 1, 1, 1, 5, 5, 8, 8);
 	etAng(0, 0.0f, 0.0f);
 	etSpd_rank(0, 2.5f, 3.0f, 4.5f, 5.0f, 2.2f, 2.7f, 3.3f, 3.7f);
 	etEx(0, 0, 1, 2, 1, -999999, -999999.0f, -999999.0f);
@@ -560,7 +560,7 @@ sub Boss3_at2()
 	etNew(1);
 	etMode(1, 1);
 	etSpr(1, 7, 6);
-	etCnt_rank(1, 1, 1, 1, 1, 5, 5, 8, 8);
+	etAmt_rank(1, 1, 1, 1, 1, 5, 5, 8, 8);
 	etAng(1, 0.0f, 0.0f);
 	etSpd_rank(1, 2.5f, 3.0f, 4.5f, 5.0f, 2.2f, 2.7f, 3.3f, 3.7f);
 	etEx(1, 0, 1, 2, 1, -999999, -999999.0f, -999999.0f);
@@ -589,7 +589,7 @@ sub Boss3_at3()
 	etNew(2);
 	etMode(2, 1);
 	etSpr(2, 7, 8);
-	etCnt_rank(2, 1, 1, 1, 1, 8, 8, 8, 8);
+	etAmt_rank(2, 1, 1, 1, 1, 8, 8, 8, 8);
 	etAng(2, 0.0f, 0.0f);
 	etSpd_rank(2, 2.5f, 3.0f, 4.0f, 5.0f, 2.2f, 2.5f, 3.3f, 3.5f);
 	etEx(2, 0, 1, 2, 1, -999999, -999999.0f, -999999.0f);
@@ -618,7 +618,7 @@ sub Boss3_at3b()
 	etNew(2);
 	etMode(2, 1);
 	etSpr(2, 7, 8);
-	etCnt_rank(2, 1, 1, 1, 1, 8, 8, 8, 8);
+	etAmt_rank(2, 1, 1, 1, 1, 8, 8, 8, 8);
 	etAng(2, 0.0f, 0.0f);
 	etSpd_rank(2, 2.5f, 3.0f, 4.0f, 5.0f, 2.2f, 2.5f, 3.3f, 3.5f);
 	etEx(2, 0, 1, 2, 1, -999999, -999999.0f, -999999.0f);
@@ -727,7 +727,7 @@ sub BossCard1ArmAt()
 	etNew(0);
 	etMode(0, 1);
 	etSpr(0, 3, 4);
-	etCnt(0, 1, 1);
+	etAmt(0, 1, 1);
 	etAng(0, 0.0f, 0.032724924f);
 	etSpd(0, 0.0f, 1.0f);
 	etEx(0, 0, 1, 2, 1, -999999, -999999.0f, -999999.0f);
@@ -757,7 +757,7 @@ sub BossCard1ArmAtL()
 	etNew(0);
 	etMode(0, 1);
 	etSpr(0, 3, 4);
-	etCnt(0, 1, 1);
+	etAmt(0, 1, 1);
 	etAng(0, 0.0f, 0.032724924f);
 	etSpd(0, 0.0f, 1.0f);
 	etEx(0, 0, 1, 2, 1, -999999, -999999.0f, -999999.0f);
@@ -882,7 +882,7 @@ BossCard1At_600:
 	etNew(0);
 	etMode(0, 3);
 	etSpr(0, 5, 4);
-	etCnt(0, 3, 1);
+	etAmt(0, 3, 1);
 	etAng(0, 0.0f, 0.032724924f);
 	etSpd(0, 4.0f, 1.0f);
 	etEx(0, 0, 1, 2, 1, -999999, -999999.0f, -999999.0f);
@@ -1197,7 +1197,7 @@ sub BossCard2ArmAt()
 	etNew(0);
 	etMode(0, 3);
 	etSpr(0, 3, 4);
-	etCnt_rank(0, 6, 10, 14, 14, 1, 1, 1, 1);
+	etAmt_rank(0, 6, 10, 14, 14, 1, 1, 1, 1);
 	etAng(0, 0.0f, 0.032724924f);
 	etSpd_rank(0, 0.0f, 0.0f, 0.0f, 0.0f, 1.0f, 1.0f, 1.0f, 1.0f);
 	etEx(0, 0, 1, 2, 1, -999999, -999999.0f, -999999.0f);
@@ -1217,7 +1217,7 @@ sub BossCard2ArmAtH()
 	etNew(0);
 	etMode(0, 3);
 	etSpr(0, 3, 4);
-	etCnt_rank(0, 6, 14, 14, 14, 1, 1, 1, 1);
+	etAmt_rank(0, 6, 14, 14, 14, 1, 1, 1, 1);
 	etAng(0, 0.0f, 0.032724924f);
 	etSpd_rank(0, 0.0f, 0.0f, 0.0f, 0.0f, 1.0f, 1.0f, 1.0f, 1.0f);
 	etEx(0, 0, 1, 2, 1, -999999, -999999.0f, -999999.0f);
@@ -1232,7 +1232,7 @@ sub BossCard2ArmAtH()
 	etNew(0);
 	etMode(0, 3);
 	etSpr(0, 3, 4);
-	etCnt_rank(0, 6, 14, 14, 14, 1, 1, 1, 1);
+	etAmt_rank(0, 6, 14, 14, 14, 1, 1, 1, 1);
 	etAng(0, 0.0f, 0.032724924f);
 	etSpd_rank(0, 0.0f, 0.0f, 0.0f, 0.0f, 1.0f, 1.0f, 1.0f, 1.0f);
 	etEx(0, 0, 1, 2, 1, -999999, -999999.0f, -999999.0f);
@@ -1253,7 +1253,7 @@ sub BossCard2ArmAtL()
 	etNew(0);
 	etMode(0, 1);
 	etSpr(0, 3, 4);
-	etCnt(0, 1, 1);
+	etAmt(0, 1, 1);
 	etAng(0, 0.0f, 0.032724924f);
 	etSpd(0, 0.0f, 1.0f);
 	etEx(0, 0, 1, 2, 1, -999999, -999999.0f, -999999.0f);
@@ -1555,7 +1555,7 @@ sub BossCard3ArmAt()
 	etNew(0);
 	etMode(0, 2);
 	etSpr(0, 24, 0);
-	etCnt(0, 1, 1);
+	etAmt(0, 1, 1);
 	etAng(0, 0.0f, 0.032724924f);
 	etSpd(0, 0.0f, 1.0f);
 	etEx(0, 0, 1, 2, 1, -999999, -999999.0f, -999999.0f);
@@ -1581,7 +1581,7 @@ sub BossCard3ArmAtL()
 	etNew(0);
 	etMode(0, 1);
 	etSpr(0, 3, 4);
-	etCnt(0, 1, 1);
+	etAmt(0, 1, 1);
 	etAng(0, 0.0f, 0.032724924f);
 	etSpd(0, 0.0f, 1.0f);
 	etEx(0, 0, 1, 2, 1, -999999, -999999.0f, -999999.0f);

@@ -76,12 +76,12 @@ sub Ball00(A B C)
 	etEx(0, 0, 0, 2, 1, -999999, -999999.0f, -999999.0f);
 !H
 	etMode(0, 0);
-	etCnt(0, 1, 1);
+	etAmt(0, 1, 1);
 	etSpd(0, 2.0f, 0.0f);
 	callSlot("Ball00atH", 1);
 !L
 	etMode(0, 2);
-	etCnt(0, 10, 2);
+	etAmt(0, 10, 2);
 	etSpd(0, 3.0f, 1.0f);
 	callSlot("Ball00atL", 1);
 !*
@@ -168,12 +168,12 @@ sub Ball01(A B C)
 	etEx(0, 0, 0, 2, 1, -999999, -999999.0f, -999999.0f);
 !H
 	etMode(0, 0);
-	etCnt(0, 1, 1);
+	etAmt(0, 1, 1);
 	etSpd(0, 2.0f, 0.0f);
 	callSlot("Ball00atH", 1);
 !L
 	etMode(0, 2);
-	etCnt(0, 10, 2);
+	etAmt(0, 10, 2);
 	etSpd(0, 3.0f, 1.0f);
 	callSlot("Ball00atL", 1);
 !*
@@ -252,7 +252,7 @@ sub Cir00Dead()
 	etNew(0);
 	etMode(0, 0);
 	etSpr(0, 18, 4);
-	etCnt_rank(0, 1, 1, 3, 3, 1, 1, 1, 1);
+	etAmt_rank(0, 1, 1, 3, 3, 1, 1, 1, 1);
 	etAng(0, 0.0f, 0.3926991f);
 	etSpd_rank(0, 0.0f, 0.0f, 0.0f, 0.0f, 1.0f, 1.0f, 1.0f, 2.0f);
 	etEx(0, 0, 1, 2, 1, -999999, -999999.0f, -999999.0f);
@@ -269,7 +269,7 @@ sub Cir00_at()
 	etNew(0);
 	etMode(0, 2);
 	etSpr(0, 5, 7);
-	etCnt_rank(0, 1, 1, 3, 4, 1, 1, 1, 1);
+	etAmt_rank(0, 1, 1, 3, 4, 1, 1, 1, 1);
 	etAng(0, 0.0f, 0.05235988f);
 	etSpd_rank(0, 1.0f, 1.0f, 2.0f, 2.0f, 1.0f, 1.0f, 1.0f, 1.0f);
 	etEx(0, 0, 1, 2, 1, -999999, -999999.0f, -999999.0f);
@@ -350,13 +350,13 @@ sub Girl00(A B)
 	etNew(0);
 	etMode(0, 1);
 	etSpr(0, 8, 6);
-	etCnt_rank(0, 1, 1, 3, 5, 1, 1, 1, 1);
+	etAmt_rank(0, 1, 1, 3, 5, 1, 1, 1, 1);
 	etEx(0, 0, 0, 2, 1, -999999, -999999.0f, -999999.0f);
 !HL
 	etNew(1);
 	etMode(1, 2);
 	etSpr(1, 3, 6);
-	etCnt(1, 16, 1);
+	etAmt(1, 16, 1);
 	etSpd(1, 1.6f, 0.0f);
 	etAng(1, %ang, 0.39269908169872415480783042290994f);
 	etEx(1, 0, 0, 2, 1, -999999, -999999.0f, -999999.0f);
@@ -398,7 +398,7 @@ sub Girl01()
 	etNew(0);
 	etMode(0, 0);
 	etSpr(0, 5, 2);
-	etCnt_rank(0, 8, 16, 24, 24, 1, 1, 1, 3);
+	etAmt_rank(0, 8, 16, 24, 24, 1, 1, 1, 3);
 !EN
 	etSpd(0, %spd, 0.0f);
 !HL
@@ -432,7 +432,7 @@ sub Girl02(A B)
 	etNew(0);
 	etMode(0, 0);
 	etSpr(0, 0, 1);
-	etCnt_rank(0, 1, 3, 3, 7, 1, 1, 1, 1);
+	etAmt_rank(0, 1, 3, 3, 7, 1, 1, 1, 1);
 !EN
 	etSpd(0, 1.5f, 0.0f);
 !HL
@@ -472,7 +472,7 @@ sub Girl02_at()
 	etNew(0);
 	etMode(0, 2);
 	etSpr(0, 11, 3);
-	etCnt_rank(0, 3, 3, 3, 3, 8, 8, 14, 18);
+	etAmt_rank(0, 3, 3, 3, 3, 8, 8, 14, 18);
 	etAng(0, 0.0f, 0.032724924f);
 	etSpd_rank(0, 1.5f, 1.5f, 3.0f, 5.5f, 1.0f, 1.0f, 1.0f, 2.0f);
 	etEx(0, 0, 1, 2, 1, -999999, -999999.0f, -999999.0f);
@@ -526,7 +526,7 @@ sub Girl02b_at()
 	etNew(0);
 	etMode(0, 1);
 	etSpr(0, 7, 4);
-	etCnt_rank(0, 1, 4, 3, 5, 1, 2, 1, 1);
+	etAmt_rank(0, 1, 4, 3, 5, 1, 2, 1, 1);
 	etAng(0, 0.0f, 0.032724924f);
 	etSpd_rank(0, 1.5f, 1.5f, 3.0f, 5.5f, 1.0f, 1.0f, 1.0f, 2.0f);
 	etEx(0, 0, 1, 2, 1, -999999, -999999.0f, -999999.0f);
@@ -572,7 +572,7 @@ sub Girl03_at()
 	etNew(0);
 	etMode(0, 3);
 	etSpr(0, 11, 3);
-	etCnt_rank(0, 4, 8, 8, 8, 6, 6, 9, 12);
+	etAmt_rank(0, 4, 8, 8, 8, 6, 6, 9, 12);
 	etAng(0, 0.0f, 0.032724924f);
 	etSpd_rank(0, 1.5f, 1.5f, 3.0f, 3.0f, 1.0f, 1.0f, 1.0f, 1.0f);
 	etEx(0, 0, 1, 2, 1, -999999, -999999.0f, -999999.0f);
@@ -976,7 +976,7 @@ sub RGirl04_at()
 	etNew(0);
 	etMode(0, 0);
 	etSpr(0, 7, 6);
-	etCnt_rank(0, 1, 1, 3, 3, 1, 1, 1, 1);
+	etAmt_rank(0, 1, 1, 3, 3, 1, 1, 1, 1);
 	etAng(0, 1.5707964f, 0.032724924f);
 	etSpd_rank(0, 1.3f, 2.6f, 3.0f, 5.0f, 1.0f, 1.0f, 1.0f, 2.0f);
 	etEx(0, 0, 1, 2, 1, -999999, -999999.0f, -999999.0f);
@@ -1009,7 +1009,7 @@ sub RGirl04b_at()
 	etNew(0);
 	etMode(0, 0);
 	etSpr(0, 7, 6);
-	etCnt_rank(0, 1, 1, 3, 5, 1, 1, 1, 1);
+	etAmt_rank(0, 1, 1, 3, 5, 1, 1, 1, 1);
 	etAng(0, 1.5707964f, 0.032724924f);
 	etSpd_rank(0, 1.3f, 1.6f, 3.0f, 5.5f, 1.0f, 1.0f, 1.0f, 2.0f);
 	wait(_S($RAND % 60));

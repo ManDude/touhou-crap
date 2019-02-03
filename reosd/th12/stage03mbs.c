@@ -51,10 +51,10 @@ sub MBoss1()
 	etAng(0, 0.0f, 0.03490658503988659153847381536977f);
 	etEx(0, 0, 0, 2, 1, -999999, -999999.0f, -999999.0f);
 !H
-	etCnt(0, 24, 1);
+	etAmt(0, 24, 1);
 	etSpd(0, 2.5f, 0.0f);
 !L
-	etCnt(0, 32, 2);
+	etAmt(0, 32, 2);
 	etSpd(0, 3.0f, 2.0f);
 !*
 	goto MBoss1_160 @ 90;
@@ -91,7 +91,7 @@ sub MBoss1_at1()
 	etNew(1);
 	etMode(1, 7);
 	etSpr(1, 3, 6);
-	etCnt_rank(1, 12, 16, 20, 24, 1, 1, 1, 1);
+	etAmt_rank(1, 12, 16, 20, 24, 1, 1, 1, 1);
 	etSpd(1, 3.0f, 1.7f);
 	etAng(1, 0.0f, 0.0f);
 	etEx(1, 0, 0, 2, 1, -999999, -999999.0f, -999999.0f);
@@ -116,7 +116,7 @@ sub MBoss1_at2()
 	etSpr(1, 5, 2);
 	etAng(1, 0.0f, 0.0f);
 	etSpd(1, 1.1f, 0.6f);
-	etCnt_rank(1, 64, 76, 88, 96, 1, 1, 1, 1);
+	etAmt_rank(1, 64, 76, 88, 96, 1, 1, 1, 1);
 	etEx(1, 0, 0, 2, 1, -999999, -999999.0f, -999999.0f);
 	etOn(1);
 10:
@@ -146,13 +146,6 @@ MBossCard1_228:
 	invinc(120);
 	enmPosTime(120, 4, 0.0f, 144.0f);
 	setMoveArea(0.0f, 128.0f, 280.0f, 64.0f);
-	unless ($TIMEOUT == 0) goto MBossCard1_736 @ 0;
-	itemClear();
-	itemEx(1, 30);
-	itemEx(2, 30);
-	itemArea(48.0f, 48.0f);
-	itemDrop();
-MBossCard1_736:
 	enmNewRel("Ecl_EtBreak", 0.0f, 0.0f, 9999, 0, 0);
 	attack(0, 0, 1200, "MBossDead");
 	timeoutAt(0, "MBossEscape");
@@ -177,9 +170,9 @@ sub MBossCard1E()
 	etSpd(0, 2.0f, 0.6f);
 	etEx(0, 0, 0, 2, 1, -999999, -999999.0f, -999999.0f);
 !E
-	etCnt(0, 5, 1);
+	etAmt(0, 5, 1);
 !N
-	etCnt(0, 6, 1);
+	etAmt(0, 6, 1);
 !*
 	etNew(1);
 	etMode(1, 2);
@@ -188,9 +181,9 @@ sub MBossCard1E()
 	etAng(1, 0.0f, 0.0f);
 	etEx(1, 0, 0, 2, 1, -999999, -999999.0f, -999999.0f);
 !E
-	etCnt(1, 32, 1);
+	etAmt(1, 32, 1);
 !N
-	etCnt(1, 42, 1);
+	etAmt(1, 42, 1);
 !*
 	%A = %RANDRAD;
 	%B = %RANDRAD;
@@ -233,6 +226,8 @@ END:
 sub MBossCard1H()
 {
 	var A B C D;
+	%A = 0.0f;
+	%B = 0.0f;
 	wait(120);
 	etNew(0);
 	etMode(0, 3);
@@ -240,9 +235,9 @@ sub MBossCard1H()
 	etSpd(0, 4.0f, 0.6f);
 	etEx(0, 0, 0, 2, 1, -999999, -999999.0f, -999999.0f);
 !H
-	etCnt(0, 5, 1);
+	etAmt(0, 5, 1);
 !L
-	etCnt(0, 6, 1);
+	etAmt(0, 6, 1);
 !*
 	etNew(1);
 	etMode(1, 2);
@@ -250,10 +245,10 @@ sub MBossCard1H()
 	etAng(1, 0.0f, 0.0f);
 	etEx(1, 0, 0, 2, 1, -999999, -999999.0f, -999999.0f);
 !H
-	etCnt(1, 48, 1);
+	etAmt(1, 48, 1);
 	etSpd(1, 1.3f, 0.6f);
 !L
-	etCnt(1, 52, 1);
+	etAmt(1, 52, 1);
 	etSpd(1, 1.6f, 0.6f);
 !*
 	goto END @ 1;
@@ -286,14 +281,12 @@ END:
 sub MBossDead()
 {
 	var A B;
-	setFlags(28);
+	setFlags(156);
 	cardEnd();
 	unsetMoveArea();
 	attack(0, -1, 0, "");
 	attack(1, -1, 0, "");
-	enmPosTime(0, 0, 0.0f, 0.0f);
-	enmDir(_f((%RANDRAD / _f(4)) + -1.5707964f), 1.0f);
-	enmDirTime(60, 4, -999999.0f, 0.0f);
+	enmDir(-999999.0f, 0.0f);
 	playSE(28);
 	unless ($TIMEOUT == 0) goto MBossDead_484 @ 0;
 	etClear(640.0f);
@@ -303,29 +296,12 @@ MBossDead_484:
 MBossDead_504:
 	anmScr(0, 0);
 	life(100000);
-	msgBegin(3);
-	msgWait();
 	boss(-1);
-	enmPosTime(60, 4, _f(%FINAL_X + _f(64)), -64.0f);
-	boss(-1);
+	call("ItemDrop", _SS 45, _ff 48.0f, _ff 48.0f);
 	itemClear();
-	itemMain(4);
+	itemMain(6);
 	itemDrop();
-	$B = 30;
-	goto MBossDead_1028 @ 0;
-MBossDead_828:
-	itemClear();
-	itemEx(1, 1);
-	itemArea(48.0f, 48.0f);
-	itemDrop();
-	wait(1);
-	itemClear();
-	itemEx(2, 1);
-	itemArea(48.0f, 48.0f);
-	itemDrop();
-	wait(1);
-MBossDead_1028:
-	if $B-- goto MBossDead_828 @ 0;
+	call("MBossEscape");
 	delete();
 	delete();
 }
@@ -337,6 +313,7 @@ sub MBossEscape()
 	attack(1, -1, 0, "");
 	cardEnd();
 	unsetMoveArea();
+	enmDir(-999999.0f, 0.0f);
 	unless ($TIMEOUT == 0) goto MBossEscape_264 @ 0;
 	etClear(640.0f);
 	goto MBossEscape_284 @ 0;
@@ -348,8 +325,9 @@ MBossEscape_284:
 	life(100000);
 	boss(-1);
 	setFlags(16);
-	enmPosTime(60, 4, 0.0f, -32.0f);
-60:
+130:
+	enmPosTime(60, 4, 0.0f, -64.0f);
+	wait(50);
 	stageProg(0);
 	delete();
 	delete();

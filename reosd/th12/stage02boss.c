@@ -75,33 +75,33 @@ Boss1_at1_388:
 	etAng(0, %C, %A);
 	etMode(0, 1);
 	etSpr(0, 9, 6);
-	etCnt(0, 3, 1);
+	etAmt(0, 3, 1);
 	etSpd(0, 6.0f, 1.0f);
 	etOn(0);
 43:
-	etCnt(0, 4, 1);
+	etAmt(0, 4, 1);
 	etSpd(0, 5.5f, 1.0f);
 	etOn(0);
 45:
-	etCnt(0, 5, 1);
+	etAmt(0, 5, 1);
 	etSpd(0, 5.0f, 1.0f);
 	etOn(0);
 47:
-	etCnt(0, 6, 1);
+	etAmt(0, 6, 1);
 	etSpd(0, 4.5f, 1.0f);
 	etOn(0);
 49:
-	etCnt(0, 7, 1);
+	etAmt(0, 7, 1);
 	etSpd(0, 4.0f, 1.0f);
 	etOn(0);
 51:
-	etCnt(0, 8, 1);
+	etAmt(0, 8, 1);
 	etSpd(0, 3.5f, 1.0f);
 	etOn(0);
 !HL
 	etMode(0, 3);
 	etSpr(0, 3, 6);
-	etCnt_rank(0, 0, 0, 18, 34, 1, 1, 1, 2);
+	etAmt_rank(0, 0, 0, 18, 34, 1, 1, 1, 2);
 	etSpd(0, 4.0f, 1.0f);
 	etOn(0);
 !E
@@ -143,7 +143,7 @@ sub Boss1_at2()
 !NHL
 	36;
 !*
-	etCnt(1, [-1], 1);
+	etAmt(1, [-1], 1);
 !E
 	2.3f;
 !N
@@ -166,7 +166,7 @@ Boss1_at2_748:
 	enmDirTime(0, 0, -999999.0f, 0.0f);
 	enmPosTime(0, 0, -999999.0f, 0.0f);
 	enmRand(60, 4, 3.0f);
-	etCnt_rank(0, 12, 20, 28, 28, 1, 1, 1, 2);
+	etAmt_rank(0, 12, 20, 28, 28, 1, 1, 1, 2);
 	etSpd(0, 2.3f, 1.0f);
 	etOn(0);
 	$B = ($BOSS4 * 3);
@@ -174,7 +174,7 @@ Boss1_at2_748:
 	wait($B);
 	etOn(1);
 	wait($B);
-	etCnt_rank(0, 10, 18, 20, 20, 1, 1, 1, 2);
+	etAmt_rank(0, 10, 18, 20, 20, 1, 1, 1, 2);
 !E
 	4.3f;
 !NHL
@@ -255,7 +255,7 @@ sub Boss2_at1()
 !L
 	$BOSS1 + 20;
 !*
-	etCnt_rank(0, [-1], [-1], [-1], [-1], 1, 1, 1, 2);
+	etAmt_rank(0, [-1], [-1], [-1], [-1], 1, 1, 1, 2);
 !E
 	2.5f;
 !N
@@ -270,7 +270,7 @@ sub Boss2_at1()
 	etOfs(1, 0.0f, -12.0f);
 	etMode(1, 2);
 	etSpr(1, 0, 5);
-	etCnt(1, 8, 1);
+	etAmt(1, 8, 1);
 	etSpd(1, 1.8f, 1.0f);
 	etAng(1, 0.0f, 0.0f);
 	etEx(1, 0, 0, 2, 2, -999999, -999999.0f, -999999.0f);
@@ -296,7 +296,7 @@ sub Boss2_at2()
 	etOfs(1, 0.0f, -12.0f);
 	etMode(1, 2);
 	etSpr(1, 5, 6);
-	etCnt_rank(1, 0, 0, 16, 32, 0, 0, 2, 2);
+	etAmt_rank(1, 0, 0, 16, 32, 0, 0, 2, 2);
 	etSpd(1, 2.5f, 1.0f);
 	etAng(1, 0.0f, 0.0f);
 	etEx(1, 0, 0, 2, 2, -999999, -999999.0f, -999999.0f);
@@ -365,7 +365,7 @@ sub BossCard1EN()
 	etOfs(1, 0.0f, -12.0f);
 	etMode(1, 0);
 	etSpr(1, 3, 13);
-	etCnt(1, 5, 1);
+	etAmt(1, 5, 1);
 	etSpd(1, 2.5f, 0.5f);
 	etAng(1, 0.0f, 0.2617994f);
 	etEx(1, 0, 0, 2, 2, -999999, -999999.0f, -999999.0f);
@@ -395,7 +395,7 @@ BossCard1EN_1636:
 !HL
 	$G = ($G + 1);
 !*
-	etCnt(0, 1, $G);
+	etAmt(0, 1, $G);
 	etAng(0, %F, 0.0f);
 	etOn(0);
 	%F = (%D - %E);
@@ -465,7 +465,7 @@ START:
 !L
 	($A + 13);
 !*
-	etCnt(0, [-1], 3);
+	etAmt(0, [-1], 3);
 	goto SHOOT_END @ 140;
 SHOOT_START:
 	if ($A % 2) goto JUMP1 @ 120;
@@ -514,7 +514,7 @@ sub BossCard2()
 	etNew(0);
 	etOfs(0, 0.0f, -12.0f);
 	etMode(0, 1);
-	etCnt(0, 1, 1);
+	etAmt(0, 1, 1);
 	%BOSS1F = 4.0f;
 	%BOSS2F = 1.0f;
 	etAng(0, 0.0f, 0.0f);
@@ -568,7 +568,7 @@ LOOP1_END:
 LOOP2_START:
 	if ($A >= 3) goto JUMP1 @ 275;
 275:
-	etCnt(1, 8, 3);
+	etAmt(1, 8, 3);
 	etSpd(1, 5.0f, 2.0f);
 	etAng(1, 0.0f, 0.39269908169872415480783042290994f);
 	etOn(1);
@@ -576,14 +576,14 @@ LOOP2_START:
 285:
 JUMP1:
 	if ($A >= 6) goto JUMP2 @ 285;
-	etCnt(1, 10, 3);
+	etAmt(1, 10, 3);
 	etSpd(1, 5.0f, 2.0f);
 	etAng(1, 0.0f, 0.39269908169872415480783042290994f);
 	etOn(1);
 	goto LOOP2_END @ 295;
 295:
 JUMP2:
-	etCnt(1, 10, 3);
+	etAmt(1, 10, 3);
 	etSpd(1, 6.0f, 2.0f);
 	etAng(1, 0.0f, 0.19634954084936207740391521145497f);
 	etOn(1);
@@ -656,7 +656,7 @@ BossCard3_504:
 	etNew(0);
 	etMode(0, 8);
 	etSpr(0, 9, 6);
-	etCnt_rank(0, 10, 14, 18, 28, 1, 1, 1, 1);
+	etAmt_rank(0, 10, 14, 18, 28, 1, 1, 1, 1);
 	etSpd(0, 2.3f, 0.4f);
 	etAng(0, 3.1415926535897932384626433832795f, -3.1415926535897932384626433832795f);
 	etEx(0, 0, 0, 2, 2, -999999, -999999.0f, -999999.0f);

@@ -112,7 +112,7 @@ sub MBoss1_at1(A)
 !L
 	7;
 !*
-	etCnt(0, 16, [-1]);
+	etAmt(0, 16, [-1]);
 !EN
 	1.5f;
 !H
@@ -144,7 +144,7 @@ sub MBoss1_at2(A B)
 !L
 	28;
 !*
-	etCnt(0, [-1], 1);
+	etAmt(0, [-1], 1);
 	etSpd(0, 0.0f, 0.0f);
 	etAng(0, %B, 0.0f);
 	etOfs(0, 0.0f, -12.0f);
@@ -177,8 +177,8 @@ sub MBoss1_at3(A)
 !L
 	24;
 !*
-	etCnt_rank(0, 4, 8, 12, 24, 1, 1, 1, 1);
-	etCnt_rank(1, 4, 8, 12, 24, 1, 1, 1, 1);
+	etAmt_rank(0, 4, 8, 12, 24, 1, 1, 1, 1);
+	etAmt_rank(1, 4, 8, 12, 24, 1, 1, 1, 1);
 	%B = (%RANDF * 3.0f);
 	etSpd(0, _f(%B + 0.5f), 0.7f);
 	%B = (%RANDF * 3.0f);
@@ -254,7 +254,7 @@ sub MBossCard1_at()
 !L
 	48;
 !*
-	etCnt(1, [-1], 1);
+	etAmt(1, [-1], 1);
 !H
 	2.5f;
 !L

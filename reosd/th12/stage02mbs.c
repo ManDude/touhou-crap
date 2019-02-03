@@ -96,7 +96,7 @@ sub MBoss1_at1()
 	etNew(0);
 	etMode(0, 3);
 	etSpr(0, 8, 10);
-	etCnt_rank(0, 1, 1, 2, 4, 1, 2, 2, 2);
+	etAmt_rank(0, 1, 1, 2, 4, 1, 2, 2, 2);
 	etEx(0, 0, 0, 2, 2, -999999, -999999.0f, -999999.0f);
 	etEx(0, 1, 0, 1, -999999, -999999, -999999.0f, -999999.0f);
 MBoss1_at1_436:
@@ -122,7 +122,7 @@ sub MBoss1_at2()
 	etNew(0);
 	etMode(0, 3);
 	etSpr(0, 8, 2);
-	etCnt_rank(0, 1, 1, 2, 4, 1, 2, 2, 2);
+	etAmt_rank(0, 1, 1, 2, 4, 1, 2, 2, 2);
 	etEx(0, 0, 0, 2, 2, -999999, -999999.0f, -999999.0f);
 	etEx(0, 1, 0, 1, -999999, -999999, -999999.0f, -999999.0f);
 MBoss1_at2_436:
@@ -156,8 +156,8 @@ sub MBoss1_at3()
 !L
 	$A = 9;
 !*
-	etCnt(0, $A, 2);
-	etCnt(1, $A, 1);
+	etAmt(0, $A, 2);
+	etAmt(1, $A, 1);
 !ENH
 	etSpd(0, 4.5f, 2.0f);
 	etSpd(1, 3.0f, 2.0f);
@@ -248,3 +248,5 @@ MBossEscape_212:
 	stageProg(0);
 	delete();
 }
+
+

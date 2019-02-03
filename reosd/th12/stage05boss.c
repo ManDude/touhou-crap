@@ -41,7 +41,7 @@ sub Boss1()
 	etNew(0);
 	etMode(0, 2);
 	etSpr(0, 20, 3);
-	etCnt_rank(0, 8, 16, 16, 16, 1, 1, 2, 2);
+	etAmt_rank(0, 8, 16, 16, 16, 1, 1, 2, 2);
 	etSpd_rank(0, 1.8f, 2.0f, 2.5f, 3.0f, 1.0f, 1.0f, 1.0f, 1.0f);
 	etAng(0, 0.0f, 0.15707963267948966192313216916398f);
 	etEx(0, 0, 0, 2, 1, -999999, -999999.0f, -999999.0f);
@@ -49,7 +49,7 @@ sub Boss1()
 	etNew(1);
 	etMode(1, 1);
 	etSpr(1, 20, 2);
-	etCnt_rank(1, 2, 2, 4, 4, 6, 8, 8, 8);
+	etAmt_rank(1, 2, 2, 4, 4, 6, 8, 8, 8);
 	etSpd_rank(1, 3.0f, 4.0f, 4.0f, 4.0f, 1.2f, 1.2f, 1.2f, 1.2f);
 	etOfs(1, 0.0f, -12.0f);
 	goto Boss1_856 @ 300;
@@ -135,7 +135,7 @@ sub Boss1_at1()
 	etNew(0);
 	etMode(0, 1);
 	etSpr(0, 7, $F);
-	etCnt_rank(0, 4, 5, 5, 5, 1, 1, 1, 1);
+	etAmt_rank(0, 4, 5, 5, 5, 1, 1, 1, 1);
 	etSpd_rank(0, 1.2f, 1.6f, 1.8f, 2.0f, 1.2f, 1.2f, 1.2f, 1.2f);
 50:
 	$A = 240 / 6;
@@ -351,7 +351,7 @@ sub Boss2_at3()
 	etNew(2);
 	etMode(2, 3);
 	etSpr(2, 17, 2);
-	etCnt_rank(2, 32, 32, 32, 32, 1, 4, 4, 4);
+	etAmt_rank(2, 32, 32, 32, 32, 1, 4, 4, 4);
 	etAng(2, %RANDRAD, 0.0f);
 	etSpd(2, 4.0f, 1.0f);
 	etEx(2, 0, 1, 2, 1, -999999, -999999.0f, -999999.0f);
@@ -552,14 +552,14 @@ sub BossCard1()
 	etSpr(0, 26, 0);
 	etAng(0, 3.1415926535897932384626433832795f, 0.0f);
 !E
-	etCnt(0, 32, 1);
+	etAmt(0, 32, 1);
 !N
-	etCnt(0, 128, 1);
+	etAmt(0, 128, 1);
 !H
-	etCnt(0, 20, 1);
+	etAmt(0, 20, 1);
 	etSpd(0, 4.4f, 2.2f);
 !L
-	etCnt(0, 35, 1);
+	etAmt(0, 35, 1);
 	etSpd(0, 5.0f, 1.2f);
 120:
 !*
@@ -626,7 +626,7 @@ sub BossCard1LaserAt(A)
 	etNew(0);
 	etMode(0, 2);
 	etSpr(0, 24, 0);
-	etCnt(0, 2, 1);
+	etAmt(0, 2, 1);
 	etAng(0, 0.0f, 0.032724924f);
 	etSpd(0, 0.4f, 1.0f);
 	goto BossCard1LaserAt_452 @ 0;
@@ -634,7 +634,7 @@ BossCard1LaserAt_296:
 	etNew(0);
 	etMode(0, 2);
 	etSpr(0, 23, 0);
-	etCnt(0, 2, 1);
+	etAmt(0, 2, 1);
 	etAng(0, 0.0f, 0.032724924f);
 	etSpd(0, 0.4f, 1.0f);
 BossCard1LaserAt_452:
@@ -744,7 +744,7 @@ sub BossCard1_at(et)
 	etNew($et);
 	etMode($et, 0);
 	etSpr($et, 20, 3);
-	etCnt_rank($et, 1, 1, 3, 3, 1, 1, 1, 1);
+	etAmt_rank($et, 1, 1, 3, 3, 1, 1, 1, 1);
 	etAng($et, 0.0f, 0.52359877559829887307710723054658f);
 	etSpd($et, 2.0f, 0.0f);
 	$A = $waveCount;
@@ -826,7 +826,7 @@ sub BossCard2At()
 	etNew(0);
 	etMode(0, 3);
 	etSpr(0, 11, 13);
-	etCnt(0, 2, 1);
+	etAmt(0, 2, 1);
 	etAng(0, 1.5707964f, 0.032724924f);
 	etSpd(0, 0.5f, 1.0f);
 	etEx(0, 0, 1, 2, 1, -999999, -999999.0f, -999999.0f);
@@ -885,7 +885,7 @@ sub BossCard2At3()
 	etNew(4);
 	etMode(4, 0);
 	etSpr(4, 17, 6);
-	etCnt(4, 9, 1);
+	etAmt(4, 9, 1);
 	etAng(4, 0.0f, 0.2617994f);
 	etSpd(4, 1.7f, 1.0f);
 	etEx(4, 0, 1, 2, 1, -999999, -999999.0f, -999999.0f);
@@ -930,7 +930,7 @@ sub BossCard2LaserAt()
 	etNew(0);
 	etMode(0, 2);
 	etSpr(0, 24, 0);
-	etCnt(0, 2, 1);
+	etAmt(0, 2, 1);
 	etAng(0, 0.0f, 0.032724924f);
 	etSpd(0, 0.4f, 1.0f);
 	goto BossCard2LaserAt_452 @ 0;
@@ -938,7 +938,7 @@ BossCard2LaserAt_296:
 	etNew(0);
 	etMode(0, 2);
 	etSpr(0, 23, 0);
-	etCnt(0, 2, 1);
+	etAmt(0, 2, 1);
 	etAng(0, 0.0f, 0.032724924f);
 	etSpd(0, 0.4f, 1.0f);
 BossCard2LaserAt_452:
@@ -1141,7 +1141,7 @@ BossCard3At_80:
 	etNew(2);
 	etMode(2, 3);
 	etSpr(2, 19, 1);
-	etCnt(2, 12, 1);
+	etAmt(2, 12, 1);
 	etAng(2, %RANDRAD, 0.2617994f);
 	etSpd(2, 1.0f, 1.0f);
 	etEx(2, 0, 1, 2, 1, -999999, -999999.0f, -999999.0f);
@@ -1165,7 +1165,7 @@ BossCard3AtH_120:
 	etNew(2);
 	etMode(2, 3);
 	etSpr(2, 19, 1);
-	etCnt(2, 2, 1);
+	etAmt(2, 2, 1);
 	etAng(2, %A, 0.2617994f);
 	etSpd(2, 1.0f, 1.0f);
 	etEx(2, 0, 1, 2, 1, -999999, -999999.0f, -999999.0f);
@@ -1426,7 +1426,7 @@ sub BossCard4LaserAt(A)
 	etNew(0);
 	etMode(0, 2);
 	etSpr(0, 24, 0);
-	etCnt(0, 1, 1);
+	etAmt(0, 1, 1);
 	etAng(0, 0.0f, 0.032724924f);
 	etSpd(0, 0.2f, 1.0f);
 	goto BossCard4LaserAt_452 @ 0;
@@ -1434,7 +1434,7 @@ BossCard4LaserAt_296:
 	etNew(0);
 	etMode(0, 2);
 	etSpr(0, 23, 0);
-	etCnt(0, 1, 1);
+	etAmt(0, 1, 1);
 	etAng(0, 0.0f, 0.032724924f);
 	etSpd(0, 0.2f, 1.0f);
 BossCard4LaserAt_452:

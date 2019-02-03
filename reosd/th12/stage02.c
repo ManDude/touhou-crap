@@ -53,7 +53,7 @@ sub MainGirl00_at()
 	etNew(0);
 	etMode(0, 0);
 	etSpr(0, 0, 6);
-	etCnt(0, 3, 1);
+	etAmt(0, 3, 1);
 	etSpd(0, 3.0f, 0.0f);
 	etAng(0, 0.0f, 0.1963495f);
 	etEx(0, 0, 0, 2, 2, -999999, -999999.0f, -999999.0f);
@@ -96,7 +96,7 @@ sub MainGirl01_at()
 	etOfs(0, 12.0f, -12.0f);
 	etMode(0, 0);
 	etSpr(0, 5, 1);
-	etCnt_rank(0, 3, 7, 9, 11, 1, 2, 3, 5);
+	etAmt_rank(0, 3, 7, 9, 11, 1, 2, 3, 5);
 !ENH
 	1.9f;
 !L
@@ -372,11 +372,11 @@ sub Thing00_at()
 	etSpr(0, 8, 11);
 !NH
 	etMode(0, 4);
-	etCnt(0, 4, 1);
+	etAmt(0, 4, 1);
 	etSpd(0, 2.5f, 0.0f);
 !L
 	etMode(0, 2);
-	etCnt(0, 10, 2);
+	etAmt(0, 10, 2);
 	etSpd(0, 3.0f, 0.0f);
 !NHL
 	etAng(0, 0.0f, 0.0f);
@@ -404,7 +404,7 @@ sub Thing00_dead()
 !L
 	10;
 !*
-	etCnt(1, [-1], 1);
+	etAmt(1, [-1], 1);
 !EN
 	1.7f;
 !H
