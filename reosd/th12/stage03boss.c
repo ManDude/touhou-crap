@@ -23,7 +23,7 @@ sub Boss()
 	anm(2);
 	setBossFog(160.0f, 16728031);
 	life(14000);
-	call("Boss3");
+	call("Boss1");
 	delete();
 }
 
