@@ -891,6 +891,7 @@ sub main()
 	msgBegin(3);
 3806:
 	msgWait();
+	wait(60);
 3816:
 	callSep("MainSub07", _ff 0.0f);
 3884:

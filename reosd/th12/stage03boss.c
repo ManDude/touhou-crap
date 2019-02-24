@@ -385,7 +385,6 @@ Boss3_248:
 	lifebar(1, 2000.0f, -36800);
 !*
 	lives(0);
-	invinc(120);
 	unless ($TIMEOUT == 0) goto Boss3_784 @ 0;
 	itemClear();
 	itemEx(1, 60);
@@ -909,6 +908,13 @@ Boss3_248:
 	resetBossParam();
 	playSE(28);
 	attack(0, 0, 2160, "BossDead");
+	unless ($TIMEOUT == 0) goto Boss3_784 @ 0;
+	itemClear();
+	itemEx(1, 60);
+	itemEx(2, 30);
+	itemArea(64.0f, 64.0f);
+	itemDrop();
+Boss3_784:
 	invinc(60);
 	wait(60);
 	cardN(40, 2100, 500000, "ç ïÑÅuã…ç ÈEïóÅv");
