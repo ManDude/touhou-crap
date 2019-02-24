@@ -368,6 +368,7 @@ Boss3_248:
 	ins_529(0);
 	resetBossParam();
 	playSE(28);
+	$BOSS1 = 0;
 !E
 	attack(0, 1400, 2400, "BossCard3");
 	lifebar(0, 1400.0f, -24448);
@@ -442,7 +443,7 @@ sub Boss3_at2()
 	etAmt_rank(1, 16, 24, 35, 42, 1, 1, 1, 1);
 	etAng(1, 0.0f, 0.0f);
 	etEx(1, 0, 1, 2, 0, -999999, -999999.0f, -999999.0f);
-	etEx(1, 1, 0, 1024, 60, 0, -999999.0f, -999999.0f);
+	etEx(1, 1, 0, 1024, 160, 0, -999999.0f, -999999.0f);
 	setf_rank(%A, -2.8972465583105870976933266756911f, -2.8972465583105870976933266756911f, -2.7227136331111541400009575988422f, -2.6179938779914943653855361527329f);
 	setf_rank(%B, 3.0f, 3.0f, 4.0f, 4.0f);
 	etEx(1, 2, 1, 16, 60, 1, %A, %B);
@@ -604,6 +605,7 @@ sub BossCard2()
 	enmPosTime(2000, 4, 0.0f, 160.0f);
 	noop();
 	$LOCAL1 = 0;
+	$BOSS1 = 1;
 	$A = 0;
 	$LOCAL2 = 160;
 	%LOCAL1F = 112.0f;
@@ -617,6 +619,7 @@ BossCard2_708:
 	$A = 0;
 	$LOCAL2 = 160;
 	%LOCAL1F = 112.0f;
+	$BOSS1 = $BOSS1 + 1;
 	call("BossCard2_at");
 	$LOCAL1 = $LOCAL1 + 1;
 BossCard2_1860:
@@ -626,11 +629,12 @@ BossCard2_1860:
 
 sub BossCard2Shooter()
 {
-	var X Y A B C D E;
-	setFlags(44);
+	var X Y A B C D E F;
+	setFlags(15);
 	%C = %LOCAL2F;
 	%D = 0.25132741228718345907701147066236f;
 	%E = %LOCAL1F / 3.0f;
+	$F = $LOCAL2 + 100;
 	etNew(0);
 	etMode(0, 0);
 	etSpr(0, 3, 6);
@@ -645,6 +649,7 @@ sub BossCard2Shooter()
 	$B = 100;
 	goto BIGEND @ 0;
 BIGSTART:
+	if ($TIME >= $F) goto DELETE @ 0;
 	if ($TIME >= $LOCAL2) goto BREAK @ 0;
 	ins_81(%X, %Y, %C, %LOCAL1F);
 	etOfs(0, %X, %Y);
@@ -652,6 +657,7 @@ BIGSTART:
 	etOn(0);
 	%C = %C + %D;
 	wait(6);
+	if ($TIME >= $F) goto DELETE @ 0;
 	if ($TIME >= $LOCAL2) goto BREAK @ 0;
 	ins_81(%X, %Y, %C, _f(%LOCAL1F / 1.5f));
 	etOfs(0, %X, %Y);
@@ -659,6 +665,7 @@ BIGSTART:
 	etOn(0);
 	%C = %C + %D;
 	wait(6);
+	if ($TIME >= $F) goto DELETE @ 0;
 	if ($TIME >= $LOCAL2) goto BREAK @ 0;
 	ins_81(%X, %Y, %C, _f(%LOCAL1F / 3.0f));
 	etOfs(0, %X, %Y);
@@ -666,6 +673,7 @@ BIGSTART:
 	etOn(0);
 	%C = %C + %D;
 	wait(6);
+	if ($TIME >= $F) goto DELETE @ 0;
 	if ($TIME >= $LOCAL2) goto BREAK @ 0;
 	ins_81(%X, %Y, %C, _f(%LOCAL1F / 3.0f));
 	etOfs(0, %X, %Y);
@@ -673,6 +681,7 @@ BIGSTART:
 	etOn(0);
 	%C = %C + %D;
 	wait(6);
+	if ($TIME >= $F) goto DELETE @ 0;
 	if ($TIME >= $LOCAL2) goto BREAK @ 0;
 	ins_81(%X, %Y, %C, _f(%LOCAL1F / 1.5f));
 	etOfs(0, %X, %Y);
@@ -683,9 +692,12 @@ BIGSTART:
 BIGEND:
 	if $B-- goto BIGSTART @ 0;
 BREAK:
+	$LOCAL2 = $F;
+	$B = 100;
+	goto BIGEND @ 0;
+DELETE:
 	delete();
-	%C = %C + 1.8849555921538759430775860299677f;
-	enmDir(%C, 5.0f);
+	delete();
 }
 
 sub BossCard2_at()
@@ -881,16 +893,21 @@ sub BossCard4()
 	resetBoss();
 	ins_21();
 	enmClear();
-	enmNewRel("Ecl_EtBreak", 0.0f, 0.0f, 9999, 0, 0);
+	unless ($TIMEOUT == 0) goto Boss3_228 @ 0;
+	etClear(640.0f);
+	goto Boss3_248 @ 0;
+Boss3_228:
+	etClear_ni(640.0f);
+Boss3_248:
+	$MISS_COUNT = 0;
+	$BOMB_COUNT = 0;
+	enmDir(0.0f, 0.0f);
+	enmDirTime(0, 0, 0.0f, 0.0f);
+	enmPosTime(0, 0, 0.0f, 0.0f);
 	cardEnd();
 	ins_529(0);
 	resetBossParam();
 	playSE(28);
-	enmDir(0.0f, 0.0f);
-	enmDirTime(0, 0, 0.0f, 0.0f);
-	enmPosTime(0, 0, 0.0f, 0.0f);
-	$MISS_COUNT = 0;
-	$BOMB_COUNT = 0;
 	attack(0, 0, 2160, "BossDead");
 	invinc(60);
 	wait(60);
