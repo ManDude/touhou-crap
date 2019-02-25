@@ -699,10 +699,10 @@ MB:
 !ENHL
 	goto Boss3_832 @ 0;
 SA:
-	lifebar(0, %C, -4128896);
+	lifebar(0, %C, -4153152);
 !NHL
 	%C - 1700.0f;
-	lifebar(1, [-1.0f], -4153152);
+	lifebar(1, [-1.0f], -7286640);
 !HL
 	%C - 3400.0f;
 	lifebar(2, [-1.0f], -12160);
@@ -721,10 +721,10 @@ SB:
 	lifebar(0, %C, -7298864);
 !NHL
 	%C - 1700.0f;
-	lifebar(1, [-1.0f], -7286640);
+	lifebar(1, [-1.0f], -8335168);
 !HL
 	%C - 3400.0f;
-	lifebar(2, [-1.0f], -8335168);
+	lifebar(2, [-1.0f], -7286640);
 !ENHL
 	wait(120);
 	attack(0, $B, $A, "BossCardMeWa");
