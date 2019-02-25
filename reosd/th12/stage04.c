@@ -39,7 +39,7 @@ sub BGirl00()
 	itemMain(2);
 	itemEx(2, 3);
 	anm(1);
-	ins_259(1, 50);
+	anmScr(1, 50);
 	call("Girl00", _SS 0, _SS 1);
 	delete();
 }
@@ -50,9 +50,9 @@ sub Cir00(A B C)
 	$F = 1;
 	setFlags(3);
 	anm(1);
-	ins_263(1, 103);
+	anmScrSlot(1, 103);
 	wait(40);
-	ins_259(0, $A);
+	anmScr(0, $A);
 	wait(30);
 	callSep("Cir00_at");
 	unsetFlags(3);
@@ -61,7 +61,7 @@ sub Cir00(A B C)
 	enmDir(0.0f, 0.5f);
 	wait(120);
 	setFlags(3);
-	ins_263(1, 105);
+	anmScrSlot(1, 105);
 	ins_275(0, 1);
 20:
 	delete();
@@ -130,7 +130,7 @@ sub Cir01(A B C)
 	var D E F;
 	$F = 1;
 	anm(1);
-	ins_259(0, $A);
+	anmScr(0, $A);
 	callSep("Cir01_at");
 	hitbox(24.0f, 24.0f);
 	killbox(16.0f, 16.0f);
@@ -228,7 +228,7 @@ sub Cir02(A B C)
 	var D E F;
 	$F = 1;
 	anm(1);
-	ins_259(0, $A);
+	anmScr(0, $A);
 	callSep("Cir02_at");
 	hitbox(24.0f, 24.0f);
 	killbox(16.0f, 16.0f);
@@ -332,7 +332,7 @@ sub GGirl00()
 	var A;
 	itemMain(9);
 	anm(1);
-	ins_259(1, 52);
+	anmScr(1, 52);
 	call("Girl00", _SS 10, _SS 1);
 	delete();
 }
@@ -458,7 +458,7 @@ sub Girl01At()
 {
 	var A B C D;
 	anm(1);
-	ins_259(0, 51);
+	anmScr(0, 51);
 	setFlags(3);
 	setf_rank(%B, 128.0f, 208.0f, 208.0f, 208.0f);
 	seti_rank($C, 100, 200, 200, 240);
@@ -524,7 +524,7 @@ sub Girl01b()
 	var A B C;
 	anm(1);
 	ins_262(0, 45);
-	ins_259(1, 98);
+	anmScr(1, 98);
 	setFlags(64);
 	hitbox(24.0f, 24.0f);
 	killbox(16.0f, 16.0f);
@@ -565,8 +565,8 @@ sub MBoss()
 	enmNewRel("Ecl_EtBreak_ni", 0.0f, 0.0f, 9999, 0, 0);
 	boss(-1);
 	anm(2);
-	ins_259(0, 28);
-	ins_259(1, 29);
+	anmScr(0, 28);
+	anmScr(1, 29);
 	setFlags(13);
 	killbox(67.0f, 67.0f);
 	life(8500);
@@ -1474,7 +1474,7 @@ sub MbossGirl00()
 	itemMain(2);
 	itemEx(2, 3);
 	anm(1);
-	ins_259(1, 50);
+	anmScr(1, 50);
 	anm(2);
 	ins_262(0, 30);
 	setFlags(76);
@@ -1505,7 +1505,7 @@ sub MbossGirl01()
 	itemMain(1);
 	itemEx(1, 3);
 	anm(1);
-	ins_259(1, 50);
+	anmScr(1, 50);
 	anm(2);
 	ins_262(0, 30);
 	setFlags(76);
@@ -1590,7 +1590,7 @@ sub RGirl00()
 	itemMain(1);
 	itemEx(1, 9);
 	anm(1);
-	ins_259(1, 51);
+	anmScr(1, 51);
 	call("Girl00", _SS 5, _SS 1);
 	delete();
 }
@@ -1608,8 +1608,8 @@ sub YGirl00()
 {
 	var A;
 	anm(1);
-	ins_259(1, 53);
-	ins_259(2, 99);
+	anmScr(1, 53);
+	anmScr(2, 99);
 	call("Girl00", _SS 15, _SS 1);
 	delete();
 }

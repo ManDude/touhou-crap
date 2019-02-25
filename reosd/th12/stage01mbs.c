@@ -11,10 +11,10 @@ sub MBoss()
 	resetBoss();
 	enmNewRel("Ecl_EtBreak_ni", 0.0f, 0.0f, 9999, 0, 0);
 	anm(0);
-	ins_259(1, 95);
-	ins_259(2, 158);
+	anmScr(1, 95);
+	anmScr(2, 158);
 	anm(2);
-	anmScr(0, 0);
+	anmScrNoMove(0, 0);
 	setFlags(64);
 	hitbox(56.0f, 64.0f);
 	killbox(48.0f, 56.0f);
@@ -222,7 +222,7 @@ sub MBossCard1()
 	setMoveArea(0.0f, 96.0f, 320.0f, 96.0f);
 120:
 	noop();
-	ins_263(0, 119);
+	anmScrSlot(0, 119);
 	callSep("MBossCard1_at");
 	goto MBossCard1_784 @ 350;
 MBossCard1_700:
@@ -339,7 +339,7 @@ MBossDead_864:
 MBossDead_908:
 	itemArea(48.0f, 48.0f);
 	itemDrop();
-	anmScr(0, 0);
+	anmScrNoMove(0, 0);
 	life(100000);
 	wait(120);
 60:
@@ -358,7 +358,7 @@ sub MBossEscape()
 	enmNewRel("Ecl_EtBreak", 0.0f, 0.0f, 9999, 0, 0);
 	ins_529(0);
 	ins_445();
-	anmScr(0, 0);
+	anmScrNoMove(0, 0);
 	boss(-1);
 	setFlags(16);
 	enmPosTime(60, 4, 0.0f, -32.0f);

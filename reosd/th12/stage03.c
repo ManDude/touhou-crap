@@ -14,7 +14,7 @@ sub BGirl02()
 	var;
 	itemEx(2, 2);
 	anm(1);
-	anmScr(1, 50);
+	anmScrNoMove(1, 50);
 	call("Girl02", _SS 0, _SS 1);
 	delete();
 }
@@ -39,8 +39,8 @@ sub Ball00(A B C)
 {
 	var D E;
 	anm(1);
-	ins_263(1, 103);
-	ins_259(0, $A);
+	anmScrSlot(1, 103);
+	anmScr(0, $A);
 	hitbox(28.0f, 28.0f);
 	killbox(28.0f, 28.0f);
 	itemEx(1, 1);
@@ -133,8 +133,8 @@ sub Ball01(A B C)
 {
 	var D E;
 	anm(1);
-	ins_263(1, 103);
-	ins_259(0, $A);
+	anmScrSlot(1, 103);
+	anmScr(0, $A);
 	hitbox(28.0f, 28.0f);
 	killbox(28.0f, 28.0f);
 	itemEx(1, 1);
@@ -228,7 +228,7 @@ sub Girl00(A B)
 {
 	var ang spd E F;
 	anm(1);
-	anmScr(0, $A);
+	anmScrNoMove(0, $A);
 	setFlags(64);
 	hitbox(28.0f, 28.0f);
 	killbox(28.0f, 28.0f);
@@ -278,7 +278,7 @@ sub Girl01()
 {
 	var spd;
 	anm(1);
-	anmScr(0, 45);
+	anmScrNoMove(0, 45);
 	setFlags(64);
 	hitbox(28.0f, 28.0f);
 	killbox(28.0f, 28.0f);
@@ -316,7 +316,7 @@ sub Girl02(A B)
 {
 	var C;
 	anm(1);
-	anmScr(0, $A);
+	anmScrNoMove(0, $A);
 	setFlags(64);
 	hitbox(28.0f, 28.0f);
 	killbox(28.0f, 28.0f);
@@ -362,7 +362,7 @@ sub Girl03(A B)
 {
 	var C ang spd;
 	anm(1);
-	anmScr(0, $A);
+	anmScrNoMove(0, $A);
 	hitbox(28.0f, 28.0f);
 	killbox(28.0f, 28.0f);
 	enmDir(1.5707963267948966192313216916398f, 1.5f);
@@ -415,7 +415,7 @@ sub Girl04(A B)
 {
 	var C spd ang;
 	anm(1);
-	anmScr(0, $A);
+	anmScrNoMove(0, $A);
 	hitbox(28.0f, 28.0f);
 	killbox(28.0f, 28.0f);
 	enmDir(1.5707963267948966192313216916398f, 2.5f);
@@ -797,7 +797,7 @@ sub RGirl02()
 {
 	var A;
 	anm(1);
-	anmScr(1, 51);
+	anmScrNoMove(1, 51);
 	itemEx(1, 2);
 	call("Girl02", _SS 5, _SS 1);
 	delete();

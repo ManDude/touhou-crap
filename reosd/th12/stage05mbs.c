@@ -11,7 +11,7 @@ sub MBoss()
 	enmNewRel("Ecl_EtBreak_ni", 0.0f, 0.0f, 9999, 0, 0);
 	invinc(60);
 	anm(3);
-	anmScr(0, 0);
+	anmScrNoMove(0, 0);
 	setFlags(64);
 	hitbox(48.0f, 48.0f);
 	killbox(48.0f, 48.0f);
@@ -23,8 +23,8 @@ sub MBoss()
 	msgWait();
 	lifebar(0, 710.0f, -32640);
 	anm(0);
-	ins_259(1, 95);
-	ins_259(2, 158);
+	anmScr(1, 95);
+	anmScr(2, 158);
 	anm(3);
 	resetBoss();
 	attack(0, 710, 2400, "MBossCard1");

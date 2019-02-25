@@ -18,7 +18,7 @@ sub BGirl01()
 	itemMain(2);
 	itemEx(2, 3);
 	anm(1);
-	anmScr(1, 50);
+	anmScrNoMove(1, 50);
 	call("Girl01", _SS 19, _SS 1);
 	delete();
 }
@@ -30,7 +30,7 @@ sub BGirl03()
 	itemMain(2);
 	itemEx(2, 3);
 	anm(1);
-	anmScr(1, 50);
+	anmScrNoMove(1, 50);
 	call("Girl03", _SS 19, _SS 1);
 	delete();
 }
@@ -40,7 +40,7 @@ sub BGirl04()
 	var A;
 	itemMain(2);
 	anm(1);
-	anmScr(1, 50);
+	anmScrNoMove(1, 50);
 	call("Girl04", _SS 0, _SS 1);
 	delete();
 }
@@ -50,7 +50,7 @@ sub BGirl04b()
 	var A;
 	itemMain(2);
 	anm(1);
-	anmScr(1, 50);
+	anmScrNoMove(1, 50);
 	call("Girl04b", _SS 0, _SS 1);
 	delete();
 }
@@ -65,9 +65,9 @@ sub Cir00(A B C)
 	setFlags(3);
 	playSE(40);
 	anm(1);
-	ins_263(1, 141);
+	anmScrSlot(1, 141);
 	wait(40);
-	ins_259(0, $A);
+	anmScr(0, $A);
 	wait(30);
 	callSep("Cir00_at");
 	unsetFlags(3);
@@ -145,7 +145,7 @@ sub GGirl01()
 	var A;
 	itemMain(9);
 	anm(1);
-	anmScr(1, 52);
+	anmScrNoMove(1, 52);
 	call("Girl01", _SS 29, _SS 1);
 	delete();
 }
@@ -155,7 +155,7 @@ sub GGirl03()
 	var A;
 	itemMain(9);
 	anm(1);
-	anmScr(1, 52);
+	anmScrNoMove(1, 52);
 	call("Girl03", _SS 29, _SS 1);
 	delete();
 }
@@ -165,7 +165,7 @@ sub GGirl04()
 	var A;
 	itemMain(9);
 	anm(1);
-	anmScr(1, 52);
+	anmScrNoMove(1, 52);
 	call("Girl04", _SS 10, _SS 1);
 	delete();
 }
@@ -175,7 +175,7 @@ sub GGirl04b()
 	var A;
 	itemMain(9);
 	anm(1);
-	anmScr(1, 52);
+	anmScrNoMove(1, 52);
 	call("Girl04b", _SS 10, _SS 1);
 	delete();
 }
@@ -184,9 +184,9 @@ sub Girl00()
 {
 	var A;
 	anm(1);
-	anmScr(1, 98);
+	anmScrNoMove(1, 98);
 	anm(2);
-	anmScr(0, 39);
+	anmScrNoMove(0, 39);
 	setFlags(64);
 	hitbox(48.0f, 48.0f);
 	killbox(24.0f, 24.0f);
@@ -231,7 +231,7 @@ sub Girl00b()
 {
 	var A;
 	anm(2);
-	anmScr(0, 39);
+	anmScrNoMove(0, 39);
 	setFlags(64);
 	hitbox(48.0f, 48.0f);
 	killbox(24.0f, 24.0f);
@@ -253,7 +253,7 @@ sub Girl01(A B)
 {
 	var;
 	anm(2);
-	anmScr(0, $A);
+	anmScrNoMove(0, $A);
 	setFlags(64);
 	hitbox(24.0f, 24.0f);
 	killbox(16.0f, 16.0f);
@@ -303,9 +303,9 @@ sub Girl02()
 {
 	var A;
 	anm(1);
-	anmScr(1, 98);
+	anmScrNoMove(1, 98);
 	anm(2);
-	anmScr(0, 39);
+	anmScrNoMove(0, 39);
 	setFlags(64);
 	hitbox(48.0f, 48.0f);
 	killbox(24.0f, 24.0f);
@@ -354,7 +354,7 @@ sub Girl02b()
 {
 	var A;
 	anm(2);
-	anmScr(0, 39);
+	anmScrNoMove(0, 39);
 	setFlags(64);
 	hitbox(48.0f, 48.0f);
 	killbox(24.0f, 24.0f);
@@ -376,9 +376,9 @@ sub Girl02c()
 {
 	var A;
 	anm(1);
-	anmScr(1, 98);
+	anmScrNoMove(1, 98);
 	anm(2);
-	anmScr(0, 39);
+	anmScrNoMove(0, 39);
 	setFlags(64);
 	hitbox(48.0f, 48.0f);
 	killbox(24.0f, 24.0f);
@@ -402,7 +402,7 @@ sub Girl03(A B)
 {
 	var;
 	anm(2);
-	anmScr(0, $A);
+	anmScrNoMove(0, $A);
 	setFlags(64);
 	hitbox(24.0f, 24.0f);
 	killbox(16.0f, 16.0f);
@@ -452,7 +452,7 @@ sub Girl04(A B)
 {
 	var;
 	anm(1);
-	anmScr(0, $A);
+	anmScrNoMove(0, $A);
 	setFlags(64);
 	hitbox(24.0f, 24.0f);
 	killbox(16.0f, 16.0f);
@@ -469,7 +469,7 @@ sub Girl04b(A B)
 {
 	var;
 	anm(1);
-	anmScr(0, $A);
+	anmScrNoMove(0, $A);
 	setFlags(64);
 	hitbox(24.0f, 24.0f);
 	killbox(16.0f, 16.0f);
@@ -1205,7 +1205,7 @@ sub RGirl01()
 	itemMain(1);
 	itemEx(1, 2);
 	anm(1);
-	anmScr(1, 51);
+	anmScrNoMove(1, 51);
 	call("Girl01", _SS 24, _SS 1);
 	delete();
 }
@@ -1214,7 +1214,7 @@ sub RGirl01n()
 {
 	var A;
 	anm(1);
-	anmScr(1, 51);
+	anmScrNoMove(1, 51);
 	call("Girl01", _SS 24, _SS 0);
 	delete();
 }
@@ -1226,7 +1226,7 @@ sub RGirl03()
 	itemMain(1);
 	itemEx(1, 2);
 	anm(1);
-	anmScr(1, 51);
+	anmScrNoMove(1, 51);
 	call("Girl03", _SS 24, _SS 1);
 	delete();
 }
@@ -1235,7 +1235,7 @@ sub RGirl03n()
 {
 	var A;
 	anm(1);
-	anmScr(1, 51);
+	anmScrNoMove(1, 51);
 	call("Girl03", _SS 24, _SS 0);
 	delete();
 }
@@ -1244,7 +1244,7 @@ sub RGirl04()
 {
 	var A;
 	anm(1);
-	anmScr(1, 51);
+	anmScrNoMove(1, 51);
 	itemMain(1);
 	call("Girl04", _SS 5, _SS 1);
 	delete();
@@ -1275,7 +1275,7 @@ sub RGirl04b()
 {
 	var A;
 	anm(1);
-	anmScr(1, 51);
+	anmScrNoMove(1, 51);
 	itemMain(1);
 	call("Girl04b", _SS 5, _SS 1);
 	delete();
@@ -1308,8 +1308,8 @@ sub YGirl01()
 {
 	var A;
 	anm(1);
-	anmScr(1, 53);
-	anmScr(2, 99);
+	anmScrNoMove(1, 53);
+	anmScrNoMove(2, 99);
 	call("Girl01", _SS 34, _SS 1);
 	delete();
 }
@@ -1318,8 +1318,8 @@ sub YGirl03()
 {
 	var A;
 	anm(1);
-	anmScr(1, 53);
-	anmScr(2, 99);
+	anmScrNoMove(1, 53);
+	anmScrNoMove(2, 99);
 	call("Girl03", _SS 34, _SS 1);
 	delete();
 }
@@ -1328,7 +1328,7 @@ sub YGirl04()
 {
 	var A;
 	anm(1);
-	anmScr(1, 53);
+	anmScrNoMove(1, 53);
 	call("Girl04", _SS 15, _SS 1);
 	delete();
 }
@@ -1337,7 +1337,7 @@ sub YGirl04b()
 {
 	var A;
 	anm(1);
-	anmScr(1, 53);
+	anmScrNoMove(1, 53);
 	call("Girl04b", _SS 15, _SS 1);
 	delete();
 }

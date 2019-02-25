@@ -27,7 +27,7 @@ sub MainGirl00()
 {
 	var A;
 	anm(1);
-	anmScr(0, 0);
+	anmScrNoMove(0, 0);
 	setFlags(64);
 	hitbox(36.0f, 36.0f);
 	killbox(28.0f, 28.0f);
@@ -69,7 +69,7 @@ sub MainGirl01()
 {
 	var A;
 	anm(1);
-	anmScr(0, 0);
+	anmScrNoMove(0, 0);
 	setFlags(64);
 	hitbox(36.0f, 36.0f);
 	killbox(28.0f, 28.0f);
@@ -315,7 +315,7 @@ sub Particle00()
 {
 	var;
 	anm(1);
-	ins_259(0, 92);
+	anmScr(0, 92);
 	hitbox(16.0f, 16.0f);
 	killbox(16.0f, 16.0f);
 	enmDir(_f(0.7853982f + (%RANDF * 1.5707964f)), 3.0f);
@@ -330,7 +330,7 @@ sub Particle01()
 {
 	var;
 	anm(1);
-	ins_259(0, 89);
+	anmScr(0, 89);
 	hitbox(22.0f, 22.0f);
 	killbox(22.0f, 22.0f);
 	enmDir(_f(0.7853982f + (%RANDF * 1.5707964f)), 5.0f);
@@ -345,7 +345,7 @@ sub Thing00(A B)
 {
 	var;
 	anm(1);
-	anmScr(0, $A);
+	anmScrNoMove(0, $A);
 	setFlags(64);
 	hitbox(36.0f, 36.0f);
 	killbox(28.0f, 28.0f);

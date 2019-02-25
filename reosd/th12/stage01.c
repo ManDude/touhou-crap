@@ -5,7 +5,7 @@ sub AGirl00()
 {
 	var A;
 	anm(1);
-	anmScr(1, 51);
+	anmScrNoMove(1, 51);
 	$A = (($RAND % 2) + 1);
 	if ($A <= 0) goto AGirl00_340 @ 0;
 	itemEx($A, 1);
@@ -18,7 +18,7 @@ sub AGirl01()
 {
 	var A;
 	anm(1);
-	anmScr(1, 51);
+	anmScrNoMove(1, 51);
 	$A = ($RAND % 3);
 	if ($A <= 0) goto AGirl01_340 @ 0;
 	if ($A == 0) goto AGirl01_340 @ 0;
@@ -32,7 +32,7 @@ sub ARGirl01()
 {
 	var A;
 	anm(1);
-	anmScr(1, 51);
+	anmScrNoMove(1, 51);
 	$A = ($RAND % 2);
 	if ($A < 0) goto ARGirl01_516 @ 0;
 	itemMain($A);
@@ -50,7 +50,7 @@ sub ARGirl02()
 {
 	var A;
 	anm(1);
-	anmScr(1, 51);
+	anmScrNoMove(1, 51);
 	$A = ($RAND % 2);
 	if ($A < 0) goto ARGirl02_516 @ 0;
 	itemMain($A);
@@ -68,7 +68,7 @@ sub Fairy00()
 {
 	var;
 	anm(1);
-	anmScr(0, 0);
+	anmScrNoMove(0, 0);
 	hitbox(24.0f, 24.0f);
 	killbox(28.0f, 28.0f);
 	enmDir(1.5707964f, 2.0f);
@@ -87,7 +87,7 @@ sub Fairy01()
 {
 	var;
 	anm(1);
-	anmScr(0, 0);
+	anmScrNoMove(0, 0);
 	hitbox(24.0f, 24.0f);
 	killbox(28.0f, 28.0f);
 	enmDir(1.5707964f, 2.0f);
@@ -104,7 +104,7 @@ sub Fairy02()
 {
 	var;
 	anm(1);
-	anmScr(0, 0);
+	anmScrNoMove(0, 0);
 	hitbox(24.0f, 24.0f);
 	killbox(28.0f, 28.0f);
 	enmDir(1.5707964f, 2.0f);
@@ -124,7 +124,7 @@ sub Fairy03()
 {
 	var;
 	anm(1);
-	anmScr(0, 0);
+	anmScrNoMove(0, 0);
 	hitbox(24.0f, 24.0f);
 	killbox(28.0f, 28.0f);
 	enmDir(1.5707964f, 2.0f);

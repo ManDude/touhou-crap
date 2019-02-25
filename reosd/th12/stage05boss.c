@@ -5,7 +5,7 @@ sub Boss()
 	var A;
 	boss(0);
 	anm(2);
-	anmScr(0, 0);
+	anmScrNoMove(0, 0);
 	setFlags(64);
 	hitbox(56.0f, 56.0f);
 	killbox(56.0f, 56.0f);
@@ -18,8 +18,8 @@ sub Boss()
 	msgWait();
 	setMoveArea(0.0f, 90.0f, 320.0f, 84.0f);
 	anm(0);
-	ins_259(1, 95);
-	ins_259(2, 158);
+	anmScr(1, 95);
+	anmScr(2, 158);
 	anm(2);
 	setBossFog(160.0f, 16728031);
 	call("Boss1");
@@ -36,7 +36,7 @@ sub Boss1()
 	stageProg(24);
 	lives(2);
 	anm(2);
-	anmScr(0, 0);
+	anmScrNoMove(0, 0);
 100:
 	etNew(0);
 	etMode(0, 2);
@@ -54,7 +54,7 @@ sub Boss1()
 	etOfs(1, 0.0f, -12.0f);
 	goto Boss1_856 @ 300;
 Boss1_232:
-	ins_263(0, 119);
+	anmScrSlot(0, 119);
 	%LOCAL1F = 0.78539816339744830961566084581988f;
 	%LOCAL2F = 0.6283185307179586476925286766559f;
 	$LOCAL1 = 6;
@@ -203,11 +203,11 @@ Boss2_784:
 	enmPosTime(60, 0, 0.0f, 128.0f);
 	wait(120);
 	anm(2);
-	anmScr(0, 0);
+	anmScrNoMove(0, 0);
 	seti_rank($C, 60, 60, 40, 40);
 	goto Boss2_1920 @ 0;
 Boss2_992:
-	ins_263(0, 119);
+	anmScrSlot(0, 119);
 	playSE(31);
 	wait($C);
 	ins_269(0);
@@ -412,11 +412,11 @@ Boss3_876:
 	enmPosTime(60, 0, 0.0f, 128.0f);
 	wait(90);
 	anm(2);
-	anmScr(0, 0);
+	anmScrNoMove(0, 0);
 	$C = 60;
 	goto Boss3_1680 @ 0;
 Boss3_1088:
-	ins_263(0, 119);
+	anmScrSlot(0, 119);
 	playSE(31);
 	wait($C);
 	ins_269(0);
@@ -563,7 +563,7 @@ sub BossCard1()
 	etSpd(0, 5.0f, 1.2f);
 120:
 !*
-	ins_263(0, 119);
+	anmScrSlot(0, 119);
 	playSE(31);
 	ins_269(0);
 	wait(_S(32 * 4));
@@ -599,7 +599,7 @@ sub BossCard1Laser()
 {
 	var A B;
 	anm(2);
-	ins_259(0, $LOCAL4);
+	anmScr(0, $LOCAL4);
 	ins_277(0, %LOCAL1F);
 	%B = %LOCAL1F;
 	setFlags(797);
@@ -788,7 +788,7 @@ sub BossCard2()
 	enmPosTime(60, 4, 0.0f, 192.0f);
 	invinc(60);
 	unsetMoveArea();
-	ins_263(0, 119);
+	anmScrSlot(0, 119);
 60:
 	ins_269(0);
 90:
@@ -904,7 +904,7 @@ sub BossCard2Laser()
 {
 	var A B;
 	anm(2);
-	ins_259(0, $LOCAL4);
+	anmScr(0, $LOCAL4);
 	ins_277(0, %LOCAL1F);
 	%B = %LOCAL1F;
 	setFlags(797);
@@ -1100,7 +1100,7 @@ sub BossCard3()
 	stageProg(44);
 	unsetMoveArea();
 60:
-	ins_263(0, 119);
+	anmScrSlot(0, 119);
 90:
 	ins_269(0);
 120:
@@ -1183,7 +1183,7 @@ sub BossCard3Laser()
 {
 	var A B;
 	anm(2);
-	ins_259(0, $LOCAL4);
+	anmScr(0, $LOCAL4);
 	ins_277(0, %LOCAL1F);
 	%B = %LOCAL1F;
 	setFlags(797);
@@ -1260,7 +1260,7 @@ sub BossCard3LaserMark()
 {
 	var A;
 	anm(0);
-	ins_259(0, 95);
+	anmScr(0, 95);
 	setFlags(259);
 	wait(200);
 	delete();
@@ -1344,7 +1344,7 @@ sub BossCard4()
 	invinc(60);
 	unsetMoveArea();
 60:
-	ins_263(0, 119);
+	anmScrSlot(0, 119);
 90:
 	ins_269(0);
 120:
@@ -1400,7 +1400,7 @@ sub BossCard4Laser()
 {
 	var A B;
 	anm(2);
-	ins_259(0, $LOCAL4);
+	anmScr(0, $LOCAL4);
 	ins_277(0, %LOCAL1F);
 	%B = %LOCAL1F;
 	setFlags(797);
@@ -1531,9 +1531,9 @@ sub BossDead()
 {
 	var A;
 	setFlags(140);
-	ins_263(0, 79);
+	anmScrSlot(0, 79);
 	playSE(5);
-	ins_263(0, 129);
+	anmScrSlot(0, 129);
 	enmDir(%RANDRAD, 0.4f);
 	unless ($TIMEOUT == 0) goto BossDead_308 @ 0;
 	enmNewRel("Ecl_EtBreak2", 0.0f, 0.0f, 9999, 0, 0);
@@ -1554,8 +1554,8 @@ BossDead_364:
 	itemDrop();
 BossDead_616:
 	shake(30, 12, 0);
-	ins_263(0, 79);
-	ins_263(0, 130);
+	anmScrSlot(0, 79);
+	anmScrSlot(0, 130);
 	playSE(5);
 	boss(-1);
 	delete();

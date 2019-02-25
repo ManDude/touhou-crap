@@ -11,7 +11,7 @@ sub MBoss()
 	resetBoss();
 	enmNewRel("Ecl_EtBreak_ni", 0.0f, 0.0f, 9999, 0, 0);
 	anm(2);
-	anmScr(0, 0);
+	anmScrNoMove(0, 0);
 	setFlags(64);
 	hitbox(45.0f, 56.0f);
 	killbox(45.0f, 56.0f);
@@ -23,8 +23,8 @@ sub MBoss()
 	invinc(60);
 	wait(60);
 	anm(0);
-	ins_259(1, 95);
-	ins_259(2, 158);
+	anmScr(1, 95);
+	anmScr(2, 158);
 	setBossFog(160.0f, 15675535);
 	wait(70);
 	setMoveArea(0.0f, 128.0f, 280.0f, 64.0f);
@@ -70,15 +70,15 @@ sub MBoss1_at()
 	invinc(40);
 	setFlags(32);
 	anm(0);
-	ins_259(1, -1);
-	ins_259(2, -1);
+	anmScr(1, -1);
+	anmScr(2, -1);
 	setBossFog(0.0f, 15675535);
 	%A = (192.0f - (32.0f + (%RANDF * 320.0f)));
 	wait(40);
 	unsetFlags(32);
 	anm(0);
-	ins_259(1, 95);
-	ins_259(2, 158);
+	anmScr(1, 95);
+	anmScr(2, 158);
 	setBossFog(160.0f, 15675535);
 	enmPos(%A, 96.0f);
 	wait(40);
@@ -214,7 +214,7 @@ MBossDead_360:
 	itemEx(2, 12);
 	itemArea(48.0f, 48.0f);
 	itemDrop();
-	anmScr(0, 0);
+	anmScrNoMove(0, 0);
 	wait(120);
 	boss(-1);
 	stageProg(0);
@@ -239,7 +239,7 @@ MBossEscape_212:
 !*
 	itemArea(48.0f, 48.0f);
 	itemDrop();
-	anmScr(0, 0);
+	anmScrNoMove(0, 0);
 	boss(-1);
 	setFlags(16);
 10:

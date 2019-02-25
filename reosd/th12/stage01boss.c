@@ -5,7 +5,7 @@ sub Boss()
 	var A;
 	boss(0);
 	anm(2);
-	anmScr(0, 0);
+	anmScrNoMove(0, 0);
 	setFlags(64);
 	hitbox(56.0f, 64.0f);
 	killbox(48.0f, 56.0f);
@@ -17,8 +17,8 @@ sub Boss()
 	life(7000);
 	setMoveArea(0.0f, 96.0f, 320.0f, 96.0f);
 	anm(0);
-	ins_259(1, 95);
-	ins_259(2, 158);
+	anmScr(1, 95);
+	anmScr(2, 158);
 	anm(2);
 	setBossFog(160.0f, 3190703);
 	call("Boss1");
@@ -39,8 +39,8 @@ sub Boss1()
 	stageProg(24);
 	lives(1);
 	anm(2);
-	anmScr(0, 0);
-	ins_263(0, 119);
+	anmScrNoMove(0, 0);
+	anmScrSlot(0, 119);
 	playSE(31);
 100:
 	noop();
@@ -329,7 +329,7 @@ Boss2_868:
 Boss2_908:
 	playSE(28);
 60:
-	ins_263(0, 119);
+	anmScrSlot(0, 119);
 	playSE(31);
 200:
 	noop();
@@ -554,7 +554,7 @@ sub BossCard1()
 	enmPosTime(120, 4, 0.0f, 96.0f);
 	setMoveArea(0.0f, 128.0f, 280.0f, 256.0f);
 120:
-	ins_263(0, 119);
+	anmScrSlot(0, 119);
 	ins_269(0);
 BossCard1_620:
 !E
@@ -638,7 +638,7 @@ sub BossCard2()
 	enmPosTime(120, 4, 0.0f, 96.0f);
 	invinc(120);
 	stageProg(44);
-	ins_263(0, 119);
+	anmScrSlot(0, 119);
 120:
 	ins_269(0);
 	noop();
@@ -745,9 +745,9 @@ sub BossDead()
 {
 	var A;
 	setFlags(140);
-	ins_263(0, 79);
+	anmScrSlot(0, 79);
 	playSE(5);
-	ins_263(0, 129);
+	anmScrSlot(0, 129);
 	enmDir(0.0f, 0.0f);
 	enmDirTime(0, 0, 0.0f, 0.0f);
 	enmPosTime(0, 0, 0.0f, 0.0f);
@@ -779,8 +779,8 @@ BossDead_736:
 	itemDrop();
 BossDead_776:
 	shake(30, 12, 0);
-	ins_263(0, 79);
-	ins_263(0, 130);
+	anmScrSlot(0, 79);
+	anmScrSlot(0, 130);
 	playSE(5);
 	boss(-1);
 	delete();

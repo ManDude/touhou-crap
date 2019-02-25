@@ -4,7 +4,7 @@ sub Boss()
 {
 	var A;
 	anm(2);
-	anmScr(0, 0);
+	anmScrNoMove(0, 0);
 	setFlags(64);
 	boss(0);
 	hitbox(56.0f, 56.0f);
@@ -18,8 +18,8 @@ sub Boss()
 61:
 	msgWait();
 	anm(0);
-	ins_259(1, 95);
-	ins_259(2, 158);
+	anmScr(1, 95);
+	anmScr(2, 158);
 	anm(2);
 	setBossFog(160.0f, 16728031);
 	life(14000);
@@ -36,8 +36,8 @@ sub Boss1()
 	lives(2);
 	setMoveArea(0.0f, 96.0f, 320.0f, 96.0f);
 	anm(2);
-	anmScr(0, 0);
-	ins_263(0, 119);
+	anmScrNoMove(0, 0);
+	anmScrSlot(0, 119);
 	playSE(31);
 	wait(50);
 	$LOCAL1 = 0;
@@ -283,7 +283,7 @@ sub Boss2_enm_Girl(A B)
 {
 	var ang spd E F G;
 	anm(1);
-	anmScr(0, $A);
+	anmScrNoMove(0, $A);
 	setFlags(64);
 	hitbox(28.0f, 28.0f);
 	killbox(28.0f, 28.0f);
@@ -598,7 +598,7 @@ sub BossCard2()
 	invinc(120);
 	wait(120);
 	stageProg(44);
-	ins_263(0, 119);
+	anmScrSlot(0, 119);
 80:
 	ins_269(0);
 	enmPosTime(2000, 4, 0.0f, 160.0f);
@@ -1007,9 +1007,9 @@ sub BossDead()
 {
 	var A;
 	setFlags(140);
-	ins_263(0, 79);
+	anmScrSlot(0, 79);
 	playSE(5);
-	ins_263(0, 129);
+	anmScrSlot(0, 129);
 	enmDir(%RANDRAD, 0.4f);
 	unless ($TIMEOUT == 0) goto BossDead_308 @ 0;
 	enmNewRel("Ecl_EtBreak2", 0.0f, 0.0f, 9999, 0, 0);
@@ -1030,8 +1030,8 @@ BossDead_364:
 	itemDrop();
 BossDead_616:
 	shake(30, 12, 0);
-	ins_263(0, 79);
-	ins_263(0, 130);
+	anmScrSlot(0, 79);
+	anmScrSlot(0, 130);
 	playSE(5);
 	boss(-1);
 	delete();
