@@ -56,41 +56,46 @@ RB:
 	attack(0, 1600, $A, "BossCardWaterUndine");
 !HL
 	attack(0, 1600, $A, "BossCardWaterBury");
-!ENHL
+!NHL
 	lifebar(0, 1600.0f, -8347393);
+!*
 	goto CONT @ 0;
 MA:
 !N
 	attack(0, 1600, $A, "BossCardWoodSylphy");
 !HL
 	attack(0, 1600, $A, "BossCardWoodSylphyHL");
-!ENHL
+!NHL
 	lifebar(0, 1600.0f, -8323200);
+!*
 	goto CONT @ 0;
 MB:
 !N
 	attack(0, 1800, $A, "BossCardEarthTrilithon");
 !HL
 	attack(0, 1800, $A, "BossCardEarthTrilithonHL");
-!ENHL
+!NHL
 	lifebar(0, 1800.0f, -128);
+!*
 	goto CONT @ 0;
 SA:
 !N
 	attack(0, 1600, $A, "BossCardMetalMemory");
-!HL
-	attack(0, 1600, $A, "BossCardWaterMonsoon");
-!ENHL
 	lifebar(0, 1600.0f, -6250336);
+!HL
+	attack(0, 2000, $A, "BossCardWaterMonsoon");
+	lifebar(0, 2000.0f, -8347393);
+!*
 	goto CONT @ 0;
 SB:
 !N
 	attack(0, 2000, $A, "BossCardWaterMonsoon");
+	lifebar(0, 2000.0f, -8347393);
 !HL
 	attack(0, 1600, $A, "BossCardMetalMemoryHL");
-!ENHL
-	lifebar(0, 2000.0f, -8347393);
+	lifebar(0, 1600.0f, -6250336);
 CONT:
+!*
 	stageProg(24);
 	lives(2);
 	anm(2);
@@ -703,10 +708,10 @@ SA:
 	lifebar(2, [-1.0f], -12160);
 !ENHL
 	wait(120);
-	attack(0, $B, $A, "BossCardWoEa");
+	attack(0, $B, $A, "BossCardWaFi");
 !NHL
 	$B - 1700;
-	attack(1, [-1], $A, "BossCardWaFi");
+	attack(1, [-1], $A, "BossCardWoMe");
 !HL
 	$B - 3400;
 	attack(2, [-1], $A, "BossCardFiEa");
@@ -725,10 +730,10 @@ SB:
 	attack(0, $B, $A, "BossCardMeWa");
 !NHL
 	$B - 1700;
-	attack(1, [-1], $A, "BossCardWoMe");
+	attack(1, [-1], $A, "BossCardWaWo");
 !HL
 	$B - 3400;
-	attack(2, [-1], $A, "BossCardWaWo");
+	attack(2, [-1], $A, "BossCardWoMe");
 Boss3_832:
 !ENH
 	[-9959] + 1;
@@ -2835,11 +2840,11 @@ sub BossCardWoMe()
 !E
 	30;
 !N
-	36;
+	40;
 !H
-	42;
+	50;
 !L
-	45;
+	60;
 !ENHL
 	laserSetTime(0, [-1], -1, -1, -1, -1);
 	etSE(0, 19, -1);
@@ -2866,7 +2871,7 @@ sub BossCardWoMe()
 !HL
 	etSpr(2, 26, 2);
 !ENHL
-	etAmt(2, 1, 1);
+	etAmt_rank(2, 1, 2, 1, 2, 1, 1, 1, 2);
 	etEx(2, 0, 0, 2, 2, -999999, -999999.0f, -999999.0f);
 	$A = 0;
 !E
@@ -2886,17 +2891,7 @@ START:
 155:
 	$A;
 	je(SKIP, 155);
-	callSep("BossCardWoMe_at2", _ff %B);
-167:
-	callSep("BossCardWoMe_at2", _ff (%B * -1.0f));
-178:
-	callSep("BossCardWoMe_at2", _ff %B);
-188:
-	callSep("BossCardWoMe_at2", _ff (%B * -1.0f));
-197:
-	callSep("BossCardWoMe_at2", _ff %B);
-205:
-	callSep("BossCardWoMe_at2", _ff (%B * -1.0f));
+	callSep("BossCardWoMe_at2");
 SKIP:
 210:
 	callSep("BossCardWoMe_at1", _ff %ANGLE_PLAYER);
@@ -2948,34 +2943,33 @@ END:
 	return();
 }
 
-sub BossCardWoMe_at2(A)
+sub BossCardWoMe_at2()
 {
 	var B C D E;
 !E
-	$B = 4;
-	%E = 0.175f;
+	$B = 12;
+	%E = 0.25f;
 !N
-	$B = 7;
-	%E = 0.2f;
+	$B = 15;
+	%E = 0.25f;
 !H
-	$B = 6;
-	%E = 0.225f;
+	$B = 18;
+	%E = 0.25f;
 !L
-	$B = 8;
+	$B = 20;
 	%E = 0.25f;
 !ENHL
 	%C = 0.0f;
-	%D = 2.0f;
+	%D = 3.0f;
 	goto END @ 0;
 START:
-	etAng(2, %C, 0.0f);
+	etAng(2, %C, 0.04908738521234051935097880286374f);
 	etSpd(2, %D, 0.0f);
 	etOn(2);
-	%C = %C + %A;
+	wait_rank(5, 4, 3, 2);
 END:
 	%D = %D + %E;
-	decrement($B);
-	jne(START, 0);
+	if $B-- goto START @ 0;
 	return();
 }
 
@@ -2992,9 +2986,9 @@ sub BossCardWoMe_atLaser()
 	%C = 0.15707963267948966192313216916398f;
 MAIN_START:
 !EN
-	$A = 8;
-!HL
 	$A = 10;
+!HL
+	$A = 12;
 !ENHL
 	%E = 6.283185307179586476925286766559f / _f($A);
 	%B = %RANDRAD;
