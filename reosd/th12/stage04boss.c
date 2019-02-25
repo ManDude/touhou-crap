@@ -17,8 +17,8 @@ sub Boss()
 	msgWait();
 	setMoveArea(0.0f, 96.0f, 320.0f, 48.0f);
 	anm(0);
-	ins_259(1, 95);
-	ins_259(2, 158);
+	anmScr(1, 95);
+	anmScr(2, 158);
 	anm(2);
 	setBossFog(160.0f, 16728031);
 	call("Boss1");
@@ -61,9 +61,9 @@ RB:
 	goto CONT @ 0;
 MA:
 !N
-	attack(0, 1600, $A, "BossCardWoodSylphae");
+	attack(0, 1600, $A, "BossCardWoodSylphy");
 !HL
-	attack(0, 1600, $A, "BossCardWoodSylphaeHL");
+	attack(0, 1600, $A, "BossCardWoodSylphyHL");
 !ENHL
 	lifebar(0, 1600.0f, -8323200);
 	goto CONT @ 0;
@@ -79,13 +79,15 @@ SA:
 !N
 	attack(0, 1600, $A, "BossCardMetalMemory");
 !HL
-	attack(0, 1600, $A, "BossCardMetalMemory_HL");
+	attack(0, 1600, $A, "BossCardWaterMonsoon");
 !ENHL
 	lifebar(0, 1600.0f, -6250336);
 	goto CONT @ 0;
 SB:
-!NHL
+!N
 	attack(0, 2000, $A, "BossCardWaterMonsoon");
+!HL
+	attack(0, 1600, $A, "BossCardMetalMemoryHL");
 !ENHL
 	lifebar(0, 2000.0f, -8347393);
 CONT:
@@ -93,7 +95,7 @@ CONT:
 	lives(2);
 	anm(2);
 	ins_262(0, 0);
-	ins_263(0, 119);
+	anmScrSlot(0, 119);
 	playSE(31);
 Boss1_276:
 	ins_269(0);
@@ -428,7 +430,7 @@ RB:
 	attack(0, 1600, $A, "BossCardWaterUndine");
 	lifebar(0, 1600.0f, -8347393);
 !N
-	attack(0, 1600, $A, "BossCardWoodSylphaeHL");
+	attack(0, 1600, $A, "BossCardWoodSylphyHL");
 	lifebar(0, 1600.0f, -8323200);
 !HL
 	attack(0, 1600, $A, "BossCardWoodGreen");
@@ -437,7 +439,7 @@ RB:
 	goto CONT @ 0;
 MA:
 !E
-	attack(0, 1600, $A, "BossCardWoodSylphae");
+	attack(0, 1600, $A, "BossCardWoodSylphy");
 	lifebar(0, 1600.0f, -8323200);
 !N
 	attack(0, 1600, $A, "BossCardFireAgniHL");
@@ -464,10 +466,10 @@ SA:
 	attack(0, 1600, $A, "BossCardMetalMemory");
 	lifebar(0, 1600.0f, -6250336);
 !N
-	attack(0, 1600, $A, "BossCardWoodSylphae");
+	attack(0, 1600, $A, "BossCardWoodLeaf");
 	lifebar(0, 1600.0f, -8323200);
 !HL
-	attack(0, 1600, $A, "BossCardWoodSylphaeHL");
+	attack(0, 1600, $A, "BossCardWoodSylphyHL");
 	lifebar(0, 1600.0f, -8323200);
 !ENHL
 	goto CONT @ 0;
@@ -476,7 +478,7 @@ SB:
 	attack(0, 1800, $A, "BossCardWaterMonsoon");
 	lifebar(0, 1800.0f, -8347393);
 !N
-	attack(0, 1600, $A, "BossCardMetalMemory");
+	attack(0, 1600, $A, "BossCardMetalMemoryHL");
 	lifebar(0, 1600.0f, -6250336);
 !HL
 	attack(0, 1800, $A, "BossCardMetalGold");
@@ -487,7 +489,7 @@ CONT:
 	lives(1);
 	anm(2);
 	ins_262(0, 0);
-	ins_263(0, 119);
+	anmScrSlot(0, 119);
 	playSE(31);
 	[-9986];
 	0;
@@ -735,7 +737,7 @@ Boss3_832:
 	attack(3, 0, $A, "BossDead");
 !ENHL
 	stageProg(25);
-	ins_263(0, 119);
+	anmScrSlot(0, 119);
 	goto B @ 0;
 A:
 	noop();
@@ -1437,7 +1439,7 @@ sub BossCardMetalFatigue()
 	[-9949] = 0;
 	[-9948] = 0;
 	call("BossSetNextNon", _SS 2100);
-	cardE(18, 2100, 500000, "金符「メタルファティーグ」");
+	card(18, 2100, 500000, "金符「メタルファティーグ」");
 	invinc(120);
 	stageProg(43);
 	enmPosTime(60, 4, 0.0f, 80.0f);
@@ -1642,22 +1644,7 @@ END:
 	return();
 }
 
-sub BossCardMetalMemory_At(A)
-{
-	var B;
-	$B = 6;
-	goto END @ 0;
-SHOOT:
-	etAng(0, %A, 0.0f);
-	etOn(0);
-	wait(4);
-END:
-	decrement($B);
-	jne(SHOOT, 0);
-	return();
-}
-
-sub BossCardMetalMemory_HL()
+sub BossCardMetalMemoryHL()
 {
 	var A B;
 	resetBoss();
@@ -1705,7 +1692,7 @@ START:
 	enmRand(60, 4, 1.5f);
 CALL:
 	$B % 2;
-	callSep("BossCardMetalMemory_HL_at", _ff %A, _SS [-1]);
+	callSep("BossCardMetalMemoryHL_at", _ff %A, _SS [-1]);
 	%A = %A + 0.24166097335306101834328026025227f;
 	$B = $B + 1;
 140:
@@ -1714,7 +1701,7 @@ END:
 	return();
 }
 
-sub BossCardMetalMemory_HL_at(A C)
+sub BossCardMetalMemoryHL_at(A C)
 {
 	var B D;
 	$B = 6;
@@ -1731,6 +1718,21 @@ TRANSFORM:
 	etEx(0, 4, 1, 8, 60, 0, 0.0f, 0.0f);
 	0.0f - %D;
 	etEx(0, 5, 1, 8, 30, 0, 0.0f, [-1.0f]);
+	etOn(0);
+	wait(4);
+END:
+	decrement($B);
+	jne(SHOOT, 0);
+	return();
+}
+
+sub BossCardMetalMemory_At(A)
+{
+	var B;
+	$B = 6;
+	goto END @ 0;
+SHOOT:
+	etAng(0, %A, 0.0f);
 	etOn(0);
 	wait(4);
 END:
@@ -3137,7 +3139,63 @@ LABEL3:
 	return();
 }
 
-sub BossCardWoodSylphae()
+sub BossCardWoodLeaf()
+{
+	var A B C D E F;
+	resetBoss();
+	ins_21();
+	enmClear();
+	enmNewRel("Ecl_EtBreak", 0.0f, 0.0f, 9999, 0, 0);
+	cardEnd();
+	ins_529(0);
+	ins_445();
+	playSE(28);
+	enmDir(0.0f, 0.0f);
+	enmDirTime(0, 0, 0.0f, 0.0f);
+	enmPosTime(0, 0, 0.0f, 0.0f);
+	[-9949] = 0;
+	[-9948] = 0;
+	call("BossSetNextNon", _SS 2100);
+	card(16, 2100, 500000, "木符「リーフゲール」");
+	invinc(120);
+	stageProg(43);
+	enmPosTime(60, 4, 0.0f, 96.0f);
+	ins_262(0, 0);
+	$D = 3 * 3;
+	%F = 1.0f;
+	etNew(0);
+	etMode(0, 3);
+	etSpr(0, 7, 9);
+	etSpd(0, 3.0f, 1.0f);
+	etEx(0, 0, 0, 2, 1, -999999, -999999.0f, -999999.0f);
+120:
+	goto END @ 120;
+START:
+	etAmt(0, _S($D / 3), 3);
+	%A = _f(6.283185307179586476925286766559f / _f(_S($D / 3))) / _f(3);
+	$B = 15;
+	%C = 3.1415926535897932384626433832795f;
+	%E = %ANGLE_PLAYER;
+	goto END1 @ 120;
+START1:
+	etAng(0, %E, %A);
+	etEx(0, 1, 0, 16, 60, 1, %C, -999999.0f);
+	etOn(0);
+	%C = %C - 0.20943951023931954923084289221863f;
+	%E = %E - _f(0.10471975511965977461542144610932f * %F);
+	wait(4);
+END1:
+	if $B-- goto START1 @ 120;
+	enmRand(60, 4, 3.0f);
+	wait(60);
+	$D = $D + 1;
+	%F = %F * -1.0f;
+END:
+	goto START @ 120;
+	return();
+}
+
+sub BossCardWoodSylphy()
 {
 	var B C D;
 	resetBoss();
@@ -3222,7 +3280,7 @@ LABEL3:
 	return();
 }
 
-sub BossCardWoodSylphaeHL()
+sub BossCardWoodSylphyHL()
 {
 	var B C D;
 	resetBoss();
@@ -3351,9 +3409,9 @@ sub BossDead()
 	var A;
 	enmClear();
 	setFlags(140);
-	ins_263(0, 79);
+	anmScrSlot(0, 79);
 	playSE(5);
-	ins_263(0, 129);
+	anmScrSlot(0, 129);
 	enmDir(%RANDRAD, 0.4f);
 	[-9986];
 	0;
@@ -3375,8 +3433,8 @@ BossDead_380:
 	itemArea(48.0f, 48.0f);
 	itemDrop();
 	shake(30, 12, 0);
-	ins_263(0, 79);
-	ins_263(0, 130);
+	anmScrSlot(0, 79);
+	anmScrSlot(0, 130);
 	playSE(5);
 	boss(-1);
 	delete();
