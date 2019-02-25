@@ -2170,9 +2170,9 @@ START:
 	callSlot("BossCardWaterMonsoon_rainH", 4);
 132:
 !ENHL
-	callSlot("BossCardWaterMonsoon_wave1", 2);
+	callSlot("BossCardWaterMonsoon_wave2", 2);
 !HL
-	callSlot("BossCardWaterMonsoon_wave2", 3);
+	callSlot("BossCardWaterMonsoon_wave1", 3);
 240:
 !ENHL
 	enmRand(90, 4, 1.5f);
@@ -2210,7 +2210,7 @@ sub BossCardWaterMonsoon_rain()
 	etNew(0);
 	etMode(0, 8);
 	etAmt(0, 1, 1);
-	etSpd(0, 2.0f, 1.7f);
+	etSpd(0, 2.2f, 1.7f);
 	etAng(0, 1.642196159831028283741836313987f, 1.4993964937587649547208070692925f);
 	etEx(0, 0, 0, 2, 2, -999999, -999999.0f, -999999.0f);
 	etEx(0, 1, 1, 1024, 600, 1, -999999.0f, -999999.0f);
@@ -2219,14 +2219,15 @@ SHOOT:
 	etOfs_abs(0, _f(%RANDF2 * 208.0f), 0.0f);
 	etSpr(0, 28, 7);
 	etOn(0);
-!NHL
-	unless (($RAND % 3) > (2 - $RANK)) goto END @ 0;
+!HL
+	unless (($TIME % 3) > (2 - $RANK)) goto END @ 0;
 	etOfs_abs(0, _f(%RANDF2 * 208.0f), 0.0f);
 	etSpr(0, 28, 6);
 	etOn(0);
+	wait(6);
 END:
 !*
-	wait(12);
+	wait_rank(15, 12, 6, 6);
 	goto SHOOT @ 0;
 	return();
 }
@@ -2247,7 +2248,7 @@ SHOOT:
 	[-9987.0f] * 208.0f;
 	etOfs_abs(3, [-1.0f], 0.0f);
 	etOn(3);
-	wait(16);
+	wait(21);
 	goto SHOOT @ 0;
 	return();
 }
@@ -2259,7 +2260,7 @@ sub BossCardWaterMonsoon_wave1()
 	etMode(1, 1);
 	etSpr(1, 3, 7);
 	etAmt(1, 1, 1);
-	etSpd(1, 1.5f, 1.0f);
+	etSpd(1, 1.8f, 1.0f);
 	etAng(1, -1.5707963267948966192313216916398f, 0.0f);
 	etEx(1, 0, 0, 1024, 540, 0, -999999.0f, -999999.0f);
 	etEx(1, 1, 1, 268435456, 1, -999999, -999999.0f, -999999.0f);
@@ -2275,29 +2276,22 @@ sub BossCardWaterMonsoon_wave1()
 	etEx(1, 11, 2, 8, 40, -999999, 0.0f, 0.03926990816987241548078304229099f);
 	etEx(1, 12, 2, 8, 40, -999999, 0.0f, -0.03926990816987241548078304229099f);
 	etEx(1, 13, 2, 8, 40, -999999, 0.0f, 0.03926990816987241548078304229099f);
-	etEx(1, 14, 2, 8, 40, -999999, 0.0f, -0.03926990816987241548078304229099f);
-	etEx(1, 15, 2, 8, 40, -999999, 0.0f, 0.03926990816987241548078304229099f);
-	%C = %RANDF * 16.0f;
-	%C = %C - 208.0f;
 !E
 	%B = 64.0f;
 !N
-	%B = 48.0f;
+	%B = 51.2f;
 !H
-	%B = 42.666666666666666666666666666667f;
+	%B = 46.0f;
 !L
-	%B = 38.4f;
+	%B = 42.0f;
+!*
+	%C = _f(%RANDF * %B) - 192.0f;
 START:
-!E
-	$A = 6;
-!N
-	$A = 8;
-!H
-	$A = 9;
+!ENH
+	$A = 19;
 !L
-	$A = 10;
-!ENHL
-	$A = $A * 3;
+	$A = 22;
+!*
 	goto LOOP_END @ 12;
 SHOOT:
 	%D = %B * _f($A);
@@ -2319,7 +2313,7 @@ sub BossCardWaterMonsoon_wave2()
 	etMode(2, 1);
 	etSpr(2, 3, 6);
 	etAmt(2, 1, 1);
-	etSpd(2, 1.5f, 1.0f);
+	etSpd(2, 1.8f, 1.0f);
 	etAng(2, 1.5707963267948966192313216916398f, 0.0f);
 	etEx(2, 0, 0, 1024, 540, 0, -999999.0f, -999999.0f);
 	etEx(2, 1, 1, 268435456, 1, -999999, -999999.0f, -999999.0f);
@@ -2335,39 +2329,29 @@ sub BossCardWaterMonsoon_wave2()
 	etEx(2, 11, 2, 8, 40, -999999, 0.0f, 0.03926990816987241548078304229099f);
 	etEx(2, 12, 2, 8, 40, -999999, 0.0f, -0.03926990816987241548078304229099f);
 	etEx(2, 13, 2, 8, 40, -999999, 0.0f, 0.03926990816987241548078304229099f);
-	etEx(2, 14, 2, 8, 40, -999999, 0.0f, -0.03926990816987241548078304229099f);
-	etEx(2, 15, 2, 8, 40, -999999, 0.0f, 0.03926990816987241548078304229099f);
-	%C = %RANDF * 16.0f;
-	%C = %C + 208.0f;
 !E
 	%B = 64.0f;
 !N
-	%B = 48.0f;
+	%B = 51.2f;
 !H
-	%B = 42.666666666666666666666666666667f;
+	%B = 46.0f;
 !L
-	%B = 38.4f;
+	%B = 42.0f;
+!*
+	%C = _f(%RANDF * %B) + 192.0f;
 START:
-!E
-	$A = 6;
-!N
-	$A = 8;
-!H
-	$A = 9;
+!ENH
+	$A = 19;
 !L
-	$A = 10;
-!ENHL
-	$A = $A * 3;
-!ENHL
+	$A = 22;
+!*
 	goto LOOP_END @ 12;
 SHOOT:
-	%D = %B * _f($A);
-	%D = %C - %D;
+	%D = %C - _f(%B * _f($A));
 	etOfs_abs(2, %D, -48.0f);
 	etOn(2);
 LOOP_END:
-	decrement($A);
-	jne(SHOOT, 0);
+	if $A-- goto SHOOT @ 0;
 12:
 	goto START @ 0;
 	return();
@@ -3168,6 +3152,7 @@ sub BossCardWoodLeaf()
 	etSpr(0, 7, 9);
 	etSpd(0, 3.0f, 1.0f);
 	etEx(0, 0, 0, 2, 1, -999999, -999999.0f, -999999.0f);
+	etEx(0, 1, 0, 1, -999999, -999999, -999999.0f, -999999.0f);
 120:
 	goto END @ 120;
 START:
@@ -3179,7 +3164,7 @@ START:
 	goto END1 @ 120;
 START1:
 	etAng(0, %E, %A);
-	etEx(0, 1, 0, 16, 60, 1, %C, -999999.0f);
+	etEx(0, 2, 0, 16, 60, 1, %C, -999999.0f);
 	etOn(0);
 	%C = %C - 0.20943951023931954923084289221863f;
 	%E = %E - _f(0.10471975511965977461542144610932f * %F);
