@@ -2653,8 +2653,11 @@ START:
 	$A;
 	je(SKIP, 155);
 	callSep("BossCardWoMe_at2");
+!EN
+	wait(35);
 SKIP:
 210:
+!*
 	callSep("BossCardWoMe_at1", _ff %ANGLE_PLAYER);
 	callSep("BossCardWoMe_at1", _ff (%ANGLE_PLAYER + 1.2566370614359172953850573533118f));
 	callSep("BossCardWoMe_at1", _ff (%ANGLE_PLAYER + 2.5132741228718345907701147066236f));
@@ -2709,19 +2712,19 @@ sub BossCardWoMe_at2()
 	var B C D E;
 !E
 	$B = 12;
-	%E = 0.25f;
+	%E = 0.35f;
 !N
 	$B = 15;
-	%E = 0.25f;
+	%E = 0.35f;
 !H
 	$B = 18;
-	%E = 0.25f;
+	%E = 0.35f;
 !L
 	$B = 20;
-	%E = 0.25f;
+	%E = 0.35f;
 !ENHL
 	%C = 0.0f;
-	%D = 3.0f;
+	%D = 2.0f;
 	goto END @ 0;
 START:
 	etAng(2, %C, 0.04908738521234051935097880286374f);
@@ -2900,9 +2903,9 @@ sub BossCardWoodLeaf()
 	stageProg(43);
 	enmPosTime(60, 4, 0.0f, 96.0f);
 	ins_262(0, 0);
-	$D = 3 * 3;
+	$D = 4 * 3;
 	%F = 1.0f;
-	$G = 4;
+	$G = 3;
 	etNew(0);
 	etMode(0, 3);
 	etSpr(0, 7, 9);
