@@ -1777,8 +1777,6 @@ sub BossCardWaFi()
 	etEx(0, 1, 1, 4, 999, -999999, 0.04f, 1.5707963267948966192313216916398f);
 	etNew(1);
 	etMode(1, 8);
-	[-9959] + 1;
-	etAmt(1, [-1], 1);
 	etSpd(1, 2.0f, 1.6f);
 	etAng(1, -2.3561944901923449288469825374596f, -0.78539816339744830961566084581988f);
 	etDist(1, 32.0f);
@@ -1803,20 +1801,23 @@ START:
 sub BossCardWaFi_at(A)
 {
 	var;
-	$A = $A / 2;
-	$A = $A + 9;
+	$A = _S($A / 3) + 8;
 	goto LOOP_END @ 0;
 LOOP_START:
+	etAmt(1, $RANK, 1);
 	etSpr(1, 28, 8);
 	etSpd(1, 2.2f, 1.6f);
 	etEx(1, 4, 0, 1048576, 1, 0, -1.2566370614359172953850573533118f, -1.8849555921538759430775860299677f);
 	etOn(1);
+	etAmt(1, _S($RANK + 1), 1);
 	etEx(1, 4, 0, 8192, -999999, -999999, -999999.0f, -999999.0f);
 	etOn(1);
 	etSpd(1, 3.3f, 2.5f);
 	etOn(1);
+!NHL
 	etOn(1);
 !HL
+	etAmt(1, _S($RANK + 1), 1);
 	etSpr(1, 28, 7);
 	etSpd(1, 2.2f, 1.6f);
 	etOn(1);
@@ -1826,6 +1827,7 @@ LOOP_START:
 	etSpr(1, 28, 6);
 	etSpd(1, 2.2f, 1.6f);
 	etOn(1);
+	etAmt(1, $RANK, 1);
 	etSpd(1, 3.3f, 2.5f);
 	etOn(1);
 !ENHL
