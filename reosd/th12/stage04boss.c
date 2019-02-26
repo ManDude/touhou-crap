@@ -1716,7 +1716,7 @@ sub BossCardWaFi()
     etSpd(0, 2.0f, 0.5f);
     etAng(0, -1.2566371f, -1.8849556f);
     etEx(0, 0, 0, 2, 2, -999999, -999999.0f, -999999.0f);
-    etEx(0, 1, 1, 4, 999, -999999, 0.04f, 1.5707964f);
+    etEx(0, 1, 1, 4, 999, -999999, 0.05f, 1.5707964f);
     etNew(1);
     etMode(1, 8);
     etSpd(1, 2.0f, 1.6f);
@@ -1729,6 +1729,9 @@ sub BossCardWaFi()
     etEx(1, 5, 0, 8192, -999999, -999999, -999999.0f, -999999.0f);
     $A = 0;
 120:
+	playSE(29);
+	invinc(80);
+	wait(80);
     callSep("BossCardWaFi_at2");
 BossCardWaFi_1248:
     callSep("BossCardWaFi_at", _SS $A);
@@ -1746,7 +1749,7 @@ sub BossCardWaFi_at(A)
     $A = (($A / 3) + 8);
     goto BossCardWaFi_at_936 @ 0;
 BossCardWaFi_at_172:
-    etAmt(1, $RANK, 1);
+    etAmt_rank(1, 1, 2, 2, 3, 1, 1, 1, 1);
     etSpr(1, 28, 8);
     etSpd(1, 2.2f, 1.6f);
     etEx(1, 4, 0, 1048576, 1, 0, -1.2566371f, -1.8849556f);
@@ -1782,6 +1785,7 @@ BossCardWaFi_at_936:
 sub BossCardWaFi_at2()
 {
     var A B;
+	playSE(28);
     $A = 0;
 BossCardWaFi_at2_76:
     if ($A % 1) goto BossCardWaFi_at2_724 @ 0;
@@ -2803,14 +2807,15 @@ sub BossCardWoodLeaf()
     stageProg(43);
     enmPosTime(60, 4, 0.0f, 96.0f);
     anmScrNoMove(0, 0);
-    $D = (4 * 3);
+    $D = (5 * 3);
     %F = 1.0f;
     $G = 3;
     etNew(0);
     etMode(0, 3);
     etSpr(0, 7, 9);
-    etSpd(0, 2.8f, 0.8f);
+    etSpd(0, 2.5f, 0.8f);
     etEx(0, 0, 0, 2, 1, -999999, -999999.0f, -999999.0f);
+    etEx(0, 1, 1, 160, 1, -999999, -999999.0f, -999999.0f);
 120:
     goto BossCardWoodLeaf_1824 @ 120;
 BossCardWoodLeaf_900:
@@ -2818,11 +2823,11 @@ BossCardWoodLeaf_900:
     %A = ((6.2831855f / _f($D / 3)) / _f($G));
     $B = 15;
     %C = 3.1415927f;
-    %E = %ANGLE_PLAYER;
+    %E = %RANDRAD;
     goto BossCardWoodLeaf_1580 @ 120;
 BossCardWoodLeaf_1276:
     etAng(0, %E, %A);
-    etEx(0, 1, 0, 16, 60, 1, %C, -999999.0f);
+    etEx(0, 2, 1, 16, 60, 1, %C, -999999.0f);
     etOn(0);
     %C = (%C - 0.20943952f);
     %E = (%E - (0.10471976f * %F));
