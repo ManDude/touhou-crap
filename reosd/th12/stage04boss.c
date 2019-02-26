@@ -82,8 +82,8 @@ Boss1_1364:
     attack(0, 1600, $A, "BossCardMetalMemory");
     lifebar(0, 1600.0f, -6250336);
 !HL
-    attack(0, 2000, $A, "BossCardWaterMonsoon");
-    lifebar(0, 2000.0f, -8347393);
+    attack(0, 1800, $A, "BossCardWaterMonsoon");
+    lifebar(0, 1800.0f, -8347393);
 !*
     goto Boss1_1720 @ 0;
 Boss1_1552:
