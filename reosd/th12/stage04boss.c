@@ -245,18 +245,10 @@ Boss1_at1_1860:
 Boss1_at1_2372:
     etSpr(1, 7, 2);
 Boss1_at1_2400:
-    etAng(1, %D, 0.0f);
-    laserShootStatic(1, 1);
-    etAng(1, %E, 0.0f);
-    laserShootStatic(1, 2);
-    etAng(1, %F, 0.0f);
-    laserShootStatic(1, 3);
-    etAng(1, %G, 0.0f);
-    laserShootStatic(1, 4);
-    laserSetRotSpeed(1, %I);
-    laserSetRotSpeed(2, %I);
-    laserSetRotSpeed(3, %I);
-    laserSetRotSpeed(4, %I);
+	callSlot("Boss1_at1_Laser", 2, _SS 1, _ff %D, _ff %I);
+	callSlot("Boss1_at1_Laser", 3, _SS 2, _ff %E, _ff %I);
+	callSlot("Boss1_at1_Laser", 4, _SS 3, _ff %F, _ff %I);
+	callSlot("Boss1_at1_Laser", 5, _SS 4, _ff %G, _ff %I);
 !EN
     $B = 180;
 !H
@@ -281,6 +273,10 @@ Boss1_at1_2888:
     laserSetRotSpeed(2, 0.0f);
     laserSetRotSpeed(3, 0.0f);
     laserSetRotSpeed(4, 0.0f);
+	endSlot(2);
+	endSlot(3);
+	endSlot(4);
+	endSlot(5);
 Boss1_at1_3104:
     $C;
 !EN
@@ -305,19 +301,11 @@ Boss1_at1_3104:
 Boss1_at1_3440:
     etSpr(1, 7, 2);
 Boss1_at1_3468:
-    etAng(1, %D, 0.0f);
-    laserShootStatic(1, 5);
-    etAng(1, %E, 0.0f);
-    laserShootStatic(1, 6);
-    etAng(1, %F, 0.0f);
-    laserShootStatic(1, 7);
-    etAng(1, %G, 0.0f);
-    laserShootStatic(1, 8);
     %I = (%I * -1.0f);
-    laserSetRotSpeed(5, %I);
-    laserSetRotSpeed(6, %I);
-    laserSetRotSpeed(7, %I);
-    laserSetRotSpeed(8, %I);
+	callSlot("Boss1_at1_Laser", 6, _SS 5, _ff %D, _ff %I);
+	callSlot("Boss1_at1_Laser", 7, _SS 6, _ff %E, _ff %I);
+	callSlot("Boss1_at1_Laser", 8, _SS 7, _ff %F, _ff %I);
+	callSlot("Boss1_at1_Laser", 9, _SS 8, _ff %G, _ff %I);
 Boss1_at1_3848:
     unless $BOSS4 goto Boss1_at1_4124 @ 0;
 !E
@@ -334,7 +322,38 @@ Boss1_at1_4124:
 Boss1_at1_4200:
 1:
     if $B-- goto Boss1_at1_2888 @ 0;
+    laserSetRotSpeed(5, 0.0f);
+    laserSetRotSpeed(6, 0.0f);
+    laserSetRotSpeed(7, 0.0f);
+    laserSetRotSpeed(8, 0.0f);
+	endSlot(6);
+	endSlot(7);
+	endSlot(8);
+	endSlot(9);
     return();
+}
+
+sub Boss1_at1_Laser(laser start inc)
+{
+	var A X Y X2 Y2;
+	%A = %start;
+	%X2 = %ABS_X;
+	%Y2 = %ABS_Y;
+    etAng(1, %A, 0.0f);
+	ins_81(%X, %Y, %A, 64.0f);
+	laserSetOffset($laser, _f(%X + %X2), _f(%Y + %Y2));
+	%A = %A + %inc;
+    laserShootStatic(1, $laser);
+    laserSetRotSpeed($laser, %inc);
+	goto END @ 0;
+START:
+	wait(1);
+	ins_81(%X, %Y, %A, 64.0f);
+	laserSetOffset($laser, _f(%X + %X2), _f(%Y + %Y2));
+	%A = %A + %inc;
+END:
+	goto START @ 0;
+	return();
 }
 
 sub Boss1_at2(A)
