@@ -10,8 +10,6 @@ sub Boss()
     killbox(48.0f, 56.0f);
     enmPosTime(60, 4, 0.0f, 128.0f);
     invinc(60);
-    itemEx(8, 1);
-    itemDrop();
 60:
     msgWait();
     setMoveArea(0.0f, 96.0f, 320.0f, 48.0f);
