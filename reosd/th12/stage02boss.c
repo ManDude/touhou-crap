@@ -348,7 +348,7 @@ sub BossCard1EN()
 	$MISS_COUNT = 0;
 	$BOMB_COUNT = 0;
 	attack(0, 0, 1800, "Boss2");
-	cardE(11, 1800, 500000, "氷符「アイシクルフォール」");
+	cardE(10, 1800, 500000, "氷符「アイシクルフォール」");
 	stageProg(43);
 	enmPosTime(120, 4, 0.0f, 96.0f);
 	anmScrSlot(0, 119);
@@ -444,7 +444,7 @@ sub BossCard1HL()
 	$BOMB_COUNT = 0;
 	$CAPTURED = 1;
 	attack(0, 0, 2100, "Boss2");
-	cardH(13, 2100, 500000, "雹符「ヘイルストーム」");
+	cardH(12, 2100, 500000, "雹符「ヘイルストーム」");
 	stageProg(43);
 	enmPosTime(120, 4, 0.0f, 96.0f);
 	etNew(0);

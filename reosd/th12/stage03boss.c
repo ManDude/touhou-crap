@@ -494,7 +494,7 @@ sub BossCard1()
 	$MISS_COUNT = 0;
 	$BOMB_COUNT = 0;
 	attack(0, 0, 1800, "Boss2");
-	cardE(30, 1800, 500000, "虹符「彩虹の風鈴」");
+	cardE(25, 1800, 500000, "虹符「彩虹の風鈴」");
 	stageProg(43);
 	enmPosTime(60, 4, 0.0f, 64.0f);
 	invinc(120);
@@ -593,7 +593,7 @@ sub BossCard2()
 	$MISS_COUNT = 0;
 	$BOMB_COUNT = 0;
 	attack(0, 0, 2400, "Boss3");
-	cardH(36, 2400, 500000, "幻符「華想夢葛」");
+	cardH(29, 2400, 500000, "幻符「華想夢葛」");
 	enmPosTime(120, 4, 0.0f, 64.0f);
 	invinc(120);
 	wait(120);
@@ -730,7 +730,7 @@ sub BossCard3()
 	enmPosTime(0, 0, 0.0f, 0.0f);
 	$MISS_COUNT = 0;
 	$BOMB_COUNT = 0;
-	cardE(38, 2400, 500000, "彩符「彩雨」");
+	cardE(31, 2400, 500000, "彩符「彩雨」");
 	enmPosTime(120, 4, 0.0f, 64.0f);
 	invinc(120);
 	wait(120);
@@ -804,7 +804,7 @@ sub BossCard3H()
 	enmPosTime(0, 0, 0.0f, 0.0f);
 	$MISS_COUNT = 0;
 	$BOMB_COUNT = 0;
-	cardE(38, 2400, 500000, "彩符「彩光乱舞」");
+	cardH(33, 2400, 500000, "彩符「彩光乱舞」");
 	enmPosTime(120, 4, 0.0f, 64.0f);
 	invinc(120);
 	wait(120);
@@ -917,7 +917,7 @@ Boss3_248:
 Boss3_784:
 	invinc(60);
 	wait(60);
-	cardN(40, 2100, 500000, "彩符「極彩颱風」");
+	cardN(35, 2100, 500000, "彩符「極彩颱風」");
 	enmPosTime(120, 4, 0.0f, 128.0f);
 	invinc(120);
 	wait(120);

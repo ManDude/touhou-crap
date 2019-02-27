@@ -149,10 +149,10 @@ MBossCard1_228:
 	attack(0, 0, 1200, "MBossDead");
 	timeoutAt(0, "MBossEscape");
 !EN
-	cardE(26, 1200, 500000, "華符「芳華絢爛」");
+	cardE(21, 1200, 500000, "華符「芳華絢爛」");
 	call("MBossCard1E");
 !HL
-	cardH(26, 1200, 500000, "華符「セラギネラ９」");
+	cardH(23, 1200, 500000, "華符「セラギネラ９」");
 	call("MBossCard1H");
 !*
 	wait(10000);

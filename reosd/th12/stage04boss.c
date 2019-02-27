@@ -737,7 +737,7 @@ sub BossCardEaMe()
     $MISS_COUNT = 0;
     $BOMB_COUNT = 0;
     call("BossCheckItems");
-    cardE(31, 2400, 500000, "土＆金符「エメラルドメガリス」");
+    cardE(94, 2400, 500000, "土＆金符「エメラルドメガリス」");
     invinc(120);
     stageProg(43);
     enmPosTime(120, 4, 0.0f, 80.0f);
@@ -816,7 +816,7 @@ sub BossCardEarthTrilithon()
     $MISS_COUNT = 0;
     $BOMB_COUNT = 0;
     call("BossSetNextNon", _SS 2100);
-    cardE(17, 2100, 500000, "土符「レイジィトリリトン」");
+    cardE(44, 2100, 500000, "土符「レイジィトリリトン」");
     invinc(120);
     stageProg(43);
     enmPosTime(60, 4, 0.0f, 80.0f);
@@ -871,7 +871,7 @@ sub BossCardEarthTrilithonHL()
     $MISS_COUNT = 0;
     $BOMB_COUNT = 0;
     call("BossSetNextNon", _SS 2100);
-    cardE(21, 2100, 500000, "土符「レイジィトリリトン上級」");
+    cardN(58, 2100, 500000, "土符「レイジィトリリトン上級」");
     invinc(120);
     stageProg(43);
     enmPosTime(60, 4, 0.0f, 80.0f);
@@ -928,7 +928,7 @@ sub BossCardEarthTrilithonShake()
     $MISS_COUNT = 0;
     $BOMB_COUNT = 0;
     call("BossSetNextNon", _SS 2100);
-    cardE(25, 2100, 500000, "土符「トリリトンシェイク」");
+    cardH(70, 2100, 500000, "土符「トリリトンシェイク」");
     invinc(120);
     stageProg(43);
     enmPosTime(120, 4, 0.0f, 80.0f);
@@ -995,7 +995,7 @@ sub BossCardFiEa()
     $MISS_COUNT = 0;
     $BOMB_COUNT = 0;
     call("BossCheckItems");
-    cardE(27, 2400, 500000, "火＆土符「ラーヴァクロムレク」");
+    cardE(78, 2400, 500000, "火＆土符「ラーヴァクロムレク」");
     invinc(120);
     stageProg(43);
     enmPosTime(120, 4, 0.0f, 80.0f);
@@ -1086,7 +1086,7 @@ sub BossCardFireAgni()
     $MISS_COUNT = 0;
     $BOMB_COUNT = 0;
     call("BossSetNextNon", _SS 1800);
-    cardE(14, 1800, 500000, "火符「アグニシャイン」");
+    cardE(38, 1800, 500000, "火符「アグニシャイン」");
     invinc(120);
     stageProg(43);
     enmPosTime(60, 4, 0.0f, 80.0f);
@@ -1149,7 +1149,7 @@ sub BossCardFireAgniHL()
     $MISS_COUNT = 0;
     $BOMB_COUNT = 0;
     call("BossSetNextNon", _SS 1800);
-    cardE(19, 1800, 500000, "火符「アグニシャイン上級」");
+    cardN(52, 1800, 500000, "火符「アグニシャイン上級」");
     invinc(120);
     stageProg(43);
     enmPosTime(60, 4, 0.0f, 80.0f);
@@ -1213,7 +1213,7 @@ sub BossCardFireAgniRad()
     $MISS_COUNT = 0;
     $BOMB_COUNT = 0;
     call("BossSetNextNon", _SS 1800);
-    cardE(22, 1800, 500000, "火符「アグニレイディアンス」");
+    cardH(64, 1800, 500000, "火符「アグニレイディアンス」");
     invinc(120);
     stageProg(43);
     enmPosTime(120, 4, 0.0f, 80.0f);
@@ -1282,7 +1282,7 @@ sub BossCardMeWa()
     $MISS_COUNT = 0;
     $BOMB_COUNT = 0;
     call("BossCheckItems");
-    cardE(30, 2400, 500000, "金＆水符「マーキュリポイズン」");
+    cardE(90, 2400, 500000, "金＆水符「マーキュリポイズン」");
     invinc(120);
     stageProg(43);
     enmPosTime(120, 4, 0.0f, 80.0f);
@@ -1351,7 +1351,7 @@ sub BossCardMetalDragon()
     $MISS_COUNT = 0;
     $BOMB_COUNT = 0;
     call("BossSetNextNon", _SS 2100);
-    cardE(26, 2100, 500000, "金符「シルバードラゴン」");
+    cardH(72, 2100, 500000, "金符「シルバードラゴン」");
     invinc(120);
     stageProg(43);
     enmPosTime(120, 4, 0.0f, 80.0f);
@@ -1399,7 +1399,7 @@ sub BossCardMetalFatigue()
     $MISS_COUNT = 0;
     $BOMB_COUNT = 0;
     call("BossSetNextNon", _SS 2100);
-    card(18, 2100, 500000, "金符「メタルファティーグ」");
+    card(51, 2100, 500000, "金符「メタルファティーグ」");
     invinc(120);
     stageProg(43);
     enmPosTime(60, 4, 0.0f, 80.0f);
@@ -1445,7 +1445,7 @@ sub BossCardMetalGold()
     $MISS_COUNT = 0;
     $BOMB_COUNT = 0;
     call("BossSetNextNon", _SS 2100);
-    cardE(67, 2100, 500000, "金符「エレメンタアウレア」");
+    cardH(76, 2100, 500000, "金符「エレメンタアウレア」");
     invinc(120);
     stageProg(43);
     enmPosTime(60, 4, 0.0f, 80.0f);
@@ -1562,7 +1562,7 @@ sub BossCardMetalMemory()
     $MISS_COUNT = 0;
     $BOMB_COUNT = 0;
     call("BossSetNextNon", _SS 1800);
-    cardE(65, 1800, 500000, "金符「メモリーアロイー」");
+    cardE(46, 1800, 500000, "金符「メモリーアロイー」");
     invinc(120);
     stageProg(43);
     enmPosTime(60, 4, 0.0f, 112.0f);
@@ -1614,7 +1614,7 @@ sub BossCardMetalMemoryHL()
     $MISS_COUNT = 0;
     $BOMB_COUNT = 0;
     call("BossSetNextNon", _SS 1800);
-    cardE(66, 1800, 500000, "金符「メモリーアロイー上級」");
+    cardN(61, 1800, 500000, "金符「メモリーアロイー上級」");
     invinc(120);
     stageProg(43);
     enmPosTime(60, 4, 0.0f, 112.0f);
@@ -1705,7 +1705,7 @@ sub BossCardWaFi()
     $MISS_COUNT = 0;
     $BOMB_COUNT = 0;
     call("BossCheckItems");
-    cardE(71, 2400, 500000, "水＆火符「テンペレートガイザー」");
+    cardE(98, 2400, 500000, "水＆火符「テンペレートガイザー」");
     invinc(120);
     stageProg(43);
     enmPosTime(60, 4, 0.0f, 80.0f);
@@ -1883,7 +1883,7 @@ sub BossCardWaWo()
     $MISS_COUNT = 0;
     $BOMB_COUNT = 0;
     call("BossCheckItems");
-    cardE(29, 2400, 500000, "水＆木符「ウォーターエルフ」");
+    cardE(86, 2400, 500000, "水＆木符「ウォーターエルフ」");
     invinc(120);
     stageProg(43);
     enmPosTime(120, 4, 0.0f, 80.0f);
@@ -1968,7 +1968,7 @@ sub BossCardWaterBury()
     $MISS_COUNT = 0;
     $BOMB_COUNT = 0;
     call("BossSetNextNon", _SS 2100);
-    cardE(23, 2100, 500000, "水符「ベリーインレイク」");
+    cardH(66, 2100, 500000, "水符「ベリーインレイク」");
     invinc(120);
     stageProg(43);
     enmPosTime(60, 4, 0.0f, 80.0f);
@@ -2079,9 +2079,9 @@ sub BossCardWaterMonsoon()
     $BOMB_COUNT = 0;
     call("BossSetNextNon", _SS 2100);
 !EN
-    cardE(67, 2100, 500000, "水符「タイダルウェイブ」");
+    cardE(48, 2100, 500000, "水符「タイダルウェイブ」");
 !HL
-    cardH(69, 2100, 500000, "水符「ウェットモンスーン」");
+    cardH(74, 2100, 500000, "水符「ウェットモンスーン」");
 !*
     invinc(120);
     stageProg(43);
@@ -2300,7 +2300,7 @@ sub BossCardWaterUndine()
     $MISS_COUNT = 0;
     $BOMB_COUNT = 0;
     call("BossSetNextNon", _SS 2100);
-    cardE(15, 2100, 500000, "水符「プリンセスウンディネ」");
+    cardE(40, 2100, 500000, "水符「プリンセスウンディネ」");
     invinc(120);
     stageProg(43);
     enmPosTime(60, 4, 0.0f, 80.0f);
@@ -2404,7 +2404,7 @@ sub BossCardWoFi()
     $MISS_COUNT = 0;
     $BOMB_COUNT = 0;
     call("BossCheckItems");
-    cardE(71, 2400, 500000, "木＆火符「フォレストブレイズ」");
+    cardE(82, 2400, 500000, "木＆火符「フォレストブレイズ」");
     invinc(120);
     stageProg(43);
     enmPosTime(120, 4, 0.0f, 80.0f);
@@ -2501,7 +2501,7 @@ sub BossCardWoMe()
     $MISS_COUNT = 0;
     $BOMB_COUNT = 0;
     call("BossCheckItems");
-    cardE(72, 999999, 500000, "木＆金符「チルクイトスバイタ」");
+    cardN(102, 999999, 500000, "木＆金符「チルクイトスバイタ」");
     invinc(120);
     stageProg(43);
     enmPosTime(120, 4, 0.0f, 160.0f);
@@ -2719,7 +2719,7 @@ sub BossCardWoodGreen()
     $MISS_COUNT = 0;
     $BOMB_COUNT = 0;
     call("BossSetNextNon", _SS 2100);
-    cardE(24, 2100, 500000, "木符「グリーンストーム」");
+    cardH(68, 2100, 500000, "木符「グリーンストーム」");
     invinc(120);
     stageProg(43);
     enmPosTime(120, 4, 0.0f, 80.0f);
@@ -2802,7 +2802,7 @@ sub BossCardWoodLeaf()
     $MISS_COUNT = 0;
     $BOMB_COUNT = 0;
     call("BossSetNextNon", _SS 2100);
-    card(16, 2100, 500000, "木符「リーフゲール」");
+    card(50, 2100, 500000, "木符「リーフゲール」");
     invinc(120);
     stageProg(43);
     enmPosTime(60, 4, 0.0f, 96.0f);
@@ -2860,7 +2860,7 @@ sub BossCardWoodSylphy()
     $MISS_COUNT = 0;
     $BOMB_COUNT = 0;
     call("BossSetNextNon", _SS 2100);
-    cardE(16, 2100, 500000, "木符「シルフィホルン」");
+    cardE(42, 2100, 500000, "木符「シルフィホルン」");
     invinc(120);
     stageProg(43);
     enmPosTime(60, 4, 0.0f, 80.0f);
@@ -2943,7 +2943,7 @@ sub BossCardWoodSylphyHL()
     $MISS_COUNT = 0;
     $BOMB_COUNT = 0;
     call("BossSetNextNon", _SS 2100);
-    cardE(20, 2100, 500000, "木符「シルフィホルン上級」");
+    cardN(55, 2100, 500000, "木符「シルフィホルン上級」");
     invinc(120);
     stageProg(43);
     enmPosTime(60, 4, 0.0f, 80.0f);
