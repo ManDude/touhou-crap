@@ -104,10 +104,16 @@ Ecl_EtBreak_ni_216:
 sub Enemy_Auto_Power_Full()
 {
 	var;
-	setFlags(32);
+	setFlags(44);
+	goto END @ 0;
+START:
+	wait(1);
+	unless ($POWER < 400) goto END @ 0;
 	enmPos(%PLAYER_X, %PLAYER_Y);
 	itemMain(8);
 	itemDrop();
+END:
+	goto START @ 0;
 	delete();
 }
 
