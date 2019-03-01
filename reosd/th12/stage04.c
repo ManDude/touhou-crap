@@ -720,7 +720,6 @@ sub main()
     var A B C;
     setFlags(32);
 	enmNew("Enemy_Auto_Power_Full", 0.0f, 0.0f, 10, 100, 1);
-	goto DEBUG_LBL @ 2388;
     callSep("LogoEnemy");
 440:
     callSep("MainSub00");
