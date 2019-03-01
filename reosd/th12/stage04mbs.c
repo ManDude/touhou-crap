@@ -10,7 +10,7 @@ sub MBoss()
     enmClear();
     resetBoss();
     enmNewRel("Ecl_EtBreak_ni", 0.0f, 0.0f, 9999, 0, 0);
-	etClear_all();
+	etClear(640.0f);
     anm(2);
     anmScr(0, 28);
     anmScr(1, 29);
