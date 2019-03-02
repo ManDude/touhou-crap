@@ -69,7 +69,7 @@ sub Fairy00()
 	var;
 	anm(1);
 	anmScrNoMove(0, 0);
-	hitbox(24.0f, 24.0f);
+	hitbox(28.0f, 28.0f);
 	killbox(28.0f, 28.0f);
 	enmDir(1.5707964f, 2.0f);
 !L
@@ -88,7 +88,7 @@ sub Fairy01()
 	var;
 	anm(1);
 	anmScrNoMove(0, 0);
-	hitbox(24.0f, 24.0f);
+	hitbox(28.0f, 28.0f);
 	killbox(28.0f, 28.0f);
 	enmDir(1.5707964f, 2.0f);
 !L
@@ -105,7 +105,7 @@ sub Fairy02()
 	var;
 	anm(1);
 	anmScrNoMove(0, 0);
-	hitbox(24.0f, 24.0f);
+	hitbox(28.0f, 28.0f);
 	killbox(28.0f, 28.0f);
 	enmDir(1.5707964f, 2.0f);
 60:
@@ -125,7 +125,7 @@ sub Fairy03()
 	var;
 	anm(1);
 	anmScrNoMove(0, 0);
-	hitbox(24.0f, 24.0f);
+	hitbox(28.0f, 28.0f);
 	killbox(28.0f, 28.0f);
 	enmDir(1.5707964f, 2.0f);
 60:
@@ -149,10 +149,10 @@ sub FairyBasicShoot00()
 	etNew(0);
 	etMode(0, 0);
 	etSpr(0, 0, 6);
-	etOfs(0, 3.0f, 1.0f);
+	etOfs(0, 3.5f, 1.25f);
 	etAng(0, 0.0f, 0.0f);
 	etSE(0, -1, -1);
-	etEx(0, 0, 0, 2, 2, -999999, -999999.0f, -999999.0f);
+	etEx(0, 0, 0, 2, 1, -999999, -999999.0f, -999999.0f);
 FairyBasicShoot00_316:
 	etOn(0);
 	wait(120);
@@ -166,19 +166,22 @@ sub FairyRedShoot00()
 	etNew(0);
 	etMode(0, 0);
 	etSpr(0, 5, 2);
-	etSpd(0, 1.4f, 0.0f);
 	etAmt_rank(0, 3, 7, 9, 11, 1, 1, 2, 2);
 !E
+	etSpd(0, 1.9f, 0.25f);
 	etAng(0, 0.0f, 0.7853982f);
 !N
+	etSpd(0, 1.9f, 0.25f);
 	etAng(0, 0.0f, 0.62831855f);
 !H
+	etSpd(0, 1.9f, 0.75f);
 	etAng(0, 0.0f, 0.3926991f);
 !L
+	etSpd(0, 1.9f, 0.75f);
 	etAng(0, 0.0f, 0.15707964f);
 !*
-	etEx(0, 0, 0, 2, 1, -999999, -999999.0f, -999999.0f);
-	etEx(0, 1, 1, 1, -999999, -999999, -999999.0f, -999999.0f);
+	etEx(0, 0, 0, 2, 0, -999999, -999999.0f, -999999.0f);
+	etEx(0, 1, 0, 1, -999999, -999999, -999999.0f, -999999.0f);
 	etOn(0);
 	return();
 }
@@ -189,11 +192,11 @@ sub FairyRedShoot01()
 	etNew(0);
 	etMode(0, 0);
 	etSpr(0, 5, 2);
-	etSpd(0, 1.4f, 0.0f);
+	etSpd(0, 1.9f, 0.25f);
 	etAmt(0, 5, 1);
 	etAng(0, 0.0f, 0.2617994f);
-	etEx(0, 0, 0, 2, 1, -999999, -999999.0f, -999999.0f);
-	etEx(0, 1, 1, 1, -999999, -999999, -999999.0f, -999999.0f);
+	etEx(0, 0, 0, 2, 0, -999999, -999999.0f, -999999.0f);
+	etEx(0, 1, 0, 1, -999999, -999999, -999999.0f, -999999.0f);
 	etOn(0);
 	return();
 }

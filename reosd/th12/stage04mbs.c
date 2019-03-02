@@ -60,7 +60,7 @@ sub MBoss1_at1(C)
 	etMode(0, 3);
 	etSpr(0, 26, 1);
 	etAmt(0, 8, 1);
-	etSpd(0, 1.2f, 1.0f);
+	etSpd(0, 1.7f, 1.25f);
 	etEx(0, 0, 0, 2, 1, -999999, -999999.0f, -999999.0f);
 	etEx(0, 1, 0, 4, 999999, -999999, 0.024f, -999.0f);
 	goto END @ 0;
@@ -97,7 +97,7 @@ sub MBoss1_enemy()
 	goto END @ 30;
 START:
 	etOfs(1, _f(%RANDF2 * 40.0f), _f(%RANDF2 * 40.0f));
-	etSpd(1, _f(%RANDF + 1.0f), 0.0f);
+	etSpd(1, _f(%RANDF + 1.5f), 0.25f);
 	etAng(1, %RANDRAD, 0.09817477042468103870195760572748f);
 	etOn(1);
 	wait(6);

@@ -15,7 +15,7 @@ sub MBoss()
 	anmScr(2, 158);
 	anm(2);
 	anmScrNoMove(0, 0);
-	setFlags(64);
+	setFlags(68);
 	hitbox(56.0f, 64.0f);
 	killbox(48.0f, 56.0f);
 	invinc(60);
@@ -31,8 +31,8 @@ sub MBoss()
 	setBossFog(160.0f, 3190703);
 	stageProg(6);
 	enmPosTime(60, 4, 128.0f, 128.0f);
-	wait(64);
-	unsetMoveArea();
+	wait(60);
+	unsetFlags(4);
 	call("MBoss1");
 	goto MBoss_864 @ 0;
 MBoss_844:
@@ -45,54 +45,74 @@ MBoss_864:
 sub MBoss1()
 {
 	var A;
+	wait(20);
+	noop();
+	wait(20);
+	noop();
+	wait(30);
+	playSE(28);
+	wait(30);
 	call("MBoss1_at1", _SS 6);
 	wait(32);
+	noop();
 	$A = 2;
-10:
-	goto MBoss1_888 @ 648;
-MBoss1_160:
+	goto END @ 0;
+START:
+	wait(10);
 	enmPosTime(60, 4, 0.0f, 64.0f);
-70:
+	wait(60);
 	call("MBoss1_at2", _SS 6, _ff 0.0f);
-78:
+	wait(8);
 	call("MBoss1_at2", _SS 2, _ff 0.06544985f);
-86:
+	wait(8);
 	call("MBoss1_at2", _SS 10, _ff 0.1308997f);
-94:
+	wait(8);
 	call("MBoss1_at2", _SS 13, _ff 0.1963495f);
-102:
+	wait(8);
 	call("MBoss1_at2", _SS 14, _ff 0.2617994f);
-192:
+	wait(30);
+	noop();
+	wait(60);
 	enmPosTime(60, 4, -128.0f, 96.0f);
-222:
+	wait(10);
+	noop();
+	wait(20);
 	call("MBoss1_at1", _SS 10);
-252:
+	wait(30);
 	call("MBoss1_at1", _SS 13);
-334:
+	wait(32);
+	noop();
+	wait(40);
+	noop();
+	wait(10);
 	enmPosTime(60, 4, 0.0f, 80.0f);
-394:
+	wait(60);
 	call("MBoss1_at3", _SS 6);
-402:
+	wait(8);
 	call("MBoss1_at3", _SS 2);
-410:
+	wait(8);
 	call("MBoss1_at3", _SS 10);
-418:
+	wait(8);
 	call("MBoss1_at3", _SS 13);
-426:
+	wait(8);
 	call("MBoss1_at3", _SS 14);
-516:
-	enmPosTime(60, 4, 128.0f, 96.0f);
-546:
+	wait(30);
+	noop();
+	wait(60);
+	enmPosTime(60, 4, 128.0f, 64.0f);
+	wait(10);
+	wait(20);
 	call("MBoss1_at1", _SS 6);
-576:
+	wait(30);
 	call("MBoss1_at1", _SS 2);
-MBoss1_888:
-648:
-	goto MBoss1_160 @ 10;
-	if $A-- goto MBoss1_160 @ 10;
-658:
+	wait(32);
+	wait(40);
+	noop();
+END:
+	if $A-- goto START @ 0;
+	wait(10);
 	enmPosTime(60, 4, 0.0f, -64.0f);
-698:
+	wait(60);
 	return();
 }
 
@@ -120,7 +140,7 @@ sub MBoss1_at1(A)
 !L
 	1.0f;
 !*
-	etSpd(0, 2.0f, [-1.0f]);
+	etSpd(0, 2.5f, _f([-1.0f] + 0.25f));
 	etAng(0, 0.0f, 0.0f);
 	etOfs(0, 0.0f, -12.0f);
 	etEx(0, 0, 0, 2, 1, -999999, -999999.0f, -999999.0f);
@@ -145,7 +165,7 @@ sub MBoss1_at2(A B)
 	28;
 !*
 	etAmt(0, [-1], 1);
-	etSpd(0, 0.0f, 0.0f);
+	etSpd(0, 0.5f, 0.25f);
 	etAng(0, %B, 0.0f);
 	etOfs(0, 0.0f, -12.0f);
 	etEx(0, 0, 2, 2, 1, -999999, -999999.0f, -999999.0f);
@@ -179,10 +199,10 @@ sub MBoss1_at3(A)
 !*
 	etAmt_rank(0, 4, 8, 12, 24, 1, 1, 1, 1);
 	etAmt_rank(1, 4, 8, 12, 24, 1, 1, 1, 1);
+	%B = _f((%RANDF * 3.0f) + 0.5f);
+	etSpd(0, _f(%B + 0.5f), 0.95f);
 	%B = (%RANDF * 3.0f);
-	etSpd(0, _f(%B + 0.5f), 0.7f);
-	%B = (%RANDF * 3.0f);
-	etSpd(1, _f(%B + 0.5f), 0.7f);
+	etSpd(1, _f(%B + 0.5f), 0.95f);
 	etAng(0, _f(%RANDRAD - 3.1415927f), 0.0f);
 	etAng(1, _f(%RANDRAD - 3.1415927f), 0.0f);
 	etOfs(0, 0.0f, -12.0f);
@@ -260,7 +280,7 @@ sub MBossCard1_at()
 !L
 	2.8f;
 !*
-	etSpd(1, [-1.0f], 0.0f);
+	etSpd(1, _f([-1.0f] + 0.5f), 0.25f);
 	etEx(1, 0, 0, 2, 2, -999999, -999999.0f, -999999.0f);
 	etOfs(1, 0.0f, -12.0f);
 MBossCard1_at_348:
@@ -321,11 +341,11 @@ sub MBossDead()
 	enmPosTime(0, 0, 0.0f, 0.0f);
 	playSE(28);
 	unless ($TIMEOUT == 0) goto MBossDead_612 @ 0;
-	enmNewRel("Ecl_EtBreak", 0.0f, 0.0f, 9999, 0, 0);
+	etClear(640.0f);
 	enmPosTime(120, 1, 0.0f, -64.0f);
 	goto MBossDead_700 @ 0;
 MBossDead_612:
-	enmNewRel("Ecl_EtBreak_ni", 0.0f, 0.0f, 9999, 0, 0);
+	etClear_ni(640.0f);
 	enmPosTime(60, 4, 0.0f, -64.0f);
 MBossDead_700:
 	itemClear();
@@ -356,6 +376,7 @@ sub MBossEscape()
 	ins_21();
 	enmClear();
 	enmNewRel("Ecl_EtBreak", 0.0f, 0.0f, 9999, 0, 0);
+	etClear_ni(640.0f);
 	ins_529(0);
 	ins_445();
 	anmScrNoMove(0, 0);
