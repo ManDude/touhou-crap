@@ -28,6 +28,15 @@ sub BCir02()
     delete();
 }
 
+sub BCir04()
+{
+    var A;
+    itemEx(1, 1);
+    itemEx(2, 1);
+    call("Cir04", _SS 80, _SS 50, _SS 1);
+    delete();
+}
+
 sub BGirl01()
 {
     var A;
@@ -39,6 +48,17 @@ sub BGirl01()
     delete();
 }
 
+sub BGirl04()
+{
+    var A;
+	itemEx(1, 1);
+	itemEx(2, 1);
+    anm(1);
+    anmScr(1, 50);
+    call("Girl04", _SS 0, _SS 1);
+    delete();
+}
+
 sub Book00()
 {
     var A;
@@ -47,6 +67,28 @@ sub Book00()
     anm(1);
     anmScr(1, 53);
     call("Book00_at", _SS 15, _SS 1);
+    delete();
+}
+
+sub Book01()
+{
+    var A;
+    itemEx(1, 10);
+    itemEx(2, 10);
+    anm(1);
+    anmScr(1, 53);
+    call("Book01_at", _SS 15, _SS 1);
+    delete();
+}
+
+sub Book02()
+{
+    var A;
+    itemEx(1, 10);
+    itemEx(2, 10);
+    anm(1);
+    anmScr(1, 53);
+    call("Book02_at", _SS 15, _SS 1);
     delete();
 }
 
@@ -82,6 +124,67 @@ START:
 !NHL
 	etAng(0, _f(%B + 0.28559933214452665804205848938905f), 0.0f);
 !*
+	etOn(0);
+	wait(50);
+END:
+	if $A-- goto START @ 30;
+	setFlags(2);
+60:
+    return();
+}
+
+sub Book01_at(A B)
+{
+    var A;
+	anm(1);
+    anmScr(0, $A);
+    hitbox(28.0f, 28.0f);
+    killbox(28.0f, 28.0f);
+    ins_275(0, 1);
+	setFlags(2);
+30:
+	unsetFlags(2);
+	etNew(0);
+	etMode(0, 2);
+	etSpr(0, 3, 6);
+	etAmt_rank(0, 8, 16, 24, 32, 1, 1, 2, 3);
+	etSpd_rank(0, 1.9f, 1.9f, 2.9f, 3.5f, 1.25f, 1.25f, 1.25f, 1.25f);
+	etAng(0, 0.0f, 0.0f);
+	etEx(0, 0, 0, 2, 1, -999999, -999999.0f, -999999.0f);
+	etEx(0, 1, 0, 1, -999999, -999999, -999999.0f, -999999.0f);
+	$A = 10;
+	goto END @ 30;
+START:
+	etOn(0);
+	wait(50);
+END:
+	if $A-- goto START @ 30;
+	setFlags(2);
+60:
+    return();
+}
+
+sub Book02_at(A B)
+{
+    var A;
+	anm(1);
+    anmScr(0, $A);
+    hitbox(28.0f, 28.0f);
+    killbox(28.0f, 28.0f);
+    ins_275(0, 1);
+	enmDir(1.5707963267948966192313216916398f, 2.0f);
+40:
+	etNew(0);
+	etMode(0, 2);
+	etSpr(0, 3, 6);
+	etAmt_rank(0, 8, 16, 24, 32, 1, 1, 2, 3);
+	etSpd_rank(0, 1.9f, 1.9f, 2.9f, 3.5f, 1.25f, 1.25f, 1.25f, 1.25f);
+	etAng(0, 0.0f, 0.0f);
+	etEx(0, 0, 0, 2, 1, -999999, -999999.0f, -999999.0f);
+	etEx(0, 1, 0, 1, -999999, -999999, -999999.0f, -999999.0f);
+	$A = 10;
+	goto END @ 30;
+START:
 	etOn(0);
 	wait(50);
 END:
@@ -215,6 +318,38 @@ sub Cir03(A B C)
     return();
 }
 
+sub Cir04(A B C)
+{
+    var D E F;
+	anm(1);
+    anmScr(0, $A);
+    hitbox(28.0f, 28.0f);
+    killbox(28.0f, 28.0f);
+    enmDir(0.0f, 4.5f);
+	setFlags(4);
+30:
+	enmDirTime(40, 0, -2.6179938779914943653855361527329f, -999999.0f);
+10000:
+    return();
+}
+
+sub Cir05(A B C)
+{
+    var D E F;
+	anm(1);
+    anmScr(0, $A);
+    hitbox(28.0f, 28.0f);
+    killbox(28.0f, 28.0f);
+    enmDir(-1.0471975511965977461542144610932f, 4.5f);
+	setFlags(4);
+30:
+	enmDirTime(40, 0, 1.5707963267948966192313216916397f, -999999.0f);
+70:
+	enmDirTime(40, 0, 4.1887902047863909846168578443726f, -999999.0f);
+10000:
+    return();
+}
+
 sub GCir00()
 {
     var A;
@@ -241,6 +376,15 @@ sub GCir03()
     delete();
 }
 
+sub GCir05()
+{
+    var A;
+	itemEx(1, 1);
+	itemEx(2, 1);
+    call("Cir05", _SS 77, _SS 52, _SS 1);
+    delete();
+}
+
 sub GGirl01()
 {
     var A;
@@ -260,6 +404,17 @@ sub GGirl02()
     anm(1);
     anmScr(1, 52);
     call("Girl02", _SS 10, _SS 1);
+    delete();
+}
+
+sub GGirl04()
+{
+    var A;
+	itemEx(1, 1);
+	itemEx(2, 1);
+    anm(1);
+    anmScr(1, 52);
+    call("Girl04", _SS 10, _SS 1);
     delete();
 }
 
@@ -389,6 +544,55 @@ END:
     enmDir(-1.5707963267948966192313216916398f, 2.0f);
 10000:
     return();
+}
+
+sub Girl04Shooter()
+{
+	var;
+	setFlags(3);
+120:
+!HL
+	etNew(0);
+	etMode(0, 2);
+	etSpr(0, 8, 6);
+!H
+	etAmt(0, 16, 1);
+!L
+	etAmt(0, 32, 2);
+!HL
+	etSpd(0, 1.7f, 0.25f);
+	etAng(0, 0.0f, 0.09817477042468103870195760572748f);
+	etEx(0, 0, 0, 2, 1, -999999, -999999.0f, -999999.0f);
+	etOn(0);
+!*
+	etNew(1);
+	etSpr(1, 30, 6);
+	etAng(1, 1.5707963267948966192313216916398f, 0.0f);
+    etSE(1, 19, -1);
+    etSpd(1, 32.0f, 32.0f);
+    laserSetSize(1, 500.0f, 500.0f, 0.0f, 64.0f);
+    laserSetTime(1, 90, 16, 104, 16, 14);
+	laserShootStatic(1, 0);
+440:
+	delete();
+}
+
+sub Girl04(A B)
+{
+	var C D E;
+	anm(1);
+    anmScr(0, $A);
+    hitbox(28.0f, 28.0f);
+    killbox(28.0f, 28.0f);
+    enmDir(1.5707963267948966192313216916398f, 2.0f);
+    ins_275(0, 1);
+40:
+	enmDirTime(30, 0, -999999.0f, 0.0f);
+70:
+	enmNewRel("Girl04Shooter", 0.0f, 0.0f, 1000, 0, 10);
+	enmDir(_f((%RANDF * 1.5707963267948966192313216916398f) + 0.7853981633974483096156608458199f), 1.8f);
+10000:
+	return();
 }
 
 sub LogoEnemy()
@@ -570,38 +774,126 @@ END:
 sub MainSub07()
 {
     var;
-    enmNewRel("Book00", _f(%RANDF2 * 192.0f), 32.0f, 3500, 2000, 1);
+    enmNewRel("Book00", _f(%RANDF2 * 192.0f), 32.0f, 3500, 2000, 2);
 	wait(40);
-    enmNewRel("Book00", _f(%RANDF2 * 192.0f), 128.0f, 3500, 2000, 1);
+    enmNewRel("Book00", _f(%RANDF2 * 192.0f), 128.0f, 3500, 2000, 2);
 	wait(40);
-    enmNewRel("Book00", _f(%RANDF2 * 192.0f), 144.0f, 3500, 2000, 1);
+    enmNewRel("Book00", _f(%RANDF2 * 192.0f), 144.0f, 3500, 2000, 2);
 	wait(50);
-    enmNewRel("Book00", _f(%RANDF2 * 192.0f), 64.0f, 4500, 2000, 1);
+    enmNewRel("Book00", _f(%RANDF2 * 192.0f), 64.0f, 4500, 2000, 2);
 	wait(50);
-    enmNewRel("Book00", _f(%RANDF2 * 192.0f), 80.0f, 4500, 2000, 1);
+    enmNewRel("Book00", _f(%RANDF2 * 192.0f), 80.0f, 4500, 2000, 2);
 	wait(60);
-    enmNewRel("Book00", _f(%RANDF2 * 192.0f), 96.0f, 4500, 2000, 1);
+    enmNewRel("Book00", _f(%RANDF2 * 192.0f), 96.0f, 4500, 2000, 2);
 	wait(60);
     return();
 }
 
 sub MainSub08()
 {
-    var;
-    enmNewRelMir("Girl01b", 128.0f, -32.0f, 400, 1000, 12);
-    enmNewRel("Girl01b", -128.0f, -32.0f, 400, 1000, 15);
-    wait(180);
-    enmNewRelMir("Girl01", 128.0f, -32.0f, 600, 1000, 2);
-    wait(120);
-    enmNewRel("Girl01", -128.0f, -32.0f, 600, 1000, 2);
-    wait(120);
-    enmNewRelMir("Girl01", 128.0f, -32.0f, 600, 1000, 2);
-    wait(120);
-    enmNewRel("Girl01", -128.0f, -32.0f, 600, 1000, 2);
-    wait(120);
-    enmNewRelMir("Girl01", 128.0f, -32.0f, 400, 1000, 2);
-    enmNewRel("Girl01", -128.0f, -32.0f, 400, 1000, 2);
-    return();
+    var A;
+    $A = 14;
+	goto END @ 0;
+START:
+    enmNewRel("RCir04", -224.0f, 170.0f, 40, 500, _S(($RAND % 2) + 1));
+	wait(10);
+    enmNewRelMir("BCir04", 224.0f, 170.0f, 40, 500, _S(($RAND % 2) + 1));
+	wait(10);
+END:
+	if $A-- goto START @ 0;
+	return();
+}
+
+sub MainSub09()
+{
+    var A;
+    $A = 7;
+	goto END @ 0;
+START:
+    enmNewRel("PCir05", -224.0f, 170.0f, 40, 500, _S(($RAND % 2) + 1));
+	wait(10);
+    enmNewRelMir("GCir05", 224.0f, 170.0f, 40, 500, _S(($RAND % 2) + 1));
+	wait(10);
+END:
+	if $A-- goto START @ 0;
+	return();
+}
+
+sub MainSub10()
+{
+	var;
+	enmNewRel("Book01", -144.0f, 96.0f, 1500, 2000, 2);
+	enmNewRel("Book01", 144.0f, 96.0f, 1500, 2000, 2);
+	wait(60);
+	enmNewRel("GGirl04", -160.0f, -48.0f, 400, 2000, 1);
+	enmNewRel("GGirl04", 160.0f, -48.0f, 400, 2000, 1);
+	wait(32);
+	enmNewRel("BGirl04", -128.0f, -32.0f, 400, 2000, 0);
+	enmNewRel("BGirl04", 128.0f, -32.0f, 400, 2000, 0);
+	wait(32);
+	enmNewRel("RGirl04", -64.0f, -16.0f, 400, 2000, 1);
+	enmNewRel("RGirl04", 64.0f, -16.0f, 400, 2000, 1);
+	wait(500);
+	enmNewRel("Book01", -144.0f, 96.0f, 1500, 2000, 2);
+	enmNewRel("Book01", 144.0f, 96.0f, 1500, 2000, 2);
+	wait(60);
+	enmNewRel("GGirl04", -144.0f, -48.0f, 400, 2000, 1);
+	enmNewRel("GGirl04", 144.0f, -48.0f, 400, 2000, 1);
+	wait(32);
+	enmNewRel("BGirl04", -64.0f, -32.0f, 400, 2000, 0);
+	enmNewRel("BGirl04", 64.0f, -32.0f, 400, 2000, 0);
+	wait(32);
+	enmNewRel("RGirl04", -32.0f, -16.0f, 400, 2000, 1);
+	enmNewRel("RGirl04", 32.0f, -16.0f, 400, 2000, 1);
+	return();
+}
+
+sub MainSub11()
+{
+	var;
+	return();
+}
+
+sub MainSub11b()
+{
+	var;
+	return();
+}
+
+sub MainSub12()
+{
+	var;
+	return();
+}
+
+sub MainSub13()
+{
+	var;
+	return();
+}
+
+sub MainSub13b()
+{
+	var;
+	return();
+}
+
+sub MainSub14()
+{
+	var;
+	return();
+}
+
+sub MainSub15()
+{
+	var;
+	return();
+}
+
+sub MainSub16()
+{
+	var;
+	return();
 }
 
 sub MapleEnemy()
@@ -644,6 +936,15 @@ sub PCir03()
     delete();
 }
 
+sub PCir05()
+{
+    var A;
+	itemEx(1, 1);
+	itemEx(2, 1);
+    call("Cir05", _SS 83, _SS 53, _SS 1);
+    delete();
+}
+
 sub RCir00()
 {
     var A;
@@ -671,6 +972,15 @@ sub RCir02()
     delete();
 }
 
+sub RCir04()
+{
+    var A;
+    itemEx(1, 1);
+    itemEx(2, 1);
+    call("Cir04", _SS 74, _SS 51, _SS 1);
+    delete();
+}
+
 sub RGirl00()
 {
     var A;
@@ -690,6 +1000,17 @@ sub RGirl01()
     anm(1);
     anmScr(1, 51);
     call("Girl01", _SS 5, _SS 1);
+    delete();
+}
+
+sub RGirl04()
+{
+    var A;
+    itemEx(1, 1);
+    itemEx(2, 1);
+    anm(1);
+    anmScr(1, 51);
+    call("Girl04", _SS 5, _SS 1);
     delete();
 }
 
@@ -721,6 +1042,7 @@ sub main()
     setFlags(32);
 	enmNew("Enemy_Auto_Power_Full", 0.0f, 0.0f, 10, 100, 1);
     callSep("LogoEnemy");
+	goto DEBUG_LBL @ 4932;
 440:
     callSep("MainSub00");
 1004:
@@ -733,7 +1055,6 @@ sub main()
     callSep("MainSub02");
 2108:
     callSep("MainSub01");
-DEBUG_LBL:
 2388:
 	callSep("MainSub04");
 2712:
@@ -746,17 +1067,33 @@ DEBUG_LBL:
 	callSep("MainSub07");
 4132:
     enmNew("MBoss", -128.0f, -32.0f, 40, 1000, 1);
-    wait(1620);
-    callSep("MainSub04");
-    wait(460);
-    call("MainSub05");
-    wait(90);
-    call("MainSub06");
-    wait(90);
-    call("MainSub07");
-    wait(120);
-    call("MainSub08");
-    wait(360);
+DEBUG_LBL:
+4932:
+    callSep("MainSub08");
+5492:
+    callSep("MainSub09");
+5772:
+    callSep("MainSub02");
+5962:
+	callSep("MainSub10");
+6770:
+    callSep("MainSub09");
+6910:
+    callSep("MainSub11");
+7494:
+	callSep("MainSub12");
+7644:
+	callSep("MainSub13");
+7894:
+	callSep("MainSub11b");
+8044:
+	callSep("MainSub13b");
+8414:
+	callSep("MainSub14");
+9844:
+	callSep("MainSub15");
+9954:
+	callSep("MainSub16");
 10694:
     msgBegin(0);
 10695:
