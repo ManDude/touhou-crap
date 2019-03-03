@@ -1258,7 +1258,6 @@ sub main()
     setFlags(32);
 	enmNew("Enemy_Auto_Power_Full", 0.0f, 0.0f, 10, 100, 1);
     callSep("LogoEnemy");
-	goto DEBUG_LBL @ 4932;
 440:
     callSep("MainSub00");
 1004:
@@ -1283,7 +1282,6 @@ sub main()
 	callSep("MainSub07");
 4132:
     enmNew("MBoss", -128.0f, -32.0f, 40, 1000, 1);
-DEBUG_LBL:
 4932:
     callSep("MainSub08");
 5492:
