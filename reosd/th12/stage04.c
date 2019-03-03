@@ -37,6 +37,24 @@ sub BCir04()
     delete();
 }
 
+sub BCir06()
+{
+    var A;
+    itemEx(1, 1);
+    itemEx(2, 1);
+    call("Cir06", _SS 80, _SS 50, _SS 1);
+    delete();
+}
+
+sub BCir07()
+{
+    var A;
+    itemEx(1, 1);
+    itemEx(2, 1);
+    call("Cir07", _SS 80, _SS 50, _SS 1);
+    delete();
+}
+
 sub BGirl01()
 {
     var A;
@@ -92,11 +110,11 @@ sub Book02()
     delete();
 }
 
-sub Book00_at(A B)
+sub Book00_at(D E)
 {
     var A B C;
 	anm(1);
-    anmScr(0, $A);
+    anmScr(0, $D);
     hitbox(28.0f, 28.0f);
     killbox(28.0f, 28.0f);
     ins_275(0, 1);
@@ -135,7 +153,7 @@ END:
 
 sub Book01_at(A B)
 {
-    var A;
+    var C;
 	anm(1);
     anmScr(0, $A);
     hitbox(28.0f, 28.0f);
@@ -166,25 +184,29 @@ END:
 
 sub Book02_at(A B)
 {
-    var A;
+    var C;
 	anm(1);
     anmScr(0, $A);
     hitbox(28.0f, 28.0f);
     killbox(28.0f, 28.0f);
     ins_275(0, 1);
-	enmDir(1.5707963267948966192313216916398f, 2.0f);
-40:
+	setFlags(2);
+30:
+	unsetFlags(2);
+	$A = 6;
 	etNew(0);
 	etMode(0, 2);
-	etSpr(0, 3, 6);
-	etAmt_rank(0, 8, 16, 24, 32, 1, 1, 2, 3);
-	etSpd_rank(0, 1.9f, 1.9f, 2.9f, 3.5f, 1.25f, 1.25f, 1.25f, 1.25f);
+	etAmt(0, 11, 1);
+	etSpd(0, 1.7f, 1.25f);
 	etAng(0, 0.0f, 0.0f);
 	etEx(0, 0, 0, 2, 1, -999999, -999999.0f, -999999.0f);
 	etEx(0, 1, 0, 1, -999999, -999999, -999999.0f, -999999.0f);
 	$A = 10;
 	goto END @ 30;
 START:
+	etSpr(0, 0, 10);
+	etOn(0);
+	etSpr(0, 3, 10);
 	etOn(0);
 	wait(50);
 END:
@@ -346,6 +368,52 @@ sub Cir05(A B C)
 	enmDirTime(40, 0, 1.5707963267948966192313216916397f, -999999.0f);
 70:
 	enmDirTime(40, 0, 4.1887902047863909846168578443726f, -999999.0f);
+10000:
+    return();
+}
+
+sub Cir06(A B C)
+{
+    var D E F;
+	anm(1);
+    anmScr(0, $A);
+    hitbox(28.0f, 28.0f);
+    killbox(28.0f, 28.0f);
+    enmDir(1.5707963267948966192313216916398f, 4.5f);
+	setFlags(4);
+	etNew(0);
+	etMode(0, 0);
+	etSpr(0, 7, 6);
+	etAmt_rank(0, 2, 3, 5, 9, 2, 2, 2, 2);
+	etSpd_rank(0, 2.5f, 2.5f, 2.8f, 2.8f, 1.45f, 1.45f, 1.45f, 1.45f);
+	etAng(0, 0.0f, 0.17453292519943295769236907684886f);
+	etEx(0, 0, 0, 2, 1, -999999, -999999.0f, -999999.0f);
+	callSlot("et_on_rate", 1, _SS 0, _SS 50, _SS 1);
+100:
+	endSlot(1);
+10000:
+    return();
+}
+
+sub Cir07(A B C)
+{
+    var D E F;
+	anm(1);
+    anmScr(0, $A);
+    hitbox(28.0f, 28.0f);
+    killbox(28.0f, 28.0f);
+    enmDir(0.0f, 4.5f);
+	setFlags(4);
+	etNew(0);
+	etMode(0, 0);
+	etSpr(0, 7, 6);
+	etAmt_rank(0, 2, 3, 5, 9, 2, 2, 2, 2);
+	etSpd_rank(0, 2.5f, 2.5f, 2.8f, 2.8f, 1.45f, 1.45f, 1.45f, 1.45f);
+	etAng(0, 0.0f, 0.17453292519943295769236907684886f);
+	etEx(0, 0, 0, 2, 1, -999999, -999999.0f, -999999.0f);
+	callSlot("et_on_rate", 1, _SS 0, _SS 50, _SS 1);
+100:
+	endSlot(1);
 10000:
     return();
 }
@@ -851,48 +919,157 @@ sub MainSub10()
 sub MainSub11()
 {
 	var;
-	return();
-}
-
-sub MainSub11b()
-{
-	var;
+	enmNewRel("RGirl04", -168.0f, -48.0f, 400, 2000, 1);
+	enmNewRel("RGirl04", 168.0f, -48.0f, 400, 2000, 1);
+	wait(32);
+	enmNewRel("BGirl04", -96.0f, -32.0f, 400, 2000, 0);
+	enmNewRel("BGirl04", 96.0f, -32.0f, 400, 2000, 0);
+	wait(32);
+	enmNewRel("GGirl04", -48.0f, -16.0f, 400, 2000, 1);
+	enmNewRel("GGirl04", 48.0f, -16.0f, 400, 2000, 1);
 	return();
 }
 
 sub MainSub12()
 {
 	var;
+    enmNewRel("YGirl02", -96.0f, -32.0f, 2500, 2000, 2);
+    enmNewRel("Book02", 94.0f, 48.0f, 1500, 2000, 2);
+    enmNewRel("Book02", 62.0f, 48.0f, 1500, 2000, 2);
+	return();
+}
+
+sub MainSub12b()
+{
+	var;
+    enmNewRel("YGirl02", 96.0f, -32.0f, 2500, 2000, 2);
+    enmNewRel("Book02", -94.0f, 48.0f, 1500, 2000, 2);
+    enmNewRel("Book02", -62.0f, 48.0f, 1500, 2000, 2);
 	return();
 }
 
 sub MainSub13()
 {
-	var;
-	return();
+    var A;
+    $A = 16;
+	goto END @ 0;
+START:
+    enmNewRelMir("RCir01", 224.0f, 170.0f, 40, 500, _S(($RAND % 2) + 1));
+	wait(10);
+END:
+	if $A-- goto START @ 0;
+    return();
 }
 
 sub MainSub13b()
 {
-	var;
+    var A;
+    $A = 16;
+	goto END @ 0;
+START:
+    enmNewRel("GCir01", -224.0f, 170.0f, 40, 500, _S(($RAND % 2) + 1));
+	wait(10);
+END:
+	if $A-- goto START @ 0;
 	return();
 }
 
 sub MainSub14()
 {
-	var;
+    var A;
+    $A = 12;
+	goto END1 @ 0;
+START1:
+    enmNewRel("BCir06", -96.0f, -32.0f, 40, 500, _S(($RAND % 2) + 1));
+	wait(10);
+END1:
+	if $A-- goto START1 @ 0;
+	wait(50);
+    $A = 12;
+	goto END @ 0;
+START:
+    enmNewRel("PCir06", 4.0f, -32.0f, 40, 500, _S(($RAND % 2) + 1));
+	wait(10);
+END:
+	if $A-- goto START @ 0;
 	return();
 }
 
 sub MainSub15()
 {
-	var;
+    var A;
+    $A = 12;
+	goto END1 @ 0;
+START1:
+    enmNewRel("RCir07", -224.0f, 96.0f, 40, 500, _S(($RAND % 2) + 1));
+	wait(10);
+END1:
+	if $A-- goto START1 @ 0;
+	wait(50);
+    $A = 12;
+	goto END @ 0;
+START:
+    enmNewRelMir("GCir07", 224.0f, 128.0f, 40, 500, _S(($RAND % 2) + 1));
+	wait(10);
+END:
+	if $A-- goto START @ 0;
+	wait(50);
+    $A = 12;
+	goto END2 @ 0;
+START2:
+    enmNewRel("BCir06", 96.0f, -32.0f, 40, 500, _S(($RAND % 2) + 1));
+	wait(10);
+END2:
+	if $A-- goto START2 @ 0;
+	wait(50);
+    $A = 12;
+	goto END3 @ 0;
+START3:
+    enmNewRel("PCir06", -4.0f, -32.0f, 40, 500, _S(($RAND % 2) + 1));
+	wait(10);
+END3:
+	if $A-- goto START3 @ 0;
+	wait(50);
+    $A = 12;
+	goto END4 @ 0;
+START4:
+    enmNewRelMir("PCir07", 224.0f, 48.0f, 40, 500, _S(($RAND % 2) + 1));
+	wait(10);
+END4:
+	if $A-- goto START4 @ 0;
+	wait(50);
+    $A = 12;
+	goto END5 @ 0;
+START5:
+    enmNewRel("BCir07", -224.0f, 96.0f, 40, 500, _S(($RAND % 2) + 1));
+	wait(10);
+END5:
+	if $A-- goto START5 @ 0;
 	return();
 }
 
 sub MainSub16()
 {
-	var;
+    var;
+    enmNewRel("GGirl02", 0.0f, -32.0f, 2000, 2000, 2);
+	wait(10);
+    enmNewRel("GGirl02", -128.0f, -32.0f, 1200, 2000, 2);
+	wait(10);
+    enmNewRel("GGirl02", 128.0f, -32.0f, 1200, 2000, 2);
+	return();
+}
+
+sub MainSub17()
+{
+    var A;
+    $A = 25;
+	goto END @ 0;
+START:
+    enmNewRel("RCir07", -224.0f, 96.0f, 40, 500, _S(($RAND % 2) + 1));
+    enmNewRelMir("BCir07", 160.0f, 96.0f, 40, 500, _S(($RAND % 2) + 1));
+	wait(10);
+END:
+	if $A-- goto START @ 0;
 	return();
 }
 
@@ -945,6 +1122,24 @@ sub PCir05()
     delete();
 }
 
+sub PCir06()
+{
+    var A;
+	itemEx(1, 1);
+	itemEx(2, 1);
+    call("Cir06", _SS 83, _SS 53, _SS 1);
+    delete();
+}
+
+sub PCir07()
+{
+    var A;
+	itemEx(1, 1);
+	itemEx(2, 1);
+    call("Cir07", _SS 83, _SS 53, _SS 1);
+    delete();
+}
+
 sub RCir00()
 {
     var A;
@@ -978,6 +1173,15 @@ sub RCir04()
     itemEx(1, 1);
     itemEx(2, 1);
     call("Cir04", _SS 74, _SS 51, _SS 1);
+    delete();
+}
+
+sub RCir07()
+{
+    var A;
+    itemEx(1, 1);
+    itemEx(2, 1);
+    call("Cir07", _SS 74, _SS 51, _SS 1);
     delete();
 }
 
@@ -1022,6 +1226,17 @@ sub YGirl00()
     anm(1);
     anmScr(1, 53);
     call("Girl00", _SS 15, _SS 1);
+    delete();
+}
+
+sub YGirl02()
+{
+    var A;
+    itemEx(1, 1);
+    itemEx(2, 1);
+    anm(1);
+    anmScr(1, 53);
+    call("Girl02", _SS 15, _SS 1);
     delete();
 }
 
@@ -1085,15 +1300,17 @@ DEBUG_LBL:
 7644:
 	callSep("MainSub13");
 7894:
-	callSep("MainSub11b");
+	callSep("MainSub12b");
 8044:
 	callSep("MainSub13b");
 8414:
 	callSep("MainSub14");
-9844:
+8734:
 	callSep("MainSub15");
-9954:
+9844:
 	callSep("MainSub16");
+9954:
+	callSep("MainSub17");
 10694:
     msgBegin(0);
 10695:
