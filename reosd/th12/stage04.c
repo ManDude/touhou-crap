@@ -195,7 +195,6 @@ sub Book02_at(A B)
 	unsetFlags(2);
 	$A = 6;
 	etNew(0);
-	etMode(0, 2);
 	etAmt(0, 11, 1);
 	etSpd(0, 1.7f, 1.25f);
 	etAng(0, 0.0f, 0.0f);
@@ -204,8 +203,10 @@ sub Book02_at(A B)
 	$A = 10;
 	goto END @ 30;
 START:
+	etMode(0, 4);
 	etSpr(0, 0, 10);
 	etOn(0);
+	etMode(0, 2);
 	etSpr(0, 3, 10);
 	etOn(0);
 	wait(50);
