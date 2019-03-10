@@ -29,7 +29,7 @@ sub Boss()
 sub Boss1()
 {
 	var A B;
-	life(19000);
+	life(1900);
 	resetBoss();
 	attack(0, 1400, 2700, "BossCard1");
 	lifebar(0, 1400.0f, -24448);
@@ -517,7 +517,7 @@ Boss4_740:
 
 sub BossCard1()
 {
-	var A B C D E F G H I;
+	var A B C timeFac;
 	resetBoss();
 	ins_21();
 	enmClear();
@@ -534,14 +534,13 @@ sub BossCard1()
 	attack(0, 0, 1800, "Boss2");
 !EN
 	cardE(61, 2700, 500000, "幻在「クロックコープス」");
-!H
+!HL
 	cardH(63, 2700, 500000, "幻幽「ジャック・ザ・ルドビレ」");
-!L
-	ins_422(64, 2700, 500000, "幻幽「ジャック・ザ・ルドビレ」");
 !*
 	stageProg(43);
 	enmPosTime(60, 4, 0.0f, 112.0f);
 	invinc(120);
+	$timeFac = 9;
 	etNew(0);
 	etMode(0, 8);
 !EN
@@ -561,8 +560,16 @@ sub BossCard1()
 !L
 	etAmt(0, 35, 1);
 	etSpd(0, 5.0f, 1.2f);
+!*
+	etNew(1);
+	etMode(1, 0);
+	etSpr(1, 20, 3);
+	etAmt_rank(1, 1, 1, 3, 3, 1, 1, 1, 1);
+	etSpd(1, 2.0f, 0.0f);
 120:
 !*
+	goto BossCard1_2812 @ 194;
+BossCard1_904:
 	anmScrSlot(0, 119);
 	playSE(31);
 	ins_269(0);
@@ -577,21 +584,20 @@ sub BossCard1()
 194:
 !*
 	noop();
-	goto BossCard1_2812 @ 0;
-BossCard1_904:
-	speed(_f(1.0f / 9.0f));
+	speed(_f(1.0f / _f($timeFac)));
 	setFlags(3);
 	$A = 0;
 	noop();
-	enmRand(_S(90 / 9), 4, 2.5f);
-	call("BossCard1_at", _SS 1);
-	wait(_S(90 / 9));
+	enmRand(_S(90 / $timeFac), 4, 2.5f);
+	callSep("BossCard1_at");
+	wait(_S(90 / $timeFac));
+	wait(_S(32 / $timeFac));
+	wait(_S(20 / $timeFac));
 	speed(1.0f);
 	unsetFlags(3);
-	%G = _f(120);
-	wait(1);
+	wait_rank(30, 30, 100, 100);
 BossCard1_2812:
-	if 1 goto BossCard1_904 @ 0;
+	if 1 goto BossCard1_904 @ 120;
 	return();
 }
 
@@ -733,30 +739,62 @@ BossCard1LaserAt3_408:
 	return();
 }
 
-sub BossCard1_at(et)
+sub BossCard1_at()
 {
-	var A B distanceFactor count waveCount angOff angInc;
-	$count = 9;
-	$waveCount = 10;
-	%distanceFactor = _f($waveCount);
-	%angOff = -0.78539816339744830961566084581988f;
-	%angInc = 1.5707963267948966192313216916398f / _f($count);
-	etNew($et);
-	etMode($et, 0);
-	etSpr($et, 20, 3);
-	etAmt_rank($et, 1, 1, 3, 3, 1, 1, 1, 1);
-	etAng($et, 0.0f, 0.52359877559829887307710723054658f);
-	etSpd($et, 2.0f, 0.0f);
-	$A = $waveCount;
+	var A B C D E F G H I J X Y cnt amt startAng angInc;
+	$amt = 9;
+	%startAng = 0.78539816339744830961566084581988f;
+	%angInc = -0.17453292519943295769236907684886f;
+	$A = 90 / 9;
+	$B = 0;
 	goto END @ 0;
 START:
-	$B = $count;
-	goto END2 @ 0;
-START2:
-	etOn(0);
-END2:
-	if $B-- goto START2 @ 0;
-	wait(_S(90 / $waveCount));
+	unless (($TIME % 1) == 0) goto SKIP_ALL @ 0;
+	etAng(1, 0.0f, 0.52359877559829887307710723054658f);
+	%C = _f(0.5f - ((_f($B) * 0.5f) / 9.0f));
+	unless ($B % 2) goto JMP1 @ 0;
+	%D = -256.0f;
+	goto JMP1_END @ 0;
+JMP1:
+	%D = 256.0f;
+JMP1_END:
+	unless (%D < 0.0f) goto JMP2 @ 0;
+	%F = %startAng;
+	%G = %angInc;
+	goto JMP2_END @ 0;
+JMP2:
+	%F = %startAng - 3.1415926535897932384626433832795f;
+	%G = %angInc;
+JMP2_END:
+	%F = (%F + %ANGLE_PLAYER) - 1.5707963267948966192313216916398f;
+	%J = -0.78539816339744830961566084581988f;
+	$E = $amt;
+	goto SHOOT_END @ 0;
+SHOOT_START:
+	unless (%D < 0.0f) goto JMP3 @ 0;
+	ins_81(%H, %I, %ANGLE_PLAYER, _f((%C * %PLAYER_DISTANCE) + %D));
+	ins_81(%X, %Y, %F, _f(%D * -1.0f));
+	goto JMP3_END @ 0;
+JMP3:
+	ins_81(%H, %I, %ANGLE_PLAYER, _f((%C * %PLAYER_DISTANCE) + %D));
+	ins_81(%X, %Y, %F, %D);
+JMP3_END:
+	unless ($B % 2) goto JMP4 @ 0;
+!EN
+	etAng(1, %J, 0.52359877559829887307710723054658f);
+JMP4:
+!*
+	%X = %X + %H;
+	%Y = %Y + %I;
+	etOfs(1, %X, %Y);
+	etOn(1);
+	%F = %F - %G;
+	%J = %J + 0.17453292519943295769236907684886f;
+SHOOT_END:
+	if $E-- goto SHOOT_START @ 0;
+	$B = $B + 1;
+SKIP_ALL:
+	wait(1);
 END:
 	if $A-- goto START @ 0;
 	return();
