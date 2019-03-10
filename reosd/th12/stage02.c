@@ -54,7 +54,7 @@ sub MainGirl00_at()
 	etMode(0, 0);
 	etSpr(0, 0, 6);
 	etAmt(0, 3, 1);
-	etSpd(0, 3.0f, 0.0f);
+	etSpd(0, 3.5f, 0.25f);
 	etAng(0, 0.0f, 0.1963495f);
 	etEx(0, 0, 0, 2, 2, -999999, -999999.0f, -999999.0f);
 	wait(_S($RAND % 120));
@@ -102,7 +102,7 @@ sub MainGirl01_at()
 !L
 	2.9f;
 !*
-	etSpd(0, [-1.0f], 0.8f);
+	etSpd(0, _f([-1.0f] + 0.5f), 1.05f);
 !E
 	0.7853982f;
 !N
@@ -373,11 +373,11 @@ sub Thing00_at()
 !NH
 	etMode(0, 4);
 	etAmt(0, 4, 1);
-	etSpd(0, 2.5f, 0.0f);
+	etSpd(0, 3.0f, 0.25f);
 !L
 	etMode(0, 2);
 	etAmt(0, 10, 2);
-	etSpd(0, 3.0f, 0.0f);
+	etSpd(0, 3.5f, 0.25f);
 !NHL
 	etAng(0, 0.0f, 0.0f);
 	etEx(0, 0, 0, 2, 2, -999999, -999999.0f, -999999.0f);
@@ -412,7 +412,7 @@ sub Thing00_dead()
 !L
 	2.5f;
 !*
-	etSpd(1, [-1.0f], 0.0f);
+	etSpd(1, _f([-1.0f] + 0.5f), 0.25f);
 	etAng(1, 0.0f, 0.0f);
 	etEx(1, 0, 0, 2, 2, -999999, -999999.0f, -999999.0f);
 	etOn(1);
