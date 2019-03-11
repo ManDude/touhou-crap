@@ -543,31 +543,29 @@ sub BossCard1()
 	$timeFac = 9;
 	etNew(0);
 	etMode(0, 8);
+	etAmt(0, 1, 1);
 !EN
 	etSpr(0, 7, 6);
-	etSpd(0, 4.0f, 1.2f);
 	etAng(0, 3.1415926535897932384626433832795f, -3.1415926535897932384626433832795f);
 !HL
 	etSpr(0, 26, 0);
 	etAng(0, 3.1415926535897932384626433832795f, 0.0f);
 !E
-	etAmt(0, 32, 1);
+	etEx(0, 0, 0, 0x1000, 70, -999999, -999999.0f, -999999.0f);
 !N
-	etAmt(0, 128, 1);
-!H
-	etAmt(0, 20, 1);
-	etSpd(0, 4.4f, 2.2f);
-!L
-	etAmt(0, 35, 1);
-	etSpd(0, 5.0f, 1.2f);
+	etEx(0, 0, 0, 0x1000, 50, -999999, -999999.0f, -999999.0f);
+!HL
+	etEx(0, 0, 0, 0x1000, 50, -999999, -999999.0f, -999999.0f);
 !*
+	etEx(0, 1, 0, 0x10, 0, 1, 0.0f, 0.0f);
+	etEx(0, 2, 0, 0x1000, _S(153 / $timeFac), -999999, -999999.0f, -999999.0f);
 	etNew(1);
 	etMode(1, 0);
 	etSpr(1, 20, 3);
 	etAmt_rank(1, 1, 1, 3, 3, 1, 1, 1, 1);
-	etSpd(1, 2.0f, 0.0f);
+	etSpd(1, 0.0f, 0.0f);
+	etEx(1, 1, 0, 0x10, 0, 1, 0.0f, 2.0f);
 120:
-!*
 	goto BossCard1_2812 @ 194;
 BossCard1_904:
 	anmScrSlot(0, 119);
@@ -576,12 +574,12 @@ BossCard1_904:
 	wait(_S(32 * 4));
 140:
 !EHL
-	etOn(0);
+	call("BossCard1_at1");
 !EN
 	wait(20);
 !N
-	etOn(0);
-194:
+	call("BossCard1_at1");
+190:
 !*
 	noop();
 	speed(_f(1.0f / _f($timeFac)));
@@ -592,7 +590,8 @@ BossCard1_904:
 	callSep("BossCard1_at");
 	wait(_S(90 / $timeFac));
 	wait(_S(32 / $timeFac));
-	wait(_S(20 / $timeFac));
+	wait(_S(30 / $timeFac));
+	wait(1);
 	speed(1.0f);
 	unsetFlags(3);
 	wait_rank(30, 30, 100, 100);
@@ -787,6 +786,7 @@ JMP4:
 	%X = %X + %H;
 	%Y = %Y + %I;
 	etOfs(1, %X, %Y);
+	etEx(1, 0, 0, 0x1000, _S(((90 - ($B * 9)) + 63) / 9), -999999, -999999.0f, -999999.0f);
 	etOn(1);
 	%F = %F - %G;
 	%J = %J + 0.17453292519943295769236907684886f;
@@ -795,6 +795,23 @@ SHOOT_END:
 	$B = $B + 1;
 SKIP_ALL:
 	wait(1);
+END:
+	if $A-- goto START @ 0;
+	return();
+}
+
+sub BossCard1_at1()
+{
+	var A B C D;
+	setf_rank(%B, 4.0f, 4.0f, 4.4f, 5.0f);
+	setf_rank(%C, 1.2f, 1.2f, 2.2f, 1.2f);
+	seti_rank($A, 32, 128, 20, 35);
+	goto END @ 0;
+START:
+	%D = (%RANDF * (%B - %C)) + %C;
+	etSpd(0, %D, %D);
+	etEx(0, 3, 0, 0x10, 0, 1, 0.0f, %D);
+	etOn(0);
 END:
 	if $A-- goto START @ 0;
 	return();
