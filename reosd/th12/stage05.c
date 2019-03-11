@@ -493,6 +493,7 @@ sub LogoEnemy()
 sub MainBossDebug()
 {
 	var;
+	enmNew("Enemy_Auto_Power_Full", 0.0f, 0.0f, 10, 0, 0);
 10:
 	ins_700(3);
 	enmNew("Boss", -144.0f, -16.0f, 40, 1000, 1);
