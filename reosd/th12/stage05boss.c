@@ -22,7 +22,7 @@ sub Boss()
 	anmScr(2, 158);
 	anm(2);
 	setBossFog(160.0f, 16728031);
-	call("Boss2");
+	call("Boss1");
 	delete();
 }
 
@@ -42,7 +42,7 @@ sub Boss1()
 	etMode(0, 2);
 	etSpr(0, 20, 3);
 	etAmt_rank(0, 8, 16, 16, 16, 1, 1, 2, 2);
-	etSpd_rank(0, 1.8f, 2.0f, 2.5f, 3.0f, 1.0f, 1.0f, 1.0f, 1.0f);
+	etSpd_rank(0, 2.3f, 2.5f, 3.0f, 3.5f, 1.25f, 1.25f, 1.25f, 1.25f);
 	etAng(0, 0.0f, 0.15707963267948966192313216916398f);
 	etEx(0, 0, 0, 2, 1, -999999, -999999.0f, -999999.0f);
 	etOfs(0, 0.0f, -12.0f);
@@ -50,7 +50,7 @@ sub Boss1()
 	etMode(1, 1);
 	etSpr(1, 20, 2);
 	etAmt_rank(1, 2, 2, 4, 4, 6, 8, 8, 8);
-	etSpd_rank(1, 3.0f, 4.0f, 4.0f, 4.0f, 1.2f, 1.2f, 1.2f, 1.2f);
+	etSpd_rank(1, 3.5f, 4.5f, 4.5f, 4.5f, 1.45f, 1.45f, 1.45f, 1.45f);
 	etOfs(1, 0.0f, -12.0f);
 	goto Boss1_856 @ 300;
 Boss1_232:
@@ -136,7 +136,7 @@ sub Boss1_at1()
 	etMode(0, 1);
 	etSpr(0, 7, $F);
 	etAmt_rank(0, 4, 5, 5, 5, 1, 1, 1, 1);
-	etSpd_rank(0, 1.2f, 1.6f, 1.8f, 2.0f, 1.2f, 1.2f, 1.2f, 1.2f);
+	etSpd_rank(0, 1.7f, 2.1f, 2.3f, 2.5f, 1.45f, 1.45f, 1.45f, 1.45f);
 50:
 	$A = 240 / 6;
 	goto END @ 56;
@@ -205,8 +205,9 @@ Boss2_784:
 	etMode(0, 2);
 	etSpr(0, 20, 3);
 	etAmt_rank(0, 8, 16, 16, 16, 1, 1, 2, 2);
-	etSpd_rank(0, 1.8f, 2.0f, 2.5f, 2.5f, 1.0f, 1.0f, 1.0f, 1.0f);
+	etSpd_rank(0, 2.3f, 2.5f, 3.0f, 3.0f, 1.25f, 1.25f, 1.25f, 1.25f);
 	etAng(0, 0.0f, 0.15707963267948966192313216916398f);
+	etOfs(0, 0.0f, -12.0f);
 	etEx(0, 0, 0, 2, 1, -999999, -999999.0f, -999999.0f);
 	$LOCAL1 = 0;
 	goto Boss2_1920 @ 0;
@@ -241,7 +242,7 @@ sub Boss2_Enemy()
 	etMode(0, 1);
 	etSpr(0, 8, $LOCAL2);
 	etAmt_rank(0, 4, 6, 5, 5, 1, 1, 1, 1);
-	etSpd_rank(0, 1.4f, 1.6f, 1.8f, 2.2f, 1.2f, 1.2f, 1.2f, 1.2f);
+	etSpd_rank(0, 1.9f, 2.1f, 2.3f, 2.7f, 1.45f, 1.45f, 1.45f, 1.45f);
 !EN
 	etEx(0, 0, 0, 0x100, 1, 13, -999999.0f, -999999.0f);
 !HL
@@ -294,9 +295,10 @@ sub Boss2_at1()
 	etMode(1, 3);
 	etSpr(1, 20, 3);
 	etAmt(1, 24, 1);
-	etSpd(1, 2.0f, 1.2f);
+	etSpd(1, 2.5f, 1.45f);
 	etAng(1, 1.5707963267948966192313216916398f, 0.04908738521234051935097880286374f);
-	etOn(0);
+	etOfs(1, 0.0f, -12.0f);
+	etOn(1);
 160:
 	return();
 }
@@ -842,8 +844,8 @@ END:
 sub BossCard1_at1()
 {
 	var A B C D;
-	setf_rank(%B, 4.0f, 4.0f, 4.4f, 5.0f);
-	setf_rank(%C, 1.2f, 1.2f, 2.2f, 1.2f);
+	setf_rank(%B, 4.5f, 4.5f, 4.9f, 5.5f);
+	setf_rank(%C, 1.45f, 1.45f, 2.45f, 1.45f);
 	seti_rank($A, 32, 128, 20, 35);
 	goto END @ 0;
 START:
