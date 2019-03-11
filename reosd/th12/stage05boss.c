@@ -22,14 +22,14 @@ sub Boss()
 	anmScr(2, 158);
 	anm(2);
 	setBossFog(160.0f, 16728031);
-	call("Boss1");
+	call("Boss2");
 	delete();
 }
 
 sub Boss1()
 {
 	var A B;
-	life(1900);
+	life(19000);
 	resetBoss();
 	attack(0, 1400, 2700, "BossCard1");
 	lifebar(0, 1400.0f, -24448);
@@ -187,10 +187,10 @@ Boss2_248:
 	ins_529(0);
 	resetBossParam();
 	playSE(28);
-	attack(0, 2000, 2640, "BossCard2");
-	lifebar(0, 2000.0f, -24448);
-	lives(2);
-	invinc(120);
+	attack(0, 1400, 2700, "BossCard2");
+	lifebar(0, 1400.0f, -24448);
+	lives(1);
+	invinc(60);
 	unless ($TIMEOUT == 0) goto Boss2_784 @ 0;
 	itemClear();
 	itemEx(1, 30);
@@ -199,66 +199,105 @@ Boss2_248:
 	itemDrop();
 Boss2_784:
 	playSE(28);
-	setMoveArea(0.0f, 112.0f, 280.0f, 64.0f);
-	enmPosTime(60, 0, 0.0f, 128.0f);
-	wait(120);
-	anm(2);
-	anmScrNoMove(0, 0);
-	seti_rank($C, 60, 60, 40, 40);
+	setMoveArea(0.0f, 96.0f, 320.0f, 96.0f);
+	wait(60);
+	etNew(0);
+	etMode(0, 2);
+	etSpr(0, 20, 3);
+	etAmt_rank(0, 8, 16, 16, 16, 1, 1, 2, 2);
+	etSpd_rank(0, 1.8f, 2.0f, 2.5f, 2.5f, 1.0f, 1.0f, 1.0f, 1.0f);
+	etAng(0, 0.0f, 0.15707963267948966192313216916398f);
+	etEx(0, 0, 0, 2, 1, -999999, -999999.0f, -999999.0f);
+	$LOCAL1 = 0;
 	goto Boss2_1920 @ 0;
 Boss2_992:
-	anmScrSlot(0, 119);
-	playSE(31);
-	wait($C);
-	ins_269(0);
-	callSep("Boss2_at1", _ff (0.0f + (%RANDRAD / _f(16))));
-	wait($C);
-	callSep("Boss2_at2", _ff (3.1415927f + (%RANDRAD / _f(16))));
-	wait($C);
-	callSep("Boss2_at2b", _ff (0.7853982f + (%RANDRAD / _f(16))));
-	callSep("Boss2_at1b", _ff (2.3561945f + (%RANDRAD / _f(16))));
+	call("Boss2_at");
+	seti_rank($A, 60, 50, 50, 40);
+	callSlot("et_on_rate", 1, _SS 0, _SS $A, _SS 1);
+	enmRand(60, 4, 1.5f);
 	wait(60);
-	call("Boss2_at3");
+	enmRand(60, 4, 1.5f);
 	wait(60);
-	enmRand(60, 4, 2.0f);
-	wait(61);
-	unless ($C > 20) goto Boss2_1920 @ 0;
-	$C = ($C - 10);
+	enmRand(60, 4, 1.5f);
+	endSlot(1);
+	call("Boss2_at1");
+	wait(70);
+	$LOCAL1 = $LOCAL1 + 1;
+	wait(10);
 Boss2_1920:
 	if 1 goto Boss2_992 @ 0;
 	return();
 }
 
-sub Boss2_at1(A)
+sub Boss2_Enemy()
 {
-	var B;
+	var A B C;
+	setFlags(3);
+	hitbox(28.0f, 28.0f);
+	killbox(28.0f, 28.0f);
+	enmDir(%LOCAL1F, 0.8f);
+	enmDirTime(370, 4, -999999.0f, 0.0f);
 	etNew(0);
-	etSpr(0, 0, 13);
-	etAng(0, -0.7853982f, -0.7853982f);
-	etSpd(0, 6.0f, 6.0f);
-	laserSetSize(0, -1.0f, -1.0f, -1.0f, 16.0f);
-	laserSetTime(0, 42, -1, -1, -1, 0);
-	etSE(0, 19, -1);
-	etEx(0, 0, 0, 1024, 120, 0, -999999.0f, -999999.0f);
-	etEx(0, 1, 1, 8, 60, -999999, -0.083333336f, 0.05235988f);
-	etEx(0, 2, 1, 8, 60, -999999, 0.083333336f, 0.0f);
-	etSE(0, 19, -1);
-	seti_rank($B, 6, 9, 12, 15);
-	goto Boss2_at1_828 @ 0;
-Boss2_at1_476:
-	etAng(0, %A, 0.0f);
-	laserCurvedShoot(0);
-!E
-	%A = (%A - 0.392699f);
-!N
-	%A = (%A - 0.261799f);
-!H
-	%A = (%A - 0.19635f);
-!L
-	%A = (%A - 0.174533f);
-Boss2_at1_828:
+	etMode(0, 1);
+	etSpr(0, 8, $LOCAL2);
+	etAmt_rank(0, 4, 6, 5, 5, 1, 1, 1, 1);
+	etSpd_rank(0, 1.4f, 1.6f, 1.8f, 2.2f, 1.2f, 1.2f, 1.2f, 1.2f);
+!EN
+	etEx(0, 0, 0, 0x100, 1, 13, -999999.0f, -999999.0f);
+!HL
+	etEx(0, 0, 0, 0x100, 2, 13, -999999.0f, -999999.0f);
 !*
-	if $B-- goto Boss2_at1_476 @ 0;
+	%A = %LOCAL2F;
+50:
+	%C = %RANDRAD;
+	$B = 250 / 14;
+	goto END @ 50;
+START:
+	etAng(0, %C, 0.0157079632679489661923132169164f);
+	etOn(0);
+	%C = %C + %A;
+	wait(14);
+END:
+	if $B-- goto START @ 50;
+	wait(120);
+	delete();
+}
+
+sub Boss2_at()
+{
+	var;
+	$LOCAL2 = 2;
+	%LOCAL1F = 0.78539816339744830961566084581988f;
+	%LOCAL2F = 0.6283185307179586476925286766559f;
+	enmNewRel("Boss2_Enemy", 0.0f, 0.0f, 100, 0, 0);
+	$LOCAL2 = 6;
+	%LOCAL1F = 0.0f;
+	%LOCAL2F = -0.19634954084936207740391521145497f;
+	enmNewRel("Boss2_Enemy", 0.0f, 0.0f, 100, 0, 0);
+	$LOCAL2 = 6;
+	%LOCAL1F = 2.3561944901923449288469825374596f;
+	%LOCAL2F = -0.6283185307179586476925286766559f;
+	enmNewRel("Boss2_Enemy", 0.0f, 0.0f, 100, 0, 0);
+	$LOCAL2 = 2;
+	%LOCAL1F = 3.1415926535897932384626433832795f;
+	%LOCAL2F = 0.19634954084936207740391521145497f;
+	enmNewRel("Boss2_Enemy", 0.0f, 0.0f, 100, 0, 0);
+60:
+	return();
+}
+
+sub Boss2_at1()
+{
+	var;
+100:
+	etNew(1);
+	etMode(1, 3);
+	etSpr(1, 20, 3);
+	etAmt(1, 24, 1);
+	etSpd(1, 2.0f, 1.2f);
+	etAng(1, 1.5707963267948966192313216916398f, 0.04908738521234051935097880286374f);
+	etOn(0);
+160:
 	return();
 }
 
