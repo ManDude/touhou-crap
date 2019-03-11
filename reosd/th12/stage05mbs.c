@@ -112,16 +112,16 @@ sub MBossCard1_at1()
 	etEx(0, 1, 0, 256, 1, 13, -999999.0f, -999999.0f);
 !E
 	etAmt(0, 16, 1);
-	etSpd(0, 3.0f, 1.2f);
+	etSpd(0, 3.5f, 1.45f);
 !N
 	etAmt(0, 24, 3);
-	etSpd(0, 3.0f, 1.2f);
+	etSpd(0, 3.5f, 1.45f);
 !H
 	etAmt(0, 15, 2);
-	etSpd(0, 1.5f, 0.8f);
+	etSpd(0, 2.0f, 1.05f);
 !L
 	etAmt(0, 19, 2);
-	etSpd(0, 1.5f, 0.8f);
+	etSpd(0, 2.0f, 1.05f);
 !*
 	callSlot("MBossCard1_at1_et0", 0);
 30:
@@ -139,16 +139,16 @@ sub MBossCard1_at1()
 	etEx(0, 0, 0, 2, 1, -999999, -999999.0f, -999999.0f);
 !E
 	etAng(0, 0.0f, 0.20943951023931954923084289221863f);
-	etSpd(0, 3.5f, 1.2f);
+	etSpd(0, 4.0f, 1.45f);
 !N
 	etAng(0, 0.0f, 0.20943951023931954923084289221863f);
-	etSpd(0, 4.5f, 1.2f);
+	etSpd(0, 5.0f, 1.45f);
 !H
 	etAng(0, 0.0f, 0.31415926535897932384626433832795f);
-	etSpd(0, 5.5f, 1.2f);
+	etSpd(0, 6.0f, 1.45f);
 !L
 	etAng(0, 0.0f, 0.31415926535897932384626433832795f);
-	etSpd(0, 6.5f, 1.2f);
+	etSpd(0, 7.0f, 1.45f);
 !*
 	goto END @ 98;
 START:
@@ -189,16 +189,16 @@ sub MBossCard1_at2()
 	etEx(0, 1, 0, 256, 1, 13, -999999.0f, -999999.0f);
 !E
 	etAmt(0, 16, 1);
-	etSpd(0, 3.0f, 1.2f);
+	etSpd(0, 3.5f, 1.45f);
 !N
 	etAmt(0, 24, 3);
-	etSpd(0, 3.0f, 1.2f);
+	etSpd(0, 3.5f, 1.45f);
 !H
 	etAmt(0, 12, 2);
-	etSpd(0, 1.5f, 0.8f);
+	etSpd(0, 2.0f, 1.05f);
 !L
 	etAmt(0, 16, 2);
-	etSpd(0, 1.5f, 0.8f);
+	etSpd(0, 2.0f, 1.05f);
 !*
 	callSlot("MBossCard1_at2_et0", 1);
 30:
@@ -216,16 +216,16 @@ sub MBossCard1_at2()
 	etEx(0, 0, 0, 2, 1, -999999, -999999.0f, -999999.0f);
 !E
 	etAng(0, 0.0f, 0.20943951023931954923084289221863f);
-	etSpd(0, 3.5f, 1.2f);
+	etSpd(0, 4.0f, 1.45f);
 !N
 	etAng(0, 0.0f, 0.20943951023931954923084289221863f);
-	etSpd(0, 4.5f, 1.2f);
+	etSpd(0, 5.0f, 1.45f);
 !H
 	etAng(0, 0.0f, 0.31415926535897932384626433832795f);
-	etSpd(0, 5.5f, 1.2f);
+	etSpd(0, 6.0f, 1.45f);
 !L
 	etAng(0, 0.0f, 0.31415926535897932384626433832795f);
-	etSpd(0, 6.5f, 1.2f);
+	etSpd(0, 7.0f, 1.45f);
 !*
 	goto END @ 98;
 START:
@@ -316,10 +316,10 @@ sub MBoss_at1(angInc startAng)
 	etMode(0, 1);
 	etSpr(0, 20, 3);
 !E
-	etSpd(0, 2.8f, 1.0f);
+	etSpd(0, 3.3f, 1.25f);
 	etAmt(0, 4, 1);
 !NHL
-	etSpd(0, 3.2f, 1.0f);
+	etSpd(0, 3.7f, 1.25f);
 	etAmt(0, 8, 1);
 !*
 	etOfs(0, 0.0f, -12.0f);
@@ -342,7 +342,7 @@ sub MBoss_at2(angInc startAng)
 	etNew(0);
 	etMode(0, 1);
 	etSpr(0, 8, 2);
-	etSpd(0, 2.0f, 1.0f);
+	etSpd(0, 2.5f, 1.25f);
 !E
 	etAmt(0, 4, 1);
 !N
