@@ -22,7 +22,7 @@ sub Boss()
 	anmScr(2, 158);
 	anm(2);
 	setBossFog(160.0f, 16728031);
-	call("Boss2");
+	call("Boss1");
 	delete();
 }
 
@@ -166,7 +166,7 @@ END:
 sub Boss2()
 {
 	var A B C;
-	life(1600);
+	life(16000);
 	resetBoss();
 	ins_21();
 	enmClear();
