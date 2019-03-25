@@ -6,8 +6,8 @@ sub AGirl00()
 	var A;
 	anm(1);
 	anmScrNoMove(1, 51);
-	$A = (($RAND % 2) + 1);
-	if ($A <= 0) goto AGirl00_340 @ 0;
+	$A = ($RAND % 2) + 1;
+	unless ($A > 0) goto AGirl00_340 @ 0;
 	itemEx($A, 1);
 AGirl00_340:
 	call("Fairy00");
@@ -19,9 +19,8 @@ sub AGirl01()
 	var A;
 	anm(1);
 	anmScrNoMove(1, 51);
-	$A = ($RAND % 3);
-	if ($A <= 0) goto AGirl01_340 @ 0;
-	if ($A == 0) goto AGirl01_340 @ 0;
+	$A = $RAND % 3;
+	unless ($A > 0) goto AGirl01_340 @ 0;
 	itemEx($A, 1);
 AGirl01_340:
 	call("Fairy01");
