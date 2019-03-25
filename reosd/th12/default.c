@@ -435,7 +435,7 @@ sub et_ofs_r()
 sub et_on_rate(et rate delay)
 {
 	var;
-	wait(_S(_S($RAND % $rate) * $delay));
+	wait(_S(($RAND % $rate) * $delay));
 	goto END @ 0;
 START:
 	etOn($et);
