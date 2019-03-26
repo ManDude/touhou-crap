@@ -1,6 +1,9 @@
 anim { "enemy.anm"; "stgenm01.anm"; }
 ecli { "default.ecl"; "stage01mbs.ecl"; "stage01boss.ecl"; }
 
+global[NEG] = -999999;
+global[NEGF] = -999999.f;
+
 sub AGirl00()
 {
 	var A;
@@ -151,7 +154,7 @@ sub FairyBasicShoot00()
 	etOfs(0, 3.5f, 1.25f);
 	etAng(0, 0.0f, 0.0f);
 	etSE(0, -1, -1);
-	etEx(0, 0, 0, 2, 1, -999999, -999999.0f, -999999.0f);
+	etEx(0, 0, 0, 2, 1, [NEG], [NEGF], [NEGF]);
 FairyBasicShoot00_316:
 	etOn(0);
 	wait(120);
@@ -179,8 +182,8 @@ sub FairyRedShoot00()
 	etSpd(0, 1.9f, 0.75f);
 	etAng(0, 0.0f, 0.15707964f);
 !*
-	etEx(0, 0, 0, 2, 0, -999999, -999999.0f, -999999.0f);
-	etEx(0, 1, 0, 1, -999999, -999999, -999999.0f, -999999.0f);
+	etEx(0, 0, 0, 2, 0, [NEG], [NEGF], [NEGF]);
+	etEx(0, 1, 0, 1, [NEG], [NEG], [NEGF], [NEGF]);
 	etOn(0);
 	return();
 }
@@ -194,8 +197,8 @@ sub FairyRedShoot01()
 	etSpd(0, 1.9f, 0.25f);
 	etAmt(0, 5, 1);
 	etAng(0, 0.0f, 0.2617994f);
-	etEx(0, 0, 0, 2, 0, -999999, -999999.0f, -999999.0f);
-	etEx(0, 1, 0, 1, -999999, -999999, -999999.0f, -999999.0f);
+	etEx(0, 0, 0, 2, 0, [NEG], [NEGF], [NEGF]);
+	etEx(0, 1, 0, 1, [NEG], [NEG], [NEGF], [NEGF]);
 	etOn(0);
 	return();
 }
@@ -386,7 +389,7 @@ sub MainSub05()
 sub MainSub05a(A)
 {
 	var B C;
-	%B = (%RANDRAD * 61.115498f);
+	%B = (%RDEG * 61.115498f);
 MainSub05a_112:
 	$C = ($RAND % 3);
 	if ($C < 0) goto MainSub05a_112 @ 0;
@@ -401,7 +404,7 @@ MainSub05a_412:
 sub MainSub05b(A)
 {
 	var B C;
-	%B = (%RANDRAD * 61.115498f);
+	%B = (%RDEG * 61.115498f);
 MainSub05b_112:
 	$C = ($RAND % 3);
 	if ($C < 0) goto MainSub05b_112 @ 0;

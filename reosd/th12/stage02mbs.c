@@ -1,5 +1,8 @@
 
 
+global[NEG] = -999999;
+global[NEGF] = -999999.f;
+
 sub MBoss()
 {
 	var A;
@@ -16,7 +19,7 @@ sub MBoss()
 	hitbox(45.0f, 56.0f);
 	killbox(45.0f, 56.0f);
 	life(10000);
-	attack(0, 0, 1920, "MBossDead");
+	interrupt(0, 0, 1920, "MBossDead");
 	timeoutAt(0, "MBossEscape");
 	stageProg(6);
 	enmPosTime(60, 4, 0.0f, 96.0f);
@@ -73,7 +76,7 @@ sub MBoss1_at()
 	anmScr(1, -1);
 	anmScr(2, -1);
 	setBossFog(0.0f, 15675535);
-	%A = (192.0f - (32.0f + (%RANDF * 320.0f)));
+	%A = (192.0f - (32.0f + (%RF * 320.0f)));
 	wait(40);
 	unsetFlags(32);
 	anm(0);
@@ -97,8 +100,8 @@ sub MBoss1_at1()
 	etMode(0, 3);
 	etSpr(0, 8, 10);
 	etAmt_rank(0, 1, 1, 2, 4, 1, 2, 2, 2);
-	etEx(0, 0, 0, 2, 2, -999999, -999999.0f, -999999.0f);
-	etEx(0, 1, 0, 1, -999999, -999999, -999999.0f, -999999.0f);
+	etEx(0, 0, 0, 2, 2, [NEG], [NEGF], [NEGF]);
+	etEx(0, 1, 0, 1, [NEG], [NEG], [NEGF], [NEGF]);
 MBoss1_at1_436:
 	etSpd(0, _f(%B + 0.5f), _f(%C + 0.25f));
 	etAng(0, %D, 0.0f);
@@ -123,8 +126,8 @@ sub MBoss1_at2()
 	etMode(0, 3);
 	etSpr(0, 8, 2);
 	etAmt_rank(0, 1, 1, 2, 4, 1, 2, 2, 2);
-	etEx(0, 0, 0, 2, 2, -999999, -999999.0f, -999999.0f);
-	etEx(0, 1, 0, 1, -999999, -999999, -999999.0f, -999999.0f);
+	etEx(0, 0, 0, 2, 2, [NEG], [NEGF], [NEGF]);
+	etEx(0, 1, 0, 1, [NEG], [NEG], [NEGF], [NEGF]);
 MBoss1_at2_436:
 	etSpd(0, _f(%B + 0.5f), _f(%C + 0.25f));
 	etAng(0, %D, 0.0f);
@@ -174,9 +177,9 @@ sub MBoss1_at3()
 	etAng(0, 0.0f, 0.19634955f);
 	etAng(1, 0.0f, 0.19634955f);
 !*
-	etEx(0, 0, 0, 2, 2, -999999, -999999.0f, -999999.0f);
+	etEx(0, 0, 0, 2, 2, [NEG], [NEGF], [NEGF]);
 	etEx(0, 1, 0, 32, 40, 1, 0.0f, 4.0f);
-	etEx(1, 0, 0, 2, 2, -999999, -999999.0f, -999999.0f);
+	etEx(1, 0, 0, 2, 2, [NEG], [NEGF], [NEGF]);
 	$A = 16;
 	goto MBoss1_at3_972 @ 0;
 MBoss1_at3_912:
@@ -195,10 +198,10 @@ sub MBossDead()
 	setFlags(16);
 	cardEnd();
 	unsetMoveArea();
-	attack(0, -1, 0, "");
+	interrupt(0, -1, 0, "");
 	enmPosTime(0, 0, 0.0f, 0.0f);
 	enmDir(0.0f, 0.0f);
-	enmDirTime(60, 4, -999999.0f, 0.0f);
+	enmDirTime(60, 4, [NEGF], 0.0f);
 	playSE(28);
 	if $TIMEOUT goto MBossDead_340 @ 0;
 	etClear(640.0f);
@@ -224,7 +227,7 @@ MBossDead_360:
 sub MBossEscape()
 {
 	var A;
-	attack(0, -1, 0, "");
+	interrupt(0, -1, 0, "");
 	cardEnd();
 	unsetMoveArea();
 	if $TIMEOUT goto MBossEscape_192 @ 0;

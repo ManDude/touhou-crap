@@ -1,5 +1,8 @@
 
 
+global[NEG] = -999999;
+global[NEGF] = -999999.f;
+
 sub MBoss()
 {
 	var A;
@@ -21,11 +24,11 @@ sub MBoss()
 	invinc(60);
 	life(6000);
 !EN
-	attack(0, 0, 1440, "MBossDead");
+	interrupt(0, 0, 1440, "MBossDead");
 !HL
 	lifebar(0, 500.0f, -32640);
-	attack(0, 500, 1020, "MBossCard1");
-	attack(1, 0, 1440, "MBossDead");
+	interrupt(0, 500, 1020, "MBossCard1");
+	interrupt(1, 0, 1440, "MBossDead");
 !*
 	timeoutAt(0, "MBossEscape");
 	setBossFog(160.0f, 3190703);
@@ -143,8 +146,8 @@ sub MBoss1_at1(A)
 	etSpd(0, 2.5f, _f([-1.0f] + 0.25f));
 	etAng(0, 0.0f, 0.0f);
 	etOfs(0, 0.0f, -12.0f);
-	etEx(0, 0, 0, 2, 1, -999999, -999999.0f, -999999.0f);
-	etEx(0, 1, 1, 1, -999999, -999999, -999999.0f, -999999.0f);
+	etEx(0, 0, 0, 2, 1, [NEG], [NEGF], [NEGF]);
+	etEx(0, 1, 1, 1, [NEG], [NEG], [NEGF], [NEGF]);
 	etOn(0);
 	return();
 }
@@ -168,10 +171,10 @@ sub MBoss1_at2(A B)
 	etSpd(0, 0.5f, 0.25f);
 	etAng(0, %B, 0.0f);
 	etOfs(0, 0.0f, -12.0f);
-	etEx(0, 0, 2, 2, 1, -999999, -999999.0f, -999999.0f);
-	etEx(0, 1, 1, 1, -999999, -999999, -999999.0f, -999999.0f);
-	etEx(0, 2, 0, 4096, 15, -999999, -999999.0f, -999999.0f);
-	etEx(0, 3, 0, 4, 999999, -999999, 0.02f, -999999.0f);
+	etEx(0, 0, 2, 2, 1, [NEG], [NEGF], [NEGF]);
+	etEx(0, 1, 1, 1, [NEG], [NEG], [NEGF], [NEGF]);
+	etEx(0, 2, 0, 4096, 15, [NEG], [NEGF], [NEGF]);
+	etEx(0, 3, 0, 4, 999999, [NEG], 0.02f, [NEGF]);
 	etOn(0);
 	return();
 }
@@ -199,18 +202,18 @@ sub MBoss1_at3(A)
 !*
 	etAmt_rank(0, 4, 8, 12, 24, 1, 1, 1, 1);
 	etAmt_rank(1, 4, 8, 12, 24, 1, 1, 1, 1);
-	%B = _f((%RANDF * 3.0f) + 0.5f);
+	%B = _f((%RF * 3.0f) + 0.5f);
 	etSpd(0, _f(%B + 0.5f), 0.95f);
-	%B = (%RANDF * 3.0f);
+	%B = (%RF * 3.0f);
 	etSpd(1, _f(%B + 0.5f), 0.95f);
-	etAng(0, _f(%RANDRAD - 3.1415927f), 0.0f);
-	etAng(1, _f(%RANDRAD - 3.1415927f), 0.0f);
+	etAng(0, _f(%RDEG - 3.1415927f), 0.0f);
+	etAng(1, _f(%RDEG - 3.1415927f), 0.0f);
 	etOfs(0, 0.0f, -12.0f);
 	etOfs(1, 0.0f, -12.0f);
-	etEx(0, 0, 2, 2, 1, -999999, -999999.0f, -999999.0f);
-	etEx(0, 1, 1, 1, -999999, -999999, -999999.0f, -999999.0f);
-	etEx(1, 0, 2, 2, 1, -999999, -999999.0f, -999999.0f);
-	etEx(1, 1, 1, 1, -999999, -999999, -999999.0f, -999999.0f);
+	etEx(0, 0, 2, 2, 1, [NEG], [NEGF], [NEGF]);
+	etEx(0, 1, 1, 1, [NEG], [NEG], [NEGF], [NEGF]);
+	etEx(1, 0, 2, 2, 1, [NEG], [NEGF], [NEGF]);
+	etEx(1, 1, 1, 1, [NEG], [NEG], [NEGF], [NEGF]);
 	etOn(0);
 	etOn(1);
 	return();
@@ -233,7 +236,7 @@ sub MBossCard1()
 	enmPosTime(0, 0, 0.0f, 0.0f);
 	$MISS_COUNT = 0;
 	$BOMB_COUNT = 0;
-	attack(0, 0, 1320, "MBossDead");
+	interrupt(0, 0, 1320, "MBossDead");
 	timeoutAt(0, "MBossEscape");
 !HL
 	cardH(0, 1320, 640000, "月符「ムーンライトレイ」");
@@ -281,7 +284,7 @@ sub MBossCard1_at()
 	2.8f;
 !*
 	etSpd(1, _f([-1.0f] + 0.5f), 0.25f);
-	etEx(1, 0, 0, 2, 2, -999999, -999999.0f, -999999.0f);
+	etEx(1, 0, 0, 2, 2, [NEG], [NEGF], [NEGF]);
 	etOfs(1, 0.0f, -12.0f);
 MBossCard1_at_348:
 	etOn(1);
@@ -301,7 +304,7 @@ sub MBossCard1_at2()
 	laserSetTime(0, 0, 30, 120, 16, 0);
 	etOfs(0, 0.0f, -12.0f);
 	etSE(0, 19, -1);
-	etEx(0, 0, 0, 268435456, 1, -999999, -999999.0f, -999999.0f);
+	etEx(0, 0, 0, 268435456, 1, [NEG], [NEGF], [NEGF]);
 	%A = 0.3926991f;
 	etAng(0, %A, 0.0f);
 	laserShootStatic(0, 1);
@@ -335,7 +338,7 @@ sub MBossDead()
 	enmNewRel("Ecl_EtBreak", 0.0f, 0.0f, 9999, 0, 0);
 	ins_529(0);
 	ins_445();
-	attack(0, -1, 0, "");
+	interrupt(0, -1, 0, "");
 	enmDir(0.0f, 0.0f);
 	enmDirTime(0, 0, 0.0f, 0.0f);
 	enmPosTime(0, 0, 0.0f, 0.0f);

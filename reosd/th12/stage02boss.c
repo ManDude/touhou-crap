@@ -1,5 +1,8 @@
 
 
+global[NEG] = -999999;
+global[NEGF] = -999999.f;
+
 sub Boss()
 {
 	var A;
@@ -28,9 +31,9 @@ sub Boss1()
 	resetBoss();
 	$BOSS4 = 0;
 !EN
-	attack(0, 1500, 1500, "BossCard1EN");
+	interrupt(0, 1500, 1500, "BossCard1EN");
 !HL
-	attack(0, 1500, 1500, "BossCard1HL");
+	interrupt(0, 1500, 1500, "BossCard1HL");
 !*
 	lifebar(0, 1500.0f, -24448);
 	stageProg(24);
@@ -67,11 +70,11 @@ sub Boss1_at1()
 	$B = 3;
 	etNew(0);
 	etOfs(0, 0.0f, -12.0f);
-	etEx(0, 0, 0, 2, 2, -999999, -999999.0f, -999999.0f);
+	etEx(0, 0, 0, 2, 2, [NEG], [NEGF], [NEGF]);
 41:
 	goto Boss1_at1_1252 @ 111;
 Boss1_at1_388:
-	%C = %ANGLE_PLAYER;
+	%C = %AIM;
 	etAng(0, %C, %A);
 	etMode(0, 1);
 	etSpr(0, 9, 6);
@@ -133,7 +136,7 @@ sub Boss1_at2()
 	etMode(0, 2);
 	etSpr(0, 5, 6);
 	etAng(0, 0.0f, 0.0f);
-	etEx(0, 0, 0, 2, 2, -999999, -999999.0f, -999999.0f);
+	etEx(0, 0, 0, 2, 2, [NEG], [NEGF], [NEGF]);
 	etNew(1);
 	etOfs(1, 0.0f, -12.0f);
 	etMode(1, 2);
@@ -155,16 +158,16 @@ sub Boss1_at2()
 !*
 	etSpd(1, [-1.0f], 1.0f);
 	etAng(1, 0.0f, 0.0f);
-	etEx(1, 0, 0, 2, 2, -999999, -999999.0f, -999999.0f);
+	etEx(1, 0, 0, 2, 2, [NEG], [NEGF], [NEGF]);
 	etEx(1, 1, 0, 32, 60, 1, 0.0f, 4.0f);
-	etEx(1, 2, 1, 1024, 999, 0, -999999.0f, -999999.0f);
+	etEx(1, 2, 1, 1024, 999, 0, [NEGF], [NEGF]);
 1:
 	goto Boss1_at2_1488 @ 21;
 Boss1_at2_748:
 21:
 	enmDir(-999999.0f, 0.0f);
-	enmDirTime(0, 0, -999999.0f, 0.0f);
-	enmPosTime(0, 0, -999999.0f, 0.0f);
+	enmDirTime(0, 0, [NEGF], 0.0f);
+	enmPosTime(0, 0, [NEGF], 0.0f);
 	enmRand(60, 4, 3.0f);
 	etAmt_rank(0, 12, 20, 28, 28, 1, 1, 1, 2);
 	etSpd(0, 2.3f, 1.0f);
@@ -211,15 +214,15 @@ Boss2_248:
 	ins_445();
 	playSE(28);
 !E
-	attack(0, 1400, 3000, "BossCard2");
+	interrupt(0, 1400, 3000, "BossCard2");
 	lifebar(0, 1400.0f, -24448);
-	attack(1, 0, 2400, "BossDead");
+	interrupt(1, 0, 2400, "BossDead");
 !NHL
-	attack(0, 3200, 3000, "BossCard2");
+	interrupt(0, 3200, 3000, "BossCard2");
 	lifebar(0, 3200.0f, -24448);
-	attack(1, 1400, 2400, "BossCard3");
+	interrupt(1, 1400, 2400, "BossCard3");
 	lifebar(1, 1400.0f, -32704);
-	attack(2, 0, 1980, "BossDead");
+	interrupt(2, 0, 1980, "BossDead");
 !*
 	lives(0);
 	invinc(200);
@@ -265,7 +268,7 @@ sub Boss2_at1()
 !*
 	etSpd(0, [-1.0f], 1.0f);
 	etAng(0, 0.0f, 0.0f);
-	etEx(0, 0, 0, 2, 2, -999999, -999999.0f, -999999.0f);
+	etEx(0, 0, 0, 2, 2, [NEG], [NEGF], [NEGF]);
 	etNew(1);
 	etOfs(1, 0.0f, -12.0f);
 	etMode(1, 2);
@@ -273,8 +276,8 @@ sub Boss2_at1()
 	etAmt(1, 8, 1);
 	etSpd(1, 1.8f, 1.0f);
 	etAng(1, 0.0f, 0.0f);
-	etEx(1, 0, 0, 2, 2, -999999, -999999.0f, -999999.0f);
-	etEx(1, 1, 0, 1, -999999, -999999, -999999.0f, -999999.0f);
+	etEx(1, 0, 0, 2, 2, [NEG], [NEGF], [NEGF]);
+	etEx(1, 1, 0, 1, [NEG], [NEG], [NEGF], [NEGF]);
 	$A = 8;
 	goto END @ 20;
 START:
@@ -299,13 +302,13 @@ sub Boss2_at2()
 	etAmt_rank(1, 0, 0, 16, 32, 0, 0, 2, 2);
 	etSpd(1, 2.5f, 1.0f);
 	etAng(1, 0.0f, 0.0f);
-	etEx(1, 0, 0, 2, 2, -999999, -999999.0f, -999999.0f);
+	etEx(1, 0, 0, 2, 2, [NEG], [NEGF], [NEGF]);
 !*
 	etNew(0);
 	etSpd(0, 4.0f, 0.0f);
 	laserSetSize(0, 0.0f, 192.0f, 0.0f, 6.0f);
 	etSE(0, 19, -1);
-	etEx(0, 0, 0, 268435456, 1, -999999, -999999.0f, -999999.0f);
+	etEx(0, 0, 0, 268435456, 1, [NEG], [NEGF], [NEGF]);
 	$A = 3;
 	goto END @ 50;
 START:
@@ -347,7 +350,7 @@ sub BossCard1EN()
 	enmPosTime(0, 0, 0.0f, 0.0f);
 	$MISS_COUNT = 0;
 	$BOMB_COUNT = 0;
-	attack(0, 0, 1800, "Boss2");
+	interrupt(0, 0, 1800, "Boss2");
 	cardE(10, 1800, 500000, "氷符「アイシクルフォール」");
 	stageProg(43);
 	enmPosTime(120, 4, 0.0f, 96.0f);
@@ -358,8 +361,8 @@ sub BossCard1EN()
 	etMode(0, 1);
 	etSpr(0, 9, 6);
 	etSpd(0, 7.0f, 0.5f);
-	etEx(0, 0, 0, 2, 2, -999999, -999999.0f, -999999.0f);
-	etEx(0, 2, 1, 1024, 9999, 0, -999999.0f, -999999.0f);
+	etEx(0, 0, 0, 2, 2, [NEG], [NEGF], [NEGF]);
+	etEx(0, 2, 1, 1024, 9999, 0, [NEGF], [NEGF]);
 !NHL
 	etNew(1);
 	etOfs(1, 0.0f, -12.0f);
@@ -368,8 +371,8 @@ sub BossCard1EN()
 	etAmt(1, 5, 1);
 	etSpd(1, 2.5f, 0.5f);
 	etAng(1, 0.0f, 0.2617994f);
-	etEx(1, 0, 0, 2, 2, -999999, -999999.0f, -999999.0f);
-	etEx(1, 1, 0, 1024, 9999, 0, -999999.0f, -999999.0f);
+	etEx(1, 0, 0, 2, 2, [NEG], [NEGF], [NEGF]);
+	etEx(1, 1, 0, 1024, 9999, 0, [NEGF], [NEGF]);
 120:
 !*
 	$A = 0;
@@ -379,7 +382,7 @@ BossCard1EN_964:
 	%D = -2.9452431f;
 	goto BossCard1EN_2576 @ 147;
 BossCard1EN_1108:
-	%E = (%RANDF * 0.049087387f);
+	%E = (%RF * 0.049087387f);
 	%F = (%C + %E);
 	etEx(0, 1, 0, 16, 60, 1, 1.5707964f, 1.6f);
 	if ($A >= 3) goto BossCard1EN_1452 @ 120;
@@ -443,7 +446,7 @@ sub BossCard1HL()
 	$MISS_COUNT = 0;
 	$BOMB_COUNT = 0;
 	$CAPTURED = 1;
-	attack(0, 0, 2100, "Boss2");
+	interrupt(0, 0, 2100, "Boss2");
 	cardH(12, 2100, 500000, "雹符「ヘイルストーム」");
 	stageProg(43);
 	enmPosTime(120, 4, 0.0f, 96.0f);
@@ -452,8 +455,8 @@ sub BossCard1HL()
 	etMode(0, 3);
 	etSpr(0, 9, 6);
 	etSpd(0, 5.5f, 1.5f);
-	etEx(0, 0, 0, 2, 4, -999999, -999999.0f, -999999.0f);
-	etEx(0, 1, 1, 128, 99999, -999999, -999999.0f, -999999.0f);
+	etEx(0, 0, 0, 2, 4, [NEG], [NEGF], [NEGF]);
+	etEx(0, 1, 1, 128, 99999, [NEG], [NEGF], [NEGF]);
 120:
 	$A = 0;
 	%B = 1.4f;
@@ -474,7 +477,7 @@ SHOOT_START:
 JUMP1:
 	%D = (%D - 0.39269908169872415480783042290994f);
 JUMP2:
-	etAng(0, _f(%RANDRAD), 0.0f);
+	etAng(0, _f(%RDEG), 0.0f);
 	etEx(0, 1, 0, 64, 60, 1, %D, %B);
 	etOn(0);
 140:
@@ -518,15 +521,15 @@ sub BossCard2()
 	%BOSS1F = 4.0f;
 	%BOSS2F = 1.0f;
 	etAng(0, 0.0f, 0.0f);
-	etEx(0, 0, 1, 2, 2, -999999, -999999.0f, -999999.0f);
-	etEx(0, 2, 0, 2048, 5, 15, -999999.0f, -999999.0f);
-	etEx(0, 3, 0, 64, 0, 1, -999999.0f, 0.0f);
-	etEx(0, 4, 0, 4, 240, -999999, 0.0f, 0.0f);
+	etEx(0, 0, 1, 2, 2, [NEG], [NEGF], [NEGF]);
+	etEx(0, 2, 0, 2048, 5, 15, [NEGF], [NEGF]);
+	etEx(0, 3, 0, 64, 0, 1, [NEGF], 0.0f);
+	etEx(0, 4, 0, 4, 240, [NEG], 0.0f, 0.0f);
 	etNew(1);
 	etOfs(1, 0.0f, -12.0f);
 	etMode(1, 0);
 	etSpr(1, 3, 6);
-	etEx(1, 0, 1, 2, 2, -999999, -999999.0f, -999999.0f);
+	etEx(1, 0, 1, 2, 2, [NEG], [NEGF], [NEGF]);
 	$A = 0;
 CARD_START:
 	enmRand(120, 4, 2.0f);
@@ -600,13 +603,13 @@ sub BossCard2_at(A spr)
 {
 	var B;
 	etSpr($A, 5, $spr);
-	etEx($A, 1, 0, 4, $BOSS2, -999999, 0.0f, 0.0f);
+	etEx($A, 1, 0, 4, $BOSS2, [NEG], 0.0f, 0.0f);
 	$B = $BOSS1;
 	goto END @ 0;
 START:
-	etSpd($A, _f((%BOSS1F * %RANDF) + %BOSS2F), _f(%BOSS2F));
-	etAng($A, _f(%RANDRAD), 0.0f);
-	etEx($A, 5, 0, 4, 220, -999999, 0.01f, _f(%RANDRAD));
+	etSpd($A, _f((%BOSS1F * %RF) + %BOSS2F), _f(%BOSS2F));
+	etAng($A, _f(%RDEG), 0.0f);
+	etEx($A, 5, 0, 4, 220, [NEG], 0.01f, _f(%RDEG));
 	etOn($A);
 END:
 	if $B-- goto START @ 0;
@@ -659,8 +662,8 @@ BossCard3_504:
 	etAmt_rank(0, 10, 14, 18, 28, 1, 1, 1, 1);
 	etSpd(0, 2.3f, 0.4f);
 	etAng(0, 3.1415926535897932384626433832795f, -3.1415926535897932384626433832795f);
-	etEx(0, 0, 0, 2, 2, -999999, -999999.0f, -999999.0f);
-	etEx(0, 1, 0, 1, -999999, -999999, -999999.0f, -999999.0f);
+	etEx(0, 0, 0, 2, 2, [NEG], [NEGF], [NEGF]);
+	etEx(0, 1, 0, 1, [NEG], [NEG], [NEGF], [NEGF]);
 	etOfs(0, 0.0f, -12.0f);
 	etOn(0);
 180:
@@ -670,8 +673,8 @@ CARD_START:
 	goto END @ 190;
 STR:
 190:
-	%A = %RANDF2 * 64.0f;
-	%RANDF2 * 64.0f;
+	%A = %RF2 * 64.0f;
+	%RF2 * 64.0f;
 	etOfs(0, [-1.0f], %A);
 	etOn(0);
 END:
@@ -687,7 +690,7 @@ sub BossDead()
 	anmScrSlot(0, 79);
 	playSE(5);
 	anmScrSlot(0, 129);
-	enmDir(%RANDRAD, 0.6f);
+	enmDir(%RDEG, 0.6f);
 	unless ($TIMEOUT == 0) goto BossDead_308 @ 0;
 	enmNewRel("Ecl_EtBreak2", 0.0f, 0.0f, 9999, 0, 0);
 	goto BossDead_364 @ 0;

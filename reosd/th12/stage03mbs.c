@@ -1,5 +1,8 @@
 
 
+global[NEG] = -999999;
+global[NEGF] = -999999.f;
+
 sub MBoss()
 {
 	var A;
@@ -20,7 +23,7 @@ sub MBoss()
 	killbox(56.0f, 56.0f);
 	life(13000);
 	lifebar(0, 1300.0f, -32640);
-	attack(0, 1300, 1800, "MBossCard1");
+	interrupt(0, 1300, 1800, "MBossCard1");
 	timeoutAt(0, "MBossEscape");
 	stageProg(6);
 	enmPos(160.0f, -96.0f);
@@ -48,7 +51,7 @@ sub MBoss1()
 	etMode(0, 2);
 	etSpr(0, 7, 2);
 	etAng(0, 0.0f, 0.03490658503988659153847381536977f);
-	etEx(0, 0, 0, 2, 1, -999999, -999999.0f, -999999.0f);
+	etEx(0, 0, 0, 2, 1, [NEG], [NEGF], [NEGF]);
 !H
 	etAmt(0, 24, 1);
 	etSpd(0, 2.5f, 0.0f);
@@ -85,21 +88,21 @@ sub MBoss1_at1()
 	ins_269(0);
 	$E = 8;
 20:
-	%A = %RANDF2 * 16.0f;
-	%B = %RANDF2 * 16.0f;
+	%A = %RF2 * 16.0f;
+	%B = %RF2 * 16.0f;
 	etNew(1);
 	etMode(1, 7);
 	etSpr(1, 3, 6);
 	etAmt_rank(1, 12, 16, 20, 24, 1, 1, 1, 1);
 	etSpd(1, 3.0f, 1.7f);
 	etAng(1, 0.0f, 0.0f);
-	etEx(1, 0, 0, 2, 1, -999999, -999999.0f, -999999.0f);
+	etEx(1, 0, 0, 2, 1, [NEG], [NEGF], [NEGF]);
 	goto MBoss_at1_1072 @ 28;
 MBoss_at1_472:
 	etOfs(1, %A, %B);
 	etOn(1);
-	%A = %A + _f(%RANDF2 * 16.0f);
-	%B = %B + _f(%RANDF * 24.0f);
+	%A = %A + _f(%RF2 * 16.0f);
+	%B = %B + _f(%RF * 24.0f);
 28:
 MBoss_at1_1072:
 	if $E-- goto MBoss_at1_472 @ 20;
@@ -116,7 +119,7 @@ sub MBoss1_at2()
 	etAng(1, 0.0f, 0.0f);
 	etSpd(1, 1.1f, 0.6f);
 	etAmt_rank(1, 64, 76, 88, 96, 1, 1, 1, 1);
-	etEx(1, 0, 0, 2, 1, -999999, -999999.0f, -999999.0f);
+	etEx(1, 0, 0, 2, 1, [NEG], [NEGF], [NEGF]);
 	etOn(1);
 10:
 	return();
@@ -146,7 +149,7 @@ MBossCard1_228:
 	enmPosTime(120, 4, 0.0f, 144.0f);
 	setMoveArea(0.0f, 128.0f, 280.0f, 64.0f);
 	enmNewRel("Ecl_EtBreak", 0.0f, 0.0f, 9999, 0, 0);
-	attack(0, 0, 1200, "MBossDead");
+	interrupt(0, 0, 1200, "MBossDead");
 	timeoutAt(0, "MBossEscape");
 !EN
 	cardE(21, 1200, 500000, "âÿïÑÅuñFâÿà∫‡£Åv");
@@ -167,7 +170,7 @@ sub MBossCard1E()
 	etMode(0, 3);
 	etSpr(0, 9, 13);
 	etSpd(0, 2.0f, 0.6f);
-	etEx(0, 0, 0, 2, 1, -999999, -999999.0f, -999999.0f);
+	etEx(0, 0, 0, 2, 1, [NEG], [NEGF], [NEGF]);
 !E
 	etAmt(0, 5, 1);
 !N
@@ -178,14 +181,14 @@ sub MBossCard1E()
 	etSpr(1, 9, 2);
 	etSpd(1, 1.2f, 0.6f);
 	etAng(1, 0.0f, 0.0f);
-	etEx(1, 0, 0, 2, 1, -999999, -999999.0f, -999999.0f);
+	etEx(1, 0, 0, 2, 1, [NEG], [NEGF], [NEGF]);
 !E
 	etAmt(1, 32, 1);
 !N
 	etAmt(1, 42, 1);
 !*
-	%A = %RANDRAD;
-	%B = %RANDRAD;
+	%A = %RDEG;
+	%B = %RDEG;
 	goto END @ 1;
 START:
 !E
@@ -232,7 +235,7 @@ sub MBossCard1H()
 	etMode(0, 3);
 	etSpr(0, 9, 13);
 	etSpd(0, 4.0f, 0.6f);
-	etEx(0, 0, 0, 2, 1, -999999, -999999.0f, -999999.0f);
+	etEx(0, 0, 0, 2, 1, [NEG], [NEGF], [NEGF]);
 !H
 	etAmt(0, 5, 1);
 !L
@@ -242,7 +245,7 @@ sub MBossCard1H()
 	etMode(1, 2);
 	etSpr(1, 9, 2);
 	etAng(1, 0.0f, 0.0f);
-	etEx(1, 0, 0, 2, 1, -999999, -999999.0f, -999999.0f);
+	etEx(1, 0, 0, 2, 1, [NEG], [NEGF], [NEGF]);
 !H
 	etAmt(1, 48, 1);
 	etSpd(1, 1.3f, 0.6f);
@@ -283,8 +286,8 @@ sub MBossDead()
 	setFlags(156);
 	cardEnd();
 	unsetMoveArea();
-	attack(0, -1, 0, "");
-	attack(1, -1, 0, "");
+	interrupt(0, -1, 0, "");
+	interrupt(1, -1, 0, "");
 	enmDir(-999999.0f, 0.0f);
 	playSE(28);
 	unless ($TIMEOUT == 0) goto MBossDead_484 @ 0;
@@ -308,8 +311,8 @@ MBossDead_504:
 sub MBossEscape()
 {
 	var A;
-	attack(0, -1, 0, "");
-	attack(1, -1, 0, "");
+	interrupt(0, -1, 0, "");
+	interrupt(1, -1, 0, "");
 	cardEnd();
 	unsetMoveArea();
 	enmDir(-999999.0f, 0.0f);

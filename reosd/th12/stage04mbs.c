@@ -1,5 +1,8 @@
 
 
+global[NEG] = -999999;
+global[NEGF] = -999999.f;
+
 sub MBoss()
 {
     var A;
@@ -35,7 +38,7 @@ MBoss_620:
 sub MBoss1()
 {
     var;
-	attack(0, 0, 2400, "MBossDead");
+	interrupt(0, 0, 2400, "MBossDead");
 	timeoutAt(0, "MBossEscape");
 	goto MBoss1_2824 @ 0;
 MBoss1_2804:
@@ -54,15 +57,15 @@ MBoss1_2824:
 sub MBoss1_at1(C)
 {
 	var A B;
-	%A = %RANDRAD;
+	%A = %RDEG;
 	$B = 8;
 	etNew(0);
 	etMode(0, 3);
 	etSpr(0, 26, 1);
 	etAmt(0, 8, 1);
 	etSpd(0, 1.7f, 1.25f);
-	etEx(0, 0, 0, 2, 1, -999999, -999999.0f, -999999.0f);
-	etEx(0, 1, 0, 4, 999999, -999999, 0.024f, -999.0f);
+	etEx(0, 0, 0, 2, 1, [NEG], [NEGF], [NEGF]);
+	etEx(0, 1, 0, 4, 999999, [NEG], 0.024f, -999.0f);
 	goto END @ 0;
 START:
 	etAng(0, %A, 0.0f);
@@ -91,14 +94,14 @@ sub MBoss1_enemy()
 	etMode(1, 3);
 	etSpr(1, 8, 6);
 	etAmt_rank(1, 2, 4, 8, 16, 1, 1, 1, 1);
-	etEx(1, 0, 0, 2, 1, -999999, -999999.0f, -999999.0f);
+	etEx(1, 0, 0, 2, 1, [NEG], [NEGF], [NEGF]);
 30:
 	$A = 12;
 	goto END @ 30;
 START:
-	etOfs(1, _f(%RANDF2 * 40.0f), _f(%RANDF2 * 40.0f));
-	etSpd(1, _f(%RANDF + 1.5f), 0.25f);
-	etAng(1, %RANDRAD, 0.09817477042468103870195760572748f);
+	etOfs(1, _f(%RF2 * 40.0f), _f(%RF2 * 40.0f));
+	etSpd(1, _f(%RF + 1.5f), 0.25f);
+	etAng(1, %RDEG, 0.09817477042468103870195760572748f);
 	etOn(1);
 	wait(6);
 END:
@@ -113,7 +116,7 @@ sub MBossDead()
 	setFlags(140);
 	cardEnd();
 	unsetMoveArea();
-	attack(0, -1, 0, "");
+	interrupt(0, -1, 0, "");
 	enmDirTime(0, 0, 0.0f, 0.0f);
 	playSE(28);
 	unless ($TIMEOUT == 0) goto MBossDead_484 @ 0;
@@ -140,7 +143,7 @@ sub MBossEscape()
 	setFlags(140);
 	cardEnd();
 	unsetMoveArea();
-	attack(0, -1, 0, "");
+	interrupt(0, -1, 0, "");
 	enmDirTime(0, 0, 0.0f, 0.0f);
 	playSE(28);
 	unless ($TIMEOUT == 0) goto MBossDead_484 @ 0;

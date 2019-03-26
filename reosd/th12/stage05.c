@@ -1,6 +1,9 @@
 anim { "enemy.anm"; "stgenm05.anm"; "stgenm05m.anm"; }
 ecli { "default.ecl"; "stage05mbs.ecl"; "stage05boss.ecl"; }
 
+global[NEG] = -999999;
+global[NEGF] = -999999.f;
+
 sub BCir00()
 {
 	var A;
@@ -60,7 +63,7 @@ sub Cir00(A B C)
 	var D E F;
 	$F = 1;
 !NHL
-	attack(0, 0, -1, "Cir00Dead");
+	interrupt(0, 0, -1, "Cir00Dead");
 !*
 	setFlags(3);
 	playSE(40);
@@ -73,8 +76,8 @@ sub Cir00(A B C)
 	unsetFlags(3);
 	hitbox(24.0f, 24.0f);
 	killbox(16.0f, 16.0f);
-	enmDir(%ANGLE_PLAYER, 0.0f);
-	enmDirTime(100, 0, -999999.0f, 6.0f);
+	enmDir(%AIM, 0.0f);
+	enmDirTime(100, 0, [NEGF], 6.0f);
 	goto Cir00_468 @ 0;
 Cir00_448:
 	wait(1000);
@@ -92,8 +95,8 @@ sub Cir00Dead()
 	etAmt_rank(0, 1, 1, 3, 3, 1, 1, 1, 1);
 	etAng(0, 0.0f, 0.3926991f);
 	etSpd_rank(0, 1.0f, 0.0f, 0.0f, 0.0f, 1.0f, 1.0f, 1.0f, 2.0f);
-	etEx(0, 0, 1, 2, 1, -999999, -999999.0f, -999999.0f);
-	etEx(0, 1, 0, 4, 60, -999999, 0.016666668f, -999999.0f);
+	etEx(0, 0, 1, 2, 1, [NEG], [NEGF], [NEGF]);
+	etEx(0, 1, 0, 4, 60, [NEG], 0.016666668f, [NEGF]);
 !HL
 	etSpr(0, 26, 1);
 !*
@@ -101,8 +104,8 @@ sub Cir00Dead()
 	$A = 4;
 	goto Cir00Dead_672 @ 0;
 Cir00Dead_448:
-	etAng(0, _f(%RANDRAD / _f(16)), 0.0f);
-	etSpd(0, _f((%RANDF * 1.0f) + 2.0f), 0.0f);
+	etAng(0, _f(%RDEG / _f(16)), 0.0f);
+	etSpd(0, _f((%RF * 1.0f) + 2.0f), 0.0f);
 	etOn(0);
 Cir00Dead_672:
 	if $A-- goto Cir00Dead_448 @ 0;
@@ -119,12 +122,12 @@ sub Cir00_at()
 	etAmt_rank(0, 1, 1, 3, 4, 1, 1, 1, 1);
 	etAng(0, 0.0f, 0.05235988f);
 	etSpd_rank(0, 1.0f, 0.1f, 2.0f, 3.0f, 1.0f, 1.0f, 1.0f, 1.0f);
-	etEx(0, 0, 1, 2, 1, -999999, -999999.0f, -999999.0f);
-	etEx(0, 1, 0, 4, 90, -999999, 0.033333335f, -999999.0f);
+	etEx(0, 0, 1, 2, 1, [NEG], [NEGF], [NEGF]);
+	etEx(0, 1, 0, 4, 90, [NEG], 0.033333335f, [NEGF]);
 	seti_rank($D, 8, 100, 100, 100);
 	goto Cir00_at_520 @ 0;
 Cir00_at_396:
-	etAng(0, _f(%RANDRAD / _f(8)), 0.0f);
+	etAng(0, _f(%RDEG / _f(8)), 0.0f);
 	etOn(0);
 	wait(8);
 Cir00_at_520:
@@ -196,7 +199,7 @@ sub Girl00()
 	itemArea(64.0f, 64.0f);
 	callSep("Girl00_at");
 	enmDir(1.9634954f, 8.0f);
-	enmDirTime(30, 0, -999999.0f, 0.0f);
+	enmDirTime(30, 0, [NEGF], 0.0f);
 	wait(200);
 	enmDir(3.1415927f, 1.0f);
 6000:
@@ -213,10 +216,10 @@ sub Girl00_at()
 	etAmt_rank(0, 30, 30, 30, 30, 2, 5, 8, 10);
 	etAng(0, 0.0f, 0.032724924f);
 	etSpd_rank(0, 1.5f, 1.5f, 3.0f, 3.5f, 1.0f, 1.0f, 1.0f, 1.0f);
-	etEx(0, 0, 1, 2, 1, -999999, -999999.0f, -999999.0f);
-	etEx(0, 1, 1, 1, -999999, -999999, -999999.0f, -999999.0f);
+	etEx(0, 0, 1, 2, 1, [NEG], [NEGF], [NEGF]);
+	etEx(0, 1, 1, 1, [NEG], [NEG], [NEGF], [NEGF]);
 	wait(30);
-	%A = %RANDRAD;
+	%A = %RDEG;
 	$B = 1;
 	etAng(0, %A, 0.032724924f);
 	etOn(0);
@@ -241,7 +244,7 @@ sub Girl00b()
 	itemArea(64.0f, 64.0f);
 	callSep("Girl00_at");
 	enmDir(1.9634954f, 8.0f);
-	enmDirTime(30, 0, -999999.0f, 0.0f);
+	enmDirTime(30, 0, [NEGF], 0.0f);
 	wait(200);
 	enmDir(3.1415927f, 1.0f);
 6000:
@@ -259,7 +262,7 @@ sub Girl01(A B)
 	killbox(16.0f, 16.0f);
 	callSep("Girl01_at");
 	enmDir(3.1415927f, 4.0f);
-	enmDirTime(60, 0, -999999.0f, 2.0f);
+	enmDirTime(60, 0, [NEGF], 2.0f);
 	wait(60);
 	enmDirTime(60, 0, 2.7488935f, 6.0f);
 	goto Girl01_332 @ 0;
@@ -279,8 +282,8 @@ sub Girl01_at()
 	etAmt_rank(0, 1, 1, 1, 1, 1, 1, 1, 1);
 	etAng(0, 1.5707964f, 0.5235988f);
 	etSpd_rank(0, 2.0f, 2.0f, 3.0f, 4.0f, 1.0f, 1.0f, 1.0f, 2.0f);
-	etEx(0, 0, 1, 2, 1, -999999, -999999.0f, -999999.0f);
-	etEx(0, 1, 0, 1024, 30, 1, -999999.0f, -999999.0f);
+	etEx(0, 0, 1, 2, 1, [NEG], [NEGF], [NEGF]);
+	etEx(0, 1, 0, 1024, 30, 1, [NEGF], [NEGF]);
 	etDist(0, 16.0f);
 	wait(_S($RAND % 30));
 	%C = 1.570796f;
@@ -315,10 +318,10 @@ sub Girl02()
 	itemArea(64.0f, 64.0f);
 	callSep("Girl02_at");
 	enmDir(1.5707964f, 5.0f);
-	enmDirTime(90, 0, -999999.0f, 0.0f);
+	enmDirTime(90, 0, [NEGF], 0.0f);
 	wait(230);
 	enmDir(-1.5707964f, 0.0f);
-	enmDirTime(90, 0, -999999.0f, 1.0f);
+	enmDirTime(90, 0, [NEGF], 1.0f);
 6000:
 	noop();
 	delete();
@@ -333,7 +336,7 @@ sub Girl02_at()
 	etAmt_rank(0, 2, 2, 4, 6, 1, 1, 1, 1);
 	etAng(0, 0.0f, 0.032724924f);
 	etSpd_rank(0, 1.0f, 1.0f, 3.0f, 3.5f, 1.0f, 1.0f, 1.0f, 2.0f);
-	etEx(0, 0, 1, 2, 1, -999999, -999999.0f, -999999.0f);
+	etEx(0, 0, 1, 2, 1, [NEG], [NEGF], [NEGF]);
 	wait(90);
 	%A = _f(0);
 	goto Girl02_at_604 @ 0;
@@ -363,10 +366,10 @@ sub Girl02b()
 	itemEx(1, 20);
 	itemArea(64.0f, 64.0f);
 	enmDir(1.5707964f, 8.0f);
-	enmDirTime(90, 0, -999999.0f, 0.0f);
+	enmDirTime(90, 0, [NEGF], 0.0f);
 	wait(200);
 	enmDir(-1.5707964f, 0.0f);
-	enmDirTime(90, 0, -999999.0f, 1.0f);
+	enmDirTime(90, 0, [NEGF], 1.0f);
 6000:
 	noop();
 	delete();
@@ -389,10 +392,10 @@ sub Girl02c()
 	itemArea(64.0f, 64.0f);
 	callSep("Girl02_at");
 	enmDir(1.5707964f, 5.0f);
-	enmDirTime(90, 0, -999999.0f, 0.0f);
+	enmDirTime(90, 0, [NEGF], 0.0f);
 	wait(230);
 	enmDir(-1.5707964f, 0.0f);
-	enmDirTime(90, 0, -999999.0f, 1.0f);
+	enmDirTime(90, 0, [NEGF], 1.0f);
 6000:
 	noop();
 	delete();
@@ -408,7 +411,7 @@ sub Girl03(A B)
 	killbox(16.0f, 16.0f);
 	callSep("Girl03_at");
 	enmDir(3.1415927f, 4.0f);
-	ins_329(60, 0.0f, %ANGLE_PLAYER, 1.0f);
+	ins_329(60, 0.0f, %AIM, 1.0f);
 	wait(80);
 	enmDirTime(60, 0, 2.7488935f, 6.0f);
 	goto Girl03_332 @ 0;
@@ -428,8 +431,8 @@ sub Girl03_at()
 	etAmt_rank(0, 1, 1, 1, 1, 1, 1, 1, 1);
 	etAng(0, 1.5707964f, 0.5235988f);
 	etSpd_rank(0, 2.0f, 2.0f, 3.0f, 3.5f, 1.0f, 1.0f, 1.0f, 2.0f);
-	etEx(0, 0, 1, 2, 1, -999999, -999999.0f, -999999.0f);
-	etEx(0, 1, 0, 1024, 30, 1, -999999.0f, -999999.0f);
+	etEx(0, 0, 1, 2, 1, [NEG], [NEGF], [NEGF]);
+	etEx(0, 1, 0, 1024, 30, 1, [NEGF], [NEGF]);
 	etDist(0, 16.0f);
 	wait(_S($RAND % 10));
 	%C = 1.570796f;
@@ -1260,11 +1263,11 @@ sub RGirl04_at()
 	etAmt_rank(0, 1, 1, 3, 3, 1, 1, 1, 1);
 	etAng(0, 1.5707964f, 0.032724924f);
 	etSpd_rank(0, 1.3f, 2.6f, 3.0f, 5.0f, 1.0f, 1.0f, 1.0f, 2.0f);
-	etEx(0, 0, 1, 2, 1, -999999, -999999.0f, -999999.0f);
+	etEx(0, 0, 1, 2, 1, [NEG], [NEGF], [NEGF]);
 	seti_rank($A, 1, 5, 8, 10);
 	goto RGirl04_at_484 @ 0;
 RGirl04_at_348:
-	etAng(0, _f(%RANDRAD / _f(16)), 0.049087387f);
+	etAng(0, _f(%RDEG / _f(16)), 0.049087387f);
 	etOn(0);
 	wait_rank(20, 20, 10, 10);
 RGirl04_at_484:
@@ -1294,10 +1297,10 @@ sub RGirl04b_at()
 	etAng(0, 1.5707964f, 0.032724924f);
 	etSpd_rank(0, 1.3f, 1.6f, 3.0f, 5.5f, 1.0f, 1.0f, 1.0f, 2.0f);
 	wait(_S($RAND % 60));
-	etEx(0, 0, 1, 2, 1, -999999, -999999.0f, -999999.0f);
+	etEx(0, 0, 1, 2, 1, [NEG], [NEGF], [NEGF]);
 	goto RGirl04b_at_584 @ 0;
 RGirl04b_at_460:
-	etAng(0, _f(%RANDRAD / _f(16)), 0.049087387f);
+	etAng(0, _f(%RDEG / _f(16)), 0.049087387f);
 	etOn(0);
 	wait($B);
 RGirl04b_at_584:

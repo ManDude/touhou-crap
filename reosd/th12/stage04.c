@@ -1,6 +1,9 @@
 anim { "enemy.anm"; "stgenm04.anm"; }
 ecli { "default.ecl"; "stage04mbs.ecl"; "stage04boss.ecl"; }
 
+global[NEG] = -999999;
+global[NEGF] = -999999.f;
+
 sub BCir00()
 {
     var A;
@@ -125,12 +128,12 @@ sub Book00_at(D E)
 	etNew(0);
 	etMode(0, 2);
 	etSpd_rank(0, 1.7f, 1.7f, 2.1f, 3.0f, 1.25f, 1.25f, 1.25f, 1.25f);
-	etEx(0, 0, 0, 2, 1, -999999, -999999.0f, -999999.0f);
-	etEx(0, 1, 0, 1, -999999, -999999, -999999.0f, -999999.0f);
+	etEx(0, 0, 0, 2, 1, [NEG], [NEGF], [NEGF]);
+	etEx(0, 1, 0, 1, [NEG], [NEG], [NEGF], [NEGF]);
 	$A = 60;
 	goto END @ 30;
 START:
-	%B = %RANDRAD;
+	%B = %RDEG;
 	etSpr(0, 0, 10);
 	etAmt_rank(0, 7, 11, 12, 15, 1, 1, 2, 2);
 	etAng(0, %B, 0.0f);
@@ -168,8 +171,8 @@ sub Book01_at(A B)
 	etAmt_rank(0, 8, 16, 24, 32, 1, 1, 2, 3);
 	etSpd_rank(0, 1.9f, 1.9f, 2.9f, 3.5f, 1.25f, 1.25f, 1.25f, 1.25f);
 	etAng(0, 0.0f, 0.0f);
-	etEx(0, 0, 0, 2, 1, -999999, -999999.0f, -999999.0f);
-	etEx(0, 1, 0, 1, -999999, -999999, -999999.0f, -999999.0f);
+	etEx(0, 0, 0, 2, 1, [NEG], [NEGF], [NEGF]);
+	etEx(0, 1, 0, 1, [NEG], [NEG], [NEGF], [NEGF]);
 	$A = 10;
 	goto END @ 30;
 START:
@@ -198,8 +201,8 @@ sub Book02_at(A B)
 	etAmt(0, 11, 1);
 	etSpd(0, 1.7f, 1.25f);
 	etAng(0, 0.0f, 0.0f);
-	etEx(0, 0, 0, 2, 1, -999999, -999999.0f, -999999.0f);
-	etEx(0, 1, 0, 1, -999999, -999999, -999999.0f, -999999.0f);
+	etEx(0, 0, 0, 2, 1, [NEG], [NEGF], [NEGF]);
+	etEx(0, 1, 0, 1, [NEG], [NEG], [NEGF], [NEGF]);
 	$A = 10;
 	goto END @ 30;
 START:
@@ -234,13 +237,13 @@ sub Cir00(A B C)
 !L
 	etAng(0, 0.0f, 0.26179938779914943653855361527329f);
 !*
-	etEx(0, 0, 0, 2, 1, -999999, -999999.0f, -999999.0f);
+	etEx(0, 0, 0, 2, 1, [NEG], [NEGF], [NEGF]);
 	etOn(0);
 	callSlot("et_on_rate", 1, _SS 0, _SS 50, _SS 1);
     enmDir(0.0f, 4.2f);
 	setFlags(4);
 30:
-	enmDirTime(40, 0, -2.6179938779914943653855361527329f, -999999.0f);
+	enmDirTime(40, 0, -2.6179938779914943653855361527329f, [NEGF]);
 70:
 	endSlot(1);
 10000:
@@ -264,15 +267,15 @@ sub Cir01(A B C)
 !L
 	etAng(0, 0.0f, 0.26179938779914943653855361527329f);
 !*
-	etEx(0, 0, 0, 2, 1, -999999, -999999.0f, -999999.0f);
+	etEx(0, 0, 0, 2, 1, [NEG], [NEGF], [NEGF]);
 	etOn(0);
 	callSlot("et_on_rate", 1, _SS 0, _SS 50, _SS 1);
     enmDir(-1.0471975511965977461542144610932f, 4.2f);
 	setFlags(4);
 30:
-	enmDirTime(40, 0, 1.5707963267948966192313216916397f, -999999.0f);
+	enmDirTime(40, 0, 1.5707963267948966192313216916397f, [NEGF]);
 70:
-	enmDirTime(80, 0, -8.901179185171080842310822919292f, -999999.0f);
+	enmDirTime(80, 0, -8.901179185171080842310822919292f, [NEGF]);
 150:
 	endSlot(1);
 10000:
@@ -296,13 +299,13 @@ sub Cir02(A B C)
 !L
 	etAng(0, 0.0f, 0.17453292519943295769236907684886f);
 !*
-	etEx(0, 0, 0, 2, 1, -999999, -999999.0f, -999999.0f);
+	etEx(0, 0, 0, 2, 1, [NEG], [NEGF], [NEGF]);
 	etOn(0);
 	callSlot("et_on_rate", 1, _SS 0, _SS 128, _SS 1);
     enmDir(0.0f, 4.2f);
 	setFlags(4);
 30:
-	enmDirTime(40, 0, -2.6179938779914943653855361527329f, -999999.0f);
+	enmDirTime(40, 0, -2.6179938779914943653855361527329f, [NEGF]);
 70:
 	endSlot(1);
 10000:
@@ -326,15 +329,15 @@ sub Cir03(A B C)
 !L
 	etAng(0, 0.0f, 0.26179938779914943653855361527329f);
 !*
-	etEx(0, 0, 0, 2, 1, -999999, -999999.0f, -999999.0f);
+	etEx(0, 0, 0, 2, 1, [NEG], [NEGF], [NEGF]);
 	etOn(0);
 	callSlot("et_on_rate", 1, _SS 0, _SS 128, _SS 1);
     enmDir(-1.0471975511965977461542144610932f, 4.5f);
 	setFlags(4);
 30:
-	enmDirTime(40, 0, 1.5707963267948966192313216916397f, -999999.0f);
+	enmDirTime(40, 0, 1.5707963267948966192313216916397f, [NEGF]);
 70:
-	enmDirTime(80, 0, -8.901179185171080842310822919292f, -999999.0f);
+	enmDirTime(80, 0, -8.901179185171080842310822919292f, [NEGF]);
 150:
 	endSlot(1);
 10000:
@@ -351,7 +354,7 @@ sub Cir04(A B C)
     enmDir(0.0f, 4.5f);
 	setFlags(4);
 30:
-	enmDirTime(40, 0, -2.6179938779914943653855361527329f, -999999.0f);
+	enmDirTime(40, 0, -2.6179938779914943653855361527329f, [NEGF]);
 10000:
     return();
 }
@@ -366,9 +369,9 @@ sub Cir05(A B C)
     enmDir(-1.0471975511965977461542144610932f, 4.5f);
 	setFlags(4);
 30:
-	enmDirTime(40, 0, 1.5707963267948966192313216916397f, -999999.0f);
+	enmDirTime(40, 0, 1.5707963267948966192313216916397f, [NEGF]);
 70:
-	enmDirTime(40, 0, 4.1887902047863909846168578443726f, -999999.0f);
+	enmDirTime(40, 0, 4.1887902047863909846168578443726f, [NEGF]);
 10000:
     return();
 }
@@ -388,7 +391,7 @@ sub Cir06(A B C)
 	etAmt_rank(0, 2, 3, 5, 9, 2, 2, 2, 2);
 	etSpd_rank(0, 2.5f, 2.5f, 2.8f, 2.8f, 1.45f, 1.45f, 1.45f, 1.45f);
 	etAng(0, 0.0f, 0.17453292519943295769236907684886f);
-	etEx(0, 0, 0, 2, 1, -999999, -999999.0f, -999999.0f);
+	etEx(0, 0, 0, 2, 1, [NEG], [NEGF], [NEGF]);
 	callSlot("et_on_rate", 1, _SS 0, _SS 50, _SS 1);
 100:
 	endSlot(1);
@@ -411,7 +414,7 @@ sub Cir07(A B C)
 	etAmt_rank(0, 2, 3, 5, 9, 2, 2, 2, 2);
 	etSpd_rank(0, 2.5f, 2.5f, 2.8f, 2.8f, 1.45f, 1.45f, 1.45f, 1.45f);
 	etAng(0, 0.0f, 0.17453292519943295769236907684886f);
-	etEx(0, 0, 0, 2, 1, -999999, -999999.0f, -999999.0f);
+	etEx(0, 0, 0, 2, 1, [NEG], [NEGF], [NEGF]);
 	callSlot("et_on_rate", 1, _SS 0, _SS 50, _SS 1);
 100:
 	endSlot(1);
@@ -497,10 +500,10 @@ sub Girl00(A B)
     enmDir(1.5707963267948966192313216916398f, 2.0f);
     ins_275(0, 1);
 40:
-	enmDirTime(30, 0, -999999.0f, 0.0f);
+	enmDirTime(30, 0, [NEGF], 0.0f);
 70:
 	enmNewRel("MBoss1_enemy", 0.0f, 0.0f, 10, 1000, 0);
-	enmDir(_f((%RANDF * 1.5707963267948966192313216916398f) + 0.7853981633974483096156608458199f), 1.8f);
+	enmDir(_f((%RF * 1.5707963267948966192313216916398f) + 0.7853981633974483096156608458199f), 1.8f);
 10000:
     return();
 }
@@ -515,10 +518,10 @@ sub Girl01(A B)
     enmDir(0.0f, 2.0f);
     ins_275(0, 1);
 40:
-	enmDirTime(30, 0, -999999.0f, 0.0f);
+	enmDirTime(30, 0, [NEGF], 0.0f);
 70:
 	enmNewRel("MBoss1_enemy", 0.0f, 0.0f, 10, 1000, 0);
-	enmDir(_f((%RANDF * 1.5707963267948966192313216916398f) + 0.7853981633974483096156608458199f), 1.8f);
+	enmDir(_f((%RF * 1.5707963267948966192313216916398f) + 0.7853981633974483096156608458199f), 1.8f);
 10000:
     return();
 }
@@ -526,7 +529,7 @@ sub Girl01(A B)
 sub Girl02(A B)
 {
     var C D E;
-	attack(0, 0, -1, "Girl02Dead");
+	interrupt(0, 0, -1, "Girl02Dead");
 	anm(1);
     anmScr(0, $A);
     hitbox(28.0f, 28.0f);
@@ -534,10 +537,10 @@ sub Girl02(A B)
     enmDir(1.5707963267948966192313216916398f, 2.0f);
     ins_275(0, 1);
 40:
-	enmDirTime(30, 0, -999999.0f, 0.0f);
+	enmDirTime(30, 0, [NEGF], 0.0f);
 70:
 	$C = 64;
-	%D = %RANDRAD;
+	%D = %RDEG;
 	unless ($RAND % 2) goto END1 @ 70;
 	%E = 0.24166097335306101834328026025227f;
 	goto END1_2 @ 70;
@@ -549,7 +552,7 @@ END1_2:
 	etSpr(0, 7, 6);
 	etAmt_rank(0, 1, 3, 5, 9, 1, 2, 3, 3);
 	etSpd_rank(0, 3.1f, 3.1f, 3.5f, 3.7f, 2.05f, 2.05f, 2.05f, 2.05f);
-	etEx(0, 0, 0, 2, 1, -999999, -999999.0f, -999999.0f);
+	etEx(0, 0, 0, 2, 1, [NEG], [NEGF], [NEGF]);
 	goto END @ 70;
 START:
 	etAng(0, %D, 0.0f);
@@ -578,7 +581,7 @@ sub Girl02Dead()
 sub Girl03(A B)
 {
     var C D E;
-	attack(0, 0, -1, "Girl02Dead");
+	interrupt(0, 0, -1, "Girl02Dead");
 	anm(1);
     anmScr(0, $A);
     hitbox(28.0f, 28.0f);
@@ -586,10 +589,10 @@ sub Girl03(A B)
     enmDir(0.0f, 2.0f);
     ins_275(0, 1);
 40:
-	enmDirTime(30, 0, -999999.0f, 0.0f);
+	enmDirTime(30, 0, [NEGF], 0.0f);
 70:
 	$C = 64;
-	%D = %RANDRAD;
+	%D = %RDEG;
 	unless ($RAND % 2) goto END1 @ 70;
 	%E = 0.24166097335306101834328026025227f;
 	goto END1_2 @ 70;
@@ -601,7 +604,7 @@ END1_2:
 	etSpr(0, 7, 6);
 	etAmt(0, 3, 2);
 	etSpd(0, 2.6f, 1.65f);
-	etEx(0, 0, 0, 2, 1, -999999, -999999.0f, -999999.0f);
+	etEx(0, 0, 0, 2, 1, [NEG], [NEGF], [NEGF]);
 	goto END @ 70;
 START:
 	etAng(0, %D, 0.0f);
@@ -631,7 +634,7 @@ sub Girl04Shooter()
 !HL
 	etSpd(0, 1.7f, 0.25f);
 	etAng(0, 0.0f, 0.09817477042468103870195760572748f);
-	etEx(0, 0, 0, 2, 1, -999999, -999999.0f, -999999.0f);
+	etEx(0, 0, 0, 2, 1, [NEG], [NEGF], [NEGF]);
 	etOn(0);
 !*
 	etNew(1);
@@ -656,10 +659,10 @@ sub Girl04(A B)
     enmDir(1.5707963267948966192313216916398f, 2.0f);
     ins_275(0, 1);
 40:
-	enmDirTime(30, 0, -999999.0f, 0.0f);
+	enmDirTime(30, 0, [NEGF], 0.0f);
 70:
 	enmNewRel("Girl04Shooter", 0.0f, 0.0f, 1000, 0, 10);
-	enmDir(_f((%RANDF * 1.5707963267948966192313216916398f) + 0.7853981633974483096156608458199f), 1.8f);
+	enmDir(_f((%RF * 1.5707963267948966192313216916398f) + 0.7853981633974483096156608458199f), 1.8f);
 10000:
 	return();
 }
@@ -801,7 +804,7 @@ sub MainSub03()
 sub MainSub04()
 {
     var;
-    $LOCAL1 = 0;
+    $I0 = 0;
     enmNewRel("GGirl02", -96.0f, -32.0f, 2000, 2000, 2);
     enmNewRelMir("GGirl02", 96.0f, -32.0f, 2000, 2000, 2);
     wait(24);
@@ -843,17 +846,17 @@ END:
 sub MainSub07()
 {
     var;
-    enmNewRel("Book00", _f(%RANDF2 * 192.0f), 32.0f, 3500, 2000, 2);
+    enmNewRel("Book00", _f(%RF2 * 192.0f), 32.0f, 3500, 2000, 2);
 	wait(40);
-    enmNewRel("Book00", _f(%RANDF2 * 192.0f), 128.0f, 3500, 2000, 2);
+    enmNewRel("Book00", _f(%RF2 * 192.0f), 128.0f, 3500, 2000, 2);
 	wait(40);
-    enmNewRel("Book00", _f(%RANDF2 * 192.0f), 144.0f, 3500, 2000, 2);
+    enmNewRel("Book00", _f(%RF2 * 192.0f), 144.0f, 3500, 2000, 2);
 	wait(50);
-    enmNewRel("Book00", _f(%RANDF2 * 192.0f), 64.0f, 4500, 2000, 2);
+    enmNewRel("Book00", _f(%RF2 * 192.0f), 64.0f, 4500, 2000, 2);
 	wait(50);
-    enmNewRel("Book00", _f(%RANDF2 * 192.0f), 80.0f, 4500, 2000, 2);
+    enmNewRel("Book00", _f(%RF2 * 192.0f), 80.0f, 4500, 2000, 2);
 	wait(60);
-    enmNewRel("Book00", _f(%RANDF2 * 192.0f), 96.0f, 4500, 2000, 2);
+    enmNewRel("Book00", _f(%RF2 * 192.0f), 96.0f, 4500, 2000, 2);
 	wait(60);
     return();
 }

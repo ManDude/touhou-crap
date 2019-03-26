@@ -1,5 +1,8 @@
 
 
+global[NEG] = -999999;
+global[NEGF] = -999999.f;
+
 sub Boss()
 {
 	var A;
@@ -31,7 +34,7 @@ sub Boss1()
 	var A B C;
 	life(19000);
 	resetBoss();
-	attack(0, 1400, 2700, "BossCard1");
+	interrupt(0, 1400, 2700, "BossCard1");
 	lifebar(0, 1400.0f, -24448);
 	stageProg(24);
 	lives(2);
@@ -44,7 +47,7 @@ sub Boss1()
 	etAmt_rank(0, 8, 16, 16, 16, 1, 1, 2, 2);
 	etSpd_rank(0, 2.3f, 2.5f, 3.0f, 3.5f, 1.25f, 1.25f, 1.25f, 1.25f);
 	etAng(0, 0.0f, 0.15707963267948966192313216916398f);
-	etEx(0, 0, 0, 2, 1, -999999, -999999.0f, -999999.0f);
+	etEx(0, 0, 0, 2, 1, [NEG], [NEGF], [NEGF]);
 	etOfs(0, 0.0f, -12.0f);
 	etNew(1);
 	etMode(1, 1);
@@ -55,39 +58,39 @@ sub Boss1()
 	goto Boss1_856 @ 300;
 Boss1_232:
 	anmScrSlot(0, 119);
-	%LOCAL1F = 0.78539816339744830961566084581988f;
-	%LOCAL2F = 0.6283185307179586476925286766559f;
-	$LOCAL1 = 6;
+	%F0 = 0.78539816339744830961566084581988f;
+	%F1 = 0.6283185307179586476925286766559f;
+	$I0 = 6;
 	enmNewRel("Boss1_at1", 0.0f, 0.0f, 100, 0, 0);
-	%LOCAL1F = 0.0f;
-	%LOCAL2F = -0.31415926535897932384626433832795f;
-	$LOCAL1 = 10;
+	%F0 = 0.0f;
+	%F1 = -0.31415926535897932384626433832795f;
+	$I0 = 10;
 	enmNewRel("Boss1_at1", 0.0f, 0.0f, 100, 0, 0);
-	%LOCAL1F = 2.3561944901923449288469825374596f;
-	%LOCAL2F = -0.6283185307179586476925286766559f;
-	$LOCAL1 = 10;
+	%F0 = 2.3561944901923449288469825374596f;
+	%F1 = -0.6283185307179586476925286766559f;
+	$I0 = 10;
 	enmNewRel("Boss1_at1", 0.0f, 0.0f, 100, 0, 0);
-	%LOCAL1F = 3.1415926535897932384626433832795f;
-	%LOCAL2F = 0.31415926535897932384626433832795f;
-	$LOCAL1 = 6;
+	%F0 = 3.1415926535897932384626433832795f;
+	%F1 = 0.31415926535897932384626433832795f;
+	$I0 = 6;
 	enmNewRel("Boss1_at1", 0.0f, 0.0f, 100, 0, 0);
 !L
-	%LOCAL1F = 1.1780972450961724644234912687298f;
-	%LOCAL2F = 0.6283185307179586476925286766559f;
-	$LOCAL1 = 6;
+	%F0 = 1.1780972450961724644234912687298f;
+	%F1 = 0.6283185307179586476925286766559f;
+	$I0 = 6;
 	enmNewRel("Boss1_at1", 0.0f, 0.0f, 100, 0, 0);
-	%LOCAL1F = 1.9634954084936207740391521145497f;
-	%LOCAL2F = -0.6283185307179586476925286766559f;
-	$LOCAL1 = 10;
+	%F0 = 1.9634954084936207740391521145497f;
+	%F1 = -0.6283185307179586476925286766559f;
+	$I0 = 10;
 	enmNewRel("Boss1_at1", 0.0f, 0.0f, 100, 0, 0);
 !HL
-	%LOCAL1F = 0.39269908169872415480783042290994f;
-	%LOCAL2F = -0.31415926535897932384626433832795f;
-	$LOCAL1 = 10;
+	%F0 = 0.39269908169872415480783042290994f;
+	%F1 = -0.31415926535897932384626433832795f;
+	$I0 = 10;
 	enmNewRel("Boss1_at1", 0.0f, 0.0f, 100, 0, 0);
-	%LOCAL1F = 2.7488935718910690836548129603696f;
-	%LOCAL2F = 0.31415926535897932384626433832795f;
-	$LOCAL1 = 6;
+	%F0 = 2.7488935718910690836548129603696f;
+	%F1 = 0.31415926535897932384626433832795f;
+	$I0 = 6;
 	enmNewRel("Boss1_at1", 0.0f, 0.0f, 100, 0, 0);
 !*
 	wait(60);
@@ -122,14 +125,14 @@ Boss1_856:
 sub Boss1_at1()
 {
 	var A B C D E F;
-	%C = %RANDRAD;
-	%D = %LOCAL2F;
-	%E = %LOCAL1F;
-	$F = $LOCAL1;
+	%C = %RDEG;
+	%D = %F1;
+	%E = %F0;
+	$F = $I0;
 	setFlags(3);
 	hitbox(28.0f, 28.0f);
 	enmDir(%E, 0.8f);
-	enmDirTime(370, 4, -999999.0f, 0.0f);
+	enmDirTime(370, 4, [NEGF], 0.0f);
 	etNew(0);
 	etMode(0, 1);
 	etSpr(0, 7, $F);
@@ -185,7 +188,7 @@ Boss2_248:
 	ins_529(0);
 	resetBossParam();
 	playSE(28);
-	attack(0, 1400, 2700, "BossCard2");
+	interrupt(0, 1400, 2700, "BossCard2");
 	lifebar(0, 1400.0f, -24448);
 	lives(1);
 	invinc(60);
@@ -206,8 +209,8 @@ Boss2_784:
 	etSpd_rank(0, 2.3f, 2.5f, 3.0f, 3.0f, 1.25f, 1.25f, 1.25f, 1.25f);
 	etAng(0, 0.0f, 0.15707963267948966192313216916398f);
 	etOfs(0, 0.0f, -12.0f);
-	etEx(0, 0, 0, 2, 1, -999999, -999999.0f, -999999.0f);
-	$LOCAL1 = 0;
+	etEx(0, 0, 0, 2, 1, [NEG], [NEGF], [NEGF]);
+	$I0 = 0;
 	goto Boss2_1920 @ 0;
 Boss2_992:
 	call("Boss2_at");
@@ -221,7 +224,7 @@ Boss2_992:
 	endSlot(1);
 	call("Boss2_at1");
 	wait(70);
-	$LOCAL1 = $LOCAL1 + 1;
+	$I0 = $I0 + 1;
 	wait(10);
 Boss2_1920:
 	if 1 goto Boss2_992 @ 0;
@@ -234,21 +237,21 @@ sub Boss2_Enemy()
 	setFlags(3);
 	hitbox(28.0f, 28.0f);
 	killbox(28.0f, 28.0f);
-	enmDir(%LOCAL1F, 0.8f);
-	enmDirTime(370, 4, -999999.0f, 0.0f);
+	enmDir(%F0, 0.8f);
+	enmDirTime(370, 4, [NEGF], 0.0f);
 	etNew(0);
 	etMode(0, 1);
-	etSpr(0, 8, $LOCAL2);
+	etSpr(0, 8, $I1);
 	etAmt_rank(0, 4, 6, 5, 5, 1, 1, 1, 1);
 	etSpd_rank(0, 1.9f, 2.1f, 2.3f, 2.7f, 1.45f, 1.45f, 1.45f, 1.45f);
 !EN
-	etEx(0, 0, 0, 0x100, 1, 13, -999999.0f, -999999.0f);
+	etEx(0, 0, 0, 0x100, 1, 13, [NEGF], [NEGF]);
 !HL
-	etEx(0, 0, 0, 0x100, 2, 13, -999999.0f, -999999.0f);
+	etEx(0, 0, 0, 0x100, 2, 13, [NEGF], [NEGF]);
 !*
-	%A = %LOCAL2F;
+	%A = %F1;
 50:
-	%C = %RANDRAD;
+	%C = %RDEG;
 	$B = 250 / 14;
 	goto END @ 50;
 START:
@@ -265,21 +268,21 @@ END:
 sub Boss2_at()
 {
 	var;
-	$LOCAL2 = 2;
-	%LOCAL1F = 0.78539816339744830961566084581988f;
-	%LOCAL2F = 0.6283185307179586476925286766559f;
+	$I1 = 2;
+	%F0 = 0.78539816339744830961566084581988f;
+	%F1 = 0.6283185307179586476925286766559f;
 	enmNewRel("Boss2_Enemy", 0.0f, 0.0f, 100, 0, 0);
-	$LOCAL2 = 6;
-	%LOCAL1F = 0.0f;
-	%LOCAL2F = -0.19634954084936207740391521145497f;
+	$I1 = 6;
+	%F0 = 0.0f;
+	%F1 = -0.19634954084936207740391521145497f;
 	enmNewRel("Boss2_Enemy", 0.0f, 0.0f, 100, 0, 0);
-	$LOCAL2 = 6;
-	%LOCAL1F = 2.3561944901923449288469825374596f;
-	%LOCAL2F = -0.6283185307179586476925286766559f;
+	$I1 = 6;
+	%F0 = 2.3561944901923449288469825374596f;
+	%F1 = -0.6283185307179586476925286766559f;
 	enmNewRel("Boss2_Enemy", 0.0f, 0.0f, 100, 0, 0);
-	$LOCAL2 = 2;
-	%LOCAL1F = 3.1415926535897932384626433832795f;
-	%LOCAL2F = 0.19634954084936207740391521145497f;
+	$I1 = 2;
+	%F0 = 3.1415926535897932384626433832795f;
+	%F1 = 0.19634954084936207740391521145497f;
 	enmNewRel("Boss2_Enemy", 0.0f, 0.0f, 100, 0, 0);
 60:
 	return();
@@ -311,9 +314,9 @@ sub Boss2_at1b(A)
 	laserSetSize(0, -1.0f, -1.0f, -1.0f, 16.0f);
 	laserSetTime(0, 42, -1, -1, -1, 0);
 	etSE(0, 19, -1);
-	etEx(0, 0, 0, 1024, 120, 0, -999999.0f, -999999.0f);
-	etEx(0, 1, 1, 8, 60, -999999, -0.083333336f, 0.05235988f);
-	etEx(0, 2, 1, 8, 60, -999999, 0.083333336f, 0.02617994f);
+	etEx(0, 0, 0, 1024, 120, 0, [NEGF], [NEGF]);
+	etEx(0, 1, 1, 8, 60, [NEG], -0.083333336f, 0.05235988f);
+	etEx(0, 2, 1, 8, 60, [NEG], 0.083333336f, 0.02617994f);
 	etSE(0, 19, -1);
 	$B = 9;
 	goto Boss2_at1b_604 @ 0;
@@ -336,9 +339,9 @@ sub Boss2_at2(A)
 	laserSetSize(0, -1.0f, -1.0f, -1.0f, 16.0f);
 	laserSetTime(0, 42, -1, -1, -1, 0);
 	etSE(0, 19, -1);
-	etEx(0, 0, 0, 1024, 120, 0, -999999.0f, -999999.0f);
-	etEx(0, 1, 1, 8, 60, -999999, -0.083333336f, -0.05235988f);
-	etEx(0, 2, 1, 8, 60, -999999, 0.083333336f, 0.0f);
+	etEx(0, 0, 0, 1024, 120, 0, [NEGF], [NEGF]);
+	etEx(0, 1, 1, 8, 60, [NEG], -0.083333336f, -0.05235988f);
+	etEx(0, 2, 1, 8, 60, [NEG], 0.083333336f, 0.0f);
 	etSE(0, 19, -1);
 	seti_rank($B, 6, 9, 12, 15);
 	goto Boss2_at2_828 @ 0;
@@ -369,9 +372,9 @@ sub Boss2_at2b(A)
 	laserSetSize(0, -1.0f, -1.0f, -1.0f, 16.0f);
 	laserSetTime(0, 42, -1, -1, -1, 0);
 	etSE(0, 19, -1);
-	etEx(0, 0, 0, 1024, 120, 0, -999999.0f, -999999.0f);
-	etEx(0, 1, 1, 8, 60, -999999, -0.083333336f, -0.05235988f);
-	etEx(0, 2, 1, 8, 60, -999999, 0.083333336f, -0.02617994f);
+	etEx(0, 0, 0, 1024, 120, 0, [NEGF], [NEGF]);
+	etEx(0, 1, 1, 8, 60, [NEG], -0.083333336f, -0.05235988f);
+	etEx(0, 2, 1, 8, 60, [NEG], 0.083333336f, -0.02617994f);
 	etSE(0, 19, -1);
 	$B = 9;
 	goto Boss2_at2b_604 @ 0;
@@ -391,11 +394,11 @@ sub Boss2_at3()
 	etMode(2, 3);
 	etSpr(2, 17, 2);
 	etAmt_rank(2, 32, 32, 32, 32, 1, 4, 4, 4);
-	etAng(2, %RANDRAD, 0.0f);
+	etAng(2, %RDEG, 0.0f);
 	etSpd(2, 4.0f, 1.0f);
-	etEx(2, 0, 1, 2, 1, -999999, -999999.0f, -999999.0f);
-	etEx(2, 1, 0, 268435456, 1, -999999, -999999.0f, -999999.0f);
-	etEx(2, 2, 0, 4, 120, -999999, 0.025f, -999999.0f);
+	etEx(2, 0, 1, 2, 1, [NEG], [NEGF], [NEGF]);
+	etEx(2, 1, 0, 268435456, 1, [NEG], [NEGF], [NEGF]);
+	etEx(2, 2, 0, 4, 120, [NEG], 0.025f, [NEGF]);
 	etDist(2, 32.0f);
 	%A = -1.570796f;
 	etOn(2);
@@ -429,9 +432,9 @@ Boss3_268:
 	resetBossParam();
 	playSE(28);
 !E
-	attack(0, 1900, 2400, "BossCard3");
+	interrupt(0, 1900, 2400, "BossCard3");
 !NHL
-	attack(0, 1300, 2400, "BossCard3");
+	interrupt(0, 1300, 2400, "BossCard3");
 !E
 	lifebar(0, 1900.0f, -24448);
 !NHL
@@ -461,8 +464,8 @@ Boss3_1088:
 	ins_269(0);
 	callSep("Boss3_at1", _SS 0, _SS 10, _ff 0.0f, _ff 0.05235988f);
 	callSep("Boss3_at1", _SS 1, _SS 10, _ff 3.1415927f, _ff -0.05235988f);
-	callSep("Boss3_at1", _SS 2, _SS 6, _ff (-1.5707964f + (%RANDRAD / _f(4))), _ff 0.05235988f);
-	callSep("Boss3_at1", _SS 3, _SS 6, _ff (-1.5707964f + (%RANDRAD / _f(4))), _ff -0.05235988f);
+	callSep("Boss3_at1", _SS 2, _SS 6, _ff (-1.5707964f + (%RDEG / _f(4))), _ff 0.05235988f);
+	callSep("Boss3_at1", _SS 3, _SS 6, _ff (-1.5707964f + (%RDEG / _f(4))), _ff -0.05235988f);
 	wait(200);
 	enmRand(60, 4, 2.0f);
 	wait(61);
@@ -481,20 +484,20 @@ sub Boss3_at1(A B C D)
 	laserSetSize($A, -1.0f, -1.0f, -1.0f, 16.0f);
 	laserSetTime($A, 32, -1, -1, -1, 0);
 	etSE(0, 19, -1);
-	etEx($A, 0, 0, 1024, 120, 0, -999999.0f, -999999.0f);
-	etEx($A, 2, 1, 8, 60, -999999, 0.083333336f, 0.0f);
+	etEx($A, 0, 0, 1024, 120, 0, [NEGF], [NEGF]);
+	etEx($A, 2, 1, 8, 60, [NEG], 0.083333336f, 0.0f);
 	etSE($A, 19, -1);
 	seti_rank($F, 10, 20, 30, 40);
 	goto Boss3_at1_1260 @ 0;
 Boss3_at1_428:
-	ins_89(%E, %C, %ANGLE_PLAYER);
+	ins_89(%E, %C, %AIM);
 	unless ((%E < (3.1415927f / _f(3))) && (%E > (-3.1415927f / _f(3)))) goto Boss3_at1_780 @ 0;
 	etSpr($A, 0, 6);
-	etEx($A, 1, 1, 8, 60, -999999, -0.083333336f, 0.0f);
+	etEx($A, 1, 1, 8, 60, [NEG], -0.083333336f, 0.0f);
 	goto Boss3_at1_856 @ 0;
 Boss3_at1_780:
 	etSpr($A, 0, 10);
-	etEx($A, 1, 1, 8, 60, -999999, -0.083333336f, %D);
+	etEx($A, 1, 1, 8, 60, [NEG], -0.083333336f, %D);
 Boss3_at1_856:
 	etAng($A, %C, 0.0f);
 	laserCurvedShoot($A);
@@ -570,7 +573,7 @@ sub BossCard1()
 	enmPosTime(0, 0, 0.0f, 0.0f);
 	$MISS_COUNT = 0;
 	$BOMB_COUNT = 0;
-	attack(0, 0, 1800, "Boss2");
+	interrupt(0, 0, 1800, "Boss2");
 !EN
 	cardE(61, 2700, 500000, "幻在「クロックコープス」");
 !HL
@@ -579,7 +582,7 @@ sub BossCard1()
 	stageProg(43);
 	enmPosTime(60, 4, 0.0f, 112.0f);
 	invinc(120);
-	$LOCAL4 = 9;
+	$I3 = 9;
 	etNew(0);
 	etMode(0, 8);
 	etAmt(0, 1, 1);
@@ -590,14 +593,14 @@ sub BossCard1()
 	etSpr(0, 26, 0);
 	etAng(0, 3.1415926535897932384626433832795f, 0.0f);
 !E
-	etEx(0, 0, 0, 0x1000, 70, -999999, -999999.0f, -999999.0f);
+	etEx(0, 0, 0, 0x1000, 70, [NEG], [NEGF], [NEGF]);
 !N
-	etEx(0, 0, 0, 0x1000, 50, -999999, -999999.0f, -999999.0f);
+	etEx(0, 0, 0, 0x1000, 50, [NEG], [NEGF], [NEGF]);
 !HL
-	etEx(0, 0, 0, 0x1000, 50, -999999, -999999.0f, -999999.0f);
+	etEx(0, 0, 0, 0x1000, 50, [NEG], [NEGF], [NEGF]);
 !*
 	etEx(0, 1, 0, 0x10, 0, 1, 0.0f, 0.0f);
-	etEx(0, 2, 0, 0x1000, _S(153 / $LOCAL4), -999999, -999999.0f, -999999.0f);
+	etEx(0, 2, 0, 0x1000, _S(153 / $I3), [NEG], [NEGF], [NEGF]);
 	etNew(1);
 	etMode(1, 0);
 	etSpr(1, 20, 3);
@@ -621,15 +624,15 @@ BossCard1_904:
 190:
 !*
 	noop();
-	speed(_f(1.0f / _f($LOCAL4)));
+	speed(_f(1.0f / _f($I3)));
 	setFlags(3);
 	$A = 0;
 	noop();
-	enmRand(_S(90 / $LOCAL4), 4, 2.5f);
+	enmRand(_S(90 / $I3), 4, 2.5f);
 	callSep("BossCard1_at");
-	wait(_S(90 / $LOCAL4));
-	wait(_S(32 / $LOCAL4));
-	wait(_S(30 / $LOCAL4));
+	wait(_S(90 / $I3));
+	wait(_S(32 / $I3));
+	wait(_S(30 / $I3));
 	wait(1);
 	speed(1.0f);
 	unsetFlags(3);
@@ -642,7 +645,7 @@ BossCard1_2812:
 sub BossCard1LaserAt(A)
 {
 	var B C D E;
-	unless ($LOCAL4 == 55) goto BossCard1LaserAt_296 @ 0;
+	unless ($I3 == 55) goto BossCard1LaserAt_296 @ 0;
 	etNew(0);
 	etMode(0, 2);
 	etSpr(0, 24, 0);
@@ -658,12 +661,12 @@ BossCard1LaserAt_296:
 	etAng(0, 0.0f, 0.032724924f);
 	etSpd(0, 0.4f, 1.0f);
 BossCard1LaserAt_452:
-	etEx(0, 0, 1, 2, 1, -999999, -999999.0f, -999999.0f);
-	etEx(0, 1, 0, 268435456, 1, -999999, -999999.0f, -999999.0f);
-	etEx(0, 2, 0, 4, 120, -999999, 0.008333334f, -999999.0f);
+	etEx(0, 0, 1, 2, 1, [NEG], [NEGF], [NEGF]);
+	etEx(0, 1, 0, 268435456, 1, [NEG], [NEGF], [NEGF]);
+	etEx(0, 2, 0, 4, 120, [NEG], 0.008333334f, [NEGF]);
 	%B = _f(0);
 	normRad(%A);
-	%E = %RANDRAD;
+	%E = %RDEG;
 	goto BossCard1LaserAt_1228 @ 0;
 BossCard1LaserAt_720:
 	ins_81(%C, %D, %A, %B);
@@ -677,7 +680,7 @@ BossCard1LaserAt_720:
 	%B = (%B + _f(14));
 !*
 	etAng(0, %E, 0.0f);
-	%E = (%E + %LOCAL3F);
+	%E = (%E + %F2);
 	etOfs(0, %C, %D);
 	etOn(0);
 	wait(1);
@@ -713,17 +716,17 @@ JMP2:
 	%F = %startAng - 3.1415926535897932384626433832795f;
 	%G = %angInc;
 JMP2_END:
-	%F = (%F + %ANGLE_PLAYER) - 1.5707963267948966192313216916398f;
+	%F = (%F + %AIM) - 1.5707963267948966192313216916398f;
 	%J = -0.78539816339744830961566084581988f;
 	$E = $amt;
 	goto SHOOT_END @ 0;
 SHOOT_START:
 	unless (%D < 0.0f) goto JMP3 @ 0;
-	ins_81(%H, %I, %ANGLE_PLAYER, _f((%C * %PLAYER_DISTANCE) + %D));
+	ins_81(%H, %I, %AIM, _f((%C * %DIST) + %D));
 	ins_81(%X, %Y, %F, _f(%D * -1.0f));
 	goto JMP3_END @ 0;
 JMP3:
-	ins_81(%H, %I, %ANGLE_PLAYER, _f((%C * %PLAYER_DISTANCE) + %D));
+	ins_81(%H, %I, %AIM, _f((%C * %DIST) + %D));
 	ins_81(%X, %Y, %F, %D);
 JMP3_END:
 	unless ($B % 2) goto JMP4 @ 0;
@@ -734,7 +737,7 @@ JMP4:
 	%X = %X + %H;
 	%Y = %Y + %I;
 	etOfs(1, %X, %Y);
-	etEx(1, 0, 0, 0x1000, _S(((90 - ($B * $LOCAL4)) + 63) / $LOCAL4), -999999, -999999.0f, -999999.0f);
+	etEx(1, 0, 0, 0x1000, _S(((90 - ($B * $I3)) + 63) / $I3), [NEG], [NEGF], [NEGF]);
 	etOn(1);
 	%F = %F - %G;
 	%J = %J + 0.17453292519943295769236907684886f;
@@ -756,7 +759,7 @@ sub BossCard1_at1()
 	seti_rank($A, 32, 128, 20, 35);
 	goto END @ 0;
 START:
-	%D = (%RANDF * (%B - %C)) + %C;
+	%D = (%RF * (%B - %C)) + %C;
 	etSpd(0, %D, %D);
 	etEx(0, 3, 0, 0x10, 0, 1, 0.0f, %D);
 	etOn(0);
@@ -782,7 +785,7 @@ sub BossCard2()
 	$MISS_COUNT = 0;
 	$BOMB_COUNT = 0;
 	stageProg(44);
-	attack(0, 0, 1800, "Boss3");
+	interrupt(0, 0, 1800, "Boss3");
 !EN
 	cardE(65, 2700, 500000, "幻象「ルナクロック」");
 !HL
@@ -790,7 +793,7 @@ sub BossCard2()
 !*
 	enmPosTime(120, 4, 0.0f, 112.0f);
 	invinc(120);
-	$LOCAL4 = 5;
+	$I3 = 5;
 	anmScrSlot(0, 119);
 120:
 	noop();
@@ -798,8 +801,8 @@ sub BossCard2()
 	etNew(0);
 	etMode(0, 3);
 	etAmt(0, 1, 1);
-	etEx(0, 0, 1, 0x10000000, 0, -999999, -999999.0f, -999999.0f);
-	etEx(0, 1, 0, 0x1000, 50, -999999, -999999.0f, -999999.0f);
+	etEx(0, 0, 1, 0x10000000, 0, [NEG], [NEGF], [NEGF]);
+	etEx(0, 1, 0, 0x1000, 50, [NEG], [NEGF], [NEGF]);
 	etEx(0, 2, 0, 0x10, 0, 1, 0.0f, 0.0f);
 !N
 	etSpr(0, 7, 6);
@@ -824,18 +827,18 @@ BossCard2_776:
 	call("BossCard2_at", _SS 0, _SS 24, _SS 14, _SS 4, _ff 2.7f, _ff 1.45f, _ff 0.22439947525641380274733167023425f, _ff 0.4487989505128276054946633404685f, _SS 3, _SS 9);
 190:
 !*
-	$LOCAL4 = 9;
-	speed(_f(1.0f / _f($LOCAL4)));
+	$I3 = 9;
+	speed(_f(1.0f / _f($I3)));
 	setFlags(3);
 	callSep("BossCard2_at2");
 	enmRand(7, 4, 2.5f);
 	wait(7);
-	$LOCAL4 = 5;
-	speed(_f(1.0f / _f($LOCAL4)));
-	wait(_S(30 / $LOCAL4));
-	$LOCAL4 = 9;
-	speed(_f(1.0f / _f($LOCAL4)));
-	wait(_S(30 / $LOCAL4));
+	$I3 = 5;
+	speed(_f(1.0f / _f($I3)));
+	wait(_S(30 / $I3));
+	$I3 = 9;
+	speed(_f(1.0f / _f($I3)));
+	wait(_S(30 / $I3));
 	speed(1.0f);
 	unsetFlags(3);
 	wait(100);
@@ -859,18 +862,18 @@ START2:
 	etAng($Et, %G, 0.0f);
 	unless ($RAND % 100) < 60 goto NO_RAND @ 0;
 	$N = $RAND % 6;
-	etEx($Et, $L, 0, 0x1000, _S($M + $N), -999999, -999999.0f, -999999.0f);
-	etEx($Et, _S($L + 1), 0, 0x10, 0, 1, %RANDRAD, 0.0f);
-	etEx($Et, _S($L + 2), 0, 0x1000000, $O, 5, -999999.0f, -999999.0f);
-	etEx($Et, _S($L + 3), 0, 0x1000, _S(7 - $N), -999999, -999999.0f, -999999.0f);
+	etEx($Et, $L, 0, 0x1000, _S($M + $N), [NEG], [NEGF], [NEGF]);
+	etEx($Et, _S($L + 1), 0, 0x10, 0, 1, %RDEG, 0.0f);
+	etEx($Et, _S($L + 2), 0, 0x1000000, $O, 5, [NEGF], [NEGF]);
+	etEx($Et, _S($L + 3), 0, 0x1000, _S(7 - $N), [NEG], [NEGF], [NEGF]);
 	etEx($Et, _S($L + 4), 0, 0x10, 0, 1, 0.0f, %H);
 	goto RAND_SKIP @ 0;
 NO_RAND:
-	etEx($Et, $L, 0, 0x1000, _S($M + 6), -999999, -999999.0f, -999999.0f);
+	etEx($Et, $L, 0, 0x1000, _S($M + 6), [NEG], [NEGF], [NEGF]);
 	etEx($Et, _S($L + 1), 0, 0x10, 0, 1, 0.0f, %H);
-	etEx($Et, _S($L + 2), 0, 0, -999999, -999999, -999999.0f, -999999.0f);
-	etEx($Et, _S($L + 3), 0, 0, -999999, -999999, -999999.0f, -999999.0f);
-	etEx($Et, _S($L + 4), 0, 0, -999999, -999999, -999999.0f, -999999.0f);
+	etEx($Et, _S($L + 2), 0, 0, [NEG], [NEG], [NEGF], [NEGF]);
+	etEx($Et, _S($L + 3), 0, 0, [NEG], [NEG], [NEGF], [NEGF]);
+	etEx($Et, _S($L + 4), 0, 0, [NEG], [NEG], [NEGF], [NEGF]);
 RAND_SKIP:
 	etOn($Et);
 	%G = %G + %K;
@@ -909,17 +912,17 @@ JMP2:
 	%F = %startAng - 3.1415926535897932384626433832795f;
 	%G = %angInc;
 JMP2_END:
-	%F = (%F + %ANGLE_PLAYER) - 1.5707963267948966192313216916398f;
+	%F = (%F + %AIM) - 1.5707963267948966192313216916398f;
 	%J = -0.78539816339744830961566084581988f;
 	$E = $amt;
 	goto SHOOT_END @ 0;
 SHOOT_START:
 	unless (%D < 0.0f) goto JMP3 @ 0;
-	ins_81(%H, %I, %ANGLE_PLAYER, _f((%C * %PLAYER_DISTANCE) + %D));
+	ins_81(%H, %I, %AIM, _f((%C * %DIST) + %D));
 	ins_81(%X, %Y, %F, _f(%D * -1.0f));
 	goto JMP3_END @ 0;
 JMP3:
-	ins_81(%H, %I, %ANGLE_PLAYER, _f((%C * %PLAYER_DISTANCE) + %D));
+	ins_81(%H, %I, %AIM, _f((%C * %DIST) + %D));
 	ins_81(%X, %Y, %F, %D);
 JMP3_END:
 	unless ($B % 2) goto JMP4 @ 0;
@@ -964,7 +967,7 @@ sub BossCard3()
 	enmPosTime(0, 0, 0.0f, 0.0f);
 	$MISS_COUNT = 0;
 	$BOMB_COUNT = 0;
-	attack(0, 0, 2880, "Boss4");
+	interrupt(0, 0, 2880, "Boss4");
 !EN
 	cardE(69, 2880, 500000, "法力「至宝の独鈷杵」");
 !H
@@ -984,16 +987,16 @@ sub BossCard3()
 	noop();
 	goto BossCard3_1420 @ 120;
 BossCard3_764:
-	$LOCAL4 = 67;
-	%LOCAL1F = 1.570796f;
+	$I3 = 67;
+	%F0 = 1.570796f;
 	enmNewRel("BossCard3Laser", 0.0f, 0.0f, 100, 10, 0);
-	%LOCAL1F = -1.570796f;
+	%F0 = -1.570796f;
 	enmNewRel("BossCard3Laser", 0.0f, 0.0f, 100, 10, 0);
 	unless ($RANK != 0) goto BossCard3_1300 @ 120;
 	wait_rank(120, 120, 120, 120);
-	%LOCAL1F = 1.570796f;
+	%F0 = 1.570796f;
 	enmNewRel("BossCard3Laser", 0.0f, 0.0f, 100, 10, 0);
-	%LOCAL1F = -1.570796f;
+	%F0 = -1.570796f;
 	enmNewRel("BossCard3Laser", 0.0f, 0.0f, 100, 10, 0);
 BossCard3_1300:
 !EN
@@ -1019,11 +1022,11 @@ BossCard3At_80:
 	etMode(2, 3);
 	etSpr(2, 19, 1);
 	etAmt(2, 12, 1);
-	etAng(2, %RANDRAD, 0.2617994f);
+	etAng(2, %RDEG, 0.2617994f);
 	etSpd(2, 1.0f, 1.0f);
-	etEx(2, 0, 1, 2, 1, -999999, -999999.0f, -999999.0f);
-	etEx(2, 1, 0, 268435456, 1, -999999, -999999.0f, -999999.0f);
-	etEx(2, 2, 0, 4, 120, -999999, 0.025f, -999999.0f);
+	etEx(2, 0, 1, 2, 1, [NEG], [NEGF], [NEGF]);
+	etEx(2, 1, 0, 268435456, 1, [NEG], [NEGF], [NEGF]);
+	etEx(2, 2, 0, 4, 120, [NEG], 0.025f, [NEGF]);
 	%A = -1.570796f;
 	etOn(2);
 	wait(60);
@@ -1036,7 +1039,7 @@ sub BossCard3AtH()
 {
 	var A;
 	wait(120);
-	%A = %RANDRAD;
+	%A = %RDEG;
 	goto BossCard3AtH_536 @ 0;
 BossCard3AtH_120:
 	etNew(2);
@@ -1045,9 +1048,9 @@ BossCard3AtH_120:
 	etAmt(2, 2, 1);
 	etAng(2, %A, 0.2617994f);
 	etSpd(2, 1.0f, 1.0f);
-	etEx(2, 0, 1, 2, 1, -999999, -999999.0f, -999999.0f);
-	etEx(2, 1, 0, 268435456, 1, -999999, -999999.0f, -999999.0f);
-	etEx(2, 2, 0, 4, 120, -999999, 0.025f, -999999.0f);
+	etEx(2, 0, 1, 2, 1, [NEG], [NEGF], [NEGF]);
+	etEx(2, 1, 0, 268435456, 1, [NEG], [NEGF], [NEGF]);
+	etEx(2, 2, 0, 4, 120, [NEG], 0.025f, [NEGF]);
 	%A = (%A + 0.242701f);
 	etOn(2);
 	wait(6);
@@ -1060,9 +1063,9 @@ sub BossCard3Laser()
 {
 	var A B;
 	anm(2);
-	anmScr(0, $LOCAL4);
-	ins_277(0, %LOCAL1F);
-	%B = %LOCAL1F;
+	anmScr(0, $I3);
+	ins_277(0, %F0);
+	%B = %F0;
 	setFlags(797);
 	killbox(20.0f, 20.0f);
 	callSep("BossCard3LaserRot", _ff %B);
@@ -1071,12 +1074,12 @@ sub BossCard3Laser()
 	playSE(52);
 	wait(60);
 	ins_275(0, 1);
-	$LOCAL1 = 1;
+	$I0 = 1;
 	playSE(19);
 	wait(60000);
 	callSep("BossCard1LaserAt", _ff %B);
 	ins_275(0, 2);
-	$LOCAL1 = 2;
+	$I0 = 2;
 	wait(30);
 	delete();
 	delete();
@@ -1094,17 +1097,17 @@ BossCard3LaserAt2_60:
 	laserSetSize(1, -1.0f, -1.0f, -1.0f, 16.0f);
 	laserSetTime(1, 42, -1, -1, -1, 0);
 	etSE(0, 19, -1);
-	etEx(1, 0, 0, 8, 5, -999999, 0.0f, 0.15707964f);
-	etEx(1, 1, 0, 8, 10, -999999, 0.0f, -0.15707964f);
-	etEx(1, 2, 0, 8, 10, -999999, 0.0f, 0.15707964f);
-	etEx(1, 3, 0, 8, 10, -999999, 0.0f, -0.15707964f);
-	etEx(1, 4, 0, 8, 10, -999999, 0.0f, 0.15707964f);
-	etEx(1, 5, 0, 8, 10, -999999, 0.0f, -0.15707964f);
-	etEx(1, 6, 0, 8, 10, -999999, 0.0f, 0.15707964f);
-	etEx(1, 7, 0, 8, 10, -999999, 0.0f, -0.15707964f);
-	etEx(1, 8, 0, 8, 10, -999999, 0.0f, 0.15707964f);
-	etEx(1, 9, 0, 8, 10, -999999, 0.0f, -0.15707964f);
-	etEx(1, 10, 0, 8, 10, -999999, 0.0f, 0.15707964f);
+	etEx(1, 0, 0, 8, 5, [NEG], 0.0f, 0.15707964f);
+	etEx(1, 1, 0, 8, 10, [NEG], 0.0f, -0.15707964f);
+	etEx(1, 2, 0, 8, 10, [NEG], 0.0f, 0.15707964f);
+	etEx(1, 3, 0, 8, 10, [NEG], 0.0f, -0.15707964f);
+	etEx(1, 4, 0, 8, 10, [NEG], 0.0f, 0.15707964f);
+	etEx(1, 5, 0, 8, 10, [NEG], 0.0f, -0.15707964f);
+	etEx(1, 6, 0, 8, 10, [NEG], 0.0f, 0.15707964f);
+	etEx(1, 7, 0, 8, 10, [NEG], 0.0f, -0.15707964f);
+	etEx(1, 8, 0, 8, 10, [NEG], 0.0f, 0.15707964f);
+	etEx(1, 9, 0, 8, 10, [NEG], 0.0f, -0.15707964f);
+	etEx(1, 10, 0, 8, 10, [NEG], 0.0f, 0.15707964f);
 	etSE(0, 19, -1);
 	laserCurvedShoot(1);
 	etNew(2);
@@ -1114,17 +1117,17 @@ BossCard3LaserAt2_60:
 	laserSetSize(2, -1.0f, -1.0f, -1.0f, 16.0f);
 	laserSetTime(2, 42, -1, -1, -1, 0);
 	etSE(0, 19, -1);
-	etEx(2, 0, 0, 8, 5, -999999, 0.0f, -0.15707964f);
-	etEx(2, 1, 0, 8, 10, -999999, 0.0f, 0.15707964f);
-	etEx(2, 2, 0, 8, 10, -999999, 0.0f, -0.15707964f);
-	etEx(2, 3, 0, 8, 10, -999999, 0.0f, 0.15707964f);
-	etEx(2, 4, 0, 8, 10, -999999, 0.0f, -0.15707964f);
-	etEx(2, 5, 0, 8, 10, -999999, 0.0f, 0.15707964f);
-	etEx(2, 6, 0, 8, 10, -999999, 0.0f, -0.15707964f);
-	etEx(2, 7, 0, 8, 10, -999999, 0.0f, 0.15707964f);
-	etEx(2, 8, 0, 8, 10, -999999, 0.0f, -0.15707964f);
-	etEx(2, 9, 0, 8, 10, -999999, 0.0f, 0.15707964f);
-	etEx(2, 10, 0, 8, 10, -999999, 0.0f, -0.15707964f);
+	etEx(2, 0, 0, 8, 5, [NEG], 0.0f, -0.15707964f);
+	etEx(2, 1, 0, 8, 10, [NEG], 0.0f, 0.15707964f);
+	etEx(2, 2, 0, 8, 10, [NEG], 0.0f, -0.15707964f);
+	etEx(2, 3, 0, 8, 10, [NEG], 0.0f, 0.15707964f);
+	etEx(2, 4, 0, 8, 10, [NEG], 0.0f, -0.15707964f);
+	etEx(2, 5, 0, 8, 10, [NEG], 0.0f, 0.15707964f);
+	etEx(2, 6, 0, 8, 10, [NEG], 0.0f, -0.15707964f);
+	etEx(2, 7, 0, 8, 10, [NEG], 0.0f, 0.15707964f);
+	etEx(2, 8, 0, 8, 10, [NEG], 0.0f, -0.15707964f);
+	etEx(2, 9, 0, 8, 10, [NEG], 0.0f, 0.15707964f);
+	etEx(2, 10, 0, 8, 10, [NEG], 0.0f, -0.15707964f);
 	etSE(0, 19, -1);
 	laserCurvedShoot(2);
 	wait(180);
@@ -1185,7 +1188,7 @@ BossCard3LaserRot_60:
 !HL
 	%A = (%A - 0.01309f);
 !*
-	%LOCAL4F = %A;
+	%F3 = %A;
 	wait(1);
 BossCard3LaserRot_296:
 	if 1 goto BossCard3LaserRot_60 @ 0;
@@ -1210,7 +1213,7 @@ sub BossCard4()
 	$BOMB_COUNT = 0;
 	stageProg(44);
 	enmPosTime(60, 4, 0.0f, 224.0f);
-	attack(0, 0, 3000, "BossDead");
+	interrupt(0, 0, 3000, "BossDead");
 !EN
 	cardE(73, 3000, 500000, "光符「浄化の魔」");
 !H
@@ -1230,14 +1233,14 @@ sub BossCard4()
 	setf_rank(%C, 100.0f, 60.0f, 50.0f, 36.0f);
 	goto BossCard4_2060 @ 120;
 BossCard4_844:
-	$LOCAL4 = 61;
-	%LOCAL1F = 3.141593f;
+	$I3 = 61;
+	%F0 = 3.141593f;
 	%B = _f(32);
 !N
 	%B = (%B - _f(5));
 !*
 	playSE(58);
-	%LOCAL3F = 0.628319f;
+	%F2 = 0.628319f;
 	seti_rank($D, 5, 8, 9, 12);
 	goto BossCard4_1312 @ 120;
 BossCard4_1160:
@@ -1247,8 +1250,8 @@ BossCard4_1160:
 BossCard4_1312:
 	if $D-- goto BossCard4_1160 @ 120;
 	wait(300);
-	$LOCAL4 = 67;
-	%LOCAL1F = 0.0f;
+	$I3 = 67;
+	%F0 = 0.0f;
 	%B = _f(7);
 !E
 	%B = (%B - _f(25));
@@ -1258,7 +1261,7 @@ BossCard4_1312:
 	%B = (%B + _f(7));
 !*
 	playSE(58);
-	%LOCAL3F = 0.628319f;
+	%F2 = 0.628319f;
 	seti_rank($E, 6, 9, 10, 13);
 	goto BossCard4_1996 @ 120;
 BossCard4_1844:
@@ -1277,20 +1280,20 @@ sub BossCard4Laser()
 {
 	var A B;
 	anm(2);
-	anmScr(0, $LOCAL4);
-	ins_277(0, %LOCAL1F);
-	%B = %LOCAL1F;
+	anmScr(0, $I3);
+	ins_277(0, %F0);
+	%B = %F0;
 	setFlags(797);
 	killbox(60.0f, 60.0f);
 	callSep("MBossCard1LaserHit");
 	wait(60);
 	ins_275(0, 1);
-	$LOCAL1 = 1;
+	$I0 = 1;
 	playSE(19);
 	wait(60);
 	callSep("BossCard4LaserAt", _ff %B);
 	ins_275(0, 2);
-	$LOCAL1 = 2;
+	$I0 = 2;
 	wait(30);
 	delete();
 	delete();
@@ -1299,7 +1302,7 @@ sub BossCard4Laser()
 sub BossCard4LaserAt(A)
 {
 	var B C D E;
-	unless ($LOCAL4 == 67) goto BossCard4LaserAt_296 @ 0;
+	unless ($I3 == 67) goto BossCard4LaserAt_296 @ 0;
 	etNew(0);
 	etMode(0, 2);
 	etSpr(0, 24, 0);
@@ -1316,19 +1319,19 @@ BossCard4LaserAt_296:
 	etSpd(0, 0.2f, 1.0f);
 BossCard4LaserAt_452:
 	etSE(0, 22, -1);
-	etEx(0, 0, 1, 2, 1, -999999, -999999.0f, -999999.0f);
-	etEx(0, 1, 0, 268435456, 1, -999999, -999999.0f, -999999.0f);
-	etEx(0, 2, 0, 4096, 60, -999999, -999999.0f, -999999.0f);
-	etEx(0, 3, 0, 4, 60, -999999, 0.011666667f, -999999.0f);
+	etEx(0, 0, 1, 2, 1, [NEG], [NEGF], [NEGF]);
+	etEx(0, 1, 0, 268435456, 1, [NEG], [NEGF], [NEGF]);
+	etEx(0, 2, 0, 4096, 60, [NEG], [NEGF], [NEGF]);
+	etEx(0, 3, 0, 4, 60, [NEG], 0.011666667f, [NEGF]);
 	%B = _f(0);
 	normRad(%A);
-	%E = %RANDRAD;
+	%E = %RDEG;
 	goto BossCard4LaserAt_1076 @ 0;
 BossCard4LaserAt_796:
 	ins_81(%C, %D, %A, %B);
 	%B = (%B + _f(16));
 	etAng(0, %E, 0.0f);
-	%E = (%E + %LOCAL3F);
+	%E = (%E + %F2);
 	etOfs(0, %C, %D);
 	etOn(0);
 	wait(1);
@@ -1347,17 +1350,17 @@ sub BossCard4LaserAt2()
 	laserSetSize(1, -1.0f, -1.0f, -1.0f, 16.0f);
 	laserSetTime(1, 42, -1, -1, -1, 0);
 	etSE(0, 19, -1);
-	etEx(1, 0, 0, 8, 5, -999999, 0.0f, 0.15707964f);
-	etEx(1, 1, 0, 8, 10, -999999, 0.0f, -0.15707964f);
-	etEx(1, 2, 0, 8, 10, -999999, 0.0f, 0.15707964f);
-	etEx(1, 3, 0, 8, 10, -999999, 0.0f, -0.15707964f);
-	etEx(1, 4, 0, 8, 10, -999999, 0.0f, 0.15707964f);
-	etEx(1, 5, 0, 8, 10, -999999, 0.0f, -0.15707964f);
-	etEx(1, 6, 0, 8, 10, -999999, 0.0f, 0.15707964f);
-	etEx(1, 7, 0, 8, 10, -999999, 0.0f, -0.15707964f);
-	etEx(1, 8, 0, 8, 10, -999999, 0.0f, 0.15707964f);
-	etEx(1, 9, 0, 8, 10, -999999, 0.0f, -0.15707964f);
-	etEx(1, 10, 0, 8, 10, -999999, 0.0f, 0.15707964f);
+	etEx(1, 0, 0, 8, 5, [NEG], 0.0f, 0.15707964f);
+	etEx(1, 1, 0, 8, 10, [NEG], 0.0f, -0.15707964f);
+	etEx(1, 2, 0, 8, 10, [NEG], 0.0f, 0.15707964f);
+	etEx(1, 3, 0, 8, 10, [NEG], 0.0f, -0.15707964f);
+	etEx(1, 4, 0, 8, 10, [NEG], 0.0f, 0.15707964f);
+	etEx(1, 5, 0, 8, 10, [NEG], 0.0f, -0.15707964f);
+	etEx(1, 6, 0, 8, 10, [NEG], 0.0f, 0.15707964f);
+	etEx(1, 7, 0, 8, 10, [NEG], 0.0f, -0.15707964f);
+	etEx(1, 8, 0, 8, 10, [NEG], 0.0f, 0.15707964f);
+	etEx(1, 9, 0, 8, 10, [NEG], 0.0f, -0.15707964f);
+	etEx(1, 10, 0, 8, 10, [NEG], 0.0f, 0.15707964f);
 	etSE(0, 19, -1);
 	laserCurvedShoot(1);
 	etNew(2);
@@ -1367,17 +1370,17 @@ sub BossCard4LaserAt2()
 	laserSetSize(2, -1.0f, -1.0f, -1.0f, 16.0f);
 	laserSetTime(2, 42, -1, -1, -1, 0);
 	etSE(0, 19, -1);
-	etEx(2, 0, 0, 8, 5, -999999, 0.0f, -0.15707964f);
-	etEx(2, 1, 0, 8, 10, -999999, 0.0f, 0.15707964f);
-	etEx(2, 2, 0, 8, 10, -999999, 0.0f, -0.15707964f);
-	etEx(2, 3, 0, 8, 10, -999999, 0.0f, 0.15707964f);
-	etEx(2, 4, 0, 8, 10, -999999, 0.0f, -0.15707964f);
-	etEx(2, 5, 0, 8, 10, -999999, 0.0f, 0.15707964f);
-	etEx(2, 6, 0, 8, 10, -999999, 0.0f, -0.15707964f);
-	etEx(2, 7, 0, 8, 10, -999999, 0.0f, 0.15707964f);
-	etEx(2, 8, 0, 8, 10, -999999, 0.0f, -0.15707964f);
-	etEx(2, 9, 0, 8, 10, -999999, 0.0f, 0.15707964f);
-	etEx(2, 10, 0, 8, 10, -999999, 0.0f, -0.15707964f);
+	etEx(2, 0, 0, 8, 5, [NEG], 0.0f, -0.15707964f);
+	etEx(2, 1, 0, 8, 10, [NEG], 0.0f, 0.15707964f);
+	etEx(2, 2, 0, 8, 10, [NEG], 0.0f, -0.15707964f);
+	etEx(2, 3, 0, 8, 10, [NEG], 0.0f, 0.15707964f);
+	etEx(2, 4, 0, 8, 10, [NEG], 0.0f, -0.15707964f);
+	etEx(2, 5, 0, 8, 10, [NEG], 0.0f, 0.15707964f);
+	etEx(2, 6, 0, 8, 10, [NEG], 0.0f, -0.15707964f);
+	etEx(2, 7, 0, 8, 10, [NEG], 0.0f, 0.15707964f);
+	etEx(2, 8, 0, 8, 10, [NEG], 0.0f, -0.15707964f);
+	etEx(2, 9, 0, 8, 10, [NEG], 0.0f, 0.15707964f);
+	etEx(2, 10, 0, 8, 10, [NEG], 0.0f, -0.15707964f);
 	etSE(0, 19, -1);
 	laserCurvedShoot(2);
 	return();
@@ -1411,7 +1414,7 @@ sub BossDead()
 	anmScrSlot(0, 79);
 	playSE(5);
 	anmScrSlot(0, 129);
-	enmDir(%RANDRAD, 0.4f);
+	enmDir(%RDEG, 0.4f);
 	unless ($TIMEOUT == 0) goto BossDead_308 @ 0;
 	enmNewRel("Ecl_EtBreak2", 0.0f, 0.0f, 9999, 0, 0);
 	goto BossDead_364 @ 0;

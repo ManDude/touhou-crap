@@ -1,5 +1,8 @@
 
 
+global[NEG] = -999999;
+global[NEGF] = -999999.f;
+
 sub Boss()
 {
 	var A;
@@ -31,10 +34,10 @@ sub Boss1()
 	resetBoss();
 	itemMain(0);
 !NHL
-	attack(0, 900, 2100, "BossCard1");
+	interrupt(0, 900, 2100, "BossCard1");
 	lifebar(0, 900.0f, -24448);
 !E
-	attack(0, 0, 2100, "Boss2");
+	interrupt(0, 0, 2100, "Boss2");
 	timeoutAt(0, "BossCard1");
 !*
 	stageProg(24);
@@ -62,7 +65,7 @@ sub Boss1_at1()
 	etOfs(0, 0.0f, -12.0f);
 	etMode(0, 0);
 	etAng(0, 0.0f, 0.09817477f);
-	etEx(0, 0, 0, 2, 2, -999999, -999999.0f, -999999.0f);
+	etEx(0, 0, 0, 2, 2, [NEG], [NEGF], [NEGF]);
 12:
 	etSpr(0, 3, 2);
 	etAmt(0, 1, 10);
@@ -121,14 +124,14 @@ sub Boss1_at2()
 !L
 	etAng(0, 0.1308997f, 0.0f);
 !*
-	etEx(0, 0, 0, 2, 2, -999999, -999999.0f, -999999.0f);
+	etEx(0, 0, 0, 2, 2, [NEG], [NEGF], [NEGF]);
 	etOn(0);
 68:
 	etSpr(0, 0, 5);
 	etAmt_rank(0, 6, 12, 32, 24, 1, 1, 1, 1);
 	etAng(0, 0.0f, 0.0f);
 	etSpd(0, 3.5f, 1.25f);
-	etEx(0, 0, 0, 2, 1, -999999, -999999.0f, -999999.0f);
+	etEx(0, 0, 0, 2, 1, [NEG], [NEGF], [NEGF]);
 	etOn(0);
 76:
 	etSpr(0, 5, 6);
@@ -139,14 +142,14 @@ sub Boss1_at2()
 	etAng(0, -0.1308997f, 0.0f);
 !*
 	etSpd(0, 2.5f, 1.25f);
-	etEx(0, 0, 0, 2, 2, -999999, -999999.0f, -999999.0f);
+	etEx(0, 0, 0, 2, 2, [NEG], [NEGF], [NEGF]);
 	etOn(0);
 84:
 	etSpr(0, 0, 5);
 	etAmt_rank(0, 6, 12, 32, 24, 1, 1, 1, 1);
 	etAng(0, 0.0f, 0.0f);
 	etSpd(0, 3.5f, 1.25f);
-	etEx(0, 0, 0, 2, 1, -999999, -999999.0f, -999999.0f);
+	etEx(0, 0, 0, 2, 1, [NEG], [NEGF], [NEGF]);
 	etOn(0);
 92:
 	etSpr(0, 5, 6);
@@ -157,14 +160,14 @@ sub Boss1_at2()
 	etAng(0, 0.1308997f, 0.0f);
 !*
 	etSpd(0, 4.5f, 1.25f);
-	etEx(0, 0, 0, 2, 2, -999999, -999999.0f, -999999.0f);
+	etEx(0, 0, 0, 2, 2, [NEG], [NEGF], [NEGF]);
 	etOn(0);
 100:
 	etSpr(0, 0, 5);
 	etAmt_rank(0, 6, 12, 32, 24, 1, 1, 1, 1);
 	etAng(0, 0.0f, 0.0f);
 	etSpd(0, 3.5f, 1.25f);
-	etEx(0, 0, 0, 2, 1, -999999, -999999.0f, -999999.0f);
+	etEx(0, 0, 0, 2, 1, [NEG], [NEGF], [NEGF]);
 	etOn(0);
 108:
 	etSpr(0, 5, 6);
@@ -175,7 +178,7 @@ sub Boss1_at2()
 	etAng(0, 0.1308997f, 0.0f);
 !*
 	etSpd(0, 2.5f, 1.25f);
-	etEx(0, 0, 0, 2, 2, -999999, -999999.0f, -999999.0f);
+	etEx(0, 0, 0, 2, 2, [NEG], [NEGF], [NEGF]);
 	etOn(0);
 228:
 	$A = ($RAND % 3);
@@ -203,7 +206,7 @@ sub Boss1_at3()
 	etAmt_rank(0, 2, 3, 5, 5, 16, 16, 16, 16);
 	etSpd(0, 5.5f, 1.25f);
 	etAng(0, 0.0f, 0.06544985f);
-	etEx(0, 0, 0, 2, 3, -999999, -999999.0f, -999999.0f);
+	etEx(0, 0, 0, 2, 3, [NEG], [NEGF], [NEGF]);
 	etOn(0);
 110:
 	noop();
@@ -215,7 +218,7 @@ sub Boss1_at3()
 !NH
 	etAng(0, 0.0f, 0.0f);
 !NHL
-	etEx(0, 0, 0, 2, 3, -999999, -999999.0f, -999999.0f);
+	etEx(0, 0, 0, 2, 3, [NEG], [NEGF], [NEGF]);
 	etOn(0);
 200:
 !*
@@ -244,7 +247,7 @@ sub Boss1_at4()
 	etMode(0, 0);
 	etSpr(0, 5, 10);
 	etAmt_rank(0, 1, 1, 2, 3, 1, 1, 2, 3);
-	etEx(0, 0, 0, 2, 2, -999999, -999999.0f, -999999.0f);
+	etEx(0, 0, 0, 2, 2, [NEG], [NEGF], [NEGF]);
 	$B--;
 	if ($A == 0) goto Boss1_at4_884 @ 2;
 	%D = -0.2617994f;
@@ -313,7 +316,7 @@ Boss2_248:
 	ins_445();
 	playSE(28);
 	invinc(200);
-	attack(0, 800, 1800, "BossCard2");
+	interrupt(0, 800, 1800, "BossCard2");
 	lifebar(0, 800.0f, -24448);
 	lives(0);
 	invinc(120);
@@ -361,7 +364,7 @@ sub Boss2_at1()
 	etAmt(0, [-1], 8);
 	etSpd(0, 3.5f, 1.25f);
 	etAng(0, 0.0f, 0.09817477f);
-	etEx(0, 0, 0, 2, 2, -999999, -999999.0f, -999999.0f);
+	etEx(0, 0, 0, 2, 2, [NEG], [NEGF], [NEGF]);
 	etOn(0);
 20:
 	etNew(1);
@@ -371,10 +374,10 @@ sub Boss2_at1()
 	laserSetSize(1, 500.0f, 500.0f, 0.0f, 16.0f);
 	laserSetTime(1, 120, 16, 60, 14, 0);
 	etSE(1, 19, -1);
-	etEx(1, 0, 0, 268435456, 1, -999999, -999999.0f, -999999.0f);
+	etEx(1, 0, 0, 268435456, 1, [NEG], [NEGF], [NEGF]);
 	goto Boss2_at1_904 @ 20;
 Boss2_at1_756:
-	etAng(1, %ANGLE_PLAYER, 0.0f);
+	etAng(1, %AIM, 0.0f);
 	laserShootStatic(1, $B);
 	$B = ($B + 1);
 	wait(8);
@@ -417,8 +420,8 @@ sub Boss2_at2()
 !*
 	etAng(0, 0.0f, 0.0f);
 	etAng(1, 0.0f, 0.0f);
-	etEx(0, 0, 0, 2, 2, -999999, -999999.0f, -999999.0f);
-	etEx(1, 0, 0, 2, 2, -999999, -999999.0f, -999999.0f);
+	etEx(0, 0, 0, 2, 2, [NEG], [NEGF], [NEGF]);
+	etEx(1, 0, 0, 2, 2, [NEG], [NEGF], [NEGF]);
 60:
 	etOn(0);
 90:
@@ -458,7 +461,7 @@ sub Boss2_at3()
 	0.1308997f;
 !*
 	etAng(0, 0.0f, [-1.0f]);
-	etEx(0, 0, 0, 2, 2, -999999, -999999.0f, -999999.0f);
+	etEx(0, 0, 0, 2, 2, [NEG], [NEGF], [NEGF]);
 60:
 	etAmt_rank(0, 4, 8, 12, 16, 2, 2, 2, 2);
 	etOn(0);
@@ -495,7 +498,7 @@ sub Boss2_at4()
 	etMode(0, 0);
 	etSpr(0, 5, 10);
 	etAmt_rank(0, 2, 2, 3, 4, 1, 1, 2, 3);
-	etEx(0, 0, 0, 2, 2, -999999, -999999.0f, -999999.0f);
+	etEx(0, 0, 0, 2, 2, [NEG], [NEGF], [NEGF]);
 	if ($B == 0) goto Boss2_at4_856 @ 2;
 	%D = -0.7139983f;
 Boss2_at4_560:
@@ -549,7 +552,7 @@ sub BossCard1()
 	enmPosTime(0, 0, 0.0f, 0.0f);
 	$MISS_COUNT = 0;
 	$BOMB_COUNT = 0;
-	attack(0, 0, 1500, "Boss2");
+	interrupt(0, 0, 1500, "Boss2");
 	cardE(2, 1500, 700000, "夜符「ナイトバード」");
 	stageProg(43);
 	enmPosTime(120, 4, 0.0f, 96.0f);
@@ -602,7 +605,7 @@ sub BossCard1_atZ(A B C)
 	etMode(0, 0);
 	etSpr(0, 5, $A);
 	etAmt_rank(0, 1, 1, 1, 1, 1, 1, 2, 3);
-	etEx(0, 0, 0, 2, 2, -999999, -999999.0f, -999999.0f);
+	etEx(0, 0, 0, 2, 2, [NEG], [NEGF], [NEGF]);
 BossCard1_atZ_336:
 2:
 !EN
@@ -634,7 +637,7 @@ sub BossCard2()
 	enmPosTime(0, 0, 0.0f, 0.0f);
 	$MISS_COUNT = 0;
 	$BOMB_COUNT = 0;
-	attack(0, 0, 1500, "BossDead");
+	interrupt(0, 0, 1500, "BossDead");
 	cardE(6, 1500, 700000, "闇符「ディマーケイション」");
 	enmPosTime(120, 4, 0.0f, 96.0f);
 	invinc(120);
@@ -677,7 +680,7 @@ BossCard2_at1_260:
 BossCard2_at1_280:
 	etAmt_rank(0, 18, 22, [-1], 34, 1, 1, 1, 2);
 	etSpd(0, 4.0f, 1.5f);
-	etEx(0, 0, 0, 2, 2, -999999, -999999.0f, -999999.0f);
+	etEx(0, 0, 0, 2, 2, [NEG], [NEGF], [NEGF]);
 	%C = 1.570796f;
 	if ($B != -1) goto BossCard2_at1_568 @ 0;
 	%C = -1.570796f;
@@ -722,7 +725,7 @@ BossCard2_at2_380:
 	etMode(0, 0);
 	etSpr(0, 5, 6);
 	etAmt(0, 7, 1);
-	etEx(0, 0, 0, 2, 2, -999999, -999999.0f, -999999.0f);
+	etEx(0, 0, 0, 2, 2, [NEG], [NEGF], [NEGF]);
 !EN
 	3.0f;
 !HL

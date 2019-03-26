@@ -1,6 +1,9 @@
 anim { "enemy.anm"; "stgenm02.anm"; }
 ecli { "default.ecl"; "stage02mbs.ecl"; "stage02boss.ecl"; }
 
+global[NEG] = -999999;
+global[NEGF] = -999999.f;
+
 sub LogoEnemy()
 {
 	var;
@@ -34,11 +37,11 @@ sub MainGirl00()
 	itemMain(_S(1 + ($RAND % 2)));
 	itemEx([-1], 1);
 	callSep("MainGirl00_at");
-	%A = %ANGLE_PLAYER;
+	%A = %AIM;
 	enmDir(%A, 2.4f);
 	%A = (%A - 2.454369f);
 180:
-	enmDirTime(100, 0, %A, -999999.0f);
+	enmDirTime(100, 0, %A, [NEGF]);
 10000:
 	return();
 }
@@ -56,7 +59,7 @@ sub MainGirl00_at()
 	etAmt(0, 3, 1);
 	etSpd(0, 3.5f, 0.25f);
 	etAng(0, 0.0f, 0.1963495f);
-	etEx(0, 0, 0, 2, 2, -999999, -999999.0f, -999999.0f);
+	etEx(0, 0, 0, 2, 2, [NEG], [NEGF], [NEGF]);
 	wait(_S($RAND % 120));
 MainGirl00_at_352:
 	etOn(0);
@@ -113,8 +116,8 @@ sub MainGirl01_at()
 	0.2617994f;
 !*
 	etAng(0, 0.0f, [-1.0f]);
-	etEx(0, 0, 0, 2, 1, -999999, -999999.0f, -999999.0f);
-	etEx(0, 1, 0, 1, -999999, -999999, -999999.0f, -999999.0f);
+	etEx(0, 0, 0, 2, 1, [NEG], [NEGF], [NEGF]);
+	etEx(0, 1, 0, 1, [NEG], [NEG], [NEGF], [NEGF]);
 	etOn(0);
 	return();
 }
@@ -253,8 +256,8 @@ sub MainSub03()
 	$A = 184;
 	goto MainSub03_340 @ 0;
 MainSub03_100:
-	$LOCAL4 = (1 + ($RAND % 2));
-	enmNewRelNoBoss("Particle00", _f(%RANDF2 * 192.0f), -32.0f, 30, 350, $LOCAL4);
+	$I3 = (1 + ($RAND % 2));
+	enmNewRelNoBoss("Particle00", _f(%RF2 * 192.0f), -32.0f, 30, 350, $I3);
 	wait(5);
 MainSub03_340:
 	if $A-- goto MainSub03_100 @ 0;
@@ -265,12 +268,12 @@ sub MainSub04()
 {
 	var A;
 	$A = (12 * 4);
-	$LOCAL3 = 0;
+	$I2 = 0;
 	goto MainSub04_528 @ 0;
 MainSub04_176:
-	$LOCAL4 = (1 + ($RAND % 2));
-	$LOCAL3 = (4 % ($LOCAL3 + 1));
-	enmNewRelNoBoss("Particle01", _f(%RANDF2 * 192.0f), -32.0f, 50, 350, $LOCAL4);
+	$I3 = (1 + ($RAND % 2));
+	$I2 = (4 % ($I2 + 1));
+	enmNewRelNoBoss("Particle01", _f(%RF2 * 192.0f), -32.0f, 50, 350, $I3);
 	wait(10);
 MainSub04_528:
 	if $A-- goto MainSub04_176 @ 0;
@@ -285,8 +288,8 @@ sub MainSub04a()
 	wait(70);
 	goto MainSub04a_420 @ 0;
 MainSub04a_160:
-	$LOCAL4 = (1 + ($RAND % 2));
-	enmNewRelNoBoss("MainGirl01", %B, -32.0f, 30, 350, $LOCAL4);
+	$I3 = (1 + ($RAND % 2));
+	enmNewRelNoBoss("MainGirl01", %B, -32.0f, 30, 350, $I3);
 	%B = (%B + 32.0f);
 	wait(40);
 MainSub04a_420:
@@ -302,8 +305,8 @@ sub MainSub04b()
 	wait(70);
 	goto MainSub04b_420 @ 0;
 MainSub04b_160:
-	$LOCAL4 = (1 + ($RAND % 2));
-	enmNewRelNoBoss("MainGirl01", %B, -32.0f, 30, 350, $LOCAL4);
+	$I3 = (1 + ($RAND % 2));
+	enmNewRelNoBoss("MainGirl01", %B, -32.0f, 30, 350, $I3);
 	%B = (%B - 32.0f);
 	wait(40);
 MainSub04b_420:
@@ -318,7 +321,7 @@ sub Particle00()
 	anmScr(0, 92);
 	hitbox(16.0f, 16.0f);
 	killbox(16.0f, 16.0f);
-	enmDir(_f(0.7853982f + (%RANDF * 1.5707964f)), 3.0f);
+	enmDir(_f(0.7853982f + (%RF * 1.5707964f)), 3.0f);
 	if ($RAND % 3) goto Particle00_340 @ 0;
 	itemClear();
 Particle00_340:
@@ -333,7 +336,7 @@ sub Particle01()
 	anmScr(0, 89);
 	hitbox(22.0f, 22.0f);
 	killbox(22.0f, 22.0f);
-	enmDir(_f(0.7853982f + (%RANDF * 1.5707964f)), 5.0f);
+	enmDir(_f(0.7853982f + (%RF * 1.5707964f)), 5.0f);
 	if ($RAND % 3) goto Particle01_340 @ 0;
 	itemClear();
 Particle01_340:
@@ -349,12 +352,12 @@ sub Thing00(A B)
 	setFlags(64);
 	hitbox(36.0f, 36.0f);
 	killbox(28.0f, 28.0f);
-	unless $LOCAL1 goto Thing00_240 @ 0;
-	attack(0, 0, -1, "Thing00_dead");
+	unless $I0 goto Thing00_240 @ 0;
+	interrupt(0, 0, -1, "Thing00_dead");
 Thing00_240:
 	callSlot("Thing00_at", 1);
 	enmDir(%B, 3.0f);
-	enmDirTime(10000, 0, -999999.0f, -147.0f);
+	enmDirTime(10000, 0, [NEGF], -147.0f);
 200:
 	endSlot(1);
 10000:
@@ -380,7 +383,7 @@ sub Thing00_at()
 	etSpd(0, 3.5f, 0.25f);
 !NHL
 	etAng(0, 0.0f, 0.0f);
-	etEx(0, 0, 0, 2, 2, -999999, -999999.0f, -999999.0f);
+	etEx(0, 0, 0, 2, 2, [NEG], [NEGF], [NEGF]);
 	wait(_S($RAND % 180));
 Thing00_at_432:
 	etOn(0);
@@ -414,7 +417,7 @@ sub Thing00_dead()
 !*
 	etSpd(1, _f([-1.0f] + 0.5f), 0.25f);
 	etAng(1, 0.0f, 0.0f);
-	etEx(1, 0, 0, 2, 2, -999999, -999999.0f, -999999.0f);
+	etEx(1, 0, 0, 2, 2, [NEG], [NEGF], [NEGF]);
 	etOn(1);
 	wait(1);
 	return();
@@ -423,18 +426,18 @@ sub Thing00_dead()
 sub Thing01()
 {
 	var;
-	itemEx($LOCAL4, 1);
-	call("Thing00", _SS 15, _ff %LOCAL4F);
+	itemEx($I3, 1);
+	call("Thing00", _SS 15, _ff %F3);
 	delete();
 }
 
 sub Thing01_Make(A B C)
 {
 	var;
-	%LOCAL4F = %A;
-	$LOCAL4 = $B;
-	$LOCAL1 = $C;
-	enmNewRel("Thing01", _f(%RANDF2 * 192.0f), -32.0f, 70, 700, $B);
+	%F3 = %A;
+	$I3 = $B;
+	$I0 = $C;
+	enmNewRel("Thing01", _f(%RF2 * 192.0f), -32.0f, 70, 700, $B);
 	return();
 }
 

@@ -1,5 +1,8 @@
 anim { "enemy.anm"; }
 
+global[NEG] = -999999;
+global[NEGF] = -999999.f;
+
 sub Ecl_EtBreak()
 {
 	var A B;
@@ -168,7 +171,7 @@ sub UFO_Blue()
 	setFlags(15);
 60:
 	unsetFlags(15);
-	enmCir2(%RANDRAD, 0.034906585f, 0.0f, 0.0f);
+	enmCir2(%RDEG, 0.034906585f, 0.0f, 0.0f);
 	enmCirTime2(60, 0, 0.034906585f, 16.0f, 0.0f);
 	setMoveArea(0.0f, 128.0f, 280.0f, 128.0f);
 UFO_Blue_352:
@@ -179,25 +182,25 @@ UFO_Blue_416:
 	goto UFO_Blue_604 @ 60;
 UFO_Blue_480:
 	wait(1);
-	unless ($LOCAL1 == 999) goto UFO_Blue_604 @ 60;
+	unless ($I0 == 999) goto UFO_Blue_604 @ 60;
 	goto UFO_Blue_648 @ 60;
 UFO_Blue_604:
 	if $C-- goto UFO_Blue_480 @ 60;
 UFO_Blue_648:
-	unless ($LOCAL1 == 999) goto UFO_Blue_752 @ 60;
+	unless ($I0 == 999) goto UFO_Blue_752 @ 60;
 	goto UFO_Blue_920 @ 60;
 UFO_Blue_752:
-	enmPosTime(60, 9, %PLAYER_X2, _f((%RANDF2 * _f(32)) + %FINAL_Y));
+	enmPosTime(60, 9, %PLAYER_X2, _f((%RF2 * _f(32)) + %FINAL_Y));
 UFO_Blue_876:
 	if $B-- goto UFO_Blue_416 @ 60;
 UFO_Blue_920:
 	unsetMoveArea();
-	enmPosTime(300, 1, _f((%RANDF2 * _f(32)) + %PLAYER_X2), -64.0f);
+	enmPosTime(300, 1, _f((%RF2 * _f(32)) + %PLAYER_X2), -64.0f);
 	$D = 300;
 	goto UFO_Blue_1280 @ 60;
 UFO_Blue_1124:
 	wait(1);
-	unless ($LOCAL1 == -999) goto UFO_Blue_1280 @ 60;
+	unless ($I0 == -999) goto UFO_Blue_1280 @ 60;
 	enmPosTime(60, 9, %PLAYER_X2, 128.0f);
 	goto UFO_Blue_352 @ 60;
 UFO_Blue_1280:
@@ -254,7 +257,7 @@ sub UFO_Green()
 	setFlags(15);
 60:
 	unsetFlags(15);
-	enmCir2(%RANDRAD, 0.034906585f, 0.0f, 0.0f);
+	enmCir2(%RDEG, 0.034906585f, 0.0f, 0.0f);
 	enmCirTime2(60, 0, 0.034906585f, 16.0f, 0.0f);
 	setMoveArea(0.0f, 128.0f, 280.0f, 128.0f);
 UFO_Green_352:
@@ -265,25 +268,25 @@ UFO_Green_416:
 	goto UFO_Green_604 @ 60;
 UFO_Green_480:
 	wait(1);
-	unless ($LOCAL1 == 999) goto UFO_Green_604 @ 60;
+	unless ($I0 == 999) goto UFO_Green_604 @ 60;
 	goto UFO_Green_648 @ 60;
 UFO_Green_604:
 	if $C-- goto UFO_Green_480 @ 60;
 UFO_Green_648:
-	unless ($LOCAL1 == 999) goto UFO_Green_752 @ 60;
+	unless ($I0 == 999) goto UFO_Green_752 @ 60;
 	goto UFO_Green_920 @ 60;
 UFO_Green_752:
-	enmPosTime(60, 9, %PLAYER_X2, _f((%RANDF2 * _f(32)) + %FINAL_Y));
+	enmPosTime(60, 9, %PLAYER_X2, _f((%RF2 * _f(32)) + %FINAL_Y));
 UFO_Green_876:
 	if $B-- goto UFO_Green_416 @ 60;
 UFO_Green_920:
 	unsetMoveArea();
-	enmPosTime(300, 1, _f((%RANDF2 * _f(32)) + %PLAYER_X2), -64.0f);
+	enmPosTime(300, 1, _f((%RF2 * _f(32)) + %PLAYER_X2), -64.0f);
 	$D = 300;
 	goto UFO_Green_1280 @ 60;
 UFO_Green_1124:
 	wait(1);
-	unless ($LOCAL1 == -999) goto UFO_Green_1280 @ 60;
+	unless ($I0 == -999) goto UFO_Green_1280 @ 60;
 	enmPosTime(60, 9, %PLAYER_X2, 128.0f);
 	goto UFO_Green_352 @ 60;
 UFO_Green_1280:
@@ -305,7 +308,7 @@ sub UFO_Rainbow()
 	setFlags(15);
 60:
 	unsetFlags(15);
-	enmCir2(%RANDRAD, 0.034906585f, 0.0f, 0.0f);
+	enmCir2(%RDEG, 0.034906585f, 0.0f, 0.0f);
 	enmCirTime2(60, 0, 0.034906585f, 16.0f, 0.0f);
 	setMoveArea(0.0f, 128.0f, 280.0f, 128.0f);
 UFO_Rainbow_352:
@@ -316,25 +319,25 @@ UFO_Rainbow_416:
 	goto UFO_Rainbow_604 @ 60;
 UFO_Rainbow_480:
 	wait(1);
-	unless ($LOCAL1 == 999) goto UFO_Rainbow_604 @ 60;
+	unless ($I0 == 999) goto UFO_Rainbow_604 @ 60;
 	goto UFO_Rainbow_648 @ 60;
 UFO_Rainbow_604:
 	if $C-- goto UFO_Rainbow_480 @ 60;
 UFO_Rainbow_648:
-	unless ($LOCAL1 == 999) goto UFO_Rainbow_752 @ 60;
+	unless ($I0 == 999) goto UFO_Rainbow_752 @ 60;
 	goto UFO_Rainbow_920 @ 60;
 UFO_Rainbow_752:
-	enmPosTime(60, 9, %PLAYER_X2, _f((%RANDF2 * _f(32)) + %FINAL_Y));
+	enmPosTime(60, 9, %PLAYER_X2, _f((%RF2 * _f(32)) + %FINAL_Y));
 UFO_Rainbow_876:
 	if $B-- goto UFO_Rainbow_416 @ 60;
 UFO_Rainbow_920:
 	unsetMoveArea();
-	enmPosTime(300, 1, _f((%RANDF2 * _f(32)) + %PLAYER_X2), -64.0f);
+	enmPosTime(300, 1, _f((%RF2 * _f(32)) + %PLAYER_X2), -64.0f);
 	$D = 300;
 	goto UFO_Rainbow_1280 @ 60;
 UFO_Rainbow_1124:
 	wait(1);
-	unless ($LOCAL1 == -999) goto UFO_Rainbow_1280 @ 60;
+	unless ($I0 == -999) goto UFO_Rainbow_1280 @ 60;
 	enmPosTime(60, 9, %PLAYER_X2, 128.0f);
 	goto UFO_Rainbow_352 @ 60;
 UFO_Rainbow_1280:
@@ -356,7 +359,7 @@ sub UFO_Red()
 	setFlags(15);
 60:
 	unsetFlags(15);
-	enmCir2(%RANDRAD, 0.034906585f, 0.0f, 0.0f);
+	enmCir2(%RDEG, 0.034906585f, 0.0f, 0.0f);
 	enmCirTime2(60, 0, 0.034906585f, 16.0f, 0.0f);
 	setMoveArea(0.0f, 128.0f, 280.0f, 128.0f);
 UFO_Red_352:
@@ -367,25 +370,25 @@ UFO_Red_416:
 	goto UFO_Red_604 @ 60;
 UFO_Red_480:
 	wait(1);
-	unless ($LOCAL1 == 999) goto UFO_Red_604 @ 60;
+	unless ($I0 == 999) goto UFO_Red_604 @ 60;
 	goto UFO_Red_648 @ 60;
 UFO_Red_604:
 	if $C-- goto UFO_Red_480 @ 60;
 UFO_Red_648:
-	unless ($LOCAL1 == 999) goto UFO_Red_752 @ 60;
+	unless ($I0 == 999) goto UFO_Red_752 @ 60;
 	goto UFO_Red_920 @ 60;
 UFO_Red_752:
-	enmPosTime(60, 9, %PLAYER_X2, _f((%RANDF2 * _f(32)) + %FINAL_Y));
+	enmPosTime(60, 9, %PLAYER_X2, _f((%RF2 * _f(32)) + %FINAL_Y));
 UFO_Red_876:
 	if $B-- goto UFO_Red_416 @ 60;
 UFO_Red_920:
 	unsetMoveArea();
-	enmPosTime(300, 1, _f((%RANDF2 * _f(32)) + %PLAYER_X2), -64.0f);
+	enmPosTime(300, 1, _f((%RF2 * _f(32)) + %PLAYER_X2), -64.0f);
 	$D = 300;
 	goto UFO_Red_1280 @ 60;
 UFO_Red_1124:
 	wait(1);
-	unless ($LOCAL1 == -999) goto UFO_Red_1280 @ 60;
+	unless ($I0 == -999) goto UFO_Red_1280 @ 60;
 	enmPosTime(60, 9, %PLAYER_X2, 128.0f);
 	goto UFO_Red_352 @ 60;
 UFO_Red_1280:
@@ -402,7 +405,7 @@ sub enm_rot_spd(rotSpeed time)
 	goto END @ 0;
 START:
 	%B = %B + %rotSpeed;
-	enmDir(%B, -999999.0f);
+	enmDir(%B, [NEGF]);
 	wait(1);
 END:
 	if $A-- goto START @ 0;
@@ -417,7 +420,7 @@ sub enm_rot_spd_m(rotSpeed time)
 	goto END @ 0;
 START:
 	%B = %B + %rotSpeed;
-	enmDir(%B, -999999.0f);
+	enmDir(%B, [NEGF]);
 	wait(1);
 END:
 	if $A-- goto START @ 0;
@@ -427,7 +430,7 @@ END:
 sub et_ofs_r()
 {
 	var A B C D;
-	ins_81(%C, %D, %RANDRAD, _f(%B * %RANDF));
+	ins_81(%C, %D, %RDEG, _f(%B * %RF));
 	etOfs($A, %C, %D);
 	return();
 }
