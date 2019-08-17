@@ -7,5 +7,5 @@
 		"https://mirrors.thpatch.net/dass7/reosd/",
 		"http://mirrors.thpatch.net/dass7/reosd/"
 	],
-	"title": "EoSD patch for UFO (WARNING: EXTREMELY INCOMPLETE EARLY ACCESS! *WILL* CORRUPT REGULAR GAME SCOREFILES!)"
+	"title": "EoSD patch for UFO (WARNING: *WILL* CORRUPT REGULAR GAME SCOREFILES! EXTREMELY INCOMPLETE EARLY ACCESS!)"
 }
