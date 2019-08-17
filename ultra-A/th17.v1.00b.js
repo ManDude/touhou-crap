@@ -12,7 +12,7 @@
 		},
 		"ultra_a_ecl_625_1": {
 			"title": "Double bullet amounts for ultra, #1: Double amount for ecl_625 and jump to code cave",
-			"addr": "Rx244c8",
+			"addr": "Rx245e8",
 			"code": "66 01 c0 e9 72cffdff"
 		},
 		"ultra_a_ecl_625_2": {
