@@ -3,7 +3,7 @@
 		"ultra_b_ecl_606_1": {
 			"title": "Double bullet layers for ultra, #1: Double amount for ecl_606 and jump to code cave",
 			"addr": "Rx244d5",
-			"code": "66 01 c0 e9 417e0300"
+			"code": "66 01 c0 e9 85e1fdff"
 		},
 		"ultra_b_ecl_606_2": {
 			"title": "Double bullet layers for ultra, #1: Store amount in enemy and jump back to ecl_606",
