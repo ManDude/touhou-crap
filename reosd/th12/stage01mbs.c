@@ -56,60 +56,60 @@ sub MBoss1()
 	noop();
 	times (2) {
 		noop();
-142:
+		wait(10);
 		enmPosTime(60, 4, 0.0f, 64.0f);
-202:
+		wait(60);
 		@MBoss1_at2(6, 0.0f);
-210:
+		wait(8);
 		@MBoss1_at2(2, 0.06544985f);
-218:
+		wait(8);
 		@MBoss1_at2(10, 0.1308997f);
-226:
+		wait(8);
 		@MBoss1_at2(13, 0.1963495f);
-234:
+		wait(8);
 		@MBoss1_at2(14, 0.2617994f);
-264:
+		wait(30);
 		noop();
-324:
+		wait(60);
 		enmPosTime(60, 4, -128.0f, 96.0f);
-334:
+		wait(10);
 		noop();
-354:
+		wait(20);
 		@MBoss1_at1(10);
-384:
+		wait(30);
 		@MBoss1_at1(13);
-416:
+		wait(32);
 		noop();
-456:
+		wait(40);
 		noop();
-466:
+		wait(10);
 		enmPosTime(60, 4, 0.0f, 80.0f);
-526:
+		wait(60);
 		@MBoss1_at3(6);
-534:
+		wait(8);
 		@MBoss1_at3(2);
-542:
+		wait(8);
 		@MBoss1_at3(10);
-550:
+		wait(8);
 		@MBoss1_at3(13);
-558:
+		wait(8);
 		@MBoss1_at3(14);
-588:
+		wait(30);
 		noop();
-648:
+		wait(60);
 		enmPosTime(60, 4, 128.0f, 64.0f);
-658:
-678:
+		wait(10);
+		wait(20);
 		@MBoss1_at1(6);
-708:
+		wait(30);
 		@MBoss1_at1(2);
-740:
-780:
+		wait(32);
+		wait(40);
 		noop();
 	}
-790:
+	wait(10);
 	enmPosTime(60, 4, 0.0f, -64.0f);
-850:
+	wait(60);
 	return();
 }
 

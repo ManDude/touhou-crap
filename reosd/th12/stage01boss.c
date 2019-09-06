@@ -328,6 +328,7 @@ sub Boss2_at1()
 		wait(8);
 	}
 76:
+176:
 	int next = RAND % 3;
 	if (next == 0)
 		@Boss2_at2();
@@ -444,7 +445,6 @@ sub Boss2_at4()
 
 sub BossCard1()
 {
-	var A;
 	resetBoss();
 	ins_21();
 	enmClear();
@@ -463,39 +463,28 @@ sub BossCard1()
 	cardE(2, 1500, 700000, "夜符「ナイトバード」");
 	stageProg(43);
 	enmPosTime(120, 4, 0.0f, 96.0f);
-	setMoveArea(0.0f, 128.0f, 280.0f, 256.0f);
 120:
 	anmScrSlot(0, 119);
 	ins_269(0);
 	while (1) {
+		times (2) {
 !E
-		@BossCard1_atZ(5, -0.5711986f, 0.1963495f);
-		@BossCard1_atZ(7, 0.5711986f, -0.1963495f);
-		@BossCard1_atZ(6, -0.7853982f, 0.2617994f);
-		@BossCard1_atZ(8, 0.7853982f, -0.2617994f);
-		@BossCard1_atZ(5, -0.5711986f, 0.1963495f);
-		@BossCard1_atZ(7, 0.5711986f, -0.1963495f);
-		@BossCard1_atZ(6, -0.7853982f, 0.2617994f);
-		@BossCard1_atZ(8, 0.7853982f, -0.2617994f);
+			@BossCard1_atZ(5, -0.5711986f, 0.1963495f);
+			@BossCard1_atZ(7, 0.5711986f, -0.1963495f);
+			@BossCard1_atZ(6, -0.7853982f, 0.2617994f);
+			@BossCard1_atZ(8, 0.7853982f, -0.2617994f);
 !NHL
-		@BossCard1_atZ(5, -0.5711986f, 0.1427997f);
-		@BossCard1_atZ(7, 0.5711986f, -0.1427997f);
+			@BossCard1_atZ(5, -0.5711986f, 0.1427997f);
+			@BossCard1_atZ(7, 0.5711986f, -0.1427997f);
 !NH
-		@BossCard1_atZ(6, -0.7853982f, 0.1963495f);
-		@BossCard1_atZ(8, 0.7853982f, -0.1963495f);
-		@BossCard1_atZ(5, -0.5711986f, 0.1427997f);
-		@BossCard1_atZ(7, 0.5711986f, -0.1427997f);
-		@BossCard1_atZ(6, -0.7853982f, 0.1963495f);
-		@BossCard1_atZ(8, 0.7853982f, -0.1963495f);
+			@BossCard1_atZ(6, -0.7853982f, 0.1963495f);
+			@BossCard1_atZ(8, 0.7853982f, -0.1963495f);
 !L
-		@BossCard1_atZ(6, -0.7853982f, 0.1570796f);
-		@BossCard1_atZ(8, 0.7853982f, -0.1570796f);
-		@BossCard1_atZ(5, -0.5711986f, 0.1427997f);
-		@BossCard1_atZ(7, 0.5711986f, -0.1427997f);
-		@BossCard1_atZ(6, -0.7853982f, 0.1570796f);
-		@BossCard1_atZ(8, 0.7853982f, -0.1570796f);
-220:
+			@BossCard1_atZ(6, -0.7853982f, 0.1570796f);
+			@BossCard1_atZ(8, 0.7853982f, -0.1570796f);
 !*
+		}
+		wait(100);
 		enmRand(120, 4, 2.0f);
 	}
 	return();
@@ -548,18 +537,18 @@ sub BossCard2()
 	noop();
 	while(1) {
 		@BossCard2_at1(6, 1);
-180:
+		wait(60);
 		@BossCard2_at1(10, -1);
-240:
+		wait(60);
 		@BossCard2_at1(2, 1);
-300:
+		wait(60);
 		enmRand(120, 4, 2.0f);
 		@BossCard2_at2(1);
 		@BossCard2_at2(-1);
 		@BossCard2_at2(1);
 		@BossCard2_at2(-1);
 		enmRand(60, 4, 2.0f);
-360:
+		wait(60);
 		noop();
 	}
 	return();
@@ -598,8 +587,7 @@ sub BossCard2_at2(int m)
 	etEx(0, 1, 1, 32, 40, 1, 0.0f, 3.f : 3.f : 4.f);
 	float spd = 1.f;
 	times (12) {
-		noop();
-2:
+		wait(2);
 		etSpd(0, spd + 1.f, 0.5f);
 		etAng(0, ang, 0.09817477f);
 		spd += 0.2f;
