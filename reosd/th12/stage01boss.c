@@ -31,12 +31,12 @@ sub Boss1()
 {
 	resetBoss();
 	itemMain(0);
-!NHL
-	interrupt(0, 900, 2100, "BossCard1");
-	lifebar(0, 900.0f, 4294942848);
 !E
 	interrupt(0, 0, 2100, "Boss2");
 	timeoutAt(0, "BossCard1");
+!NHL
+	interrupt(0, 900, 2100, "BossCard1");
+	lifebar(0, 900.0f, -24448);
 !*
 	stageProg(24);
 	lives(1);
@@ -48,7 +48,7 @@ sub Boss1()
 	noop();
 	while (1) {
 		ins_269(0);
-		@Boss_at1();
+		@Boss1_at1();
 	}
 	return();
 }
@@ -281,7 +281,7 @@ sub Boss2()
 	playSE(28);
 	invinc(200);
 	interrupt(0, 800, 1800, "BossCard2");
-	lifebar(0, 800.0f, 4294942848);
+	lifebar(0, 800.0f, -24448);
 	lives(0);
 	invinc(120);
 	if ($TIMEOUT == 0) {
@@ -598,6 +598,7 @@ sub BossCard2_at2(int m)
 	etEx(0, 1, 1, 32, 40, 1, 0.0f, 3.f : 3.f : 4.f);
 	float spd = 1.f;
 	times (12) {
+		noop();
 2:
 		etSpd(0, spd + 1.f, 0.5f);
 		etAng(0, ang, 0.09817477f);

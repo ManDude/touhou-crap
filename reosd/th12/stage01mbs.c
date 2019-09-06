@@ -26,7 +26,7 @@ sub MBoss()
 !EN
 	interrupt(0, 0, 1440, "MBossDead");
 !HL
-	lifebar(0, 500.0f, 4294934656);
+	lifebar(0, 500.0f, -32640);
 	interrupt(0, 500, 1020, "MBossCard1");
 	interrupt(1, 0, 1440, "MBossDead");
 !*
@@ -43,6 +43,7 @@ sub MBoss()
 
 sub MBoss1()
 {
+	noop();
 20:
 	noop();
 40:
@@ -54,6 +55,7 @@ sub MBoss1()
 132:
 	noop();
 	times (2) {
+		noop();
 142:
 		enmPosTime(60, 4, 0.0f, 64.0f);
 202:
@@ -189,6 +191,7 @@ sub MBossCard1()
 	anmScrSlot(0, 119);
 	@MBossCard1_at() async;
 	while (1) {
+		noop();
 150:
 		@MBossCard1_at2() async;
 		wait(120);
@@ -235,7 +238,7 @@ sub MBossCard1_at2()
 	laserShootStatic(0, 2);
 	wait(30);
 	times (120) {
-1:
+		wait(1);
 		l1Ang += rad(0.47368421052631578947368421052632f);
 		laserSetAngle(1, l1Ang);
 		l2Ang -= rad(0.47368421052631578947368421052632f);
