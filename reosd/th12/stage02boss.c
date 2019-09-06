@@ -547,8 +547,8 @@ sub BossCard3()
 	etEx(0, 1, 0, 1, [NEG], [NEG], [NEGF], [NEGF]);
 	etOfs(0, 0.0f, -12.0f);
 	etOn(0);
+	wait(120);
 	while 1 {
-		wait(60);
 		enmRand(120, 4, 1.2f);
 		times (12) {
 			wait(10);
