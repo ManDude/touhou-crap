@@ -5,102 +5,88 @@ global[NEGF] = -999999.f;
 
 sub Ecl_EtBreak()
 {
-	var A B;
-	%B = 16.0f;
+	var A;
+	float B = 16.0f;
 	setFlags(32);
-	goto Ecl_EtBreak_216 @ 1;
-Ecl_EtBreak_120:
-	etClear(%B);
-	%B;
+	while (B < 640.0f) {
+	etClear(B);
+	B;
 1:
 	12;
 	addf();
-	setf(%B);
-Ecl_EtBreak_216:
-	if (%B < 640.0f) goto Ecl_EtBreak_120 @ 0;
+	setf(B);
+	}
 	delete();
 }
 
 sub Ecl_EtBreak2()
 {
-	var A B;
-	%B = 16.0f;
+	var A;
+	float B = 16.0f;
 	setFlags(32);
-	goto Ecl_EtBreak2_216 @ 1;
-Ecl_EtBreak2_120:
-	etClear(%B);
-	%B;
+	while (B < 640.0f) {
+	etClear(B);
+	B;
 1:
 	8;
 	addf();
-	setf(%B);
-Ecl_EtBreak2_216:
-	if (%B < 640.0f) goto Ecl_EtBreak2_120 @ 0;
+	setf(B);
+	}
 	delete();
 }
 
 sub Ecl_EtBreak2_ni()
 {
-	var A B;
-	%B = 16.0f;
+	var A;
+	float B = 16.0f;
 	setFlags(32);
-	goto Ecl_EtBreak2_ni_216 @ 1;
-Ecl_EtBreak2_ni_120:
-	etClear_ni(%B);
-	%B;
+	while (B < 640.0f) {
+	etClear_ni(B);
+	B;
 1:
 	8;
 	addf();
-	setf(%B);
-Ecl_EtBreak2_ni_216:
-	if (%B < 640.0f) goto Ecl_EtBreak2_ni_120 @ 0;
+	setf(B);
+	}
 	delete();
 }
 
 sub Ecl_EtBreak2_player()
 {
-	var A B C;
-	unless ($SHOT_TYPE < 2) goto MARISA @ 0;
-	%C = 1.4142135623730950488016887242097f;
-	goto END_CHECK @ 0;
-MARISA:
-	unless ($SHOT_TYPE < 4) goto SANAE @ 0;
-	%C = 2.474873734152916335402955267367f;
-	goto END_CHECK @ 0;
-SANAE:
-	%C = 2.1213203435596425732025330863145f;
-END_CHECK:
-	%B = 16.0f;
+	var A;
+	float C;
+	if (SHOT_TYPE < 2) {
+		C = 1.4142135f;
+	}
+	else if (SHOT_TYPE < 4) {
+		C = 2.4748738f;
+	}
+	else {
+		C = 2.1213202f;
+	}
+	float B = 16.0f;
 	setFlags(32);
-	goto Ecl_EtBreak2_216 @ 1;
-Ecl_EtBreak2_120:
-	enmPos(%PLAYER_X, %PLAYER_Y);
-	etClear(%C);
-	%B;
-1:
-	8;
-	addf();
-	setf(%B);
-Ecl_EtBreak2_216:
-	if (%B < 640.0f) goto Ecl_EtBreak2_120 @ 0;
+	while (B < 640.0f) {
+		wait(1);
+		enmPos(PLAYER_X, PLAYER_Y);
+		etClear(C);
+	}
 	delete();
 }
 
 sub Ecl_EtBreak_ni()
 {
-	var A B;
-	%B = 16.0f;
+	var A;
+	float B = 16.0f;
 	setFlags(32);
-	goto Ecl_EtBreak_ni_216 @ 1;
-Ecl_EtBreak_ni_120:
-	etClear_ni(%B);
-	%B;
+	while (B < 640.0f) {
+	etClear(B);
+	B;
 1:
 	12;
 	addf();
-	setf(%B);
-Ecl_EtBreak_ni_216:
-	if (%B < 640.0f) goto Ecl_EtBreak_ni_120 @ 0;
+	setf(B);
+	}
 	delete();
 }
 
@@ -108,50 +94,46 @@ sub Enemy_Auto_Power_Full()
 {
 	var;
 	setFlags(44);
-	goto END @ 0;
-START:
-	wait(1);
-	unless ($POWER < 400) goto END @ 0;
-	enmPos(%PLAYER_X, %PLAYER_Y);
-	itemMain(8);
-	itemDrop();
-END:
-	goto START @ 0;
+	while (1) {
+		wait(1);
+		if ($POWER < 400) {
+			enmPos(PLAYER_X, PLAYER_Y);
+			itemMain(8);
+			itemDrop();
+		}
+	}
 	delete();
 }
 
-sub ItemDrop(A B C)
+sub ItemDrop(int count, float w, float h)
 {
-	var;
 	itemClear();
-	itemArea(%B, %C);
-	if ($POWER == 400) goto POINT @ 0;
-	itemEx(1, $A);
-	goto END @ 0;
-POINT:
-	itemEx(2, $A);
-END:
+	itemArea(w, h);
+	if (POWER < 400) {
+		itemEx(1, count);
+	}
+	else {
+		itemEx(2, count);
+	}
 	itemDrop();
 	return();
 }
 
-sub ItemDropBasic(A)
+sub ItemDropBasic(int count)
 {
-	var;
 	itemClear();
-	if ($POWER == 400) goto POINT @ 0;
-	itemEx(1, $A);
-	goto END @ 0;
-POINT:
-	itemEx(2, $A);
-END:
+	if (POWER < 400) {
+		itemEx(1, count);
+	}
+	else {
+		itemEx(2, count);
+	}
 	itemDrop();
 	return();
 }
 
 sub ResetMovement()
 {
-	var;
 	enmDir(0.0f, 0.0f);
 	enmDirTime(0, 0, 0.0f, 0.0f);
 	enmPosTime(0, 0, 0.0f, 0.0f);
@@ -160,7 +142,7 @@ sub ResetMovement()
 
 sub UFO_Blue()
 {
-	var A B C D;
+	var A, B, C, D;
 	anm(1);
 	anmScr(0, 136);
 	callSep("UFO_EtBreak");
@@ -228,7 +210,7 @@ UFO_EtBreak_196:
 
 sub UFO_EtBreak2()
 {
-	var A B;
+	var A, B;
 	%B = 16.0f;
 	setFlags(32);
 	goto UFO_EtBreak2_216 @ 1;
@@ -246,7 +228,7 @@ UFO_EtBreak2_216:
 
 sub UFO_Green()
 {
-	var A B C D;
+	var A, B, C, D;
 	anm(1);
 	anmScr(0, 137);
 	callSep("UFO_EtBreak");
@@ -297,7 +279,7 @@ UFO_Green_1280:
 
 sub UFO_Rainbow()
 {
-	var A B C D;
+	var A, B, C, D;
 	anm(1);
 	anmScr(0, 138);
 	callSep("UFO_EtBreak");
@@ -348,7 +330,7 @@ UFO_Rainbow_1280:
 
 sub UFO_Red()
 {
-	var A B C D;
+	var A, B, C, D;
 	anm(1);
 	anmScr(0, 135);
 	callSep("UFO_EtBreak");
@@ -397,63 +379,51 @@ UFO_Red_1280:
 	return();
 }
 
-sub enm_rot_spd(rotSpeed time)
+sub enm_rot_spd(float rot_spd, int time)
 {
-	var A B;
-	$A = $time;
-	%B = %ANGLE_ABS;
-	goto END @ 0;
-START:
-	%B = %B + %rotSpeed;
-	enmDir(%B, [NEGF]);
-	wait(1);
-END:
-	if $A-- goto START @ 0;
+	float ang = ANGLE_ABS;
+	times (time) {
+		ang += rot_spd;
+		enmDir(ang, [NEGF]);
+		wait(1);
+	}
 	return();
 }
 
-sub enm_rot_spd_m(rotSpeed time)
+sub enm_rot_spd_m(float rot_spd, int time)
 {
-	var A B;
-	$A = $time;
-	%B = 3.1415926535897932384626433832795f - %ANGLE_ABS;
-	goto END @ 0;
-START:
-	%B = %B + %rotSpeed;
-	enmDir(%B, [NEGF]);
-	wait(1);
-END:
-	if $A-- goto START @ 0;
+	float ang = 3.1415927f - ANGLE_ABS;
+	times (time) {
+		ang += rot_spd;
+		enmDir(ang, [NEGF]);
+		wait(1);
+	}
 	return();
 }
 
-sub et_ofs_r()
+sub et_ofs_r(int et, float range)
 {
-	var A B C D;
-	ins_81(%C, %D, %RDEG, _f(%B * %RF));
-	etOfs($A, %C, %D);
+	var C, D;
+	ins_81(%C, %D, RDEG, _f(range * RF));
+	etOfs(et, %C, %D);
 	return();
 }
 
-sub et_on_rate(et rate delay)
+sub et_on_rate(int et, int rate, int delay)
 {
-	var;
-	wait(_S(($RAND % $rate) * $delay));
-	goto END @ 0;
-START:
-	etOn($et);
-	wait($rate);
-END:
-	goto START @ 0;
+	wait((RAND % rate) * delay);
+	while (1) {
+		etOn(et);
+		wait(rate);
+	}
 	return();
 }
 
 sub test()
 {
-	var A B;
+	var A, B;
 	$A = 4;
 	$A = 1;
 	%B = _f($A + 7);
 	return();
 }
-
