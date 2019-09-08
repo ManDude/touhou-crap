@@ -230,6 +230,7 @@ sub Boss1_at4()
 	enmRand(60, 4, 3.0f);
 	float spd = 1.f + 0.5f, ang, angI;
 	int m = RAND % 2;
+	if (m < 0) m = -m;
 	etNew(0);
 	etOfs(0, 0.0f, -12.0f);
 	etMode(0, 0);
@@ -424,6 +425,7 @@ sub Boss2_at4()
 	enmRand(60, 4, 3.0f);
 	float spd = 1.f + 0.5f, ang, angI;
 	int m = RAND % 2;
+	if (m < 0) m = -m;
 	etNew(0);
 	etOfs(0, 0.0f, -12.0f);
 	etMode(0, 0);
@@ -528,7 +530,6 @@ sub BossCard1_atZ(int col, float ang, float angI)
 
 sub BossCard2()
 {
-	var A, B, C, D;
 	resetBoss();
 	ins_21();
 	enmClear();

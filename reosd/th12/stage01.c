@@ -8,10 +8,8 @@ sub AGirl00()
 {
 	anm(1);
 	anmScrNoMove(1, 51);
-	int A = (RAND % 2) + 1;
-	if (A > 0) {
-		itemEx(A, 1);
-	}
+	@rand(3, 3);
+	itemEx(I3, 1);
 	call("Fairy00");
 	delete();
 }
@@ -20,10 +18,8 @@ sub AGirl01()
 {
 	anm(1);
 	anmScrNoMove(1, 51);
-	int A = RAND % 3;
-	if (A > 0) {
-		itemEx(A, 1);
-	}
+	@rand(3, 3);
+	itemEx(I3, 1);
 	call("Fairy01");
 	delete();
 }
@@ -32,12 +28,11 @@ sub ARGirl01()
 {
 	anm(1);
 	anmScrNoMove(1, 51);
-	int A = (RAND % 2) + 1;
-	itemMain(A);
-	A = RAND % 3;
-	if (A > 0) {
-		itemEx(A, 1);
-	}
+	@rand(2, 3);
+	I3 += 1;
+	itemMain(I3);
+	@rand(3, 3);
+	itemEx(I3, 1);
 	call("Fairy02");
 	delete();
 }
@@ -46,12 +41,11 @@ sub ARGirl02()
 {
 	anm(1);
 	anmScrNoMove(1, 51);
-	int A = (RAND % 2) + 1;
-	itemMain(A);
-	A = RAND % 3;
-	if (A > 0) {
-		itemEx(A, 1);
-	}
+	@rand(2, 3);
+	I3 += 1;
+	itemMain(I3);
+	@rand(3, 3);
+	itemEx(I3, 1);
 	call("Fairy03");
 	delete();
 }
@@ -132,7 +126,8 @@ sub Fairy03()
 
 sub FairyBasicShoot00()
 {
-	wait(RAND % 120);
+	@rand(120, 0);
+	wait(I0);
 	etNew(0);
 	etMode(0, 0);
 	etSpr(0, 0, 6);
@@ -186,7 +181,9 @@ sub MainSub00()
 {
 	float x = _f(-132);
 	times (5) {
-		enmNewRel("AGirl00", x, -32.0f, 32, 300, (RAND % 2) + 1);
+		@rand(2, 3);
+		I3 += 1;
+		enmNewRel("AGirl00", x, -32.0f, 32, 300, I3);
 		x += _f(8);
 		wait(16);
 	}
@@ -197,7 +194,9 @@ sub MainSub01()
 {
 	float x = _f(132);
 	times (8) {
-		enmNewRelMir("AGirl00", x, -32.0f, 32, 300, (RAND % 2) + 1);
+		@rand(2, 3);
+		I3 += 1;
+		enmNewRelMir("AGirl00", x, -32.0f, 32, 300, I3);
 		x -= _f(8);
 		wait(16);
 	}
@@ -208,7 +207,9 @@ sub MainSub02()
 {
 	float x = _f(160);
 	times (8) {
-		enmNewRelMir("AGirl01", x, -32.0f, 32, 300, (RAND % 2) + 1);
+		@rand(2, 3);
+		I3 += 1;
+		enmNewRelMir("AGirl01", x, -32.0f, 32, 300, I3);
 		x -= _f(16);
 		wait(16);
 	}
@@ -219,7 +220,9 @@ sub MainSub03()
 {
 	float x = _f(-160);
 	times (8) {
-		enmNewRel("AGirl01", x, -32.0f, 32, 300, (RAND % 2) + 1);
+		@rand(2, 3);
+		I3 += 1;
+		enmNewRel("AGirl01", x, -32.0f, 32, 300, I3);
 		x += _f(16);
 		wait(16);
 	}
@@ -332,13 +335,14 @@ sub MainSub05()
 sub MainSub05a(int mirror)
 {
 	float x = RF2 * 192.0f;
-	int item = (RAND % 2) + 1;
+	@rand(2, 3);
+	I3 += 1;
 	if (!mirror) {
-		enmNewRel("ARGirl00", x, -32.0f, 32, 300, item);
+		enmNewRel("ARGirl00", x, -32.0f, 32, 300, I3);
 		return();
 	}
 	else {
-		enmNewRelMir("ARGirl00", x, -32.0f, 32, 300, item);
+		enmNewRelMir("ARGirl00", x, -32.0f, 32, 300, I3);
 		return();
 	}
 }
@@ -346,13 +350,14 @@ sub MainSub05a(int mirror)
 sub MainSub05b(int mirror)
 {
 	float x = RF2 * 192.0f;
-	int item = (RAND % 2) + 1;
+	@rand(2, 3);
+	I3 += 1;
 	if (!mirror) {
-		enmNewRel("ARGirl01", x, -32.0f, 32, 300, item);
+		enmNewRel("ARGirl01", x, -32.0f, 32, 300, I3);
 		return();
 	}
 	else {
-		enmNewRelMir("ARGirl01", x, -32.0f, 32, 300, item);
+		enmNewRelMir("ARGirl01", x, -32.0f, 32, 300, I3);
 		return();
 	}
 }
@@ -361,8 +366,12 @@ sub MainSub06()
 {
 	float x1 = _f(128), x2 = _f(160);
 	times (6) {
-		enmNewRelMir("AGirl00", x1, -32.0f, 32, 300, (RAND % 2) + 1);
-		enmNewRelMir("AGirl00", x2, -32.0f, 32, 300, (RAND % 2) + 1);
+		@rand(2, 3);
+		I3 += 1;
+		enmNewRelMir("AGirl00", x1, -32.0f, 32, 300, I3);
+		@rand(2, 3);
+		I3 += 1;
+		enmNewRelMir("AGirl00", x2, -32.0f, 32, 300, I3);
 		x1 -= _f(8);
 		x2 -= _f(8);
 		wait(16);
@@ -374,8 +383,12 @@ sub MainSub07()
 {
 	float x1 = _f(-128), x2 = _f(-96);
 	times (6) {
-		enmNewRel("AGirl00", x1, -32.0f, 32, 300, (RAND % 2) + 1);
-		enmNewRel("AGirl00", x2, -32.0f, 32, 300, (RAND % 2) + 1);
+		@rand(2, 3);
+		I3 += 1;
+		enmNewRel("AGirl00", x1, -32.0f, 32, 300, I3);
+		@rand(2, 3);
+		I3 += 1;
+		enmNewRel("AGirl00", x2, -32.0f, 32, 300, I3);
 		x1 += _f(8);
 		x2 += _f(8);
 		wait(16);
@@ -450,8 +463,12 @@ sub MainSub09()
 {
 	float x1 = _f(-160), x2 = _f(-128);
 	times (7) {
-		enmNewRel("AGirl00", x1, -32.0f, 32, 300, (RAND % 2) + 1);
-		enmNewRel("AGirl00", x2, -32.0f, 32, 300, (RAND % 2) + 1);
+		@rand(2, 3);
+		I3 += 1;
+		enmNewRel("AGirl00", x1, -32.0f, 32, 300, I3);
+		@rand(2, 3);
+		I3 += 1;
+		enmNewRel("AGirl00", x2, -32.0f, 32, 300, I3);
 		x1 += _f(8);
 		x2 += _f(8);
 		wait(16);
@@ -463,8 +480,12 @@ sub MainSub10()
 {
 	float x1 = _f(160), x2 = _f(128);
 	times (8) {
-		enmNewRelMir("AGirl00", x1, -32.0f, 32, 300, (RAND % 2) + 1);
-		enmNewRelMir("AGirl00", x2, -32.0f, 32, 300, (RAND % 2) + 1);
+		@rand(2, 3);
+		I3 += 1;
+		enmNewRelMir("AGirl00", x1, -32.0f, 32, 300, I3);
+		@rand(2, 3);
+		I3 += 1;
+		enmNewRelMir("AGirl00", x2, -32.0f, 32, 300, I3);
 		x1 -= _f(8);
 		x2 -= _f(8);
 		wait(16);
@@ -476,8 +497,12 @@ sub MainSub11()
 {
 	float x1 = _f(-160), x2 = _f(-128);
 	times (8) {
-		enmNewRel("AGirl00", x1, -32.0f, 32, 300, (RAND % 2) + 1);
-		enmNewRel("AGirl00", x2, -32.0f, 32, 300, (RAND % 2) + 1);
+		@rand(2, 3);
+		I3 += 1;
+		enmNewRel("AGirl00", x1, -32.0f, 32, 300, I3);
+		@rand(2, 3);
+		I3 += 1;
+		enmNewRel("AGirl00", x2, -32.0f, 32, 300, I3);
 		x1 += _f(8);
 		x2 += _f(8);
 		wait(16);

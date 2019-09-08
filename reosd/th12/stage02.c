@@ -31,8 +31,10 @@ sub MainGirl00()
 	setFlags(64);
 	hitbox(36.0f, 36.0f);
 	killbox(28.0f, 28.0f);
-	itemMain(1 + (RAND % 2));
-	itemEx(1 + (RAND % 2), 1);
+	@rand(2, 0);
+	itemMain(1 + I0);
+	@rand(2, 0);
+	itemEx(1 + I0, 1);
 	@MainGirl00_at() async;
 	float dir = AIM;
 	enmDir(dir, 2.4f);
@@ -56,7 +58,8 @@ sub MainGirl00_at()
 	etSpd(0, 3.5f, 0.25f);
 	etAng(0, 0.0f, 0.1963495f);
 	etEx(0, 0, 0, 2, 2, [NEG], [NEGF], [NEGF]);
-	wait(RAND % 120);
+	@rand(120, 0);
+	wait(I0);
 	while (1) {
 		etOn(0);
 		wait(120);
@@ -71,7 +74,8 @@ sub MainGirl01()
 	setFlags(64);
 	hitbox(36.0f, 36.0f);
 	killbox(28.0f, 28.0f);
-	if (!(RAND % 3))
+	@rand(3, 0);
+	if (!I0)
 		itemClear();
 	enmDir(1.5707964f, 2.0f);
 60:
@@ -204,7 +208,8 @@ sub MainSub02()
 sub MainSub03()
 {
 	times (184) {
-		I3 = 1 + (RAND % 2);
+		@rand(2, 3);
+		I3 += 1;
 		enmNewRelNoBoss("Particle00", RF2 * 192.f, -32.0f, 30, 350, I3);
 		wait(5);
 	}
@@ -215,7 +220,8 @@ sub MainSub04()
 {
 	I2 = -1;
 	times (48) {
-		I3 = 1 + (RAND % 2);
+		@rand(2, 3);
+		I3 += 1;
 		I2 = (I2 + 1) % 4;
 		enmNewRelNoBoss("Particle01", RF2 * 192.f, -32.0f, 50, 350, I3);
 		wait(10);
@@ -228,7 +234,8 @@ sub MainSub04a()
 	float x = _f(-160);
 	wait(70);
 	times (11) {
-		I3 = 1 + (RAND % 2);
+		@rand(2, 3);
+		I3 += 1;
 		enmNewRelNoBoss("MainGirl01", x, -32.0f, 30, 350, I3);
 		x += _f(32);
 		wait(40);
@@ -241,7 +248,8 @@ sub MainSub04b()
 	float x = _f(160);
 	wait(70);
 	times (11) {
-		I3 = 1 + (RAND % 2);
+		@rand(2, 3);
+		I3 += 1;
 		enmNewRelNoBoss("MainGirl01", x, -32.0f, 30, 350, I3);
 		x -= _f(32);
 		wait(40);
@@ -256,7 +264,8 @@ sub Particle00()
 	hitbox(16.0f, 16.0f);
 	killbox(16.0f, 16.0f);
 	enmDir(0.7853982f + (RF * 1.5707964f), 3.0f);
-	if (!($RAND % 3)) itemClear();
+	@rand(3, 0);
+	if (!I0) itemClear();
 10000:
 	delete();
 }
@@ -268,7 +277,8 @@ sub Particle01()
 	hitbox(22.0f, 22.0f);
 	killbox(22.0f, 22.0f);
 	enmDir(0.7853982f + (RF * 1.5707964f), 5.0f);
-	if (!(RAND % 3)) itemClear();
+	@rand(3, 0);
+	if (!I0) itemClear();
 10000:
 	delete();
 }
@@ -309,7 +319,8 @@ sub Thing00_at()
 !NHL
 	etAng(0, 0.0f, 0.0f);
 	etEx(0, 0, 0, 2, 2, [NEG], [NEGF], [NEGF]);
-	wait(RAND % 180);
+	@rand(180, 0);
+	wait(I0);
 	while 1 {
 		etOn(0);
 		wait(180);
