@@ -733,7 +733,6 @@ sub YGirl03()
 sub main()
 {
 	setFlags(32);
-	@MainBossDebug();
 	@LogoEnemy() async;
 400:
 	@MainSub00a() async;
