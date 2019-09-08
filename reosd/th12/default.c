@@ -3,57 +3,91 @@ anim { "enemy.anm"; }
 global[NEG] = -999999;
 global[NEGF] = -999999.f;
 
+sub rand(int max, int addr)
+{
+	int r = RAND % max;
+	if (r < 0)
+		r = -r;
+	if (addr == 0)
+		I0 = r;
+	else if (addr == 1)
+		I1 = r;
+	else if (addr == 2)
+		I2 = r;
+	else if (addr == 3)
+		I3 = r;
+	else if (addr == 4)
+		BOSS1 = r;
+	else if (addr == 5)
+		BOSS2 = r;
+	else if (addr == 6)
+		BOSS3 = r;
+	else if (addr == 7)
+		BOSS4 = r;
+}
+
 sub Ecl_EtBreak()
 {
-	var A;
 	float B = 16.0f;
 	setFlags(32);
 	while (B < 640.0f) {
-	etClear(B);
-	B;
+		etClear(B);
+		B;
 1:
-	12;
-	addf();
-	setf(B);
+		12;
+		addf();
+		setf(B);
+	}
+	delete();
+}
+
+sub Ecl_EtBreak_ni()
+{
+	float B = 16.0f;
+	setFlags(32);
+	while (B < 640.0f) {
+		etClear(B);
+		B;
+1:
+		12;
+		addf();
+		setf(B);
 	}
 	delete();
 }
 
 sub Ecl_EtBreak2()
 {
-	var A;
 	float B = 16.0f;
 	setFlags(32);
 	while (B < 640.0f) {
-	etClear(B);
-	B;
+		etClear(B);
+		B;
 1:
-	8;
-	addf();
-	setf(B);
+		8;
+		addf();
+		setf(B);
 	}
 	delete();
 }
 
 sub Ecl_EtBreak2_ni()
 {
-	var A;
 	float B = 16.0f;
 	setFlags(32);
 	while (B < 640.0f) {
-	etClear_ni(B);
-	B;
+		etClear_ni(B);
+		B;
 1:
-	8;
-	addf();
-	setf(B);
+		8;
+		addf();
+		setf(B);
 	}
 	delete();
 }
 
-sub Ecl_EtBreak2_player()
+sub Ecl_EtBreak_player()
 {
-	var A;
 	float C;
 	if (SHOT_TYPE < 2) {
 		C = 1.4142135f;
@@ -69,30 +103,13 @@ sub Ecl_EtBreak2_player()
 	while (B < 640.0f) {
 		wait(1);
 		enmPos(PLAYER_X, PLAYER_Y);
-		etClear(C);
-	}
-	delete();
-}
-
-sub Ecl_EtBreak_ni()
-{
-	var A;
-	float B = 16.0f;
-	setFlags(32);
-	while (B < 640.0f) {
-	etClear(B);
-	B;
-1:
-	12;
-	addf();
-	setf(B);
+		etClear_ni(C);
 	}
 	delete();
 }
 
 sub Enemy_Auto_Power_Full()
 {
-	var;
 	setFlags(44);
 	while (1) {
 		wait(1);
@@ -403,15 +420,16 @@ sub enm_rot_spd_m(float rot_spd, int time)
 
 sub et_ofs_r(int et, float range)
 {
-	var C, D;
-	ins_81(%C, %D, RDEG, _f(range * RF));
-	etOfs(et, %C, %D);
+	float x, y;
+	ins_81(x, y, RDEG, range * RF);
+	etOfs(et, x, y);
 	return();
 }
 
 sub et_on_rate(int et, int rate, int delay)
 {
-	wait((RAND % rate) * delay);
+	rand(rate, 3);
+	wait(I3 * delay);
 	while (1) {
 		etOn(et);
 		wait(rate);
