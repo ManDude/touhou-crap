@@ -237,7 +237,7 @@ sub MBossDead()
 	anmScrNoMove(0, 0);
 	life(100000);
 	boss(-1);
-	@ItemDrop(45, 48.f, 48.f);
+	@ItemDrop2(45, 48.f, 48.f);
 	itemClear();
 	itemMain(6);
 	itemDrop();

@@ -136,6 +136,16 @@ sub ItemDrop(int count, float w, float h)
 	return();
 }
 
+sub ItemDrop2(int count, float w, float h)
+{
+	ItemDrop(count, w, h);
+	itemClear();
+	itemArea(w, h);
+	itemEx(2, count / 2);
+	itemDrop();
+	return();
+}
+
 sub ItemDropBasic(int count)
 {
 	itemClear();

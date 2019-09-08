@@ -172,7 +172,7 @@ sub Boss2()
 !*
 	lives(0);
 	invinc(200);
-	@ItemDrop(24, 64.f, 64.f);
+	@ItemDrop(35, 64.f, 64.f);
 	playSE(28);
 	anmScrSlot(0, 119);
 	playSE(31);
@@ -578,7 +578,7 @@ sub BossDead()
 	anmScrSlot(0, 79);
 	anmScrSlot(0, 130);
 	playSE(5);
-	@ItemDrop(36, 64.f, 64.f);
+	@ItemDrop2(45, 64.f, 64.f);
 	boss(-1);
 	delete();
 	delete();

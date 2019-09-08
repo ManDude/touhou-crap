@@ -272,7 +272,7 @@ sub MBossDead()
 		etClear_ni(640.0f);
 		enmPosTime(60, 4, 0.0f, -64.0f);
 	}
-	@ItemDrop(13, 48.f, 48.f);
+	@ItemDrop2(15, 48.f, 48.f);
 	anmScrNoMove(0, 0);
 	life(100000);
 	invinc(120);

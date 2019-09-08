@@ -293,9 +293,9 @@ sub Boss2()
 	lifebar(0, 800.0f, -24448);
 	lives(0);
 	invinc(120);
-	if ($TIMEOUT == 0) {
+	if (TIMEOUT == 0) {
 		itemClear();
-		@ItemDrop(12, 64.f, 64.f);
+		@ItemDrop(20, 64.f, 64.f);
 	}
 	playSE(28);
 60:
@@ -633,7 +633,7 @@ sub BossDead()
 60:
 	etClear_ni(1000.0f);
 	cardEnd();
-	if ($TIMEOUT == 0) {
+	if (TIMEOUT == 0) {
 		itemClear();
 	!ENH
 		itemMain(0);
@@ -641,7 +641,7 @@ sub BossDead()
 		itemMain(6);
 	!*
 		itemDrop();
-		@ItemDrop(16, 48.f, 48.f);
+		@ItemDrop(30, 48.f, 48.f);
 	}
 	shake(30, 12, 0);
 	anmScrSlot(0, 79);

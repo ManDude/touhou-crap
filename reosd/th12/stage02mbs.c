@@ -164,9 +164,9 @@ sub MBossDead()
 !ENH
 	itemEx(6, 1);
 !*
-	itemEx(2, 12);
 	itemArea(48.0f, 48.0f);
 	itemDrop();
+	@ItemDrop2(30, 48.f, 48.f);
 	anmScrNoMove(0, 0);
 	wait(120);
 	boss(-1);
