@@ -91,6 +91,8 @@ sub Boss1_at1()
 	etOn(0);
 180:
 	int next = RAND % 3;
+	if (next < 0)
+		next = -next;
 	if (next == 0)
 		@Boss1_at2();
 	else if (next == 1)
@@ -173,6 +175,8 @@ sub Boss1_at2()
 	etOn(0);
 228:
 	int next = RAND % 3;
+	if (next < 0)
+		next = -next;
 	if (next == 0)
 		@Boss1_at1();
 	else if (next == 1)
@@ -210,6 +214,8 @@ sub Boss1_at3()
 200:
 !*
 	int next = RAND % 3;
+	if (next < 0)
+		next = -next;
 	if (next == 0)
 		@Boss1_at2();
 	else if (next == 1)
@@ -248,6 +254,8 @@ sub Boss1_at4()
 	}
 120:
 	int next = RAND % 3;
+	if (next < 0)
+		next = -next;
 	if (next == 0)
 		@Boss1_at2();
 	else if (next == 1)
@@ -330,6 +338,8 @@ sub Boss2_at1()
 76:
 176:
 	int next = RAND % 3;
+	if (next < 0)
+		next = -next;
 	if (next == 0)
 		@Boss2_at2();
 	else if (next == 1)
@@ -366,6 +376,8 @@ sub Boss2_at2()
 	etOn(0);
 240:
 	int next = RAND % 3;
+	if (next < 0)
+		next = -next;
 	if (next == 0)
 		@Boss2_at1();
 	else if (next == 1)
@@ -396,6 +408,8 @@ sub Boss2_at3()
 	etOn(0);
 220:
 	int next = RAND % 3;
+	if (next < 0)
+		next = -next;
 	if (next == 0)
 		@Boss2_at2();
 	else if (next == 1)
@@ -434,6 +448,8 @@ sub Boss2_at4()
 	}
 120:
 	int next = RAND % 3;
+	if (next < 0)
+		next = -next;
 	if (next == 0)
 		@Boss2_at2();
 	else if (next == 1)
