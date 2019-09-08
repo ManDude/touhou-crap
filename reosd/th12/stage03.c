@@ -59,7 +59,7 @@ sub Ball00(int anm, int anm2, int m)
 	etSpd(0, 3.5f, 1.25f);
 	callSlot("Ball00atL", 1);
 !*
-	enmDir(0.5235988f, 4.5f);
+	enmDir(rad(30.f), 4.5f);
 30:
 	if (ANGLE_ABS < 1.5707964f)
 		@enm_rot_spd(-0.06544985f, 85) async;
