@@ -1,7 +1,6 @@
 anim { "enemy.anm"; }
 
-global[NEG] = -999999;
-global[NEGF] = -999999.f;
+#include "th12_globalvar.txt"
 
 sub rand(int max, int addr)
 {

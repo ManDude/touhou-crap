@@ -1,7 +1,5 @@
 
-global[NEG] = -999999;
-global[NEGF] = -999999.f;
-global[PI] = 3.1415926535897932384626433832795f;
+#include "th12_globalvar.txt"
 
 sub MBoss()
 {

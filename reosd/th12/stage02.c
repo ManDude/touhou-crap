@@ -1,8 +1,7 @@
 anim { "enemy.anm"; "stgenm02.anm"; }
 ecli { "default.ecl"; "stage02mbs.ecl"; "stage02boss.ecl"; }
 
-global[NEG] = -999999;
-global[NEGF] = -999999.f;
+#include "th12_globalvar.txt"
 
 sub LogoEnemy()
 {

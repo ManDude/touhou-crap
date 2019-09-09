@@ -1,8 +1,7 @@
 anim { "enemy.anm"; "stgenm03.anm"; }
 ecli { "default.ecl"; "stage03boss.ecl"; "stage03mbs.ecl"; }
 
-global[NEG] = -999999;
-global[NEGF] = -999999.f;
+#include "th12_globalvar.txt"
 
 sub BGirl00()
 {
