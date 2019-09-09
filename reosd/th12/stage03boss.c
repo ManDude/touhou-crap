@@ -549,7 +549,6 @@ sub BossCard2()
 
 sub BossCard2At(int dur, float range)
 {
-	range = 0.f;
 	float startDir = RDEG;
 	float ox = ABS_X, oy = ABS_Y;
 	float x, y, x2, y2;
