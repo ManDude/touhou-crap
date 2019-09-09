@@ -525,104 +525,63 @@ sub BossCard2()
 	enmPosTime(2000, 4, 0.0f, 160.0f);
 	ins_269(0);
 	noop();
-	I0 = 0;
 	BOSS1 = 1;
-	I1 = 160;
-	F0 = 112.0f;
-	@BossCard2_at();
+	etNew(0);
+	etMode(0, [ETON_FAN_AIM]);
+	etSpr(0, [ET_BALL], 6);
+	etAmt(0, 2:2:2:4, 1);
+	etAng(0, 0.0f, rad(128.57142857142857142857142857143f));
+	setf_rank(F1, 1.8f, 1.8f, 1.8f, 2.0f);
+	etEx(0, 0, 0, 2, 2, [NEG], [NEGF], [NEGF]);
+	@BossCard2At(160, 112.f) async;
 	while 1 {
-		wait(80);
+80:
 		enmPosTime(0, 0, 0.0f, 0.0f);
 		enmRand(80, 1, 3.0f);
 		wait(80);
-		wait(100);
-		I1 = 160;
-		F0 = 112.0f;
-		BOSS1 += 1;
-		@BossCard2_at();
-		I0 += 1;
+		I1 = 80;
+		playSE(28);
+180:
+		@BossCard2At(160, 112.f) async;
 	}
 	return();
 }
 
-sub BossCard2Shooter()
+sub BossCard2At(int dur, float range)
 {
-	setFlags(15);
-	float dir = F1, dirI = 0.25132743f, range = F0 / 3.f;
-	int max_time = I1 + 100;
-	etNew(0);
-	etMode(0, 0);
-	etSpr(0, 3, 6);
-!H
-	etAmt(0, 2, 1);
-	etSpd(0, 1.8f, 1.0f);
-!L
-	etAmt(0, 4, 1);
-	etSpd(0, 2.8f, 1.0f);
-!*
-	etEx(0, 0, 0, 2, 2, [NEG], [NEGF], [NEGF]);
-	int i = 100;
-	float x, y;
-	while (TIME < max_time) {
-		while ((TIME < I1) && (i--)) {
-			if (TIME >= max_time) delete();
-			if (TIME >= I1) break;
-			ins_81(x, y, dir, F0);
-			etOfs(0, x, y);
-			etAng(0, RDEG, 2.2439947f);
-			etOn(0);
-			dir += dirI;
-			wait(6);
-			if (TIME >= max_time) delete();
-			if (TIME >= I1) break;
-			ins_81(x, y, dir, F0 / 1.5f);
-			etOfs(0, x, y);
-			etAng(0, RDEG, 2.2439947f);
-			etOn(0);
-			dir += dirI;
-			wait(6);
-			if (TIME >= max_time) delete();
-			if (TIME >= I1) break;
-			ins_81(x, y, dir, F0 / 3.0f);
-			etOfs(0, x, y);
-			etAng(0, RDEG, 2.2439947f);
-			etOn(0);
-			dir += dirI;
-			wait(6);
-			if (TIME >= max_time) delete();
-			if (TIME >= I1) break;
-			ins_81(x, y, dir, F0 / 3.0f);
-			etOfs(0, x, y);
-			etAng(0, RDEG, 2.2439947f);
-			etOn(0);
-			dir += dirI;
-			wait(6);
-			if (TIME >= max_time) delete();
-			if (TIME >= I1) break;
-			ins_81(x, y, dir, F0 / 1.5f);
-			etOfs(0, x, y);
-			etAng(0, RDEG, 2.2439947f);
-			etOn(0);
-			dir += dirI;
-			wait(6);
+	range = 0.f;
+	float startDir = RDEG;
+	float ox = ABS_X, oy = ABS_Y;
+	float x, y, x2, y2;
+	I1 = 0;
+	while (I1 < dur) {
+		if ((I1 % 6) == 0) {
+			if ((I1 % 30) == 0) {
+				startDir += rad(144.f);
+				normRad(startDir);
+			}
+			float dir = startDir;
+			float prog = (_f(I1) / _f(dur)) + 0.5f;
+			float ang = prog * rad(60.f);
+			etAng(0, ang, rad(128.57142857142857142857142857143f));
+			times (5) {
+				ins_81(x, y, dir, range);
+				ins_81(x2, y2, dir + rad(144.f), range);
+				x2 = x2 - x;
+				y2 = y2 - y;
+				x2 = (_f(I1 % 30) / 30.f) * x2;
+				y2 = (_f(I1 % 30) / 30.f) * y2;
+				etSpd(0, F1 + (RF * 1.4f), 1.4f);
+				etOfs_abs(0, ox + (x + x2), oy + (y + y2));
+				etOn(0);
+				ang -= prog * rad(30.f);
+				etAng(0, ang, rad(128.57142857142857142857142857143f));
+				dir += rad(72.f);
+			}
 		}
-		I1 = max_time;
-		i = 100;
+		I1 += 1;
+1:		noop();
 	}
-	delete();
-	delete();
-}
-
-sub BossCard2_at()
-{
-	F1 = RDEG;
-	float x, y;
-	times (5) {
-		ins_81(x, y, F1, 0.0f);
-		enmNewRel("BossCard2Shooter", x, y, 10, 0, 0);
-		F1 += 1.2566371f;
-	}
-	return();
 }
 
 sub BossCard3()
