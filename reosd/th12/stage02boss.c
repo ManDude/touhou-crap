@@ -472,7 +472,7 @@ sub BossCard2()
 				wait(20);
 				etAmt(1, 10, 3);
 				etSpd(1, 6.0f, 2.0f);
-				etAng(1, 0.0f, 0.19634955f);
+				etAng(1, 0.0f, rad(11.25f));
 				etOn(1);
 			}
 		}

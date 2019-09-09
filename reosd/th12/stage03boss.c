@@ -6,13 +6,13 @@ sub Boss()
 	anm(2);
 	anmScrNoMove(0, 0);
 	setFlags(64);
-	boss(0);
 	hitbox(56.0f, 56.0f);
 	killbox(56.0f, 56.0f);
 	life(10900);
 	enmPos(160.0f, -96.0f);
 	enmPosTime(100, 1, 0.0f, 150.0f);
 	wait(100);
+	boss(0);
 	setMoveArea(0.0f, 128.0f, 320.0f, 112.0f);
 	invinc(61);
 61:
