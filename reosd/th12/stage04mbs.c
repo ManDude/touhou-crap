@@ -1,85 +1,70 @@
 
-
-global[NEG] = -999999;
-global[NEGF] = -999999.f;
+#include "th12_globalvar.txt"
 
 sub MBoss()
 {
-    var A;
-    boss(0);
-    $MISS_COUNT = 0;
-    $BOMB_COUNT = 0;
-    $CAPTURED = 1;
-    enmClear();
-    resetBoss();
-    enmNewRel("Ecl_EtBreak_ni", 0.0f, 0.0f, 9999, 0, 0);
+	boss(0);
+	MISS_COUNT = 0;
+	BOMB_COUNT = 0;
+	CAPTURED = 1;
+	enmClear();
+	resetBoss();
+	enmNewRel("Ecl_EtBreak_ni", 0.0f, 0.0f, 9999, 0, 0);
 	etClear(640.0f);
-    anm(2);
-    anmScr(0, 28);
-    anmScr(1, 29);
-    hitbox(40.0f, 56.0f);
-    killbox(40.0f, 56.0f);
+	anm(2);
+	anmScr(0, 28);
+	anmScr(1, 29);
+	hitbox(40.0f, 56.0f);
+	killbox(40.0f, 56.0f);
 	setFlags(1);
-    life(7000);
-    stageProg(6);
-    enmPos(0.0f, 128.0f);
-    setBossFog(160.0f, 9408511);
+	life(7000);
+	stageProg(6);
+	enmPos(0.0f, 128.0f);
+	setBossFog(160.0f, 9408511);
 	wait(30);
 	unsetFlags(1);
-    call("MBoss1");
-    goto MBoss_620 @ 0;
-MBoss_600:
-    wait(1000);
-MBoss_620:
-    if 1 goto MBoss_600 @ 0;
-    delete();
+	@MBoss1();
+	while 1 wait(1000);
+	delete();
 }
 
 sub MBoss1()
 {
-    var;
 	interrupt(0, 0, 2400, "MBossDead");
 	timeoutAt(0, "MBossEscape");
-	goto MBoss1_2824 @ 0;
-MBoss1_2804:
-	call("MBoss1_at1", _ff 0.19634954084936207740391521145497f);
-	enmRand(90, 4, 1.5f);
-	call("MBoss1_at2");
-    wait(60);
-	call("MBoss1_at1", _ff -0.19634954084936207740391521145497f);
-	call("MBoss1_at2");
-	wait(1);
-MBoss1_2824:
-    if 1 goto MBoss1_2804 @ 0;
-    return();
+	while 1 {
+		@MBoss1_at1(rad(11.25f));
+		enmRand(90, 4, 1.5f);
+		@MBoss1_at2();
+		wait(60);
+		@MBoss1_at1(rad(-11.25f));
+		@MBoss1_at2();
+		wait(1);
+	}
+	return();
 }
 
-sub MBoss1_at1(C)
+sub MBoss1_at1(float angI)
 {
-	var A B;
-	%A = %RDEG;
-	$B = 8;
+	float an = RDEG;
 	etNew(0);
 	etMode(0, 3);
 	etSpr(0, 26, 1);
 	etAmt(0, 8, 1);
 	etSpd(0, 1.7f, 1.25f);
-	etEx(0, 0, 0, 2, 1, [NEG], [NEGF], [NEGF]);
+	etEx(0, 0, 0, 2, 2, [NEG], [NEGF], [NEGF]);
 	etEx(0, 1, 0, 4, 999999, [NEG], 0.024f, -999.0f);
-	goto END @ 0;
-START:
-	etAng(0, %A, 0.0f);
-	etOn(0);
-	%A = %A + %C;
-	wait(20);
-END:
-	if $B-- goto START @ 0;
+	times (8) {
+		etAng(0, an, 0.0f);
+		etOn(0);
+		an += angI;
+		wait(20);
+	}
 	return();
 }
 
 sub MBoss1_at2()
 {
-	var;
 	enmNewRel("MBoss1_enemy", 0.0f, 0.0f, 1000, 10, 0);
 30:
 	enmNewRel("MBoss1_enemy", 0.0f, 0.0f, 1000, 10, 0);
@@ -88,70 +73,63 @@ sub MBoss1_at2()
 
 sub MBoss1_enemy()
 {
-	var A;
 	setFlags(3);
 	etNew(1);
 	etMode(1, 3);
 	etSpr(1, 8, 6);
-	etAmt_rank(1, 2, 4, 8, 16, 1, 1, 1, 1);
-	etEx(1, 0, 0, 2, 1, [NEG], [NEGF], [NEGF]);
+	etAmt(1, 2:4:8:16, 1);
+	etEx(1, 0, 0, 2, 2, [NEG], [NEGF], [NEGF]);
 30:
-	$A = 12;
-	goto END @ 30;
-START:
-	etOfs(1, _f(%RF2 * 40.0f), _f(%RF2 * 40.0f));
-	etSpd(1, _f(%RF + 1.5f), 0.25f);
-	etAng(1, %RDEG, 0.09817477042468103870195760572748f);
-	etOn(1);
-	wait(6);
-END:
-	if $A-- goto START @ 30;
+	times (12) {
+		etOfs(1, RF2 * 40.0f, RF2 * 40.0f);
+		etSpd(1, RF + 1.5f, 0.25f);
+		etAng(1, %RDEG, rad(5.625f));
+		etOn(1);
+		wait(6);
+	}
 150:
 	delete();
 }
 
 sub MBossDead()
 {
-	var A B;
 	setFlags(140);
 	cardEnd();
 	unsetMoveArea();
 	interrupt(0, -1, 0, "");
 	enmDirTime(0, 0, 0.0f, 0.0f);
 	playSE(28);
-	unless ($TIMEOUT == 0) goto MBossDead_484 @ 0;
-	etClear(640.0f);
-	goto MBossDead_504 @ 0;
-MBossDead_484:
-	etClear_ni(640.0f);
-MBossDead_504:
+	if (TIMEOUT == 0) {
+		etClear(640.0f);
+	}
+	else {
+		etClear_ni(640.0f);
+	}
 	enmClear();
 	life(100000);
 	boss(-1);
 	itemClear();
 	itemMain(7);
-	itemEx(2, 30);
 	itemDrop();
-	call("ItemDrop", _SS 60, _ff 48.0f, _ff 48.0f);
+	@ItemDrop2(60, 48.0f, 48.0f);
 	delete();
 	delete();
 }
 
 sub MBossEscape()
 {
-	var A B;
 	setFlags(140);
 	cardEnd();
 	unsetMoveArea();
 	interrupt(0, -1, 0, "");
 	enmDirTime(0, 0, 0.0f, 0.0f);
 	playSE(28);
-	unless ($TIMEOUT == 0) goto MBossDead_484 @ 0;
-	etClear(640.0f);
-	goto MBossDead_504 @ 0;
-MBossDead_484:
-	etClear_ni(640.0f);
-MBossDead_504:
+	if (TIMEOUT == 0) {
+		etClear(640.0f);
+	}
+	else {
+		etClear_ni(640.0f);
+	}
 	enmClear();
 	life(100000);
 	boss(-1);
