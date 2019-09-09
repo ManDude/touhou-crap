@@ -10,7 +10,7 @@ sub BCir00()
 	itemClear();
 	itemMain(2);
 	itemEx(2, 4);
-	call("Cir00", _SS 92, _SS 50, _SS 1);
+	@Cir00(92, 50, 1);
 	delete();
 }
 
@@ -22,7 +22,7 @@ sub BGirl01()
 	itemEx(2, 3);
 	anm(1);
 	anmScrNoMove(1, 50);
-	call("Girl01", _SS 19, _SS 1);
+	@Girl01(19, 1);
 	delete();
 }
 
@@ -34,7 +34,7 @@ sub BGirl03()
 	itemEx(2, 3);
 	anm(1);
 	anmScrNoMove(1, 50);
-	call("Girl03", _SS 19, _SS 1);
+	@Girl03(19, 1);
 	delete();
 }
 
@@ -44,7 +44,7 @@ sub BGirl04()
 	itemMain(2);
 	anm(1);
 	anmScrNoMove(1, 50);
-	call("Girl04", _SS 0, _SS 1);
+	@Girl04(0, 1);
 	delete();
 }
 
@@ -54,13 +54,13 @@ sub BGirl04b()
 	itemMain(2);
 	anm(1);
 	anmScrNoMove(1, 50);
-	call("Girl04b", _SS 0, _SS 1);
+	@Girl04b(0, 1);
 	delete();
 }
 
-sub Cir00(A B C)
+sub Cir00(var A, var B, var C)
 {
-	var D E F;
+	var D, E, F;
 	$F = 1;
 !NHL
 	interrupt(0, 0, -1, "Cir00Dead");
@@ -72,7 +72,7 @@ sub Cir00(A B C)
 	wait(40);
 	anmScr(0, $A);
 	wait(30);
-	callSep("Cir00_at");
+	@Cir00_at() async;
 	unsetFlags(3);
 	hitbox(24.0f, 24.0f);
 	killbox(16.0f, 16.0f);
@@ -115,7 +115,7 @@ Cir00Dead_672:
 
 sub Cir00_at()
 {
-	var A B C D;
+	var A, B, C, D;
 	etNew(0);
 	etMode(0, 2);
 	etSpr(0, 23, 0);
@@ -139,7 +139,7 @@ sub GCir00()
 {
 	var A;
 	itemMain(9);
-	call("Cir00", _SS 89, _SS 52, _SS 1);
+	@Cir00(89, 52, 1);
 	delete();
 }
 
@@ -149,7 +149,7 @@ sub GGirl01()
 	itemMain(9);
 	anm(1);
 	anmScrNoMove(1, 52);
-	call("Girl01", _SS 29, _SS 1);
+	@Girl01(29, 1);
 	delete();
 }
 
@@ -159,7 +159,7 @@ sub GGirl03()
 	itemMain(9);
 	anm(1);
 	anmScrNoMove(1, 52);
-	call("Girl03", _SS 29, _SS 1);
+	@Girl03(29, 1);
 	delete();
 }
 
@@ -169,7 +169,7 @@ sub GGirl04()
 	itemMain(9);
 	anm(1);
 	anmScrNoMove(1, 52);
-	call("Girl04", _SS 10, _SS 1);
+	@Girl04(10, 1);
 	delete();
 }
 
@@ -179,7 +179,7 @@ sub GGirl04b()
 	itemMain(9);
 	anm(1);
 	anmScrNoMove(1, 52);
-	call("Girl04b", _SS 10, _SS 1);
+	@Girl04b(10, 1);
 	delete();
 }
 
@@ -197,7 +197,7 @@ sub Girl00()
 	itemEx(2, 20);
 	itemEx(1, 20);
 	itemArea(64.0f, 64.0f);
-	callSep("Girl00_at");
+	@Girl00_at() async;
 	enmDir(1.9634954f, 8.0f);
 	enmDirTime(30, 0, [NEGF], 0.0f);
 	wait(200);
@@ -209,7 +209,7 @@ sub Girl00()
 
 sub Girl00_at()
 {
-	var A B;
+	var A, B;
 	etNew(0);
 	etMode(0, 3);
 	etSpr(0, 11, 2);
@@ -242,7 +242,7 @@ sub Girl00b()
 	itemEx(2, 20);
 	itemEx(1, 20);
 	itemArea(64.0f, 64.0f);
-	callSep("Girl00_at");
+	@Girl00_at() async;
 	enmDir(1.9634954f, 8.0f);
 	enmDirTime(30, 0, [NEGF], 0.0f);
 	wait(200);
@@ -252,15 +252,14 @@ sub Girl00b()
 	delete();
 }
 
-sub Girl01(A B)
+sub Girl01(var A, var B)
 {
-	var;
 	anm(2);
 	anmScrNoMove(0, $A);
 	setFlags(64);
 	hitbox(24.0f, 24.0f);
 	killbox(16.0f, 16.0f);
-	callSep("Girl01_at");
+	@Girl01_at() async;
 	enmDir(3.1415927f, 4.0f);
 	enmDirTime(60, 0, [NEGF], 2.0f);
 	wait(60);
@@ -275,12 +274,12 @@ Girl01_332:
 
 sub Girl01_at()
 {
-	var A B C D;
+	var A, B, C, D;
 	etNew(0);
 	etMode(0, 3);
 	etSpr(0, 24, 0);
 	etAmt_rank(0, 1, 1, 1, 1, 1, 1, 1, 1);
-	etAng(0, 1.5707964f, 0.5235988f);
+	etAng(0, 1.5707964f, rad(30.f));
 	etSpd_rank(0, 2.0f, 2.0f, 3.0f, 4.0f, 1.0f, 1.0f, 1.0f, 2.0f);
 	etEx(0, 0, 1, 2, 1, [NEG], [NEGF], [NEGF]);
 	etEx(0, 1, 0, 1024, 30, 1, [NEGF], [NEGF]);
@@ -292,8 +291,8 @@ sub Girl01_at()
 Girl01_at_540:
 	$A = ($RAND % 5);
 	%B = ((_f($A) * 3.1415927f) / 16.0f);
-	%B = (%B - 0.392699f);
-	%C = (%C + 0.628319f);
+	%B -= 0.392699f;
+	%C += 0.628319f;
 	etAng(0, _f(%C + %B), 0.0f);
 	etOn(0);
 	wait_rank(120, 60, 30, 20);
@@ -316,7 +315,7 @@ sub Girl02()
 	itemEx(2, 20);
 	itemEx(1, 20);
 	itemArea(64.0f, 64.0f);
-	callSep("Girl02_at");
+	@Girl02_at() async;
 	enmDir(1.5707964f, 5.0f);
 	enmDirTime(90, 0, [NEGF], 0.0f);
 	wait(230);
@@ -329,7 +328,7 @@ sub Girl02()
 
 sub Girl02_at()
 {
-	var A B;
+	var A, B;
 	etNew(0);
 	etMode(0, 1);
 	etSpr(0, 11, 2);
@@ -344,9 +343,9 @@ Girl02_at_372:
 	etAng(0, 1.5707964f, %A);
 	etOn(0);
 	wait_rank(3, 2, 2, 2);
-	%A = (%A + 0.314159f);
+	%A += 0.314159f;
 !E
-	%A = (%A + 0.628319f);
+	%A += 0.628319f;
 Girl02_at_604:
 !*
 	if 1 goto Girl02_at_372 @ 0;
@@ -390,7 +389,7 @@ sub Girl02c()
 	itemEx(2, 20);
 	itemEx(1, 20);
 	itemArea(64.0f, 64.0f);
-	callSep("Girl02_at");
+	@Girl02_at() async;
 	enmDir(1.5707964f, 5.0f);
 	enmDirTime(90, 0, [NEGF], 0.0f);
 	wait(230);
@@ -401,15 +400,14 @@ sub Girl02c()
 	delete();
 }
 
-sub Girl03(A B)
+sub Girl03(var A, var B)
 {
-	var;
 	anm(2);
 	anmScrNoMove(0, $A);
 	setFlags(64);
 	hitbox(24.0f, 24.0f);
 	killbox(16.0f, 16.0f);
-	callSep("Girl03_at");
+	@Girl03_at() async;
 	enmDir(3.1415927f, 4.0f);
 	ins_329(60, 0.0f, %AIM, 1.0f);
 	wait(80);
@@ -424,12 +422,12 @@ Girl03_332:
 
 sub Girl03_at()
 {
-	var A B C D;
+	var A, B, C, D;
 	etNew(0);
 	etMode(0, 3);
 	etSpr(0, 24, 0);
 	etAmt_rank(0, 1, 1, 1, 1, 1, 1, 1, 1);
-	etAng(0, 1.5707964f, 0.5235988f);
+	etAng(0, 1.5707964f, rad(30.f));
 	etSpd_rank(0, 2.0f, 2.0f, 3.0f, 3.5f, 1.0f, 1.0f, 1.0f, 2.0f);
 	etEx(0, 0, 1, 2, 1, [NEG], [NEGF], [NEGF]);
 	etEx(0, 1, 0, 1024, 30, 1, [NEGF], [NEGF]);
@@ -441,8 +439,8 @@ sub Girl03_at()
 Girl03_at_540:
 	$A = ($RAND % 5);
 	%B = ((_f($A) * 3.1415927f) / 16.0f);
-	%B = (%B - 0.392699f);
-	%C = (%C + 0.628319f);
+	%B -= 0.392699f;
+	%C += 0.628319f;
 	etAng(0, _f(%C + %B), 0.0f);
 	etOn(0);
 	wait_rank(60, 16, 12, 8);
@@ -451,15 +449,14 @@ Girl03_at_1016:
 	return();
 }
 
-sub Girl04(A B)
+sub Girl04(var A, var B)
 {
-	var;
 	anm(1);
 	anmScrNoMove(0, $A);
 	setFlags(64);
 	hitbox(24.0f, 24.0f);
 	killbox(16.0f, 16.0f);
-	callSep("RGirl04_at");
+	@RGirl04_at() async;
 	enmDir(3.1415927f, 4.0f);
 	wait(50);
 	enmDirTime(100, 0, 0.3926991f, 3.0f);
@@ -468,15 +465,14 @@ sub Girl04(A B)
 	return();
 }
 
-sub Girl04b(A B)
+sub Girl04b(var A, var B)
 {
-	var;
 	anm(1);
 	anmScrNoMove(0, $A);
 	setFlags(64);
 	hitbox(24.0f, 24.0f);
 	killbox(16.0f, 16.0f);
-	callSep("RGirl04b_at");
+	@RGirl04b_at() async;
 	enmDir(3.1415927f, 4.0f);
 	wait(30);
 	enmDirTime(100, 0, -0.3926991f, 3.0f);
@@ -487,7 +483,6 @@ sub Girl04b(A B)
 
 sub LogoEnemy()
 {
-	var;
 	wait(460);
 	logoShow();
 	return();
@@ -495,7 +490,6 @@ sub LogoEnemy()
 
 sub MainBossDebug()
 {
-	var;
 	enmNew("Enemy_Auto_Power_Full", 0.0f, 0.0f, 10, 0, 0);
 10:
 	ins_700(3);
@@ -511,7 +505,6 @@ sub MainBossDebug()
 
 sub MainMBossDebug()
 {
-	var;
 	ins_700(3);
 	enmNew("MBoss", -128.0f, -32.0f, 200000, 15000, 1);
 	goto MainMBossDebug_148 @ 0;
@@ -524,7 +517,6 @@ MainMBossDebug_148:
 
 sub MainMsgDebug()
 {
-	var;
 	ins_700(100);
 120:
 	msgBegin(0);
@@ -546,7 +538,6 @@ MainMsgDebug_232:
 
 sub MainMsgDebugMBoss()
 {
-	var;
 	ins_700(100);
 120:
 	msgBegin(2);
@@ -564,7 +555,6 @@ MainMsgDebugMBoss_180:
 
 sub MainSub00()
 {
-	var;
 	enmNewRel("Girl00", 96.0f, -24.0f, 800, 1000, 13);
 	enmNewRelMir("Girl00", -96.0f, -24.0f, 800, 1000, 13);
 	return();
@@ -572,7 +562,6 @@ sub MainSub00()
 
 sub MainSub01()
 {
-	var;
 	enmNewRel("RGirl01", 256.0f, 64.0f, 50, 1000, 1);
 	wait(10);
 	enmNewRel("RGirl01", 256.0f, 80.0f, 50, 1000, 1);
@@ -720,7 +709,6 @@ sub MainSub01()
 
 sub MainSub02()
 {
-	var;
 	enmNewRel("Girl02", -96.0f, -32.0f, 2000, 1000, 10);
 	enmNewRel("Girl02", 96.0f, -32.0f, 2000, 1000, 12);
 	wait(200);
@@ -732,8 +720,8 @@ sub MainSub02()
 
 sub MainSub03()
 {
-	var A B C D E F G;
-	callSep("MainSub03se");
+	var A, B, C, D, E, F, G;
+	@MainSub03se() async;
 	enmNewRel("RCir00", -128.0f, 128.0f, 100, 1000, 10);
 	enmNewRel("RCir00", 128.0f, 128.0f, 100, 1000, 10);
 	wait(90);
@@ -813,7 +801,6 @@ MainSub03_2444:
 
 sub MainSub03se()
 {
-	var;
 	playSE(58);
 	wait(95);
 	playSE(58);
@@ -847,7 +834,6 @@ sub MainSub03se()
 
 sub MainSub04()
 {
-	var;
 	enmNewRelNoBoss("RGirl03", 256.0f, 64.0f, 50, 1000, 1);
 	wait(10);
 	enmNewRelNoBoss("RGirl03", 256.0f, 80.0f, 50, 1000, 1);
@@ -986,7 +972,7 @@ sub MainSub04()
 	enmNewRelMirNoBoss("BGirl03", -256.0f, 160.0f, 50, 1000, 1);
 	wait(10);
 	enmNewRelMirNoBoss("BGirl03", -256.0f, 144.0f, 50, 1000, 1);
-	callSep("MainSub04B");
+	@MainSub04B() async;
 	enmNewRelNoBoss("BGirl03", 256.0f, 64.0f, 50, 1000, 1);
 	wait(10);
 	enmNewRelNoBoss("BGirl03", 256.0f, 80.0f, 50, 1000, 1);
@@ -1010,7 +996,7 @@ sub MainSub04()
 	enmNewRelNoBoss("BGirl03", 256.0f, 160.0f, 50, 1000, 1);
 	wait(10);
 	enmNewRelNoBoss("BGirl03", 256.0f, 144.0f, 50, 1000, 1);
-	callSep("MainSub04B");
+	@MainSub04B() async;
 	enmNewRelNoBoss("BGirl03", 256.0f, 64.0f, 50, 1000, 1);
 	wait(10);
 	enmNewRelNoBoss("BGirl03", 256.0f, 80.0f, 50, 1000, 1);
@@ -1035,7 +1021,7 @@ sub MainSub04()
 	wait(10);
 	enmNewRelNoBoss("BGirl03", 256.0f, 144.0f, 50, 1000, 1);
 	enmPos(0.0f, -64.0f);
-	callSep("MainSub04B");
+	@MainSub04B() async;
 	enmNewRelNoBoss("BGirl03", 256.0f, 64.0f, 50, 1000, 1);
 	wait(10);
 	enmNewRelNoBoss("BGirl03", 256.0f, 80.0f, 50, 1000, 1);
@@ -1059,7 +1045,7 @@ sub MainSub04()
 	enmNewRelNoBoss("BGirl03", 256.0f, 160.0f, 50, 1000, 1);
 	wait(10);
 	enmNewRelNoBoss("BGirl03", 256.0f, 144.0f, 50, 1000, 1);
-	callSep("MainSub04B");
+	@MainSub04B() async;
 	enmNewRelNoBoss("BGirl03", 256.0f, 64.0f, 50, 1000, 1);
 	wait(10);
 	enmNewRelNoBoss("BGirl03", 256.0f, 80.0f, 50, 1000, 1);
@@ -1089,7 +1075,6 @@ sub MainSub04()
 
 sub MainSub04B()
 {
-	var;
 	enmNewRelMirNoBoss("BGirl03", -256.0f, 64.0f, 50, 1000, 1);
 	wait(10);
 	enmNewRelMirNoBoss("BGirl03", -256.0f, 80.0f, 50, 1000, 1);
@@ -1118,7 +1103,6 @@ sub MainSub04B()
 
 sub MainSub05()
 {
-	var;
 	enmNewRelNoBoss("Girl00b", 96.0f, -24.0f, 600, 1000, 2);
 	enmNewRelMirNoBoss("Girl00b", -96.0f, -24.0f, 600, 1000, 2);
 	wait(250);
@@ -1141,7 +1125,7 @@ sub MainSub05()
 
 sub MainSub06()
 {
-	var A B;
+	var A, B;
 	playSE(58);
 	enmNewRel("RCir00", -128.0f, 128.0f, 100, 1000, 10);
 	enmNewRel("RCir00", 128.0f, 128.0f, 100, 1000, 10);
@@ -1166,7 +1150,7 @@ MainSub06_624:
 
 sub MapleEnemy()
 {
-	var A B;
+	var A, B;
 	setFlags(32);
 	$B = 2580;
 	goto MapleEnemy_164 @ 0;
@@ -1187,7 +1171,7 @@ MapleEnemy_276:
 sub PCir00()
 {
 	var A;
-	call("Cir00", _SS 95, _SS 53, _SS 1);
+	@Cir00(95, 53, 1);
 	delete();
 }
 
@@ -1198,7 +1182,7 @@ sub RCir00()
 	itemClear();
 	itemMain(1);
 	itemEx(1, 4);
-	call("Cir00", _SS 86, _SS 51, _SS 1);
+	@Cir00(86, 51, 1);
 	delete();
 }
 
@@ -1210,7 +1194,7 @@ sub RGirl01()
 	itemEx(1, 2);
 	anm(1);
 	anmScrNoMove(1, 51);
-	call("Girl01", _SS 24, _SS 1);
+	@Girl01(24, 1);
 	delete();
 }
 
@@ -1219,7 +1203,7 @@ sub RGirl01n()
 	var A;
 	anm(1);
 	anmScrNoMove(1, 51);
-	call("Girl01", _SS 24, _SS 0);
+	@Girl01(24, 0);
 	delete();
 }
 
@@ -1231,7 +1215,7 @@ sub RGirl03()
 	itemEx(1, 2);
 	anm(1);
 	anmScrNoMove(1, 51);
-	call("Girl03", _SS 24, _SS 1);
+	@Girl03(24, 1);
 	delete();
 }
 
@@ -1240,7 +1224,7 @@ sub RGirl03n()
 	var A;
 	anm(1);
 	anmScrNoMove(1, 51);
-	call("Girl03", _SS 24, _SS 0);
+	@Girl03(24, 0);
 	delete();
 }
 
@@ -1250,7 +1234,7 @@ sub RGirl04()
 	anm(1);
 	anmScrNoMove(1, 51);
 	itemMain(1);
-	call("Girl04", _SS 5, _SS 1);
+	@Girl04(5, 1);
 	delete();
 }
 
@@ -1281,13 +1265,13 @@ sub RGirl04b()
 	anm(1);
 	anmScrNoMove(1, 51);
 	itemMain(1);
-	call("Girl04b", _SS 5, _SS 1);
+	@Girl04b(5, 1);
 	delete();
 }
 
 sub RGirl04b_at()
 {
-	var A B;
+	var A, B;
 	seti_rank($A, 1, 4, 1, 2);
 	seti_rank($B, 60, 30, 30, 10);
 	etNew(0);
@@ -1314,7 +1298,7 @@ sub YGirl01()
 	anm(1);
 	anmScrNoMove(1, 53);
 	anmScrNoMove(2, 99);
-	call("Girl01", _SS 34, _SS 1);
+	@Girl01(34, 1);
 	delete();
 }
 
@@ -1324,7 +1308,7 @@ sub YGirl03()
 	anm(1);
 	anmScrNoMove(1, 53);
 	anmScrNoMove(2, 99);
-	call("Girl03", _SS 34, _SS 1);
+	@Girl03(34, 1);
 	delete();
 }
 
@@ -1333,7 +1317,7 @@ sub YGirl04()
 	var A;
 	anm(1);
 	anmScrNoMove(1, 53);
-	call("Girl04", _SS 15, _SS 1);
+	@Girl04(15, 1);
 	delete();
 }
 
@@ -1342,28 +1326,28 @@ sub YGirl04b()
 	var A;
 	anm(1);
 	anmScrNoMove(1, 53);
-	call("Girl04b", _SS 15, _SS 1);
+	@Girl04b(15, 1);
 	delete();
 }
 
 sub main()
 {
-	var A B C;
+	var A, B, C;
 	setFlags(44);
-	call("MainBossDebug");
+	@MainBossDebug();
 	ins_280("MapleEnemy", 0, 0, 100, 1000, 0);
-	callSep("LogoEnemy");
+	@LogoEnemy() async;
 	wait(120);
 60:
 	noop();
 	wait(60);
-	callSep("MainSub00");
+	@MainSub00() async;
 	wait(600);
-	call("MainSub01");
+	@MainSub01();
 	wait(260);
-	call("MainSub02");
+	@MainSub02();
 	wait(280);
-	call("MainSub03");
+	@MainSub03();
 	wait(120);
 180:
 	msgBegin(2);
@@ -1371,12 +1355,12 @@ sub main()
 181:
 	msgWait();
 	wait(1000);
-	call("MainSub05");
+	@MainSub05();
 	wait(200);
 	killWait();
-	call("MainSub04");
+	@MainSub04();
 	wait(120);
-	call("MainSub06");
+	@MainSub06();
 	wait(320);
 191:
 	msgBegin(0);
@@ -1388,10 +1372,10 @@ sub main()
 	msgBegin(1);
 	msgWait();
 	return();
-	goto main_872 @ 251;
-main_852:
+	goto main_928 @ 251;
+main_908:
 	wait(1000);
-main_872:
-	if 1 goto main_852 @ 251;
+main_928:
+	if 1 goto main_908 @ 251;
 	delete();
 }
