@@ -148,7 +148,7 @@ sub FairyRedShoot00()
 	etSpr(0, 5, 2);
 	etAmt_rank(0, 3, 7, 9, 11, 1, 1, 2, 2);
 	etSpd(0, 1.9f, 0.25f : 0.25f : 0.75f : 0.75f);
-	etAng(0, 0.0f, 0.7853982f : 0.62831855f : 0.3926991f : 0.15707964f);
+	etAng(0, 0.0f, 0.7853982f : 0.62831855f : 0.3926991f : rad(9.f));
 	etEx(0, 0, 0, 2, 0, [NEG], [NEGF], [NEGF]);
 	etEx(0, 1, 0, 1, [NEG], [NEG], [NEGF], [NEGF]);
 	etOn(0);
@@ -162,7 +162,7 @@ sub FairyRedShoot01()
 	etSpr(0, 5, 2);
 	etSpd(0, 1.9f, 0.25f);
 	etAmt(0, 5, 1);
-	etAng(0, 0.0f, 0.2617994f);
+	etAng(0, 0.0f, rad(15.f));
 	etEx(0, 0, 0, 2, 0, [NEG], [NEGF], [NEGF]);
 	etEx(0, 1, 0, 1, [NEG], [NEG], [NEGF], [NEGF]);
 	etOn(0);

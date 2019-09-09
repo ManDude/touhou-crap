@@ -67,9 +67,9 @@ sub Boss1_at()
 		etAng(0, ang, 0.0f);
 		etOn(0);
 		if (m == 0)
-			ang += 0.09817477f;
+			ang += rad(5.625f);
 		else
-			ang -= 0.09817477f;
+			ang -= rad(5.625f);
 		sp += 0.05f;
 		wait(4);
 	}
@@ -168,18 +168,18 @@ sub Boss2_at1()
 	etSpr(0, 3, 5);
 	etAmt_rank(0, 22, 22, 22, 26, 1, 2, 3, 3);
 	etSpd(0, 4.0f, 2.5f);
-	etAng(0, RDEG, 0.2617994f);
+	etAng(0, RDEG, rad(15.f));
 	etEx(0, 0, 0, 2, 2, [NEG], [NEGF], [NEGF]);
 	etOn(0);
 70:
 	etSpr(0, 3, 6);
 	etAmt(0, 22, 2);
-	etAng(0, RDEG, 0.2617994f);
+	etAng(0, RDEG, rad(15.f));
 	etOn(0);
 140:
 	etSpr(0, 3, 5);
 	etAmt_rank(0, 22, 22, 22, 26, 1, 2, 3, 3);
-	etAng(0, RDEG, 0.2617994f);
+	etAng(0, RDEG, rad(15.f));
 	etOn(0);
 	return();
 }
@@ -707,12 +707,12 @@ sub BossCard3H()
 		times (1:1:20:30) {
 			ang = startAng;
 			etSpr(0, 9, 2);
-			etAng(0, startAng, 0.09817477f);
+			etAng(0, startAng, rad(5.625f));
 			etEx(0, 2, 0, 4, 999999, [NEG], 0.024f, 3.1415927f);
 			etOn(0);
 			ang += 1.5707964f;
 			etSpr(0, 9, 4);
-			etAng(0, ang, 0.09817477f);
+			etAng(0, ang, rad(5.625f));
 			etEx(0, 2, 0, 4, 999999, [NEG], 0.024f, 0.0f);
 			etOn(0);
 !L
@@ -720,12 +720,12 @@ sub BossCard3H()
 !HL
 			ang += 1.5707964f;
 			etSpr(0, 9, 13);
-			etAng(0, ang, 0.09817477f);
+			etAng(0, ang, rad(5.625f));
 			etEx(0, 2, 0, 4, 999999, [NEG], 0.024f, 2.3561945f);
 			etOn(0);
 			ang += 1.5707964f;
 			etSpr(0, 9, 14);
-			etAng(0, ang, 0.09817477f);
+			etAng(0, ang, rad(5.625f));
 			etEx(0, 2, 0, 4, 999999, [NEG], 0.024f, 0.7853982f);
 			etOn(0);
 !*

@@ -58,7 +58,7 @@ sub Boss1_at1()
 	etNew(0);
 	etOfs(0, 0.0f, -12.0f);
 	etMode(0, 0);
-	etAng(0, 0.0f, 0.09817477f);
+	etAng(0, 0.0f, rad(5.625f));
 	etEx(0, 0, 0, 2, 2, [NEG], [NEGF], [NEGF]);
 12:
 	etSpr(0, 3, 2);
@@ -316,7 +316,7 @@ sub Boss2_at1()
 	etSpr(0, 5, 10);
 	etAmt(0, 1:2:5:7, 8);
 	etSpd(0, 3.5f, 1.25f);
-	etAng(0, 0.0f, 0.09817477f);
+	etAng(0, 0.0f, rad(5.625f));
 	etEx(0, 0, 0, 2, 2, [NEG], [NEGF], [NEGF]);
 	etOn(0);
 20:
@@ -488,8 +488,8 @@ sub BossCard1()
 !E
 			@BossCard1_atZ(5, -0.5711986f, 0.1963495f);
 			@BossCard1_atZ(7, 0.5711986f, -0.1963495f);
-			@BossCard1_atZ(6, -0.7853982f, 0.2617994f);
-			@BossCard1_atZ(8, 0.7853982f, -0.2617994f);
+			@BossCard1_atZ(6, -0.7853982f, rad(15.f));
+			@BossCard1_atZ(8, 0.7853982f, rad(-15.f));
 !NHL
 			@BossCard1_atZ(5, -0.5711986f, 0.1427997f);
 			@BossCard1_atZ(7, 0.5711986f, -0.1427997f);
@@ -605,7 +605,7 @@ sub BossCard2_at2(int m)
 	times (12) {
 		wait(2);
 		etSpd(0, spd + 1.f, 0.5f);
-		etAng(0, ang, 0.09817477f);
+		etAng(0, ang, rad(5.625f));
 		spd += 0.2f;
 		ang += angI;
 		etOn(0);

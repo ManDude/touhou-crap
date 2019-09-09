@@ -290,7 +290,7 @@ sub BossCard1EN()
 	etSpr(1, 3, 13);
 	etAmt(1, 5, 1);
 	etSpd(1, 2.5f, 0.5f);
-	etAng(1, 0.0f, 0.2617994f);
+	etAng(1, 0.0f, rad(15.f));
 	etEx(1, 0, 0, 2, 2, [NEG], [NEGF], [NEGF]);
 	etEx(1, 1, 0, 1024, 9999, 0, [NEGF], [NEGF]);
 !*
