@@ -1972,7 +1972,6 @@ sub BossCardWoFi()
 
 sub BossCardWoMe()
 {
-	var A, B;
 	resetBoss();
 	ins_21();
 	enmClear();
@@ -1997,17 +1996,8 @@ sub BossCardWoMe()
 	etMode(0, 3);
 	etSpr(0, 0, 0);
 	etSpd(0, 1.0f, 1.0f);
-	laserSetSize(0, -1.0f, -1.0f, -1.0f, 24.0f);
-!E
-	30;
-!N
-	40;
-!H
-	50;
-!L
-	60;
-!*
-	laserSetTime(0, [-1], -1, -1, -1, -1);
+	laserSetSize(0, -1.0f, -1.0f, -1.0f, 20.0f);
+	laserSetTime(0, 30:40:50:60, -1, -1, -1, -1);
 	etSE(0, 19, -1);
 	etEx(0, 0, 0, 268435456, 0, [NEG], [NEGF], [NEGF]);
 	etEx(0, 1, 0, 8, 45, 1, 0.02f, 0.0f);
@@ -2037,165 +2027,117 @@ sub BossCardWoMe()
 	etEx(2, 0, 0, 2, 2, [NEG], [NEGF], [NEGF]);
 !HL
 	etEx(2, 0, 0, 2, 1, [NEG], [NEGF], [NEGF]);
-	$A = 0;
-!E
-	%B = rad(22.5f);
-!N
-	%B = 0.31415927f;
-!H
-	%B = 0.31415927f;
-!L
-	%B = rad(15.f);
-60:
 !*
+	int i = 0;
+60:
 	enmPosTime(60, 4, 0.0f, 160.0f);
 120:
 	@BossCardWoMe_atLaser() async;
-BossCardWoMe_1884:
+	while 1 {
 155:
-	unless $A goto BossCardWoMe_1988 @ 155;
-	@BossCardWoMe_at2() async;
+		if (i) {
+			@BossCardWoMe_at2() async;
 !EN
-	wait(35);
-BossCardWoMe_1988:
-210:
+			wait(45);
 !*
-	@BossCardWoMe_at1(AIM) async;
-	callSep("BossCardWoMe_at1", _ff (%AIM + 1.2566371f));
-	callSep("BossCardWoMe_at1", _ff (%AIM + 2.5132742f));
-	callSep("BossCardWoMe_at1", _ff (%AIM + 3.7699113f));
-	callSep("BossCardWoMe_at1", _ff (%AIM + 5.0265484f));
-360:
-	$A += 1;
-	goto BossCardWoMe_1884 @ 120;
+		}
+200:
+		float ang = AIM;
+		times (5) {
+			@BossCardWoMe_at1(ang) async;
+			ang += [PI] / 2.5f;
+		}
+320:
+		i += 1;
+	}
 	return();
 }
 
-sub BossCardWoMe_at1(var A)
+sub BossCardWoMe_at1(float ang)
 {
-	var B, C, D, E, F;
-!E
-	$B = 1;
-!N
-	$B = 4;
-!H
-	$B = 7;
-!L
-	$B = 9;
-!*
-	%C = 0.31415927f;
-	$D = 1;
-	%E = 0.0f;
-	%F = (0.0f - %C);
-	goto BossCardWoMe_at1_1176 @ 0;
-BossCardWoMe_at1_416:
-	etAng(1, _f(%E + %A), 0.0f);
-	%E = (%RF * 8.0f);
-	etSpd(1, _f(%E + 11.111111f), 0.0f);
-	laserShootStatic(1, $D);
-	%E = (%RF * %C);
-	%F = (%F + %C);
-	if ($B % 2) goto BossCardWoMe_at1_992 @ 0;
-	%F = (%F * -1.0f);
-BossCardWoMe_at1_992:
-	%E = (%E + %F);
-	$D += 1;
-	wait_rank(8, 8, 8, 7);
-BossCardWoMe_at1_1176:
-	if $B-- goto BossCardWoMe_at1_416 @ 0;
+	float max_variance = rad(18.f);
+	float laser_ang = 0.0f;
+	float min_variance = -max_variance;
+	int i = 0, lID = 1;
+	times (2:4:7:9) {
+		etAng(1, laser_ang + ang, 0.0f);
+		etSpd(1, (RF * 8.0f) + 11.111111f, 0.0f);
+		laserShootStatic(1, lID);
+		min_variance = (min_variance + max_variance);
+		if ((i % 2) == 1)
+			min_variance *= -1.f;
+		laser_ang = (RF * max_variance) + min_variance;
+		lID += 1;
+		wait_rank(8, 8, 8, 7);
+		i += 1;
+	}
 	return();
 }
 
 sub BossCardWoMe_at2()
 {
-	var A, B, C, D;
-!E
-	$A = 12;
-	%D = 0.35f;
-!N
-	$A = 15;
-	%D = 0.35f;
-!H
-	$A = 18;
-	%D = 0.35f;
-!L
-	$A = 20;
-	%D = 0.35f;
-!*
-	%B = 0.0f;
-	%C = 2.0f;
-	goto BossCardWoMe_at2_984 @ 0;
-BossCardWoMe_at2_460:
-	etAng(2, %B, 0.049087387f);
-	etSpd(2, %C, 0.0f);
-	etOn(2);
-	etAng(2, _f(%B + 1.2566371f), 0.049087387f);
-	etOn(2);
-	etAng(2, _f(%B - 1.2566371f), 0.049087387f);
-	etOn(2);
-	etAng(2, _f(%B + 2.5132742f), 0.049087387f);
-	etOn(2);
-	etAng(2, _f(%B - 2.5132742f), 0.049087387f);
-	etOn(2);
-	wait_rank(5, 4, 3, 2);
-BossCardWoMe_at2_984:
-	%C = (%C + %D);
-	if $A-- goto BossCardWoMe_at2_460 @ 0;
+	float spdI;
+	setf_rank(spdI, 0.35f, 0.35f, 0.35f, 0.35f);
+	float ang_off = 0.0f;
+	float spd = 2.0f;
+	times (12:15:18:20) {
+		spd += spdI;
+		etAng(2, ang_off, 0.049087387f);
+		etSpd(2, spd, 0.0f);
+		etOn(2);
+		etAng(2, ang_off + 1.2566371f, 0.049087387f);
+		etOn(2);
+		etAng(2, ang_off - 1.2566371f, 0.049087387f);
+		etOn(2);
+		etAng(2, ang_off + 2.5132742f, 0.049087387f);
+		etOn(2);
+		etAng(2, ang_off - 2.5132742f, 0.049087387f);
+		etOn(2);
+		wait_rank(5, 4, 3, 2);
+	}
 	return();
 }
 
 sub BossCardWoMe_atLaser()
 {
-	var A, B, C, D, E;
-!E
-	%C = 0.07853982f;
-!N
-	%C = 0.10471976f;
-!H
-	%C = 0.1308997f;
-!L
-	%C = rad(9.f);
-BossCardWoMe_atLaser_196:
-!EN
-	$A = 10;
-!HL
-	$A = 12;
-!*
-	%E = (6.2831855f / _f($A));
-	%B = %RDEG;
-	goto BossCardWoMe_atLaser_1516 @ 0;
-BossCardWoMe_atLaser_416:
-	etAng(0, %B, 0.0f);
-	%B = (%B + %E);
-	%D = %C;
-	if ($RAND % 2) goto BossCardWoMe_atLaser_716 @ 0;
-	%D = (%D * -1.0f);
-BossCardWoMe_atLaser_716:
-	etEx(0, 3, 0, 8, 10, 1, 0.06f, %D);
-!NHL
-	%D = %C;
-	if ($RAND % 2) goto BossCardWoMe_atLaser_960 @ 0;
-	%D = (%D * -1.0f);
-BossCardWoMe_atLaser_960:
-	etEx(0, 5, 0, 8, 10, 1, 0.06f, %D);
-!HL
-	%D = %C;
-	if ($RAND % 2) goto BossCardWoMe_atLaser_1204 @ 0;
-	%D = (%D * -1.0f);
-BossCardWoMe_atLaser_1204:
-	etEx(0, 7, 0, 8, 10, 1, 0.06f, %D);
-!L
-	%D = %C;
-	if ($RAND % 2) goto BossCardWoMe_atLaser_1448 @ 0;
-	%D = (%D * -1.0f);
-BossCardWoMe_atLaser_1448:
-	etEx(0, 9, 0, 8, 10, 1, 0.06f, %D);
-!*
-	laserCurvedShoot(0);
-BossCardWoMe_atLaser_1516:
-	if $A-- goto BossCardWoMe_atLaser_416 @ 0;
-	wait_rank(80, 70, 60, 60);
-	goto BossCardWoMe_atLaser_196 @ 0;
+	float curve;
+	setf_rank(curve, rad(4.5f), rad(6.f), rad(7.5f), rad(9.f));
+	while 1 {
+		int laser_c;
+		seti_rank(laser_c, 10, 10, 12, 14);
+		float ang_dist = 6.2831855f / _f(laser_c);
+		float start_ang = RDEG;
+		times (laser_c) {
+			@rand(2, 0);
+			@rand(2, 1);
+			@rand(2, 2);
+			@rand(2, 3);
+			etAng(0, start_ang, 0.0f);
+			start_ang += ang_dist;
+			float newcurve = curve;
+			if (I0)
+				newcurve *= -1.f;
+			etEx(0, 3, 0, 8, 10, 1, 0.06f, newcurve);
+		!NHL
+			newcurve = curve;
+			if (I1)
+				newcurve *= -1.f;
+			etEx(0, 5, 0, 8, 10, 1, 0.06f, newcurve);
+		!HL
+			newcurve = curve;
+			if (I2)
+				newcurve *= -1.f;
+			etEx(0, 7, 0, 8, 10, 1, 0.06f, newcurve);
+		!L
+			newcurve = curve;
+			if (I3)
+				newcurve *= -1.f;
+			etEx(0, 9, 0, 8, 10, 1, 0.06f, newcurve);
+		!*
+			laserCurvedShoot(0);
+		}
+		wait_rank(80, 70, 60, 60);
+	}
 	return();
 }
 
