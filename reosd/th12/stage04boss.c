@@ -1680,7 +1680,6 @@ sub BossCardWaterBury_LaserAt(float ang_off)
 
 sub BossCardWaterMonsoon()
 {
-	var A, B, C, D;
 	resetBoss();
 	ins_21();
 	enmClear();
@@ -1707,45 +1706,44 @@ sub BossCardWaterMonsoon()
 	etNew(0);
 	etMode(0, 3);
 	etSpr(0, 24, 0);
-	$C = 0;
-BossCardWaterMonsoon_748:
 120:
-	callSlot("BossCardWaterMonsoon_rain", 1);
+	while 1 {
+		callSlot("BossCardWaterMonsoon_rain", 1);
 !HL
-	callSlot("BossCardWaterMonsoon_rainH", 4);
+		callSlot("BossCardWaterMonsoon_rainH", 4);
 132:
 !*
-	callSlot("BossCardWaterMonsoon_wave2", 2);
+		callSlot("BossCardWaterMonsoon_wave2", 2);
 !HL
-	callSlot("BossCardWaterMonsoon_wave1", 3);
+		callSlot("BossCardWaterMonsoon_wave1", 3);
 240:
 !*
-	enmRand(90, 4, 1.5f);
+		enmRand(90, 4, 1.5f);
 360:
 !EN
-	callSlot("BossCardWaterMonsoon_rain", 3);
+		callSlot("BossCardWaterMonsoon_rain", 3);
 367:
-	callSlot("BossCardWaterMonsoon_rain", 4);
+		callSlot("BossCardWaterMonsoon_rain", 4);
 372:
 !HL
-	endSlot(3);
+		endSlot(3);
 !*
-	endSlot(2);
+		endSlot(2);
 374:
 !EN
-	callSlot("BossCardWaterMonsoon_rain", 5);
+		callSlot("BossCardWaterMonsoon_rain", 5);
 480:
 !*
-	enmRand(90, 4, 1.5f);
+		enmRand(90, 4, 1.5f);
 !EN
-	endSlot(3);
+		endSlot(3);
 487:
-	endSlot(4);
+		endSlot(4);
 494:
-	endSlot(5);
+		endSlot(5);
 540:
 !*
-	goto BossCardWaterMonsoon_748 @ 120;
+	}
 	return();
 }
 
@@ -1754,25 +1752,25 @@ sub BossCardWaterMonsoon_rain()
 	etNew(0);
 	etMode(0, 8);
 	etAmt(0, 1, 1);
-	etSpd(0, 2.2f, 1.7f);
+	etSpd(0, 2.3f, 1.7f);
 	etAng(0, 1.6421962f, 1.4993964f);
 	etEx(0, 0, 0, 2, 2, [NEG], [NEGF], [NEGF]);
 	etEx(0, 1, 1, 1024, 600, 1, [NEGF], [NEGF]);
 	etEx(0, 2, 0, 4, 9999, [NEG], 0.016f, 1.3089969f);
-BossCardWaterMonsoon_rain_308:
-	etOfs_abs(0, _f(%RF2 * 208.0f), 0.0f);
-	etSpr(0, 28, 7);
-	etOn(0);
+	while 1 {
+		etOfs_abs(0, RF2 * 208.0f, 0.0f);
+		etSpr(0, 28, 7);
+		etOn(0);
 !HL
-	wait(6);
-	unless (($TIME % 4) > (3 - $RANK)) goto BossCardWaterMonsoon_rain_744 @ 0;
-	etOfs_abs(0, _f(%RF2 * 208.0f), 0.0f);
-	etSpr(0, 28, 6);
-	etOn(0);
-BossCardWaterMonsoon_rain_744:
+		wait(6);
+		if ((TIME % 4) > (3 - RANK)) {
+			etOfs_abs(0, RF2 * 208.0f, 0.0f);
+			etSpr(0, 28, 6);
+			etOn(0);
+		}
 !*
-	wait_rank(15, 12, 6, 6);
-	goto BossCardWaterMonsoon_rain_308 @ 0;
+		wait_rank(15, 12, 6, 6);
+	}
 	return();
 }
 
@@ -1782,27 +1780,26 @@ sub BossCardWaterMonsoon_rainH()
 	etMode(3, 8);
 	etSpr(3, 28, 8);
 	etAmt(3, 1, 1);
-	etSpd(3, 2.0f, 1.7f);
+	etSpd(3, 2.1f, 1.7f);
 	etAng(3, 1.6421962f, 1.4993964f);
 	etEx(3, 0, 0, 2, 2, [NEG], [NEGF], [NEGF]);
 	etEx(3, 1, 1, 1024, 600, 1, [NEGF], [NEGF]);
 	etEx(3, 2, 0, 4, 9999, [NEG], 0.016f, 1.8325957f);
-BossCardWaterMonsoon_rainH_336:
-	etOfs_abs(3, _f(%RF2 * 208.0f), 0.0f);
-	etOn(3);
-	wait(21);
-	goto BossCardWaterMonsoon_rainH_336 @ 0;
+	while 1 {
+		etOfs_abs(3, RF2 * 208.0f, 0.0f);
+		etOn(3);
+		wait(21);
+	}
 	return();
 }
 
 sub BossCardWaterMonsoon_wave1()
 {
-	var A, B, C, D;
 	etNew(1);
 	etMode(1, 1);
 	etSpr(1, 3, 7);
 	etAmt(1, 1, 1);
-	etSpd(1, 1.5f, 1.0f);
+	etSpd(1, 1.6f, 1.0f);
 	etAng(1, -1.5707964f, 0.0f);
 	etEx(1, 0, 0, 1024, 540, 0, [NEGF], [NEGF]);
 	etEx(1, 1, 1, 268435456, 1, [NEG], [NEGF], [NEGF]);
@@ -1818,43 +1815,28 @@ sub BossCardWaterMonsoon_wave1()
 	etEx(1, 11, 2, 8, 45, [NEG], 0.0f, 0.034906585f);
 	etEx(1, 12, 2, 8, 45, [NEG], 0.0f, -0.034906585f);
 	etEx(1, 13, 2, 8, 45, [NEG], 0.0f, 0.034906585f);
-!E
-	%B = 64.0f;
-!N
-	%B = 52.0f;
-!H
-	%B = 48.0f;
-!L
-	%B = 48.0f;
-!*
-	%C = ((%RF * %B) - 192.0f);
-BossCardWaterMonsoon_wave1_1136:
-!ENH
-	$A = 19;
-!L
-	$A = 22;
-!*
-	goto BossCardWaterMonsoon_wave1_1440 @ 12;
-BossCardWaterMonsoon_wave1_1240:
-	%D = (%B * _f($A));
-	%D = (%D + %C);
-	etOfs_abs(1, %D, 480.0f);
-	etOn(1);
-BossCardWaterMonsoon_wave1_1440:
-	if $A-- goto BossCardWaterMonsoon_wave1_1240 @ 0;
+	float wave_dist;
+	setf_rank(wave_dist, 64.f, 52.f, 48.f, 48.f);
+	float startpos = (RF * wave_dist) - 192.0f;
+	while 1 {
+		int i = 0;
+		times (19:19:19:22) {
+			etOfs_abs(1, (wave_dist * _f(i)) + startpos, 496.0f);
+			etOn(1);
+			i += 1;
+		}
 12:
-	goto BossCardWaterMonsoon_wave1_1136 @ 0;
+	}
 	return();
 }
 
 sub BossCardWaterMonsoon_wave2()
 {
-	var A, B, C, D;
 	etNew(2);
 	etMode(2, 1);
 	etSpr(2, 3, 6);
 	etAmt(2, 1, 1);
-	etSpd(2, 1.5f, 1.0f);
+	etSpd(2, 1.6f, 1.0f);
 	etAng(2, 1.5707964f, 0.0f);
 	etEx(2, 0, 0, 1024, 540, 0, [NEGF], [NEGF]);
 	etEx(2, 1, 1, 268435456, 1, [NEG], [NEGF], [NEGF]);
@@ -1870,31 +1852,18 @@ sub BossCardWaterMonsoon_wave2()
 	etEx(2, 11, 2, 8, 45, [NEG], 0.0f, 0.034906585f);
 	etEx(2, 12, 2, 8, 45, [NEG], 0.0f, -0.034906585f);
 	etEx(2, 13, 2, 8, 45, [NEG], 0.0f, 0.034906585f);
-!E
-	%B = 64.0f;
-!N
-	%B = 52.0f;
-!H
-	%B = 48.0f;
-!L
-	%B = 48.0f;
-!*
-	%C = ((%RF * %B) + 192.0f);
-BossCardWaterMonsoon_wave2_1136:
-!ENH
-	$A = 19;
-!L
-	$A = 21;
-!*
-	goto BossCardWaterMonsoon_wave2_1400 @ 12;
-BossCardWaterMonsoon_wave2_1240:
-	%D = (%C - (%B * _f($A)));
-	etOfs_abs(2, %D, -32.0f);
-	etOn(2);
-BossCardWaterMonsoon_wave2_1400:
-	if $A-- goto BossCardWaterMonsoon_wave2_1240 @ 0;
+	float wave_dist;
+	setf_rank(wave_dist, 64.f, 52.f, 48.f, 48.f);
+	float startpos = (RF * wave_dist) + 192.0f;
+	while 1 {
+		int i = 0;
+		times (19:19:19:21) {
+			etOfs_abs(2, startpos - (wave_dist * _f(i)), -48.0f);
+			etOn(2);
+			i += 1;
+		}
 12:
-	goto BossCardWaterMonsoon_wave2_1136 @ 0;
+	}
 	return();
 }
 
