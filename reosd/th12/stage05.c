@@ -93,7 +93,7 @@ sub Cir00Dead()
 	etMode(0, 0);
 	etSpr(0, 17, 4);
 	etAmt_rank(0, 1, 1, 3, 3, 1, 1, 1, 1);
-	etAng(0, 0.0f, 0.3926991f);
+	etAng(0, 0.0f, rad(22.5f));
 	etSpd_rank(0, 1.0f, 0.0f, 0.0f, 0.0f, 1.0f, 1.0f, 1.0f, 2.0f);
 	etEx(0, 0, 1, 2, 1, [NEG], [NEGF], [NEGF]);
 	etEx(0, 1, 0, 4, 60, [NEG], 0.016666668f, [NEGF]);
@@ -459,7 +459,7 @@ sub Girl04(var A, var B)
 	@RGirl04_at() async;
 	enmDir(3.1415927f, 4.0f);
 	wait(50);
-	enmDirTime(100, 0, 0.3926991f, 3.0f);
+	enmDirTime(100, 0, rad(22.5f), 3.0f);
 6000:
 	noop();
 	return();
@@ -475,7 +475,7 @@ sub Girl04b(var A, var B)
 	@RGirl04b_at() async;
 	enmDir(3.1415927f, 4.0f);
 	wait(30);
-	enmDirTime(100, 0, -0.3926991f, 3.0f);
+	enmDirTime(100, 0, rad(-22.5f), 3.0f);
 6000:
 	noop();
 	return();
