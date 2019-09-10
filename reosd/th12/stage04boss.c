@@ -1307,7 +1307,6 @@ sub BossCardMetalMemoryHL_at(float ang, int m)
 
 sub BossCardWaFi()
 {
-	var A, B, C, D;
 	resetBoss();
 	ins_21();
 	enmClear();
@@ -1344,147 +1343,116 @@ sub BossCardWaFi()
 	etEx(1, 2, 0, 256, 1, 2, [NEGF], [NEGF]);
 	etEx(1, 3, 0, 524288, 135921926, 1, 1.3f, 0.8f);
 	etEx(1, 5, 0, 8192, [NEG], [NEG], [NEGF], [NEGF]);
-	$A = 0;
+	int i = 0;
 120:
 	playSE(29);
-	invinc(80);
+	invinc(120);
 	wait(80);
 	@BossCardWaFi_at2() async;
-BossCardWaFi_1308:
-	callSep("BossCardWaFi_at", _SS $A);
+	while 1 {
+		@BossCardWaFi_at(i) async;
 180:
-	enmRand(90, 4, 1.5f);
+		enmRand(90, 4, 1.5f);
 330:
-	$A += 1;
-	goto BossCardWaFi_1308 @ 120;
+		i += 1;
+	}
 	return();
 }
 
-sub BossCardWaFi_at(var A)
+sub BossCardWaFi_at(int i)
 {
-	$A = (($A / 3) + 8);
-	goto BossCardWaFi_at_960 @ 0;
-BossCardWaFi_at_172:
-	etAmt_rank(1, 1, 2, 2, 3, 1, 1, 1, 1);
-	etSpr(1, 28, 8);
-	etSpd(1, 2.2f, 1.6f);
-	etEx(1, 4, 0, 1048576, 1, 0, -1.2566371f, -1.8849556f);
-	etOn(1);
-	etAmt(1, _S($RANK + 1), 1);
-	etEx(1, 4, 0, 8192, [NEG], [NEG], [NEGF], [NEGF]);
-	etOn(1);
-	etSpd(1, 3.3f, 2.5f);
-	etOn(1);
+	times ((i/3) + 8) {
+		etAmt(1, 1:2:2:3, 1);
+		etSpr(1, 28, 8);
+		etSpd(1, 2.2f, 1.6f);
+		etEx(1, 4, 0, 1048576, 1, 0, -1.2566371f, -1.8849556f);
+		etOn(1);
+		etAmt(1, RANK + 1, 1);
+		etEx(1, 4, 0, 8192, [NEG], [NEG], [NEGF], [NEGF]);
+		etOn(1);
+		etSpd(1, 3.3f, 2.5f);
+		etOn(1);
 !NHL
-	etOn(1);
+		etOn(1);
 !HL
-	etAmt(1, _S($RANK + 1), 1);
-	etSpr(1, 28, 7);
-	etSpd(1, 2.2f, 1.6f);
-	etOn(1);
-	etSpd(1, 3.3f, 2.5f);
-	etOn(1);
+		etAmt(1, RANK + 1, 1);
+		etSpr(1, 28, 7);
+		etSpd(1, 2.2f, 1.6f);
+		etOn(1);
+		etSpd(1, 3.3f, 2.5f);
+		etOn(1);
 !L
-	etSpr(1, 28, 6);
-	etSpd(1, 2.2f, 1.6f);
-	etOn(1);
-	etAmt(1, $RANK, 1);
-	etSpd(1, 3.3f, 2.5f);
-	etOn(1);
+		etSpr(1, 28, 6);
+		etSpd(1, 2.2f, 1.6f);
+		etOn(1);
+		etAmt(1, RANK, 1);
+		etSpd(1, 3.3f, 2.5f);
+		etOn(1);
 !*
-	wait_rank(6, 5, 5, 5);
-BossCardWaFi_at_960:
-	if $A-- goto BossCardWaFi_at_172 @ 0;
+		wait_rank(6, 5, 5, 5);
+	}
 	return();
 }
 
 sub BossCardWaFi_at2()
 {
-	var A, B;
 	playSE(28);
-	$A = 0;
-BossCardWaFi_at2_96:
-	if ($A % 1) goto BossCardWaFi_at2_744 @ 0;
-	etSpr(0, 0, 1);
-	%B = (%RF * 8.0f);
-	%B += 440.0f;
-	etOfs_abs(0, RF2 * 192.f, %B);
-	etOn(0);
-	etSpr(0, 2, 1);
-	%B = (%RF * 8.0f);
-	%B += 440.0f;
-	etOfs_abs(0, RF2 * 192.f, %B);
-	etOn(0);
-BossCardWaFi_at2_744:
-	if ($A % 2) goto BossCardWaFi_at2_1392 @ 0;
-	etSpr(0, 0, 1);
-	%B = (%RF * 8.0f);
-	%B += 440.0f;
-	etOfs_abs(0, RF2 * 192.f, %B);
-	etOn(0);
-	etSpr(0, 2, 1);
-	%B = (%RF * 8.0f);
-	%B += 440.0f;
-	etOfs_abs(0, RF2 * 192.f, %B);
-	etOn(0);
-BossCardWaFi_at2_1392:
-	if ($A % 3) goto BossCardWaFi_at2_2040 @ 0;
-	etSpr(0, 3, 1);
-	%B = (%RF * 8.0f);
-	%B += 440.0f;
-	etOfs_abs(0, RF2 * 192.f, %B);
-	etOn(0);
-	etSpr(0, 3, 2);
-	%B = (%RF * 8.0f);
-	%B += 440.0f;
-	etOfs_abs(0, RF2 * 192.f, %B);
-	etOn(0);
-BossCardWaFi_at2_2040:
-	if ($A % 4) goto BossCardWaFi_at2_2972 @ 0;
-	etSpr(0, 3, 1);
-	%B = (%RF * 8.0f);
-	%B += 440.0f;
-	etOfs_abs(0, RF2 * 192.f, %B);
-	etOn(0);
-	etSpr(0, 3, 2);
-	%B = (%RF * 8.0f);
-	%B += 440.0f;
-	etOfs_abs(0, RF2 * 192.f, %B);
-	etOn(0);
-	etSpr(0, 24, 0);
-	%B = (%RF * 8.0f);
-	%B += 440.0f;
-	etOfs_abs(0, RF2 * 192.f, %B);
-	etOn(0);
-BossCardWaFi_at2_2972:
-	if ($A % 5) goto BossCardWaFi_at2_3620 @ 0;
-	etSpr(0, 17, 1);
-	%B = (%RF * 8.0f);
-	%B += 440.0f;
-	etOfs_abs(0, RF2 * 192.f, %B);
-	etOn(0);
-	etSpr(0, 17, 1);
-	%B = (%RF * 8.0f);
-	%B += 440.0f;
-	etOfs_abs(0, RF2 * 192.f, %B);
-	etOn(0);
-BossCardWaFi_at2_3620:
-	if ($A % 5) goto BossCardWaFi_at2_3984 @ 0;
-	etSpr(0, 26, 0);
-	%B = (%RF * 8.0f);
-	%B += 440.0f;
-	etOfs_abs(0, RF2 * 192.f, %B);
-	etOn(0);
-BossCardWaFi_at2_3984:
-	wait(2);
-	$A += 1;
-	goto BossCardWaFi_at2_96 @ 0;
+	int i = 0;
+	while 1 {
+		if ((i % 1) == 0) {
+			etSpr(0, 0, 1);
+			etOfs_abs(0, RF2 * 192.f, (RF * 8.0f) + 440.f);
+			etOn(0);
+			etSpr(0, 2, 1);
+			etOfs_abs(0, RF2 * 192.f, (RF * 8.0f) + 440.f);
+			etOn(0);
+		}
+		if ((i % 2) == 0) {
+			etSpr(0, 0, 1);
+			etOfs_abs(0, RF2 * 192.f, (RF * 8.0f) + 440.f);
+			etOn(0);
+			etSpr(0, 2, 1);
+			etOfs_abs(0, RF2 * 192.f, (RF * 8.0f) + 440.f);
+			etOn(0);
+		}
+		if ((i % 3) == 0) {
+			etSpr(0, 3, 1);
+			etOfs_abs(0, RF2 * 192.f, (RF * 8.0f) + 440.f);
+			etOn(0);
+			etSpr(0, 3, 2);
+			etOfs_abs(0, RF2 * 192.f, (RF * 8.0f) + 440.f);
+			etOn(0);
+		}
+		if ((i % 4) == 0) {
+			etSpr(0, 3, 1);
+			etOfs_abs(0, RF2 * 192.f, (RF * 8.0f) + 440.f);
+			etOn(0);
+			etSpr(0, 3, 2);
+			etOfs_abs(0, RF2 * 192.f, (RF * 8.0f) + 440.f);
+			etOn(0);
+			etSpr(0, 24, 0);
+			etOfs_abs(0, RF2 * 192.f, (RF * 8.0f) + 440.f);
+			etOn(0);
+		}
+		if ((i % 5) == 0) {
+			etSpr(0, 17, 1);
+			etOfs_abs(0, RF2 * 192.f, (RF * 8.0f) + 440.f);
+			etOn(0);
+			etSpr(0, 17, 1);
+			etOfs_abs(0, RF2 * 192.f, (RF * 8.0f) + 440.f);
+			etOn(0);
+			etSpr(0, 26, 0);
+			etOfs_abs(0, RF2 * 192.f, (RF * 8.0f) + 440.f);
+			etOn(0);
+		}
+		wait(2);
+		i += 1;
+	}
 	return();
 }
 
 sub BossCardWaWo()
 {
-	var A, B, C;
 	resetBoss();
 	ins_21();
 	enmClear();
