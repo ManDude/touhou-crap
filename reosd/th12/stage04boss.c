@@ -1117,48 +1117,32 @@ sub BossCardMeWa()
 	anmScrNoMove(0, 0);
 	etNew(0);
 	etMode(0, 2);
-	etSpr(0, 3, 14);
 	etSpd(0, 2.0f, 1.05f);
 	etEx(0, 0, 0, 2, 2, [NEG], [NEGF], [NEGF]);
 	etEx(0, 1, 0, 1, [NEG], [NEG], [NEGF], [NEGF]);
-	etEx(0, 2, 0, 8, 90, 1, 0.003f, 0.01227185f);
 	etNew(1);
 	etMode(1, 2);
-	etSpr(1, 3, 8);
-	etSpd(1, 2.0f, 1.05f);
-	etEx(1, 0, 0, 2, 2, [NEG], [NEGF], [NEGF]);
-	etEx(1, 1, 0, 1, [NEG], [NEG], [NEGF], [NEGF]);
-	etEx(1, 2, 0, 8, 90, 1, 0.003f, -0.01227185f);
-	$B = 0;
-BossCardMeWa_1100:
+	int i = 0;
 120:
-	$A = 8;
-	goto BossCardMeWa_1660 @ 160;
-BossCardMeWa_1164:
-	%C = %RDEG;
-!E
-	$D = ($B + 8);
-!N
-	$D = ($B + 15);
-!H
-	$D = ($B + 20);
-!L
-	$D = ($B + 28);
-!*
-	etAmt(0, $D, 2);
-	etAng(0, %C, 0.3490658f);
-	etOn(0);
+	while 1 {
+		times (8) {
+			etSpr(0, 3, 14);
+			etAmt(0, i + (8:15:20:28), 2);
+			float ang = RDEG;
+			etAng(0, ang, 0.3490658f);
+			etEx(0, 2, 0, 8, 90, 1, 0.003f, 0.01227185f);
+			etOn(0);
 140:
-	etAmt(1, $D, 2);
-	etAng(1, %C, -0.3490658f);
-	etOn(1);
-BossCardMeWa_1660:
+			etSpr(0, 3, 8);
+			etAng(0, ang, -0.3490658f);
+			etEx(0, 2, 0, 8, 90, 1, 0.003f, -0.01227185f);
+			etOn(0);
 160:
-	if $A-- goto BossCardMeWa_1164 @ 120;
-	enmRand(90, 4, 1.5f);
-	$B += 1;
+		}
+		enmRand(90, 4, 1.5f);
+		i += 1;
 210:
-	goto BossCardMeWa_1100 @ 120;
+	}
 	return();
 }
 
