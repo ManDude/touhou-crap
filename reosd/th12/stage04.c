@@ -637,7 +637,11 @@ sub MainMBossDebug()
 	enmNew("MBoss", -128.0f, -32.0f, 40, 1000, 1);
 	killWait();
 	@MainBossDebug();
-	while 1 wait(1000);
+	goto MainMBossDebug_220 @ 0;
+MainMBossDebug_200:
+	wait(1000);
+MainMBossDebug_220:
+	if 1 goto MainMBossDebug_200 @ 0;
 	return();
 }
 
@@ -785,10 +789,10 @@ sub MainSub08()
 {
 	times (14) {
 		@rand(2, 0);
-		enmNewRelNoBoss("RCir04", -224.0f, 170.0f, 40, 500, I0 + 1);
+		enmNewRel("RCir04", -224.0f, 170.0f, 40, 500, I0 + 1);
 		wait(10);
 		@rand(2, 0);
-		enmNewRelMirNoBoss("BCir04", 224.0f, 170.0f, 40, 500, I0 + 1);
+		enmNewRelMir("BCir04", 224.0f, 170.0f, 40, 500, I0 + 1);
 		wait(10);
 	}
 	return();
@@ -798,10 +802,10 @@ sub MainSub09()
 {
 	times (7) {
 		@rand(2, 0);
-		enmNewRelNoBoss("PCir05", -224.0f, 170.0f, 40, 500, I0 + 1);
+		enmNewRel("PCir05", -224.0f, 170.0f, 40, 500, I0 + 1);
 		wait(10);
 		@rand(2, 0);
-		enmNewRelMirNoBoss("GCir05", 224.0f, 170.0f, 40, 500, I0 + 1);
+		enmNewRelMir("GCir05", 224.0f, 170.0f, 40, 500, I0 + 1);
 		wait(10);
 	}
 	return();
@@ -1124,7 +1128,6 @@ sub main()
 {
 	setFlags(32);
 	enmNew("Enemy_Auto_Power_Full", 0.0f, 0.0f, 10, 100, 1);
-	MainBossDebug();
 	@LogoEnemy() async;
 440:
 	@MainSub00() async;
