@@ -922,7 +922,6 @@ sub BossCardFireAgniHL()
 
 sub BossCardFireAgniRad()
 {
-	var A, B, C;
 	resetBoss();
 	ins_21();
 	enmClear();
@@ -958,34 +957,30 @@ sub BossCardFireAgniRad()
 	etSpr(0, 24, 0);
 	etSE(0, 24, -1);
 	etEx(0, 0, 0, 268435456, 0, [NEG], [NEGF], [NEGF]);
-BossCardFireAgniRad_940:
+	int i = 0;
 120:
-	$A = 0;
-	$B = 8;
-	$C = ($A / 5);
-	etAmt(0, _S($C + 7), 2);
+	while 1 {
+		etAmt(0, (i/5) + 7, 2);
 !H
-	etSpd(0, 2.0f, 0.75f);
+		etSpd(0, 2.0f, 0.75f);
 !L
-	etSpd(0, 2.5f, 1.25f);
+		etSpd(0, 2.5f, 1.25f);
 !*
-	goto BossCardFireAgniRad_1472 @ 128;
-BossCardFireAgniRad_1260:
-	etAng(0, %RDEG, 0.1308997f);
-	etEx(0, 1, 0, 8, 128, [NEG], 0.0f, 0.02454369f);
-	etOn(0);
-	etAng(0, %RDEG, 0.1308997f);
-	etEx(0, 1, 0, 8, 128, [NEG], 0.0f, -0.02454369f);
-	etOn(0);
-	etOn(1);
-BossCardFireAgniRad_1472:
-128:
-	if $B-- goto BossCardFireAgniRad_1260 @ 120;
-248:
-	enmRand(90, 4, 1.5f);
-	$A += 1;
+		times (8) {
+			etAng(0, RDEG, 0.1308997f);
+			etEx(0, 1, 0, 8, 128, [NEG], 0.0f, 0.02454369f);
+			etOn(0);
+			etAng(0, RDEG, 0.1308997f);
+			etEx(0, 1, 0, 8, 128, [NEG], 0.0f, -0.02454369f);
+			etOn(0);
+			etOn(1);
+	128:
+		}
+	248:
+		enmRand(90, 4, 1.5f);
+		i += 1;
 258:
-	goto BossCardFireAgniRad_940 @ 120;
+	}
 	return();
 }
 
@@ -2461,7 +2456,6 @@ BossCardWoodLeaf_1872:
 
 sub BossCardWoodSylphy()
 {
-	var A, B, C;
 	resetBoss();
 	ins_21();
 	enmClear();
@@ -2485,16 +2479,11 @@ sub BossCardWoodSylphy()
 	etMode(0, 3);
 	etSpr(0, 24, 0);
 	etEx(0, 0, 0, 268435456, 0, [NEG], [NEGF], [NEGF]);
-	$A = 0;
+	int i = 0;
 	etNew(0);
 	etMode(0, 8);
 	etSpr(0, 9, 11);
-!E
-	4;
-!N
-	10;
-!*
-	etAmt(0, [-1], 1);
+	etAmt(0, 4:10, 1);
 	etSpd(0, 2.5f, 0.55f);
 	etAng(0, -3.1415927f, 3.1415927f);
 	etEx(0, 0, 0, 2, 2, [NEG], [NEGF], [NEGF]);
@@ -2507,38 +2496,29 @@ sub BossCardWoodSylphy()
 	etAng(1, 2.635447f, 2.076942f);
 	etEx(1, 0, 0, 2, 2, [NEG], [NEGF], [NEGF]);
 	etEx(1, 1, 0, 1, [NEG], [NEG], [NEGF], [NEGF]);
-BossCardWoodSylphy_1296:
 120:
-	if ($A % 6) goto BossCardWoodSylphy_1396 @ 120;
-	etOn(0);
-BossCardWoodSylphy_1396:
-	%B = (%RF * 384.0f);
-	%B = (%B - %ABS_X);
-	%C = (32.0f - %ABS_Y);
-	%B -= 192.0f;
-	etOfs(1, %B, %C);
-	etSpr(1, 9, 10);
-	etEx(1, 2, 0, 4, 9999, [NEG], 0.012f, 2.356194f);
-	etOn(1);
-	%B = (%RF * 192.0f);
-	if ($A % 2) goto BossCardWoodSylphy_2156 @ 122;
-122:
-	%C = (%B - %ABS_Y);
-	%B = (396.0f - %ABS_X);
-	goto BossCardWoodSylphy_2384 @ 122;
-BossCardWoodSylphy_2156:
-	%B += 192.0f;
-	%C = (%B - %ABS_Y);
-	%B = (396.0f - %ABS_X);
-BossCardWoodSylphy_2384:
-	%B -= 192.0f;
-	etOfs(1, %B, %C);
-	etSpr(1, 9, 11);
-	etEx(1, 2, 0, 4, 9999, [NEG], 0.0f, 2.356194f);
-	etOn(1);
-	$A += 1;
+	while 1 {
+		if ((i % 6) == 0)
+			etOn(0);
+		etOfs(1, ((RF * 384.0f) - ABS_X) - 192.f, 32.0f - ABS_Y);
+		etSpr(1, 9, 10);
+		etEx(1, 2, 0, 4, 9999, [NEG], 0.012f, 2.356194f);
+		etOn(1);
+		float y;
+		if ((i % 2) == 0) {
+	122:
+			y = (RF * 192.0f) - ABS_Y;
+		}
+		else {
+			y = ((RF * 192.0f) + 192.f) - ABS_Y;
+		}
+		etOfs(1, (396.0f - ABS_X) - 192.f, y);
+		etSpr(1, 9, 11);
+		etEx(1, 2, 0, 4, 9999, [NEG], 0.0f, 2.356194f);
+		etOn(1);
+		i += 1;
 126:
-	goto BossCardWoodSylphy_1296 @ 120;
+	}
 	return();
 }
 
