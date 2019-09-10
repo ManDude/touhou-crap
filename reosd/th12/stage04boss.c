@@ -1715,11 +1715,11 @@ sub BossCardWaWo()
 	stageProg(43);
 	enmPosTime(120, 4, 0.0f, 80.0f);
 	anmScrNoMove(0, 0);
-	$C = 0;
+	int i = 0;
 	etNew(0);
 	etMode(0, 2);
 	etSpr(0, 3, 8);
-	etAmt_rank(0, 18, 24, 30, 32, 2, 2, 2, 2);
+	etAmt(0, 18:24:30:32, 2);
 	etSpd(0, 3.3f, 1.45f);
 	etAng(0, 3.1415927f, 0.34906584f);
 	etEx(0, 0, 0, 2, 2, [NEG], [NEGF], [NEGF]);
@@ -1730,50 +1730,33 @@ sub BossCardWaWo()
 !HL
 	etSpr(1, 26, 3);
 !*
-	etAmt_rank(1, 8, 10, 10, 10, 1, 1, 1, 1);
+	etAmt(1, 8:10:10:10, 1);
 	etSpd(1, 2.3f, 0.95f);
 	etSE(1, -1, -1);
-	etNew(2);
-	etMode(2, 2);
+	etCopy(2, 0);
 	etSpr(2, 3, 10);
-	etAmt_rank(2, 16, 20, 20, 24, 2, 2, 2, 2);
-	etSpd(2, 3.3f, 1.45f);
-	etAng(2, 3.1415927f, 0.34906584f);
-	etEx(2, 0, 0, 2, 2, [NEG], [NEGF], [NEGF]);
-	%A = 0.0f;
-BossCardWaWo_1316:
+	etAmt(2, 16:20:20:24, 2);
+	float ang = 0.0f;
 120:
+	while 1 {
 	endSlot(1);
 	etOn(0);
-	etAng(1, %A, 0.34906584f);
+	etAng(1, ang, 0.34906584f);
 	etOn(1);
-	%B = (%RF * 0.2243995f);
-	%B -= 0.1121997f;
-	%A = (%A - %B);
+	ang -= RF2 * -0.1121997f;
 130:
-	unless $C goto BossCardWaWo_1724 @ 130;
-	etAng(1, %A, 0.34906584f);
-	etOn(1);
-BossCardWaWo_1724:
+	if (i > 0) {
+		etAng(1, ang, 0.34906584f);
+		etOn(1);
+	}
 140:
-	callSlot("BossCardWaWo_at2", 1);
+	callSlot("et_on_rate", 1, _SS 2, _SS 20, _SS 0);
 	enmRand(90, 4, 1.4f);
-	$C += 1;
-	if ($C % 8) goto BossCardWaWo_1992 @ 140;
-	%A = 0.0f;
-BossCardWaWo_1992:
+	i += 1;
+	if ((i % 8) == 0)
+		ang = 0.0f;
 190:
-	goto BossCardWaWo_1316 @ 120;
-	return();
-}
-
-sub BossCardWaWo_at2()
-{
-	noop();
-BossCardWaWo_at2_52:
-	etOn(2);
-	wait(20);
-	goto BossCardWaWo_at2_52 @ 0;
+	}
 	return();
 }
 
