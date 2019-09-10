@@ -550,7 +550,6 @@ sub Boss3()
 
 sub BossCardEaMe()
 {
-	var A, B, C;
 	resetBoss();
 	ins_21();
 	enmClear();
@@ -573,57 +572,34 @@ sub BossCardEaMe()
 	etNew(0);
 	etMode(0, 1);
 	etSpr(0, 26, 2);
-!ENH
-	1;
-!L
-	3;
-!*
-	etAmt(0, [-1], 1);
+	etAmt(0, 1:1:1:3, 1);
 	etAng(0, 1.5707964f, rad(30.f));
 	etEx(0, 0, 0, 2, 2, [NEG], [NEGF], [NEGF]);
 	etNew(1);
 	etMode(1, 8);
 	etSpr(1, 5, 11);
-!E
-	4;
-!N
-	12;
-!H
-	18;
-!L
-	24;
-!*
-	etAmt(1, [-1], 1);
-!EN
-	1.8f;
-!HL
-	2.4f;
-!*
-	etSpd(1, [-1.0f], 1.0f);
+	etAmt(1, 4:12:18:24, 1);
+	etSpd(1, (1.8f:1.8f:2.4f) + 0.5f, 1.25f);
 	etAng(1, 3.1415927f, -3.1415927f);
 	etEx(1, 0, 0, 2, 1, [NEG], [NEGF], [NEGF]);
-	$A = 0;
-BossCardEaMe_1152:
+	int i = 0;
 120:
-	%B = (%RF * 288.0f);
-	%C = (%RF * 128.0f);
-	%B -= 144.0f;
-	%C -= 64.0f;
-	etOfs(0, %B, %C);
-	etOfs(1, %B, %C);
-	%B = (%RF * 2.0f);
-	etSpd(0, _f(%B + 1.6f), 0.8f);
+	while 1 {
+	float x = (RF * 288.0f) - 144.f;
+	float y = (RF * 128.0f) - 64.f;
+	etOfs(0, x, y);
+	etOfs(1, x, y);
+	etSpd(0, (RF * 2.0f) + 2.1f, 1.05f);
 	etOn(0);
-	$A = ($A % 18);
-	if ($A != 7) goto BossCardEaMe_1876 @ 120;
-	enmRand(90, 4, 1.5f);
-BossCardEaMe_1876:
+	i = i % 18;
+	if (i == 7)
+		enmRand(90, 4, 1.5f);
 121:
-	etEx(1, 2, 0, 16, 180, 1, _f(%RDEG / 2.0f), 1.7f);
+	etEx(1, 1, 0, 16, 180, 1, RDEG / 2.f, 1.7f);
 	etOn(1);
-	$A += 1;
+	i += 1;
 140:
-	goto BossCardEaMe_1152 @ 120;
+	}
 	return();
 }
 
@@ -808,7 +784,6 @@ BossCardEarthTrilithonShake_1716:
 
 sub BossCardFiEa()
 {
-	var A, B, C, D;
 	resetBoss();
 	ins_21();
 	enmClear();
@@ -831,69 +806,35 @@ sub BossCardFiEa()
 	etNew(0);
 	etMode(0, 3);
 	etSpr(0, 24, 0);
-!E
-	8;
-!N
-	12;
-!H
-	16;
-!L
-	20;
-!*
-	etAmt(0, [-1], 2);
-	etSpd(0, 2.5f, 0.7f);
+	etAmt(0, 8:12:16:20, 2);
+	etSpd(0, 3.0f, 0.95f);
 	etSE(0, 24, -1);
 	etEx(0, 0, 0, 268435456, 0, [NEG], [NEGF], [NEGF]);
 	etNew(1);
 	etMode(1, 8);
 	etSpr(1, 5, 13);
-	etSpd(1, 2.4f, 1.0f);
+	etSpd(1, 2.9f, 1.25f);
 	etAng(1, 3.1415927f, 0.0f);
 	etEx(1, 0, 0, 2, 1, [NEG], [NEGF], [NEGF]);
 	etEx(1, 1, 0, 1, [NEG], [NEG], [NEGF], [NEGF]);
-	$B = 0;
-BossCardFiEa_1120:
+	int i = 0;
 120:
-	$A = 8;
-	goto BossCardFiEa_1232 @ 128;
-BossCardFiEa_1184:
-	etAng(0, %RDEG, 0.1308997f);
-	etOn(0);
-BossCardFiEa_1232:
+	while 1 {
+		times (8) {
+			etAng(0, RDEG, 0.1308997f);
+			etOn(0);
 128:
-	if $A-- goto BossCardFiEa_1184 @ 120;
+		}
 188:
-	enmRand(90, 4, 1.5f);
-	$B += 1;
-	$A = 3;
-	$C = ($B * 2);
-!E
-	$C += 4;
-!N
-	$C += 10;
-!H
-	$C += 16;
-!L
-	$C += 24;
-!*
-	etAmt(1, $C, 1);
-	goto BossCardFiEa_2132 @ 198;
-BossCardFiEa_1852:
-	%D = (%RF * 3.1415927f);
-	%D -= 1.5707964f;
-!EN
-	1.4f;
-!H
-	1.6f;
-!L
-	2.0f;
-!*
-	etEx(1, 2, 1, 16, 130, 1, %D, [-1.0f]);
-	etOn(1);
-BossCardFiEa_2132:
+		enmRand(90, 4, 1.5f);
+		i += 1;
+		etAmt(1, (i * 2) + (4:10:16:24), 1);
+		times (3) {
+			etEx(1, 2, 1, 16, 130, 1, RF2 * -1.5707964f, 1.4f:1.4f:1.6f:2.0f);
+			etOn(1);
 198:
-	if $A-- goto BossCardFiEa_1852 @ 188;
-	goto BossCardFiEa_1120 @ 120;
+		}
+	}
 	return();
 }
 
@@ -1095,7 +1036,6 @@ BossCardFireAgniRad_1472:
 
 sub BossCardMeWa()
 {
-	var A, B, C, D;
 	resetBoss();
 	ins_21();
 	enmClear();
