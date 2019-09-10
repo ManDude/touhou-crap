@@ -437,8 +437,10 @@ sub et_ofs_r(int et, float range)
 
 sub et_on_rate(int et, int rate, int delay)
 {
-	rand(rate, 3);
-	wait(I3 * delay);
+	if (delay) {
+		rand(rate, 3);
+		wait(I3);
+	}
 	while (1) {
 		etOn(et);
 		wait(rate);
