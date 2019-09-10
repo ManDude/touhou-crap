@@ -60,7 +60,7 @@ sub Fairy00()
 	@FairyBasicShoot00() async;
 40:
 !*
-	enmDirTime(80, 0, -0.3926991f, 2.0f);
+	enmDirTime(80, 0, rad(-22.5f), 2.0f);
 120:
 	enmDirTime(100, 0, 1.5707964f, 2.0f);
 10000:
@@ -148,7 +148,7 @@ sub FairyRedShoot00()
 	etSpr(0, 5, 2);
 	etAmt_rank(0, 3, 7, 9, 11, 1, 1, 2, 2);
 	etSpd(0, 1.9f, 0.25f : 0.25f : 0.75f : 0.75f);
-	etAng(0, 0.0f, 0.7853982f : 0.62831855f : 0.3926991f : rad(9.f));
+	etAng(0, 0.0f, 0.7853982f : 0.62831855f : rad(22.5f) : rad(9.f));
 	etEx(0, 0, 0, 2, 0, [NEG], [NEGF], [NEGF]);
 	etEx(0, 1, 0, 1, [NEG], [NEG], [NEGF], [NEGF]);
 	etOn(0);

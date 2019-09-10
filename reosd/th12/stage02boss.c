@@ -244,9 +244,9 @@ sub Boss2_at2()
 		etAng(0, AIM, 0.0f);
 		laserShoot(0);
 		etSpr(0, 30, 5);
-		etAng(0, AIM + 0.3926991f, 0.0f);
+		etAng(0, AIM + rad(22.5f), 0.0f);
 		laserShoot(0);
-		etAng(0, AIM - 0.3926991f, 0.0f);
+		etAng(0, AIM - rad(22.5f), 0.0f);
 		laserShoot(0);
 		wait(50);
 	}
@@ -458,14 +458,14 @@ sub BossCard2()
 			if (i < 3) {
 				etAmt(1, 8, 3);
 				etSpd(1, 5.0f, 2.0f);
-				etAng(1, 0.0f, 0.3926991f);
+				etAng(1, 0.0f, rad(22.5f));
 				etOn(1);
 			}
 			else if (i < 6) {
 				wait(10);
 				etAmt(1, 10, 3);
 				etSpd(1, 5.0f, 2.0f);
-				etAng(1, 0.0f, 0.3926991f);
+				etAng(1, 0.0f, rad(22.5f));
 				etOn(1);
 			}
 			else {

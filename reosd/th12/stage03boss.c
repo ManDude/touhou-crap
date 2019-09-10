@@ -264,7 +264,7 @@ sub Boss2_enm_Girl(int anm, int anm2)
 		etSpr(1, 3, 6);
 		etAmt(1, 16, 1);
 		etSpd(1, 2.1f, 0.25f);
-		etAng(1, aim, 0.3926991f);
+		etAng(1, aim, rad(22.5f));
 		etEx(1, 0, 0, 2, 1, [NEG], [NEGF], [NEGF]);
 		etOn(1);
 	!*
