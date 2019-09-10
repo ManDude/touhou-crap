@@ -1779,7 +1779,6 @@ BossCardWaWo_at2_52:
 
 sub BossCardWaterBury()
 {
-	var A, B, C, D;
 	resetBoss();
 	ins_21();
 	enmClear();
@@ -1802,51 +1801,33 @@ sub BossCardWaterBury()
 	etNew(0);
 	etMode(0, 3);
 	etSpr(0, 24, 0);
-	$C = 0;
-BossCardWaterBury_688:
+	int i = 0;
 120:
-	$A = 12;
-	callSlot("BossCardWaterBury_At", 1);
-	%B = (3.1415927f / 8.0f);
-	goto BossCardWaterBury_1140 @ 130;
-BossCardWaterBury_876:
-	call("BossCardWaterBury_LaserAt", _ff %B);
-	%D = (0.0f - %B);
-	call("BossCardWaterBury_LaserAt", _ff %D);
-	%B -= 0.02617994f;
-BossCardWaterBury_1140:
-130:
-	if $A-- goto BossCardWaterBury_876 @ 120;
-	endSlot(1);
-	$A = 8;
-	enmRand(90, 4, 1.5f);
-	%B = 0.0f;
-	etNew(0);
-	etMode(0, 0);
-	etSpr(0, 26, 1);
-	etAmt(0, 10, 1);
-!H
-	3.5f;
-!L
-	3.8f;
-!*
-	etSpd(0, _f([-1.0f] + 0.5f), 0.95f);
-BossCardWaterBury_1536:
-!H
-	etAng(0, %B, 0.3926991f);
-!L
-	etAng(0, %B, 0.3141593f);
-!*
-	etOn(0);
-	%D = (%RF * rad(10.f));
-	%D -= 0.08726646f;
-	%B = (%B - %D);
-140:
-	if $A-- goto BossCardWaterBury_1536 @ 130;
-	enmRand(90, 4, 1.5f);
-	$C += 1;
+	while 1 {
+		callSlot("BossCardWaterBury_At", 1);
+		float ang = [PI] / 8.0f;
+		times (12) {
+			@BossCardWaterBury_LaserAt(ang);
+			@BossCardWaterBury_LaserAt(0.f-ang);
+			ang -= rad(1.5f);
+130:	}
+		endSlot(1);
+		enmRand(90, 4, 1.5f);
+		ang = 0.0f;
+		etNew(0);
+		etMode(0, 0);
+		etSpr(0, 26, 1);
+		etAmt(0, 10, 1);
+		etSpd(0, (3.5f:3.5f:3.5f:3.8f) + 0.5f, 0.95f);
+		times (8) {
+			etAng(0, ang, rad(22.5f) : rad(22.5f) : rad(22.5f) : rad(18.f));
+			etOn(0);
+			ang -= (RF * rad(10.f)) - 0.08726646f;
+140:	}
+		enmRand(90, 4, 1.5f);
+		i += 1;
 190:
-	goto BossCardWaterBury_688 @ 120;
+	}
 	return();
 }
 
@@ -1855,27 +1836,22 @@ sub BossCardWaterBury_At()
 	etNew(0);
 	etMode(0, 2);
 	etSpr(0, 3, 6);
-!H
-	24;
-!L
-	30;
-!*
-	etAmt(0, [-1], 2);
+	etAmt(0, 24:24:24:30, 2);
 	etSpd(0, 3.5f, 2.05f);
 	etAng(0, 0.0f, 0.3490658f);
 	etEx(0, 0, 0, 2, 2, [NEG], [NEGF], [NEGF]);
-BossCardWaterBury_At_280:
-	etOn(0);
-	wait(22);
-	goto BossCardWaterBury_At_280 @ 0;
+	while 1 {
+		etOn(0);
+		wait(22);
+	}
 	return();
 }
 
-sub BossCardWaterBury_LaserAt(var A)
+sub BossCardWaterBury_LaserAt(float ang_off)
 {
 	etNew(1);
 	etSpr(1, 30, 6);
-	etAng(1, _f(%AIM + %A), 0.0f);
+	etAng(1, AIM + ang_off, 0.0f);
 	etSpd(1, 24.0f, 0.0f);
 	laserSetSize(1, 0.0f, 640.0f, 0.0f, 8.0f);
 	laserSetTime(1, 20, 10, 50, 10, 0);
@@ -2131,8 +2107,8 @@ sub BossCardWaterUndine()
 	etSpr(0, 24, 0);
 	int i = 0;
 	float an1, an2;
-	while 1 {
 120:
+	while 1 {
 		callSlot("BossCardWaterUndine_At", 1);
 		an1 = 3.1415927f / 8.0f;
 		times (12) {
@@ -2366,7 +2342,7 @@ sub BossCardWoMe()
 	etEx(2, 0, 0, 2, 1, [NEG], [NEGF], [NEGF]);
 	$A = 0;
 !E
-	%B = 0.3926991f;
+	%B = rad(22.5f);
 !N
 	%B = 0.31415927f;
 !H
