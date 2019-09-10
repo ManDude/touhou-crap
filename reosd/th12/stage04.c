@@ -637,11 +637,7 @@ sub MainMBossDebug()
 	enmNew("MBoss", -128.0f, -32.0f, 40, 1000, 1);
 	killWait();
 	@MainBossDebug();
-	goto MainMBossDebug_220 @ 0;
-MainMBossDebug_200:
-	wait(1000);
-MainMBossDebug_220:
-	if 1 goto MainMBossDebug_200 @ 0;
+	while 1 wait(1000);
 	return();
 }
 
@@ -789,10 +785,10 @@ sub MainSub08()
 {
 	times (14) {
 		@rand(2, 0);
-		enmNewRel("RCir04", -224.0f, 170.0f, 40, 500, I0 + 1);
+		enmNewRelNoBoss("RCir04", -224.0f, 170.0f, 40, 500, I0 + 1);
 		wait(10);
 		@rand(2, 0);
-		enmNewRelMir("BCir04", 224.0f, 170.0f, 40, 500, I0 + 1);
+		enmNewRelMirNoBoss("BCir04", 224.0f, 170.0f, 40, 500, I0 + 1);
 		wait(10);
 	}
 	return();
@@ -802,10 +798,10 @@ sub MainSub09()
 {
 	times (7) {
 		@rand(2, 0);
-		enmNewRel("PCir05", -224.0f, 170.0f, 40, 500, I0 + 1);
+		enmNewRelNoBoss("PCir05", -224.0f, 170.0f, 40, 500, I0 + 1);
 		wait(10);
 		@rand(2, 0);
-		enmNewRelMir("GCir05", 224.0f, 170.0f, 40, 500, I0 + 1);
+		enmNewRelMirNoBoss("GCir05", 224.0f, 170.0f, 40, 500, I0 + 1);
 		wait(10);
 	}
 	return();
