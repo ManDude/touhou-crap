@@ -2106,7 +2106,7 @@ sub BossCardWaterUndine()
 	etMode(0, 3);
 	etSpr(0, 24, 0);
 	int i = 0;
-	float an1, an2;
+	float an1;
 120:
 	while 1 {
 		callSlot("BossCardWaterUndine_At", 1);
@@ -2114,8 +2114,7 @@ sub BossCardWaterUndine()
 		times (12) {
 			@BossCardWaterUndine_LaserAt(0.f);
 			@BossCardWaterUndine_LaserAt(an1);
-			an2 = 0.f-an1;
-			@BossCardWaterUndine_LaserAt(an2);
+			@BossCardWaterUndine_LaserAt(0.f-an1);
 			an1 -= rad(1.5f);
 130:		noop();
 		}
