@@ -1278,7 +1278,6 @@ BossCardMetalMemory_1184:
 
 sub BossCardMetalMemoryHL()
 {
-	var A, B;
 	resetBoss();
 	ins_21();
 	enmClear();
@@ -1301,55 +1300,39 @@ sub BossCardMetalMemoryHL()
 	etNew(0);
 	etMode(0, 3);
 	etSpr(0, 3, 0);
-!N
-	4;
-!H
-	5;
-!L
-	6;
-!*
-	etAmt(0, [-1], 1);
-	etSpd(0, 2.0f, 1.0f);
-	%A = %RDEG;
+	etAmt(0, 4:4:5:6, 1);
+	etSpd(0, 2.2f:2.2f:2.3f, 1.25f);
+	float angle = RDEG;
 	etDist(0, 16.0f);
 	etEx(0, 0, 0, 2, 2, [NEG], [NEGF], [NEGF]);
-	etEx(0, 1, 0, 256, _S($RANK), 13, [NEGF], [NEGF]);
+	etEx(0, 1, 0, 256, RANK, 13, [NEGF], [NEGF]);
 	etEx(0, 2, 1, 8, 40, 0, 0.0f, 0.0f);
-	$B = 1;
-BossCardMetalMemoryHL_1036:
+	int i = 0;
 120:
-	$B = ($B % 8);
-	if ($B != 0) goto BossCardMetalMemoryHL_1220 @ 120;
-	enmRand(60, 4, 1.5f);
-BossCardMetalMemoryHL_1220:
-	callSep("BossCardMetalMemoryHL_at", _ff %A, _SS ($B % 2));
-	%A += rad(13.846153846153846153846153846154f);
-	$B += 1;
+	while 1 {
+		if (((i % 8) == 0) && (i > 0))
+			enmRand(60, 4, 1.5f);
+		@BossCardMetalMemoryHL_at(angle, i % 2) async;
+		angle += rad(13.846153846153846153846153846154f);
+		i += 1;
 140:
-	goto BossCardMetalMemoryHL_1036 @ 120;
+	}
 	return();
 }
 
-sub BossCardMetalMemoryHL_at(var A, var B)
+sub BossCardMetalMemoryHL_at(float ang, int m)
 {
-	var C, D;
-	$C = 6;
-	goto BossCardMetalMemoryHL_at_552 @ 0;
-BossCardMetalMemoryHL_at_100:
-	etAng(0, %A, 0.0f);
-	if ($B == 0) goto BossCardMetalMemoryHL_at_272 @ 0;
-	%D = 0.0418879f;
-	goto BossCardMetalMemoryHL_at_312 @ 0;
-BossCardMetalMemoryHL_at_272:
-	%D = -0.0418879f;
-BossCardMetalMemoryHL_at_312:
-	etEx(0, 3, 1, 8, 30, 0, 0.0f, %D);
-	etEx(0, 4, 1, 8, 45, 0, 0.0f, 0.0f);
-	etEx(0, 5, 1, 8, 30, 0, 0.0f, _f(0.0f - %D));
-	etOn(0);
-	wait(4);
-BossCardMetalMemoryHL_at_552:
-	if $C-- goto BossCardMetalMemoryHL_at_100 @ 0;
+	float curve = rad(2.0f) : rad(2.0f) : rad(2.1f) : rad(2.2f);
+	if (!m)
+		curve = 0.f-curve;
+	times (6) {
+		etAng(0, ang, 0.0f);
+		etEx(0, 3, 1, 8, 30, 0, 0.0f, curve);
+		etEx(0, 4, 1, 8, 45, 0, 0.0f, 0.0f);
+		etEx(0, 5, 1, 8, 30, 0, 0.0f, 0.0f-curve);
+		etOn(0);
+4:
+	}
 	return();
 }
 
