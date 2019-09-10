@@ -605,7 +605,6 @@ sub BossCardEaMe()
 
 sub BossCardEarthTrilithon()
 {
-	var A, B, C;
 	resetBoss();
 	ins_21();
 	enmClear();
@@ -628,33 +627,26 @@ sub BossCardEarthTrilithon()
 	etNew(0);
 	etMode(0, 8);
 	etSpr(0, 5, 13);
-!E
-	7;
-!N
-	10;
-!*
-	etAmt(0, [-1], 1);
-	etSpd(0, 2.4f, 1.0f);
+	etAmt(0, 7:10, 1);
+	etSpd(0, 2.9f, 1.25f);
 	etAng(0, 0.0f, 3.1415927f);
-	etEx(0, 0, 0, 2, 2, [NEG], [NEGF], [NEGF]);
+	etEx(0, 0, 0, 2, 1, [NEG], [NEGF], [NEGF]);
 	etEx(0, 1, 0, 1, [NEG], [NEG], [NEGF], [NEGF]);
 	etNew(1);
 	etMode(1, 0);
 	etSpr(1, 3, 6);
 	etAmt(1, 7, 2);
-	etSpd(1, 2.8f, 1.2f);
+	etSpd(1, 3.3f, 1.45f);
 	etAng(1, 0.0f, 0.3490658f);
 	etEx(1, 0, 0, 2, 2, [NEG], [NEGF], [NEGF]);
-BossCardEarthTrilithon_1072:
 120:
-	%A = (%RF * 3.1415927f);
-	etEx(0, 2, 1, 16, 180, 1, _f(%A - 1.5707964f), 1.4f);
-	etOn(0);
-	if (%PLAYER_Y >= %ABS_Y) goto BossCardEarthTrilithon_1372 @ 120;
-	etOn(1);
-BossCardEarthTrilithon_1372:
+	while 1 {
+		etEx(0, 2, 1, 16, 180, 1, RF2 * 1.5707964f, 1.4f);
+		etOn(0);
+		if (PLAYER_Y < ABS_Y)
+			etOn(1);
 132:
-	goto BossCardEarthTrilithon_1072 @ 120;
+	}
 	return();
 }
 
@@ -1038,7 +1030,6 @@ sub BossCardMeWa()
 
 sub BossCardMetalDragon()
 {
-	var A, B;
 	resetBoss();
 	ins_21();
 	enmClear();
@@ -1061,32 +1052,21 @@ sub BossCardMetalDragon()
 	etNew(0);
 	etMode(0, 2);
 	etSpr(0, 3, 15);
-!EH
-	8;
-!NL
-	10;
-!EN
-	etAmt(0, [-1], 2);
-!HL
-	etAmt(0, [-1], 3);
-!*
+	etAmt(0, 8:10:8:10, 2:2:3);
 	etSpd(0, 6.5f, 0.75f);
 	etEx(0, 0, 0, 1, [NEG], [NEG], [NEGF], [NEGF]);
-BossCardMetalDragon_820:
 120:
-	%A = (%RF * 2.5f);
-	%A += 1.0f;
-	etEx(0, 1, 1, 64, 60, 1, %AIM, %A);
-	etAng(0, %RDEG, 0.0f);
-	etOn(0);
+	while 1 {
+		etEx(0, 1, 1, 64, 60, 1, AIM, (RF * 2.5f) + 1.f);
+		etAng(0, RDEG, 0.0f);
+		etOn(0);
 170:
-	goto BossCardMetalDragon_820 @ 120;
+	}
 	return();
 }
 
 sub BossCardMetalFatigue()
 {
-	var A, B;
 	resetBoss();
 	ins_21();
 	enmClear();
@@ -1113,20 +1093,17 @@ sub BossCardMetalFatigue()
 	etSpd(0, 4.5f, 1.25f);
 	etEx(0, 0, 0, 1, [NEG], [NEG], [NEGF], [NEGF]);
 	etEx(0, 0, 1, 268435456, 1, [NEG], [NEGF], [NEGF]);
-BossCardMetalFatigue_800:
 120:
-	$B = 8;
-	%A = %RDEG;
-	etAng(0, %A, 0.0f);
-	goto BossCardMetalFatigue_1076 @ 120;
-BossCardMetalFatigue_932:
-	etEx(0, 1, 2, 64, 60, 1, %A, 2.0f);
-	etOn(0);
-	%A += 0.7853982f;
-BossCardMetalFatigue_1076:
-	if $B-- goto BossCardMetalFatigue_932 @ 120;
+	while 1 {
+		float ang = RDEG;
+		etAng(0, ang, 0.0f);
+		times (8) {
+			etEx(0, 1, 2, 64, 60, 1, ang, 2.0f);
+			etOn(0);
+			ang += 0.7853982f;
+		}
 160:
-	goto BossCardMetalFatigue_800 @ 120;
+	}
 	return();
 }
 
