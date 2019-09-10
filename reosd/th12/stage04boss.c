@@ -1,3105 +1,2909 @@
 
-
-global[NEG] = -999999;
-global[NEGF] = -999999.f;
+#include "th12_globalvar.txt"
 
 sub Boss()
 {
-    var A;
-    boss(0);
-    anm(2);
-    anmScrNoMove(0, 0);
-    setFlags(64);
-    hitbox(56.0f, 64.0f);
-    killbox(48.0f, 56.0f);
-    enmPosTime(60, 4, 0.0f, 128.0f);
-    invinc(60);
+	boss(0);
+	anm(2);
+	anmScrNoMove(0, 0);
+	setFlags(64);
+	hitbox(56.0f, 64.0f);
+	killbox(48.0f, 56.0f);
+	enmPosTime(60, 4, 0.0f, 128.0f);
+	invinc(60);
 60:
-    msgWait();
-    setMoveArea(0.0f, 96.0f, 320.0f, 48.0f);
-    anm(0);
-    anmScr(1, 95);
-    anmScr(2, 158);
-    anm(2);
-    setBossFog(160.0f, 16728031);
-    call("Boss1");
-    delete();
+	msgWait();
+	setMoveArea(0.0f, 96.0f, 320.0f, 48.0f);
+	anm(0);
+	anmScr(1, 95);
+	anmScr(2, 158);
+	anm(2);
+	setBossFog(160.0f, 16728031);
+	@Boss1();
+	delete();
 }
 
 sub Boss1()
 {
-    var A;
-    $A = 2400;
-    $BOSS3 = 0;
-    resetBoss();
-    life(17000);
-!E
-    interrupt(0, 0, $A, "Boss2");
-    goto Boss1_1720 @ 0;
-!NHL
-    if ($SHOT_TYPE == 0) goto Boss1_880 @ 0;
-    if ($SHOT_TYPE == 1) goto Boss1_696 @ 0;
-    if ($SHOT_TYPE == 2) goto Boss1_1036 @ 0;
-    if ($SHOT_TYPE == 3) goto Boss1_1196 @ 0;
-    if ($SHOT_TYPE == 4) goto Boss1_1364 @ 0;
-    if ($SHOT_TYPE == 5) goto Boss1_1552 @ 0;
-Boss1_696:
+	int time = 2400;
+	BOSS4 = 0;
+	resetBoss();
+	life(17000);
+	if (RANK == 0) {
+		interrupt(0, 0, time, "Boss2");
+	}
+	else if (SHOT_TYPE == [SHOT_REIMU_A]) {
 !N
-    interrupt(0, 1600, $A, "BossCardFireAgni");
-    lifebar(0, 1600.0f, -24448);
+		interrupt(0, 1600, time, "BossCardWaterUndine");
 !HL
-    interrupt(0, 1700, $A, "BossCardFireAgniHL");
-    lifebar(0, 1700.0f, -24448);
+		interrupt(0, 1600, time, "BossCardWaterBury");
 !*
-    goto Boss1_1720 @ 0;
-Boss1_880:
+		lifebar(0, 1600.0f, -8347393);
+	}
+	else if (SHOT_TYPE == [SHOT_REIMU_B]) {
 !N
-    interrupt(0, 1600, $A, "BossCardWaterUndine");
+		interrupt(0, 1600, time, "BossCardFireAgni");
+		lifebar(0, 1600.0f, -24448);
 !HL
-    interrupt(0, 1600, $A, "BossCardWaterBury");
-!NHL
-    lifebar(0, 1600.0f, -8347393);
+		interrupt(0, 1700, time, "BossCardFireAgniHL");
+		lifebar(0, 1700.0f, -24448);
 !*
-    goto Boss1_1720 @ 0;
-Boss1_1036:
+	}
+	else if (SHOT_TYPE == [SHOT_MARISA_A]) {
 !N
-    interrupt(0, 1600, $A, "BossCardWoodSylphy");
+		interrupt(0, 1600, time, "BossCardWoodSylphy");
 !HL
-    interrupt(0, 1600, $A, "BossCardWoodSylphyHL");
-!NHL
-    lifebar(0, 1600.0f, -8323200);
+		interrupt(0, 1600, time, "BossCardWoodSylphyHL");
 !*
-    goto Boss1_1720 @ 0;
-Boss1_1196:
+		lifebar(0, 1600.0f, -8323200);
+	}
+	else if (SHOT_TYPE == [SHOT_MARISA_B]) {
 !N
-    interrupt(0, 1800, $A, "BossCardEarthTrilithon");
+		interrupt(0, 1800, time, "BossCardEarthTrilithon");
 !HL
-    interrupt(0, 1800, $A, "BossCardEarthTrilithonHL");
-!NHL
-    lifebar(0, 1800.0f, -128);
+		interrupt(0, 1800, time, "BossCardEarthTrilithonHL");
 !*
-    goto Boss1_1720 @ 0;
-Boss1_1364:
+		lifebar(0, 1800.0f, -128);
+	}
+	else if (SHOT_TYPE == [SHOT_SANAE_A]) {
 !N
-    interrupt(0, 1600, $A, "BossCardMetalMemory");
-    lifebar(0, 1600.0f, -6250336);
+		interrupt(0, 1600, time, "BossCardMetalMemory");
+		lifebar(0, 1600.0f, -6250336);
 !HL
-    interrupt(0, 1800, $A, "BossCardWaterMonsoon");
-    lifebar(0, 1800.0f, -8347393);
+		interrupt(0, 1800, time, "BossCardWaterMonsoon");
+		lifebar(0, 1800.0f, -8347393);
 !*
-    goto Boss1_1720 @ 0;
-Boss1_1552:
+	}
+	else if (SHOT_TYPE == [SHOT_SANAE_B]) {
 !N
-    interrupt(0, 2000, $A, "BossCardWaterMonsoon");
-    lifebar(0, 2000.0f, -8347393);
+		interrupt(0, 2000, time, "BossCardWaterMonsoon");
+		lifebar(0, 2000.0f, -8347393);
 !HL
-    interrupt(0, 1600, $A, "BossCardMetalMemoryHL");
-    lifebar(0, 1600.0f, -6250336);
-Boss1_1720:
+		interrupt(0, 1600, time, "BossCardMetalMemoryHL");
+		lifebar(0, 1600.0f, -6250336);
 !*
-    stageProg(24);
-    lives(2);
-    anm(2);
-    anmScrNoMove(0, 0);
-    anmScrSlot(0, 119);
-    playSE(31);
-Boss1_1848:
-    ins_269(0);
+	}
+	stageProg(24);
+	lives(2);
+	anm(2);
+	anmScrNoMove(0, 0);
+	anmScrSlot(0, 119);
+	playSE(31);
+40:
+	etNew(0);
+	etEx(0, 0, 0, 2, 2, [NEG], [NEGF], [NEGF]);
+	etNew(1);
+	etSE(1, 19, -1);
+	etSpd(1, 32.0f, 32.0f);
+	laserSetSize(1, 500.0f, 500.0f, 0.0f, 48.0f);
+	etNew(2);
+	etMode(2, [ETON_CIR_AIM]);
+	etSpr(2, [ET_BALL], [RED16]);
+	etSpd(2, 3.0f:4.0f, 1.45f);
+	etAng(2, 0.0f, 0.0f);
+	etEx(2, 0, 0, 2, 2, [NEG], [NEGF], [NEGF]);
+	BOSS1 = 0;
+	while 1 {
+		ins_269(0);
 100:
-    $BOSS4 = 0;
-Boss1_1908:
-    if ($BOSS4 % 2) goto Boss1_2052 @ 100;
-    call("Boss1_at1", _SS 4);
-    goto Boss1_2092 @ 100;
-Boss1_2052:
-    call("Boss1_at1", _SS 0);
-Boss1_2092:
-    enmRand(90, 4, 2.5f);
-    callSlot("Boss1_at", 1);
-    wait(90);
-    enmPosTime(90, 4, 0.0f, 128.0f);
-    wait(90);
-    endSlot(1);
-    $BOSS4 = ($BOSS4 + 1);
-    goto Boss1_1908 @ 40;
-    if 1 goto Boss1_1848 @ 0;
-    return();
+		@Boss1At(BOSS1 % 2);
+		@Boss1_at();
+		BOSS1 += 1;
+	}
+9100:
+	return();
+}
+
+sub Boss1At(int m)
+{
+	if (!m) {
+		etMode(0, [ETON_CIR_AIM]);
+		etSpr(0, [ET_BALL], [RED16]);
+		etAmt_rank(0, 8, 10, 14, 10, 1, 1, 1, 2);
+		etSpd(0, 2.0f:2.5f:2.9f:3.5f, 1.45f);
+		etAng(0, 0.0f, 0.0f);
+		etSpr(1, 7, 6);
+	}
+	else {
+		etMode(0, [ETON_CIR_AIM] : [ETON_CIR_AIM] : [ETON_FAN_AIM]);
+		etSpr(0, [ET_BALL], [RED16]);
+		etAmt(0, 1:1:2, 2);
+		etSpd(0, 2.5f:2.5f:2.5f:3.0f, 1.45f);
+		etAng(0, 0.0f, 0.0f:0.0f:rad(5.625f));
+		etSpr(1, 7, 2);
+	}
+	float sx = ABS_X, sy = ABS_Y;
+	float inc;
+	setf_rank(inc, rad(0.34615384615384615384615384615385f), rad(0.39130434782608695652173913043478f), rad(0.46956521739130434782608695652174f), rad(0.50310559006211180124223602484472f));
+	int dur, f1, f2, e;
+	seti_rank(dur, 180, 180, 150, 140);
+	seti_rank(f1, 120, 120, 100, 93);
+	seti_rank(f2, 60, 60, 50, 46);
+	seti_rank(e, 60, 60, 50, 40);
+	int i = 0, laser_start = 0, laser_end = 0;
+!EN
+	laserSetTime(1, 0, 20, 50, 20, 14);
+!H
+	laserSetTime(1, 0, 16, 42, 16, 14);
+!L
+	laserSetTime(1, 0, 15, 39, 15, 14);
+!*
+	etAng(1, rad(45.f), 0.0f);
+	laserShootStatic(1, 1);
+	etAng(1, rad(225.f), 0.0f);
+	laserShootStatic(1, 2);
+	etAng(1, rad(-225.f), 0.0f);
+	laserShootStatic(1, 3);
+	etAng(1, rad(-45.f), 0.0f);
+	laserShootStatic(1, 4);
+	laserSetRotSpeed(1, inc);
+	laserSetRotSpeed(2, inc);
+	laserSetRotSpeed(3, inc);
+	laserSetRotSpeed(4, inc);
+	laser_start = 1;
+	float stupid = 0.f;
+	while (i < dur) {
+		if (i == f1) {
+			laserSetRotSpeed(1, 0.f);
+			laserSetRotSpeed(2, 0.f);
+			laserSetRotSpeed(3, 0.f);
+			laserSetRotSpeed(4, 0.f);
+			laser_start = 0;
+		}
+		if (i == f2) {
+!EN
+			laserSetTime(1, 30, 20, 70, 20, 14);
+!H
+			laserSetTime(1, 25, 16, 59, 16, 14);
+!L
+			laserSetTime(1, 23, 15, 55, 15, 14);
+!*
+			etAng(1, rad(45.f), 0.0f);
+			laserShootStatic(1, 5);
+			etAng(1, rad(225.f), 0.0f);
+			laserShootStatic(1, 6);
+			etAng(1, rad(-225.f), 0.0f);
+			laserShootStatic(1, 7);
+			etAng(1, rad(-45.f), 0.0f);
+			laserShootStatic(1, 8);
+			laserSetRotSpeed(5, 0.f-inc);
+			laserSetRotSpeed(6, 0.f-inc);
+			laserSetRotSpeed(7, 0.f-inc);
+			laserSetRotSpeed(8, 0.f-inc);
+			laser_end = 1;
+		}
+		if (((i % e) == 0) && BOSS1) {
+			float lAng, x, y;
+			if (laser_start) {
+				lAng = rad(45.f) + (inc * _f(i));
+				etOfs(0, cos(lAng) * 64.f, 0.f - (sin(lAng) * (cos(lAng) * 64.f)));
+				etOn(0);
+				lAng = rad(225.f) + (inc * _f(i));
+				etOfs(0, cos(lAng) * 64.f, 0.f - (sin(lAng) * (cos(lAng) * 64.f)));
+				etOn(0);
+				lAng = rad(-225.f) + (inc * _f(i));
+				etOfs(0, cos(lAng) * 64.f, 0.f - (sin(lAng) * (cos(lAng) * 64.f)));
+				etOn(0);
+				lAng = rad(-45.f) + (inc * _f(i));
+				etOfs(0, cos(lAng) * 64.f, 0.f - (sin(lAng) * (cos(lAng) * 64.f)));
+				etOn(0);
+			}
+			if (laser_end) {
+				lAng = rad(45.f) - (inc * _f(i-f2));
+				etOfs(0, cos(lAng) * 64.f, 0.f - (sin(lAng) * (cos(lAng) * 64.f)));
+				etOn(0);
+				lAng = rad(225.f) - (inc * _f(i-f2));
+				etOfs(0, cos(lAng) * 64.f, 0.f - (sin(lAng) * (cos(lAng) * 64.f)));
+				etOn(0);
+				lAng = rad(-225.f) - (inc * _f(i-f2));
+				etOfs(0, cos(lAng) * 64.f, 0.f - (sin(lAng) * (cos(lAng) * 64.f)));
+				etOn(0);
+				lAng = rad(-45.f) - (inc * _f(i-f2));
+				etOfs(0, cos(lAng) * 64.f, 0.f - (sin(lAng) * (cos(lAng) * 64.f)));
+				etOn(0);
+			}
+		}
+		if (laser_start) {
+			ins_81(x, y, rad(45.f) + (inc * _f(i)), 64.f);
+			laserSetOffset(1, x + sx, y + sy);
+			ins_81(x, y, rad(225.f) + (inc * _f(i)), 64.f);
+			laserSetOffset(2, x + sx, y + sy);
+			ins_81(x, y, rad(-225.f) + (inc * _f(i)), 64.f);
+			laserSetOffset(3, x + sx, y + sy);
+			ins_81(x, y, rad(-45.f) + (inc * _f(i)), 64.f);
+			laserSetOffset(4, x + sx, y + sy);
+		}
+		if (laser_end) {
+			ins_81(x, y, rad(45.f) - (inc * _f(i-f2)), 64.f);
+			laserSetOffset(5, x + sx, y + sy);
+			ins_81(x, y, rad(225.f) - (inc * _f(i-f2)), 64.f);
+			laserSetOffset(6, x + sx, y + sy);
+			ins_81(x, y, rad(-225.f) - (inc * _f(i-f2)), 64.f);
+			laserSetOffset(7, x + sx, y + sy);
+			ins_81(x, y, rad(-45.f) - (inc * _f(i-f2)), 64.f);
+			laserSetOffset(8, x + sx, y + sy);
+		}
+		i += 1;
+		wait(1);
+	}
 }
 
 sub Boss1_at()
 {
-    var A;
-!E
-    $A = ($BOSS4 + 12);
-!N
-    $A = ($BOSS4 + 16);
-!HL
-    $A = ($BOSS4 + 24);
-!*
-    etNew(0);
-    etOfs(0, 0.0f, -12.0f);
-    etMode(0, 2);
-    etSpr(0, 3, 2);
-!E
-    3;
-!NHL
-    4;
-!*
-    etAmt(0, $A, [-1]);
-!E
-    2.5f;
-!NHL
-    3.5f;
-!*
-    etSpd(0, _f([-1.0f] + 0.5f), 1.45f);
-    etAng(0, 0.0f, 0.0f);
-    etEx(0, 0, 0, 2, 2, [NEG], [NEGF], [NEGF]);
-Boss1_at_576:
-    etOn(0);
-    wait(40);
-    goto Boss1_at_576 @ 0;
-    return();
-}
-
-sub Boss1_at1(A)
-{
-    var B C D E F G H I;
-    $BOSS2 = 0;
-    etNew(0);
-    etMode(0, 2);
-    etSpr(0, 3, 2);
-    etAng(0, 0.0f, 0.0f);
-    etEx(0, 0, 0, 2, 2, [NEG], [NEGF], [NEGF]);
-!E
-    %I = 0.006041524f;
-!N
-    %I = 0.006829549f;
-!H
-    %I = 0.008195459f;
-!L
-    %I = 0.008780849f;
-!*
-    $H = ($RANK + $A);
-    if ($H == 1) goto Boss1_at1_1100 @ 0;
-    if ($H == 2) goto Boss1_at1_1180 @ 0;
-    if ($H == 3) goto Boss1_at1_1260 @ 0;
-    if ($H == 4) goto Boss1_at1_1340 @ 0;
-    if ($H == 5) goto Boss1_at1_1420 @ 0;
-    if ($H == 6) goto Boss1_at1_1500 @ 0;
-    if ($H == 7) goto Boss1_at1_1632 @ 0;
-    etAmt(0, 8, 1);
-    etSpd(0, 2.0f, 1.45f);
-    goto Boss1_at1_1740 @ 0;
-Boss1_at1_1100:
-    etAmt(0, 10, 1);
-    etSpd(0, 2.5f, 1.45f);
-    goto Boss1_at1_1740 @ 0;
-Boss1_at1_1180:
-    etAmt(0, 14, 1);
-    etSpd(0, 2.9f, 1.45f);
-    goto Boss1_at1_1740 @ 0;
-Boss1_at1_1260:
-    etAmt(0, 10, 2);
-    etSpd(0, 3.5f, 1.45f);
-    goto Boss1_at1_1740 @ 0;
-Boss1_at1_1340:
-    etAmt(0, 1, 2);
-    etSpd(0, 2.5f, 1.45f);
-    goto Boss1_at1_1740 @ 0;
-Boss1_at1_1420:
-    etAmt(0, 1, 2);
-    etSpd(0, 2.5f, 1.45f);
-    goto Boss1_at1_1740 @ 0;
-Boss1_at1_1500:
-    etMode(0, 0);
-    etAmt(0, 2, 2);
-    etSpd(0, 2.5f, 1.45f);
-    etAng(0, 0.0f, 0.09817477f);
-    goto Boss1_at1_1740 @ 0;
-Boss1_at1_1632:
-    etMode(0, 0);
-    etAmt(0, 2, 2);
-    etSpd(0, 3.0f, 1.45f);
-    etAng(0, 0.0f, 0.09817477f);
-Boss1_at1_1740:
-    unless $A goto Boss1_at1_1860 @ 0;
-    %I = (%I * -1.0f);
-Boss1_at1_1860:
-    %D = 0.7853982f;
-    %E = 2.356194f;
-    %F = -2.356194f;
-    %G = -0.7853982f;
-    etNew(1);
-    etSE(1, 19, -1);
-    etSpd(1, 32.0f, 32.0f);
-    laserSetSize(1, 500.0f, 500.0f, 0.0f, 48.0f);
-    etDist(1, 0.0f);
-!EN
-    laserSetTime(1, 0, 20, 50, 20, 14);
-!H
-    laserSetTime(1, 0, 16, 42, 16, 14);
-!L
-    laserSetTime(1, 0, 15, 39, 15, 14);
-!*
-    if $BOSS3 goto Boss1_at1_2372 @ 0;
-    etSpr(1, 7, 6);
-    goto Boss1_at1_2400 @ 0;
-Boss1_at1_2372:
-    etSpr(1, 7, 2);
-Boss1_at1_2400:
-	callSlot("Boss1_at1_Laser", 2, _SS 1, _ff %D, _ff %I);
-	callSlot("Boss1_at1_Laser", 3, _SS 2, _ff %E, _ff %I);
-	callSlot("Boss1_at1_Laser", 4, _SS 3, _ff %F, _ff %I);
-	callSlot("Boss1_at1_Laser", 5, _SS 4, _ff %G, _ff %I);
-!EN
-    $B = 180;
-!H
-    $B = 150;
-!L
-    $B = 140;
-!*
-    $C = 0;
-    goto Boss1_at1_4200 @ 1;
-Boss1_at1_2888:
-    $C;
-!EN
-    120;
-!H
-    100;
-!L
-    93;
-!*
-    eqi();
-    je(Boss1_at1_3104, 0);
-    laserSetRotSpeed(1, 0.0f);
-    laserSetRotSpeed(2, 0.0f);
-    laserSetRotSpeed(3, 0.0f);
-    laserSetRotSpeed(4, 0.0f);
-	endSlot(2);
-	endSlot(3);
-	endSlot(4);
-	endSlot(5);
-Boss1_at1_3104:
-    $C;
-!EN
-    60;
-!H
-    50;
-!L
-    46;
-!*
-    eqi();
-    je(Boss1_at1_3848, 0);
-!EN
-    laserSetTime(1, 30, 20, 70, 20, 14);
-!H
-    laserSetTime(1, 25, 16, 59, 16, 14);
-!L
-    laserSetTime(1, 23, 15, 55, 15, 14);
-!*
-    if $BOSS3 goto Boss1_at1_3440 @ 0;
-    etSpr(1, 7, 6);
-    goto Boss1_at1_3468 @ 0;
-Boss1_at1_3440:
-    etSpr(1, 7, 2);
-Boss1_at1_3468:
-    %I = (%I * -1.0f);
-	callSlot("Boss1_at1_Laser", 6, _SS 5, _ff %D, _ff %I);
-	callSlot("Boss1_at1_Laser", 7, _SS 6, _ff %E, _ff %I);
-	callSlot("Boss1_at1_Laser", 8, _SS 7, _ff %F, _ff %I);
-	callSlot("Boss1_at1_Laser", 9, _SS 8, _ff %G, _ff %I);
-Boss1_at1_3848:
-    unless $BOSS4 goto Boss1_at1_4124 @ 0;
-!E
-    $C % 60;
-!N
-    $C % 50;
-!HL
-    $C % 40;
-!*
-    jne(Boss1_at1_4124, 0);
-    call("Boss1_at2", _SS $H);
-Boss1_at1_4124:
-    $C = ($C + 1);
-Boss1_at1_4200:
-1:
-    if $B-- goto Boss1_at1_2888 @ 0;
-    laserSetRotSpeed(5, 0.0f);
-    laserSetRotSpeed(6, 0.0f);
-    laserSetRotSpeed(7, 0.0f);
-    laserSetRotSpeed(8, 0.0f);
-	endSlot(6);
-	endSlot(7);
-	endSlot(8);
-	endSlot(9);
-    return();
-}
-
-sub Boss1_at1_Laser(laser start inc)
-{
-	var A X Y X2 Y2;
-	%A = %start;
-	%X2 = %ABS_X;
-	%Y2 = %ABS_Y;
-    etAng(1, %A, 0.0f);
-	ins_81(%X, %Y, %A, 64.0f);
-	laserSetOffset($laser, _f(%X + %X2), _f(%Y + %Y2));
-	%A = %A + %inc;
-    laserShootStatic(1, $laser);
-    laserSetRotSpeed($laser, %inc);
-	goto END @ 0;
-START:
-	wait(1);
-	ins_81(%X, %Y, %A, 64.0f);
-	laserSetOffset($laser, _f(%X + %X2), _f(%Y + %Y2));
-	%A = %A + %inc;
-END:
-	goto START @ 0;
+	enmRand(90, 4, 2.5f);
+	etAmt(2, BOSS1 + (12:16:24), 3:4);
+	callSlot("et_on_rate", 1, _SS 2, _SS 50, _SS 0);
+90:
+	enmPosTime(90, 4, 0.0f, 128.f);
+180:
+	endSlot(1);
 	return();
-}
-
-sub Boss1_at2(A)
-{
-    var;
-    unless ($BOSS2 < 2) goto Boss1_at2_352 @ 0;
-    etOfs(0, -45.0f, -32.0f);
-    etOn(0);
-    etOfs(0, 45.0f, -32.0f);
-    etOn(0);
-    etOfs(0, -46.0f, 32.0f);
-    etOn(0);
-    etOfs(0, 46.0f, 32.0f);
-    etOn(0);
-    unless $BOSS2 goto Boss1_at2_816 @ 0;
-Boss1_at2_352:
-    etOfs(0, -26.0f, -24.0f);
-    etOn(0);
-    etOfs(0, 26.0f, -24.0f);
-    etOn(0);
-    etOfs(0, -59.0f, 24.0f);
-    etOn(0);
-    etOfs(0, 59.0f, 24.0f);
-    etOn(0);
-    unless ($BOSS2 >= 2) goto Boss1_at2_816 @ 0;
-    etOfs(0, -4.0f, -4.0f);
-    etOn(0);
-    etOfs(0, 4.0f, -4.0f);
-    etOn(0);
-    etOfs(0, -64.0f, 4.0f);
-    etOn(0);
-    etOfs(0, 64.0f, 4.0f);
-    etOn(0);
-Boss1_at2_816:
-    $BOSS2 = ($BOSS2 + 1);
-    return();
 }
 
 sub Boss2()
 {
-    var A B;
-    life(16000);
-    resetBoss();
-    ins_21();
-    enmClear();
-    unless ($TIMEOUT == 0) goto Boss2_228 @ 0;
-    etClear(6400.0f);
-    goto Boss2_248 @ 0;
-Boss2_228:
-    etClear_ni(6400.0f);
-Boss2_248:
-    $MISS_COUNT = 0;
-    $BOMB_COUNT = 0;
-    enmDir(0.0f, 0.0f);
-    enmDirTime(0, 0, 0.0f, 0.0f);
-    enmPosTime(0, 0, 0.0f, 0.0f);
-    cardEnd();
-    ins_529(0);
-    resetBossParam();
-    playSE(28);
-    $A = 2400;
-    $BOSS3 = 1;
-    if ($SHOT_TYPE == 0) goto Boss2_1328 @ 0;
-    if ($SHOT_TYPE == 1) goto Boss2_1048 @ 0;
-    if ($SHOT_TYPE == 2) goto Boss2_1596 @ 0;
-    if ($SHOT_TYPE == 3) goto Boss2_1860 @ 0;
-    if ($SHOT_TYPE == 4) goto Boss2_2132 @ 0;
-    if ($SHOT_TYPE == 5) goto Boss2_2400 @ 0;
-Boss2_1048:
+	life(16000);
+	resetBoss();
+	ins_21();
+	enmClear();
+	if (TIMEOUT == 0) {
+		etClear(6400.0f);
+	}
+	else {
+		etClear_ni(6400.0f);
+	}
+	MISS_COUNT = 0;
+	BOMB_COUNT = 0;
+	enmDir(0.0f, 0.0f);
+	enmDirTime(0, 0, 0.0f, 0.0f);
+	enmPosTime(0, 0, 0.0f, 0.0f);
+	cardEnd();
+	ins_529(0);
+	resetBossParam();
+	playSE(28);
+	int time = 2400;
+	BOSS4 = 1;
+	if (SHOT_TYPE == [SHOT_REIMU_A]) {
 !E
-    interrupt(0, 1600, $A, "BossCardFireAgni");
-    lifebar(0, 1600.0f, -24448);
+	interrupt(0, 1600, time, "BossCardWaterUndine");
+	lifebar(0, 1600.0f, -8347393);
 !N
-    interrupt(0, 1800, $A, "BossCardEarthTrilithonHL");
-    lifebar(0, 1800.0f, -128);
+	interrupt(0, 1600, time, "BossCardWoodSylphyHL");
+	lifebar(0, 1600.0f, -8323200);
 !HL
-    interrupt(0, 1800, $A, "BossCardEarthTrilithonShake");
-    lifebar(0, 1800.0f, -128);
+	interrupt(0, 1600, time, "BossCardWoodGreen");
+	lifebar(0, 1600.0f, -8323200);
 !*
-    goto Boss2_2648 @ 0;
-Boss2_1328:
+	}
+	else if (SHOT_TYPE == [SHOT_REIMU_B]) {
 !E
-    interrupt(0, 1600, $A, "BossCardWaterUndine");
-    lifebar(0, 1600.0f, -8347393);
+	interrupt(0, 1600, time, "BossCardFireAgni");
+	lifebar(0, 1600.0f, -24448);
 !N
-    interrupt(0, 1600, $A, "BossCardWoodSylphyHL");
-    lifebar(0, 1600.0f, -8323200);
+	interrupt(0, 1800, time, "BossCardEarthTrilithonHL");
+	lifebar(0, 1800.0f, -128);
 !HL
-    interrupt(0, 1600, $A, "BossCardWoodGreen");
-    lifebar(0, 1600.0f, -8323200);
+	interrupt(0, 1800, time, "BossCardEarthTrilithonShake");
+	lifebar(0, 1800.0f, -128);
 !*
-    goto Boss2_2648 @ 0;
-Boss2_1596:
+	}
+	else if (SHOT_TYPE == [SHOT_MARISA_A]) {
 !E
-    interrupt(0, 1600, $A, "BossCardWoodSylphy");
-    lifebar(0, 1600.0f, -8323200);
+	interrupt(0, 1600, time, "BossCardWoodSylphy");
+	lifebar(0, 1600.0f, -8323200);
 !N
-    interrupt(0, 1600, $A, "BossCardFireAgniHL");
-    lifebar(0, 1600.0f, -24448);
+	interrupt(0, 1600, time, "BossCardFireAgniHL");
+	lifebar(0, 1600.0f, -24448);
 !HL
-    interrupt(0, 1800, $A, "BossCardFireAgniRad");
-    lifebar(0, 1800.0f, -24448);
+	interrupt(0, 1800, time, "BossCardFireAgniRad");
+	lifebar(0, 1800.0f, -24448);
 !*
-    goto Boss2_2648 @ 0;
-Boss2_1860:
+	}
+	else if (SHOT_TYPE == [SHOT_MARISA_B]) {
 !E
-    interrupt(0, 1800, $A, "BossCardEarthTrilithon");
-    lifebar(0, 1800.0f, -128);
+	interrupt(0, 1800, time, "BossCardEarthTrilithon");
+	lifebar(0, 1800.0f, -128);
 !N
-    interrupt(0, 1800, $A, "BossCardMetalFatigue");
-    lifebar(0, 1800.0f, -6250336);
+	interrupt(0, 1800, time, "BossCardMetalFatigue");
+	lifebar(0, 1800.0f, -6250336);
 !HL
-    interrupt(0, 1800, $A, "BossCardMetalDragon");
-    lifebar(0, 1800.0f, -6250336);
+	interrupt(0, 1800, time, "BossCardMetalDragon");
+	lifebar(0, 1800.0f, -6250336);
 !*
-    goto Boss2_2648 @ 0;
-Boss2_2132:
+	}
+	else if (SHOT_TYPE == [SHOT_SANAE_A]) {
 !E
-    interrupt(0, 1600, $A, "BossCardMetalMemory");
-    lifebar(0, 1600.0f, -6250336);
+	interrupt(0, 1600, time, "BossCardMetalMemory");
+	lifebar(0, 1600.0f, -6250336);
 !N
-    interrupt(0, 1600, $A, "BossCardWoodLeaf");
-    lifebar(0, 1600.0f, -8323200);
+	interrupt(0, 1600, time, "BossCardWoodLeaf");
+	lifebar(0, 1600.0f, -8323200);
 !HL
-    interrupt(0, 1600, $A, "BossCardWoodSylphyHL");
-    lifebar(0, 1600.0f, -8323200);
+	interrupt(0, 1600, time, "BossCardWoodSylphyHL");
+	lifebar(0, 1600.0f, -8323200);
 !*
-    goto Boss2_2648 @ 0;
-Boss2_2400:
+	}
+	else if (SHOT_TYPE == [SHOT_SANAE_B]) {
 !E
-    interrupt(0, 1800, $A, "BossCardWaterMonsoon");
-    lifebar(0, 1800.0f, -8347393);
+	interrupt(0, 1800, time, "BossCardWaterMonsoon");
+	lifebar(0, 1800.0f, -8347393);
 !N
-    interrupt(0, 1600, $A, "BossCardMetalMemoryHL");
-    lifebar(0, 1600.0f, -6250336);
+	interrupt(0, 1600, time, "BossCardMetalMemoryHL");
+	lifebar(0, 1600.0f, -6250336);
 !HL
-    interrupt(0, 1800, $A, "BossCardMetalGold");
-    lifebar(0, 1800.0f, -6250336);
-Boss2_2648:
+	interrupt(0, 1800, time, "BossCardMetalGold");
+	lifebar(0, 1800.0f, -6250336);
 !*
-    stageProg(24);
-    lives(1);
-    anm(2);
-    anmScrNoMove(0, 0);
-    anmScrSlot(0, 119);
-    playSE(31);
-    unless ($TIMEOUT == 0) goto Boss2_3104 @ 0;
-    itemClear();
-    if ($POWER == 400) goto Boss2_3020 @ 0;
-    itemMain(1);
-    itemEx(1, 59);
-    goto Boss2_3064 @ 0;
-Boss2_3020:
-    itemMain(2);
-    itemEx(2, 59);
-Boss2_3064:
-    itemArea(64.0f, 64.0f);
-    itemDrop();
-Boss2_3104:
-    ins_269(0);
+	}
+	stageProg(24);
+	lives(1);
+	anm(2);
+	anmScrNoMove(0, 0);
+	anmScrSlot(0, 119);
+	playSE(31);
+	if (TIMEOUT == 0)
+		@ItemDrop2(65, 64.0f, 64.0f);
+	else
+		@ItemDrop(65, 64.0f, 64.0f);
+	ins_269(0);
 120:
-    $BOSS4 = 0;
-Boss2_3164:
-    if ($BOSS4 % 2) goto Boss2_3308 @ 100;
-    call("Boss1_at1", _SS 4);
-    goto Boss2_3348 @ 100;
-Boss2_3308:
-    call("Boss1_at1", _SS 0);
-Boss2_3348:
-    enmRand(90, 4, 2.5f);
-    callSlot("Boss2_at", 1);
-    wait(90);
-    enmPosTime(90, 4, 0.0f, 128.0f);
-    wait(90);
-    endSlot(1);
-    $BOSS4 = ($BOSS4 + 1);
-    goto Boss2_3164 @ 40;
-    if 1 goto Boss2_3104 @ 0;
-    return();
+	etNew(0);
+	etEx(0, 0, 0, 2, 2, [NEG], [NEGF], [NEGF]);
+	etNew(1);
+	etSE(1, 19, -1);
+	etSpd(1, 32.0f, 32.0f);
+	laserSetSize(1, 500.0f, 500.0f, 0.0f, 48.0f);
+	BOSS1 = 0;
+	while 1 {
+		ins_269(0);
+180:
+		@Boss1At(BOSS1 % 2);
+		@Boss2_at();
+		BOSS1 += 1;
+	}
+9180:
+	return();
 }
 
 sub Boss2_at()
 {
-    var A;
-    etNew(0);
-    etOfs(0, 0.0f, -12.0f);
-    etMode(0, 2);
-    etSpr(0, 3, 6);
-    $A = ($RANK + 2);
-    etAmt(0, _S($BOSS4 + 10), $A);
-!EN
-    4.0f;
-!HL
-    5.5f;
-!*
-    etSpd(0, _f([-1.0f] + 0.5f), 1.75f);
-    etAng(0, 0.0f, 0.0f);
-    etEx(0, 0, 0, 2, 2, [NEG], [NEGF], [NEGF]);
-Boss2_at_440:
-    etOn(0);
-    wait_rank(20, 15, 15, 10);
-    goto Boss2_at_440 @ 0;
-    return();
+	enmRand(90, 4, 2.5f);
+	etNew(2);
+	etMode(2, [ETON_CIR_AIM]);
+	etSpr(2, [ET_BALL], [BLUE16]);
+	etSpd(2, 4.5f:4.5f:6.0f, 1.75f);
+	etAng(2, 0.0f, 0.0f);
+	etAmt(2, BOSS1 + 10, 2:3:4:5);
+	etEx(2, 0, 0, 2, 2, [NEG], [NEGF], [NEGF]);
+	callSlot("et_on_rate", 1, _SS 2, _SS (20:15:15:10), _SS 0);
+90:
+	enmPosTime(90, 4, 0.0f, 128.f);
+180:
+	etAmt(2, 6:12:16:20, 1);
+	etSpd(2, 1.5f:2.0f, 1.25f);
+	endSlot(1);
+	return();
 }
 
 sub Boss3()
 {
-    var A B C;
-    $BOSS4 = 0;
-    $A = 2400;
+	BOSS4 = 0;
+	int lifeval;
+	float lifepos;
+	int time = 2400;
 !E
-    $B = 1700;
-    %C = 1700.0f;
+	lifeval = 1700;
+	lifepos = 1700.0f;
 !N
-    $B = 3400;
-    %C = 3400.0f;
+	lifeval = 3400;
+	lifepos = 3400.0f;
 !HL
-    $B = 5100;
-    %C = 5100.0f;
+	lifeval = 5100;
+	lifepos = 5100.0f;
 !*
-    life($B);
-    resetBoss();
-    ins_21();
-    enmClear();
-    unless ($TIMEOUT == 0) goto Boss3_548 @ 0;
-    etClear(640.0f);
-    goto Boss3_568 @ 0;
-Boss3_548:
-    etClear_ni(640.0f);
-Boss3_568:
-    $MISS_COUNT = 0;
-    $BOMB_COUNT = 0;
-    enmDir(0.0f, 0.0f);
-    enmDirTime(0, 0, 0.0f, 0.0f);
-    enmPosTime(0, 0, 0.0f, 0.0f);
-    cardEnd();
-    ins_529(0);
-    resetBossParam();
-    playSE(28);
-    lives(0);
-    invinc(120);
-    unless ($TIMEOUT == 0) goto Boss3_1176 @ 0;
-    itemClear();
-    if ($POWER == 400) goto Boss3_1092 @ 0;
-    itemMain(1);
-    itemEx(1, 59);
-    goto Boss3_1136 @ 0;
-Boss3_1092:
-    itemMain(2);
-    itemEx(2, 59);
-Boss3_1136:
-    itemArea(64.0f, 64.0f);
-    itemDrop();
-Boss3_1176:
-    playSE(28);
-    if ($SHOT_TYPE == 0) goto Boss3_2172 @ 0;
-    if ($SHOT_TYPE == 1) goto Boss3_1676 @ 0;
-    if ($SHOT_TYPE == 2) goto Boss3_2668 @ 0;
-    if ($SHOT_TYPE == 3) goto Boss3_3164 @ 0;
-    if ($SHOT_TYPE == 4) goto Boss3_3660 @ 0;
-    if ($SHOT_TYPE == 5) goto Boss3_4156 @ 0;
-Boss3_1676:
-    lifebar(0, %C, -12160);
+	life(lifeval);
+	resetBoss();
+	ins_21();
+	enmClear();
+	if (TIMEOUT == 0) {
+		etClear(640.0f);
+	}
+	else {
+		etClear_ni(640.0f);
+	}
+	MISS_COUNT = 0;
+	BOMB_COUNT = 0;
+	enmDir(0.0f, 0.0f);
+	enmDirTime(0, 0, 0.0f, 0.0f);
+	enmPosTime(0, 0, 0.0f, 0.0f);
+	cardEnd();
+	ins_529(0);
+	resetBossParam();
+	playSE(28);
+	lives(0);
+	invinc(120);
+	if (TIMEOUT == 0)
+		@ItemDrop2(65, 64.0f, 64.0f);
+	else
+		@ItemDrop(65, 64.0f, 64.0f);
+	playSE(28);
+	if (SHOT_TYPE == [SHOT_REIMU_A]) {
+	lifebar(0, lifepos, -8335168);
 !NHL
-    lifebar(1, _f(%C - 1700.0f), -7298864);
+	lifebar(1, lifepos - 1700.f, -7298864);
 !HL
-    lifebar(2, _f(%C - 3400.0f), -4140928);
+	lifebar(2, lifepos - 3400.f, -3092336);
 !*
-    wait(120);
-    interrupt(0, $B, $A, "BossCardFiEa");
+	wait(120);
+	interrupt(0, lifeval, time, "BossCardWaWo");
 !NHL
-    interrupt(1, _S($B - 1700), $A, "BossCardMeWa");
+	interrupt(1, lifeval - 1700, time, "BossCardMeWa");
 !HL
-    interrupt(2, _S($B - 3400), $A, "BossCardWoFi");
+	interrupt(2, lifeval - 3400, time, "BossCardEaMe");
 !*
-    goto Boss3_4628 @ 0;
-Boss3_2172:
-    lifebar(0, %C, -8335168);
+	}
+	else if (SHOT_TYPE == [SHOT_REIMU_B]) {
+	lifebar(0, lifepos, -12160);
 !NHL
-    lifebar(1, _f(%C - 1700.0f), -7298864);
+	lifebar(1, lifepos - 1700.f, -7298864);
 !HL
-    lifebar(2, _f(%C - 3400.0f), -3092336);
+	lifebar(2, lifepos - 3400.f, -4140928);
 !*
-    wait(120);
-    interrupt(0, $B, $A, "BossCardWaWo");
+	wait(120);
+	interrupt(0, lifeval, time, "BossCardFiEa");
 !NHL
-    interrupt(1, _S($B - 1700), $A, "BossCardMeWa");
+	interrupt(1, lifeval - 1700, time, "BossCardMeWa");
 !HL
-    interrupt(2, _S($B - 3400), $A, "BossCardEaMe");
+	interrupt(2, lifeval - 3400, time, "BossCardWoFi");
 !*
-    goto Boss3_4628 @ 0;
-Boss3_2668:
-    lifebar(0, %C, -4140928);
+	}
+	else if (SHOT_TYPE == [SHOT_MARISA_A]) {
+	lifebar(0, lifepos, -4140928);
 !NHL
-    lifebar(1, _f(%C - 1700.0f), -3092336);
+	lifebar(1, lifepos - 1700.f, -3092336);
 !HL
-    lifebar(2, _f(%C - 3400.0f), -12160);
+	lifebar(2, lifepos - 3400.f, -12160);
 !*
-    wait(120);
-    interrupt(0, $B, $A, "BossCardWoFi");
+	wait(120);
+	interrupt(0, lifeval, time, "BossCardWoFi");
 !NHL
-    interrupt(1, _S($B - 1700), $A, "BossCardEaMe");
+	interrupt(1, lifeval - 1700, time, "BossCardEaMe");
 !HL
-    interrupt(2, _S($B - 3400), $A, "BossCardFiEa");
+	interrupt(2, lifeval - 3400, time, "BossCardFiEa");
 !*
-    goto Boss3_4628 @ 0;
-Boss3_3164:
-    lifebar(0, %C, -3092336);
+	}
+	else if (SHOT_TYPE == [SHOT_MARISA_B]) {
+	lifebar(0, lifepos, -3092336);
 !NHL
-    lifebar(1, _f(%C - 1700.0f), -8335168);
+	lifebar(1, lifepos - 1700.f, -8335168);
 !HL
-    lifebar(2, _f(%C - 3400.0f), -7298864);
+	lifebar(2, lifepos - 3400.f, -7298864);
 !*
-    wait(120);
-    interrupt(0, $B, $A, "BossCardEaMe");
+	wait(120);
+	interrupt(0, lifeval, time, "BossCardEaMe");
 !NHL
-    interrupt(1, _S($B - 1700), $A, "BossCardWaWo");
+	interrupt(1, lifeval - 1700, time, "BossCardWaWo");
 !HL
-    interrupt(2, _S($B - 3400), $A, "BossCardMeWa");
+	interrupt(2, lifeval - 3400, time, "BossCardMeWa");
 !*
-    goto Boss3_4628 @ 0;
-Boss3_3660:
-    lifebar(0, %C, -4153152);
+	}
+	else if (SHOT_TYPE == [SHOT_SANAE_A]) {
+	lifebar(0, lifepos, -4153152);
 !NHL
-    lifebar(1, _f(%C - 1700.0f), -7286640);
+	lifebar(1, lifepos - 1700.f, -7286640);
 !HL
-    lifebar(2, _f(%C - 3400.0f), -12160);
+	lifebar(2, lifepos - 3400.f, -12160);
 !*
-    wait(120);
-    interrupt(0, $B, $A, "BossCardWaFi");
+	wait(120);
+	interrupt(0, lifeval, time, "BossCardWaFi");
 !NHL
-    interrupt(1, _S($B - 1700), $A, "BossCardWoMe");
+	interrupt(1, lifeval - 1700, time, "BossCardWoMe");
 !HL
-    interrupt(2, _S($B - 3400), $A, "BossCardFiEa");
+	interrupt(2, lifeval - 3400, time, "BossCardFiEa");
 !*
-    goto Boss3_4628 @ 0;
-Boss3_4156:
-    lifebar(0, %C, -7298864);
+	}
+	else if (SHOT_TYPE == [SHOT_SANAE_B]) {
+	lifebar(0, lifepos, -7298864);
 !NHL
-    lifebar(1, _f(%C - 1700.0f), -8335168);
+	lifebar(1, lifepos - 1700.f, -8335168);
 !HL
-    lifebar(2, _f(%C - 3400.0f), -7286640);
+	lifebar(2, lifepos - 3400.f, -7286640);
 !*
-    wait(120);
-    interrupt(0, $B, $A, "BossCardMeWa");
+	wait(120);
+	interrupt(0, lifeval, time, "BossCardMeWa");
 !NHL
-    interrupt(1, _S($B - 1700), $A, "BossCardWaWo");
+	interrupt(1, lifeval - 1700, time, "BossCardWaWo");
 !HL
-    interrupt(2, _S($B - 3400), $A, "BossCardWoMe");
-Boss3_4628:
-!ENH
-    interrupt(_S($RANK + 1), 0, $A, "BossDead");
-!L
-    interrupt(3, 0, $A, "BossDead");
+	interrupt(2, lifeval - 3400, time, "BossCardWoMe");
 !*
-    stageProg(25);
-    anmScrSlot(0, 119);
-    goto Boss3_4856 @ 0;
-Boss3_4840:
-    noop();
-Boss3_4856:
-1:
-    goto Boss3_4840 @ 0;
-    return();
+	}
+!EN
+	interrupt(RANK + 1, 0, time, "BossDead");
+!HL
+	interrupt(3, 0, time, "BossDead");
+!*
+	stageProg(25);
+	anmScrSlot(0, 119);
+	while 1 wait(1000);
+	return();
 }
 
 sub BossCardEaMe()
 {
-    var A B C;
-    resetBoss();
-    ins_21();
-    enmClear();
-    enmNewRel("Ecl_EtBreak", 0.0f, 0.0f, 9999, 0, 0);
-    cardEnd();
-    ins_529(0);
-    resetBossParam();
-    playSE(28);
-    enmDir(0.0f, 0.0f);
-    enmDirTime(0, 0, 0.0f, 0.0f);
-    enmPosTime(0, 0, 0.0f, 0.0f);
-    $MISS_COUNT = 0;
-    $BOMB_COUNT = 0;
-    call("BossCheckItems");
-    cardE(94, 2400, 500000, "土＆金符「エメラルドメガリス」");
-    invinc(120);
-    stageProg(43);
-    enmPosTime(120, 4, 0.0f, 80.0f);
-    anmScrNoMove(0, 0);
-    etNew(0);
-    etMode(0, 1);
-    etSpr(0, 26, 2);
+	var A, B, C;
+	resetBoss();
+	ins_21();
+	enmClear();
+	enmNewRel("Ecl_EtBreak", 0.0f, 0.0f, 9999, 0, 0);
+	cardEnd();
+	ins_529(0);
+	resetBossParam();
+	playSE(28);
+	enmDir(0.0f, 0.0f);
+	enmDirTime(0, 0, 0.0f, 0.0f);
+	enmPosTime(0, 0, 0.0f, 0.0f);
+	MISS_COUNT = 0;
+	BOMB_COUNT = 0;
+	@BossCheckItems();
+	cardE(94, 2400, 500000, "土＆金符「エメラルドメガリス」");
+	invinc(120);
+	stageProg(43);
+	enmPosTime(120, 4, 0.0f, 80.0f);
+	anmScrNoMove(0, 0);
+	etNew(0);
+	etMode(0, 1);
+	etSpr(0, 26, 2);
 !ENH
-    1;
+	1;
 !L
-    3;
+	3;
 !*
-    etAmt(0, [-1], 1);
-    etAng(0, 1.5707964f, 0.5235988f);
-    etEx(0, 0, 0, 2, 2, [NEG], [NEGF], [NEGF]);
-    etNew(1);
-    etMode(1, 8);
-    etSpr(1, 5, 11);
+	etAmt(0, [-1], 1);
+	etAng(0, 1.5707964f, rad(30.f));
+	etEx(0, 0, 0, 2, 2, [NEG], [NEGF], [NEGF]);
+	etNew(1);
+	etMode(1, 8);
+	etSpr(1, 5, 11);
 !E
-    4;
+	4;
 !N
-    12;
+	12;
 !H
-    18;
+	18;
 !L
-    24;
+	24;
 !*
-    etAmt(1, [-1], 1);
+	etAmt(1, [-1], 1);
 !EN
-    1.8f;
+	1.8f;
 !HL
-    2.4f;
+	2.4f;
 !*
-    etSpd(1, [-1.0f], 1.0f);
-    etAng(1, 3.1415927f, -3.1415927f);
-    etEx(1, 0, 0, 2, 1, [NEG], [NEGF], [NEGF]);
-    $A = 0;
+	etSpd(1, [-1.0f], 1.0f);
+	etAng(1, 3.1415927f, -3.1415927f);
+	etEx(1, 0, 0, 2, 1, [NEG], [NEGF], [NEGF]);
+	$A = 0;
 BossCardEaMe_1152:
 120:
-    %B = (%RF * 288.0f);
-    %C = (%RF * 128.0f);
-    %B = (%B - 144.0f);
-    %C = (%C - 64.0f);
-    etOfs(0, %B, %C);
-    etOfs(1, %B, %C);
-    %B = (%RF * 2.0f);
-    etSpd(0, _f(%B + 1.6f), 0.8f);
-    etOn(0);
-    $A = ($A % 18);
-    if ($A != 7) goto BossCardEaMe_1876 @ 120;
-    enmRand(90, 4, 1.5f);
+	%B = (%RF * 288.0f);
+	%C = (%RF * 128.0f);
+	%B -= 144.0f;
+	%C -= 64.0f;
+	etOfs(0, %B, %C);
+	etOfs(1, %B, %C);
+	%B = (%RF * 2.0f);
+	etSpd(0, _f(%B + 1.6f), 0.8f);
+	etOn(0);
+	$A = ($A % 18);
+	if ($A != 7) goto BossCardEaMe_1876 @ 120;
+	enmRand(90, 4, 1.5f);
 BossCardEaMe_1876:
 121:
-    etEx(1, 2, 0, 16, 180, 1, _f(%RDEG / 2.0f), 1.7f);
-    etOn(1);
-    $A = ($A + 1);
+	etEx(1, 2, 0, 16, 180, 1, _f(%RDEG / 2.0f), 1.7f);
+	etOn(1);
+	$A += 1;
 140:
-    goto BossCardEaMe_1152 @ 120;
-    return();
+	goto BossCardEaMe_1152 @ 120;
+	return();
 }
 
 sub BossCardEarthTrilithon()
 {
-    var A B C;
-    resetBoss();
-    ins_21();
-    enmClear();
-    enmNewRel("Ecl_EtBreak", 0.0f, 0.0f, 9999, 0, 0);
-    cardEnd();
-    ins_529(0);
-    resetBossParam();
-    playSE(28);
-    enmDir(0.0f, 0.0f);
-    enmDirTime(0, 0, 0.0f, 0.0f);
-    enmPosTime(0, 0, 0.0f, 0.0f);
-    $MISS_COUNT = 0;
-    $BOMB_COUNT = 0;
-    call("BossSetNextNon", _SS 2100);
-    cardE(44, 2100, 500000, "土符「レイジィトリリトン」");
-    invinc(120);
-    stageProg(43);
-    enmPosTime(60, 4, 0.0f, 80.0f);
-    anmScrNoMove(0, 0);
-    etNew(0);
-    etMode(0, 8);
-    etSpr(0, 5, 13);
+	var A, B, C;
+	resetBoss();
+	ins_21();
+	enmClear();
+	enmNewRel("Ecl_EtBreak", 0.0f, 0.0f, 9999, 0, 0);
+	cardEnd();
+	ins_529(0);
+	resetBossParam();
+	playSE(28);
+	enmDir(0.0f, 0.0f);
+	enmDirTime(0, 0, 0.0f, 0.0f);
+	enmPosTime(0, 0, 0.0f, 0.0f);
+	MISS_COUNT = 0;
+	BOMB_COUNT = 0;
+	@BossSetNextNon(2100);
+	cardE(44, 2100, 500000, "土符「レイジィトリリトン」");
+	invinc(120);
+	stageProg(43);
+	enmPosTime(60, 4, 0.0f, 80.0f);
+	anmScrNoMove(0, 0);
+	etNew(0);
+	etMode(0, 8);
+	etSpr(0, 5, 13);
 !E
-    7;
+	7;
 !N
-    10;
+	10;
 !*
-    etAmt(0, [-1], 1);
-    etSpd(0, 2.4f, 1.0f);
-    etAng(0, 0.0f, 3.1415927f);
-    etEx(0, 0, 0, 2, 2, [NEG], [NEGF], [NEGF]);
-    etEx(0, 1, 0, 1, [NEG], [NEG], [NEGF], [NEGF]);
-    etNew(1);
-    etMode(1, 0);
-    etSpr(1, 3, 6);
-    etAmt(1, 7, 2);
-    etSpd(1, 2.8f, 1.2f);
-    etAng(1, 0.0f, 0.3490658f);
-    etEx(1, 0, 0, 2, 2, [NEG], [NEGF], [NEGF]);
+	etAmt(0, [-1], 1);
+	etSpd(0, 2.4f, 1.0f);
+	etAng(0, 0.0f, 3.1415927f);
+	etEx(0, 0, 0, 2, 2, [NEG], [NEGF], [NEGF]);
+	etEx(0, 1, 0, 1, [NEG], [NEG], [NEGF], [NEGF]);
+	etNew(1);
+	etMode(1, 0);
+	etSpr(1, 3, 6);
+	etAmt(1, 7, 2);
+	etSpd(1, 2.8f, 1.2f);
+	etAng(1, 0.0f, 0.3490658f);
+	etEx(1, 0, 0, 2, 2, [NEG], [NEGF], [NEGF]);
 BossCardEarthTrilithon_1072:
 120:
-    %A = (%RF * 3.1415927f);
-    etEx(0, 2, 1, 16, 180, 1, _f(%A - 1.5707964f), 1.4f);
-    etOn(0);
-    if (%PLAYER_Y >= %ABS_Y) goto BossCardEarthTrilithon_1372 @ 120;
-    etOn(1);
+	%A = (%RF * 3.1415927f);
+	etEx(0, 2, 1, 16, 180, 1, _f(%A - 1.5707964f), 1.4f);
+	etOn(0);
+	if (%PLAYER_Y >= %ABS_Y) goto BossCardEarthTrilithon_1372 @ 120;
+	etOn(1);
 BossCardEarthTrilithon_1372:
 132:
-    goto BossCardEarthTrilithon_1072 @ 120;
-    return();
+	goto BossCardEarthTrilithon_1072 @ 120;
+	return();
 }
 
 sub BossCardEarthTrilithonHL()
 {
-    var A;
-    resetBoss();
-    ins_21();
-    enmClear();
-    enmNewRel("Ecl_EtBreak", 0.0f, 0.0f, 9999, 0, 0);
-    cardEnd();
-    ins_529(0);
-    resetBossParam();
-    playSE(28);
-    enmDir(0.0f, 0.0f);
-    enmDirTime(0, 0, 0.0f, 0.0f);
-    enmPosTime(0, 0, 0.0f, 0.0f);
-    $MISS_COUNT = 0;
-    $BOMB_COUNT = 0;
-    call("BossSetNextNon", _SS 2100);
-    cardN(58, 2100, 500000, "土符「レイジィトリリトン上級」");
-    invinc(120);
-    stageProg(43);
-    enmPosTime(60, 4, 0.0f, 80.0f);
-    anmScrNoMove(0, 0);
-    etNew(0);
-    etMode(0, 8);
-    etSpr(0, 5, 12);
+	var A;
+	resetBoss();
+	ins_21();
+	enmClear();
+	enmNewRel("Ecl_EtBreak", 0.0f, 0.0f, 9999, 0, 0);
+	cardEnd();
+	ins_529(0);
+	resetBossParam();
+	playSE(28);
+	enmDir(0.0f, 0.0f);
+	enmDirTime(0, 0, 0.0f, 0.0f);
+	enmPosTime(0, 0, 0.0f, 0.0f);
+	MISS_COUNT = 0;
+	BOMB_COUNT = 0;
+	@BossSetNextNon(2100);
+	cardN(58, 2100, 500000, "土符「レイジィトリリトン上級」");
+	invinc(120);
+	stageProg(43);
+	enmPosTime(60, 4, 0.0f, 80.0f);
+	anmScrNoMove(0, 0);
+	etNew(0);
+	etMode(0, 8);
+	etSpr(0, 5, 12);
 !E
-    10;
+	10;
 !N
-    12;
+	12;
 !H
-    15;
+	15;
 !*
-    etAmt(0, [-1], 1);
-    etSpd(0, 3.3f, 2.3f);
-    etAng(0, 0.0f, 3.1415927f);
-    etEx(0, 0, 0, 2, 2, [NEG], [NEGF], [NEGF]);
-    etEx(0, 1, 0, 1, [NEG], [NEG], [NEGF], [NEGF]);
-    etNew(1);
-    etMode(1, 0);
-    etSpr(1, 3, 6);
-    etAmt(1, 7, 2);
-    etSpd(1, 2.8f, 1.2f);
-    etAng(1, 0.0f, 0.3490658f);
-    etEx(1, 0, 0, 2, 2, [NEG], [NEGF], [NEGF]);
+	etAmt(0, [-1], 1);
+	etSpd(0, 3.3f, 2.3f);
+	etAng(0, 0.0f, 3.1415927f);
+	etEx(0, 0, 0, 2, 2, [NEG], [NEGF], [NEGF]);
+	etEx(0, 1, 0, 1, [NEG], [NEG], [NEGF], [NEGF]);
+	etNew(1);
+	etMode(1, 0);
+	etSpr(1, 3, 6);
+	etAmt(1, 7, 2);
+	etSpd(1, 2.8f, 1.2f);
+	etAng(1, 0.0f, 0.3490658f);
+	etEx(1, 0, 0, 2, 2, [NEG], [NEGF], [NEGF]);
 BossCardEarthTrilithonHL_1096:
 120:
-    %A = (%RF * 3.1415927f);
-    etEx(0, 2, 1, 16, 50, 2, _f(%A - 1.5707964f), 2.2f);
-    etOn(0);
-    if (%PLAYER_Y >= %ABS_Y) goto BossCardEarthTrilithonHL_1396 @ 120;
-    etOn(1);
+	%A = (%RF * 3.1415927f);
+	etEx(0, 2, 1, 16, 50, 2, _f(%A - 1.5707964f), 2.2f);
+	etOn(0);
+	if (%PLAYER_Y >= %ABS_Y) goto BossCardEarthTrilithonHL_1396 @ 120;
+	etOn(1);
 BossCardEarthTrilithonHL_1396:
 132:
-    goto BossCardEarthTrilithonHL_1096 @ 120;
-    return();
+	goto BossCardEarthTrilithonHL_1096 @ 120;
+	return();
 }
 
 sub BossCardEarthTrilithonShake()
 {
-    var A B;
-    resetBoss();
-    ins_21();
-    enmClear();
-    enmNewRel("Ecl_EtBreak", 0.0f, 0.0f, 9999, 0, 0);
-    cardEnd();
-    ins_529(0);
-    resetBossParam();
-    playSE(28);
-    enmDir(0.0f, 0.0f);
-    enmDirTime(0, 0, 0.0f, 0.0f);
-    enmPosTime(0, 0, 0.0f, 0.0f);
-    $MISS_COUNT = 0;
-    $BOMB_COUNT = 0;
-    call("BossSetNextNon", _SS 2100);
-    cardH(70, 2100, 500000, "土符「トリリトンシェイク」");
-    invinc(120);
-    stageProg(43);
-    enmPosTime(120, 4, 0.0f, 80.0f);
-    anmScrNoMove(0, 0);
-    $B = 0;
-    etNew(0);
-    etMode(0, 8);
-    etSpr(0, 5, 12);
+	var A, B;
+	resetBoss();
+	ins_21();
+	enmClear();
+	enmNewRel("Ecl_EtBreak", 0.0f, 0.0f, 9999, 0, 0);
+	cardEnd();
+	ins_529(0);
+	resetBossParam();
+	playSE(28);
+	enmDir(0.0f, 0.0f);
+	enmDirTime(0, 0, 0.0f, 0.0f);
+	enmPosTime(0, 0, 0.0f, 0.0f);
+	MISS_COUNT = 0;
+	BOMB_COUNT = 0;
+	@BossSetNextNon(2100);
+	cardH(70, 2100, 500000, "土符「トリリトンシェイク」");
+	invinc(120);
+	stageProg(43);
+	enmPosTime(120, 4, 0.0f, 80.0f);
+	anmScrNoMove(0, 0);
+	$B = 0;
+	etNew(0);
+	etMode(0, 8);
+	etSpr(0, 5, 12);
 !H
-    12;
+	12;
 !L
-    18;
+	18;
 !*
-    etAmt(0, [-1], 1);
-    etSpd(0, 2.4f, 1.0f);
-    etAng(0, 0.0f, 3.1415927f);
-    etEx(0, 0, 0, 2, 2, [NEG], [NEGF], [NEGF]);
-    etEx(0, 1, 0, 1, [NEG], [NEG], [NEGF], [NEGF]);
-    etNew(1);
-    etMode(1, 0);
-    etSpr(1, 3, 6);
-    etAmt(1, 7, 2);
-    etSpd(1, 2.8f, 1.2f);
-    etAng(1, 0.0f, 0.3490658f);
-    etEx(1, 0, 0, 2, 2, [NEG], [NEGF], [NEGF]);
-    etNew(2);
-    etMode(2, 2);
-    etSpr(2, 26, 3);
-    etAmt(2, 7, 1);
-    etSpd(2, 3.4f, 1.2f);
-    etAng(2, 0.0f, 0.3490658f);
-    etEx(2, 0, 0, 2, 2, [NEG], [NEGF], [NEGF]);
+	etAmt(0, [-1], 1);
+	etSpd(0, 2.4f, 1.0f);
+	etAng(0, 0.0f, 3.1415927f);
+	etEx(0, 0, 0, 2, 2, [NEG], [NEGF], [NEGF]);
+	etEx(0, 1, 0, 1, [NEG], [NEG], [NEGF], [NEGF]);
+	etNew(1);
+	etMode(1, 0);
+	etSpr(1, 3, 6);
+	etAmt(1, 7, 2);
+	etSpd(1, 2.8f, 1.2f);
+	etAng(1, 0.0f, 0.3490658f);
+	etEx(1, 0, 0, 2, 2, [NEG], [NEGF], [NEGF]);
+	etNew(2);
+	etMode(2, 2);
+	etSpr(2, 26, 3);
+	etAmt(2, 7, 1);
+	etSpd(2, 3.4f, 1.2f);
+	etAng(2, 0.0f, 0.3490658f);
+	etEx(2, 0, 0, 2, 2, [NEG], [NEGF], [NEGF]);
 BossCardEarthTrilithonShake_1316:
 120:
-    %A = (%RF * 3.1415927f);
-    etEx(0, 2, 1, 16, 90, 1, _f(%A - 1.5707964f), 1.8f);
-    etOn(0);
-    if ($B % 3) goto BossCardEarthTrilithonShake_1616 @ 120;
-    etOn(2);
+	%A = (%RF * 3.1415927f);
+	etEx(0, 2, 1, 16, 90, 1, _f(%A - 1.5707964f), 1.8f);
+	etOn(0);
+	if ($B % 3) goto BossCardEarthTrilithonShake_1616 @ 120;
+	etOn(2);
 BossCardEarthTrilithonShake_1616:
-    if (%PLAYER_Y >= %ABS_Y) goto BossCardEarthTrilithonShake_1716 @ 120;
-    etOn(1);
+	if (%PLAYER_Y >= %ABS_Y) goto BossCardEarthTrilithonShake_1716 @ 120;
+	etOn(1);
 BossCardEarthTrilithonShake_1716:
-    $B = ($B + 1);
+	$B += 1;
 132:
-    goto BossCardEarthTrilithonShake_1316 @ 120;
-    return();
+	goto BossCardEarthTrilithonShake_1316 @ 120;
+	return();
 }
 
 sub BossCardFiEa()
 {
-    var A B C D;
-    resetBoss();
-    ins_21();
-    enmClear();
-    enmNewRel("Ecl_EtBreak", 0.0f, 0.0f, 9999, 0, 0);
-    cardEnd();
-    ins_529(0);
-    resetBossParam();
-    playSE(28);
-    enmDir(0.0f, 0.0f);
-    enmDirTime(0, 0, 0.0f, 0.0f);
-    enmPosTime(0, 0, 0.0f, 0.0f);
-    $MISS_COUNT = 0;
-    $BOMB_COUNT = 0;
-    call("BossCheckItems");
-    cardE(78, 2400, 500000, "火＆土符「ラーヴァクロムレク」");
-    invinc(120);
-    stageProg(43);
-    enmPosTime(120, 4, 0.0f, 80.0f);
-    anmScrNoMove(0, 0);
-    etNew(0);
-    etMode(0, 3);
-    etSpr(0, 24, 0);
+	var A, B, C, D;
+	resetBoss();
+	ins_21();
+	enmClear();
+	enmNewRel("Ecl_EtBreak", 0.0f, 0.0f, 9999, 0, 0);
+	cardEnd();
+	ins_529(0);
+	resetBossParam();
+	playSE(28);
+	enmDir(0.0f, 0.0f);
+	enmDirTime(0, 0, 0.0f, 0.0f);
+	enmPosTime(0, 0, 0.0f, 0.0f);
+	MISS_COUNT = 0;
+	BOMB_COUNT = 0;
+	@BossCheckItems();
+	cardE(78, 2400, 500000, "火＆土符「ラーヴァクロムレク」");
+	invinc(120);
+	stageProg(43);
+	enmPosTime(120, 4, 0.0f, 80.0f);
+	anmScrNoMove(0, 0);
+	etNew(0);
+	etMode(0, 3);
+	etSpr(0, 24, 0);
 !E
-    8;
+	8;
 !N
-    12;
+	12;
 !H
-    16;
+	16;
 !L
-    20;
+	20;
 !*
-    etAmt(0, [-1], 2);
-    etSpd(0, 2.5f, 0.7f);
-    etSE(0, 24, -1);
-    etEx(0, 0, 0, 268435456, 0, [NEG], [NEGF], [NEGF]);
-    etNew(1);
-    etMode(1, 8);
-    etSpr(1, 5, 13);
-    etSpd(1, 2.4f, 1.0f);
-    etAng(1, 3.1415927f, 0.0f);
-    etEx(1, 0, 0, 2, 1, [NEG], [NEGF], [NEGF]);
-    etEx(1, 1, 0, 1, [NEG], [NEG], [NEGF], [NEGF]);
-    $B = 0;
+	etAmt(0, [-1], 2);
+	etSpd(0, 2.5f, 0.7f);
+	etSE(0, 24, -1);
+	etEx(0, 0, 0, 268435456, 0, [NEG], [NEGF], [NEGF]);
+	etNew(1);
+	etMode(1, 8);
+	etSpr(1, 5, 13);
+	etSpd(1, 2.4f, 1.0f);
+	etAng(1, 3.1415927f, 0.0f);
+	etEx(1, 0, 0, 2, 1, [NEG], [NEGF], [NEGF]);
+	etEx(1, 1, 0, 1, [NEG], [NEG], [NEGF], [NEGF]);
+	$B = 0;
 BossCardFiEa_1120:
 120:
-    $A = 8;
-    goto BossCardFiEa_1232 @ 128;
+	$A = 8;
+	goto BossCardFiEa_1232 @ 128;
 BossCardFiEa_1184:
-    etAng(0, %RDEG, 0.1308997f);
-    etOn(0);
+	etAng(0, %RDEG, 0.1308997f);
+	etOn(0);
 BossCardFiEa_1232:
 128:
-    if $A-- goto BossCardFiEa_1184 @ 120;
+	if $A-- goto BossCardFiEa_1184 @ 120;
 188:
-    enmRand(90, 4, 1.5f);
-    $B = ($B + 1);
-    $A = 3;
-    $C = ($B * 2);
+	enmRand(90, 4, 1.5f);
+	$B += 1;
+	$A = 3;
+	$C = ($B * 2);
 !E
-    $C = ($C + 4);
+	$C += 4;
 !N
-    $C = ($C + 10);
+	$C += 10;
 !H
-    $C = ($C + 16);
+	$C += 16;
 !L
-    $C = ($C + 24);
+	$C += 24;
 !*
-    etAmt(1, $C, 1);
-    goto BossCardFiEa_2132 @ 198;
+	etAmt(1, $C, 1);
+	goto BossCardFiEa_2132 @ 198;
 BossCardFiEa_1852:
-    %D = (%RF * 3.1415927f);
-    %D = (%D - 1.5707964f);
+	%D = (%RF * 3.1415927f);
+	%D -= 1.5707964f;
 !EN
-    1.4f;
+	1.4f;
 !H
-    1.6f;
+	1.6f;
 !L
-    2.0f;
+	2.0f;
 !*
-    etEx(1, 2, 1, 16, 130, 1, %D, [-1.0f]);
-    etOn(1);
+	etEx(1, 2, 1, 16, 130, 1, %D, [-1.0f]);
+	etOn(1);
 BossCardFiEa_2132:
 198:
-    if $A-- goto BossCardFiEa_1852 @ 188;
-    goto BossCardFiEa_1120 @ 120;
-    return();
+	if $A-- goto BossCardFiEa_1852 @ 188;
+	goto BossCardFiEa_1120 @ 120;
+	return();
 }
 
 sub BossCardFireAgni()
 {
-    var A B C;
-    resetBoss();
-    ins_21();
-    enmClear();
-    enmNewRel("Ecl_EtBreak", 0.0f, 0.0f, 9999, 0, 0);
-    cardEnd();
-    ins_529(0);
-    resetBossParam();
-    playSE(28);
-    enmDir(0.0f, 0.0f);
-    enmDirTime(0, 0, 0.0f, 0.0f);
-    enmPosTime(0, 0, 0.0f, 0.0f);
-    $MISS_COUNT = 0;
-    $BOMB_COUNT = 0;
-    call("BossSetNextNon", _SS 1800);
-    cardE(38, 1800, 500000, "火符「アグニシャイン」");
-    invinc(120);
-    stageProg(43);
-    enmPosTime(60, 4, 0.0f, 80.0f);
-    anmScrNoMove(0, 0);
-    etNew(0);
-    etMode(0, 3);
-    etSpr(0, 24, 0);
-    etSE(0, 24, -1);
-    etEx(0, 0, 0, 268435456, 0, [NEG], [NEGF], [NEGF]);
+	var A, B, C;
+	resetBoss();
+	ins_21();
+	enmClear();
+	enmNewRel("Ecl_EtBreak", 0.0f, 0.0f, 9999, 0, 0);
+	cardEnd();
+	ins_529(0);
+	resetBossParam();
+	playSE(28);
+	enmDir(0.0f, 0.0f);
+	enmDirTime(0, 0, 0.0f, 0.0f);
+	enmPosTime(0, 0, 0.0f, 0.0f);
+	MISS_COUNT = 0;
+	BOMB_COUNT = 0;
+	@BossSetNextNon(1800);
+	cardE(38, 1800, 500000, "火符「アグニシャイン」");
+	invinc(120);
+	stageProg(43);
+	enmPosTime(60, 4, 0.0f, 80.0f);
+	anmScrNoMove(0, 0);
+	etNew(0);
+	etMode(0, 3);
+	etSpr(0, 24, 0);
+	etSE(0, 24, -1);
+	etEx(0, 0, 0, 268435456, 0, [NEG], [NEGF], [NEGF]);
 BossCardFireAgni_720:
 120:
-    $A = 0;
-    $B = 5;
-    $C = ($A / 3);
+	$A = 0;
+	$B = 5;
+	$C = ($A / 3);
 !E
-    $C + 7;
+	$C + 7;
 !N
-    $C + 11;
+	$C + 11;
 !*
-    etAmt(0, [-1], 1);
-    goto BossCardFireAgni_1412 @ 128;
+	etAmt(0, [-1], 1);
+	goto BossCardFireAgni_1412 @ 128;
 BossCardFireAgni_1040:
-    etSpd(0, 2.7f, 0.95f);
-    etAng(0, %RDEG, 0.1308997f);
-    etEx(0, 1, 0, 8, 128, [NEG], 0.0f, 0.02454369f);
-    etOn(0);
-    etSpd(0, 2.0f, 0.95f);
-    etAng(0, %RDEG, 0.1308997f);
-    etEx(0, 1, 0, 8, 128, [NEG], 0.0f, -0.02454369f);
-    etOn(0);
-    etSpd(0, 1.2f, 0.95f);
-    etAng(0, %RDEG, 0.1308997f);
-    etEx(0, 1, 0, 8, 128, [NEG], 0.0f, 0.02454369f);
-    etOn(0);
+	etSpd(0, 2.7f, 0.95f);
+	etAng(0, %RDEG, 0.1308997f);
+	etEx(0, 1, 0, 8, 128, [NEG], 0.0f, 0.02454369f);
+	etOn(0);
+	etSpd(0, 2.0f, 0.95f);
+	etAng(0, %RDEG, 0.1308997f);
+	etEx(0, 1, 0, 8, 128, [NEG], 0.0f, -0.02454369f);
+	etOn(0);
+	etSpd(0, 1.2f, 0.95f);
+	etAng(0, %RDEG, 0.1308997f);
+	etEx(0, 1, 0, 8, 128, [NEG], 0.0f, 0.02454369f);
+	etOn(0);
 BossCardFireAgni_1412:
 128:
-    if $B-- goto BossCardFireAgni_1040 @ 120;
+	if $B-- goto BossCardFireAgni_1040 @ 120;
 248:
-    enmRand(90, 4, 1.5f);
-    $A = ($A + 1);
+	enmRand(90, 4, 1.5f);
+	$A += 1;
 258:
-    goto BossCardFireAgni_720 @ 120;
-    return();
+	goto BossCardFireAgni_720 @ 120;
+	return();
 }
 
 sub BossCardFireAgniHL()
 {
-    var A B C;
-    resetBoss();
-    ins_21();
-    enmClear();
-    enmNewRel("Ecl_EtBreak", 0.0f, 0.0f, 9999, 0, 0);
-    cardEnd();
-    ins_529(0);
-    resetBossParam();
-    playSE(28);
-    enmDir(0.0f, 0.0f);
-    enmDirTime(0, 0, 0.0f, 0.0f);
-    enmPosTime(0, 0, 0.0f, 0.0f);
-    $MISS_COUNT = 0;
-    $BOMB_COUNT = 0;
-    call("BossSetNextNon", _SS 1800);
-    cardN(52, 1800, 500000, "火符「アグニシャイン上級」");
-    invinc(120);
-    stageProg(43);
-    enmPosTime(60, 4, 0.0f, 80.0f);
-    anmScrNoMove(0, 0);
-    etNew(0);
-    etMode(0, 3);
-    etSpr(0, 24, 0);
-    etSE(0, 24, -1);
-    etEx(0, 0, 0, 268435456, 0, [NEG], [NEGF], [NEGF]);
+	var A, B, C;
+	resetBoss();
+	ins_21();
+	enmClear();
+	enmNewRel("Ecl_EtBreak", 0.0f, 0.0f, 9999, 0, 0);
+	cardEnd();
+	ins_529(0);
+	resetBossParam();
+	playSE(28);
+	enmDir(0.0f, 0.0f);
+	enmDirTime(0, 0, 0.0f, 0.0f);
+	enmPosTime(0, 0, 0.0f, 0.0f);
+	MISS_COUNT = 0;
+	BOMB_COUNT = 0;
+	@BossSetNextNon(1800);
+	cardN(52, 1800, 500000, "火符「アグニシャイン上級」");
+	invinc(120);
+	stageProg(43);
+	enmPosTime(60, 4, 0.0f, 80.0f);
+	anmScrNoMove(0, 0);
+	etNew(0);
+	etMode(0, 3);
+	etSpr(0, 24, 0);
+	etSE(0, 24, -1);
+	etEx(0, 0, 0, 268435456, 0, [NEG], [NEGF], [NEGF]);
 BossCardFireAgniHL_724:
 120:
-    $A = 0;
-    $B = 5;
-    $C = ($A / 3);
+	$A = 0;
+	$B = 5;
+	$C = ($A / 3);
 !EN
-    $C + 8;
+	$C + 8;
 !H
-    $C + 9;
+	$C + 9;
 !L
-    $C + 10;
+	$C + 10;
 !*
-    etAmt(0, [-1], 2);
+	etAmt(0, [-1], 2);
 !ENH
-    etSpd(0, 2.5f, 1.45f);
+	etSpd(0, 2.5f, 1.45f);
 !L
-    etSpd(0, 3.0f, 1.45f);
+	etSpd(0, 3.0f, 1.45f);
 !*
-    goto BossCardFireAgniHL_1348 @ 128;
+	goto BossCardFireAgniHL_1348 @ 128;
 BossCardFireAgniHL_1156:
-    etAng(0, %RDEG, 0.1308997f);
-    etEx(0, 1, 0, 8, 128, [NEG], 0.0f, 0.02454369f);
-    etOn(0);
-    etAng(0, %RDEG, 0.1308997f);
-    etEx(0, 1, 0, 8, 128, [NEG], 0.0f, -0.02454369f);
-    etOn(0);
+	etAng(0, %RDEG, 0.1308997f);
+	etEx(0, 1, 0, 8, 128, [NEG], 0.0f, 0.02454369f);
+	etOn(0);
+	etAng(0, %RDEG, 0.1308997f);
+	etEx(0, 1, 0, 8, 128, [NEG], 0.0f, -0.02454369f);
+	etOn(0);
 BossCardFireAgniHL_1348:
 128:
-    if $B-- goto BossCardFireAgniHL_1156 @ 120;
+	if $B-- goto BossCardFireAgniHL_1156 @ 120;
 248:
-    enmRand(90, 4, 1.5f);
-    $A = ($A + 1);
+	enmRand(90, 4, 1.5f);
+	$A += 1;
 258:
-    goto BossCardFireAgniHL_724 @ 120;
-    return();
+	goto BossCardFireAgniHL_724 @ 120;
+	return();
 }
 
 sub BossCardFireAgniRad()
 {
-    var A B C;
-    resetBoss();
-    ins_21();
-    enmClear();
-    enmNewRel("Ecl_EtBreak", 0.0f, 0.0f, 9999, 0, 0);
-    cardEnd();
-    ins_529(0);
-    resetBossParam();
-    playSE(28);
-    enmDir(0.0f, 0.0f);
-    enmDirTime(0, 0, 0.0f, 0.0f);
-    enmPosTime(0, 0, 0.0f, 0.0f);
-    $MISS_COUNT = 0;
-    $BOMB_COUNT = 0;
-    call("BossSetNextNon", _SS 1800);
-    cardH(64, 1800, 500000, "火符「アグニレイディアンス」");
-    invinc(120);
-    stageProg(43);
-    enmPosTime(120, 4, 0.0f, 80.0f);
-    anmScrNoMove(0, 0);
-    etNew(1);
-    etMode(1, 8);
-    etSpr(1, 26, 0);
+	var A, B, C;
+	resetBoss();
+	ins_21();
+	enmClear();
+	enmNewRel("Ecl_EtBreak", 0.0f, 0.0f, 9999, 0, 0);
+	cardEnd();
+	ins_529(0);
+	resetBossParam();
+	playSE(28);
+	enmDir(0.0f, 0.0f);
+	enmDirTime(0, 0, 0.0f, 0.0f);
+	enmPosTime(0, 0, 0.0f, 0.0f);
+	MISS_COUNT = 0;
+	BOMB_COUNT = 0;
+	@BossSetNextNon(1800);
+	cardH(64, 1800, 500000, "火符「アグニレイディアンス」");
+	invinc(120);
+	stageProg(43);
+	enmPosTime(120, 4, 0.0f, 80.0f);
+	anmScrNoMove(0, 0);
+	etNew(1);
+	etMode(1, 8);
+	etSpr(1, 26, 0);
 !H
-    etAmt(1, 2, 1);
-    etSpd(1, 3.5f, 0.95f);
+	etAmt(1, 2, 1);
+	etSpd(1, 3.5f, 0.95f);
 !L
-    etAmt(1, 6, 1);
-    etSpd(1, 4.5f, 0.95f);
+	etAmt(1, 6, 1);
+	etSpd(1, 4.5f, 0.95f);
 !*
-    etAng(1, 3.1415927f, -3.1415927f);
-    etNew(0);
-    etMode(0, 3);
-    etSpr(0, 24, 0);
-    etSE(0, 24, -1);
-    etEx(0, 0, 0, 268435456, 0, [NEG], [NEGF], [NEGF]);
+	etAng(1, 3.1415927f, -3.1415927f);
+	etNew(0);
+	etMode(0, 3);
+	etSpr(0, 24, 0);
+	etSE(0, 24, -1);
+	etEx(0, 0, 0, 268435456, 0, [NEG], [NEGF], [NEGF]);
 BossCardFireAgniRad_940:
 120:
-    $A = 0;
-    $B = 8;
-    $C = ($A / 5);
-    etAmt(0, _S($C + 7), 2);
+	$A = 0;
+	$B = 8;
+	$C = ($A / 5);
+	etAmt(0, _S($C + 7), 2);
 !H
-    etSpd(0, 2.0f, 0.75f);
+	etSpd(0, 2.0f, 0.75f);
 !L
-    etSpd(0, 2.5f, 1.25f);
+	etSpd(0, 2.5f, 1.25f);
 !*
-    goto BossCardFireAgniRad_1472 @ 128;
+	goto BossCardFireAgniRad_1472 @ 128;
 BossCardFireAgniRad_1260:
-    etAng(0, %RDEG, 0.1308997f);
-    etEx(0, 1, 0, 8, 128, [NEG], 0.0f, 0.02454369f);
-    etOn(0);
-    etAng(0, %RDEG, 0.1308997f);
-    etEx(0, 1, 0, 8, 128, [NEG], 0.0f, -0.02454369f);
-    etOn(0);
-    etOn(1);
+	etAng(0, %RDEG, 0.1308997f);
+	etEx(0, 1, 0, 8, 128, [NEG], 0.0f, 0.02454369f);
+	etOn(0);
+	etAng(0, %RDEG, 0.1308997f);
+	etEx(0, 1, 0, 8, 128, [NEG], 0.0f, -0.02454369f);
+	etOn(0);
+	etOn(1);
 BossCardFireAgniRad_1472:
 128:
-    if $B-- goto BossCardFireAgniRad_1260 @ 120;
+	if $B-- goto BossCardFireAgniRad_1260 @ 120;
 248:
-    enmRand(90, 4, 1.5f);
-    $A = ($A + 1);
+	enmRand(90, 4, 1.5f);
+	$A += 1;
 258:
-    goto BossCardFireAgniRad_940 @ 120;
-    return();
+	goto BossCardFireAgniRad_940 @ 120;
+	return();
 }
 
 sub BossCardMeWa()
 {
-    var A B C D;
-    resetBoss();
-    ins_21();
-    enmClear();
-    enmNewRel("Ecl_EtBreak", 0.0f, 0.0f, 9999, 0, 0);
-    cardEnd();
-    ins_529(0);
-    resetBossParam();
-    playSE(28);
-    enmDir(0.0f, 0.0f);
-    enmDirTime(0, 0, 0.0f, 0.0f);
-    enmPosTime(0, 0, 0.0f, 0.0f);
-    $MISS_COUNT = 0;
-    $BOMB_COUNT = 0;
-    call("BossCheckItems");
-    cardE(90, 2400, 500000, "金＆水符「マーキュリポイズン」");
-    invinc(120);
-    stageProg(43);
-    enmPosTime(120, 4, 0.0f, 80.0f);
-    anmScrNoMove(0, 0);
-    etNew(0);
-    etMode(0, 2);
-    etSpr(0, 3, 14);
-    etSpd(0, 2.0f, 1.05f);
-    etEx(0, 0, 0, 2, 2, [NEG], [NEGF], [NEGF]);
-    etEx(0, 1, 0, 1, [NEG], [NEG], [NEGF], [NEGF]);
-    etEx(0, 2, 0, 8, 90, 1, 0.003f, 0.01227185f);
-    etNew(1);
-    etMode(1, 2);
-    etSpr(1, 3, 8);
-    etSpd(1, 2.0f, 1.05f);
-    etEx(1, 0, 0, 2, 2, [NEG], [NEGF], [NEGF]);
-    etEx(1, 1, 0, 1, [NEG], [NEG], [NEGF], [NEGF]);
-    etEx(1, 2, 0, 8, 90, 1, 0.003f, -0.01227185f);
-    $B = 0;
+	var A, B, C, D;
+	resetBoss();
+	ins_21();
+	enmClear();
+	enmNewRel("Ecl_EtBreak", 0.0f, 0.0f, 9999, 0, 0);
+	cardEnd();
+	ins_529(0);
+	resetBossParam();
+	playSE(28);
+	enmDir(0.0f, 0.0f);
+	enmDirTime(0, 0, 0.0f, 0.0f);
+	enmPosTime(0, 0, 0.0f, 0.0f);
+	MISS_COUNT = 0;
+	BOMB_COUNT = 0;
+	@BossCheckItems();
+	cardE(90, 2400, 500000, "金＆水符「マーキュリポイズン」");
+	invinc(120);
+	stageProg(43);
+	enmPosTime(120, 4, 0.0f, 80.0f);
+	anmScrNoMove(0, 0);
+	etNew(0);
+	etMode(0, 2);
+	etSpr(0, 3, 14);
+	etSpd(0, 2.0f, 1.05f);
+	etEx(0, 0, 0, 2, 2, [NEG], [NEGF], [NEGF]);
+	etEx(0, 1, 0, 1, [NEG], [NEG], [NEGF], [NEGF]);
+	etEx(0, 2, 0, 8, 90, 1, 0.003f, 0.01227185f);
+	etNew(1);
+	etMode(1, 2);
+	etSpr(1, 3, 8);
+	etSpd(1, 2.0f, 1.05f);
+	etEx(1, 0, 0, 2, 2, [NEG], [NEGF], [NEGF]);
+	etEx(1, 1, 0, 1, [NEG], [NEG], [NEGF], [NEGF]);
+	etEx(1, 2, 0, 8, 90, 1, 0.003f, -0.01227185f);
+	$B = 0;
 BossCardMeWa_1100:
 120:
-    $A = 8;
-    goto BossCardMeWa_1660 @ 160;
+	$A = 8;
+	goto BossCardMeWa_1660 @ 160;
 BossCardMeWa_1164:
-    %C = %RDEG;
+	%C = %RDEG;
 !E
-    $D = ($B + 8);
+	$D = ($B + 8);
 !N
-    $D = ($B + 15);
+	$D = ($B + 15);
 !H
-    $D = ($B + 20);
+	$D = ($B + 20);
 !L
-    $D = ($B + 28);
+	$D = ($B + 28);
 !*
-    etAmt(0, $D, 2);
-    etAng(0, %C, 0.3490658f);
-    etOn(0);
+	etAmt(0, $D, 2);
+	etAng(0, %C, 0.3490658f);
+	etOn(0);
 140:
-    etAmt(1, $D, 2);
-    etAng(1, %C, -0.3490658f);
-    etOn(1);
+	etAmt(1, $D, 2);
+	etAng(1, %C, -0.3490658f);
+	etOn(1);
 BossCardMeWa_1660:
 160:
-    if $A-- goto BossCardMeWa_1164 @ 120;
-    enmRand(90, 4, 1.5f);
-    $B = ($B + 1);
+	if $A-- goto BossCardMeWa_1164 @ 120;
+	enmRand(90, 4, 1.5f);
+	$B += 1;
 210:
-    goto BossCardMeWa_1100 @ 120;
-    return();
+	goto BossCardMeWa_1100 @ 120;
+	return();
 }
 
 sub BossCardMetalDragon()
 {
-    var A B;
-    resetBoss();
-    ins_21();
-    enmClear();
-    enmNewRel("Ecl_EtBreak", 0.0f, 0.0f, 9999, 0, 0);
-    cardEnd();
-    ins_529(0);
-    resetBossParam();
-    playSE(28);
-    enmDir(0.0f, 0.0f);
-    enmDirTime(0, 0, 0.0f, 0.0f);
-    enmPosTime(0, 0, 0.0f, 0.0f);
-    $MISS_COUNT = 0;
-    $BOMB_COUNT = 0;
-    call("BossSetNextNon", _SS 2100);
-    cardH(72, 2100, 500000, "金符「シルバードラゴン」");
-    invinc(120);
-    stageProg(43);
-    enmPosTime(120, 4, 0.0f, 80.0f);
-    anmScrNoMove(0, 0);
-    etNew(0);
-    etMode(0, 2);
-    etSpr(0, 3, 15);
+	var A, B;
+	resetBoss();
+	ins_21();
+	enmClear();
+	enmNewRel("Ecl_EtBreak", 0.0f, 0.0f, 9999, 0, 0);
+	cardEnd();
+	ins_529(0);
+	resetBossParam();
+	playSE(28);
+	enmDir(0.0f, 0.0f);
+	enmDirTime(0, 0, 0.0f, 0.0f);
+	enmPosTime(0, 0, 0.0f, 0.0f);
+	MISS_COUNT = 0;
+	BOMB_COUNT = 0;
+	@BossSetNextNon(2100);
+	cardH(72, 2100, 500000, "金符「シルバードラゴン」");
+	invinc(120);
+	stageProg(43);
+	enmPosTime(120, 4, 0.0f, 80.0f);
+	anmScrNoMove(0, 0);
+	etNew(0);
+	etMode(0, 2);
+	etSpr(0, 3, 15);
 !EH
-    8;
+	8;
 !NL
-    10;
+	10;
 !EN
-    etAmt(0, [-1], 2);
+	etAmt(0, [-1], 2);
 !HL
-    etAmt(0, [-1], 3);
+	etAmt(0, [-1], 3);
 !*
-    etSpd(0, 6.5f, 0.75f);
-    etEx(0, 0, 0, 1, [NEG], [NEG], [NEGF], [NEGF]);
+	etSpd(0, 6.5f, 0.75f);
+	etEx(0, 0, 0, 1, [NEG], [NEG], [NEGF], [NEGF]);
 BossCardMetalDragon_820:
 120:
-    %A = (%RF * 2.5f);
-    %A = (%A + 1.0f);
-    etEx(0, 1, 1, 64, 60, 1, %AIM, %A);
-    etAng(0, %RDEG, 0.0f);
-    etOn(0);
+	%A = (%RF * 2.5f);
+	%A += 1.0f;
+	etEx(0, 1, 1, 64, 60, 1, %AIM, %A);
+	etAng(0, %RDEG, 0.0f);
+	etOn(0);
 170:
-    goto BossCardMetalDragon_820 @ 120;
-    return();
+	goto BossCardMetalDragon_820 @ 120;
+	return();
 }
 
 sub BossCardMetalFatigue()
 {
-    var A B;
-    resetBoss();
-    ins_21();
-    enmClear();
-    enmNewRel("Ecl_EtBreak", 0.0f, 0.0f, 9999, 0, 0);
-    cardEnd();
-    ins_529(0);
-    resetBossParam();
-    playSE(28);
-    enmDir(0.0f, 0.0f);
-    enmDirTime(0, 0, 0.0f, 0.0f);
-    enmPosTime(0, 0, 0.0f, 0.0f);
-    $MISS_COUNT = 0;
-    $BOMB_COUNT = 0;
-    call("BossSetNextNon", _SS 2100);
-    card(51, 2100, 500000, "金符「メタルファティーグ」");
-    invinc(120);
-    stageProg(43);
-    enmPosTime(60, 4, 0.0f, 80.0f);
-    anmScrNoMove(0, 0);
-    etNew(0);
-    etMode(0, 2);
-    etSpr(0, 17, 6);
-    etAmt(0, 8, 1);
-    etSpd(0, 4.5f, 1.25f);
-    etEx(0, 0, 0, 1, [NEG], [NEG], [NEGF], [NEGF]);
-    etEx(0, 0, 1, 268435456, 1, [NEG], [NEGF], [NEGF]);
+	var A, B;
+	resetBoss();
+	ins_21();
+	enmClear();
+	enmNewRel("Ecl_EtBreak", 0.0f, 0.0f, 9999, 0, 0);
+	cardEnd();
+	ins_529(0);
+	resetBossParam();
+	playSE(28);
+	enmDir(0.0f, 0.0f);
+	enmDirTime(0, 0, 0.0f, 0.0f);
+	enmPosTime(0, 0, 0.0f, 0.0f);
+	MISS_COUNT = 0;
+	BOMB_COUNT = 0;
+	@BossSetNextNon(2100);
+	card(51, 2100, 500000, "金符「メタルファティーグ」");
+	invinc(120);
+	stageProg(43);
+	enmPosTime(60, 4, 0.0f, 80.0f);
+	anmScrNoMove(0, 0);
+	etNew(0);
+	etMode(0, 2);
+	etSpr(0, 17, 6);
+	etAmt(0, 8, 1);
+	etSpd(0, 4.5f, 1.25f);
+	etEx(0, 0, 0, 1, [NEG], [NEG], [NEGF], [NEGF]);
+	etEx(0, 0, 1, 268435456, 1, [NEG], [NEGF], [NEGF]);
 BossCardMetalFatigue_800:
 120:
-    $B = 8;
-    %A = %RDEG;
-    etAng(0, %A, 0.0f);
-    goto BossCardMetalFatigue_1076 @ 120;
+	$B = 8;
+	%A = %RDEG;
+	etAng(0, %A, 0.0f);
+	goto BossCardMetalFatigue_1076 @ 120;
 BossCardMetalFatigue_932:
-    etEx(0, 1, 2, 64, 60, 1, %A, 2.0f);
-    etOn(0);
-    %A = (%A + 0.7853982f);
+	etEx(0, 1, 2, 64, 60, 1, %A, 2.0f);
+	etOn(0);
+	%A += 0.7853982f;
 BossCardMetalFatigue_1076:
-    if $B-- goto BossCardMetalFatigue_932 @ 120;
+	if $B-- goto BossCardMetalFatigue_932 @ 120;
 160:
-    goto BossCardMetalFatigue_800 @ 120;
-    return();
+	goto BossCardMetalFatigue_800 @ 120;
+	return();
 }
 
 sub BossCardMetalGold()
 {
-    var A B C D E F;
-    resetBoss();
-    ins_21();
-    enmClear();
-    enmNewRel("Ecl_EtBreak", 0.0f, 0.0f, 9999, 0, 0);
-    cardEnd();
-    ins_529(0);
-    resetBossParam();
-    playSE(28);
-    enmDir(0.0f, 0.0f);
-    enmDirTime(0, 0, 0.0f, 0.0f);
-    enmPosTime(0, 0, 0.0f, 0.0f);
-    $MISS_COUNT = 0;
-    $BOMB_COUNT = 0;
-    call("BossSetNextNon", _SS 2100);
-    cardH(76, 2100, 500000, "金符「エレメンタアウレア」");
-    invinc(120);
-    stageProg(43);
-    enmPosTime(60, 4, 0.0f, 80.0f);
-    anmScrNoMove(0, 0);
-    etNew(0);
-    etMode(0, 2);
-    etSpr(0, 26, 3);
-    etAmt(0, 3, 1);
-    etEx(0, 0, 1, 1, [NEG], [NEG], [NEGF], [NEGF]);
-    etEx(0, 1, 0, 64, 60, 1, [NEGF], 0.0f);
-    etEx(0, 2, 0, 8192, [NEG], [NEG], [NEGF], -9999999.0f);
-    etNew(1);
-    etMode(1, 2);
-    etSpr(1, 17, 6);
-    etAmt(1, 3, 1);
-    etEx(1, 0, 1, 1, [NEG], [NEG], [NEGF], [NEGF]);
-    etEx(1, 1, 1, 268435456, 1, [NEG], [NEGF], [NEGF]);
-    etEx(1, 3, 0, 268435456, 0, [NEG], [NEGF], [NEGF]);
-    etEx(1, 4, 0, 64, 60, 1, [NEGF], 0.0f);
-    etEx(1, 5, 0, 8192, [NEG], [NEG], [NEGF], -9999999.0f);
-    etNew(2);
-    etMode(2, 2);
-    etSpr(2, 3, 13);
-    etAmt(2, 3, 1);
-    etEx(2, 0, 1, 1, [NEG], [NEG], [NEGF], [NEGF]);
-    etEx(2, 1, 1, 268435456, 1, [NEG], [NEGF], [NEGF]);
-    etEx(2, 4, 0, 268435456, 0, [NEG], [NEGF], [NEGF]);
+	var A, B, C, D, E, F;
+	resetBoss();
+	ins_21();
+	enmClear();
+	enmNewRel("Ecl_EtBreak", 0.0f, 0.0f, 9999, 0, 0);
+	cardEnd();
+	ins_529(0);
+	resetBossParam();
+	playSE(28);
+	enmDir(0.0f, 0.0f);
+	enmDirTime(0, 0, 0.0f, 0.0f);
+	enmPosTime(0, 0, 0.0f, 0.0f);
+	MISS_COUNT = 0;
+	BOMB_COUNT = 0;
+	@BossSetNextNon(2100);
+	cardH(76, 2100, 500000, "金符「エレメンタアウレア」");
+	invinc(120);
+	stageProg(43);
+	enmPosTime(60, 4, 0.0f, 80.0f);
+	anmScrNoMove(0, 0);
+	etNew(0);
+	etMode(0, 2);
+	etSpr(0, 26, 3);
+	etAmt(0, 3, 1);
+	etEx(0, 0, 1, 1, [NEG], [NEG], [NEGF], [NEGF]);
+	etEx(0, 1, 0, 64, 60, 1, [NEGF], 0.0f);
+	etEx(0, 2, 0, 8192, [NEG], [NEG], [NEGF], [NEGF]);
+	etNew(1);
+	etMode(1, 2);
+	etSpr(1, 17, 6);
+	etAmt(1, 3, 1);
+	etEx(1, 0, 1, 1, [NEG], [NEG], [NEGF], [NEGF]);
+	etEx(1, 1, 1, 268435456, 1, [NEG], [NEGF], [NEGF]);
+	etEx(1, 3, 0, 268435456, 0, [NEG], [NEGF], [NEGF]);
+	etEx(1, 4, 0, 64, 60, 1, [NEGF], 0.0f);
+	etEx(1, 5, 0, 8192, [NEG], [NEG], [NEGF], [NEGF]);
+	etNew(2);
+	etMode(2, 2);
+	etSpr(2, 3, 13);
+	etAmt(2, 3, 1);
+	etEx(2, 0, 1, 1, [NEG], [NEG], [NEGF], [NEGF]);
+	etEx(2, 1, 1, 268435456, 1, [NEG], [NEGF], [NEGF]);
+	etEx(2, 4, 0, 268435456, 0, [NEG], [NEGF], [NEGF]);
 BossCardMetalGold_1404:
 120:
 !H
-    $C = 7;
+	$C = 7;
 !L
-    $C = 8;
+	$C = 8;
 !*
-    %A = %RDEG;
-    %F = 1.0f;
-    enmRand(80, 4, 1.5f);
-    goto BossCardMetalGold_3064 @ 120;
+	%A = %RDEG;
+	%F = 1.0f;
+	enmRand(80, 4, 1.5f);
+	goto BossCardMetalGold_3064 @ 120;
 BossCardMetalGold_1616:
-    $B = 3;
-    if ($D % 2) goto BossCardMetalGold_1912 @ 120;
+	$B = 3;
+	if ($D % 2) goto BossCardMetalGold_1912 @ 120;
 !H
-    %A = (%A + 0.2617994f);
+	%A += rad(15.f);
 !L
-    %A = (%A + 0.19634955f);
+	%A += rad(11.25f);
 !*
-    goto BossCardMetalGold_2064 @ 120;
+	goto BossCardMetalGold_2064 @ 120;
 BossCardMetalGold_1912:
 !H
-    %A = (%A - 0.2617994f);
+	%A -= rad(15.f);
 !L
-    %A = (%A - 0.19634955f);
+	%A -= rad(11.25f);
 BossCardMetalGold_2064:
 !*
-    etAng(0, %A, 0.0f);
-    etAng(1, %A, 0.0f);
-    etAng(2, %A, 0.0f);
-    etSpd(0, %F, 0.0f);
-    etSpd(1, %F, 0.0f);
-    etSpd(2, %F, 0.0f);
-    etOn(0);
-    goto BossCardMetalGold_2836 @ 120;
+	etAng(0, %A, 0.0f);
+	etAng(1, %A, 0.0f);
+	etAng(2, %A, 0.0f);
+	etSpd(0, %F, 0.0f);
+	etSpd(1, %F, 0.0f);
+	etSpd(2, %F, 0.0f);
+	etOn(0);
+	goto BossCardMetalGold_2836 @ 120;
 BossCardMetalGold_2276:
 !H
-    $E = 3;
+	$E = 3;
 !L
-    $E = 4;
+	$E = 4;
 !*
-    etEx(1, 2, 0, 64, 60, 1, %A, 3.0f);
-    etEx(2, 2, 0, 64, 60, 1, %A, 3.0f);
-    goto BossCardMetalGold_2696 @ 120;
+	etEx(1, 2, 0, 64, 60, 1, %A, 3.0f);
+	etEx(2, 2, 0, 64, 60, 1, %A, 3.0f);
+	goto BossCardMetalGold_2696 @ 120;
 BossCardMetalGold_2476:
-    etEx(2, 3, 0, 64, 60, 1, %A, 1.4f);
-    etOn(2);
+	etEx(2, 3, 0, 64, 60, 1, %A, 1.4f);
+	etOn(2);
 !H
-    %A = (%A + 2.0943952f);
+	%A += 2.0943952f;
 !L
-    %A = (%A + 1.5707964f);
+	%A += 1.5707964f;
 BossCardMetalGold_2696:
 !*
-    if $E-- goto BossCardMetalGold_2476 @ 120;
-    etOn(1);
-    %A = (%A + 2.0943952f);
+	if $E-- goto BossCardMetalGold_2476 @ 120;
+	etOn(1);
+	%A += 2.0943952f;
 BossCardMetalGold_2836:
-    if $B-- goto BossCardMetalGold_2276 @ 120;
-    wait_rank(9, 8, 6, 6);
+	if $B-- goto BossCardMetalGold_2276 @ 120;
+	wait_rank(9, 8, 6, 6);
 !H
-    %F = (%F + 0.15f);
+	%F += 0.15f;
 !L
-    %F = (%F + 0.125f);
+	%F += 0.125f;
 BossCardMetalGold_3064:
 !*
-    if $C-- goto BossCardMetalGold_1616 @ 120;
-    wait_rank(60, 60, 48, 45);
-    $D = ($D + 1);
-    goto BossCardMetalGold_1404 @ 120;
-    return();
+	if $C-- goto BossCardMetalGold_1616 @ 120;
+	wait_rank(60, 60, 48, 45);
+	$D += 1;
+	goto BossCardMetalGold_1404 @ 120;
+	return();
 }
 
 sub BossCardMetalMemory()
 {
-    var A B;
-    resetBoss();
-    ins_21();
-    enmClear();
-    enmNewRel("Ecl_EtBreak", 0.0f, 0.0f, 9999, 0, 0);
-    cardEnd();
-    ins_529(0);
-    resetBossParam();
-    playSE(28);
-    enmDir(0.0f, 0.0f);
-    enmDirTime(0, 0, 0.0f, 0.0f);
-    enmPosTime(0, 0, 0.0f, 0.0f);
-    $MISS_COUNT = 0;
-    $BOMB_COUNT = 0;
-    call("BossSetNextNon", _SS 1800);
-    cardE(46, 1800, 500000, "金符「メモリーアロイー」");
-    invinc(120);
-    stageProg(43);
-    enmPosTime(60, 4, 0.0f, 112.0f);
-    anmScrNoMove(0, 0);
-    etNew(0);
-    etMode(0, 3);
-    etSpr(0, 3, 0);
+	var A, B;
+	resetBoss();
+	ins_21();
+	enmClear();
+	enmNewRel("Ecl_EtBreak", 0.0f, 0.0f, 9999, 0, 0);
+	cardEnd();
+	ins_529(0);
+	resetBossParam();
+	playSE(28);
+	enmDir(0.0f, 0.0f);
+	enmDirTime(0, 0, 0.0f, 0.0f);
+	enmPosTime(0, 0, 0.0f, 0.0f);
+	MISS_COUNT = 0;
+	BOMB_COUNT = 0;
+	@BossSetNextNon(1800);
+	cardE(46, 1800, 500000, "金符「メモリーアロイー」");
+	invinc(120);
+	stageProg(43);
+	enmPosTime(60, 4, 0.0f, 112.0f);
+	anmScrNoMove(0, 0);
+	etNew(0);
+	etMode(0, 3);
+	etSpr(0, 3, 0);
 !E
-    3;
+	3;
 !N
-    4;
+	4;
 !*
-    etAmt(0, [-1], 1);
-    etSpd(0, 1.8f, 1.0f);
-    %A = %RDEG;
-    etDist(0, 16.0f);
-    etEx(0, 0, 0, 2, 2, [NEG], [NEGF], [NEGF]);
-    etEx(0, 1, 0, 256, _S($RANK + 1), 13, [NEGF], [NEGF]);
-    $B = 1;
+	etAmt(0, [-1], 1);
+	etSpd(0, 1.8f, 1.0f);
+	%A = %RDEG;
+	etDist(0, 16.0f);
+	etEx(0, 0, 0, 2, 2, [NEG], [NEGF], [NEGF]);
+	etEx(0, 1, 0, 256, _S($RANK + 1), 13, [NEGF], [NEGF]);
+	$B = 1;
 BossCardMetalMemory_1000:
 120:
-    $B = ($B % 6);
-    if ($B != 0) goto BossCardMetalMemory_1184 @ 120;
-    enmRand(60, 4, 1.5f);
+	$B = ($B % 6);
+	if ($B != 0) goto BossCardMetalMemory_1184 @ 120;
+	enmRand(60, 4, 1.5f);
 BossCardMetalMemory_1184:
-    callSep("BossCardMetalMemory_At", _ff %A);
-    %A = (%A + 0.24166097f);
-    $B = ($B + 1);
-    wait(10);
+	@BossCardMetalMemory_At(%A) async;
+	%A += rad(13.846153846153846153846153846154f);
+	$B += 1;
+	wait(10);
 140:
-    goto BossCardMetalMemory_1000 @ 120;
-    return();
+	goto BossCardMetalMemory_1000 @ 120;
+	return();
 }
 
 sub BossCardMetalMemoryHL()
 {
-    var A B;
-    resetBoss();
-    ins_21();
-    enmClear();
-    enmNewRel("Ecl_EtBreak", 0.0f, 0.0f, 9999, 0, 0);
-    cardEnd();
-    ins_529(0);
-    resetBossParam();
-    playSE(28);
-    enmDir(0.0f, 0.0f);
-    enmDirTime(0, 0, 0.0f, 0.0f);
-    enmPosTime(0, 0, 0.0f, 0.0f);
-    $MISS_COUNT = 0;
-    $BOMB_COUNT = 0;
-    call("BossSetNextNon", _SS 1800);
-    cardN(61, 1800, 500000, "金符「メモリーアロイー上級」");
-    invinc(120);
-    stageProg(43);
-    enmPosTime(60, 4, 0.0f, 112.0f);
-    anmScrNoMove(0, 0);
-    etNew(0);
-    etMode(0, 3);
-    etSpr(0, 3, 0);
+	var A, B;
+	resetBoss();
+	ins_21();
+	enmClear();
+	enmNewRel("Ecl_EtBreak", 0.0f, 0.0f, 9999, 0, 0);
+	cardEnd();
+	ins_529(0);
+	resetBossParam();
+	playSE(28);
+	enmDir(0.0f, 0.0f);
+	enmDirTime(0, 0, 0.0f, 0.0f);
+	enmPosTime(0, 0, 0.0f, 0.0f);
+	MISS_COUNT = 0;
+	BOMB_COUNT = 0;
+	@BossSetNextNon(1800);
+	cardN(61, 1800, 500000, "金符「メモリーアロイー上級」");
+	invinc(120);
+	stageProg(43);
+	enmPosTime(60, 4, 0.0f, 112.0f);
+	anmScrNoMove(0, 0);
+	etNew(0);
+	etMode(0, 3);
+	etSpr(0, 3, 0);
 !N
-    4;
+	4;
 !H
-    5;
+	5;
 !L
-    6;
+	6;
 !*
-    etAmt(0, [-1], 1);
-    etSpd(0, 2.0f, 1.0f);
-    %A = %RDEG;
-    etDist(0, 16.0f);
-    etEx(0, 0, 0, 2, 2, [NEG], [NEGF], [NEGF]);
-    etEx(0, 1, 0, 256, _S($RANK), 13, [NEGF], [NEGF]);
-    etEx(0, 2, 1, 8, 40, 0, 0.0f, 0.0f);
-    $B = 1;
+	etAmt(0, [-1], 1);
+	etSpd(0, 2.0f, 1.0f);
+	%A = %RDEG;
+	etDist(0, 16.0f);
+	etEx(0, 0, 0, 2, 2, [NEG], [NEGF], [NEGF]);
+	etEx(0, 1, 0, 256, _S($RANK), 13, [NEGF], [NEGF]);
+	etEx(0, 2, 1, 8, 40, 0, 0.0f, 0.0f);
+	$B = 1;
 BossCardMetalMemoryHL_1036:
 120:
-    $B = ($B % 8);
-    if ($B != 0) goto BossCardMetalMemoryHL_1220 @ 120;
-    enmRand(60, 4, 1.5f);
+	$B = ($B % 8);
+	if ($B != 0) goto BossCardMetalMemoryHL_1220 @ 120;
+	enmRand(60, 4, 1.5f);
 BossCardMetalMemoryHL_1220:
-    callSep("BossCardMetalMemoryHL_at", _ff %A, _SS ($B % 2));
-    %A = (%A + 0.24166097f);
-    $B = ($B + 1);
+	callSep("BossCardMetalMemoryHL_at", _ff %A, _SS ($B % 2));
+	%A += rad(13.846153846153846153846153846154f);
+	$B += 1;
 140:
-    goto BossCardMetalMemoryHL_1036 @ 120;
-    return();
+	goto BossCardMetalMemoryHL_1036 @ 120;
+	return();
 }
 
-sub BossCardMetalMemoryHL_at(A B)
+sub BossCardMetalMemoryHL_at(var A, var B)
 {
-    var C D;
-    $C = 6;
-    goto BossCardMetalMemoryHL_at_552 @ 0;
+	var C, D;
+	$C = 6;
+	goto BossCardMetalMemoryHL_at_552 @ 0;
 BossCardMetalMemoryHL_at_100:
-    etAng(0, %A, 0.0f);
-    if ($B == 0) goto BossCardMetalMemoryHL_at_272 @ 0;
-    %D = 0.0418879f;
-    goto BossCardMetalMemoryHL_at_312 @ 0;
+	etAng(0, %A, 0.0f);
+	if ($B == 0) goto BossCardMetalMemoryHL_at_272 @ 0;
+	%D = 0.0418879f;
+	goto BossCardMetalMemoryHL_at_312 @ 0;
 BossCardMetalMemoryHL_at_272:
-    %D = -0.0418879f;
+	%D = -0.0418879f;
 BossCardMetalMemoryHL_at_312:
-    etEx(0, 3, 1, 8, 30, 0, 0.0f, %D);
-    etEx(0, 4, 1, 8, 45, 0, 0.0f, 0.0f);
-    etEx(0, 5, 1, 8, 30, 0, 0.0f, _f(0.0f - %D));
-    etOn(0);
-    wait(4);
+	etEx(0, 3, 1, 8, 30, 0, 0.0f, %D);
+	etEx(0, 4, 1, 8, 45, 0, 0.0f, 0.0f);
+	etEx(0, 5, 1, 8, 30, 0, 0.0f, _f(0.0f - %D));
+	etOn(0);
+	wait(4);
 BossCardMetalMemoryHL_at_552:
-    if $C-- goto BossCardMetalMemoryHL_at_100 @ 0;
-    return();
+	if $C-- goto BossCardMetalMemoryHL_at_100 @ 0;
+	return();
 }
 
-sub BossCardMetalMemory_At(A)
+sub BossCardMetalMemory_At(var A)
 {
-    var B;
-    $B = 6;
-    goto BossCardMetalMemory_At_168 @ 0;
+	var B;
+	$B = 6;
+	goto BossCardMetalMemory_At_168 @ 0;
 BossCardMetalMemory_At_100:
-    etAng(0, %A, 0.0f);
-    etOn(0);
-    wait(4);
+	etAng(0, %A, 0.0f);
+	etOn(0);
+	wait(4);
 BossCardMetalMemory_At_168:
-    if $B-- goto BossCardMetalMemory_At_100 @ 0;
-    return();
+	if $B-- goto BossCardMetalMemory_At_100 @ 0;
+	return();
 }
 
 sub BossCardWaFi()
 {
-    var A B C D;
-    resetBoss();
-    ins_21();
-    enmClear();
-    enmNewRel("Ecl_EtBreak", 0.0f, 0.0f, 9999, 0, 0);
-    cardEnd();
-    ins_529(0);
-    resetBossParam();
-    playSE(28);
-    enmDir(0.0f, 0.0f);
-    enmDirTime(0, 0, 0.0f, 0.0f);
-    enmPosTime(0, 0, 0.0f, 0.0f);
-    $MISS_COUNT = 0;
-    $BOMB_COUNT = 0;
-    call("BossCheckItems");
-    cardE(98, 2400, 500000, "水＆火符「テンペレートガイザー」");
-    invinc(120);
-    stageProg(43);
-    enmPosTime(60, 4, 0.0f, 80.0f);
-    etNew(0);
-    etMode(0, 8);
-    etAmt(0, 2, 1);
-    etSE(0, 26, -1);
-    etSpd(0, 2.0f, 0.5f);
-    etAng(0, -1.2566371f, -1.8849556f);
-    etEx(0, 0, 0, 2, 2, [NEG], [NEGF], [NEGF]);
-    etEx(0, 1, 1, 4, 999, [NEG], 0.05f, 1.5707964f);
-    etNew(1);
-    etMode(1, 8);
-    etSpd(1, 2.0f, 1.6f);
-    etAng(1, -2.3561945f, -0.7853982f);
-    etDist(1, 32.0f);
-    etEx(1, 0, 0, 2, 2, [NEG], [NEGF], [NEGF]);
-    etEx(1, 1, 0, 4, 210, [NEG], 0.03f, 1.5707964f);
-    etEx(1, 2, 0, 256, 1, 2, [NEGF], [NEGF]);
-    etEx(1, 3, 0, 524288, 135921926, 1, 1.3f, 0.8f);
-    etEx(1, 5, 0, 8192, [NEG], [NEG], [NEGF], [NEGF]);
-    $A = 0;
+	var A, B, C, D;
+	resetBoss();
+	ins_21();
+	enmClear();
+	enmNewRel("Ecl_EtBreak", 0.0f, 0.0f, 9999, 0, 0);
+	cardEnd();
+	ins_529(0);
+	resetBossParam();
+	playSE(28);
+	enmDir(0.0f, 0.0f);
+	enmDirTime(0, 0, 0.0f, 0.0f);
+	enmPosTime(0, 0, 0.0f, 0.0f);
+	MISS_COUNT = 0;
+	BOMB_COUNT = 0;
+	@BossCheckItems();
+	cardE(98, 2400, 500000, "水＆火符「テンペレートガイザー」");
+	invinc(120);
+	stageProg(43);
+	enmPosTime(60, 4, 0.0f, 80.0f);
+	etNew(0);
+	etMode(0, 8);
+	etAmt(0, 2, 1);
+	etSE(0, 26, -1);
+	etSpd(0, 2.0f, 0.5f);
+	etAng(0, -1.2566371f, -1.8849556f);
+	etEx(0, 0, 0, 2, 2, [NEG], [NEGF], [NEGF]);
+	etEx(0, 1, 1, 4, 999, [NEG], 0.05f, 1.5707964f);
+	etNew(1);
+	etMode(1, 8);
+	etSpd(1, 2.0f, 1.6f);
+	etAng(1, -2.3561945f, -0.7853982f);
+	etDist(1, 32.0f);
+	etEx(1, 0, 0, 2, 2, [NEG], [NEGF], [NEGF]);
+	etEx(1, 1, 0, 4, 210, [NEG], 0.03f, 1.5707964f);
+	etEx(1, 2, 0, 256, 1, 2, [NEGF], [NEGF]);
+	etEx(1, 3, 0, 524288, 135921926, 1, 1.3f, 0.8f);
+	etEx(1, 5, 0, 8192, [NEG], [NEG], [NEGF], [NEGF]);
+	$A = 0;
 120:
 	playSE(29);
 	invinc(80);
 	wait(80);
-    callSep("BossCardWaFi_at2");
-BossCardWaFi_1248:
-    callSep("BossCardWaFi_at", _SS $A);
+	@BossCardWaFi_at2() async;
+BossCardWaFi_1308:
+	callSep("BossCardWaFi_at", _SS $A);
 180:
-    enmRand(90, 4, 1.5f);
+	enmRand(90, 4, 1.5f);
 330:
-    $A = ($A + 1);
-    goto BossCardWaFi_1248 @ 120;
-    return();
+	$A += 1;
+	goto BossCardWaFi_1308 @ 120;
+	return();
 }
 
-sub BossCardWaFi_at(A)
+sub BossCardWaFi_at(var A)
 {
-    var;
-    $A = (($A / 3) + 8);
-    goto BossCardWaFi_at_936 @ 0;
+	$A = (($A / 3) + 8);
+	goto BossCardWaFi_at_960 @ 0;
 BossCardWaFi_at_172:
-    etAmt_rank(1, 1, 2, 2, 3, 1, 1, 1, 1);
-    etSpr(1, 28, 8);
-    etSpd(1, 2.2f, 1.6f);
-    etEx(1, 4, 0, 1048576, 1, 0, -1.2566371f, -1.8849556f);
-    etOn(1);
-    etAmt(1, _S($RANK + 1), 1);
-    etEx(1, 4, 0, 8192, [NEG], [NEG], [NEGF], [NEGF]);
-    etOn(1);
-    etSpd(1, 3.3f, 2.5f);
-    etOn(1);
+	etAmt_rank(1, 1, 2, 2, 3, 1, 1, 1, 1);
+	etSpr(1, 28, 8);
+	etSpd(1, 2.2f, 1.6f);
+	etEx(1, 4, 0, 1048576, 1, 0, -1.2566371f, -1.8849556f);
+	etOn(1);
+	etAmt(1, _S($RANK + 1), 1);
+	etEx(1, 4, 0, 8192, [NEG], [NEG], [NEGF], [NEGF]);
+	etOn(1);
+	etSpd(1, 3.3f, 2.5f);
+	etOn(1);
 !NHL
-    etOn(1);
+	etOn(1);
 !HL
-    etAmt(1, _S($RANK + 1), 1);
-    etSpr(1, 28, 7);
-    etSpd(1, 2.2f, 1.6f);
-    etOn(1);
-    etSpd(1, 3.3f, 2.5f);
-    etOn(1);
+	etAmt(1, _S($RANK + 1), 1);
+	etSpr(1, 28, 7);
+	etSpd(1, 2.2f, 1.6f);
+	etOn(1);
+	etSpd(1, 3.3f, 2.5f);
+	etOn(1);
 !L
-    etSpr(1, 28, 6);
-    etSpd(1, 2.2f, 1.6f);
-    etOn(1);
-    etAmt(1, $RANK, 1);
-    etSpd(1, 3.3f, 2.5f);
-    etOn(1);
+	etSpr(1, 28, 6);
+	etSpd(1, 2.2f, 1.6f);
+	etOn(1);
+	etAmt(1, $RANK, 1);
+	etSpd(1, 3.3f, 2.5f);
+	etOn(1);
 !*
-    wait_rank(6, 5, 5, 5);
-BossCardWaFi_at_936:
-    if $A-- goto BossCardWaFi_at_172 @ 0;
-    return();
+	wait_rank(6, 5, 5, 5);
+BossCardWaFi_at_960:
+	if $A-- goto BossCardWaFi_at_172 @ 0;
+	return();
 }
 
 sub BossCardWaFi_at2()
 {
-    var A B;
+	var A, B;
 	playSE(28);
-    $A = 0;
-BossCardWaFi_at2_76:
-    if ($A % 1) goto BossCardWaFi_at2_724 @ 0;
-    etSpr(0, 0, 1);
-    %B = (%RF * 8.0f);
-    %B = (%B + 440.0f);
-    etOfs_abs(0, _f(%RF2 * 192.0f), %B);
-    etOn(0);
-    etSpr(0, 2, 1);
-    %B = (%RF * 8.0f);
-    %B = (%B + 440.0f);
-    etOfs_abs(0, _f(%RF2 * 192.0f), %B);
-    etOn(0);
-BossCardWaFi_at2_724:
-    if ($A % 2) goto BossCardWaFi_at2_1372 @ 0;
-    etSpr(0, 0, 1);
-    %B = (%RF * 8.0f);
-    %B = (%B + 440.0f);
-    etOfs_abs(0, _f(%RF2 * 192.0f), %B);
-    etOn(0);
-    etSpr(0, 2, 1);
-    %B = (%RF * 8.0f);
-    %B = (%B + 440.0f);
-    etOfs_abs(0, _f(%RF2 * 192.0f), %B);
-    etOn(0);
-BossCardWaFi_at2_1372:
-    if ($A % 3) goto BossCardWaFi_at2_2020 @ 0;
-    etSpr(0, 3, 1);
-    %B = (%RF * 8.0f);
-    %B = (%B + 440.0f);
-    etOfs_abs(0, _f(%RF2 * 192.0f), %B);
-    etOn(0);
-    etSpr(0, 3, 2);
-    %B = (%RF * 8.0f);
-    %B = (%B + 440.0f);
-    etOfs_abs(0, _f(%RF2 * 192.0f), %B);
-    etOn(0);
-BossCardWaFi_at2_2020:
-    if ($A % 4) goto BossCardWaFi_at2_2952 @ 0;
-    etSpr(0, 3, 1);
-    %B = (%RF * 8.0f);
-    %B = (%B + 440.0f);
-    etOfs_abs(0, _f(%RF2 * 192.0f), %B);
-    etOn(0);
-    etSpr(0, 3, 2);
-    %B = (%RF * 8.0f);
-    %B = (%B + 440.0f);
-    etOfs_abs(0, _f(%RF2 * 192.0f), %B);
-    etOn(0);
-    etSpr(0, 24, 0);
-    %B = (%RF * 8.0f);
-    %B = (%B + 440.0f);
-    etOfs_abs(0, _f(%RF2 * 192.0f), %B);
-    etOn(0);
-BossCardWaFi_at2_2952:
-    if ($A % 5) goto BossCardWaFi_at2_3600 @ 0;
-    etSpr(0, 17, 1);
-    %B = (%RF * 8.0f);
-    %B = (%B + 440.0f);
-    etOfs_abs(0, _f(%RF2 * 192.0f), %B);
-    etOn(0);
-    etSpr(0, 17, 1);
-    %B = (%RF * 8.0f);
-    %B = (%B + 440.0f);
-    etOfs_abs(0, _f(%RF2 * 192.0f), %B);
-    etOn(0);
-BossCardWaFi_at2_3600:
-    if ($A % 5) goto BossCardWaFi_at2_3964 @ 0;
-    etSpr(0, 26, 0);
-    %B = (%RF * 8.0f);
-    %B = (%B + 440.0f);
-    etOfs_abs(0, _f(%RF2 * 192.0f), %B);
-    etOn(0);
-BossCardWaFi_at2_3964:
-    wait(2);
-    $A = ($A + 1);
-    goto BossCardWaFi_at2_76 @ 0;
-    return();
+	$A = 0;
+BossCardWaFi_at2_96:
+	if ($A % 1) goto BossCardWaFi_at2_744 @ 0;
+	etSpr(0, 0, 1);
+	%B = (%RF * 8.0f);
+	%B += 440.0f;
+	etOfs_abs(0, RF2 * 192.f, %B);
+	etOn(0);
+	etSpr(0, 2, 1);
+	%B = (%RF * 8.0f);
+	%B += 440.0f;
+	etOfs_abs(0, RF2 * 192.f, %B);
+	etOn(0);
+BossCardWaFi_at2_744:
+	if ($A % 2) goto BossCardWaFi_at2_1392 @ 0;
+	etSpr(0, 0, 1);
+	%B = (%RF * 8.0f);
+	%B += 440.0f;
+	etOfs_abs(0, RF2 * 192.f, %B);
+	etOn(0);
+	etSpr(0, 2, 1);
+	%B = (%RF * 8.0f);
+	%B += 440.0f;
+	etOfs_abs(0, RF2 * 192.f, %B);
+	etOn(0);
+BossCardWaFi_at2_1392:
+	if ($A % 3) goto BossCardWaFi_at2_2040 @ 0;
+	etSpr(0, 3, 1);
+	%B = (%RF * 8.0f);
+	%B += 440.0f;
+	etOfs_abs(0, RF2 * 192.f, %B);
+	etOn(0);
+	etSpr(0, 3, 2);
+	%B = (%RF * 8.0f);
+	%B += 440.0f;
+	etOfs_abs(0, RF2 * 192.f, %B);
+	etOn(0);
+BossCardWaFi_at2_2040:
+	if ($A % 4) goto BossCardWaFi_at2_2972 @ 0;
+	etSpr(0, 3, 1);
+	%B = (%RF * 8.0f);
+	%B += 440.0f;
+	etOfs_abs(0, RF2 * 192.f, %B);
+	etOn(0);
+	etSpr(0, 3, 2);
+	%B = (%RF * 8.0f);
+	%B += 440.0f;
+	etOfs_abs(0, RF2 * 192.f, %B);
+	etOn(0);
+	etSpr(0, 24, 0);
+	%B = (%RF * 8.0f);
+	%B += 440.0f;
+	etOfs_abs(0, RF2 * 192.f, %B);
+	etOn(0);
+BossCardWaFi_at2_2972:
+	if ($A % 5) goto BossCardWaFi_at2_3620 @ 0;
+	etSpr(0, 17, 1);
+	%B = (%RF * 8.0f);
+	%B += 440.0f;
+	etOfs_abs(0, RF2 * 192.f, %B);
+	etOn(0);
+	etSpr(0, 17, 1);
+	%B = (%RF * 8.0f);
+	%B += 440.0f;
+	etOfs_abs(0, RF2 * 192.f, %B);
+	etOn(0);
+BossCardWaFi_at2_3620:
+	if ($A % 5) goto BossCardWaFi_at2_3984 @ 0;
+	etSpr(0, 26, 0);
+	%B = (%RF * 8.0f);
+	%B += 440.0f;
+	etOfs_abs(0, RF2 * 192.f, %B);
+	etOn(0);
+BossCardWaFi_at2_3984:
+	wait(2);
+	$A += 1;
+	goto BossCardWaFi_at2_96 @ 0;
+	return();
 }
 
 sub BossCardWaWo()
 {
-    var A B C;
-    resetBoss();
-    ins_21();
-    enmClear();
-    enmNewRel("Ecl_EtBreak", 0.0f, 0.0f, 9999, 0, 0);
-    cardEnd();
-    ins_529(0);
-    resetBossParam();
-    playSE(28);
-    enmDir(0.0f, 0.0f);
-    enmDirTime(0, 0, 0.0f, 0.0f);
-    enmPosTime(0, 0, 0.0f, 0.0f);
-    $MISS_COUNT = 0;
-    $BOMB_COUNT = 0;
-    call("BossCheckItems");
-    cardE(86, 2400, 500000, "水＆木符「ウォーターエルフ」");
-    invinc(120);
-    stageProg(43);
-    enmPosTime(120, 4, 0.0f, 80.0f);
-    anmScrNoMove(0, 0);
-    $C = 0;
-    etNew(0);
-    etMode(0, 2);
-    etSpr(0, 3, 8);
-    etAmt_rank(0, 18, 24, 30, 32, 2, 2, 2, 2);
-    etSpd(0, 3.3f, 1.45f);
-    etAng(0, 3.1415927f, 0.34906584f);
-    etEx(0, 0, 0, 2, 2, [NEG], [NEGF], [NEGF]);
-    etNew(1);
-    etMode(1, 0);
+	var A, B, C;
+	resetBoss();
+	ins_21();
+	enmClear();
+	enmNewRel("Ecl_EtBreak", 0.0f, 0.0f, 9999, 0, 0);
+	cardEnd();
+	ins_529(0);
+	resetBossParam();
+	playSE(28);
+	enmDir(0.0f, 0.0f);
+	enmDirTime(0, 0, 0.0f, 0.0f);
+	enmPosTime(0, 0, 0.0f, 0.0f);
+	MISS_COUNT = 0;
+	BOMB_COUNT = 0;
+	@BossCheckItems();
+	cardE(86, 2400, 500000, "水＆木符「ウォーターエルフ」");
+	invinc(120);
+	stageProg(43);
+	enmPosTime(120, 4, 0.0f, 80.0f);
+	anmScrNoMove(0, 0);
+	$C = 0;
+	etNew(0);
+	etMode(0, 2);
+	etSpr(0, 3, 8);
+	etAmt_rank(0, 18, 24, 30, 32, 2, 2, 2, 2);
+	etSpd(0, 3.3f, 1.45f);
+	etAng(0, 3.1415927f, 0.34906584f);
+	etEx(0, 0, 0, 2, 2, [NEG], [NEGF], [NEGF]);
+	etNew(1);
+	etMode(1, 0);
 !EN
-    etSpr(1, 17, 3);
+	etSpr(1, 17, 3);
 !HL
-    etSpr(1, 26, 3);
+	etSpr(1, 26, 3);
 !*
-    etAmt_rank(1, 8, 10, 10, 10, 1, 1, 1, 1);
-    etSpd(1, 2.3f, 0.95f);
-    etSE(1, -1, -1);
-    etNew(2);
-    etMode(2, 2);
-    etSpr(2, 3, 10);
-    etAmt_rank(2, 16, 20, 20, 24, 2, 2, 2, 2);
-    etSpd(2, 3.3f, 1.45f);
-    etAng(2, 3.1415927f, 0.34906584f);
-    etEx(2, 0, 0, 2, 2, [NEG], [NEGF], [NEGF]);
-    %A = 0.0f;
+	etAmt_rank(1, 8, 10, 10, 10, 1, 1, 1, 1);
+	etSpd(1, 2.3f, 0.95f);
+	etSE(1, -1, -1);
+	etNew(2);
+	etMode(2, 2);
+	etSpr(2, 3, 10);
+	etAmt_rank(2, 16, 20, 20, 24, 2, 2, 2, 2);
+	etSpd(2, 3.3f, 1.45f);
+	etAng(2, 3.1415927f, 0.34906584f);
+	etEx(2, 0, 0, 2, 2, [NEG], [NEGF], [NEGF]);
+	%A = 0.0f;
 BossCardWaWo_1316:
 120:
-    endSlot(1);
-    etOn(0);
-    etAng(1, %A, 0.34906584f);
-    etOn(1);
-    %B = (%RF * 0.2243995f);
-    %B = (%B - 0.1121997f);
-    %A = (%A - %B);
+	endSlot(1);
+	etOn(0);
+	etAng(1, %A, 0.34906584f);
+	etOn(1);
+	%B = (%RF * 0.2243995f);
+	%B -= 0.1121997f;
+	%A = (%A - %B);
 130:
-    unless $C goto BossCardWaWo_1724 @ 130;
-    etAng(1, %A, 0.34906584f);
-    etOn(1);
+	unless $C goto BossCardWaWo_1724 @ 130;
+	etAng(1, %A, 0.34906584f);
+	etOn(1);
 BossCardWaWo_1724:
 140:
-    callSlot("BossCardWaWo_at2", 1);
-    enmRand(90, 4, 1.4f);
-    $C = ($C + 1);
-    if ($C % 8) goto BossCardWaWo_1992 @ 140;
-    %A = 0.0f;
+	callSlot("BossCardWaWo_at2", 1);
+	enmRand(90, 4, 1.4f);
+	$C += 1;
+	if ($C % 8) goto BossCardWaWo_1992 @ 140;
+	%A = 0.0f;
 BossCardWaWo_1992:
 190:
-    goto BossCardWaWo_1316 @ 120;
-    return();
+	goto BossCardWaWo_1316 @ 120;
+	return();
 }
 
 sub BossCardWaWo_at2()
 {
-    var;
-    noop();
+	noop();
 BossCardWaWo_at2_52:
-    etOn(2);
-    wait(20);
-    goto BossCardWaWo_at2_52 @ 0;
-    return();
+	etOn(2);
+	wait(20);
+	goto BossCardWaWo_at2_52 @ 0;
+	return();
 }
 
 sub BossCardWaterBury()
 {
-    var A B C D;
-    resetBoss();
-    ins_21();
-    enmClear();
-    enmNewRel("Ecl_EtBreak", 0.0f, 0.0f, 9999, 0, 0);
-    cardEnd();
-    ins_529(0);
-    resetBossParam();
-    playSE(28);
-    enmDir(0.0f, 0.0f);
-    enmDirTime(0, 0, 0.0f, 0.0f);
-    enmPosTime(0, 0, 0.0f, 0.0f);
-    $MISS_COUNT = 0;
-    $BOMB_COUNT = 0;
-    call("BossSetNextNon", _SS 2100);
-    cardH(66, 2100, 500000, "水符「ベリーインレイク」");
-    invinc(120);
-    stageProg(43);
-    enmPosTime(60, 4, 0.0f, 80.0f);
-    anmScrNoMove(0, 0);
-    etNew(0);
-    etMode(0, 3);
-    etSpr(0, 24, 0);
-    $C = 0;
+	var A, B, C, D;
+	resetBoss();
+	ins_21();
+	enmClear();
+	enmNewRel("Ecl_EtBreak", 0.0f, 0.0f, 9999, 0, 0);
+	cardEnd();
+	ins_529(0);
+	resetBossParam();
+	playSE(28);
+	enmDir(0.0f, 0.0f);
+	enmDirTime(0, 0, 0.0f, 0.0f);
+	enmPosTime(0, 0, 0.0f, 0.0f);
+	MISS_COUNT = 0;
+	BOMB_COUNT = 0;
+	@BossSetNextNon(2100);
+	cardH(66, 2100, 500000, "水符「ベリーインレイク」");
+	invinc(120);
+	stageProg(43);
+	enmPosTime(60, 4, 0.0f, 80.0f);
+	anmScrNoMove(0, 0);
+	etNew(0);
+	etMode(0, 3);
+	etSpr(0, 24, 0);
+	$C = 0;
 BossCardWaterBury_688:
 120:
-    $A = 12;
-    callSlot("BossCardWaterBury_At", 1);
-    %B = (3.1415927f / 8.0f);
-    goto BossCardWaterBury_1140 @ 130;
+	$A = 12;
+	callSlot("BossCardWaterBury_At", 1);
+	%B = (3.1415927f / 8.0f);
+	goto BossCardWaterBury_1140 @ 130;
 BossCardWaterBury_876:
-    call("BossCardWaterBury_LaserAt", _ff %B);
-    %D = (0.0f - %B);
-    call("BossCardWaterBury_LaserAt", _ff %D);
-    %B = (%B - 0.02617994f);
+	call("BossCardWaterBury_LaserAt", _ff %B);
+	%D = (0.0f - %B);
+	call("BossCardWaterBury_LaserAt", _ff %D);
+	%B -= 0.02617994f;
 BossCardWaterBury_1140:
 130:
-    if $A-- goto BossCardWaterBury_876 @ 120;
-    endSlot(1);
-    $A = 8;
-    enmRand(90, 4, 1.5f);
-    %B = 0.0f;
-    etNew(0);
-    etMode(0, 0);
-    etSpr(0, 26, 1);
-    etAmt(0, 10, 1);
+	if $A-- goto BossCardWaterBury_876 @ 120;
+	endSlot(1);
+	$A = 8;
+	enmRand(90, 4, 1.5f);
+	%B = 0.0f;
+	etNew(0);
+	etMode(0, 0);
+	etSpr(0, 26, 1);
+	etAmt(0, 10, 1);
 !H
-    3.5f;
+	3.5f;
 !L
-    3.8f;
+	3.8f;
 !*
-    etSpd(0, _f([-1.0f] + 0.5f), 0.95f);
-BossCardWaterBury_1480:
+	etSpd(0, _f([-1.0f] + 0.5f), 0.95f);
+BossCardWaterBury_1536:
 !H
-    etAng(0, %B, 0.3926991f);
+	etAng(0, %B, 0.3926991f);
 !L
-    etAng(0, %B, 0.3141593f);
+	etAng(0, %B, 0.3141593f);
 !*
-    etOn(0);
-    %D = (%RF * 0.17453292f);
-    %D = (%D - 0.08726646f);
-    %B = (%B - %D);
+	etOn(0);
+	%D = (%RF * rad(10.f));
+	%D -= 0.08726646f;
+	%B = (%B - %D);
 140:
-    if $A-- goto BossCardWaterBury_1480 @ 130;
-    enmRand(90, 4, 1.5f);
-    $C = ($C + 1);
+	if $A-- goto BossCardWaterBury_1536 @ 130;
+	enmRand(90, 4, 1.5f);
+	$C += 1;
 190:
-    goto BossCardWaterBury_688 @ 120;
-    return();
+	goto BossCardWaterBury_688 @ 120;
+	return();
 }
 
 sub BossCardWaterBury_At()
 {
-    var;
-    etNew(0);
-    etMode(0, 2);
-    etSpr(0, 3, 6);
+	etNew(0);
+	etMode(0, 2);
+	etSpr(0, 3, 6);
 !H
-    24;
+	24;
 !L
-    30;
+	30;
 !*
-    etAmt(0, [-1], 2);
-    etSpd(0, 3.5f, 2.05f);
-    etAng(0, 0.0f, 0.3490658f);
-    etEx(0, 0, 0, 2, 2, [NEG], [NEGF], [NEGF]);
+	etAmt(0, [-1], 2);
+	etSpd(0, 3.5f, 2.05f);
+	etAng(0, 0.0f, 0.3490658f);
+	etEx(0, 0, 0, 2, 2, [NEG], [NEGF], [NEGF]);
 BossCardWaterBury_At_280:
-    etOn(0);
-    wait(22);
-    goto BossCardWaterBury_At_280 @ 0;
-    return();
+	etOn(0);
+	wait(22);
+	goto BossCardWaterBury_At_280 @ 0;
+	return();
 }
 
-sub BossCardWaterBury_LaserAt(A)
+sub BossCardWaterBury_LaserAt(var A)
 {
-    var;
-    etNew(1);
-    etSpr(1, 30, 6);
-    etAng(1, _f(%AIM + %A), 0.0f);
-    etSpd(1, 24.0f, 0.0f);
-    laserSetSize(1, 0.0f, 640.0f, 0.0f, 8.0f);
-    laserSetTime(1, 20, 10, 50, 10, 0);
-    etEx(1, 0, 0, 268435456, 1, [NEG], [NEGF], [NEGF]);
-    etSE(1, 19, -1);
-    laserShootStatic(1, 1);
-    return();
+	etNew(1);
+	etSpr(1, 30, 6);
+	etAng(1, _f(%AIM + %A), 0.0f);
+	etSpd(1, 24.0f, 0.0f);
+	laserSetSize(1, 0.0f, 640.0f, 0.0f, 8.0f);
+	laserSetTime(1, 20, 10, 50, 10, 0);
+	etEx(1, 0, 0, 268435456, 1, [NEG], [NEGF], [NEGF]);
+	etSE(1, 19, -1);
+	laserShootStatic(1, 1);
+	return();
 }
 
 sub BossCardWaterMonsoon()
 {
-    var A B C D;
-    resetBoss();
-    ins_21();
-    enmClear();
-    enmNewRel("Ecl_EtBreak", 0.0f, 0.0f, 9999, 0, 0);
-    cardEnd();
-    ins_529(0);
-    resetBossParam();
-    playSE(28);
-    enmDir(0.0f, 0.0f);
-    enmDirTime(0, 0, 0.0f, 0.0f);
-    enmPosTime(0, 0, 0.0f, 0.0f);
-    $MISS_COUNT = 0;
-    $BOMB_COUNT = 0;
-    call("BossSetNextNon", _SS 2100);
+	var A, B, C, D;
+	resetBoss();
+	ins_21();
+	enmClear();
+	enmNewRel("Ecl_EtBreak", 0.0f, 0.0f, 9999, 0, 0);
+	cardEnd();
+	ins_529(0);
+	resetBossParam();
+	playSE(28);
+	enmDir(0.0f, 0.0f);
+	enmDirTime(0, 0, 0.0f, 0.0f);
+	enmPosTime(0, 0, 0.0f, 0.0f);
+	MISS_COUNT = 0;
+	BOMB_COUNT = 0;
+	@BossSetNextNon(2100);
 !EN
-    cardE(48, 2100, 500000, "水符「タイダルウェイブ」");
+	cardE(48, 2100, 500000, "水符「タイダルウェイブ」");
 !HL
-    cardH(74, 2100, 500000, "水符「ウェットモンスーン」");
+	cardH(74, 2100, 500000, "水符「ウェットモンスーン」");
 !*
-    invinc(120);
-    stageProg(43);
-    enmPosTime(60, 4, 0.0f, 80.0f);
-    anmScrNoMove(0, 0);
-    etNew(0);
-    etMode(0, 3);
-    etSpr(0, 24, 0);
-    $C = 0;
+	invinc(120);
+	stageProg(43);
+	enmPosTime(60, 4, 0.0f, 80.0f);
+	anmScrNoMove(0, 0);
+	etNew(0);
+	etMode(0, 3);
+	etSpr(0, 24, 0);
+	$C = 0;
 BossCardWaterMonsoon_748:
 120:
-    callSlot("BossCardWaterMonsoon_rain", 1);
+	callSlot("BossCardWaterMonsoon_rain", 1);
 !HL
-    callSlot("BossCardWaterMonsoon_rainH", 4);
+	callSlot("BossCardWaterMonsoon_rainH", 4);
 132:
 !*
-    callSlot("BossCardWaterMonsoon_wave2", 2);
+	callSlot("BossCardWaterMonsoon_wave2", 2);
 !HL
-    callSlot("BossCardWaterMonsoon_wave1", 3);
+	callSlot("BossCardWaterMonsoon_wave1", 3);
 240:
 !*
-    enmRand(90, 4, 1.5f);
+	enmRand(90, 4, 1.5f);
 360:
 !EN
-    callSlot("BossCardWaterMonsoon_rain", 3);
+	callSlot("BossCardWaterMonsoon_rain", 3);
 367:
-    callSlot("BossCardWaterMonsoon_rain", 4);
+	callSlot("BossCardWaterMonsoon_rain", 4);
 372:
 !HL
-    endSlot(3);
+	endSlot(3);
 !*
-    endSlot(2);
+	endSlot(2);
 374:
 !EN
-    callSlot("BossCardWaterMonsoon_rain", 5);
+	callSlot("BossCardWaterMonsoon_rain", 5);
 480:
 !*
-    enmRand(90, 4, 1.5f);
+	enmRand(90, 4, 1.5f);
 !EN
-    endSlot(3);
+	endSlot(3);
 487:
-    endSlot(4);
+	endSlot(4);
 494:
-    endSlot(5);
+	endSlot(5);
 540:
 !*
-    goto BossCardWaterMonsoon_748 @ 120;
-    return();
+	goto BossCardWaterMonsoon_748 @ 120;
+	return();
 }
 
 sub BossCardWaterMonsoon_rain()
 {
-    var;
-    etNew(0);
-    etMode(0, 8);
-    etAmt(0, 1, 1);
-    etSpd(0, 2.2f, 1.7f);
-    etAng(0, 1.6421962f, 1.4993964f);
-    etEx(0, 0, 0, 2, 2, [NEG], [NEGF], [NEGF]);
-    etEx(0, 1, 1, 1024, 600, 1, [NEGF], [NEGF]);
-    etEx(0, 2, 0, 4, 9999, [NEG], 0.016f, 1.3089969f);
+	etNew(0);
+	etMode(0, 8);
+	etAmt(0, 1, 1);
+	etSpd(0, 2.2f, 1.7f);
+	etAng(0, 1.6421962f, 1.4993964f);
+	etEx(0, 0, 0, 2, 2, [NEG], [NEGF], [NEGF]);
+	etEx(0, 1, 1, 1024, 600, 1, [NEGF], [NEGF]);
+	etEx(0, 2, 0, 4, 9999, [NEG], 0.016f, 1.3089969f);
 BossCardWaterMonsoon_rain_308:
-    etOfs_abs(0, _f(%RF2 * 208.0f), 0.0f);
-    etSpr(0, 28, 7);
-    etOn(0);
+	etOfs_abs(0, _f(%RF2 * 208.0f), 0.0f);
+	etSpr(0, 28, 7);
+	etOn(0);
 !HL
-    wait(6);
-    unless (($TIME % 4) > (3 - $RANK)) goto BossCardWaterMonsoon_rain_744 @ 0;
-    etOfs_abs(0, _f(%RF2 * 208.0f), 0.0f);
-    etSpr(0, 28, 6);
-    etOn(0);
+	wait(6);
+	unless (($TIME % 4) > (3 - $RANK)) goto BossCardWaterMonsoon_rain_744 @ 0;
+	etOfs_abs(0, _f(%RF2 * 208.0f), 0.0f);
+	etSpr(0, 28, 6);
+	etOn(0);
 BossCardWaterMonsoon_rain_744:
 !*
-    wait_rank(15, 12, 6, 6);
-    goto BossCardWaterMonsoon_rain_308 @ 0;
-    return();
+	wait_rank(15, 12, 6, 6);
+	goto BossCardWaterMonsoon_rain_308 @ 0;
+	return();
 }
 
 sub BossCardWaterMonsoon_rainH()
 {
-    var;
-    etNew(3);
-    etMode(3, 8);
-    etSpr(3, 28, 8);
-    etAmt(3, 1, 1);
-    etSpd(3, 2.0f, 1.7f);
-    etAng(3, 1.6421962f, 1.4993964f);
-    etEx(3, 0, 0, 2, 2, [NEG], [NEGF], [NEGF]);
-    etEx(3, 1, 1, 1024, 600, 1, [NEGF], [NEGF]);
-    etEx(3, 2, 0, 4, 9999, [NEG], 0.016f, 1.8325957f);
+	etNew(3);
+	etMode(3, 8);
+	etSpr(3, 28, 8);
+	etAmt(3, 1, 1);
+	etSpd(3, 2.0f, 1.7f);
+	etAng(3, 1.6421962f, 1.4993964f);
+	etEx(3, 0, 0, 2, 2, [NEG], [NEGF], [NEGF]);
+	etEx(3, 1, 1, 1024, 600, 1, [NEGF], [NEGF]);
+	etEx(3, 2, 0, 4, 9999, [NEG], 0.016f, 1.8325957f);
 BossCardWaterMonsoon_rainH_336:
-    etOfs_abs(3, _f(%RF2 * 208.0f), 0.0f);
-    etOn(3);
-    wait(21);
-    goto BossCardWaterMonsoon_rainH_336 @ 0;
-    return();
+	etOfs_abs(3, _f(%RF2 * 208.0f), 0.0f);
+	etOn(3);
+	wait(21);
+	goto BossCardWaterMonsoon_rainH_336 @ 0;
+	return();
 }
 
 sub BossCardWaterMonsoon_wave1()
 {
-    var A B C D;
-    etNew(1);
-    etMode(1, 1);
-    etSpr(1, 3, 7);
-    etAmt(1, 1, 1);
-    etSpd(1, 1.5f, 1.0f);
-    etAng(1, -1.5707964f, 0.0f);
-    etEx(1, 0, 0, 1024, 540, 0, [NEGF], [NEGF]);
-    etEx(1, 1, 1, 268435456, 1, [NEG], [NEGF], [NEGF]);
-    etEx(1, 2, 2, 8, 45, [NEG], 0.0f, -0.03490658503988659153847381536977f);
-    etEx(1, 3, 2, 8, 45, [NEG], 0.0f, 0.03490658503988659153847381536977f);
-    etEx(1, 4, 2, 8, 45, [NEG], 0.0f, -0.03490658503988659153847381536977f);
-    etEx(1, 5, 2, 8, 45, [NEG], 0.0f, 0.03490658503988659153847381536977f);
-    etEx(1, 6, 2, 8, 45, [NEG], 0.0f, -0.03490658503988659153847381536977f);
-    etEx(1, 7, 2, 8, 45, [NEG], 0.0f, 0.03490658503988659153847381536977f);
-    etEx(1, 8, 2, 8, 45, [NEG], 0.0f, -0.03490658503988659153847381536977f);
-    etEx(1, 9, 2, 8, 45, [NEG], 0.0f, 0.03490658503988659153847381536977f);
-    etEx(1, 10, 2, 8, 45, [NEG], 0.0f, -0.03490658503988659153847381536977f);
-    etEx(1, 11, 2, 8, 45, [NEG], 0.0f, 0.03490658503988659153847381536977f);
-    etEx(1, 12, 2, 8, 45, [NEG], 0.0f, -0.03490658503988659153847381536977f);
-    etEx(1, 13, 2, 8, 45, [NEG], 0.0f, 0.03490658503988659153847381536977f);
+	var A, B, C, D;
+	etNew(1);
+	etMode(1, 1);
+	etSpr(1, 3, 7);
+	etAmt(1, 1, 1);
+	etSpd(1, 1.5f, 1.0f);
+	etAng(1, -1.5707964f, 0.0f);
+	etEx(1, 0, 0, 1024, 540, 0, [NEGF], [NEGF]);
+	etEx(1, 1, 1, 268435456, 1, [NEG], [NEGF], [NEGF]);
+	etEx(1, 2, 2, 8, 45, [NEG], 0.0f, -0.034906585f);
+	etEx(1, 3, 2, 8, 45, [NEG], 0.0f, 0.034906585f);
+	etEx(1, 4, 2, 8, 45, [NEG], 0.0f, -0.034906585f);
+	etEx(1, 5, 2, 8, 45, [NEG], 0.0f, 0.034906585f);
+	etEx(1, 6, 2, 8, 45, [NEG], 0.0f, -0.034906585f);
+	etEx(1, 7, 2, 8, 45, [NEG], 0.0f, 0.034906585f);
+	etEx(1, 8, 2, 8, 45, [NEG], 0.0f, -0.034906585f);
+	etEx(1, 9, 2, 8, 45, [NEG], 0.0f, 0.034906585f);
+	etEx(1, 10, 2, 8, 45, [NEG], 0.0f, -0.034906585f);
+	etEx(1, 11, 2, 8, 45, [NEG], 0.0f, 0.034906585f);
+	etEx(1, 12, 2, 8, 45, [NEG], 0.0f, -0.034906585f);
+	etEx(1, 13, 2, 8, 45, [NEG], 0.0f, 0.034906585f);
 !E
-    %B = 64.0f;
+	%B = 64.0f;
 !N
-    %B = 52.0f;
+	%B = 52.0f;
 !H
-    %B = 48.0f;
+	%B = 48.0f;
 !L
-    %B = 48.0f;
+	%B = 48.0f;
 !*
-    %C = ((%RF * %B) - 192.0f);
+	%C = ((%RF * %B) - 192.0f);
 BossCardWaterMonsoon_wave1_1136:
 !ENH
-    $A = 19;
+	$A = 19;
 !L
-    $A = 22;
+	$A = 22;
 !*
-    goto BossCardWaterMonsoon_wave1_1440 @ 12;
+	goto BossCardWaterMonsoon_wave1_1440 @ 12;
 BossCardWaterMonsoon_wave1_1240:
-    %D = (%B * _f($A));
-    %D = (%D + %C);
-    etOfs_abs(1, %D, 480.0f);
-    etOn(1);
+	%D = (%B * _f($A));
+	%D = (%D + %C);
+	etOfs_abs(1, %D, 480.0f);
+	etOn(1);
 BossCardWaterMonsoon_wave1_1440:
-    if $A-- goto BossCardWaterMonsoon_wave1_1240 @ 0;
+	if $A-- goto BossCardWaterMonsoon_wave1_1240 @ 0;
 12:
-    goto BossCardWaterMonsoon_wave1_1136 @ 0;
-    return();
+	goto BossCardWaterMonsoon_wave1_1136 @ 0;
+	return();
 }
 
 sub BossCardWaterMonsoon_wave2()
 {
-    var A B C D;
-    etNew(2);
-    etMode(2, 1);
-    etSpr(2, 3, 6);
-    etAmt(2, 1, 1);
-    etSpd(2, 1.5f, 1.0f);
-    etAng(2, 1.5707964f, 0.0f);
-    etEx(2, 0, 0, 1024, 540, 0, [NEGF], [NEGF]);
-    etEx(2, 1, 1, 268435456, 1, [NEG], [NEGF], [NEGF]);
-    etEx(2, 2, 2, 8, 45, [NEG], 0.0f, -0.03490658503988659153847381536977f);
-    etEx(2, 3, 2, 8, 45, [NEG], 0.0f, 0.03490658503988659153847381536977f);
-    etEx(2, 4, 2, 8, 45, [NEG], 0.0f, -0.03490658503988659153847381536977f);
-    etEx(2, 5, 2, 8, 45, [NEG], 0.0f, 0.03490658503988659153847381536977f);
-    etEx(2, 6, 2, 8, 45, [NEG], 0.0f, -0.03490658503988659153847381536977f);
-    etEx(2, 7, 2, 8, 45, [NEG], 0.0f, 0.03490658503988659153847381536977f);
-    etEx(2, 8, 2, 8, 45, [NEG], 0.0f, -0.03490658503988659153847381536977f);
-    etEx(2, 9, 2, 8, 45, [NEG], 0.0f, 0.03490658503988659153847381536977f);
-    etEx(2, 10, 2, 8, 45, [NEG], 0.0f, -0.03490658503988659153847381536977f);
-    etEx(2, 11, 2, 8, 45, [NEG], 0.0f, 0.03490658503988659153847381536977f);
-    etEx(2, 12, 2, 8, 45, [NEG], 0.0f, -0.03490658503988659153847381536977f);
-    etEx(2, 13, 2, 8, 45, [NEG], 0.0f, 0.03490658503988659153847381536977f);
+	var A, B, C, D;
+	etNew(2);
+	etMode(2, 1);
+	etSpr(2, 3, 6);
+	etAmt(2, 1, 1);
+	etSpd(2, 1.5f, 1.0f);
+	etAng(2, 1.5707964f, 0.0f);
+	etEx(2, 0, 0, 1024, 540, 0, [NEGF], [NEGF]);
+	etEx(2, 1, 1, 268435456, 1, [NEG], [NEGF], [NEGF]);
+	etEx(2, 2, 2, 8, 45, [NEG], 0.0f, -0.034906585f);
+	etEx(2, 3, 2, 8, 45, [NEG], 0.0f, 0.034906585f);
+	etEx(2, 4, 2, 8, 45, [NEG], 0.0f, -0.034906585f);
+	etEx(2, 5, 2, 8, 45, [NEG], 0.0f, 0.034906585f);
+	etEx(2, 6, 2, 8, 45, [NEG], 0.0f, -0.034906585f);
+	etEx(2, 7, 2, 8, 45, [NEG], 0.0f, 0.034906585f);
+	etEx(2, 8, 2, 8, 45, [NEG], 0.0f, -0.034906585f);
+	etEx(2, 9, 2, 8, 45, [NEG], 0.0f, 0.034906585f);
+	etEx(2, 10, 2, 8, 45, [NEG], 0.0f, -0.034906585f);
+	etEx(2, 11, 2, 8, 45, [NEG], 0.0f, 0.034906585f);
+	etEx(2, 12, 2, 8, 45, [NEG], 0.0f, -0.034906585f);
+	etEx(2, 13, 2, 8, 45, [NEG], 0.0f, 0.034906585f);
 !E
-    %B = 64.0f;
+	%B = 64.0f;
 !N
-    %B = 52.0f;
+	%B = 52.0f;
 !H
-    %B = 48.0f;
+	%B = 48.0f;
 !L
-    %B = 48.0f;
+	%B = 48.0f;
 !*
-    %C = ((%RF * %B) + 192.0f);
+	%C = ((%RF * %B) + 192.0f);
 BossCardWaterMonsoon_wave2_1136:
 !ENH
-    $A = 19;
+	$A = 19;
 !L
-    $A = 21;
+	$A = 21;
 !*
-    goto BossCardWaterMonsoon_wave2_1400 @ 12;
+	goto BossCardWaterMonsoon_wave2_1400 @ 12;
 BossCardWaterMonsoon_wave2_1240:
-    %D = (%C - (%B * _f($A)));
-    etOfs_abs(2, %D, -32.0f);
-    etOn(2);
+	%D = (%C - (%B * _f($A)));
+	etOfs_abs(2, %D, -32.0f);
+	etOn(2);
 BossCardWaterMonsoon_wave2_1400:
-    if $A-- goto BossCardWaterMonsoon_wave2_1240 @ 0;
+	if $A-- goto BossCardWaterMonsoon_wave2_1240 @ 0;
 12:
-    goto BossCardWaterMonsoon_wave2_1136 @ 0;
-    return();
+	goto BossCardWaterMonsoon_wave2_1136 @ 0;
+	return();
 }
 
 sub BossCardWaterUndine()
 {
-    var A B C D;
-    resetBoss();
-    ins_21();
-    enmClear();
-    enmNewRel("Ecl_EtBreak", 0.0f, 0.0f, 9999, 0, 0);
-    cardEnd();
-    ins_529(0);
-    resetBossParam();
-    playSE(28);
-    enmDir(0.0f, 0.0f);
-    enmDirTime(0, 0, 0.0f, 0.0f);
-    enmPosTime(0, 0, 0.0f, 0.0f);
-    $MISS_COUNT = 0;
-    $BOMB_COUNT = 0;
-    call("BossSetNextNon", _SS 2100);
-    cardE(40, 2100, 500000, "水符「プリンセスウンディネ」");
-    invinc(120);
-    stageProg(43);
-    enmPosTime(60, 4, 0.0f, 80.0f);
-    anmScrNoMove(0, 0);
-    etNew(0);
-    etMode(0, 3);
-    etSpr(0, 24, 0);
-    $C = 0;
+	var A, B, C, D;
+	resetBoss();
+	ins_21();
+	enmClear();
+	enmNewRel("Ecl_EtBreak", 0.0f, 0.0f, 9999, 0, 0);
+	cardEnd();
+	ins_529(0);
+	resetBossParam();
+	playSE(28);
+	enmDir(0.0f, 0.0f);
+	enmDirTime(0, 0, 0.0f, 0.0f);
+	enmPosTime(0, 0, 0.0f, 0.0f);
+	MISS_COUNT = 0;
+	BOMB_COUNT = 0;
+	@BossSetNextNon(2100);
+	cardE(40, 2100, 500000, "水符「プリンセスウンディネ」");
+	invinc(120);
+	stageProg(43);
+	enmPosTime(60, 4, 0.0f, 80.0f);
+	anmScrNoMove(0, 0);
+	etNew(0);
+	etMode(0, 3);
+	etSpr(0, 24, 0);
+	$C = 0;
 BossCardWaterUndine_692:
 120:
-    $A = 12;
-    callSlot("BossCardWaterUndine_At", 1);
-    %B = (3.1415927f / 8.0f);
-    goto BossCardWaterUndine_1200 @ 130;
+	$A = 12;
+	callSlot("BossCardWaterUndine_At", 1);
+	%B = (3.1415927f / 8.0f);
+	goto BossCardWaterUndine_1200 @ 130;
 BossCardWaterUndine_880:
-    call("BossCardWaterUndine_LaserAt", _fS 0);
-    call("BossCardWaterUndine_LaserAt", _ff %B);
-    %D = (0.0f - %B);
-    call("BossCardWaterUndine_LaserAt", _ff %D);
-    %B = (%B - 0.02617994f);
+	call("BossCardWaterUndine_LaserAt", _fS 0);
+	call("BossCardWaterUndine_LaserAt", _ff %B);
+	%D = (0.0f - %B);
+	call("BossCardWaterUndine_LaserAt", _ff %D);
+	%B -= 0.02617994f;
 BossCardWaterUndine_1200:
 130:
-    if $A-- goto BossCardWaterUndine_880 @ 120;
-    endSlot(1);
-    $A = 8;
-    enmRand(90, 4, 1.5f);
-    %B = 0.0f;
-    etNew(0);
-    etMode(0, 0);
-    etSpr(0, 17, 3);
-    etAmt(0, 10, 1);
-    etSpd(0, 3.0f, 0.95f);
-    etNew(1);
-    etMode(1, 0);
-    etSpr(1, 3, 6);
-    etSpd(1, 0.95f, 0.95f);
+	if $A-- goto BossCardWaterUndine_880 @ 120;
+	endSlot(1);
+	$A = 8;
+	enmRand(90, 4, 1.5f);
+	%B = 0.0f;
+	etNew(0);
+	etMode(0, 0);
+	etSpr(0, 17, 3);
+	etAmt(0, 10, 1);
+	etSpd(0, 3.0f, 0.95f);
+	etNew(1);
+	etMode(1, 0);
+	etSpr(1, 3, 6);
+	etSpd(1, 0.95f, 0.95f);
 BossCardWaterUndine_1600:
-    etAng(0, %B, 0.2243995f);
-    etAmt(1, _S($C + 1), 1);
-    etAng(1, %B, 0.3490658f);
-    etOn(0);
-    etOn(1);
-    %D = (%RDEG + 3.1415927f);
-    %D = (%D / 18.666666f);
-    %D = (%D - 0.1121997f);
-    %B = (%B - %D);
+	etAng(0, %B, 0.2243995f);
+	etAmt(1, _S($C + 1), 1);
+	etAng(1, %B, 0.3490658f);
+	etOn(0);
+	etOn(1);
+	%D = (%RDEG + 3.1415927f);
+	%D = (%D / 18.666666f);
+	%D -= 0.1121997f;
+	%B = (%B - %D);
 140:
-    if $A-- goto BossCardWaterUndine_1600 @ 130;
-    enmRand(90, 4, 1.5f);
-    $C = ($C + 1);
+	if $A-- goto BossCardWaterUndine_1600 @ 130;
+	enmRand(90, 4, 1.5f);
+	$C += 1;
 190:
-    goto BossCardWaterUndine_692 @ 120;
-    return();
+	goto BossCardWaterUndine_692 @ 120;
+	return();
 }
 
 sub BossCardWaterUndine_At()
 {
-    var;
-    etNew(0);
-    etMode(0, 0);
-    etSpr(0, 3, 6);
-    etAmt(0, 16, 2);
-    etSpd(0, 4.0f, 1.45f);
-    etAng(0, 3.141593f, 0.3490658f);
-    etEx(0, 0, 0, 2, 2, [NEG], [NEGF], [NEGF]);
+	etNew(0);
+	etMode(0, 0);
+	etSpr(0, 3, 6);
+	etAmt(0, 16, 2);
+	etSpd(0, 4.0f, 1.45f);
+	etAng(0, 3.141593f, 0.3490658f);
+	etEx(0, 0, 0, 2, 2, [NEG], [NEGF], [NEGF]);
 BossCardWaterUndine_At_240:
-    etOn(0);
-    wait(22);
-    goto BossCardWaterUndine_At_240 @ 0;
-    return();
+	etOn(0);
+	wait(22);
+	goto BossCardWaterUndine_At_240 @ 0;
+	return();
 }
 
-sub BossCardWaterUndine_LaserAt(A)
+sub BossCardWaterUndine_LaserAt(var A)
 {
-    var;
-    etNew(1);
-    etSpr(1, 30, 6);
-    etAng(1, _f(%AIM + %A), 0.0f);
-    etSpd(1, 4.0f, 0.0f);
-    laserSetSize(1, 0.0f, 96.0f, 0.0f, 6.0f);
-    etSE(1, 19, -1);
-    etEx(1, 0, 0, 268435456, 1, [NEG], [NEGF], [NEGF]);
-    laserShoot(1);
-    return();
+	etNew(1);
+	etSpr(1, 30, 6);
+	etAng(1, _f(%AIM + %A), 0.0f);
+	etSpd(1, 4.0f, 0.0f);
+	laserSetSize(1, 0.0f, 96.0f, 0.0f, 6.0f);
+	etSE(1, 19, -1);
+	etEx(1, 0, 0, 268435456, 1, [NEG], [NEGF], [NEGF]);
+	laserShoot(1);
+	return();
 }
 
 sub BossCardWoFi()
 {
-    var A B C D;
-    resetBoss();
-    ins_21();
-    enmClear();
-    enmNewRel("Ecl_EtBreak", 0.0f, 0.0f, 9999, 0, 0);
-    cardEnd();
-    ins_529(0);
-    resetBossParam();
-    playSE(28);
-    enmDir(0.0f, 0.0f);
-    enmDirTime(0, 0, 0.0f, 0.0f);
-    enmPosTime(0, 0, 0.0f, 0.0f);
-    $MISS_COUNT = 0;
-    $BOMB_COUNT = 0;
-    call("BossCheckItems");
-    cardE(82, 2400, 500000, "木＆火符「フォレストブレイズ」");
-    invinc(120);
-    stageProg(43);
-    enmPosTime(120, 4, 0.0f, 80.0f);
-    anmScrNoMove(0, 0);
-    etNew(0);
-    etMode(0, 8);
-    etSpr(0, 24, 0);
+	var A, B, C, D;
+	resetBoss();
+	ins_21();
+	enmClear();
+	enmNewRel("Ecl_EtBreak", 0.0f, 0.0f, 9999, 0, 0);
+	cardEnd();
+	ins_529(0);
+	resetBossParam();
+	playSE(28);
+	enmDir(0.0f, 0.0f);
+	enmDirTime(0, 0, 0.0f, 0.0f);
+	enmPosTime(0, 0, 0.0f, 0.0f);
+	MISS_COUNT = 0;
+	BOMB_COUNT = 0;
+	@BossCheckItems();
+	cardE(82, 2400, 500000, "木＆火符「フォレストブレイズ」");
+	invinc(120);
+	stageProg(43);
+	enmPosTime(120, 4, 0.0f, 80.0f);
+	anmScrNoMove(0, 0);
+	etNew(0);
+	etMode(0, 8);
+	etSpr(0, 24, 0);
 !E
-    12;
+	12;
 !NL
-    22;
+	22;
 !H
-    32;
+	32;
 !*
-    etAmt(0, [-1], 1);
+	etAmt(0, [-1], 1);
 !EN
-    2.0f;
+	2.0f;
 !HL
-    2.5f;
+	2.5f;
 !*
-    etSpd(0, _f([-1.0f] + 0.5f), 0.55f);
-    etAng(0, 3.1415927f, -3.1415927f);
-    etSE(0, 24, -1);
-    etEx(0, 0, 0, 2, 1, [NEG], [NEGF], [NEGF]);
-    etEx(0, 1, 0, 268435456, 0, [NEG], [NEGF], [NEGF]);
-    etEx(0, 2, 0, 1, [NEG], [NEG], [NEGF], [NEGF]);
-    etEx(0, 3, 0, 4, 9999, [NEG], 0.012f, 2.3561945f);
-    etNew(1);
-    etMode(1, 8);
-    etSpr(1, 9, 2);
-    etAng(1, 2.635447f, 2.076942f);
-    etEx(1, 0, 0, 2, 1, [NEG], [NEGF], [NEGF]);
-    etEx(1, 1, 0, 1, [NEG], [NEG], [NEGF], [NEGF]);
-    etEx(1, 2, 1, 1024, 60, [NEG], [NEGF], [NEGF]);
-    etEx(1, 3, 0, 4, 60, [NEG], 0.012f, 2.3561945f);
-    $A = 0;
-BossCardWoFi_1380:
+	etSpd(0, _f([-1.0f] + 0.5f), 0.55f);
+	etAng(0, 3.1415927f, -3.1415927f);
+	etSE(0, 24, -1);
+	etEx(0, 0, 0, 2, 1, [NEG], [NEGF], [NEGF]);
+	etEx(0, 1, 0, 268435456, 0, [NEG], [NEGF], [NEGF]);
+	etEx(0, 2, 0, 1, [NEG], [NEG], [NEGF], [NEGF]);
+	etEx(0, 3, 0, 4, 9999, [NEG], 0.012f, 2.3561945f);
+	etNew(1);
+	etMode(1, 8);
+	etSpr(1, 9, 2);
+	etAng(1, 2.635447f, 2.076942f);
+	etEx(1, 0, 0, 2, 1, [NEG], [NEGF], [NEGF]);
+	etEx(1, 1, 0, 1, [NEG], [NEG], [NEGF], [NEGF]);
+	etEx(1, 2, 1, 1024, 60, [NEG], [NEGF], [NEGF]);
+	etEx(1, 3, 0, 4, 60, [NEG], 0.012f, 2.3561945f);
+	$A = 0;
+BossCardWoFi_1436:
 120:
-    if ($A % 4) goto BossCardWoFi_1480 @ 120;
-    etOn(0);
-BossCardWoFi_1480:
-    %B = (%RF * 384.0f);
-    %B = (%B - %ABS_X);
-    %C = (32.0f - %ABS_Y);
-    %B = (%B - 192.0f);
-    etOfs(1, %B, %C);
-    etAmt(1, 1, 1);
-    etSpd(1, 1.7f, 0.55f);
-    etOn(1);
-    %B = (%RF * 192.0f);
-    if ($A % 2) goto BossCardWoFi_2220 @ 122;
+	if ($A % 4) goto BossCardWoFi_1536 @ 120;
+	etOn(0);
+BossCardWoFi_1536:
+	%B = (%RF * 384.0f);
+	%B = (%B - %ABS_X);
+	%C = (32.0f - %ABS_Y);
+	%B -= 192.0f;
+	etOfs(1, %B, %C);
+	etAmt(1, 1, 1);
+	etSpd(1, 1.7f, 0.55f);
+	etOn(1);
+	%B = (%RF * 192.0f);
+	if ($A % 2) goto BossCardWoFi_2276 @ 122;
 122:
-    %C = (%B - %ABS_Y);
-    %B = (380.0f - %ABS_X);
-    goto BossCardWoFi_2448 @ 122;
-BossCardWoFi_2220:
-    %B = (%B + 192.0f);
-    %C = (%B - %ABS_Y);
-    %B = (380.0f - %ABS_X);
-BossCardWoFi_2448:
-    %B = (%B - 192.0f);
-    etOfs(1, %B, %C);
+	%C = (%B - %ABS_Y);
+	%B = (380.0f - %ABS_X);
+	goto BossCardWoFi_2504 @ 122;
+BossCardWoFi_2276:
+	%B += 192.0f;
+	%C = (%B - %ABS_Y);
+	%B = (380.0f - %ABS_X);
+BossCardWoFi_2504:
+	%B -= 192.0f;
+	etOfs(1, %B, %C);
 !ENH
-    etAmt(1, 1, 1);
+	etAmt(1, 1, 1);
 !L
-    etAmt(1, 2, 1);
+	etAmt(1, 2, 1);
 !EN
-    1.2f;
+	1.2f;
 !HL
-    1.6f;
+	1.6f;
 !*
-    etSpd(1, _f([-1.0f] + 0.5f), 0.55f);
-    etOn(1);
-    $A = ($A + 1);
+	etSpd(1, _f([-1.0f] + 0.5f), 0.55f);
+	etOn(1);
+	$A += 1;
 132:
-    goto BossCardWoFi_1380 @ 120;
-    return();
+	goto BossCardWoFi_1436 @ 120;
+	return();
 }
 
 sub BossCardWoMe()
 {
-    var A B;
-    resetBoss();
-    ins_21();
-    enmClear();
-    enmNewRel("Ecl_EtBreak", 0.0f, 0.0f, 9999, 0, 0);
-    cardEnd();
-    ins_529(0);
-    resetBossParam();
-    playSE(28);
-    enmDir(0.0f, 0.0f);
-    enmDirTime(0, 0, 0.0f, 0.0f);
-    enmPosTime(0, 0, 0.0f, 0.0f);
-    $MISS_COUNT = 0;
-    $BOMB_COUNT = 0;
-    call("BossCheckItems");
-    cardN(102, 999999, 500000, "木＆金符「チルクイトスバイタ」");
-    invinc(120);
-    stageProg(43);
-    enmPosTime(120, 4, 0.0f, 160.0f);
-    unsetMoveArea();
-    anmScrNoMove(0, 0);
-    etNew(0);
-    etMode(0, 3);
-    etSpr(0, 0, 0);
-    etSpd(0, 1.0f, 1.0f);
-    laserSetSize(0, -1.0f, -1.0f, -1.0f, 24.0f);
+	var A, B;
+	resetBoss();
+	ins_21();
+	enmClear();
+	enmNewRel("Ecl_EtBreak", 0.0f, 0.0f, 9999, 0, 0);
+	cardEnd();
+	ins_529(0);
+	resetBossParam();
+	playSE(28);
+	enmDir(0.0f, 0.0f);
+	enmDirTime(0, 0, 0.0f, 0.0f);
+	enmPosTime(0, 0, 0.0f, 0.0f);
+	MISS_COUNT = 0;
+	BOMB_COUNT = 0;
+	@BossCheckItems();
+	cardN(102, 999999, 500000, "木＆金符「チルクイトスバイタ」");
+	invinc(120);
+	stageProg(43);
+	enmPosTime(120, 4, 0.0f, 160.0f);
+	unsetMoveArea();
+	anmScrNoMove(0, 0);
+	etNew(0);
+	etMode(0, 3);
+	etSpr(0, 0, 0);
+	etSpd(0, 1.0f, 1.0f);
+	laserSetSize(0, -1.0f, -1.0f, -1.0f, 24.0f);
 !E
-    30;
+	30;
 !N
-    40;
+	40;
 !H
-    50;
+	50;
 !L
-    60;
+	60;
 !*
-    laserSetTime(0, [-1], -1, -1, -1, -1);
-    etSE(0, 19, -1);
-    etEx(0, 0, 0, 268435456, 0, [NEG], [NEGF], [NEGF]);
-    etEx(0, 1, 0, 8, 45, 1, 0.02f, 0.0f);
-    etEx(0, 2, 0, 4096, 30, [NEG], [NEGF], [NEGF]);
-    etEx(0, 4, 0, 8, 10, 1, -0.06f, 0.0f);
+	laserSetTime(0, [-1], -1, -1, -1, -1);
+	etSE(0, 19, -1);
+	etEx(0, 0, 0, 268435456, 0, [NEG], [NEGF], [NEGF]);
+	etEx(0, 1, 0, 8, 45, 1, 0.02f, 0.0f);
+	etEx(0, 2, 0, 4096, 30, [NEG], [NEGF], [NEGF]);
+	etEx(0, 4, 0, 8, 10, 1, -0.06f, 0.0f);
 !NHL
-    etEx(0, 6, 0, 8, 10, 1, -0.06f, 0.0f);
+	etEx(0, 6, 0, 8, 10, 1, -0.06f, 0.0f);
 !HL
-    etEx(0, 8, 0, 8, 10, 1, -0.06f, 0.0f);
+	etEx(0, 8, 0, 8, 10, 1, -0.06f, 0.0f);
 !L
-    etEx(0, 10, 0, 8, 10, 1, -0.06f, 0.0f);
+	etEx(0, 10, 0, 8, 10, 1, -0.06f, 0.0f);
 !*
-    etNew(1);
-    etSpr(1, 30, 11);
-    etSE(1, 19, -1);
-    laserSetTime(1, 50, 30, 75, 15, 14);
-    laserSetSize(1, 0.0f, 500.0f, 0.0f, 12.0f);
-    etNew(2);
-    etMode(2, 0);
+	etNew(1);
+	etSpr(1, 30, 11);
+	etSE(1, 19, -1);
+	laserSetTime(1, 50, 30, 75, 15, 14);
+	laserSetSize(1, 0.0f, 500.0f, 0.0f, 12.0f);
+	etNew(2);
+	etMode(2, 0);
 !EN
-    etSpr(2, 17, 5);
+	etSpr(2, 17, 5);
 !HL
-    etSpr(2, 26, 2);
+	etSpr(2, 26, 2);
 !*
-    etAmt_rank(2, 1, 2, 1, 2, 1, 1, 1, 2);
+	etAmt_rank(2, 1, 2, 1, 2, 1, 1, 1, 2);
 !EN
-    etEx(2, 0, 0, 2, 2, [NEG], [NEGF], [NEGF]);
+	etEx(2, 0, 0, 2, 2, [NEG], [NEGF], [NEGF]);
 !HL
-    etEx(2, 0, 0, 2, 1, [NEG], [NEGF], [NEGF]);
-    $A = 0;
+	etEx(2, 0, 0, 2, 1, [NEG], [NEGF], [NEGF]);
+	$A = 0;
 !E
-    %B = 0.3926991f;
+	%B = 0.3926991f;
 !N
-    %B = 0.31415927f;
+	%B = 0.31415927f;
 !H
-    %B = 0.31415927f;
+	%B = 0.31415927f;
 !L
-    %B = 0.2617994f;
+	%B = rad(15.f);
 60:
 !*
-    enmPosTime(60, 4, 0.0f, 160.0f);
+	enmPosTime(60, 4, 0.0f, 160.0f);
 120:
-    callSep("BossCardWoMe_atLaser");
-BossCardWoMe_1836:
+	@BossCardWoMe_atLaser() async;
+BossCardWoMe_1884:
 155:
-    unless $A goto BossCardWoMe_1940 @ 155;
-    callSep("BossCardWoMe_at2");
+	unless $A goto BossCardWoMe_1988 @ 155;
+	@BossCardWoMe_at2() async;
 !EN
-    wait(35);
-BossCardWoMe_1940:
+	wait(35);
+BossCardWoMe_1988:
 210:
 !*
-    callSep("BossCardWoMe_at1", _ff %AIM);
-    callSep("BossCardWoMe_at1", _ff (%AIM + 1.2566371f));
-    callSep("BossCardWoMe_at1", _ff (%AIM + 2.5132742f));
-    callSep("BossCardWoMe_at1", _ff (%AIM + 3.7699113f));
-    callSep("BossCardWoMe_at1", _ff (%AIM + 5.0265484f));
+	@BossCardWoMe_at1(AIM) async;
+	callSep("BossCardWoMe_at1", _ff (%AIM + 1.2566371f));
+	callSep("BossCardWoMe_at1", _ff (%AIM + 2.5132742f));
+	callSep("BossCardWoMe_at1", _ff (%AIM + 3.7699113f));
+	callSep("BossCardWoMe_at1", _ff (%AIM + 5.0265484f));
 360:
-    $A = ($A + 1);
-    goto BossCardWoMe_1836 @ 120;
-    return();
+	$A += 1;
+	goto BossCardWoMe_1884 @ 120;
+	return();
 }
 
-sub BossCardWoMe_at1(A)
+sub BossCardWoMe_at1(var A)
 {
-    var B C D E F;
+	var B, C, D, E, F;
 !E
-    $B = 1;
+	$B = 1;
 !N
-    $B = 4;
+	$B = 4;
 !H
-    $B = 7;
+	$B = 7;
 !L
-    $B = 9;
+	$B = 9;
 !*
-    %C = 0.31415927f;
-    $D = 1;
-    %E = 0.0f;
-    %F = (0.0f - %C);
-    goto BossCardWoMe_at1_1176 @ 0;
+	%C = 0.31415927f;
+	$D = 1;
+	%E = 0.0f;
+	%F = (0.0f - %C);
+	goto BossCardWoMe_at1_1176 @ 0;
 BossCardWoMe_at1_416:
-    etAng(1, _f(%E + %A), 0.0f);
-    %E = (%RF * 8.0f);
-    etSpd(1, _f(%E + 11.111111f), 0.0f);
-    laserShootStatic(1, $D);
-    %E = (%RF * %C);
-    %F = (%F + %C);
-    if ($B % 2) goto BossCardWoMe_at1_992 @ 0;
-    %F = (%F * -1.0f);
+	etAng(1, _f(%E + %A), 0.0f);
+	%E = (%RF * 8.0f);
+	etSpd(1, _f(%E + 11.111111f), 0.0f);
+	laserShootStatic(1, $D);
+	%E = (%RF * %C);
+	%F = (%F + %C);
+	if ($B % 2) goto BossCardWoMe_at1_992 @ 0;
+	%F = (%F * -1.0f);
 BossCardWoMe_at1_992:
-    %E = (%E + %F);
-    $D = ($D + 1);
-    wait_rank(8, 8, 8, 7);
+	%E = (%E + %F);
+	$D += 1;
+	wait_rank(8, 8, 8, 7);
 BossCardWoMe_at1_1176:
-    if $B-- goto BossCardWoMe_at1_416 @ 0;
-    return();
+	if $B-- goto BossCardWoMe_at1_416 @ 0;
+	return();
 }
 
 sub BossCardWoMe_at2()
 {
-    var A B C D;
+	var A, B, C, D;
 !E
-    $A = 12;
-    %D = 0.35f;
+	$A = 12;
+	%D = 0.35f;
 !N
-    $A = 15;
-    %D = 0.35f;
+	$A = 15;
+	%D = 0.35f;
 !H
-    $A = 18;
-    %D = 0.35f;
+	$A = 18;
+	%D = 0.35f;
 !L
-    $A = 20;
-    %D = 0.35f;
+	$A = 20;
+	%D = 0.35f;
 !*
-    %B = 0.0f;
-    %C = 2.0f;
-    goto BossCardWoMe_at2_568 @ 0;
+	%B = 0.0f;
+	%C = 2.0f;
+	goto BossCardWoMe_at2_984 @ 0;
 BossCardWoMe_at2_460:
-    etAng(2, %B, 0.049087387f);
-    etSpd(2, %C, 0.0f);
-    etOn(2);
-	etAng(2, _f(%B + 1.2566370614359172953850573533118f), 0.049087387f);
+	etAng(2, %B, 0.049087387f);
+	etSpd(2, %C, 0.0f);
 	etOn(2);
-	etAng(2, _f(%B - 1.2566370614359172953850573533118f), 0.049087387f);
+	etAng(2, _f(%B + 1.2566371f), 0.049087387f);
 	etOn(2);
-	etAng(2, _f(%B + 2.5132741228718345907701147066236f), 0.049087387f);
+	etAng(2, _f(%B - 1.2566371f), 0.049087387f);
 	etOn(2);
-	etAng(2, _f(%B - 2.5132741228718345907701147066236f), 0.049087387f);
+	etAng(2, _f(%B + 2.5132742f), 0.049087387f);
 	etOn(2);
-    wait_rank(5, 4, 3, 2);
-BossCardWoMe_at2_568:
-    %C = (%C + %D);
-    if $A-- goto BossCardWoMe_at2_460 @ 0;
-    return();
+	etAng(2, _f(%B - 2.5132742f), 0.049087387f);
+	etOn(2);
+	wait_rank(5, 4, 3, 2);
+BossCardWoMe_at2_984:
+	%C = (%C + %D);
+	if $A-- goto BossCardWoMe_at2_460 @ 0;
+	return();
 }
 
 sub BossCardWoMe_atLaser()
 {
-    var A B C D E;
+	var A, B, C, D, E;
 !E
-    %C = 0.07853982f;
+	%C = 0.07853982f;
 !N
-    %C = 0.10471976f;
+	%C = 0.10471976f;
 !H
-    %C = 0.1308997f;
+	%C = 0.1308997f;
 !L
-    %C = 0.15707964f;
+	%C = rad(9.f);
 BossCardWoMe_atLaser_196:
 !EN
-    $A = 10;
+	$A = 10;
 !HL
-    $A = 12;
+	$A = 12;
 !*
-    %E = (6.2831855f / _f($A));
-    %B = %RDEG;
-    goto BossCardWoMe_atLaser_1516 @ 0;
+	%E = (6.2831855f / _f($A));
+	%B = %RDEG;
+	goto BossCardWoMe_atLaser_1516 @ 0;
 BossCardWoMe_atLaser_416:
-    etAng(0, %B, 0.0f);
-    %B = (%B + %E);
-    %D = %C;
-    if ($RAND % 2) goto BossCardWoMe_atLaser_716 @ 0;
-    %D = (%D * -1.0f);
+	etAng(0, %B, 0.0f);
+	%B = (%B + %E);
+	%D = %C;
+	if ($RAND % 2) goto BossCardWoMe_atLaser_716 @ 0;
+	%D = (%D * -1.0f);
 BossCardWoMe_atLaser_716:
-    etEx(0, 3, 0, 8, 10, 1, 0.06f, %D);
+	etEx(0, 3, 0, 8, 10, 1, 0.06f, %D);
 !NHL
-    %D = %C;
-    if ($RAND % 2) goto BossCardWoMe_atLaser_960 @ 0;
-    %D = (%D * -1.0f);
+	%D = %C;
+	if ($RAND % 2) goto BossCardWoMe_atLaser_960 @ 0;
+	%D = (%D * -1.0f);
 BossCardWoMe_atLaser_960:
-    etEx(0, 5, 0, 8, 10, 1, 0.06f, %D);
+	etEx(0, 5, 0, 8, 10, 1, 0.06f, %D);
 !HL
-    %D = %C;
-    if ($RAND % 2) goto BossCardWoMe_atLaser_1204 @ 0;
-    %D = (%D * -1.0f);
+	%D = %C;
+	if ($RAND % 2) goto BossCardWoMe_atLaser_1204 @ 0;
+	%D = (%D * -1.0f);
 BossCardWoMe_atLaser_1204:
-    etEx(0, 7, 0, 8, 10, 1, 0.06f, %D);
+	etEx(0, 7, 0, 8, 10, 1, 0.06f, %D);
 !L
-    %D = %C;
-    if ($RAND % 2) goto BossCardWoMe_atLaser_1448 @ 0;
-    %D = (%D * -1.0f);
+	%D = %C;
+	if ($RAND % 2) goto BossCardWoMe_atLaser_1448 @ 0;
+	%D = (%D * -1.0f);
 BossCardWoMe_atLaser_1448:
-    etEx(0, 9, 0, 8, 10, 1, 0.06f, %D);
+	etEx(0, 9, 0, 8, 10, 1, 0.06f, %D);
 !*
-    laserCurvedShoot(0);
+	laserCurvedShoot(0);
 BossCardWoMe_atLaser_1516:
-    if $A-- goto BossCardWoMe_atLaser_416 @ 0;
-    wait_rank(80, 70, 60, 60);
-    goto BossCardWoMe_atLaser_196 @ 0;
-    return();
+	if $A-- goto BossCardWoMe_atLaser_416 @ 0;
+	wait_rank(80, 70, 60, 60);
+	goto BossCardWoMe_atLaser_196 @ 0;
+	return();
 }
 
 sub BossCardWoodGreen()
 {
-    var A B C;
-    resetBoss();
-    ins_21();
-    enmClear();
-    enmNewRel("Ecl_EtBreak", 0.0f, 0.0f, 9999, 0, 0);
-    cardEnd();
-    ins_529(0);
-    resetBossParam();
-    playSE(28);
-    enmDir(0.0f, 0.0f);
-    enmDirTime(0, 0, 0.0f, 0.0f);
-    enmPosTime(0, 0, 0.0f, 0.0f);
-    $MISS_COUNT = 0;
-    $BOMB_COUNT = 0;
-    call("BossSetNextNon", _SS 2100);
-    cardH(68, 2100, 500000, "木符「グリーンストーム」");
-    invinc(120);
-    stageProg(43);
-    enmPosTime(120, 4, 0.0f, 80.0f);
-    anmScrNoMove(0, 0);
-    $A = 0;
-    etNew(0);
-    etMode(0, 3);
-    etSpr(0, 24, 0);
-    etNew(0);
-    etMode(0, 8);
-    etSpr(0, 9, 11);
-    etAmt(0, 30, 1);
-    etSpd(0, 2.5f, 0.55f);
-    etAng(0, -3.1415927f, 3.1415927f);
-    etEx(0, 0, 0, 2, 2, [NEG], [NEGF], [NEGF]);
-    etEx(0, 1, 0, 1, [NEG], [NEG], [NEGF], [NEGF]);
-    etEx(0, 2, 0, 4, 9999, [NEG], 0.008f, 1.570796f);
-    etNew(1);
-    etMode(1, 8);
-    etSpr(1, 9, 10);
-    etAmt(1, 1, 1);
+	var A, B, C;
+	resetBoss();
+	ins_21();
+	enmClear();
+	enmNewRel("Ecl_EtBreak", 0.0f, 0.0f, 9999, 0, 0);
+	cardEnd();
+	ins_529(0);
+	resetBossParam();
+	playSE(28);
+	enmDir(0.0f, 0.0f);
+	enmDirTime(0, 0, 0.0f, 0.0f);
+	enmPosTime(0, 0, 0.0f, 0.0f);
+	MISS_COUNT = 0;
+	BOMB_COUNT = 0;
+	@BossSetNextNon(2100);
+	cardH(68, 2100, 500000, "木符「グリーンストーム」");
+	invinc(120);
+	stageProg(43);
+	enmPosTime(120, 4, 0.0f, 80.0f);
+	anmScrNoMove(0, 0);
+	$A = 0;
+	etNew(0);
+	etMode(0, 3);
+	etSpr(0, 24, 0);
+	etNew(0);
+	etMode(0, 8);
+	etSpr(0, 9, 11);
+	etAmt(0, 30, 1);
+	etSpd(0, 2.5f, 0.55f);
+	etAng(0, -3.1415927f, 3.1415927f);
+	etEx(0, 0, 0, 2, 2, [NEG], [NEGF], [NEGF]);
+	etEx(0, 1, 0, 1, [NEG], [NEG], [NEGF], [NEGF]);
+	etEx(0, 2, 0, 4, 9999, [NEG], 0.008f, 1.570796f);
+	etNew(1);
+	etMode(1, 8);
+	etSpr(1, 9, 10);
+	etAmt(1, 1, 1);
 !H
-    etSpd(1, 1.8f, 0.55f);
+	etSpd(1, 1.8f, 0.55f);
 !L
-    etSpd(1, 2.5f, 0.55f);
+	etSpd(1, 2.5f, 0.55f);
 !*
-    etAng(1, 1.064651f, 0.5061455f);
-    etEx(1, 0, 0, 2, 2, [NEG], [NEGF], [NEGF]);
-    etEx(1, 1, 0, 1, [NEG], [NEG], [NEGF], [NEGF]);
+	etAng(1, 1.064651f, 0.5061455f);
+	etEx(1, 0, 0, 2, 2, [NEG], [NEGF], [NEGF]);
+	etEx(1, 1, 0, 1, [NEG], [NEG], [NEGF], [NEGF]);
 BossCardWoodGreen_1268:
 120:
 !H
-    $A % 8;
+	$A % 8;
 !L
-    $A % 5;
+	$A % 5;
 !*
-    jne(BossCardWoodGreen_1424, 120);
-    etOn(0);
+	jne(BossCardWoodGreen_1424, 120);
+	etOn(0);
 BossCardWoodGreen_1424:
-    if ($A % 2) goto BossCardWoodGreen_1956 @ 120;
-    %B = (%RF * 384.0f);
-    %C = (%B - %ABS_Y);
-    %B = (396.0f - %ABS_X);
-    %B = (%B - 192.0f);
-    etOfs(1, %B, %C);
-    etEx(1, 2, 0, 4, 9999, [NEG], 0.008f, 2.356194f);
-    etAng(1, 2.635447f, 2.076942f);
-    etOn(1);
-    goto BossCardWoodGreen_2384 @ 120;
+	if ($A % 2) goto BossCardWoodGreen_1956 @ 120;
+	%B = (%RF * 384.0f);
+	%C = (%B - %ABS_Y);
+	%B = (396.0f - %ABS_X);
+	%B -= 192.0f;
+	etOfs(1, %B, %C);
+	etEx(1, 2, 0, 4, 9999, [NEG], 0.008f, 2.356194f);
+	etAng(1, 2.635447f, 2.076942f);
+	etOn(1);
+	goto BossCardWoodGreen_2384 @ 120;
 BossCardWoodGreen_1956:
-    %B = (%RF * 384.0f);
-    %C = (%B - %ABS_Y);
-    %B = (-12.0f - %ABS_X);
-    %B = (%B - 192.0f);
-    etOfs(1, %B, %C);
-    etEx(1, 2, 0, 4, 9999, [NEG], 0.008f, 0.7853982f);
-    etAng(1, 1.064651f, 0.5061455f);
-    etOn(1);
+	%B = (%RF * 384.0f);
+	%C = (%B - %ABS_Y);
+	%B = (-12.0f - %ABS_X);
+	%B -= 192.0f;
+	etOfs(1, %B, %C);
+	etEx(1, 2, 0, 4, 9999, [NEG], 0.008f, 0.7853982f);
+	etAng(1, 1.064651f, 0.5061455f);
+	etOn(1);
 BossCardWoodGreen_2384:
-    $A = ($A + 1);
+	$A += 1;
 125:
-    goto BossCardWoodGreen_1268 @ 120;
-    return();
+	goto BossCardWoodGreen_1268 @ 120;
+	return();
 }
 
 sub BossCardWoodLeaf()
 {
-    var A B C D E F G;
-    resetBoss();
-    ins_21();
-    enmClear();
-    enmNewRel("Ecl_EtBreak", 0.0f, 0.0f, 9999, 0, 0);
-    cardEnd();
-    ins_529(0);
-    resetBossParam();
-    playSE(28);
-    enmDir(0.0f, 0.0f);
-    enmDirTime(0, 0, 0.0f, 0.0f);
-    enmPosTime(0, 0, 0.0f, 0.0f);
-    $MISS_COUNT = 0;
-    $BOMB_COUNT = 0;
-    call("BossSetNextNon", _SS 2100);
-    card(50, 2100, 500000, "木符「リーフゲール」");
-    invinc(120);
-    stageProg(43);
-    enmPosTime(60, 4, 0.0f, 96.0f);
-    anmScrNoMove(0, 0);
-    $D = (5 * 3);
-    %F = 1.0f;
-    $G = 3;
-    etNew(0);
-    etMode(0, 3);
-    etSpr(0, 7, 9);
-    etSpd(0, 2.5f, 0.8f);
-    etEx(0, 0, 0, 2, 1, [NEG], [NEGF], [NEGF]);
-    etEx(0, 1, 1, 160, 1, [NEG], [NEGF], [NEGF]);
+	var A, B, C, D, E, F, G;
+	resetBoss();
+	ins_21();
+	enmClear();
+	enmNewRel("Ecl_EtBreak", 0.0f, 0.0f, 9999, 0, 0);
+	cardEnd();
+	ins_529(0);
+	resetBossParam();
+	playSE(28);
+	enmDir(0.0f, 0.0f);
+	enmDirTime(0, 0, 0.0f, 0.0f);
+	enmPosTime(0, 0, 0.0f, 0.0f);
+	MISS_COUNT = 0;
+	BOMB_COUNT = 0;
+	@BossSetNextNon(2100);
+	card(50, 2100, 500000, "木符「リーフゲール」");
+	invinc(120);
+	stageProg(43);
+	enmPosTime(60, 4, 0.0f, 96.0f);
+	anmScrNoMove(0, 0);
+	$D = (5 * 3);
+	%F = 1.0f;
+	$G = 3;
+	etNew(0);
+	etMode(0, 3);
+	etSpr(0, 7, 9);
+	etSpd(0, 2.5f, 0.8f);
+	etEx(0, 0, 0, 2, 1, [NEG], [NEGF], [NEGF]);
+	etEx(0, 1, 1, 160, 1, [NEG], [NEGF], [NEGF]);
 120:
-    goto BossCardWoodLeaf_1824 @ 120;
-BossCardWoodLeaf_900:
-    etAmt(0, _S($D / 3), $G);
-    %A = ((6.2831855f / _f($D / 3)) / _f($G));
-    $B = 15;
-    %C = 3.1415927f;
-    %E = %RDEG;
-    goto BossCardWoodLeaf_1580 @ 120;
-BossCardWoodLeaf_1276:
-    etAng(0, %E, %A);
-    etEx(0, 2, 1, 16, 60, 1, %C, [NEGF]);
-    etOn(0);
-    %C = (%C - 0.20943952f);
-    %E = (%E - (0.10471976f * %F));
-    wait(4);
-BossCardWoodLeaf_1580:
-    if $B-- goto BossCardWoodLeaf_1276 @ 120;
-    enmRand(60, 4, 3.0f);
-    wait(60);
-    $D = ($D + 1);
-    %F = (%F * -1.0f);
-BossCardWoodLeaf_1824:
-    goto BossCardWoodLeaf_900 @ 120;
-    return();
+	goto BossCardWoodLeaf_1872 @ 120;
+BossCardWoodLeaf_948:
+	etAmt(0, _S($D / 3), $G);
+	%A = ((6.2831855f / _f($D / 3)) / _f($G));
+	$B = 15;
+	%C = 3.1415927f;
+	%E = %RDEG;
+	goto BossCardWoodLeaf_1628 @ 120;
+BossCardWoodLeaf_1324:
+	etAng(0, %E, %A);
+	etEx(0, 2, 1, 16, 60, 1, %C, [NEGF]);
+	etOn(0);
+	%C -= 0.20943952f;
+	%E = (%E - (0.10471976f * %F));
+	wait(4);
+BossCardWoodLeaf_1628:
+	if $B-- goto BossCardWoodLeaf_1324 @ 120;
+	enmRand(60, 4, 3.0f);
+	wait(60);
+	$D += 1;
+	%F = (%F * -1.0f);
+BossCardWoodLeaf_1872:
+	goto BossCardWoodLeaf_948 @ 120;
+	return();
 }
 
 sub BossCardWoodSylphy()
 {
-    var A B C;
-    resetBoss();
-    ins_21();
-    enmClear();
-    enmNewRel("Ecl_EtBreak", 0.0f, 0.0f, 9999, 0, 0);
-    cardEnd();
-    ins_529(0);
-    resetBossParam();
-    playSE(28);
-    enmDir(0.0f, 0.0f);
-    enmDirTime(0, 0, 0.0f, 0.0f);
-    enmPosTime(0, 0, 0.0f, 0.0f);
-    $MISS_COUNT = 0;
-    $BOMB_COUNT = 0;
-    call("BossSetNextNon", _SS 2100);
-    cardE(42, 2100, 500000, "木符「シルフィホルン」");
-    invinc(120);
-    stageProg(43);
-    enmPosTime(60, 4, 0.0f, 80.0f);
-    anmScrNoMove(0, 0);
-    etNew(0);
-    etMode(0, 3);
-    etSpr(0, 24, 0);
-    etEx(0, 0, 0, 268435456, 0, [NEG], [NEGF], [NEGF]);
-    $A = 0;
-    etNew(0);
-    etMode(0, 8);
-    etSpr(0, 9, 11);
+	var A, B, C;
+	resetBoss();
+	ins_21();
+	enmClear();
+	enmNewRel("Ecl_EtBreak", 0.0f, 0.0f, 9999, 0, 0);
+	cardEnd();
+	ins_529(0);
+	resetBossParam();
+	playSE(28);
+	enmDir(0.0f, 0.0f);
+	enmDirTime(0, 0, 0.0f, 0.0f);
+	enmPosTime(0, 0, 0.0f, 0.0f);
+	MISS_COUNT = 0;
+	BOMB_COUNT = 0;
+	@BossSetNextNon(2100);
+	cardE(42, 2100, 500000, "木符「シルフィホルン」");
+	invinc(120);
+	stageProg(43);
+	enmPosTime(60, 4, 0.0f, 80.0f);
+	anmScrNoMove(0, 0);
+	etNew(0);
+	etMode(0, 3);
+	etSpr(0, 24, 0);
+	etEx(0, 0, 0, 268435456, 0, [NEG], [NEGF], [NEGF]);
+	$A = 0;
+	etNew(0);
+	etMode(0, 8);
+	etSpr(0, 9, 11);
 !E
-    4;
+	4;
 !N
-    10;
+	10;
 !*
-    etAmt(0, [-1], 1);
-    etSpd(0, 2.5f, 0.55f);
-    etAng(0, -3.1415927f, 3.1415927f);
-    etEx(0, 0, 0, 2, 2, [NEG], [NEGF], [NEGF]);
-    etEx(0, 1, 0, 1, [NEG], [NEG], [NEGF], [NEGF]);
-    etEx(0, 2, 0, 4, 9999, [NEG], 0.012f, 2.356194f);
-    etNew(1);
-    etMode(1, 8);
-    etAmt(1, 1, 1);
-    etSpd(1, 1.7f, 0.55f);
-    etAng(1, 2.635447f, 2.076942f);
-    etEx(1, 0, 0, 2, 2, [NEG], [NEGF], [NEGF]);
-    etEx(1, 1, 0, 1, [NEG], [NEG], [NEGF], [NEGF]);
+	etAmt(0, [-1], 1);
+	etSpd(0, 2.5f, 0.55f);
+	etAng(0, -3.1415927f, 3.1415927f);
+	etEx(0, 0, 0, 2, 2, [NEG], [NEGF], [NEGF]);
+	etEx(0, 1, 0, 1, [NEG], [NEG], [NEGF], [NEGF]);
+	etEx(0, 2, 0, 4, 9999, [NEG], 0.012f, 2.356194f);
+	etNew(1);
+	etMode(1, 8);
+	etAmt(1, 1, 1);
+	etSpd(1, 1.7f, 0.55f);
+	etAng(1, 2.635447f, 2.076942f);
+	etEx(1, 0, 0, 2, 2, [NEG], [NEGF], [NEGF]);
+	etEx(1, 1, 0, 1, [NEG], [NEG], [NEGF], [NEGF]);
 BossCardWoodSylphy_1296:
 120:
-    if ($A % 6) goto BossCardWoodSylphy_1396 @ 120;
-    etOn(0);
+	if ($A % 6) goto BossCardWoodSylphy_1396 @ 120;
+	etOn(0);
 BossCardWoodSylphy_1396:
-    %B = (%RF * 384.0f);
-    %B = (%B - %ABS_X);
-    %C = (32.0f - %ABS_Y);
-    %B = (%B - 192.0f);
-    etOfs(1, %B, %C);
-    etSpr(1, 9, 10);
-    etEx(1, 2, 0, 4, 9999, [NEG], 0.012f, 2.356194f);
-    etOn(1);
-    %B = (%RF * 192.0f);
-    if ($A % 2) goto BossCardWoodSylphy_2156 @ 122;
+	%B = (%RF * 384.0f);
+	%B = (%B - %ABS_X);
+	%C = (32.0f - %ABS_Y);
+	%B -= 192.0f;
+	etOfs(1, %B, %C);
+	etSpr(1, 9, 10);
+	etEx(1, 2, 0, 4, 9999, [NEG], 0.012f, 2.356194f);
+	etOn(1);
+	%B = (%RF * 192.0f);
+	if ($A % 2) goto BossCardWoodSylphy_2156 @ 122;
 122:
-    %C = (%B - %ABS_Y);
-    %B = (396.0f - %ABS_X);
-    goto BossCardWoodSylphy_2384 @ 122;
+	%C = (%B - %ABS_Y);
+	%B = (396.0f - %ABS_X);
+	goto BossCardWoodSylphy_2384 @ 122;
 BossCardWoodSylphy_2156:
-    %B = (%B + 192.0f);
-    %C = (%B - %ABS_Y);
-    %B = (396.0f - %ABS_X);
+	%B += 192.0f;
+	%C = (%B - %ABS_Y);
+	%B = (396.0f - %ABS_X);
 BossCardWoodSylphy_2384:
-    %B = (%B - 192.0f);
-    etOfs(1, %B, %C);
-    etSpr(1, 9, 11);
-    etEx(1, 2, 0, 4, 9999, [NEG], 0.0f, 2.356194f);
-    etOn(1);
-    $A = ($A + 1);
+	%B -= 192.0f;
+	etOfs(1, %B, %C);
+	etSpr(1, 9, 11);
+	etEx(1, 2, 0, 4, 9999, [NEG], 0.0f, 2.356194f);
+	etOn(1);
+	$A += 1;
 126:
-    goto BossCardWoodSylphy_1296 @ 120;
-    return();
+	goto BossCardWoodSylphy_1296 @ 120;
+	return();
 }
 
 sub BossCardWoodSylphyHL()
 {
-    var A B C;
-    resetBoss();
-    ins_21();
-    enmClear();
-    enmNewRel("Ecl_EtBreak", 0.0f, 0.0f, 9999, 0, 0);
-    cardEnd();
-    ins_529(0);
-    resetBossParam();
-    playSE(28);
-    enmDir(0.0f, 0.0f);
-    enmDirTime(0, 0, 0.0f, 0.0f);
-    enmPosTime(0, 0, 0.0f, 0.0f);
-    $MISS_COUNT = 0;
-    $BOMB_COUNT = 0;
-    call("BossSetNextNon", _SS 2100);
-    cardN(55, 2100, 500000, "木符「シルフィホルン上級」");
-    invinc(120);
-    stageProg(43);
-    enmPosTime(60, 4, 0.0f, 80.0f);
-    anmScrNoMove(0, 0);
-    etNew(0);
-    etMode(0, 3);
-    etSpr(0, 24, 0);
-    etEx(0, 0, 0, 268435456, 0, [NEG], [NEGF], [NEGF]);
-    $A = 0;
-    etNew(0);
-    etMode(0, 8);
-    etSpr(0, 9, 13);
+	var A, B, C;
+	resetBoss();
+	ins_21();
+	enmClear();
+	enmNewRel("Ecl_EtBreak", 0.0f, 0.0f, 9999, 0, 0);
+	cardEnd();
+	ins_529(0);
+	resetBossParam();
+	playSE(28);
+	enmDir(0.0f, 0.0f);
+	enmDirTime(0, 0, 0.0f, 0.0f);
+	enmPosTime(0, 0, 0.0f, 0.0f);
+	MISS_COUNT = 0;
+	BOMB_COUNT = 0;
+	@BossSetNextNon(2100);
+	cardN(55, 2100, 500000, "木符「シルフィホルン上級」");
+	invinc(120);
+	stageProg(43);
+	enmPosTime(60, 4, 0.0f, 80.0f);
+	anmScrNoMove(0, 0);
+	etNew(0);
+	etMode(0, 3);
+	etSpr(0, 24, 0);
+	etEx(0, 0, 0, 268435456, 0, [NEG], [NEGF], [NEGF]);
+	$A = 0;
+	etNew(0);
+	etMode(0, 8);
+	etSpr(0, 9, 13);
 !N
-    15;
+	15;
 !H
-    35;
+	35;
 !L
-    27;
+	27;
 !*
-    etAmt(0, [-1], 1);
-    etSpd(0, 2.5f, 0.55f);
-    etAng(0, -3.1415927f, 3.1415927f);
-    etEx(0, 0, 0, 2, 2, [NEG], [NEGF], [NEGF]);
-    etEx(0, 1, 0, 1, [NEG], [NEG], [NEGF], [NEGF]);
-    etEx(0, 2, 0, 4, 9999, [NEG], 0.012f, 0.7853982f);
-    etNew(1);
-    etMode(1, 8);
-    etAmt(1, 1, 1);
-    etSpd(1, 1.7f, 0.55f);
-    etAng(1, 1.064651f, 0.5061455f);
-    etEx(1, 0, 0, 2, 2, [NEG], [NEGF], [NEGF]);
-    etEx(1, 1, 0, 1, [NEG], [NEG], [NEGF], [NEGF]);
+	etAmt(0, [-1], 1);
+	etSpd(0, 2.5f, 0.55f);
+	etAng(0, -3.1415927f, 3.1415927f);
+	etEx(0, 0, 0, 2, 2, [NEG], [NEGF], [NEGF]);
+	etEx(0, 1, 0, 1, [NEG], [NEG], [NEGF], [NEGF]);
+	etEx(0, 2, 0, 4, 9999, [NEG], 0.012f, 0.7853982f);
+	etNew(1);
+	etMode(1, 8);
+	etAmt(1, 1, 1);
+	etSpd(1, 1.7f, 0.55f);
+	etAng(1, 1.064651f, 0.5061455f);
+	etEx(1, 0, 0, 2, 2, [NEG], [NEGF], [NEGF]);
+	etEx(1, 1, 0, 1, [NEG], [NEG], [NEGF], [NEGF]);
 BossCardWoodSylphyHL_1320:
 120:
-    if ($A % 6) goto BossCardWoodSylphyHL_1420 @ 120;
-    etOn(0);
+	if ($A % 6) goto BossCardWoodSylphyHL_1420 @ 120;
+	etOn(0);
 BossCardWoodSylphyHL_1420:
-    %B = (%RF * 384.0f);
-    %B = (%B - %ABS_X);
-    %C = (32.0f - %ABS_Y);
-    %B = (%B - 192.0f);
-    etOfs(1, %B, %C);
-    etSpr(1, 9, 10);
-    etAmt(1, 1, 1);
-    etSpd(1, 1.7f, 0.55f);
-    etEx(1, 2, 0, 4, 60, [NEG], 0.012f, 0.7853982f);
-    etOn(1);
-    %B = (%RF * 192.0f);
-    if ($A % 2) goto BossCardWoodSylphyHL_2236 @ 122;
+	%B = (%RF * 384.0f);
+	%B = (%B - %ABS_X);
+	%C = (32.0f - %ABS_Y);
+	%B -= 192.0f;
+	etOfs(1, %B, %C);
+	etSpr(1, 9, 10);
+	etAmt(1, 1, 1);
+	etSpd(1, 1.7f, 0.55f);
+	etEx(1, 2, 0, 4, 60, [NEG], 0.012f, 0.7853982f);
+	etOn(1);
+	%B = (%RF * 192.0f);
+	if ($A % 2) goto BossCardWoodSylphyHL_2236 @ 122;
 122:
-    %C = (%B - %ABS_Y);
-    %B = (-12.0f - %ABS_X);
-    goto BossCardWoodSylphyHL_2464 @ 122;
+	%C = (%B - %ABS_Y);
+	%B = (-12.0f - %ABS_X);
+	goto BossCardWoodSylphyHL_2464 @ 122;
 BossCardWoodSylphyHL_2236:
-    %B = (%B + 192.0f);
-    %C = (%B - %ABS_Y);
-    %B = (-12.0f - %ABS_X);
+	%B += 192.0f;
+	%C = (%B - %ABS_Y);
+	%B = (-12.0f - %ABS_X);
 BossCardWoodSylphyHL_2464:
-    %B = (%B - 192.0f);
-    etOfs(1, %B, %C);
-    etSpr(1, 9, 11);
+	%B -= 192.0f;
+	etOfs(1, %B, %C);
+	etSpr(1, 9, 11);
 !L
-    etAmt(1, 2, 1);
-    etSpd(1, 2.0f, 0.55f);
+	etAmt(1, 2, 1);
+	etSpd(1, 2.0f, 0.55f);
 !*
-    etEx(1, 2, 0, 4, 0, [NEG], 0.0f, 2.356194f);
-    etOn(1);
-    $A = ($A + 1);
+	etEx(1, 2, 0, 4, 0, [NEG], 0.0f, 2.356194f);
+	etOn(1);
+	$A += 1;
 126:
-    goto BossCardWoodSylphyHL_1320 @ 120;
-    return();
+	goto BossCardWoodSylphyHL_1320 @ 120;
+	return();
 }
 
 sub BossCheckItems()
 {
-    var;
-    setMoveArea(0.0f, 96.0f, 320.0f, 48.0f);
-    unless $BOSS4 goto BossCheckItems_488 @ 0;
-    etClear(640.0f);
-    if $TIMEOUT goto BossCheckItems_424 @ 0;
-    itemClear();
-    if ($POWER == 400) goto BossCheckItems_340 @ 0;
-    itemMain(1);
-    itemEx(1, 59);
-    goto BossCheckItems_384 @ 0;
-BossCheckItems_340:
-    itemMain(2);
-    itemEx(2, 59);
-BossCheckItems_384:
-    itemArea(64.0f, 64.0f);
-    itemDrop();
-BossCheckItems_424:
-    invinc(120);
-    wait(120);
-    goto BossCheckItems_548 @ 0;
-BossCheckItems_488:
-    etClear_ni(640.0f);
-    $BOSS4 = 1;
-BossCheckItems_548:
-    return();
+	setMoveArea(0.0f, 96.0f, 320.0f, 48.0f);
+	if (BOSS4) {
+		etClear(640.0f);
+		if (TIMEOUT == 0)
+			@ItemDrop2(65, 64.f, 64.f);
+		else
+			@ItemDrop(65, 64.f, 64.f);
+		invinc(120);
+		wait(120);
+	}
+	else {
+		etClear_ni(640.0f);
+		BOSS4 = 1;
+	}
+	return();
 }
 
 sub BossDead()
 {
-    var A;
-    enmClear();
-    setFlags(140);
-    anmScrSlot(0, 79);
-    playSE(5);
-    anmScrSlot(0, 129);
-    enmDir(%RDEG, 0.4f);
-    unless ($TIMEOUT == 0) goto BossDead_324 @ 0;
-    enmNewRel("Ecl_EtBreak2", 0.0f, 0.0f, 9999, 0, 0);
-    goto BossDead_380 @ 0;
-BossDead_324:
-    enmNewRel("Ecl_EtBreak2_ni", 0.0f, 0.0f, 9999, 0, 0);
-BossDead_380:
+	enmClear();
+	setFlags(140);
+	anmScrSlot(0, 79);
+	playSE(5);
+	anmScrSlot(0, 129);
+	enmDir(RDEG, 0.4f);
+	if (TIMEOUT == 0)
+		enmNewRel("Ecl_EtBreak2", 0.0f, 0.0f, 9999, 0, 0);
+	else
+		enmNewRel("Ecl_EtBreak2_ni", 0.0f, 0.0f, 9999, 0, 0);
 60:
-    etClear_ni(10000.0f);
-    cardEnd();
-    enmClear();
-    call("ItemDrop", _SS 60, _ff 48.0f, _ff 48.0f);
-    itemClear();
-    itemMain(4);
-    itemEx(2, 40);
-    itemArea(48.0f, 48.0f);
-    itemDrop();
-    shake(30, 12, 0);
-    anmScrSlot(0, 79);
-    anmScrSlot(0, 130);
-    playSE(5);
-    boss(-1);
-    delete();
-    delete();
+	etClear_ni(10000.0f);
+	cardEnd();
+	enmClear();
+	@ItemDrop2(75, 48.0f, 48.0f);
+	itemClear();
+	itemMain(4);
+	itemDrop();
+	shake(30, 12, 0);
+	anmScrSlot(0, 79);
+	anmScrSlot(0, 130);
+	playSE(5);
+	boss(-1);
+	delete();
+	delete();
 }
 
-sub BossSetNextNon(A)
+sub BossSetNextNon(int life)
 {
-    var;
-    unless $BOSS3 goto BossSetNextNon_136 @ 0;
-    interrupt(0, 0, $A, "Boss3");
-    return();
-BossSetNextNon_136:
-    interrupt(0, 0, $A, "Boss2");
-    return();
+	if (BOSS4) {
+		interrupt(0, 0, life, "Boss3");
+		return();
+	}
+	else {
+		interrupt(0, 0, life, "Boss2");
+		return();
+	}
 }
