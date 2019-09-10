@@ -2084,7 +2084,6 @@ sub BossCardWaterUndine_LaserAt(float ang_off)
 
 sub BossCardWoFi()
 {
-	var A, B, C, D;
 	resetBoss();
 	ins_21();
 	enmClear();
@@ -2107,20 +2106,8 @@ sub BossCardWoFi()
 	etNew(0);
 	etMode(0, 8);
 	etSpr(0, 24, 0);
-!E
-	12;
-!NL
-	22;
-!H
-	32;
-!*
-	etAmt(0, [-1], 1);
-!EN
-	2.0f;
-!HL
-	2.5f;
-!*
-	etSpd(0, _f([-1.0f] + 0.5f), 0.55f);
+	etAmt(0, 12:22:32:22, 1);
+	etSpd(0, (2.0f:2.0f:2.5f) + 0.5f, 0.55f);
 	etAng(0, 3.1415927f, -3.1415927f);
 	etSE(0, 24, -1);
 	etEx(0, 0, 0, 2, 1, [NEG], [NEGF], [NEGF]);
@@ -2135,47 +2122,30 @@ sub BossCardWoFi()
 	etEx(1, 1, 0, 1, [NEG], [NEG], [NEGF], [NEGF]);
 	etEx(1, 2, 1, 1024, 60, [NEG], [NEGF], [NEGF]);
 	etEx(1, 3, 0, 4, 60, [NEG], 0.012f, 2.3561945f);
-	$A = 0;
-BossCardWoFi_1436:
+	int i = 0;
 120:
-	if ($A % 4) goto BossCardWoFi_1536 @ 120;
-	etOn(0);
-BossCardWoFi_1536:
-	%B = (%RF * 384.0f);
-	%B = (%B - %ABS_X);
-	%C = (32.0f - %ABS_Y);
-	%B -= 192.0f;
-	etOfs(1, %B, %C);
-	etAmt(1, 1, 1);
-	etSpd(1, 1.7f, 0.55f);
-	etOn(1);
-	%B = (%RF * 192.0f);
-	if ($A % 2) goto BossCardWoFi_2276 @ 122;
-122:
-	%C = (%B - %ABS_Y);
-	%B = (380.0f - %ABS_X);
-	goto BossCardWoFi_2504 @ 122;
-BossCardWoFi_2276:
-	%B += 192.0f;
-	%C = (%B - %ABS_Y);
-	%B = (380.0f - %ABS_X);
-BossCardWoFi_2504:
-	%B -= 192.0f;
-	etOfs(1, %B, %C);
-!ENH
-	etAmt(1, 1, 1);
-!L
-	etAmt(1, 2, 1);
-!EN
-	1.2f;
-!HL
-	1.6f;
-!*
-	etSpd(1, _f([-1.0f] + 0.5f), 0.55f);
-	etOn(1);
-	$A += 1;
+	while 1 {
+		if ((i % 4) == 0)
+			etOn(0);
+		etOfs(1, ((RF * 384.0f) - ABS_X) - 192.f, (32.0f - ABS_Y));
+		etAmt(1, 1, 1);
+		etSpd(1, 1.7f, 0.55f);
+		etOn(1);
+		float y;
+		if ((i % 2) == 0) {
+	122:
+			y = (RF * 192.0f) - ABS_Y;
+		}
+		else {
+			y = ((RF * 192.0f) + 192.f) - ABS_Y;
+		}
+		etOfs(1, (380.0f - ABS_X) - 192.f, y);
+		etAmt(1, 1:1:1:2, 1);
+		etSpd(1, (1.2f:1.2f:1.6f) + 0.5f, 0.55f);
+		etOn(1);
+		i += 1;
 132:
-	goto BossCardWoFi_1436 @ 120;
+	}
 	return();
 }
 
