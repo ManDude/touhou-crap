@@ -1193,7 +1193,6 @@ sub BossCardMetalGold()
 
 sub BossCardMetalMemory()
 {
-	var A, B;
 	resetBoss();
 	ins_21();
 	enmClear();
@@ -1216,30 +1215,33 @@ sub BossCardMetalMemory()
 	etNew(0);
 	etMode(0, 3);
 	etSpr(0, 3, 0);
-!E
-	3;
-!N
-	4;
-!*
-	etAmt(0, [-1], 1);
+	etAmt(0, 3:4, 1);
 	etSpd(0, 1.8f, 1.0f);
-	%A = %RDEG;
+	float ang = %RDEG;
 	etDist(0, 16.0f);
 	etEx(0, 0, 0, 2, 2, [NEG], [NEGF], [NEGF]);
-	etEx(0, 1, 0, 256, _S($RANK + 1), 13, [NEGF], [NEGF]);
-	$B = 1;
-BossCardMetalMemory_1000:
+	etEx(0, 1, 0, 256, RANK + 1, 13, [NEGF], [NEGF]);
+	int i = 1;
 120:
-	$B = ($B % 6);
-	if ($B != 0) goto BossCardMetalMemory_1184 @ 120;
-	enmRand(60, 4, 1.5f);
-BossCardMetalMemory_1184:
-	@BossCardMetalMemory_At(%A) async;
-	%A += rad(13.846153846153846153846153846154f);
-	$B += 1;
-	wait(10);
+	while 1 {
+		if (((i % 6) == 0) && (i > 0))
+			enmRand(60, 4, 1.5f);
+		@BossCardMetalMemory_At(ang) async;
+		ang += rad(13.846153846153846153846153846154f);
+		i += 1;
+		wait(10);
 140:
-	goto BossCardMetalMemory_1000 @ 120;
+	}
+	return();
+}
+
+sub BossCardMetalMemory_At(float ang)
+{
+	times (6) {
+		etAng(0, ang, 0.0f);
+		etOn(0);
+		wait(4);
+	}
 	return();
 }
 
@@ -1300,20 +1302,6 @@ sub BossCardMetalMemoryHL_at(float ang, int m)
 		etOn(0);
 4:
 	}
-	return();
-}
-
-sub BossCardMetalMemory_At(var A)
-{
-	var B;
-	$B = 6;
-	goto BossCardMetalMemory_At_168 @ 0;
-BossCardMetalMemory_At_100:
-	etAng(0, %A, 0.0f);
-	etOn(0);
-	wait(4);
-BossCardMetalMemory_At_168:
-	if $B-- goto BossCardMetalMemory_At_100 @ 0;
 	return();
 }
 
