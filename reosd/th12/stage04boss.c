@@ -2107,7 +2107,6 @@ BossCardWaterMonsoon_wave2_1400:
 
 sub BossCardWaterUndine()
 {
-	var A, B, C, D;
 	resetBoss();
 	ins_21();
 	enmClear();
@@ -2130,51 +2129,45 @@ sub BossCardWaterUndine()
 	etNew(0);
 	etMode(0, 3);
 	etSpr(0, 24, 0);
-	$C = 0;
-BossCardWaterUndine_692:
+	int i = 0;
+	float an1, an2;
+	while 1 {
 120:
-	$A = 12;
-	callSlot("BossCardWaterUndine_At", 1);
-	%B = (3.1415927f / 8.0f);
-	goto BossCardWaterUndine_1200 @ 130;
-BossCardWaterUndine_880:
-	call("BossCardWaterUndine_LaserAt", _fS 0);
-	call("BossCardWaterUndine_LaserAt", _ff %B);
-	%D = (0.0f - %B);
-	call("BossCardWaterUndine_LaserAt", _ff %D);
-	%B -= 0.02617994f;
-BossCardWaterUndine_1200:
-130:
-	if $A-- goto BossCardWaterUndine_880 @ 120;
-	endSlot(1);
-	$A = 8;
-	enmRand(90, 4, 1.5f);
-	%B = 0.0f;
-	etNew(0);
-	etMode(0, 0);
-	etSpr(0, 17, 3);
-	etAmt(0, 10, 1);
-	etSpd(0, 3.0f, 0.95f);
-	etNew(1);
-	etMode(1, 0);
-	etSpr(1, 3, 6);
-	etSpd(1, 0.95f, 0.95f);
-BossCardWaterUndine_1600:
-	etAng(0, %B, 0.2243995f);
-	etAmt(1, _S($C + 1), 1);
-	etAng(1, %B, 0.3490658f);
-	etOn(0);
-	etOn(1);
-	%D = (%RDEG + 3.1415927f);
-	%D = (%D / 18.666666f);
-	%D -= 0.1121997f;
-	%B = (%B - %D);
-140:
-	if $A-- goto BossCardWaterUndine_1600 @ 130;
-	enmRand(90, 4, 1.5f);
-	$C += 1;
-190:
-	goto BossCardWaterUndine_692 @ 120;
+		callSlot("BossCardWaterUndine_At", 1);
+		an1 = 3.1415927f / 8.0f;
+		times (12) {
+			@BossCardWaterUndine_LaserAt(0.f);
+			@BossCardWaterUndine_LaserAt(an1);
+			an2 = 0.f-an1;
+			@BossCardWaterUndine_LaserAt(an2);
+			an1 -= rad(1.5f);
+130:		noop();
+		}
+		endSlot(1);
+		enmRand(90, 4, 1.5f);
+		an1 = 0.0f;
+		etNew(0);
+		etMode(0, 0);
+		etSpr(0, 17, 3);
+		etAmt(0, 10, 1);
+		etSpd(0, 3.0f, 0.95f);
+		etNew(1);
+		etMode(1, 0);
+		etSpr(1, 3, 6);
+		etSpd(1, 1.2f, 0.95f);
+		times (8) {
+			etAng(0, an1, 0.2243995f);
+			etAmt(1, i + 1, 1);
+			etAng(1, an1, rad(20.f));
+			etOn(0);
+			etOn(1);
+			an1 -= ((RDEG + 3.1415927f) / 18.666666f) - 0.1121997f;
+140:		noop();
+		}
+		enmRand(90, 4, 1.5f);
+		i += 1;
+190:	noop();
+	}
 	return();
 }
 
@@ -2187,18 +2180,18 @@ sub BossCardWaterUndine_At()
 	etSpd(0, 4.0f, 1.45f);
 	etAng(0, 3.141593f, 0.3490658f);
 	etEx(0, 0, 0, 2, 2, [NEG], [NEGF], [NEGF]);
-BossCardWaterUndine_At_240:
-	etOn(0);
-	wait(22);
-	goto BossCardWaterUndine_At_240 @ 0;
+	while 1 {
+		etOn(0);
+		wait(22);
+	}
 	return();
 }
 
-sub BossCardWaterUndine_LaserAt(var A)
+sub BossCardWaterUndine_LaserAt(float ang_off)
 {
 	etNew(1);
 	etSpr(1, 30, 6);
-	etAng(1, _f(%AIM + %A), 0.0f);
+	etAng(1, AIM + ang_off, 0.0f);
 	etSpd(1, 4.0f, 0.0f);
 	laserSetSize(1, 0.0f, 96.0f, 0.0f, 6.0f);
 	etSE(1, 19, -1);
