@@ -19,7 +19,7 @@ sub Boss()
 	anmScr(2, 158);
 	anm(2);
 	setBossFog(160.0f, 16728031);
-	@Boss3();
+	@Boss1();
 	delete();
 }
 
@@ -163,7 +163,7 @@ sub Boss1At(int m)
 	laser_start = 1;
 	float stupid = 0.f;
 	while (i < dur) {
-		if (i == f1) {
+		if (i >= f1) {
 			laserSetRotSpeed(1, 0.f);
 			laserSetRotSpeed(2, 0.f);
 			laserSetRotSpeed(3, 0.f);
@@ -1216,8 +1216,8 @@ sub BossCardMetalMemory()
 	etMode(0, 3);
 	etSpr(0, 3, 0);
 	etAmt(0, 3:4, 1);
-	etSpd(0, 1.8f, 1.0f);
-	float ang = %RDEG;
+	etSpd(0, 1.9f, 1.0f);
+	float ang = RDEG;
 	etDist(0, 16.0f);
 	etEx(0, 0, 0, 2, 2, [NEG], [NEGF], [NEGF]);
 	etEx(0, 1, 0, 256, RANK + 1, 13, [NEGF], [NEGF]);
@@ -1270,7 +1270,7 @@ sub BossCardMetalMemoryHL()
 	etMode(0, 3);
 	etSpr(0, 3, 0);
 	etAmt(0, 4:4:5:6, 1);
-	etSpd(0, 2.2f:2.2f:2.3f, 1.25f);
+	etSpd(0, 2.0f:2.1f:2.2f:2.3f, 1.25f);
 	float angle = RDEG;
 	etDist(0, 16.0f);
 	etEx(0, 0, 0, 2, 2, [NEG], [NEGF], [NEGF]);
@@ -1291,7 +1291,7 @@ sub BossCardMetalMemoryHL()
 
 sub BossCardMetalMemoryHL_at(float ang, int m)
 {
-	float curve = rad(2.0f) : rad(2.0f) : rad(2.1f) : rad(2.2f);
+	float curve = rad(1.8f) : rad(1.9f) : rad(2.1f) : rad(2.2f);
 	if (!m)
 		curve = 0.f-curve;
 	times (6) {
@@ -1339,7 +1339,7 @@ sub BossCardWaFi()
 	etAng(1, -2.3561945f, -0.7853982f);
 	etDist(1, 32.0f);
 	etEx(1, 0, 0, 2, 2, [NEG], [NEGF], [NEGF]);
-	etEx(1, 1, 0, 4, 175, [NEG], 0.03f, 1.5707964f);
+	etEx(1, 1, 0, 4, 165 : 165 : 180 : 180, [NEG], 0.03f, 1.5707964f);
 	etEx(1, 2, 0, 256, 1, 2, [NEGF], [NEGF]);
 	etEx(1, 3, 0, 524288, 135921926, 1, 1.3f, 0.8f);
 	etEx(1, 5, 0, 8192, [NEG], [NEG], [NEGF], [NEGF]);
@@ -1463,7 +1463,7 @@ sub BossCardWaFi_at3()
 {
 	wait(120);
 	while 1 {
-		etAng(2, RF2 * rad(9.f), rad(24.f) : rad(20.f) : rad(18.f) : rad(16.f));
+		etAng(2, RF2 * rad(8.f), rad(24.f) : rad(20.f) : rad(18.f) : rad(16.f));
 		etOn(2);
 40:
 	}
@@ -2038,7 +2038,7 @@ sub BossCardWoMe()
 		if (i) {
 			@BossCardWoMe_at2() async;
 !EN
-			wait(45);
+			wait(35);
 !*
 		}
 200:
@@ -2047,7 +2047,7 @@ sub BossCardWoMe()
 			@BossCardWoMe_at1(ang) async;
 			ang += [PI] / 2.5f;
 		}
-320:
+335:
 		i += 1;
 	}
 	return();
@@ -2059,7 +2059,7 @@ sub BossCardWoMe_at1(float ang)
 	float laser_ang = 0.0f;
 	float min_variance = -max_variance;
 	int i = 0, lID = 1;
-	times (2:4:7:9) {
+	times (2:4:7:10) {
 		etAng(1, laser_ang + ang, 0.0f);
 		etSpd(1, (RF * 8.0f) + 11.111111f, 0.0f);
 		laserShootStatic(1, lID);
@@ -2068,7 +2068,7 @@ sub BossCardWoMe_at1(float ang)
 			min_variance *= -1.f;
 		laser_ang = (RF * max_variance) + min_variance;
 		lID += 1;
-		wait_rank(8, 8, 8, 7);
+		wait_rank(8, 8, 7, 6);
 		i += 1;
 	}
 	return();
@@ -2230,7 +2230,7 @@ sub BossCardWoodLeaf()
 	stageProg(43);
 	enmPosTime(60, 4, 0.0f, 96.0f);
 	anmScrNoMove(0, 0);
-	int i = 15;
+	int i = 5 * 4;
 	float sp_mod = 1.0f;
 	int layer_c = 3;
 	etNew(0);
@@ -2241,20 +2241,20 @@ sub BossCardWoodLeaf()
 	etEx(0, 1, 1, 160, 1, [NEG], [NEGF], [NEGF]);
 120:
 	while 1 {
-		etAmt(0, i / 3, layer_c);
-		float ang1 = RDEG, ang2 = (6.2831855f / _f(i / 3)) / _f(layer_c), newang = [PI];
+		etAmt(0, i / 4, layer_c);
+		float ang1 = RDEG, ang2 = (6.2831855f / _f(i / 4)) / _f(layer_c), newang = [PI];
 		times (15) {
 			etAng(0, ang1, ang2);
 			etEx(0, 2, 1, 16, 60, 1, newang, [NEGF]);
 			etOn(0);
-			newang -= 0.20943952f;
+			newang -= 0.20943952f * sp_mod;
 			ang1 -= 0.10471976f * sp_mod;
 			wait(4);
 		}
 		enmRand(60, 4, 3.0f);
 		wait(60);
 		i += 1;
-		sp_mod = -sp_mod;
+		sp_mod *= -1.f;
 	}
 	return();
 }
@@ -2412,7 +2412,10 @@ sub BossCheckItems()
 		wait(120);
 	}
 	else {
-		etClear_ni(640.0f);
+		if (TIMEOUT == 0)
+			etClear(640.0f);
+		else
+			etClear_ni(640.0f);
 		BOSS4 = 1;
 	}
 	return();
