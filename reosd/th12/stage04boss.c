@@ -2503,7 +2503,6 @@ BossCardWoMe_atLaser_1516:
 
 sub BossCardWoodGreen()
 {
-	var A, B, C;
 	resetBoss();
 	ins_21();
 	enmClear();
@@ -2523,7 +2522,7 @@ sub BossCardWoodGreen()
 	stageProg(43);
 	enmPosTime(120, 4, 0.0f, 80.0f);
 	anmScrNoMove(0, 0);
-	$A = 0;
+	int i = 0;
 	etNew(0);
 	etMode(0, 3);
 	etSpr(0, 24, 0);
@@ -2548,39 +2547,25 @@ sub BossCardWoodGreen()
 	etAng(1, 1.064651f, 0.5061455f);
 	etEx(1, 0, 0, 2, 2, [NEG], [NEGF], [NEGF]);
 	etEx(1, 1, 0, 1, [NEG], [NEG], [NEGF], [NEGF]);
-BossCardWoodGreen_1268:
 120:
-!H
-	$A % 8;
-!L
-	$A % 5;
-!*
-	jne(BossCardWoodGreen_1424, 120);
-	etOn(0);
-BossCardWoodGreen_1424:
-	if ($A % 2) goto BossCardWoodGreen_1956 @ 120;
-	%B = (%RF * 384.0f);
-	%C = (%B - %ABS_Y);
-	%B = (396.0f - %ABS_X);
-	%B -= 192.0f;
-	etOfs(1, %B, %C);
-	etEx(1, 2, 0, 4, 9999, [NEG], 0.008f, 2.356194f);
-	etAng(1, 2.635447f, 2.076942f);
-	etOn(1);
-	goto BossCardWoodGreen_2384 @ 120;
-BossCardWoodGreen_1956:
-	%B = (%RF * 384.0f);
-	%C = (%B - %ABS_Y);
-	%B = (-12.0f - %ABS_X);
-	%B -= 192.0f;
-	etOfs(1, %B, %C);
-	etEx(1, 2, 0, 4, 9999, [NEG], 0.008f, 0.7853982f);
-	etAng(1, 1.064651f, 0.5061455f);
-	etOn(1);
-BossCardWoodGreen_2384:
-	$A += 1;
+	while 1 {
+		if ((i % (8:8:8:5)) == 0)
+			etOn(0);
+		if ((i % 2) == 0) {
+			etOfs(1, (396.0f - ABS_X) - 192.f, (RF * 384.0f) - ABS_Y);
+			etEx(1, 2, 0, 4, 9999, [NEG], 0.008f, 2.356194f);
+			etAng(1, 2.635447f, 2.076942f);
+			etOn(1);
+		}
+		else {
+			etOfs(1, (-12.0f - ABS_X) - 192.f, (RF * 384.0f) - ABS_Y);
+			etEx(1, 2, 0, 4, 9999, [NEG], 0.008f, 0.7853982f);
+			etAng(1, 1.064651f, 0.5061455f);
+			etOn(1);
+		}
+		i += 1;
 125:
-	goto BossCardWoodGreen_1268 @ 120;
+	}
 	return();
 }
 
