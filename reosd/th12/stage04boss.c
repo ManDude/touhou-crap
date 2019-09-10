@@ -1109,7 +1109,6 @@ sub BossCardMetalFatigue()
 
 sub BossCardMetalGold()
 {
-	var A, B, C, D, E, F;
 	resetBoss();
 	ins_21();
 	enmClear();
@@ -1152,75 +1151,43 @@ sub BossCardMetalGold()
 	etEx(2, 0, 1, 1, [NEG], [NEG], [NEGF], [NEGF]);
 	etEx(2, 1, 1, 268435456, 1, [NEG], [NEGF], [NEGF]);
 	etEx(2, 4, 0, 268435456, 0, [NEG], [NEGF], [NEGF]);
-BossCardMetalGold_1404:
+	int i = 0;
 120:
-!H
-	$C = 7;
-!L
-	$C = 8;
-!*
-	%A = %RDEG;
-	%F = 1.0f;
-	enmRand(80, 4, 1.5f);
-	goto BossCardMetalGold_3064 @ 120;
-BossCardMetalGold_1616:
-	$B = 3;
-	if ($D % 2) goto BossCardMetalGold_1912 @ 120;
-!H
-	%A += rad(15.f);
-!L
-	%A += rad(11.25f);
-!*
-	goto BossCardMetalGold_2064 @ 120;
-BossCardMetalGold_1912:
-!H
-	%A -= rad(15.f);
-!L
-	%A -= rad(11.25f);
-BossCardMetalGold_2064:
-!*
-	etAng(0, %A, 0.0f);
-	etAng(1, %A, 0.0f);
-	etAng(2, %A, 0.0f);
-	etSpd(0, %F, 0.0f);
-	etSpd(1, %F, 0.0f);
-	etSpd(2, %F, 0.0f);
-	etOn(0);
-	goto BossCardMetalGold_2836 @ 120;
-BossCardMetalGold_2276:
-!H
-	$E = 3;
-!L
-	$E = 4;
-!*
-	etEx(1, 2, 0, 64, 60, 1, %A, 3.0f);
-	etEx(2, 2, 0, 64, 60, 1, %A, 3.0f);
-	goto BossCardMetalGold_2696 @ 120;
-BossCardMetalGold_2476:
-	etEx(2, 3, 0, 64, 60, 1, %A, 1.4f);
-	etOn(2);
-!H
-	%A += 2.0943952f;
-!L
-	%A += 1.5707964f;
-BossCardMetalGold_2696:
-!*
-	if $E-- goto BossCardMetalGold_2476 @ 120;
-	etOn(1);
-	%A += 2.0943952f;
-BossCardMetalGold_2836:
-	if $B-- goto BossCardMetalGold_2276 @ 120;
-	wait_rank(9, 8, 6, 6);
-!H
-	%F += 0.15f;
-!L
-	%F += 0.125f;
-BossCardMetalGold_3064:
-!*
-	if $C-- goto BossCardMetalGold_1616 @ 120;
-	wait_rank(60, 60, 48, 45);
-	$D += 1;
-	goto BossCardMetalGold_1404 @ 120;
+	while 1 {
+		float ang = RDEG;
+		float spd = 1.0f;
+		enmRand(80, 4, 1.5f);
+		times (7:7:7:8) {
+			if ((i % 2) == 0) {
+				ang += rad(15.f) : rad(15.f) : rad(15.f) : rad(11.25f);
+			}
+			else {
+				ang -= rad(15.f) : rad(15.f) : rad(15.f) : rad(11.25f);
+			}
+			etAng(0, ang, 0.0f);
+			etAng(1, ang, 0.0f);
+			etAng(2, ang, 0.0f);
+			etSpd(0, spd, 0.0f);
+			etSpd(1, spd, 0.0f);
+			etSpd(2, spd, 0.0f);
+			etOn(0);
+			times (3) {
+				etEx(1, 2, 0, 64, 60, 1, ang, 3.0f);
+				etEx(2, 2, 0, 64, 60, 1, ang, 3.0f);
+				times (3:3:3:4) {
+					etEx(2, 3, 0, 64, 60, 1, ang, 1.4f);
+					etOn(2);
+					ang += 2.0943952f : 2.0943952f : 2.0943952f : 1.5707964f;
+				}
+				etOn(1);
+				ang += 2.0943952f;
+			}
+			wait_rank(9, 8, 6, 6);
+			spd += 0.15f : 0.15f : 0.15f : 0.125f;
+		}
+		wait_rank(60, 60, 48, 45);
+		i += 1;
+	}
 	return();
 }
 
