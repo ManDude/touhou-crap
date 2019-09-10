@@ -1092,7 +1092,7 @@ sub BossCardMetalFatigue()
 	etAmt(0, 8, 1);
 	etSpd(0, 4.5f, 1.25f);
 	etEx(0, 0, 0, 1, [NEG], [NEG], [NEGF], [NEGF]);
-	etEx(0, 0, 1, 268435456, 1, [NEG], [NEGF], [NEGF]);
+	//etEx(0, 0, 1, 268435456, 1, [NEG], [NEGF], [NEGF]);
 120:
 	while 1 {
 		float ang = RDEG;
