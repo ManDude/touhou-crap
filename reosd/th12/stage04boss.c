@@ -660,7 +660,6 @@ BossCardEarthTrilithon_1372:
 
 sub BossCardEarthTrilithonHL()
 {
-	var A;
 	resetBoss();
 	ins_21();
 	enmClear();
@@ -683,15 +682,8 @@ sub BossCardEarthTrilithonHL()
 	etNew(0);
 	etMode(0, 8);
 	etSpr(0, 5, 12);
-!E
-	10;
-!N
-	12;
-!H
-	15;
-!*
-	etAmt(0, [-1], 1);
-	etSpd(0, 3.3f, 2.3f);
+	etAmt(0, 10:12:15, 1);
+	etSpd(0, 3.8f, 2.55f);
 	etAng(0, 0.0f, 3.1415927f);
 	etEx(0, 0, 0, 2, 2, [NEG], [NEGF], [NEGF]);
 	etEx(0, 1, 0, 1, [NEG], [NEG], [NEGF], [NEGF]);
@@ -699,25 +691,22 @@ sub BossCardEarthTrilithonHL()
 	etMode(1, 0);
 	etSpr(1, 3, 6);
 	etAmt(1, 7, 2);
-	etSpd(1, 2.8f, 1.2f);
+	etSpd(1, 3.3f, 1.45f);
 	etAng(1, 0.0f, 0.3490658f);
 	etEx(1, 0, 0, 2, 2, [NEG], [NEGF], [NEGF]);
-BossCardEarthTrilithonHL_1096:
 120:
-	%A = (%RF * 3.1415927f);
-	etEx(0, 2, 1, 16, 50, 2, _f(%A - 1.5707964f), 2.2f);
-	etOn(0);
-	if (%PLAYER_Y >= %ABS_Y) goto BossCardEarthTrilithonHL_1396 @ 120;
-	etOn(1);
-BossCardEarthTrilithonHL_1396:
+	while 1 {
+		etEx(0, 2, 1, 16, 50, 2, RF2 * 1.5707964f, 2.2f);
+		etOn(0);
+		if (PLAYER_Y < ABS_Y)
+			etOn(1);
 132:
-	goto BossCardEarthTrilithonHL_1096 @ 120;
+	}
 	return();
 }
 
 sub BossCardEarthTrilithonShake()
 {
-	var A, B;
 	resetBoss();
 	ins_21();
 	enmClear();
@@ -737,17 +726,12 @@ sub BossCardEarthTrilithonShake()
 	stageProg(43);
 	enmPosTime(120, 4, 0.0f, 80.0f);
 	anmScrNoMove(0, 0);
-	$B = 0;
+	int i = 0;
 	etNew(0);
 	etMode(0, 8);
 	etSpr(0, 5, 12);
-!H
-	12;
-!L
-	18;
-!*
-	etAmt(0, [-1], 1);
-	etSpd(0, 2.4f, 1.0f);
+	etAmt(0, 12:12:12:18, 1);
+	etSpd(0, 2.9f, 1.25f);
 	etAng(0, 0.0f, 3.1415927f);
 	etEx(0, 0, 0, 2, 2, [NEG], [NEGF], [NEGF]);
 	etEx(0, 1, 0, 1, [NEG], [NEG], [NEGF], [NEGF]);
@@ -755,30 +739,27 @@ sub BossCardEarthTrilithonShake()
 	etMode(1, 0);
 	etSpr(1, 3, 6);
 	etAmt(1, 7, 2);
-	etSpd(1, 2.8f, 1.2f);
+	etSpd(1, 3.3f, 1.45f);
 	etAng(1, 0.0f, 0.3490658f);
 	etEx(1, 0, 0, 2, 2, [NEG], [NEGF], [NEGF]);
 	etNew(2);
 	etMode(2, 2);
 	etSpr(2, 26, 3);
 	etAmt(2, 7, 1);
-	etSpd(2, 3.4f, 1.2f);
+	etSpd(2, 3.9f, 1.45f);
 	etAng(2, 0.0f, 0.3490658f);
 	etEx(2, 0, 0, 2, 2, [NEG], [NEGF], [NEGF]);
-BossCardEarthTrilithonShake_1316:
 120:
-	%A = (%RF * 3.1415927f);
-	etEx(0, 2, 1, 16, 90, 1, _f(%A - 1.5707964f), 1.8f);
-	etOn(0);
-	if ($B % 3) goto BossCardEarthTrilithonShake_1616 @ 120;
-	etOn(2);
-BossCardEarthTrilithonShake_1616:
-	if (%PLAYER_Y >= %ABS_Y) goto BossCardEarthTrilithonShake_1716 @ 120;
-	etOn(1);
-BossCardEarthTrilithonShake_1716:
-	$B += 1;
+	while 1 {
+		etEx(0, 2, 1, 16, 90, 1, RF2 * 1.5707964f, 1.8f);
+		etOn(0);
+		if ((i % 3) == 0)
+			etOn(2);
+		if (PLAYER_Y < ABS_Y)
+			etOn(1);
+		i += 1;
 132:
-	goto BossCardEarthTrilithonShake_1316 @ 120;
+	}
 	return();
 }
 
@@ -840,7 +821,6 @@ sub BossCardFiEa()
 
 sub BossCardFireAgni()
 {
-	var A, B, C;
 	resetBoss();
 	ins_21();
 	enmClear();
@@ -865,45 +845,35 @@ sub BossCardFireAgni()
 	etSpr(0, 24, 0);
 	etSE(0, 24, -1);
 	etEx(0, 0, 0, 268435456, 0, [NEG], [NEGF], [NEGF]);
-BossCardFireAgni_720:
+	int i = 0;
 120:
-	$A = 0;
-	$B = 5;
-	$C = ($A / 3);
-!E
-	$C + 7;
-!N
-	$C + 11;
-!*
-	etAmt(0, [-1], 1);
-	goto BossCardFireAgni_1412 @ 128;
-BossCardFireAgni_1040:
-	etSpd(0, 2.7f, 0.95f);
-	etAng(0, %RDEG, 0.1308997f);
-	etEx(0, 1, 0, 8, 128, [NEG], 0.0f, 0.02454369f);
-	etOn(0);
-	etSpd(0, 2.0f, 0.95f);
-	etAng(0, %RDEG, 0.1308997f);
-	etEx(0, 1, 0, 8, 128, [NEG], 0.0f, -0.02454369f);
-	etOn(0);
-	etSpd(0, 1.2f, 0.95f);
-	etAng(0, %RDEG, 0.1308997f);
-	etEx(0, 1, 0, 8, 128, [NEG], 0.0f, 0.02454369f);
-	etOn(0);
-BossCardFireAgni_1412:
+	while 1 {
+		etAmt(0, (i/3) + (7:11), 1);
+		times (5) {
+			etSpd(0, 2.7f, 0.95f);
+			etAng(0, RDEG, 0.1308997f);
+			etEx(0, 1, 0, 8, 128, [NEG], 0.0f, 0.02454369f);
+			etOn(0);
+			etSpd(0, 2.0f, 0.95f);
+			etAng(0, RDEG, 0.1308997f);
+			etEx(0, 1, 0, 8, 128, [NEG], 0.0f, -0.02454369f);
+			etOn(0);
+			etSpd(0, 1.2f, 0.95f);
+			etAng(0, RDEG, 0.1308997f);
+			etEx(0, 1, 0, 8, 128, [NEG], 0.0f, 0.02454369f);
+			etOn(0);
 128:
-	if $B-- goto BossCardFireAgni_1040 @ 120;
+		}
 248:
-	enmRand(90, 4, 1.5f);
-	$A += 1;
+		enmRand(90, 4, 1.5f);
+		i += 1;
 258:
-	goto BossCardFireAgni_720 @ 120;
+	}
 	return();
 }
 
 sub BossCardFireAgniHL()
 {
-	var A, B, C;
 	resetBoss();
 	ins_21();
 	enmClear();
@@ -928,40 +898,25 @@ sub BossCardFireAgniHL()
 	etSpr(0, 24, 0);
 	etSE(0, 24, -1);
 	etEx(0, 0, 0, 268435456, 0, [NEG], [NEGF], [NEGF]);
-BossCardFireAgniHL_724:
+	int i = 0;
 120:
-	$A = 0;
-	$B = 5;
-	$C = ($A / 3);
-!EN
-	$C + 8;
-!H
-	$C + 9;
-!L
-	$C + 10;
-!*
-	etAmt(0, [-1], 2);
-!ENH
-	etSpd(0, 2.5f, 1.45f);
-!L
-	etSpd(0, 3.0f, 1.45f);
-!*
-	goto BossCardFireAgniHL_1348 @ 128;
-BossCardFireAgniHL_1156:
-	etAng(0, %RDEG, 0.1308997f);
-	etEx(0, 1, 0, 8, 128, [NEG], 0.0f, 0.02454369f);
-	etOn(0);
-	etAng(0, %RDEG, 0.1308997f);
-	etEx(0, 1, 0, 8, 128, [NEG], 0.0f, -0.02454369f);
-	etOn(0);
-BossCardFireAgniHL_1348:
+	while 1 {
+		etAmt(0, (i/3) + (8:8:9:10), 2);
+		etSpd(0, 2.5f:2.5f:2.5f:3.0f, 1.45f);
+		times (5) {
+			etAng(0, RDEG, 0.1308997f);
+			etEx(0, 1, 0, 8, 128, [NEG], 0.0f, 0.02454369f);
+			etOn(0);
+			etAng(0, RDEG, 0.1308997f);
+			etEx(0, 1, 0, 8, 128, [NEG], 0.0f, -0.02454369f);
+			etOn(0);
 128:
-	if $B-- goto BossCardFireAgniHL_1156 @ 120;
+		}
 248:
-	enmRand(90, 4, 1.5f);
-	$A += 1;
+		enmRand(90, 4, 1.5f);
+		i += 1;
 258:
-	goto BossCardFireAgniHL_724 @ 120;
+	}
 	return();
 }
 
