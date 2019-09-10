@@ -2727,7 +2727,6 @@ BossCardWoodSylphy_2384:
 
 sub BossCardWoodSylphyHL()
 {
-	var A, B, C;
 	resetBoss();
 	ins_21();
 	enmClear();
@@ -2751,18 +2750,10 @@ sub BossCardWoodSylphyHL()
 	etMode(0, 3);
 	etSpr(0, 24, 0);
 	etEx(0, 0, 0, 268435456, 0, [NEG], [NEGF], [NEGF]);
-	$A = 0;
 	etNew(0);
 	etMode(0, 8);
 	etSpr(0, 9, 13);
-!N
-	15;
-!H
-	35;
-!L
-	27;
-!*
-	etAmt(0, [-1], 1);
+	etAmt(0, 15:15:35:27, 1);
 	etSpd(0, 2.5f, 0.55f);
 	etAng(0, -3.1415927f, 3.1415927f);
 	etEx(0, 0, 0, 2, 2, [NEG], [NEGF], [NEGF]);
@@ -2770,49 +2761,39 @@ sub BossCardWoodSylphyHL()
 	etEx(0, 2, 0, 4, 9999, [NEG], 0.012f, 0.7853982f);
 	etNew(1);
 	etMode(1, 8);
-	etAmt(1, 1, 1);
-	etSpd(1, 1.7f, 0.55f);
 	etAng(1, 1.064651f, 0.5061455f);
 	etEx(1, 0, 0, 2, 2, [NEG], [NEGF], [NEGF]);
 	etEx(1, 1, 0, 1, [NEG], [NEG], [NEGF], [NEGF]);
-BossCardWoodSylphyHL_1320:
 120:
-	if ($A % 6) goto BossCardWoodSylphyHL_1420 @ 120;
-	etOn(0);
-BossCardWoodSylphyHL_1420:
-	%B = (%RF * 384.0f);
-	%B = (%B - %ABS_X);
-	%C = (32.0f - %ABS_Y);
-	%B -= 192.0f;
-	etOfs(1, %B, %C);
-	etSpr(1, 9, 10);
-	etAmt(1, 1, 1);
-	etSpd(1, 1.7f, 0.55f);
-	etEx(1, 2, 0, 4, 60, [NEG], 0.012f, 0.7853982f);
-	etOn(1);
-	%B = (%RF * 192.0f);
-	if ($A % 2) goto BossCardWoodSylphyHL_2236 @ 122;
+	int i = 0;
+	while 1 {
+		if ((i % 6) == 0)
+			etOn(0);
+		float y;
+		etOfs(1, ((RF * 384.0f) - ABS_X) - 192.f, 32.0f - ABS_Y);
+		etSpr(1, 9, 10);
+		etAmt(1, 1, 1);
+		etSpd(1, 1.7f, 0.55f);
+		etEx(1, 2, 0, 4, 60, [NEG], 0.012f, 0.7853982f);
+		etOn(1);
+		if ((i % 2) == 0) {
 122:
-	%C = (%B - %ABS_Y);
-	%B = (-12.0f - %ABS_X);
-	goto BossCardWoodSylphyHL_2464 @ 122;
-BossCardWoodSylphyHL_2236:
-	%B += 192.0f;
-	%C = (%B - %ABS_Y);
-	%B = (-12.0f - %ABS_X);
-BossCardWoodSylphyHL_2464:
-	%B -= 192.0f;
-	etOfs(1, %B, %C);
-	etSpr(1, 9, 11);
-!L
-	etAmt(1, 2, 1);
-	etSpd(1, 2.0f, 0.55f);
-!*
-	etEx(1, 2, 0, 4, 0, [NEG], 0.0f, 2.356194f);
-	etOn(1);
-	$A += 1;
+			y = (RF * 192.0f) - ABS_Y;
+		}
+		else {
+			y = ((RF * 192.0f) + 192.f) - ABS_Y;
+		}
+		etOfs(1, (-12.0f - ABS_X) - 192.0f, y);
+		etSpr(1, 9, 11);
+	!L
+		etAmt(1, 2, 1);
+		etSpd(1, 2.0f, 0.55f);
+	!*
+		etEx(1, 2, 0, 4, 0, [NEG], 0.0f, 2.356194f);
+		etOn(1);
+		i += 1;
 126:
-	goto BossCardWoodSylphyHL_1320 @ 120;
+	}
 	return();
 }
 
