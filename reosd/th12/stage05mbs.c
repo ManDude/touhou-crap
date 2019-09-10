@@ -1,16 +1,16 @@
 
-
 global[NEG] = -999999;
 global[NEGF] = -999999.f;
+global[PI] = 3.1415926535897932384626433832795f;
 
 sub MBoss()
 {
 	var A;
 	stageProg(24);
 	boss(0);
-	$MISS_COUNT = 0;
-	$BOMB_COUNT = 0;
-	$CAPTURED = 1;
+	MISS_COUNT = 0;
+	BOMB_COUNT = 0;
+	CAPTURED = 1;
 	enmClear();
 	resetBoss();
 	enmNewRel("Ecl_EtBreak_ni", 0.0f, 0.0f, 9999, 0, 0);
@@ -37,28 +37,27 @@ sub MBoss()
 	setBossFog(160.0f, 11497327);
 	stageProg(6);
 	wait(30);
-	call("MBoss1");
-	goto MBoss_856 @ 60;
-MBoss_836:
+	@MBoss1();
+	goto MBoss_888 @ 60;
+MBoss_868:
 	wait(1000);
-MBoss_856:
-	if 1 goto MBoss_836 @ 60;
+MBoss_888:
+	if 1 goto MBoss_868 @ 60;
 	delete();
 }
 
 sub MBoss1()
 {
-	var;
-	goto MBoss1_204 @ 0;
+	goto MBoss1_320 @ 0;
 MBoss1_60:
-	call("MBoss_at1", _ff 0.31415926535897932384626433832795f, _ff 0.0f);
+	call("MBoss_at1", _ff 0.31415927f, _ff 0.0f);
 	enmRand(90, 4, 1.5f);
-	call("MBoss_at2", _ff -0.31415926535897932384626433832795f, _ff 3.1415926535897932384626433832795f);
+	call("MBoss_at2", _ff -0.31415927f, _ff 3.1415927f);
 	wait(60);
-	call("MBoss_at1", _ff -0.31415926535897932384626433832795f, _ff 3.1415926535897932384626433832795f);
-	call("MBoss_at2", _ff 0.31415926535897932384626433832795f, _ff 0.0f);
+	call("MBoss_at1", _ff -0.31415927f, _ff 3.1415927f);
+	call("MBoss_at2", _ff 0.31415927f, _ff 0.0f);
 	wait(1);
-MBoss1_204:
+MBoss1_320:
 	if 1 goto MBoss1_60 @ 0;
 	return();
 }
@@ -77,8 +76,8 @@ sub MBossCard1()
 	enmDir(0.0f, 0.0f);
 	enmDirTime(0, 0, 0.0f, 0.0f);
 	enmPosTime(0, 0, 0.0f, 0.0f);
-	$MISS_COUNT = 0;
-	$BOMB_COUNT = 0;
+	MISS_COUNT = 0;
+	BOMB_COUNT = 0;
 	invinc(120);
 	enmPosTime(120, 4, 0.0f, 144.0f);
 	setMoveArea(0.0f, 128.0f, 280.0f, 64.0f);
@@ -91,16 +90,16 @@ sub MBossCard1()
 !*
 	stageProg(43);
 120:
-	$A = $RAND % 2;
-START:
-	if ($A != 0) goto AT1 @ 120;
-	call("MBossCard1_at1");
-	goto AT_END @ 120;
-AT1:
-	call("MBossCard1_at2");
-AT_END:
-	$A = 1 - $A;
-	goto START @ 120;
+	$A = ($RAND % 2);
+MBossCard1_760:
+	if ($A != 0) goto MBossCard1_900 @ 120;
+	@MBossCard1_at1();
+	goto MBossCard1_936 @ 120;
+MBossCard1_900:
+	@MBossCard1_at2();
+MBossCard1_936:
+	$A = (1 - $A);
+	goto MBossCard1_760 @ 120;
 	return();
 }
 
@@ -143,24 +142,24 @@ sub MBossCard1_at1()
 	etAmt(0, 11, 4);
 	etEx(0, 0, 0, 2, 1, [NEG], [NEGF], [NEGF]);
 !E
-	etAng(0, 0.0f, 0.20943951023931954923084289221863f);
+	etAng(0, 0.0f, 0.20943952f);
 	etSpd(0, 4.0f, 1.45f);
 !N
-	etAng(0, 0.0f, 0.20943951023931954923084289221863f);
+	etAng(0, 0.0f, 0.20943952f);
 	etSpd(0, 5.0f, 1.45f);
 !H
-	etAng(0, 0.0f, 0.31415926535897932384626433832795f);
+	etAng(0, 0.0f, 0.31415927f);
 	etSpd(0, 6.0f, 1.45f);
 !L
-	etAng(0, 0.0f, 0.31415926535897932384626433832795f);
+	etAng(0, 0.0f, 0.31415927f);
 	etSpd(0, 7.0f, 1.45f);
 !*
-	goto END @ 98;
-START:
+	goto MBossCard1_at1_1064 @ 98;
+MBossCard1_at1_1044:
 	etOn(0);
+MBossCard1_at1_1064:
 98:
-END:
-	if ($A--) goto START @ 80;
+	if $A-- goto MBossCard1_at1_1044 @ 80;
 158:
 	noop();
 218:
@@ -172,12 +171,11 @@ END:
 
 sub MBossCard1_at1_et0()
 {
-	var;
 	noop();
-START:
+MBossCard1_at1_et0_52:
 	etOn(0);
 6:
-	goto START @ 0;
+	goto MBossCard1_at1_et0_52 @ 0;
 	return();
 }
 
@@ -220,24 +218,24 @@ sub MBossCard1_at2()
 	etAmt(0, 11, 4);
 	etEx(0, 0, 0, 2, 1, [NEG], [NEGF], [NEGF]);
 !E
-	etAng(0, 0.0f, 0.20943951023931954923084289221863f);
+	etAng(0, 0.0f, 0.20943952f);
 	etSpd(0, 4.0f, 1.45f);
 !N
-	etAng(0, 0.0f, 0.20943951023931954923084289221863f);
+	etAng(0, 0.0f, 0.20943952f);
 	etSpd(0, 5.0f, 1.45f);
 !H
-	etAng(0, 0.0f, 0.31415926535897932384626433832795f);
+	etAng(0, 0.0f, 0.31415927f);
 	etSpd(0, 6.0f, 1.45f);
 !L
-	etAng(0, 0.0f, 0.31415926535897932384626433832795f);
+	etAng(0, 0.0f, 0.31415927f);
 	etSpd(0, 7.0f, 1.45f);
 !*
-	goto END @ 98;
-START:
+	goto MBossCard1_at2_1064 @ 98;
+MBossCard1_at2_1044:
 	etOn(0);
+MBossCard1_at2_1064:
 98:
-END:
-	if ($A--) goto START @ 80;
+	if $A-- goto MBossCard1_at2_1044 @ 80;
 158:
 	noop();
 218:
@@ -249,18 +247,17 @@ END:
 
 sub MBossCard1_at2_et0()
 {
-	var;
 	noop();
-START:
+MBossCard1_at2_et0_52:
 	etOn(0);
 6:
-	goto START @ 0;
+	goto MBossCard1_at2_et0_52 @ 0;
 	return();
 }
 
 sub MBossDead()
 {
-	var A B;
+	var A, B;
 	setFlags(140);
 	cardEnd();
 	unsetMoveArea();
@@ -268,12 +265,12 @@ sub MBossDead()
 	interrupt(1, -1, 0, "");
 	enmDirTime(0, 0, 0.0f, 0.0f);
 	playSE(28);
-	unless ($TIMEOUT == 0) goto MBossDead_484 @ 0;
-	etClear(640.0f);
-	goto MBossDead_504 @ 0;
-MBossDead_484:
-	etClear_ni(640.0f);
-MBossDead_504:
+	if (TIMEOUT == 0) {
+		etClear(640.0f);
+	}
+	else {
+		etClear_ni(640.0f);
+	}
 	enmClear();
 	life(100000);
 	boss(-1);
@@ -281,8 +278,8 @@ MBossDead_504:
 	itemMain(7);
 	itemEx(2, 30);
 	itemDrop();
-	call("ItemDrop", _SS 60, _ff 48.0f, _ff 48.0f);
-	call("MBossEscape");
+	@ItemDrop(60, 48.0f, 48.0f);
+	@MBossEscape();
 	delete();
 	delete();
 }
@@ -295,12 +292,12 @@ sub MBossEscape()
 	interrupt(1, -1, 0, "");
 	cardEnd();
 	unsetMoveArea();
-	unless ($TIMEOUT == 0) goto MBossEscape_264 @ 0;
-	etClear(640.0f);
-	goto MBossEscape_284 @ 0;
-MBossEscape_264:
-	etClear_ni(640.0f);
-MBossEscape_284:
+	if (TIMEOUT == 0) {
+		etClear(640.0f);
+	}
+	else {
+		etClear_ni(640.0f);
+	}
 	enmClear();
 	life(100000);
 	boss(-1);
@@ -313,10 +310,10 @@ MBossEscape_284:
 	delete();
 }
 
-sub MBoss_at1(angInc startAng)
+sub MBoss_at1(var A, var B)
 {
-	var finalAng count;
-	$count = 10;
+	var C, D;
+	$D = 10;
 	etNew(0);
 	etMode(0, 1);
 	etSpr(0, 20, 3);
@@ -328,22 +325,22 @@ sub MBoss_at1(angInc startAng)
 	etAmt(0, 8, 1);
 !*
 	etOfs(0, 0.0f, -12.0f);
-	%finalAng = %startAng;
-	goto MBoss_at1_1060 @ 0;
-MBoss_at1_812:
-	etAng(0, %finalAng, 0.28559933214452665804205848938905f);
-	%finalAng = %finalAng + %angInc;
+	%C = %B;
+	goto MBoss_at1_496 @ 0;
+MBoss_at1_352:
+	etAng(0, %C, 0.28559932f);
+	%C = (%C + %A);
 	etOn(0);
 	wait(8);
-MBoss_at1_1060:
-	if $count-- goto MBoss_at1_812 @ 0;
+MBoss_at1_496:
+	if $D-- goto MBoss_at1_352 @ 0;
 	return();
 }
 
-sub MBoss_at2(angInc startAng)
+sub MBoss_at2(var A, var B)
 {
-	var finalAng count;
-	$count = 10;
+	var C, D;
+	$D = 10;
 	etNew(0);
 	etMode(0, 1);
 	etSpr(0, 8, 2);
@@ -358,14 +355,14 @@ sub MBoss_at2(angInc startAng)
 	etAmt(0, 5, 3);
 !*
 	etOfs(0, 0.0f, -12.0f);
-	%finalAng = %startAng;
-	goto MBoss_at1_1060 @ 0;
-MBoss_at1_812:
-	etAng(0, %finalAng, 0.04487989505128276054946633404685f);
-	%finalAng = %finalAng + %angInc;
+	%C = %B;
+	goto MBoss_at2_524 @ 0;
+MBoss_at2_380:
+	etAng(0, %C, 0.044879895f);
+	%C = (%C + %A);
 	etOn(0);
 	wait(3);
-MBoss_at1_1060:
-	if $count-- goto MBoss_at1_812 @ 0;
+MBoss_at2_524:
+	if $D-- goto MBoss_at2_380 @ 0;
 	return();
 }
