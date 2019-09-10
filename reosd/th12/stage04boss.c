@@ -19,7 +19,7 @@ sub Boss()
 	anmScr(2, 158);
 	anm(2);
 	setBossFog(160.0f, 16728031);
-	@Boss1();
+	@Boss3();
 	delete();
 }
 
@@ -1339,16 +1339,24 @@ sub BossCardWaFi()
 	etAng(1, -2.3561945f, -0.7853982f);
 	etDist(1, 32.0f);
 	etEx(1, 0, 0, 2, 2, [NEG], [NEGF], [NEGF]);
-	etEx(1, 1, 0, 4, 210, [NEG], 0.03f, 1.5707964f);
+	etEx(1, 1, 0, 4, 175, [NEG], 0.03f, 1.5707964f);
 	etEx(1, 2, 0, 256, 1, 2, [NEGF], [NEGF]);
 	etEx(1, 3, 0, 524288, 135921926, 1, 1.3f, 0.8f);
 	etEx(1, 5, 0, 8192, [NEG], [NEG], [NEGF], [NEGF]);
+	etNew(2);
+	etDist(2, 20.f);
+	etMode(2, [ETON_FAN_AIM]);
+	etSpr(2, [ET_BIG_BALL], [BLUE32]);
+	etSpd(2, 1.7f:2.0f:2.2f:2.5f, 0.25f);
+	etAmt(2, 3:5:7:7, 1);
+	etEx(2, 0, 0, 2, 2, [NEG], [NEGF], [NEGF]);
 	int i = 0;
 120:
 	playSE(29);
 	invinc(120);
 	wait(80);
 	@BossCardWaFi_at2() async;
+	@BossCardWaFi_at3() async;
 	while 1 {
 		@BossCardWaFi_at(i) async;
 180:
@@ -1367,7 +1375,7 @@ sub BossCardWaFi_at(int i)
 		etSpd(1, 2.2f, 1.6f);
 		etEx(1, 4, 0, 1048576, 1, 0, -1.2566371f, -1.8849556f);
 		etOn(1);
-		etAmt(1, RANK + 1, 1);
+		etAmt(1, 2:2:3:4, 1);
 		etEx(1, 4, 0, 8192, [NEG], [NEG], [NEGF], [NEGF]);
 		etOn(1);
 		etSpd(1, 3.3f, 2.5f);
@@ -1447,6 +1455,17 @@ sub BossCardWaFi_at2()
 		}
 		wait(2);
 		i += 1;
+	}
+	return();
+}
+
+sub BossCardWaFi_at3()
+{
+	wait(120);
+	while 1 {
+		etAng(2, RF2 * rad(9.f), rad(24.f) : rad(20.f) : rad(18.f) : rad(16.f));
+		etOn(2);
+40:
 	}
 	return();
 }
@@ -2250,7 +2269,6 @@ sub BossCardWoodGreen()
 
 sub BossCardWoodLeaf()
 {
-	var A, B, C, D, E, F, G;
 	resetBoss();
 	ins_21();
 	enmClear();
@@ -2270,9 +2288,9 @@ sub BossCardWoodLeaf()
 	stageProg(43);
 	enmPosTime(60, 4, 0.0f, 96.0f);
 	anmScrNoMove(0, 0);
-	$D = (5 * 3);
-	%F = 1.0f;
-	$G = 3;
+	int i = 15;
+	float sp_mod = 1.0f;
+	int layer_c = 3;
 	etNew(0);
 	etMode(0, 3);
 	etSpr(0, 7, 9);
@@ -2280,29 +2298,22 @@ sub BossCardWoodLeaf()
 	etEx(0, 0, 0, 2, 1, [NEG], [NEGF], [NEGF]);
 	etEx(0, 1, 1, 160, 1, [NEG], [NEGF], [NEGF]);
 120:
-	goto BossCardWoodLeaf_1872 @ 120;
-BossCardWoodLeaf_948:
-	etAmt(0, _S($D / 3), $G);
-	%A = ((6.2831855f / _f($D / 3)) / _f($G));
-	$B = 15;
-	%C = 3.1415927f;
-	%E = %RDEG;
-	goto BossCardWoodLeaf_1628 @ 120;
-BossCardWoodLeaf_1324:
-	etAng(0, %E, %A);
-	etEx(0, 2, 1, 16, 60, 1, %C, [NEGF]);
-	etOn(0);
-	%C -= 0.20943952f;
-	%E = (%E - (0.10471976f * %F));
-	wait(4);
-BossCardWoodLeaf_1628:
-	if $B-- goto BossCardWoodLeaf_1324 @ 120;
-	enmRand(60, 4, 3.0f);
-	wait(60);
-	$D += 1;
-	%F = (%F * -1.0f);
-BossCardWoodLeaf_1872:
-	goto BossCardWoodLeaf_948 @ 120;
+	while 1 {
+		etAmt(0, i / 3, layer_c);
+		float ang1 = RDEG, ang2 = (6.2831855f / _f(i / 3)) / _f(layer_c), newang = [PI];
+		times (15) {
+			etAng(0, ang1, ang2);
+			etEx(0, 2, 1, 16, 60, 1, newang, [NEGF]);
+			etOn(0);
+			newang -= 0.20943952f;
+			ang1 -= 0.10471976f * sp_mod;
+			wait(4);
+		}
+		enmRand(60, 4, 3.0f);
+		wait(60);
+		i += 1;
+		sp_mod = -sp_mod;
+	}
 	return();
 }
 
