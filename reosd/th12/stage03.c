@@ -99,18 +99,18 @@ sub Ball00atH()
 {
 	while 1 {
 		etOn(0);
-		wait(60);
+		wait(49);
 	}
 	return();
 }
 
 sub Ball00atL()
 {
-	rand(200, 3);
+	rand(161, 3);
 	wait(I3);
 	while 1 {
 		etOn(0);
-		wait(200);
+		wait(161);
 	}
 	return();
 }
@@ -284,7 +284,7 @@ sub Girl02(int anm, int anm2)
 	etAng(0, 0.0f, rad(3.f) : rad(3.f) : rad(3.f) : rad(2.f));
 	etEx(0, 0, 0, 2, 1, [NEG], [NEGF], [NEGF]);
 	int c;
-	seti_rank(c, 300, 190, 120, 90);
+	seti_rank(c, 241, 153, 97, 73);
 	et_on_rate(0, c, 1) async 1;
 40:
 	if (ABS_X < 0.0f)

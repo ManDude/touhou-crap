@@ -253,7 +253,7 @@ sub Boss1_at()
 {
 	enmRand(90, 4, 2.5f);
 	etAmt(2, BOSS1 + (12:16:24), 3:4);
-	et_on_rate(2, 50, 0) async 1;
+	et_on_rate(2, 33, 0) async 1;
 90:
 	enmPosTime(90, 4, 0.0f, 128.f);
 180:
@@ -396,13 +396,15 @@ sub Boss2_at()
 	etAng(2, 0.0f, 0.0f);
 	etAmt(2, BOSS1 + 10, 2:3:4:5);
 	etEx(2, 0, 0, 2, 2, [NEG], [NEGF], [NEGF]);
-	et_on_rate(2, 20:15:15:10, 0) async 1;
+	et_on_rate(2, 17:13:13:9, 0) async 1;
 90:
 	enmPosTime(90, 4, 0.0f, 128.f);
 180:
+	endSlot(1);
 	etAmt(2, 6:12:16:20, 1);
 	etSpd(2, 1.5f:2.0f, 1.25f);
-	endSlot(1);
+	etOn(2);
+	//et_on_rate(2, 57:49, 0) async 1;
 	return();
 }
 
@@ -1521,13 +1523,18 @@ sub BossCardWaWo()
 	etAng(1, ang, 0.34906584f);
 	etOn(1);
 	ang -= RF2 * -0.1121997f;
-130:
+121:
+	if (i > 0) {
+		etAng(1, ang, 0.34906584f);
+		etOn(1);
+	}
+138:
 	if (i > 0) {
 		etAng(1, ang, 0.34906584f);
 		etOn(1);
 	}
 140:
-	et_on_rate(2, 20, 0) async 1;
+	et_on_rate(2, 17, 0) async 1;
 	enmRand(90, 4, 1.4f);
 	i += 1;
 	if ((i % 8) == 0)
@@ -1602,7 +1609,7 @@ sub BossCardWaterBury_At()
 	etEx(0, 0, 0, 2, 2, [NEG], [NEGF], [NEGF]);
 	while 1 {
 		etOn(0);
-		wait(22);
+		wait(19);
 	}
 	return();
 }
@@ -1886,7 +1893,7 @@ sub BossCardWaterUndine_At()
 	etEx(0, 0, 0, 2, 2, [NEG], [NEGF], [NEGF]);
 	while 1 {
 		etOn(0);
-		wait(22);
+		wait(19);
 	}
 	return();
 }

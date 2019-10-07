@@ -58,11 +58,11 @@ sub MainGirl00_at()
 	etSpd(0, 3.5f, 0.25f);
 	etAng(0, 0.0f, 0.1963495f);
 	etEx(0, 0, 0, 2, 2, [NEG], [NEGF], [NEGF]);
-	rand(120, 0);
+	rand(97, 0);
 	wait(I0);
 	while (1) {
 		etOn(0);
-		wait(120);
+		wait(97);
 	}
 	return();
 }
@@ -319,11 +319,11 @@ sub Thing00_at()
 !NHL
 	etAng(0, 0.0f, 0.0f);
 	etEx(0, 0, 0, 2, 2, [NEG], [NEGF], [NEGF]);
-	rand(180, 0);
+	rand(145, 0);
 	wait(I0);
 	while 1 {
 		etOn(0);
-		wait(180);
+		wait(145);
 	}
 	return();
 }

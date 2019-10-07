@@ -213,7 +213,7 @@ sub Cir00(int anm, int anm2, int m)
 !*
 	etEx(0, 0, 0, 2, 2, [NEG], [NEGF], [NEGF]);
 	etOn(0);
-	et_on_rate(0, 50, 1) async 1;
+	et_on_rate(0, 41, 1) async 1;
 	enmDir(0.0f, 4.2f);
 	setFlags(4);
 30:
@@ -242,7 +242,7 @@ sub Cir01(int anm, int anm2, int m)
 !*
 	etEx(0, 0, 0, 2, 2, [NEG], [NEGF], [NEGF]);
 	etOn(0);
-	et_on_rate(0, 50, 1) async 1;
+	et_on_rate(0, 41, 1) async 1;
 	enmDir(-1.0471976f, 4.2f);
 	setFlags(4);
 30:
@@ -273,7 +273,7 @@ sub Cir02(int anm, int anm2, int m)
 !*
 	etEx(0, 0, 0, 2, 2, [NEG], [NEGF], [NEGF]);
 	etOn(0);
-	et_on_rate(0, 128, 1) async 1;
+	et_on_rate(0, 104, 1) async 1;
 	enmDir(0.0f, 4.2f);
 	setFlags(4);
 30:
@@ -302,7 +302,7 @@ sub Cir03(int anm, int anm2, int m)
 !*
 	etEx(0, 0, 0, 2, 2, [NEG], [NEGF], [NEGF]);
 	etOn(0);
-	et_on_rate(0, 128, 1) async 1;
+	et_on_rate(0, 104, 1) async 1;
 	enmDir(-1.0471976f, 4.5f);
 	setFlags(4);
 30:
@@ -360,7 +360,7 @@ sub Cir06(int anm, int anm2, int m)
 	etSpd(0, 2.5f:2.5f:2.8f:2.8f, 1.45f);
 	etAng(0, 0.0f, rad(10.f));
 	etEx(0, 0, 0, 2, 2, [NEG], [NEGF], [NEGF]);
-	et_on_rate(0, 50, 1) async 1;
+	et_on_rate(0, 41, 1) async 1;
 100:
 	endSlot(1);
 10000:
@@ -382,7 +382,7 @@ sub Cir07(int anm, int anm2, int m)
 	etSpd(0, 2.5f:2.5f:2.8f:2.8f, 1.45f);
 	etAng(0, 0.0f, rad(10.f));
 	etEx(0, 0, 0, 2, 1, [NEG], [NEGF], [NEGF]);
-	et_on_rate(0, 50, 1) async 1;
+	et_on_rate(0, 41, 1) async 1;
 100:
 	endSlot(1);
 10000:

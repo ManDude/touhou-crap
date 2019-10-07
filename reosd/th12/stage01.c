@@ -126,7 +126,7 @@ sub Fairy03()
 
 sub FairyBasicShoot00()
 {
-	rand(120, 0);
+	rand(97, 0);
 	wait(I0);
 	etNew(0);
 	etMode(0, 0);
@@ -137,7 +137,7 @@ sub FairyBasicShoot00()
 	etEx(0, 0, 0, 2, 1, [NEG], [NEGF], [NEGF]);
 FairyBasicShoot00_316:
 	etOn(0);
-	wait(120);
+	wait(97);
 	goto FairyBasicShoot00_316 @ 0;
 	return();
 }

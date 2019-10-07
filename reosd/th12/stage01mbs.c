@@ -214,7 +214,7 @@ sub MBossCard1_at()
 	etOfs(1, 0.0f, -12.0f);
 	while (1) {
 		etOn(1);
-		wait_rank(0, 0, 40, 25);
+		wait_rank(0, 0, 33, 21);
 	}
 	return();
 }
