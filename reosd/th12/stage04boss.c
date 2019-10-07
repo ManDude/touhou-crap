@@ -2255,7 +2255,7 @@ sub BossCardWoodLeaf()
 			etAng(0, ang1, ang2);
 			etEx(0, 2, 1, 16, 60, 1, newang, [NEGF]);
 			etOn(0);
-			newang -= 0.20943952f * sp_mod;
+			newang -= rad(12f) * sp_mod;
 			ang1 -= 0.10471976f * sp_mod;
 			wait(4);
 		}

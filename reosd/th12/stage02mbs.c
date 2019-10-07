@@ -131,8 +131,8 @@ sub MBoss1_at3()
 	etSpd(0, 6.5f, 2.25f);
 	etSpd(1, 4.5f, 2.25f);
 !*
-	etAng(0, 0f, rad(30f) : rad(30f) : 0.31415927f : rad(11.25f));
-	etAng(1, 0f, rad(30f) : rad(30f) : 0.31415927f : rad(11.25f));
+	etAng(0, 0f, rad(30f) : rad(30f) : rad(18f) : rad(11.25f));
+	etAng(1, 0f, rad(30f) : rad(30f) : rad(18f) : rad(11.25f));
 	etEx(0, 0, 0, 2, 2, [NEG], [NEGF], [NEGF]);
 	etEx(0, 1, 0, 32, 40, 1, 0f, 4f);
 	etEx(1, 0, 0, 2, 2, [NEG], [NEGF], [NEGF]);
