@@ -7,14 +7,14 @@ sub Boss()
 	anm(2);
 	anmScrNoMove(0, 0);
 	setFlags(64);
-	hitbox(56.0f, 56.0f);
-	killbox(56.0f, 56.0f);
+	hitbox(56f, 56f);
+	killbox(56f, 56f);
 	life(10900);
-	enmPos(160.0f, -96.0f);
-	enmPosTime(100, 1, 0.0f, 150.0f);
+	enmPos(160f, -96f);
+	enmPosTime(100, 1, 0f, 150f);
 	wait(100);
 	boss(0);
-	setMoveArea(0.0f, 128.0f, 320.0f, 112.0f);
+	setMoveArea(0f, 128f, 320f, 112f);
 	invinc(61);
 61:
 	msgWait();
@@ -22,7 +22,7 @@ sub Boss()
 	anmScr(1, 95);
 	anmScr(2, 158);
 	anm(2);
-	setBossFog(160.0f, 16728031);
+	setBossFog(160f, 16728031);
 	life(14000);
 	Boss1();
 	delete();
@@ -32,10 +32,10 @@ sub Boss1()
 {
 	resetBoss();
 	interrupt(0, 1900, 1800, "BossCard1");
-	lifebar(0, 1900.0f, -24448);
+	lifebar(0, 1900f, -24448);
 	stageProg(24);
 	lives(2);
-	setMoveArea(0.0f, 96.0f, 320.0f, 96.0f);
+	setMoveArea(0f, 96f, 320f, 96f);
 	anm(2);
 	anmScrNoMove(0, 0);
 	anmScrSlot(0, 119);
@@ -61,11 +61,11 @@ sub Boss1_at()
 	etSpr(0, 9, 2);
 	etAmt(0, amt + (-1:0:2:5), 1);
 	etEx(0, 0, 0, 2, 2, [NEG], [NEGF], [NEGF]);
-	etOfs(0, 0.0f, -12.0f);
-	float ang = RDEG, sp = 2.0f;
+	etOfs(0, 0f, -12f);
+	float ang = RDEG, sp = 2f;
 	times (30) {
 		etSpd(0, sp + 0.5f, 0.85f);
-		etAng(0, ang, 0.0f);
+		etAng(0, ang, 0f);
 		etOn(0);
 		if (m == 0)
 			ang += rad(5.625f);
@@ -74,11 +74,11 @@ sub Boss1_at()
 		sp += 0.05f;
 		wait(4);
 	}
-	enmRand(40, 1, 5.0f);
+	enmRand(40, 1, 5f);
 	float angI = 0.03926991f;
 	times (16) {
 		etSpd(0, sp + 0.5f, 0.85f);
-		etAng(0, ang, 0.0f);
+		etAng(0, ang, 0f);
 		etOn(0);
 		if (m == 0)
 			ang += angI;
@@ -98,36 +98,36 @@ sub Boss2()
 	ins_21();
 	enmClear();
 	if (TIMEOUT == 0) {
-		etClear(640.0f);
+		etClear(640f);
 	}
 	else {
-		etClear_ni(640.0f);
+		etClear_ni(640f);
 	}
 	MISS_COUNT = 0;
 	BOMB_COUNT = 0;
-	enmDir(0.0f, 0.0f);
-	enmDirTime(0, 0, 0.0f, 0.0f);
-	enmPosTime(0, 0, 0.0f, 0.0f);
+	enmDir(0f, 0f);
+	enmDirTime(0, 0, 0f, 0f);
+	enmPosTime(0, 0, 0f, 0f);
 	cardEnd();
 	ins_529(0);
 	resetBossParam();
 	playSE(28);
 !EN
 	interrupt(0, 0, 2400, "Boss3");
-	lifebar(0, 0.0f, -24448);
+	lifebar(0, 0f, -24448);
 !HL
 	interrupt(0, 1400, 2400, "BossCard2");
-	lifebar(0, 1400.0f, -24448);
+	lifebar(0, 1400f, -24448);
 !*
 	lives(1);
 	invinc(120);
 	if (TIMEOUT == 0) {
-		ItemDrop2(50, 64.0f, 64.0f);
+		ItemDrop2(50, 64f, 64f);
 	}
 	else
-		ItemDrop(50, 64.0f, 64.0f);
+		ItemDrop(50, 64f, 64f);
 	playSE(28);
-	setMoveArea(0.0f, 96.0f, 320.0f, 96.0f);
+	setMoveArea(0f, 96f, 320f, 96f);
 160:
 	I0 = 0;
 	while 1 {
@@ -141,7 +141,7 @@ sub Boss2()
 				Boss2_at2();
 			else if (I0 == 2)
 				Boss2_at3();
-			enmRand(80, 1, 2.0f);
+			enmRand(80, 1, 2f);
 			wait(80);
 		}
 		wait(120);
@@ -151,14 +151,14 @@ sub Boss2()
 
 sub Boss2_Enm()
 {
-	enmNew("Boss2_enm_GGirl", -160.0f, -32.0f, 2000, 2000, 1);
-	enmNew("Boss2_enm_BGirl", 160.0f, -32.0f, 1000, 2000, 1);
+	enmNew("Boss2_enm_GGirl", -160f, -32f, 2000, 2000, 1);
+	enmNew("Boss2_enm_BGirl", 160f, -32f, 1000, 2000, 1);
 30:
-	enmNew("Boss2_enm_RGirl", -96.0f, -32.0f, 500, 2000, 1);
-	enmNew("Boss2_enm_YGirl", 96.0f, -32.0f, 2000, 2000, 1);
+	enmNew("Boss2_enm_RGirl", -96f, -32f, 500, 2000, 1);
+	enmNew("Boss2_enm_YGirl", 96f, -32f, 2000, 2000, 1);
 60:
-	enmNew("Boss2_enm_BGirl", -32.0f, -32.0f, 1000, 2000, 1);
-	enmNew("Boss2_enm_RGirl", 32.0f, -32.0f, 500, 2000, 1);
+	enmNew("Boss2_enm_BGirl", -32f, -32f, 1000, 2000, 1);
+	enmNew("Boss2_enm_RGirl", 32f, -32f, 500, 2000, 1);
 	return();
 }
 
@@ -168,19 +168,19 @@ sub Boss2_at1()
 	etMode(0, 3);
 	etSpr(0, 3, 5);
 	etAmt_rank(0, 22, 22, 22, 26, 1, 2, 3, 3);
-	etSpd(0, 4.0f, 2.5f);
-	etAng(0, RDEG, rad(15.f));
+	etSpd(0, 4f, 2.5f);
+	etAng(0, RDEG, rad(15f));
 	etEx(0, 0, 0, 2, 2, [NEG], [NEGF], [NEGF]);
 	etOn(0);
 70:
 	etSpr(0, 3, 6);
 	etAmt(0, 22, 2);
-	etAng(0, RDEG, rad(15.f));
+	etAng(0, RDEG, rad(15f));
 	etOn(0);
 140:
 	etSpr(0, 3, 5);
 	etAmt_rank(0, 22, 22, 22, 26, 1, 2, 3, 3);
-	etAng(0, RDEG, rad(15.f));
+	etAng(0, RDEG, rad(15f));
 	etOn(0);
 	return();
 }
@@ -191,8 +191,8 @@ sub Boss2_at2()
 	etMode(1, 8);
 	etSpr(1, 3, 6);
 	etAmt_rank(1, 14, 20, 24, 26, 1, 1, 1, 1);
-	etSpd(1, 3.0f, 0.8f);
-	etAng(1, 0.0f, -3.1415927f);
+	etSpd(1, 3f, 0.8f);
+	etAng(1, 0f, -3.1415927f);
 	etEx(1, 0, 0, 2, 3, [NEG], [NEGF], [NEGF]);
 	etEx(1, 1, 0, 1, [NEG], [NEG], [NEGF], [NEGF]);
 	etEx(1, 2, 0, 4, 999999, [NEG], 0.025f, 1.5707964f);
@@ -212,7 +212,7 @@ sub Boss2_at3()
 	etMode(2, 8);
 	etSpr(2, 3, 5);
 	etAmt_rank(2, 18, 30, 34, 38, 1, 1, 1, 1);
-	etSpd(2, 5.0f, 1.8f);
+	etSpd(2, 5f, 1.8f);
 	etAng(2, 3.1415927f, -3.1415927f);
 	etEx(2, 0, 0, 2, 1, [NEG], [NEGF], [NEGF]);
 	etOn(2);
@@ -245,11 +245,11 @@ sub Boss2_enm_Girl(int anm, int anm2)
 	anm(1);
 	anmScrNoMove(0, anm);
 	setFlags(64);
-	hitbox(28.0f, 28.0f);
-	killbox(28.0f, 28.0f);
+	hitbox(28f, 28f);
+	killbox(28f, 28f);
 	enmDir(1.5707964f, 1.5f);
 40:
-	enmDirTime(30, 0, [NEGF], 0.0f);
+	enmDirTime(30, 0, [NEGF], 0f);
 	times (4) {
 70:
 		float aim = AIM, sp = 1.6f;
@@ -258,7 +258,7 @@ sub Boss2_enm_Girl(int anm, int anm2)
 		etSpr(0, 8, 6);
 		etAmt_rank(0, 1, 1, 3, 3, 1, 1, 1, 1);
 		etEx(0, 0, 0, 2, 1, [NEG], [NEGF], [NEGF]);
-		etAng(0, aim, rad(30.f));
+		etAng(0, aim, rad(30f));
 	!HL
 		etNew(1);
 		etMode(1, 2);
@@ -304,16 +304,16 @@ sub Boss3()
 	ins_21();
 	enmClear();
 	if (TIMEOUT == 0) {
-		etClear(640.0f);
+		etClear(640f);
 	}
 	else {
-		etClear_ni(640.0f);
+		etClear_ni(640f);
 	}
 	MISS_COUNT = 0;
 	BOMB_COUNT = 0;
-	enmDir(0.0f, 0.0f);
-	enmDirTime(0, 0, 0.0f, 0.0f);
-	enmPosTime(0, 0, 0.0f, 0.0f);
+	enmDir(0f, 0f);
+	enmDirTime(0, 0, 0f, 0f);
+	enmPosTime(0, 0, 0f, 0f);
 	cardEnd();
 	ins_529(0);
 	resetBossParam();
@@ -321,33 +321,33 @@ sub Boss3()
 	BOSS1 = 0;
 !E
 	interrupt(0, 1400, 2400, "BossCard3");
-	lifebar(0, 1400.0f, -24448);
+	lifebar(0, 1400f, -24448);
 	interrupt(1, 0, 2400, "BossDead");
 !N
 	interrupt(0, 3400, 2400, "BossCard3");
-	lifebar(0, 3400.0f, -24448);
+	lifebar(0, 3400f, -24448);
 	interrupt(1, 2000, 2400, "BossCard4");
-	lifebar(1, 2000.0f, -36800);
+	lifebar(1, 2000f, -36800);
 !HL
 	interrupt(0, 3400, 2400, "BossCard3H");
-	lifebar(0, 3400.0f, -24448);
+	lifebar(0, 3400f, -24448);
 	interrupt(1, 2000, 2400, "BossCard4");
-	lifebar(1, 2000.0f, -36800);
+	lifebar(1, 2000f, -36800);
 !*
 	lives(0);
 	if (TIMEOUT == 0) {
-		ItemDrop2(50, 64.0f, 64.0f);
+		ItemDrop2(50, 64f, 64f);
 	}
 	else
-		ItemDrop(50, 64.0f, 64.0f);
+		ItemDrop(50, 64f, 64f);
 	playSE(28);
-	setMoveArea(0.0f, 96.0f, 320.0f, 96.0f);
+	setMoveArea(0f, 96f, 320f, 96f);
 160:
 	I0 = 0;
 	while 1 {
 		Boss3_at2();
 		Boss3_at1();
-		enmRand(80, 1, 4.0f);
+		enmRand(80, 1, 4f);
 		wait(80);
 		I0 += 1;
 280:	noop();
@@ -361,8 +361,8 @@ sub Boss3_at1()
 	etMode(0, 8);
 	etSpr(0, 9, 6);
 	etAmt(0, 1:1:2:3, 1);
-	etSpd(0, 1.0f, 0.3f);
-	etAng(0, 0.0f, -3.1415927f);
+	etSpd(0, 1f, 0.3f);
+	etAng(0, 0f, -3.1415927f);
 	etEx(0, 0, 0, 2, 0, [NEG], [NEGF], [NEGF]);
 	etEx(0, 1, 0, 1, [NEG], [NEG], [NEGF], [NEGF]);
 	etEx(0, 2, 0, 4, 999999, [NEG], 0.027f, 1.5707964f);
@@ -380,10 +380,10 @@ sub Boss3_at2()
 	etMode(1, 3);
 	etSpr(1, 8, 6);
 	etAmt(1, 16:24:35:42, 1);
-	etAng(1, 0.0f, 0.0f);
+	etAng(1, 0f, 0f);
 	etEx(1, 0, 1, 2, 0, [NEG], [NEGF], [NEGF]);
 	etEx(1, 1, 0, 1024, 160, 0, [NEGF], [NEGF]);
-	etEx(1, 2, 1, 16, 60, 1, rad(-166.f) : rad(-166.f) : rad(-156.f) : rad(-150.f), 3.f : 3.f : 4.f : 4.f);
+	etEx(1, 2, 1, 16, 60, 1, rad(-166f) : rad(-166f) : rad(-156f) : rad(-150f), 3f : 3f : 4f : 4f);
 	float sp = 2.8f;
 	times (6) {
 		etSpd(1, sp, 2.4f);
@@ -395,7 +395,7 @@ sub Boss3_at2()
 	noop();
 70:
 	etSpr(1, 8, 2);
-	etEx(1, 2, 1, 16, 60, 1, rad(166.f) : rad(166.f) : rad(156.f) : rad(140.f), 3.f : 3.f : 4.f : 4.f);
+	etEx(1, 2, 1, 16, 60, 1, rad(166f) : rad(166f) : rad(156f) : rad(140f), 3f : 3f : 4f : 4f);
 	sp = 2.8f;
 	times (6) {
 		etSpd(1, sp, 2.4f);
@@ -412,24 +412,24 @@ sub BossCard1()
 	resetBoss();
 	ins_21();
 	enmClear();
-	enmNewRel("Ecl_EtBreak", 0.0f, 0.0f, 9999, 0, 0);
+	enmNewRel("Ecl_EtBreak", 0f, 0f, 9999, 0, 0);
 	cardEnd();
 	ins_529(0);
 	resetBossParam();
 	playSE(28);
-	enmDir(0.0f, 0.0f);
-	enmDirTime(0, 0, 0.0f, 0.0f);
-	enmPosTime(0, 0, 0.0f, 0.0f);
+	enmDir(0f, 0f);
+	enmDirTime(0, 0, 0f, 0f);
+	enmPosTime(0, 0, 0f, 0f);
 	MISS_COUNT = 0;
 	BOMB_COUNT = 0;
 	interrupt(0, 0, 1800, "Boss2");
 	cardE(25, 1800, 500000, "虹符「彩虹の風鈴」");
 	stageProg(43);
-	enmPosTime(120, 4, 0.0f, 64.0f);
+	enmPosTime(120, 4, 0f, 64f);
 	invinc(120);
 	wait(120);
-	enmPosTime(2000, 4, 0.0f, 160.0f);
-	float startAng = rad(50.f);
+	enmPosTime(2000, 4, 0f, 160f);
+	float startAng = rad(50f);
 	etNew(0);
 	etMode(0, 3);
 	etSpr(0, 9, 2);
@@ -459,33 +459,33 @@ sub BossCard1()
 	I0 = 0;
 	while 1 {
 		float ang = startAng;
-		etAng(0, ang, 0.0f);
+		etAng(0, ang, 0f);
 		etOn(0);
 		ang += rad(6.5f);
-		etAng(1, ang, 0.0f);
+		etAng(1, ang, 0f);
 		etOn(1);
 		ang += rad(6.5f);
-		etAng(2, ang, 0.0f);
+		etAng(2, ang, 0f);
 		etOn(2);
 		ang += rad(6.5f);
-		etAng(3, ang, 0.0f);
+		etAng(3, ang, 0f);
 		etOn(3);
 		ang += rad(6.5f);
-		etAng(4, ang, 0.0f);
+		etAng(4, ang, 0f);
 		etOn(4);
 		ang += rad(6.5f);
-		etAng(5, ang, 0.0f);
+		etAng(5, ang, 0f);
 		etOn(5);
 		ang += rad(6.5f);
-		etAng(6, ang, 0.0f);
+		etAng(6, ang, 0f);
 		etOn(6);
 !HL
 		ang = [PI] - ang;
-		etAng(7, ang, 0.0f);
+		etAng(7, ang, 0f);
 		etSpr(7, 9, 8);
 		etOn(7);
 		ang -= rad(6.5f);
-		etAng(7, ang, 0.0f);
+		etAng(7, ang, 0f);
 		etSpr(7, 9, 10);
 		etOn(7);
 !*
@@ -506,24 +506,24 @@ sub BossCard2()
 	ins_21();
 	enmClear();
 	wait(1);
-	enmNewRel("Ecl_EtBreak", 0.0f, 0.0f, 9999, 0, 0);
+	enmNewRel("Ecl_EtBreak", 0f, 0f, 9999, 0, 0);
 	cardEnd();
 	ins_529(0);
 	resetBossParam();
 	playSE(28);
-	enmDir(0.0f, 0.0f);
-	enmDirTime(0, 0, 0.0f, 0.0f);
-	enmPosTime(0, 0, 0.0f, 0.0f);
+	enmDir(0f, 0f);
+	enmDirTime(0, 0, 0f, 0f);
+	enmPosTime(0, 0, 0f, 0f);
 	MISS_COUNT = 0;
 	BOMB_COUNT = 0;
 	interrupt(0, 0, 2400, "Boss3");
 	cardH(29, 2400, 500000, "幻符「華想夢葛」");
-	enmPosTime(120, 4, 0.0f, 64.0f);
+	enmPosTime(120, 4, 0f, 64f);
 	invinc(120);
 	wait(120);
 	stageProg(44);
 	anmScrSlot(0, 119);
-	enmPosTime(2000, 4, 0.0f, 160.0f);
+	enmPosTime(2000, 4, 0f, 160f);
 	ins_269(0);
 	noop();
 	BOSS1 = 1;
@@ -531,19 +531,19 @@ sub BossCard2()
 	etMode(0, [ETON_FAN_AIM]);
 	etSpr(0, [ET_BALL], 6);
 	etAmt(0, 2:2:2:4, 1);
-	etAng(0, 0.0f, rad(128.57142857142857142857142857143f));
-	setf_rank(F1, 1.8f, 1.8f, 1.8f, 2.0f);
+	etAng(0, 0f, rad(128.57142857142857142857142857143f));
+	setf_rank(F1, 1.8f, 1.8f, 1.8f, 2f);
 	etEx(0, 0, 0, 2, 2, [NEG], [NEGF], [NEGF]);
-	BossCard2At(160, 112.f) async;
+	BossCard2At(160, 112f) async;
 	while 1 {
 80:
-		enmPosTime(0, 0, 0.0f, 0.0f);
-		enmRand(80, 1, 3.0f);
+		enmPosTime(0, 0, 0f, 0f);
+		enmRand(80, 1, 3f);
 		wait(80);
 		I1 = 80;
 		playSE(28);
 180:
-		BossCard2At(160, 112.f) async;
+		BossCard2At(160, 112f) async;
 	}
 	return();
 }
@@ -557,26 +557,26 @@ sub BossCard2At(int dur, float range)
 	while (I1 < dur) {
 		if ((I1 % 6) == 0) {
 			if ((I1 % 30) == 0) {
-				startDir += rad(144.f);
+				startDir += rad(144f);
 				normRad(startDir);
 			}
 			float dir = startDir;
 			float prog = (_f(I1) / _f(dur)) + 0.5f;
-			float ang = prog * rad(60.f);
+			float ang = prog * rad(60f);
 			etAng(0, ang, rad(128.57142857142857142857142857143f));
 			times (5) {
 				ins_81(x, y, dir, range);
-				ins_81(x2, y2, dir + rad(144.f), range);
+				ins_81(x2, y2, dir + rad(144f), range);
 				x2 = x2 - x;
 				y2 = y2 - y;
-				x2 = (_f(I1 % 30) / 30.f) * x2;
-				y2 = (_f(I1 % 30) / 30.f) * y2;
+				x2 = (_f(I1 % 30) / 30f) * x2;
+				y2 = (_f(I1 % 30) / 30f) * y2;
 				etSpd(0, F1 + (RF * 1.4f), 1.4f);
 				etOfs_abs(0, ox + (x + x2), oy + (y + y2));
 				etOn(0);
-				ang -= prog * rad(30.f);
+				ang -= prog * rad(30f);
 				etAng(0, ang, rad(128.57142857142857142857142857143f));
-				dir += rad(72.f);
+				dir += rad(72f);
 			}
 		}
 		I1 += 1;
@@ -589,18 +589,18 @@ sub BossCard3()
 	resetBoss();
 	ins_21();
 	enmClear();
-	enmNewRel("Ecl_EtBreak", 0.0f, 0.0f, 9999, 0, 0);
+	enmNewRel("Ecl_EtBreak", 0f, 0f, 9999, 0, 0);
 	cardEnd();
 	ins_529(0);
 	resetBossParam();
 	playSE(28);
-	enmDir(0.0f, 0.0f);
-	enmDirTime(0, 0, 0.0f, 0.0f);
-	enmPosTime(0, 0, 0.0f, 0.0f);
+	enmDir(0f, 0f);
+	enmDirTime(0, 0, 0f, 0f);
+	enmPosTime(0, 0, 0f, 0f);
 	MISS_COUNT = 0;
 	BOMB_COUNT = 0;
 	cardE(31, 2400, 500000, "彩符「彩雨」");
-	enmPosTime(120, 4, 0.0f, 64.0f);
+	enmPosTime(120, 4, 0f, 64f);
 	invinc(120);
 	wait(120);
 	I0 = 0;
@@ -625,7 +625,7 @@ sub BossCard3()
 			etOn(0);
 			wait(4);
 		}
-		enmRand(80, 1, 3.0f);
+		enmRand(80, 1, 3f);
 		wait(80);
 20:
 		times (20:20:40:40) {
@@ -633,7 +633,7 @@ sub BossCard3()
 			etEx(0, 2, 0, 4, 999999, [NEG], 0.024f, 3.1415927f);
 			etOn(0);
 			etSpr(0, 9, 4);
-			etEx(0, 2, 0, 4, 999999, [NEG], 0.024f, 0.0f);
+			etEx(0, 2, 0, 4, 999999, [NEG], 0.024f, 0f);
 			etOn(0);
 !N
 			etSpr(0, 9, 13);
@@ -654,24 +654,24 @@ sub BossCard3H()
 	resetBoss();
 	ins_21();
 	enmClear();
-	enmNewRel("Ecl_EtBreak", 0.0f, 0.0f, 9999, 0, 0);
+	enmNewRel("Ecl_EtBreak", 0f, 0f, 9999, 0, 0);
 	cardEnd();
 	ins_529(0);
 	resetBossParam();
 	playSE(28);
-	enmDir(0.0f, 0.0f);
-	enmDirTime(0, 0, 0.0f, 0.0f);
-	enmPosTime(0, 0, 0.0f, 0.0f);
+	enmDir(0f, 0f);
+	enmDirTime(0, 0, 0f, 0f);
+	enmPosTime(0, 0, 0f, 0f);
 	MISS_COUNT = 0;
 	BOMB_COUNT = 0;
 	cardH(33, 2400, 500000, "彩符「彩光乱舞」");
-	enmPosTime(120, 4, 0.0f, 64.0f);
+	enmPosTime(120, 4, 0f, 64f);
 	invinc(120);
 	wait(120);
 	I0 = 0;
 	stageProg(44);
 	etNew(0);
-	etSpd(0, 2.0f, 0.55f);
+	etSpd(0, 2f, 0.55f);
 	etEx(0, 0, 0, 2, 1, [NEG], [NEGF], [NEGF]);
 	etEx(0, 1, 0, 1, [NEG], [NEG], [NEGF], [NEGF]);
 	while 1 {
@@ -681,26 +681,26 @@ sub BossCard3H()
 		float startAng = RDEG, ang;
 		times (40) {
 			ang = startAng;
-			etAng(0, ang, rad(30.f));
+			etAng(0, ang, rad(30f));
 			etSpr(0, 9, 6);
 			etOn(0);
 			ang += 1.5707964f;
-			etAng(0, ang, rad(30.f));
+			etAng(0, ang, rad(30f));
 			etSpr(0, 9, 10);
 			etOn(0);
 			ang += 1.5707964f;
-			etAng(0, ang, rad(30.f));
+			etAng(0, ang, rad(30f));
 			etSpr(0, 9, 11);
 			etOn(0);
 			ang += 1.5707964f;
-			etAng(0, ang, rad(30.f));
+			etAng(0, ang, rad(30f));
 			etSpr(0, 9, 8);
 			etOn(0);
-			startAng += rad(10.f);
+			startAng += rad(10f);
 			normRad(startAng);
 			wait(1);
 		}
-		enmRand(80, 1, 3.0f);
+		enmRand(80, 1, 3f);
 		wait(80);
 20:
 		etMode(0, 8);
@@ -714,7 +714,7 @@ sub BossCard3H()
 			ang += 1.5707964f;
 			etSpr(0, 9, 4);
 			etAng(0, ang, rad(5.625f));
-			etEx(0, 2, 0, 4, 999999, [NEG], 0.024f, 0.0f);
+			etEx(0, 2, 0, 4, 999999, [NEG], 0.024f, 0f);
 			etOn(0);
 !L
 			etAmt(0, 2, 1);
@@ -730,7 +730,7 @@ sub BossCard3H()
 			etEx(0, 2, 0, 4, 999999, [NEG], 0.024f, 0.7853982f);
 			etOn(0);
 !*
-			startAng += rad(30.f);
+			startAng += rad(30f);
 			normRad(startAng);
 			wait(2);
 		}
@@ -744,36 +744,36 @@ sub BossCard4()
 	ins_21();
 	enmClear();
 	if (TIMEOUT == 0) {
-		etClear(640.0f);
+		etClear(640f);
 	}
 	else {
-		etClear_ni(640.0f);
+		etClear_ni(640f);
 	}
 	MISS_COUNT = 0;
 	BOMB_COUNT = 0;
-	enmDir(0.0f, 0.0f);
-	enmDirTime(0, 0, 0.0f, 0.0f);
-	enmPosTime(0, 0, 0.0f, 0.0f);
+	enmDir(0f, 0f);
+	enmDirTime(0, 0, 0f, 0f);
+	enmPosTime(0, 0, 0f, 0f);
 	cardEnd();
 	ins_529(0);
 	resetBossParam();
 	playSE(28);
 	interrupt(0, 0, 2160, "BossDead");
 	if (TIMEOUT == 0)
-		ItemDrop2(50, 64.f, 64.f);
+		ItemDrop2(50, 64f, 64f);
 	else
-		ItemDrop(50, 64.f, 64.f);
+		ItemDrop(50, 64f, 64f);
 	invinc(60);
 	wait(60);
 	cardN(35, 2100, 500000, "彩符「極彩颱風」");
-	enmPosTime(120, 4, 0.0f, 128.0f);
+	enmPosTime(120, 4, 0f, 128f);
 	invinc(120);
 	wait(120);
 	int amt = 2;
-	float startAng = 1.5707964f, startAng2 = 0.f;
+	float startAng = 1.5707964f, startAng2 = 0f;
 	etNew(0);
 	etMode(0, 8);
-	etSpd(0, 1.0f, 0.3f);
+	etSpd(0, 1f, 0.3f);
 	etAng(0, 3.1415927f, -3.1415927f);
 	etEx(0, 0, 0, 2, 1, [NEG], [NEGF], [NEGF]);
 	etEx(0, 1, 0, 1, [NEG], [NEG], [NEGF], [NEGF]);
@@ -803,7 +803,7 @@ sub BossCard4()
 		etAmt(0, amt, 1);
 		etOn(0);
 	!HL
-		etEx(0, 2, 0, 4, 999999, [NEG], 0.018f, startAng2 + (1.5707964f : 1.5707964f : 1.5707964f : 0.0f));
+		etEx(0, 2, 0, 4, 999999, [NEG], 0.018f, startAng2 + (1.5707964f : 1.5707964f : 1.5707964f : 0f));
 		etSpr(0, 9, 2);
 		etAmt(0, 1, 1);
 		etOn(0);
@@ -816,7 +816,7 @@ sub BossCard4()
 	!L
 		etAmt(0, 3, 1);
 	!*
-		etEx(0, 2, 0, 4, 999999, [NEG], 0.018f, startAng2 - (1.5707964f : 1.5707964f : 1.5707964f : 0.0f));
+		etEx(0, 2, 0, 4, 999999, [NEG], 0.018f, startAng2 - (1.5707964f : 1.5707964f : 1.5707964f : 0f));
 		etOn(0);
 		startAng += 0.10471976f;
 		normRad(startAng);
@@ -839,9 +839,9 @@ sub BossDead()
 	anmScrSlot(0, 129);
 	enmDir(RDEG, 0.4f);
 	if (TIMEOUT == 0)
-		enmNewRel("Ecl_EtBreak2", 0.0f, 0.0f, 9999, 0, 0);
+		enmNewRel("Ecl_EtBreak2", 0f, 0f, 9999, 0, 0);
 	else
-		enmNewRel("Ecl_EtBreak2_ni", 0.0f, 0.0f, 9999, 0, 0);
+		enmNewRel("Ecl_EtBreak2_ni", 0f, 0f, 9999, 0, 0);
 	enmClear();
 60:
 	etClear_all();
@@ -850,7 +850,7 @@ sub BossDead()
 		itemClear();
 		itemMain(4);
 		itemDrop();
-		ItemDrop2(60, 48.0f, 48.0f);
+		ItemDrop2(60, 48f, 48f);
 	}
 	shake(30, 12, 0);
 	anmScrSlot(0, 79);

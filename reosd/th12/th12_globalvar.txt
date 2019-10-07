@@ -2,7 +2,7 @@ global[PI] = 3.1415926535897932384626433832795f;
 global[R_U] = -1.5707963267948966192313216916398f;
 global[R_D] = 1.5707963267948966192313216916398f;
 global[R_L] = 3.1415926535897932384626433832795f;
-global[R_R] = 0.0f;
+global[R_R] = 0f;
 
 global[ETON_FAN_AIM] = 0; //aimed fan shooting
 global[ETON_FAN] = 1; //unaimed fan shooting
@@ -80,7 +80,7 @@ global[BLUE16] = 6; //16x16 bullet blue color
 global[BLUE32] = 3; //32x32 bullet blue color
 global[EX_WAIT] = 0; //wait for bullet ex to finish
 global[NEG] = -999999;
-global[NEGF] = -999999.f;
+global[NEGF] = -999999f;
 
 global[SHOT_REIMU_A] = 0;
 global[SHOT_REIMU_B] = 1;

@@ -10,18 +10,18 @@ sub MBoss()
 	CAPTURED = 1;
 	enmClear();
 	resetBoss();
-	enmNewRel("Ecl_EtBreak_ni", 0.0f, 0.0f, 9999, 0, 0);
-	etClear(640.0f);
+	enmNewRel("Ecl_EtBreak_ni", 0f, 0f, 9999, 0, 0);
+	etClear(640f);
 	anm(2);
 	anmScr(0, 28);
 	anmScr(1, 29);
-	hitbox(40.0f, 56.0f);
-	killbox(40.0f, 56.0f);
+	hitbox(40f, 56f);
+	killbox(40f, 56f);
 	setFlags(1);
 	life(7000);
 	stageProg(6);
-	enmPos(0.0f, 128.0f);
-	setBossFog(160.0f, 9408511);
+	enmPos(0f, 128f);
+	setBossFog(160f, 9408511);
 	wait(30);
 	unsetFlags(1);
 	MBoss1();
@@ -54,9 +54,9 @@ sub MBoss1_at1(float angI)
 	etAmt(0, 8, 1);
 	etSpd(0, 1.7f, 1.25f);
 	etEx(0, 0, 0, 2, 2, [NEG], [NEGF], [NEGF]);
-	etEx(0, 1, 0, 4, 999999, [NEG], 0.024f, -999.0f);
+	etEx(0, 1, 0, 4, 999999, [NEG], 0.024f, -999f);
 	times (8) {
-		etAng(0, an, 0.0f);
+		etAng(0, an, 0f);
 		etOn(0);
 		an += angI;
 		wait(20);
@@ -66,9 +66,9 @@ sub MBoss1_at1(float angI)
 
 sub MBoss1_at2()
 {
-	enmNewRel("MBoss1_enemy", 0.0f, 0.0f, 1000, 10, 0);
+	enmNewRel("MBoss1_enemy", 0f, 0f, 1000, 10, 0);
 30:
-	enmNewRel("MBoss1_enemy", 0.0f, 0.0f, 1000, 10, 0);
+	enmNewRel("MBoss1_enemy", 0f, 0f, 1000, 10, 0);
 	return();
 }
 
@@ -82,7 +82,7 @@ sub MBoss1_enemy()
 	etEx(1, 0, 0, 2, 2, [NEG], [NEGF], [NEGF]);
 30:
 	times (12) {
-		etOfs(1, RF2 * 40.0f, RF2 * 40.0f);
+		etOfs(1, RF2 * 40f, RF2 * 40f);
 		etSpd(1, RF + 1.5f, 0.25f);
 		etAng(1, %RDEG, rad(5.625f));
 		etOn(1);
@@ -98,13 +98,13 @@ sub MBossDead()
 	cardEnd();
 	unsetMoveArea();
 	interrupt(0, -1, 0, "");
-	enmDirTime(0, 0, 0.0f, 0.0f);
+	enmDirTime(0, 0, 0f, 0f);
 	playSE(28);
 	if (TIMEOUT == 0) {
-		etClear(640.0f);
+		etClear(640f);
 	}
 	else {
-		etClear_ni(640.0f);
+		etClear_ni(640f);
 	}
 	enmClear();
 	life(100000);
@@ -112,7 +112,7 @@ sub MBossDead()
 	itemClear();
 	itemMain(7);
 	itemDrop();
-	ItemDrop2(60, 48.0f, 48.0f);
+	ItemDrop2(60, 48f, 48f);
 	delete();
 	delete();
 }
@@ -123,13 +123,13 @@ sub MBossEscape()
 	cardEnd();
 	unsetMoveArea();
 	interrupt(0, -1, 0, "");
-	enmDirTime(0, 0, 0.0f, 0.0f);
+	enmDirTime(0, 0, 0f, 0f);
 	playSE(28);
 	if (TIMEOUT == 0) {
-		etClear(640.0f);
+		etClear(640f);
 	}
 	else {
-		etClear_ni(640.0f);
+		etClear_ni(640f);
 	}
 	enmClear();
 	life(100000);

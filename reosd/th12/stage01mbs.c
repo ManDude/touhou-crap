@@ -11,28 +11,28 @@ sub MBoss()
 	CAPTURED = 1;
 	enmClear();
 	resetBoss();
-	enmNewRel("Ecl_EtBreak_ni", 0.0f, 0.0f, 9999, 0, 0);
+	enmNewRel("Ecl_EtBreak_ni", 0f, 0f, 9999, 0, 0);
 	anm(0);
 	anmScr(1, 95);
 	anmScr(2, 158);
 	anm(2);
 	anmScrNoMove(0, 0);
 	setFlags(68);
-	hitbox(56.0f, 64.0f);
-	killbox(48.0f, 56.0f);
+	hitbox(56f, 64f);
+	killbox(48f, 56f);
 	invinc(60);
 	life(6000);
 !EN
 	interrupt(0, 0, 1440, "MBossDead");
 !HL
-	lifebar(0, 500.0f, -32640);
+	lifebar(0, 500f, -32640);
 	interrupt(0, 500, 1020, "MBossCard1");
 	interrupt(1, 0, 1440, "MBossDead");
 !*
 	timeoutAt(0, "MBossEscape");
-	setBossFog(160.0f, 3190703);
+	setBossFog(160f, 3190703);
 	stageProg(6);
-	enmPosTime(60, 4, 128.0f, 128.0f);
+	enmPosTime(60, 4, 128f, 128f);
 	wait(60);
 	unsetFlags(4);
 	MBoss1();
@@ -56,9 +56,9 @@ sub MBoss1()
 	times (2) {
 		noop();
 142:
-		enmPosTime(60, 4, 0.0f, 64.0f);
+		enmPosTime(60, 4, 0f, 64f);
 202:
-		MBoss1_at2(6, 0.0f);
+		MBoss1_at2(6, 0f);
 210:
 		MBoss1_at2(2, 0.06544985f);
 218:
@@ -66,11 +66,11 @@ sub MBoss1()
 226:
 		MBoss1_at2(13, 0.1963495f);
 234:
-		MBoss1_at2(14, rad(15.f));
+		MBoss1_at2(14, rad(15f));
 264:
 		noop();
 324:
-		enmPosTime(60, 4, -128.0f, 96.0f);
+		enmPosTime(60, 4, -128f, 96f);
 334:
 		noop();
 354:
@@ -82,7 +82,7 @@ sub MBoss1()
 456:
 		noop();
 466:
-		enmPosTime(60, 4, 0.0f, 80.0f);
+		enmPosTime(60, 4, 0f, 80f);
 526:
 		MBoss1_at3(6);
 534:
@@ -96,7 +96,7 @@ sub MBoss1()
 588:
 		noop();
 648:
-		enmPosTime(60, 4, 128.0f, 64.0f);
+		enmPosTime(60, 4, 128f, 64f);
 658:
 678:
 		MBoss1_at1(6);
@@ -107,7 +107,7 @@ sub MBoss1()
 		noop();
 	}
 790:
-	enmPosTime(60, 4, 0.0f, -64.0f);
+	enmPosTime(60, 4, 0f, -64f);
 850:
 	return();
 }
@@ -118,9 +118,9 @@ sub MBoss1_at1(int col)
 	etMode(0, 2);
 	etSpr(0, 5, col);
 	etAmt(0, 16, 1:3:5:7);
-	etSpd(0, 2.5f, (1.5f:1.5f:1.2f:1.0f) + 0.25f);
-	etAng(0, 0.0f, 0.0f);
-	etOfs(0, 0.0f, -12.0f);
+	etSpd(0, 2.5f, (1.5f:1.5f:1.2f:1f) + 0.25f);
+	etAng(0, 0f, 0f);
+	etOfs(0, 0f, -12f);
 	etEx(0, 0, 0, 2, 1, [NEG], [NEGF], [NEGF]);
 	etEx(0, 1, 1, 1, [NEG], [NEG], [NEGF], [NEGF]);
 	etOn(0);
@@ -134,8 +134,8 @@ sub MBoss1_at2(int col, float ang)
 	etSpr(0, 0, col);
 	etAmt(0, 8:14:20:28, 1);
 	etSpd(0, 0.5f, 0.25f);
-	etAng(0, ang, 0.0f);
-	etOfs(0, 0.0f, -12.0f);
+	etAng(0, ang, 0f);
+	etOfs(0, 0f, -12f);
 	etEx(0, 0, 2, 2, 1, [NEG], [NEGF], [NEGF]);
 	etEx(0, 1, 1, 1, [NEG], [NEG], [NEGF], [NEGF]);
 	etEx(0, 2, 0, 4096, 15, [NEG], [NEGF], [NEGF]);
@@ -148,17 +148,17 @@ sub MBoss1_at3(int col)
 {
 	etNew(0);
 	etMode(0, 3);
-	etOfs(0, 0.0f, -12.0f);
+	etOfs(0, 0f, -12f);
 	etAmt(0, 4:8:12:24, 1);
 	etEx(0, 0, 0, 2, 2, [NEG], [NEGF], [NEGF]);
 	etEx(0, 1, 0, 1, [NEG], [NEG], [NEGF], [NEGF]);
 	etSpr(0, 0, col);
-	etSpd(0, (RF * 3.f) + 1.f, 0.95f);
-	etAng(0, RDEG - [PI], 0.f);
+	etSpd(0, (RF * 3f) + 1f, 0.95f);
+	etAng(0, RDEG - [PI], 0f);
 	etOn(0);
 	etSpr(0, 7, col);
-	etSpd(0, (RF * 3.f) + 1.f, 0.95f);
-	etAng(0, RDEG - [PI], 0.f);
+	etSpd(0, (RF * 3f) + 1f, 0.95f);
+	etAng(0, RDEG - [PI], 0f);
 	etOn(0);
 	return();
 }
@@ -168,15 +168,15 @@ sub MBossCard1()
 	resetBoss();
 	ins_21();
 	enmClear();
-	enmNewRel("Ecl_EtBreak", 0.0f, 0.0f, 9999, 0, 0);
+	enmNewRel("Ecl_EtBreak", 0f, 0f, 9999, 0, 0);
 	cardEnd();
 	ins_529(0);
 	resetBossParam();
 	invinc(120);
 	playSE(28);
-	enmDir(0.0f, 0.0f);
-	enmDirTime(0, 0, 0.0f, 0.0f);
-	enmPosTime(0, 0, 0.0f, 0.0f);
+	enmDir(0f, 0f);
+	enmDirTime(0, 0, 0f, 0f);
+	enmPosTime(0, 0, 0f, 0f);
 	MISS_COUNT = 0;
 	BOMB_COUNT = 0;
 	interrupt(0, 0, 1320, "MBossDead");
@@ -184,8 +184,8 @@ sub MBossCard1()
 !HL
 	cardH(0, 1320, 640000, "月符「ムーンライトレイ」");
 !*
-	enmPosTime(120, 4, 0.0f, 96.0f);
-	setMoveArea(0.0f, 96.0f, 320.0f, 96.0f);
+	enmPosTime(120, 4, 0f, 96f);
+	setMoveArea(0f, 96f, 320f, 96f);
 120:
 	anmScrSlot(0, 119);
 	MBossCard1_at() async;
@@ -195,7 +195,7 @@ sub MBossCard1()
 		MBossCard1_at2() async;
 		wait(120);
 230:
-		enmRand(120, 4, 2.0f);
+		enmRand(120, 4, 2f);
 350:
 	}
 	while (1) wait(1000);
@@ -207,11 +207,11 @@ sub MBossCard1_at()
 	etNew(1);
 	etMode(1, 2);
 	etSpr(1, 0, 6);
-	etAng(1, 0.0f, 0.0f);
+	etAng(1, 0f, 0f);
 	etAmt(1, 42:42:42:48, 1);
 	etSpd(1, (2.5f:2.5f:2.5f:2.8f) + 0.5f, 0.25f);
 	etEx(1, 0, 0, 2, 2, [NEG], [NEGF], [NEGF]);
-	etOfs(1, 0.0f, -12.0f);
+	etOfs(1, 0f, -12f);
 	while (1) {
 		etOn(1);
 		wait_rank(0, 0, 33, 21);
@@ -223,17 +223,17 @@ sub MBossCard1_at2()
 {
 	etNew(0);
 	etSpr(0, 30, 6);
-	etSpd(0, 14.0f, 14.0f);
-	laserSetSize(0, 500.0f, 500.0f, 0.0f, 32.0f);
+	etSpd(0, 14f, 14f);
+	laserSetSize(0, 500f, 500f, 0f, 32f);
 	laserSetTime(0, 0, 30, 120, 16, 0);
-	etOfs(0, 0.0f, -12.0f);
+	etOfs(0, 0f, -12f);
 	etSE(0, 19, -1);
 	etEx(0, 0, 0, 0x10000000, 1, [NEG], [NEGF], [NEGF]);
 	float l1Ang = rad(22.5f);
-	etAng(0, l1Ang, 0.0f);
+	etAng(0, l1Ang, 0f);
 	laserShootStatic(0, 1);
 	float l2Ang = rad(157.5f);
-	etAng(0, l2Ang, 0.0f);
+	etAng(0, l2Ang, 0f);
 	laserShootStatic(0, 2);
 	wait(30);
 	times (120) {
@@ -255,23 +255,23 @@ sub MBossDead()
 	cardEnd();
 	unsetMoveArea();
 	ins_21();
-	enmNewRel("Ecl_EtBreak", 0.0f, 0.0f, 9999, 0, 0);
+	enmNewRel("Ecl_EtBreak", 0f, 0f, 9999, 0, 0);
 	ins_529(0);
 	resetBossParam();
 	interrupt(0, -1, 0, "");
-	enmDir(0.0f, 0.0f);
-	enmDirTime(0, 0, 0.0f, 0.0f);
-	enmPosTime(0, 0, 0.0f, 0.0f);
+	enmDir(0f, 0f);
+	enmDirTime(0, 0, 0f, 0f);
+	enmPosTime(0, 0, 0f, 0f);
 	playSE(28);
 	if (TIMEOUT == 0) {
-		etClear(640.0f);
-		enmPosTime(120, 1, 0.0f, -64.0f);
+		etClear(640f);
+		enmPosTime(120, 1, 0f, -64f);
 	}
 	else {
-		etClear_ni(640.0f);
-		enmPosTime(60, 4, 0.0f, -64.0f);
+		etClear_ni(640f);
+		enmPosTime(60, 4, 0f, -64f);
 	}
-	ItemDrop2(15, 48.f, 48.f);
+	ItemDrop2(15, 48f, 48f);
 	anmScrNoMove(0, 0);
 	life(100000);
 	invinc(120);
@@ -288,14 +288,14 @@ sub MBossEscape()
 	unsetMoveArea();
 	ins_21();
 	enmClear();
-	enmNewRel("Ecl_EtBreak", 0.0f, 0.0f, 9999, 0, 0);
-	etClear_ni(640.0f);
+	enmNewRel("Ecl_EtBreak", 0f, 0f, 9999, 0, 0);
+	etClear_ni(640f);
 	ins_529(0);
 	resetBossParam();
 	anmScrNoMove(0, 0);
 	boss(-1);
 	setFlags(16);
-	enmPosTime(60, 4, 0.0f, -32.0f);
+	enmPosTime(60, 4, 0f, -32f);
 60:
 	stageProg(0);
 	delete();
