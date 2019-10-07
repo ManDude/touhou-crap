@@ -1,5 +1,6 @@
 
 #include "th12_globalvar.txt"
+#include "default.h"
 
 sub Boss()
 {
@@ -19,7 +20,7 @@ sub Boss()
 	anmScr(2, 158);
 	anm(2);
 	setBossFog(160.0f, 16728031);
-	@Boss1();
+	Boss1();
 	delete();
 }
 
@@ -106,8 +107,8 @@ sub Boss1()
 	while 1 {
 		ins_269(0);
 100:
-		@Boss1At(BOSS1 % 2);
-		@Boss1_at();
+		Boss1At(BOSS1 % 2);
+		Boss1_at();
 		BOSS1 += 1;
 	}
 9100:
@@ -252,7 +253,7 @@ sub Boss1_at()
 {
 	enmRand(90, 4, 2.5f);
 	etAmt(2, BOSS1 + (12:16:24), 3:4);
-	callSlot("et_on_rate", 1, _SS 2, _SS 50, _SS 0);
+	et_on_rate(2, 50, 0) async 1;
 90:
 	enmPosTime(90, 4, 0.0f, 128.f);
 180:
@@ -362,9 +363,9 @@ sub Boss2()
 	anmScrSlot(0, 119);
 	playSE(31);
 	if (TIMEOUT == 0)
-		@ItemDrop2(65, 64.0f, 64.0f);
+		ItemDrop2(65, 64.0f, 64.0f);
 	else
-		@ItemDrop(65, 64.0f, 64.0f);
+		ItemDrop(65, 64.0f, 64.0f);
 	ins_269(0);
 120:
 	etNew(0);
@@ -377,8 +378,8 @@ sub Boss2()
 	while 1 {
 		ins_269(0);
 180:
-		@Boss1At(BOSS1 % 2);
-		@Boss2_at();
+		Boss1At(BOSS1 % 2);
+		Boss2_at();
 		BOSS1 += 1;
 	}
 9180:
@@ -395,7 +396,7 @@ sub Boss2_at()
 	etAng(2, 0.0f, 0.0f);
 	etAmt(2, BOSS1 + 10, 2:3:4:5);
 	etEx(2, 0, 0, 2, 2, [NEG], [NEGF], [NEGF]);
-	callSlot("et_on_rate", 1, _SS 2, _SS (20:15:15:10), _SS 0);
+	et_on_rate(2, 20:15:15:10, 0) async 1;
 90:
 	enmPosTime(90, 4, 0.0f, 128.f);
 180:
@@ -443,9 +444,9 @@ sub Boss3()
 	lives(0);
 	invinc(120);
 	if (TIMEOUT == 0)
-		@ItemDrop2(65, 64.0f, 64.0f);
+		ItemDrop2(65, 64.0f, 64.0f);
 	else
-		@ItemDrop(65, 64.0f, 64.0f);
+		ItemDrop(65, 64.0f, 64.0f);
 	playSE(28);
 	if (SHOT_TYPE == [SHOT_REIMU_A]) {
 	lifebar(0, lifepos, -8335168);
@@ -563,7 +564,7 @@ sub BossCardEaMe()
 	enmPosTime(0, 0, 0.0f, 0.0f);
 	MISS_COUNT = 0;
 	BOMB_COUNT = 0;
-	@BossCheckItems();
+	BossCheckItems();
 	cardE(94, 2400, 500000, "土＆金符「エメラルドメガリス」");
 	invinc(120);
 	stageProg(43);
@@ -618,7 +619,7 @@ sub BossCardEarthTrilithon()
 	enmPosTime(0, 0, 0.0f, 0.0f);
 	MISS_COUNT = 0;
 	BOMB_COUNT = 0;
-	@BossSetNextNon(2100);
+	BossSetNextNon(2100);
 	cardE(44, 2100, 500000, "土符「レイジィトリリトン」");
 	invinc(120);
 	stageProg(43);
@@ -665,7 +666,7 @@ sub BossCardEarthTrilithonHL()
 	enmPosTime(0, 0, 0.0f, 0.0f);
 	MISS_COUNT = 0;
 	BOMB_COUNT = 0;
-	@BossSetNextNon(2100);
+	BossSetNextNon(2100);
 	cardN(58, 2100, 500000, "土符「レイジィトリリトン上級」");
 	invinc(120);
 	stageProg(43);
@@ -712,7 +713,7 @@ sub BossCardEarthTrilithonShake()
 	enmPosTime(0, 0, 0.0f, 0.0f);
 	MISS_COUNT = 0;
 	BOMB_COUNT = 0;
-	@BossSetNextNon(2100);
+	BossSetNextNon(2100);
 	cardH(70, 2100, 500000, "土符「トリリトンシェイク」");
 	invinc(120);
 	stageProg(43);
@@ -770,7 +771,7 @@ sub BossCardFiEa()
 	enmPosTime(0, 0, 0.0f, 0.0f);
 	MISS_COUNT = 0;
 	BOMB_COUNT = 0;
-	@BossCheckItems();
+	BossCheckItems();
 	cardE(78, 2400, 500000, "火＆土符「ラーヴァクロムレク」");
 	invinc(120);
 	stageProg(43);
@@ -826,7 +827,7 @@ sub BossCardFireAgni()
 	enmPosTime(0, 0, 0.0f, 0.0f);
 	MISS_COUNT = 0;
 	BOMB_COUNT = 0;
-	@BossSetNextNon(1800);
+	BossSetNextNon(1800);
 	cardE(38, 1800, 500000, "火符「アグニシャイン」");
 	invinc(120);
 	stageProg(43);
@@ -879,7 +880,7 @@ sub BossCardFireAgniHL()
 	enmPosTime(0, 0, 0.0f, 0.0f);
 	MISS_COUNT = 0;
 	BOMB_COUNT = 0;
-	@BossSetNextNon(1800);
+	BossSetNextNon(1800);
 	cardN(52, 1800, 500000, "火符「アグニシャイン上級」");
 	invinc(120);
 	stageProg(43);
@@ -927,7 +928,7 @@ sub BossCardFireAgniRad()
 	enmPosTime(0, 0, 0.0f, 0.0f);
 	MISS_COUNT = 0;
 	BOMB_COUNT = 0;
-	@BossSetNextNon(1800);
+	BossSetNextNon(1800);
 	cardH(64, 1800, 500000, "火符「アグニレイディアンス」");
 	invinc(120);
 	stageProg(43);
@@ -991,7 +992,7 @@ sub BossCardMeWa()
 	enmPosTime(0, 0, 0.0f, 0.0f);
 	MISS_COUNT = 0;
 	BOMB_COUNT = 0;
-	@BossCheckItems();
+	BossCheckItems();
 	cardE(90, 2400, 500000, "金＆水符「マーキュリポイズン」");
 	invinc(120);
 	stageProg(43);
@@ -1043,7 +1044,7 @@ sub BossCardMetalDragon()
 	enmPosTime(0, 0, 0.0f, 0.0f);
 	MISS_COUNT = 0;
 	BOMB_COUNT = 0;
-	@BossSetNextNon(2100);
+	BossSetNextNon(2100);
 	cardH(72, 2100, 500000, "金符「シルバードラゴン」");
 	invinc(120);
 	stageProg(43);
@@ -1080,7 +1081,7 @@ sub BossCardMetalFatigue()
 	enmPosTime(0, 0, 0.0f, 0.0f);
 	MISS_COUNT = 0;
 	BOMB_COUNT = 0;
-	@BossSetNextNon(2100);
+	BossSetNextNon(2100);
 	card(51, 2100, 500000, "金符「メタルファティーグ」");
 	invinc(120);
 	stageProg(43);
@@ -1122,7 +1123,7 @@ sub BossCardMetalGold()
 	enmPosTime(0, 0, 0.0f, 0.0f);
 	MISS_COUNT = 0;
 	BOMB_COUNT = 0;
-	@BossSetNextNon(2100);
+	BossSetNextNon(2100);
 	cardH(76, 2100, 500000, "金符「エレメンタアウレア」");
 	invinc(120);
 	stageProg(43);
@@ -1206,7 +1207,7 @@ sub BossCardMetalMemory()
 	enmPosTime(0, 0, 0.0f, 0.0f);
 	MISS_COUNT = 0;
 	BOMB_COUNT = 0;
-	@BossSetNextNon(1800);
+	BossSetNextNon(1800);
 	cardE(46, 1800, 500000, "金符「メモリーアロイー」");
 	invinc(120);
 	stageProg(43);
@@ -1226,7 +1227,7 @@ sub BossCardMetalMemory()
 	while 1 {
 		if (((i % 6) == 0) && (i > 0))
 			enmRand(60, 4, 1.5f);
-		@BossCardMetalMemory_At(ang) async;
+		BossCardMetalMemory_At(ang) async;
 		ang += rad(13.846153846153846153846153846154f);
 		i += 1;
 		wait(10);
@@ -1260,7 +1261,7 @@ sub BossCardMetalMemoryHL()
 	enmPosTime(0, 0, 0.0f, 0.0f);
 	MISS_COUNT = 0;
 	BOMB_COUNT = 0;
-	@BossSetNextNon(1800);
+	BossSetNextNon(1800);
 	cardN(61, 1800, 500000, "金符「メモリーアロイー上級」");
 	invinc(120);
 	stageProg(43);
@@ -1281,7 +1282,7 @@ sub BossCardMetalMemoryHL()
 	while 1 {
 		if (((i % 8) == 0) && (i > 0))
 			enmRand(60, 4, 1.5f);
-		@BossCardMetalMemoryHL_at(angle, i % 2) async;
+		BossCardMetalMemoryHL_at(angle, i % 2) async;
 		angle += rad(13.846153846153846153846153846154f);
 		i += 1;
 140:
@@ -1320,7 +1321,7 @@ sub BossCardWaFi()
 	enmPosTime(0, 0, 0.0f, 0.0f);
 	MISS_COUNT = 0;
 	BOMB_COUNT = 0;
-	@BossCheckItems();
+	BossCheckItems();
 	cardE(98, 2400, 500000, "水＆火符「テンペレートガイザー」");
 	invinc(120);
 	stageProg(43);
@@ -1355,10 +1356,10 @@ sub BossCardWaFi()
 	playSE(29);
 	invinc(120);
 	wait(80);
-	@BossCardWaFi_at2() async;
-	@BossCardWaFi_at3() async;
+	BossCardWaFi_at2() async;
+	BossCardWaFi_at3() async;
 	while 1 {
-		@BossCardWaFi_at(i) async;
+		BossCardWaFi_at(i) async;
 180:
 		enmRand(90, 4, 1.5f);
 330:
@@ -1485,7 +1486,7 @@ sub BossCardWaWo()
 	enmPosTime(0, 0, 0.0f, 0.0f);
 	MISS_COUNT = 0;
 	BOMB_COUNT = 0;
-	@BossCheckItems();
+	BossCheckItems();
 	cardE(86, 2400, 500000, "水＆木符「ウォーターエルフ」");
 	invinc(120);
 	stageProg(43);
@@ -1526,7 +1527,7 @@ sub BossCardWaWo()
 		etOn(1);
 	}
 140:
-	callSlot("et_on_rate", 1, _SS 2, _SS 20, _SS 0);
+	et_on_rate(2, 20, 0) async 1;
 	enmRand(90, 4, 1.4f);
 	i += 1;
 	if ((i % 8) == 0)
@@ -1551,7 +1552,7 @@ sub BossCardWaterBury()
 	enmPosTime(0, 0, 0.0f, 0.0f);
 	MISS_COUNT = 0;
 	BOMB_COUNT = 0;
-	@BossSetNextNon(2100);
+	BossSetNextNon(2100);
 	cardH(66, 2100, 500000, "水符「ベリーインレイク」");
 	invinc(120);
 	stageProg(43);
@@ -1563,11 +1564,11 @@ sub BossCardWaterBury()
 	int i = 0;
 120:
 	while 1 {
-		callSlot("BossCardWaterBury_At", 1);
+		BossCardWaterBury_At() async 1;
 		float ang = [PI] / 8.0f;
 		times (12) {
-			@BossCardWaterBury_LaserAt(ang);
-			@BossCardWaterBury_LaserAt(0.f-ang);
+			BossCardWaterBury_LaserAt(ang);
+			BossCardWaterBury_LaserAt(0.f-ang);
 			ang -= rad(1.5f);
 130:	}
 		endSlot(1);
@@ -1635,7 +1636,7 @@ sub BossCardWaterMonsoon()
 	enmPosTime(0, 0, 0.0f, 0.0f);
 	MISS_COUNT = 0;
 	BOMB_COUNT = 0;
-	@BossSetNextNon(2100);
+	BossSetNextNon(2100);
 !EN
 	cardE(48, 2100, 500000, "水符「タイダルウェイブ」");
 !HL
@@ -1650,22 +1651,22 @@ sub BossCardWaterMonsoon()
 	etSpr(0, 24, 0);
 120:
 	while 1 {
-		callSlot("BossCardWaterMonsoon_rain", 1);
+		BossCardWaterMonsoon_rain() async 1;
 !HL
-		callSlot("BossCardWaterMonsoon_rainH", 4);
+		BossCardWaterMonsoon_rainH() async 4;
 132:
 !*
-		callSlot("BossCardWaterMonsoon_wave2", 2);
+		BossCardWaterMonsoon_wave2() async 2;
 !HL
-		callSlot("BossCardWaterMonsoon_wave1", 3);
+		BossCardWaterMonsoon_wave1() async 3;
 240:
 !*
 		enmRand(90, 4, 1.5f);
 360:
 !EN
-		callSlot("BossCardWaterMonsoon_rain", 3);
+		BossCardWaterMonsoon_rain() async 3;
 367:
-		callSlot("BossCardWaterMonsoon_rain", 4);
+		BossCardWaterMonsoon_rain() async 4;
 372:
 !HL
 		endSlot(3);
@@ -1673,7 +1674,7 @@ sub BossCardWaterMonsoon()
 		endSlot(2);
 374:
 !EN
-		callSlot("BossCardWaterMonsoon_rain", 5);
+		BossCardWaterMonsoon_rain() async 5;
 480:
 !*
 		enmRand(90, 4, 1.5f);
@@ -1824,7 +1825,7 @@ sub BossCardWaterUndine()
 	enmPosTime(0, 0, 0.0f, 0.0f);
 	MISS_COUNT = 0;
 	BOMB_COUNT = 0;
-	@BossSetNextNon(2100);
+	BossSetNextNon(2100);
 	cardE(40, 2100, 500000, "水符「プリンセスウンディネ」");
 	invinc(120);
 	stageProg(43);
@@ -1837,12 +1838,12 @@ sub BossCardWaterUndine()
 	float an1;
 120:
 	while 1 {
-		callSlot("BossCardWaterUndine_At", 1);
+		BossCardWaterUndine_At() async 1;
 		an1 = 3.1415927f / 8.0f;
 		times (12) {
-			@BossCardWaterUndine_LaserAt(0.f);
-			@BossCardWaterUndine_LaserAt(an1);
-			@BossCardWaterUndine_LaserAt(0.f-an1);
+			BossCardWaterUndine_LaserAt(0.f);
+			BossCardWaterUndine_LaserAt(an1);
+			BossCardWaterUndine_LaserAt(0.f-an1);
 			an1 -= rad(1.5f);
 130:		noop();
 		}
@@ -1918,7 +1919,7 @@ sub BossCardWoFi()
 	enmPosTime(0, 0, 0.0f, 0.0f);
 	MISS_COUNT = 0;
 	BOMB_COUNT = 0;
-	@BossCheckItems();
+	BossCheckItems();
 	cardE(82, 2400, 500000, "木＆火符「フォレストブレイズ」");
 	invinc(120);
 	stageProg(43);
@@ -1985,7 +1986,7 @@ sub BossCardWoMe()
 	enmPosTime(0, 0, 0.0f, 0.0f);
 	MISS_COUNT = 0;
 	BOMB_COUNT = 0;
-	@BossCheckItems();
+	BossCheckItems();
 	cardN(102, 999999, 500000, "木＆金符「チルクイトスバイタ」");
 	invinc(120);
 	stageProg(43);
@@ -2032,11 +2033,11 @@ sub BossCardWoMe()
 60:
 	enmPosTime(60, 4, 0.0f, 160.0f);
 120:
-	@BossCardWoMe_atLaser() async;
+	BossCardWoMe_atLaser() async;
 	while 1 {
 155:
 		if (i) {
-			@BossCardWoMe_at2() async;
+			BossCardWoMe_at2() async;
 !EN
 			wait(35);
 !*
@@ -2044,7 +2045,7 @@ sub BossCardWoMe()
 200:
 		float ang = AIM;
 		times (5) {
-			@BossCardWoMe_at1(ang) async;
+			BossCardWoMe_at1(ang) async;
 			ang += [PI] / 2.5f;
 		}
 335:
@@ -2108,10 +2109,10 @@ sub BossCardWoMe_atLaser()
 		float ang_dist = 6.2831855f / _f(laser_c);
 		float start_ang = RDEG;
 		times (laser_c) {
-			@rand(2, 0);
-			@rand(2, 1);
-			@rand(2, 2);
-			@rand(2, 3);
+			rand(2, 0);
+			rand(2, 1);
+			rand(2, 2);
+			rand(2, 3);
 			etAng(0, start_ang, 0.0f);
 			start_ang += ang_dist;
 			float newcurve = curve;
@@ -2156,7 +2157,7 @@ sub BossCardWoodGreen()
 	enmPosTime(0, 0, 0.0f, 0.0f);
 	MISS_COUNT = 0;
 	BOMB_COUNT = 0;
-	@BossSetNextNon(2100);
+	BossSetNextNon(2100);
 	cardH(68, 2100, 500000, "木符「グリーンストーム」");
 	invinc(120);
 	stageProg(43);
@@ -2224,7 +2225,7 @@ sub BossCardWoodLeaf()
 	enmPosTime(0, 0, 0.0f, 0.0f);
 	MISS_COUNT = 0;
 	BOMB_COUNT = 0;
-	@BossSetNextNon(2100);
+	BossSetNextNon(2100);
 	card(50, 2100, 500000, "木符「リーフゲール」");
 	invinc(120);
 	stageProg(43);
@@ -2274,7 +2275,7 @@ sub BossCardWoodSylphy()
 	enmPosTime(0, 0, 0.0f, 0.0f);
 	MISS_COUNT = 0;
 	BOMB_COUNT = 0;
-	@BossSetNextNon(2100);
+	BossSetNextNon(2100);
 	cardE(42, 2100, 500000, "木符「シルフィホルン」");
 	invinc(120);
 	stageProg(43);
@@ -2342,7 +2343,7 @@ sub BossCardWoodSylphyHL()
 	enmPosTime(0, 0, 0.0f, 0.0f);
 	MISS_COUNT = 0;
 	BOMB_COUNT = 0;
-	@BossSetNextNon(2100);
+	BossSetNextNon(2100);
 	cardN(55, 2100, 500000, "木符「シルフィホルン上級」");
 	invinc(120);
 	stageProg(43);
@@ -2405,9 +2406,9 @@ sub BossCheckItems()
 	if (BOSS4) {
 		etClear(640.0f);
 		if (TIMEOUT == 0)
-			@ItemDrop2(65, 64.f, 64.f);
+			ItemDrop2(65, 64.f, 64.f);
 		else
-			@ItemDrop(65, 64.f, 64.f);
+			ItemDrop(65, 64.f, 64.f);
 		invinc(120);
 		wait(120);
 	}
@@ -2437,7 +2438,7 @@ sub BossDead()
 	etClear_ni(10000.0f);
 	cardEnd();
 	enmClear();
-	@ItemDrop2(75, 48.0f, 48.0f);
+	ItemDrop2(75, 48.0f, 48.0f);
 	itemClear();
 	itemMain(4);
 	itemDrop();

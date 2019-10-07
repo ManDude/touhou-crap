@@ -1,5 +1,6 @@
 
 #include "th12_globalvar.txt"
+#include "default.h"
 
 sub Boss()
 {
@@ -18,7 +19,7 @@ sub Boss()
 	msgWait();
 	setMoveArea(0.0f, 91.0f, 320.0f, 86.0f);
 	anm(2);
-	@Boss1();
+	Boss1();
 	delete();
 }
 
@@ -44,7 +45,7 @@ sub Boss1()
 	setBossFog(160.0f, 15675535);
 	wait(50);
 	while 1 {
-		@Boss1_at1();
+		Boss1_at1();
 		BOSS4 += 1;
 	}
 	return();
@@ -95,7 +96,7 @@ sub Boss1_at1()
 		an2 += rad(2.25f) : rad(2.8125f) : rad(2.8125f) : rad(3.75f);
 		wait(60);
 	}
-	@Boss1_at2();
+	Boss1_at2();
 	return();
 }
 
@@ -153,7 +154,7 @@ sub Boss2()
 	}
 	MISS_COUNT = 0;
 	BOMB_COUNT = 0;
-	@ResetMovement();
+	ResetMovement();
 	cardEnd();
 	ins_529(0);
 	resetBossParam();
@@ -171,7 +172,7 @@ sub Boss2()
 !*
 	lives(0);
 	invinc(200);
-	@ItemDrop(35, 64.f, 64.f);
+	ItemDrop(35, 64.f, 64.f);
 	playSE(28);
 	anmScrSlot(0, 119);
 	playSE(31);
@@ -179,8 +180,8 @@ sub Boss2()
 	noop();
 	BOSS1 = 0;
 	while 1 {
-		@Boss2_at1();
-		@Boss2_at2();
+		Boss2_at1();
+		Boss2_at2();
 	}
 3200:
 	delete();
@@ -404,7 +405,7 @@ sub BossCard2()
 	ins_529(0);
 	resetBossParam();
 	playSE(28);
-	@ResetMovement();
+	ResetMovement();
 	MISS_COUNT = 0;
 	BOMB_COUNT = 0;
 	cardE(14, 2400, 500000, "凍符「パーフェクトフリーズ」");
@@ -436,19 +437,19 @@ sub BossCard2()
 		BOSS2 = 190;
 		times (6) {
 			wait(5);
-			@BossCard2_at(0, 6);
+			BossCard2_at(0, 6);
 			BOSS2 = BOSS2 - 5;
 			wait(5);
-			@BossCard2_at(0, 2);
+			BossCard2_at(0, 2);
 			BOSS2 = BOSS2 - 5;
 			wait(5);
-			@BossCard2_at(0, 10);
+			BossCard2_at(0, 10);
 			BOSS2 = BOSS2 - 5;
 			wait(5);
-			@BossCard2_at(0, 13);
+			BossCard2_at(0, 13);
 			BOSS2 = BOSS2 - 5;
 			wait(5);
-			@BossCard2_at(0, 14);
+			BossCard2_at(0, 14);
 			BOSS2 = BOSS2 - 5;
 		}
 		wait(120);
@@ -499,7 +500,7 @@ sub BossCard2_at(int et, int col)
 
 sub BossCard3()
 {
-	@ItemDropBasic(24);
+	ItemDropBasic(24);
 	resetBoss();
 	ins_21();
 	enmClear();
@@ -577,7 +578,7 @@ sub BossDead()
 	anmScrSlot(0, 79);
 	anmScrSlot(0, 130);
 	playSE(5);
-	@ItemDrop2(45, 64.f, 64.f);
+	ItemDrop2(45, 64.f, 64.f);
 	boss(-1);
 	delete();
 	delete();

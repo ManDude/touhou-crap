@@ -1,5 +1,6 @@
 
 #include "th12_globalvar.txt"
+#include "default.h"
 
 sub MBoss()
 {
@@ -28,7 +29,7 @@ sub MBoss()
 	setBossFog(160.0f, 15675535);
 	wait(70);
 	setMoveArea(0.0f, 128.0f, 280.0f, 64.0f);
-	@MBoss1();
+	MBoss1();
 	while 1 wait(1000);
 	delete();
 }
@@ -37,11 +38,11 @@ sub MBoss1()
 {
 	int a = 0;
 	times (8) {
-		if (a == 0) @MBoss1_at1();
-		else if (a == 1) @MBoss1_at2();
-		else if (a == 2) @MBoss1_at3();
+		if (a == 0) MBoss1_at1();
+		else if (a == 1) MBoss1_at2();
+		else if (a == 2) MBoss1_at3();
 		a = (a + 1) % 3;
-		@MBoss1_at();
+		MBoss1_at();
 		wait(80);
 	}
 	return();
@@ -165,7 +166,7 @@ sub MBossDead()
 !*
 	itemArea(48.0f, 48.0f);
 	itemDrop();
-	@ItemDrop2(30, 48.f, 48.f);
+	ItemDrop2(30, 48.f, 48.f);
 	anmScrNoMove(0, 0);
 	wait(120);
 	boss(-1);

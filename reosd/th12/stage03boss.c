@@ -1,5 +1,6 @@
 
 #include "th12_globalvar.txt"
+#include "default.h"
 
 sub Boss()
 {
@@ -23,7 +24,7 @@ sub Boss()
 	anm(2);
 	setBossFog(160.0f, 16728031);
 	life(14000);
-	@Boss1();
+	Boss1();
 	delete();
 }
 
@@ -42,7 +43,7 @@ sub Boss1()
 	wait(50);
 	I0 = 0;
 	while 1 {
-		@Boss1_at();
+		Boss1_at();
 		I0 += 1;
 		wait(120);
 	}
@@ -121,25 +122,25 @@ sub Boss2()
 	lives(1);
 	invinc(120);
 	if (TIMEOUT == 0) {
-		@ItemDrop2(50, 64.0f, 64.0f);
+		ItemDrop2(50, 64.0f, 64.0f);
 	}
 	else
-		@ItemDrop(50, 64.0f, 64.0f);
+		ItemDrop(50, 64.0f, 64.0f);
 	playSE(28);
 	setMoveArea(0.0f, 96.0f, 320.0f, 96.0f);
 160:
 	I0 = 0;
 	while 1 {
-		@Boss2_Enm();
+		Boss2_Enm();
 		times (4) {
 			playSE(31);
-			@rand(3, 0);
+			rand(3, 0);
 			if (I0 == 0)
-				@Boss2_at1();
+				Boss2_at1();
 			else if (I0 == 1)
-				@Boss2_at2();
+				Boss2_at2();
 			else if (I0 == 2)
-				@Boss2_at3();
+				Boss2_at3();
 			enmRand(80, 1, 2.0f);
 			wait(80);
 		}
@@ -227,7 +228,7 @@ sub Boss2_at3()
 sub Boss2_enm_BGirl()
 {
 	itemEx(2, 3);
-	@Boss2_enm_Girl(0, 1);
+	Boss2_enm_Girl(0, 1);
 	delete();
 }
 
@@ -235,7 +236,7 @@ sub Boss2_enm_GGirl()
 {
 	itemEx(1, 2);
 	itemEx(2, 1);
-	@Boss2_enm_Girl(10, 1);
+	Boss2_enm_Girl(10, 1);
 	delete();
 }
 
@@ -284,7 +285,7 @@ sub Boss2_enm_Girl(int anm, int anm2)
 sub Boss2_enm_RGirl()
 {
 	itemEx(1, 3);
-	@Boss2_enm_Girl(5, 1);
+	Boss2_enm_Girl(5, 1);
 	delete();
 }
 
@@ -292,7 +293,7 @@ sub Boss2_enm_YGirl()
 {
 	itemEx(1, 1);
 	itemEx(2, 2);
-	@Boss2_enm_Girl(15, 1);
+	Boss2_enm_Girl(15, 1);
 	delete();
 }
 
@@ -335,17 +336,17 @@ sub Boss3()
 !*
 	lives(0);
 	if (TIMEOUT == 0) {
-		@ItemDrop2(50, 64.0f, 64.0f);
+		ItemDrop2(50, 64.0f, 64.0f);
 	}
 	else
-		@ItemDrop(50, 64.0f, 64.0f);
+		ItemDrop(50, 64.0f, 64.0f);
 	playSE(28);
 	setMoveArea(0.0f, 96.0f, 320.0f, 96.0f);
 160:
 	I0 = 0;
 	while 1 {
-		@Boss3_at2();
-		@Boss3_at1();
+		Boss3_at2();
+		Boss3_at1();
 		enmRand(80, 1, 4.0f);
 		wait(80);
 		I0 += 1;
@@ -533,7 +534,7 @@ sub BossCard2()
 	etAng(0, 0.0f, rad(128.57142857142857142857142857143f));
 	setf_rank(F1, 1.8f, 1.8f, 1.8f, 2.0f);
 	etEx(0, 0, 0, 2, 2, [NEG], [NEGF], [NEGF]);
-	@BossCard2At(160, 112.f) async;
+	BossCard2At(160, 112.f) async;
 	while 1 {
 80:
 		enmPosTime(0, 0, 0.0f, 0.0f);
@@ -542,7 +543,7 @@ sub BossCard2()
 		I1 = 80;
 		playSE(28);
 180:
-		@BossCard2At(160, 112.f) async;
+		BossCard2At(160, 112.f) async;
 	}
 	return();
 }
@@ -759,9 +760,9 @@ sub BossCard4()
 	playSE(28);
 	interrupt(0, 0, 2160, "BossDead");
 	if (TIMEOUT == 0)
-		@ItemDrop2(50, 64.f, 64.f);
+		ItemDrop2(50, 64.f, 64.f);
 	else
-		@ItemDrop(50, 64.f, 64.f);
+		ItemDrop(50, 64.f, 64.f);
 	invinc(60);
 	wait(60);
 	cardN(35, 2100, 500000, "ç ïÑÅuã…ç ÈEïóÅv");
@@ -849,7 +850,7 @@ sub BossDead()
 		itemClear();
 		itemMain(4);
 		itemDrop();
-		@ItemDrop2(60, 48.0f, 48.0f);
+		ItemDrop2(60, 48.0f, 48.0f);
 	}
 	shake(30, 12, 0);
 	anmScrSlot(0, 79);

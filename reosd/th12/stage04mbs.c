@@ -1,5 +1,6 @@
 
 #include "th12_globalvar.txt"
+#include "default.h"
 
 sub MBoss()
 {
@@ -23,7 +24,7 @@ sub MBoss()
 	setBossFog(160.0f, 9408511);
 	wait(30);
 	unsetFlags(1);
-	@MBoss1();
+	MBoss1();
 	while 1 wait(1000);
 	delete();
 }
@@ -33,12 +34,12 @@ sub MBoss1()
 	interrupt(0, 0, 2400, "MBossDead");
 	timeoutAt(0, "MBossEscape");
 	while 1 {
-		@MBoss1_at1(rad(11.25f));
+		MBoss1_at1(rad(11.25f));
 		enmRand(90, 4, 1.5f);
-		@MBoss1_at2();
+		MBoss1_at2();
 		wait(60);
-		@MBoss1_at1(rad(-11.25f));
-		@MBoss1_at2();
+		MBoss1_at1(rad(-11.25f));
+		MBoss1_at2();
 		wait(1);
 	}
 	return();
@@ -111,7 +112,7 @@ sub MBossDead()
 	itemClear();
 	itemMain(7);
 	itemDrop();
-	@ItemDrop2(60, 48.0f, 48.0f);
+	ItemDrop2(60, 48.0f, 48.0f);
 	delete();
 	delete();
 }

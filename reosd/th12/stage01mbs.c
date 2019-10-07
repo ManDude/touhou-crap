@@ -1,5 +1,6 @@
 
 #include "th12_globalvar.txt"
+#include "default.h"
 
 sub MBoss()
 {
@@ -34,7 +35,7 @@ sub MBoss()
 	enmPosTime(60, 4, 128.0f, 128.0f);
 	wait(60);
 	unsetFlags(4);
-	@MBoss1();
+	MBoss1();
 	while (1) wait(1000);
 	delete();
 }
@@ -49,7 +50,7 @@ sub MBoss1()
 70:
 	playSE(28);
 100:
-	@MBoss1_at1(6);
+	MBoss1_at1(6);
 132:
 	noop();
 	times (2) {
@@ -57,15 +58,15 @@ sub MBoss1()
 142:
 		enmPosTime(60, 4, 0.0f, 64.0f);
 202:
-		@MBoss1_at2(6, 0.0f);
+		MBoss1_at2(6, 0.0f);
 210:
-		@MBoss1_at2(2, 0.06544985f);
+		MBoss1_at2(2, 0.06544985f);
 218:
-		@MBoss1_at2(10, 0.1308997f);
+		MBoss1_at2(10, 0.1308997f);
 226:
-		@MBoss1_at2(13, 0.1963495f);
+		MBoss1_at2(13, 0.1963495f);
 234:
-		@MBoss1_at2(14, rad(15.f));
+		MBoss1_at2(14, rad(15.f));
 264:
 		noop();
 324:
@@ -73,9 +74,9 @@ sub MBoss1()
 334:
 		noop();
 354:
-		@MBoss1_at1(10);
+		MBoss1_at1(10);
 384:
-		@MBoss1_at1(13);
+		MBoss1_at1(13);
 416:
 		noop();
 456:
@@ -83,24 +84,24 @@ sub MBoss1()
 466:
 		enmPosTime(60, 4, 0.0f, 80.0f);
 526:
-		@MBoss1_at3(6);
+		MBoss1_at3(6);
 534:
-		@MBoss1_at3(2);
+		MBoss1_at3(2);
 542:
-		@MBoss1_at3(10);
+		MBoss1_at3(10);
 550:
-		@MBoss1_at3(13);
+		MBoss1_at3(13);
 558:
-		@MBoss1_at3(14);
+		MBoss1_at3(14);
 588:
 		noop();
 648:
 		enmPosTime(60, 4, 128.0f, 64.0f);
 658:
 678:
-		@MBoss1_at1(6);
+		MBoss1_at1(6);
 708:
-		@MBoss1_at1(2);
+		MBoss1_at1(2);
 740:
 780:
 		noop();
@@ -187,11 +188,11 @@ sub MBossCard1()
 	setMoveArea(0.0f, 96.0f, 320.0f, 96.0f);
 120:
 	anmScrSlot(0, 119);
-	@MBossCard1_at() async;
+	MBossCard1_at() async;
 	while (1) {
 		noop();
 150:
-		@MBossCard1_at2() async;
+		MBossCard1_at2() async;
 		wait(120);
 230:
 		enmRand(120, 4, 2.0f);
@@ -270,7 +271,7 @@ sub MBossDead()
 		etClear_ni(640.0f);
 		enmPosTime(60, 4, 0.0f, -64.0f);
 	}
-	@ItemDrop2(15, 48.f, 48.f);
+	ItemDrop2(15, 48.f, 48.f);
 	anmScrNoMove(0, 0);
 	life(100000);
 	invinc(120);

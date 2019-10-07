@@ -2,12 +2,13 @@ anim { "enemy.anm"; "stgenm04.anm"; }
 ecli { "default.ecl"; "stage04mbs.ecl"; "stage04boss.ecl"; }
 
 #include "th12_globalvar.txt"
+#include "default.h"
 
 sub BCir00()
 {
 	itemEx(1, 1);
 	itemEx(2, 1);
-	@Cir00(80, 50, 1);
+	Cir00(80, 50, 1);
 	delete();
 }
 
@@ -15,7 +16,7 @@ sub BCir01()
 {
 	itemEx(1, 1);
 	itemEx(2, 1);
-	@Cir01(80, 50, 1);
+	Cir01(80, 50, 1);
 	delete();
 }
 
@@ -23,7 +24,7 @@ sub BCir02()
 {
 	itemEx(1, 1);
 	itemEx(2, 1);
-	@Cir02(80, 50, 1);
+	Cir02(80, 50, 1);
 	delete();
 }
 
@@ -31,7 +32,7 @@ sub BCir04()
 {
 	itemEx(1, 1);
 	itemEx(2, 1);
-	@Cir04(80, 50, 1);
+	Cir04(80, 50, 1);
 	delete();
 }
 
@@ -39,7 +40,7 @@ sub BCir06()
 {
 	itemEx(1, 1);
 	itemEx(2, 1);
-	@Cir06(80, 50, 1);
+	Cir06(80, 50, 1);
 	delete();
 }
 
@@ -47,7 +48,7 @@ sub BCir07()
 {
 	itemEx(1, 1);
 	itemEx(2, 1);
-	@Cir07(80, 50, 1);
+	Cir07(80, 50, 1);
 	delete();
 }
 
@@ -57,7 +58,7 @@ sub BGirl01()
 	itemEx(2, 1);
 	anm(1);
 	anmScr(1, 50);
-	@Girl01(0, 1);
+	Girl01(0, 1);
 	delete();
 }
 
@@ -67,7 +68,7 @@ sub BGirl04()
 	itemEx(2, 1);
 	anm(1);
 	anmScr(1, 50);
-	@Girl04(0, 1);
+	Girl04(0, 1);
 	delete();
 }
 
@@ -77,7 +78,7 @@ sub Book00()
 	itemEx(2, 1);
 	anm(1);
 	anmScr(1, 53);
-	@Book00_at(15, 1);
+	Book00_at(15, 1);
 	delete();
 }
 
@@ -123,7 +124,7 @@ sub Book01()
 	itemEx(2, 10);
 	anm(1);
 	anmScr(1, 53);
-	@Book01_at(15, 1);
+	Book01_at(15, 1);
 	delete();
 }
 
@@ -160,7 +161,7 @@ sub Book02()
 	itemEx(2, 10);
 	anm(1);
 	anmScr(1, 53);
-	@Book02_at(15, 1);
+	Book02_at(15, 1);
 	delete();
 }
 
@@ -212,7 +213,7 @@ sub Cir00(int anm, int anm2, int m)
 !*
 	etEx(0, 0, 0, 2, 2, [NEG], [NEGF], [NEGF]);
 	etOn(0);
-	callSlot("et_on_rate", 1, _SS 0, _SS 50, _SS 1);
+	et_on_rate(0, 50, 1) async 1;
 	enmDir(0.0f, 4.2f);
 	setFlags(4);
 30:
@@ -241,7 +242,7 @@ sub Cir01(int anm, int anm2, int m)
 !*
 	etEx(0, 0, 0, 2, 2, [NEG], [NEGF], [NEGF]);
 	etOn(0);
-	callSlot("et_on_rate", 1, _SS 0, _SS 50, _SS 1);
+	et_on_rate(0, 50, 1) async 1;
 	enmDir(-1.0471976f, 4.2f);
 	setFlags(4);
 30:
@@ -272,7 +273,7 @@ sub Cir02(int anm, int anm2, int m)
 !*
 	etEx(0, 0, 0, 2, 2, [NEG], [NEGF], [NEGF]);
 	etOn(0);
-	callSlot("et_on_rate", 1, _SS 0, _SS 128, _SS 1);
+	et_on_rate(0, 128, 1) async 1;
 	enmDir(0.0f, 4.2f);
 	setFlags(4);
 30:
@@ -301,7 +302,7 @@ sub Cir03(int anm, int anm2, int m)
 !*
 	etEx(0, 0, 0, 2, 2, [NEG], [NEGF], [NEGF]);
 	etOn(0);
-	callSlot("et_on_rate", 1, _SS 0, _SS 128, _SS 1);
+	et_on_rate(0, 128, 1) async 1;
 	enmDir(-1.0471976f, 4.5f);
 	setFlags(4);
 30:
@@ -359,7 +360,7 @@ sub Cir06(int anm, int anm2, int m)
 	etSpd(0, 2.5f:2.5f:2.8f:2.8f, 1.45f);
 	etAng(0, 0.0f, rad(10.f));
 	etEx(0, 0, 0, 2, 2, [NEG], [NEGF], [NEGF]);
-	callSlot("et_on_rate", 1, _SS 0, _SS 50, _SS 1);
+	et_on_rate(0, 50, 1) async 1;
 100:
 	endSlot(1);
 10000:
@@ -381,7 +382,7 @@ sub Cir07(int anm, int anm2, int m)
 	etSpd(0, 2.5f:2.5f:2.8f:2.8f, 1.45f);
 	etAng(0, 0.0f, rad(10.f));
 	etEx(0, 0, 0, 2, 1, [NEG], [NEGF], [NEGF]);
-	callSlot("et_on_rate", 1, _SS 0, _SS 50, _SS 1);
+	et_on_rate(0, 50, 1) async 1;
 100:
 	endSlot(1);
 10000:
@@ -391,7 +392,7 @@ sub Cir07(int anm, int anm2, int m)
 sub GCir00()
 {
 	itemMain(9);
-	@Cir00(89, 52, 1);
+	Cir00(89, 52, 1);
 	delete();
 }
 
@@ -399,7 +400,7 @@ sub GCir01()
 {
 	itemEx(1, 1);
 	itemEx(2, 1);
-	@Cir01(77, 52, 1);
+	Cir01(77, 52, 1);
 	delete();
 }
 
@@ -407,7 +408,7 @@ sub GCir03()
 {
 	itemEx(1, 1);
 	itemEx(2, 1);
-	@Cir03(77, 52, 1);
+	Cir03(77, 52, 1);
 	delete();
 }
 
@@ -415,7 +416,7 @@ sub GCir05()
 {
 	itemEx(1, 1);
 	itemEx(2, 1);
-	@Cir05(77, 52, 1);
+	Cir05(77, 52, 1);
 	delete();
 }
 
@@ -425,7 +426,7 @@ sub GGirl01()
 	itemEx(2, 1);
 	anm(1);
 	anmScr(1, 52);
-	@Girl01(10, 1);
+	Girl01(10, 1);
 	delete();
 }
 
@@ -435,7 +436,7 @@ sub GGirl02()
 	itemEx(2, 1);
 	anm(1);
 	anmScr(1, 52);
-	@Girl02(10, 1);
+	Girl02(10, 1);
 	delete();
 }
 
@@ -445,7 +446,7 @@ sub GGirl04()
 	itemEx(2, 1);
 	anm(1);
 	anmScr(1, 52);
-	@Girl04(10, 1);
+	Girl04(10, 1);
 	delete();
 }
 
@@ -496,7 +497,7 @@ sub Girl02(int anm, int anm2)
 	enmDirTime(30, 0, [NEGF], 0.0f);
 70:
 	float an = RDEG, angI;
-	@rand(2, 0);
+	rand(2, 0);
 	if (I0 % 2)
 		angI = rad(13.846153846153846153846153846154f);
 	else
@@ -522,7 +523,7 @@ sub Girl02Dead()
 {
 	etClear(640.0f);
 	itemDrop();
-	@ItemDropBasic(20);
+	ItemDropBasic(20);
 	wait(1);
 	return();
 }
@@ -540,7 +541,7 @@ sub Girl03(int anm, int anm2)
 	enmDirTime(30, 0, [NEGF], 0.0f);
 70:
 	float an = RDEG, angI;
-	@rand(2, 0);
+	rand(2, 0);
 	if (I0 % 2)
 		angI = rad(13.846153846153846153846153846154f);
 	else
@@ -636,7 +637,7 @@ sub MainMBossDebug()
 	wait(60);
 	enmNew("MBoss", -128.0f, -32.0f, 40, 1000, 1);
 	killWait();
-	@MainBossDebug();
+	MainBossDebug();
 	while 1 wait(1000);
 	return();
 }
@@ -678,10 +679,10 @@ sub MainSub00()
 sub MainSub01()
 {
 	times (7) {
-		@rand(2, 0);
+		rand(2, 0);
 		enmNewRel("BCir00", -224.0f, 170.0f, 40, 500, I0 + 1);
 		wait(10);
-		@rand(2, 0);
+		rand(2, 0);
 		enmNewRelMir("RCir00", 224.0f, 170.0f, 40, 500, I0 + 1);
 		wait(10);
 	}
@@ -691,10 +692,10 @@ sub MainSub01()
 sub MainSub02()
 {
 	times (7) {
-		@rand(2, 0);
+		rand(2, 0);
 		enmNewRel("PCir01", -224.0f, 170.0f, 40, 500, I0 + 1);
 		wait(10);
-		@rand(2, 0);
+		rand(2, 0);
 		enmNewRelMir("GCir01", 224.0f, 170.0f, 40, 500, I0 + 1);
 		wait(10);
 	}
@@ -704,10 +705,10 @@ sub MainSub02()
 sub MainSub02b()
 {
 	times (5) {
-		@rand(2, 0);
+		rand(2, 0);
 		enmNewRel("PCir01", -224.0f, 170.0f, 40, 500, I0 + 1);
 		wait(10);
-		@rand(2, 0);
+		rand(2, 0);
 		enmNewRelMir("GCir01", 224.0f, 170.0f, 40, 500, I0 + 1);
 		wait(10);
 	}
@@ -741,10 +742,10 @@ sub MainSub04()
 sub MainSub05()
 {
 	times (7) {
-		@rand(2, 0);
+		rand(2, 0);
 		enmNewRel("RCir02", -224.0f, 170.0f, 40, 500, I0 + 1);
 		wait(10);
-		@rand(2, 0);
+		rand(2, 0);
 		enmNewRelMir("BCir02", 224.0f, 170.0f, 40, 500, I0 + 1);
 		wait(10);
 	}
@@ -754,10 +755,10 @@ sub MainSub05()
 sub MainSub06()
 {
 	times (7) {
-		@rand(2, 0);
+		rand(2, 0);
 		enmNewRel("PCir03", -224.0f, 170.0f, 40, 500, I0 + 1);
 		wait(10);
-		@rand(2, 0);
+		rand(2, 0);
 		enmNewRelMir("GCir03", 224.0f, 170.0f, 40, 500, I0 + 1);
 		wait(10);
 	}
@@ -784,10 +785,10 @@ sub MainSub07()
 sub MainSub08()
 {
 	times (14) {
-		@rand(2, 0);
+		rand(2, 0);
 		enmNewRelNoBoss("RCir04", -224.0f, 170.0f, 40, 500, I0 + 1);
 		wait(10);
-		@rand(2, 0);
+		rand(2, 0);
 		enmNewRelMirNoBoss("BCir04", 224.0f, 170.0f, 40, 500, I0 + 1);
 		wait(10);
 	}
@@ -797,10 +798,10 @@ sub MainSub08()
 sub MainSub09()
 {
 	times (7) {
-		@rand(2, 0);
+		rand(2, 0);
 		enmNewRelNoBoss("PCir05", -224.0f, 170.0f, 40, 500, I0 + 1);
 		wait(10);
-		@rand(2, 0);
+		rand(2, 0);
 		enmNewRelMirNoBoss("GCir05", 224.0f, 170.0f, 40, 500, I0 + 1);
 		wait(10);
 	}
@@ -867,7 +868,7 @@ sub MainSub12b()
 sub MainSub13()
 {
 	times (16) {
-		@rand(2, 0);
+		rand(2, 0);
 		enmNewRelMir("RCir01", 224.0f, 170.0f, 40, 500, I0 + 1);
 		wait(10);
 	}
@@ -877,7 +878,7 @@ sub MainSub13()
 sub MainSub13b()
 {
 	times (16) {
-		@rand(2, 0);
+		rand(2, 0);
 		enmNewRel("GCir01", -224.0f, 170.0f, 40, 500, I0 + 1);
 		wait(10);
 	}
@@ -887,13 +888,13 @@ sub MainSub13b()
 sub MainSub14()
 {
 	times (12) {
-		@rand(2, 0);
+		rand(2, 0);
 		enmNewRel("BCir06", -96.0f, -32.0f, 40, 500, I0 + 1);
 		wait(10);
 	}
 50:
 	times (12) {
-		@rand(2, 0);
+		rand(2, 0);
 		enmNewRel("PCir06", 4.0f, -32.0f, 40, 500, I0 + 1);
 		wait(10);
 	}
@@ -903,37 +904,37 @@ sub MainSub14()
 sub MainSub15()
 {
 	times (12) {
-		@rand(2, 0);
+		rand(2, 0);
 		enmNewRel("RCir07", -224.0f, 96.0f, 40, 500, I0 + 1);
 		wait(10);
 	}
 	wait(50);
 	times (12) {
-		@rand(2, 0);
+		rand(2, 0);
 		enmNewRelMir("GCir07", 224.0f, 128.0f, 40, 500, I0 + 1);
 		wait(10);
 	}
 	wait(50);
 	times (12) {
-		@rand(2, 0);
+		rand(2, 0);
 		enmNewRel("BCir06", 96.0f, -32.0f, 40, 500, I0 + 1);
 		wait(10);
 	}
 	wait(50);
 	times (12) {
-		@rand(2, 0);
+		rand(2, 0);
 		enmNewRel("PCir06", -4.0f, -32.0f, 40, 500, I0 + 1);
 		wait(10);
 	}
 	wait(50);
 	times (12) {
-		@rand(2, 0);
+		rand(2, 0);
 		enmNewRelMir("PCir07", 224.0f, 48.0f, 40, 500, I0 + 1);
 		wait(10);
 	}
 	wait(50);
 	times (12) {
-		@rand(2, 0);
+		rand(2, 0);
 		enmNewRel("BCir07", -224.0f, 96.0f, 40, 500, I0 + 1);
 		wait(10);
 	}
@@ -953,9 +954,9 @@ sub MainSub16()
 sub MainSub17()
 {
 	times (25) {
-		@rand(2, 0);
+		rand(2, 0);
 		enmNewRel("RCir07", -224.0f, 96.0f, 40, 500, I0 + 1);
-		@rand(2, 0);
+		rand(2, 0);
 		enmNewRelMir("BCir07", 160.0f, 96.0f, 40, 500, I0 + 1);
 		wait(10);
 	}
@@ -976,7 +977,7 @@ sub PCir00()
 {
 	itemEx(1, 1);
 	itemEx(2, 1);
-	@Cir00(95, 53, 1);
+	Cir00(95, 53, 1);
 	delete();
 }
 
@@ -984,7 +985,7 @@ sub PCir01()
 {
 	itemEx(1, 1);
 	itemEx(2, 1);
-	@Cir01(83, 53, 1);
+	Cir01(83, 53, 1);
 	delete();
 }
 
@@ -992,7 +993,7 @@ sub PCir03()
 {
 	itemEx(1, 1);
 	itemEx(2, 1);
-	@Cir03(83, 53, 1);
+	Cir03(83, 53, 1);
 	delete();
 }
 
@@ -1000,7 +1001,7 @@ sub PCir05()
 {
 	itemEx(1, 1);
 	itemEx(2, 1);
-	@Cir05(83, 53, 1);
+	Cir05(83, 53, 1);
 	delete();
 }
 
@@ -1008,7 +1009,7 @@ sub PCir06()
 {
 	itemEx(1, 1);
 	itemEx(2, 1);
-	@Cir06(83, 53, 1);
+	Cir06(83, 53, 1);
 	delete();
 }
 
@@ -1016,7 +1017,7 @@ sub PCir07()
 {
 	itemEx(1, 1);
 	itemEx(2, 1);
-	@Cir07(83, 53, 1);
+	Cir07(83, 53, 1);
 	delete();
 }
 
@@ -1024,7 +1025,7 @@ sub RCir00()
 {
 	itemEx(1, 1);
 	itemEx(2, 1);
-	@Cir00(74, 51, 1);
+	Cir00(74, 51, 1);
 	delete();
 }
 
@@ -1032,7 +1033,7 @@ sub RCir01()
 {
 	itemEx(1, 1);
 	itemEx(2, 1);
-	@Cir01(74, 51, 1);
+	Cir01(74, 51, 1);
 	delete();
 }
 
@@ -1040,7 +1041,7 @@ sub RCir02()
 {
 	itemEx(1, 1);
 	itemEx(2, 1);
-	@Cir02(74, 51, 1);
+	Cir02(74, 51, 1);
 	delete();
 }
 
@@ -1048,7 +1049,7 @@ sub RCir04()
 {
 	itemEx(1, 1);
 	itemEx(2, 1);
-	@Cir04(74, 51, 1);
+	Cir04(74, 51, 1);
 	delete();
 }
 
@@ -1056,7 +1057,7 @@ sub RCir07()
 {
 	itemEx(1, 1);
 	itemEx(2, 1);
-	@Cir07(74, 51, 1);
+	Cir07(74, 51, 1);
 	delete();
 }
 
@@ -1066,7 +1067,7 @@ sub RGirl00()
 	itemEx(2, 1);
 	anm(1);
 	anmScr(1, 51);
-	@Girl00(5, 1);
+	Girl00(5, 1);
 	delete();
 }
 
@@ -1076,7 +1077,7 @@ sub RGirl01()
 	itemEx(2, 1);
 	anm(1);
 	anmScr(1, 51);
-	@Girl01(5, 1);
+	Girl01(5, 1);
 	delete();
 }
 
@@ -1086,7 +1087,7 @@ sub RGirl04()
 	itemEx(2, 1);
 	anm(1);
 	anmScr(1, 51);
-	@Girl04(5, 1);
+	Girl04(5, 1);
 	delete();
 }
 
@@ -1096,7 +1097,7 @@ sub YGirl00()
 	itemEx(2, 1);
 	anm(1);
 	anmScr(1, 53);
-	@Girl00(15, 1);
+	Girl00(15, 1);
 	delete();
 }
 
@@ -1106,7 +1107,7 @@ sub YGirl02()
 	itemEx(2, 1);
 	anm(1);
 	anmScr(1, 53);
-	@Girl02(15, 1);
+	Girl02(15, 1);
 	delete();
 }
 
@@ -1116,7 +1117,7 @@ sub YGirl03()
 	itemEx(2, 1);
 	anm(1);
 	anmScr(1, 53);
-	@Girl03(15, 1);
+	Girl03(15, 1);
 	delete();
 }
 
@@ -1124,59 +1125,59 @@ sub main()
 {
 	setFlags(32);
 	enmNew("Enemy_Auto_Power_Full", 0.0f, 0.0f, 10, 100, 1);
-	@LogoEnemy() async;
+	LogoEnemy() async;
 440:
-	@MainSub00() async;
+	MainSub00() async;
 1004:
-	@MainSub01() async;
+	MainSub01() async;
 1234:
-	@MainSub02() async;
+	MainSub02() async;
 1514:
-	@MainSub03() async;
+	MainSub03() async;
 1878:
-	@MainSub02() async;
+	MainSub02() async;
 2108:
-	@MainSub01() async;
+	MainSub01() async;
 2388:
-	@MainSub04() async;
+	MainSub04() async;
 2712:
-	@MainSub06() async;
+	MainSub06() async;
 2942:
-	@MainSub05() async;
+	MainSub05() async;
 3272:
-	@MainSub02b() async;
+	MainSub02b() async;
 3452:
-	@MainSub07() async;
+	MainSub07() async;
 4132:
 	enmNew("MBoss", -128.0f, -32.0f, 40, 1000, 1);
 4932:
-	@MainSub08() async;
+	MainSub08() async;
 5492:
-	@MainSub09() async;
+	MainSub09() async;
 5772:
-	@MainSub02() async;
+	MainSub02() async;
 5962:
-	@MainSub10() async;
+	MainSub10() async;
 6770:
-	@MainSub09() async;
+	MainSub09() async;
 6910:
-	@MainSub11() async;
+	MainSub11() async;
 7494:
-	@MainSub12() async;
+	MainSub12() async;
 7644:
-	@MainSub13() async;
+	MainSub13() async;
 7894:
-	@MainSub12b() async;
+	MainSub12b() async;
 8044:
-	@MainSub13b() async;
+	MainSub13b() async;
 8414:
-	@MainSub14() async;
+	MainSub14() async;
 8734:
-	@MainSub15() async;
+	MainSub15() async;
 9844:
-	@MainSub16() async;
+	MainSub16() async;
 9954:
-	@MainSub17() async;
+	MainSub17() async;
 10694:
 	msgBegin(0);
 10695:

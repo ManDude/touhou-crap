@@ -1,5 +1,6 @@
 
 #include "th12_globalvar.txt"
+#include "default.h"
 
 sub MBoss()
 {
@@ -28,7 +29,7 @@ sub MBoss()
 	invinc(100);
 	wait(100);
 	setMoveArea(0.0f, 96.0f, 320.0f, 96.0f);
-	@MBoss1();
+	MBoss1();
 	while 1 wait(1000);
 	delete();
 }
@@ -53,11 +54,11 @@ sub MBoss1()
 	int i = 160;
 	while (i--) {
 		if ((i % 2) == 0)
-			@MBoss1_at1();
+			MBoss1_at1();
 		else
-			@MBoss1_at2();
+			MBoss1_at2();
 !HL
-		callSlot("et_on_rate", 1, _SS 0, _SS 30, _SS 1);
+		et_on_rate(0, 30, 1) async 1;
 !*
 		enmRand(50, 1, 5.0f);
 		wait(50);
@@ -132,10 +133,10 @@ sub MBossCard1()
 	timeoutAt(0, "MBossEscape");
 !EN
 	cardE(21, 1200, 500000, "華符「芳華絢爛」");
-	@MBossCard1E();
+	MBossCard1E();
 !HL
 	cardH(23, 1200, 500000, "華符「セラギネラ９」");
-	@MBossCard1H();
+	MBossCard1H();
 !*
 	wait(10000);
 	return();
@@ -236,11 +237,11 @@ sub MBossDead()
 	anmScrNoMove(0, 0);
 	life(100000);
 	boss(-1);
-	@ItemDrop2(45, 48.f, 48.f);
+	ItemDrop2(45, 48.f, 48.f);
 	itemClear();
 	itemMain(6);
 	itemDrop();
-	@MBossEscape();
+	MBossEscape();
 	delete();
 	delete();
 }

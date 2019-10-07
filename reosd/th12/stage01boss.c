@@ -1,5 +1,6 @@
 
 #include "th12_globalvar.txt"
+#include "default.h"
 
 sub Boss()
 {
@@ -22,7 +23,7 @@ sub Boss()
 	anmScr(2, 158);
 	anm(2);
 	setBossFog(160.0f, 3190703);
-	@Boss1();
+	Boss1();
 	delete();
 }
 
@@ -47,7 +48,7 @@ sub Boss1()
 	noop();
 	while (1) {
 		ins_269(0);
-		@Boss1_at1();
+		Boss1_at1();
 	}
 	return();
 }
@@ -93,11 +94,11 @@ sub Boss1_at1()
 	if (next < 0)
 		next = -next;
 	if (next == 0)
-		@Boss1_at2();
+		Boss1_at2();
 	else if (next == 1)
-		@Boss1_at3();
+		Boss1_at3();
 	else
-		@Boss1_at4();
+		Boss1_at4();
 	return();
 }
 
@@ -177,11 +178,11 @@ sub Boss1_at2()
 	if (next < 0)
 		next = -next;
 	if (next == 0)
-		@Boss1_at1();
+		Boss1_at1();
 	else if (next == 1)
-		@Boss1_at3();
+		Boss1_at3();
 	else
-		@Boss1_at4();
+		Boss1_at4();
 	return();
 }
 
@@ -216,11 +217,11 @@ sub Boss1_at3()
 	if (next < 0)
 		next = -next;
 	if (next == 0)
-		@Boss1_at2();
+		Boss1_at2();
 	else if (next == 1)
-		@Boss1_at1();
+		Boss1_at1();
 	else
-		@Boss1_at4();
+		Boss1_at4();
 	return();
 }
 
@@ -257,11 +258,11 @@ sub Boss1_at4()
 	if (next < 0)
 		next = -next;
 	if (next == 0)
-		@Boss1_at2();
+		Boss1_at2();
 	else if (next == 1)
-		@Boss1_at3();
+		Boss1_at3();
 	else
-		@Boss1_at1();
+		Boss1_at1();
 	return();
 }
 
@@ -294,7 +295,7 @@ sub Boss2()
 	invinc(120);
 	if (TIMEOUT == 0) {
 		itemClear();
-		@ItemDrop(20, 64.f, 64.f);
+		ItemDrop(20, 64.f, 64.f);
 	}
 	playSE(28);
 60:
@@ -302,7 +303,7 @@ sub Boss2()
 	playSE(31);
 200:
 	noop();
-	@Boss2_at1();
+	Boss2_at1();
 	return();
 }
 
@@ -341,11 +342,11 @@ sub Boss2_at1()
 	if (next < 0)
 		next = -next;
 	if (next == 0)
-		@Boss2_at2();
+		Boss2_at2();
 	else if (next == 1)
-		@Boss2_at3();
+		Boss2_at3();
 	else
-		@Boss2_at4();
+		Boss2_at4();
 	return();
 }
 
@@ -379,11 +380,11 @@ sub Boss2_at2()
 	if (next < 0)
 		next = -next;
 	if (next == 0)
-		@Boss2_at1();
+		Boss2_at1();
 	else if (next == 1)
-		@Boss2_at3();
+		Boss2_at3();
 	else
-		@Boss2_at4();
+		Boss2_at4();
 	return();
 }
 
@@ -411,11 +412,11 @@ sub Boss2_at3()
 	if (next < 0)
 		next = -next;
 	if (next == 0)
-		@Boss2_at2();
+		Boss2_at2();
 	else if (next == 1)
-		@Boss2_at1();
+		Boss2_at1();
 	else
-		@Boss2_at4();
+		Boss2_at4();
 	return();
 }
 
@@ -452,11 +453,11 @@ sub Boss2_at4()
 	if (next < 0)
 		next = -next;
 	if (next == 0)
-		@Boss2_at2();
+		Boss2_at2();
 	else if (next == 1)
-		@Boss2_at3();
+		Boss2_at3();
 	else
-		@Boss2_at1();
+		Boss2_at1();
 	return();
 }
 
@@ -486,19 +487,19 @@ sub BossCard1()
 	while (1) {
 		times (2) {
 !E
-			@BossCard1_atZ(5, -0.5711986f, 0.1963495f);
-			@BossCard1_atZ(7, 0.5711986f, -0.1963495f);
-			@BossCard1_atZ(6, -0.7853982f, rad(15.f));
-			@BossCard1_atZ(8, 0.7853982f, rad(-15.f));
+			BossCard1_atZ(5, -0.5711986f, 0.1963495f);
+			BossCard1_atZ(7, 0.5711986f, -0.1963495f);
+			BossCard1_atZ(6, -0.7853982f, rad(15.f));
+			BossCard1_atZ(8, 0.7853982f, rad(-15.f));
 !NHL
-			@BossCard1_atZ(5, -0.5711986f, 0.1427997f);
-			@BossCard1_atZ(7, 0.5711986f, -0.1427997f);
+			BossCard1_atZ(5, -0.5711986f, 0.1427997f);
+			BossCard1_atZ(7, 0.5711986f, -0.1427997f);
 !NH
-			@BossCard1_atZ(6, -0.7853982f, 0.1963495f);
-			@BossCard1_atZ(8, 0.7853982f, -0.1963495f);
+			BossCard1_atZ(6, -0.7853982f, 0.1963495f);
+			BossCard1_atZ(8, 0.7853982f, -0.1963495f);
 !L
-			@BossCard1_atZ(6, -0.7853982f, 0.1570796f);
-			@BossCard1_atZ(8, 0.7853982f, -0.1570796f);
+			BossCard1_atZ(6, -0.7853982f, 0.1570796f);
+			BossCard1_atZ(8, 0.7853982f, -0.1570796f);
 !*
 		}
 		wait(100);
@@ -552,17 +553,17 @@ sub BossCard2()
 	ins_269(0);
 	noop();
 	while(1) {
-		@BossCard2_at1(6, 1);
+		BossCard2_at1(6, 1);
 		wait(60);
-		@BossCard2_at1(10, -1);
+		BossCard2_at1(10, -1);
 		wait(60);
-		@BossCard2_at1(2, 1);
+		BossCard2_at1(2, 1);
 		wait(60);
 		enmRand(120, 4, 2.0f);
-		@BossCard2_at2(1);
-		@BossCard2_at2(-1);
-		@BossCard2_at2(1);
-		@BossCard2_at2(-1);
+		BossCard2_at2(1);
+		BossCard2_at2(-1);
+		BossCard2_at2(1);
+		BossCard2_at2(-1);
 		enmRand(60, 4, 2.0f);
 		wait(60);
 		noop();
@@ -640,7 +641,7 @@ sub BossDead()
 		itemMain(6);
 	!*
 		itemDrop();
-		@ItemDrop(30, 48.f, 48.f);
+		ItemDrop(30, 48.f, 48.f);
 	}
 	shake(30, 12, 0);
 	anmScrSlot(0, 79);
