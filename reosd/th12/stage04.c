@@ -1125,6 +1125,7 @@ sub main()
 {
 	setFlags(32);
 	enmNew("Enemy_Auto_Power_Full", 0f, 0f, 10, 100, 1);
+	//MainBossDebug();
 	LogoEnemy() async;
 440:
 	MainSub00() async;

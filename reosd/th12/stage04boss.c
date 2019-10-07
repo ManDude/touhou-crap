@@ -164,11 +164,8 @@ sub Boss1At(int m)
 	laser_start = 1;
 	float stupid = 0f;
 	while (i < dur) {
-		if (i >= f1) {
-			laserSetRotSpeed(1, 0f);
-			laserSetRotSpeed(2, 0f);
-			laserSetRotSpeed(3, 0f);
-			laserSetRotSpeed(4, 0f);
+		float lAng;
+		if (i == f1) {
 			laser_start = 0;
 		}
 		if (i == f2) {
@@ -187,14 +184,10 @@ sub Boss1At(int m)
 			laserShootStatic(1, 7);
 			etAng(1, rad(-45f), 0f);
 			laserShootStatic(1, 8);
-			laserSetRotSpeed(5, 0f-inc);
-			laserSetRotSpeed(6, 0f-inc);
-			laserSetRotSpeed(7, 0f-inc);
-			laserSetRotSpeed(8, 0f-inc);
 			laser_end = 1;
 		}
 		if (((i % e) == 0) && BOSS1) {
-			float lAng, x, y;
+			float x, y;
 			if (laser_start) {
 				lAng = rad(45f) + (inc * _f(i));
 				etOfs(0, cos(lAng) * 64f, 0f - (sin(lAng) * (cos(lAng) * 64f)));
@@ -225,23 +218,39 @@ sub Boss1At(int m)
 			}
 		}
 		if (laser_start) {
-			ins_81(x, y, rad(45f) + (inc * _f(i)), 64f);
+			lAng = rad(45f) + (inc * _f(i));
+			ins_81(x, y, lAng, 64f);
+			laserSetAngle(1, lAng);
 			laserSetOffset(1, x + sx, y + sy);
-			ins_81(x, y, rad(225f) + (inc * _f(i)), 64f);
+			lAng = rad(225f) + (inc * _f(i));
+			ins_81(x, y, lAng, 64f);
+			laserSetAngle(2, lAng);
 			laserSetOffset(2, x + sx, y + sy);
-			ins_81(x, y, rad(-225f) + (inc * _f(i)), 64f);
+			lAng = rad(-225f) + (inc * _f(i));
+			ins_81(x, y, lAng, 64f);
+			laserSetAngle(3, lAng);
 			laserSetOffset(3, x + sx, y + sy);
-			ins_81(x, y, rad(-45f) + (inc * _f(i)), 64f);
+			lAng = rad(-45f) + (inc * _f(i));
+			ins_81(x, y, lAng, 64f);
+			laserSetAngle(4, lAng);
 			laserSetOffset(4, x + sx, y + sy);
 		}
 		if (laser_end) {
-			ins_81(x, y, rad(45f) - (inc * _f(i-f2)), 64f);
+			lAng = rad(45f) - (inc * _f(i-f2));
+			ins_81(x, y, lAng, 64f);
+			laserSetAngle(5, lAng);
 			laserSetOffset(5, x + sx, y + sy);
-			ins_81(x, y, rad(225f) - (inc * _f(i-f2)), 64f);
+			lAng = rad(225f) - (inc * _f(i-f2));
+			ins_81(x, y, lAng, 64f);
+			laserSetAngle(6, lAng);
 			laserSetOffset(6, x + sx, y + sy);
-			ins_81(x, y, rad(-225f) - (inc * _f(i-f2)), 64f);
+			lAng = rad(-225f) - (inc * _f(i-f2));
+			ins_81(x, y, lAng, 64f);
+			laserSetAngle(7, lAng);
 			laserSetOffset(7, x + sx, y + sy);
-			ins_81(x, y, rad(-45f) - (inc * _f(i-f2)), 64f);
+			lAng = rad(-45f) - (inc * _f(i-f2));
+			ins_81(x, y, lAng, 64f);
+			laserSetAngle(8, lAng);
 			laserSetOffset(8, x + sx, y + sy);
 		}
 		i += 1;
