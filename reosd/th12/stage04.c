@@ -1124,7 +1124,7 @@ sub YGirl03()
 sub main()
 {
 	setFlags(32);
-	enmNew("Enemy_Auto_Power_Full", 0f, 0f, 10, 100, 1);
+	//enmNew("Enemy_Auto_Power_Full", 0f, 0f, 10, 100, 1);
 	//MainBossDebug();
 	LogoEnemy() async;
 440:
@@ -1179,6 +1179,8 @@ sub main()
 	MainSub16() async;
 9954:
 	MainSub17() async;
+10634:
+	if (RANK < 3) Give1Up();
 10694:
 	msgBegin(0);
 10695:

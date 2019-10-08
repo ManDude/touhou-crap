@@ -806,6 +806,8 @@ sub main()
 	MainSub08b() async;
 4736:
 	MainSub08b() async;
+4785:
+	if (RANK == 2) Give1Up();
 4814:
 	MainSub08b() async;
 4866:

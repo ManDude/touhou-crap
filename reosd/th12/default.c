@@ -114,11 +114,26 @@ sub Enemy_Auto_Power_Full()
 		wait(1);
 		if ($POWER < 400) {
 			enmPos(PLAYER_X, PLAYER_Y);
+			itemClear();
 			itemMain(8);
 			itemDrop();
 		}
 	}
 	delete();
+}
+
+sub Enemy_1up()
+{
+	setFlags(44);
+	itemClear();
+	itemMain(6);
+	itemDrop();
+	delete();
+}
+
+sub Give1Up()
+{
+	enmNew("Enemy_1up", PLAYER_X, PLAYER_Y, 99999, 1, 1);
 }
 
 sub ItemDrop(int count, float w, float h)

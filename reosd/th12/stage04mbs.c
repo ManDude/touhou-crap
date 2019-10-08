@@ -113,6 +113,8 @@ sub MBossDead()
 	itemMain(7);
 	itemDrop();
 	ItemDrop2(60, 48f, 48f);
+	wait(60);
+	if (RANK == 3) Give1Up();
 	delete();
 	delete();
 }

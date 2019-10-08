@@ -520,6 +520,7 @@ sub BossCard3()
 	resetBossParam();
 	invinc(180);
 	playSE(28);
+	if (RANK != 2) Give1Up();
 120:
 	resetBoss();
 	ins_21();

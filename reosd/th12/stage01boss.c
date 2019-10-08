@@ -616,7 +616,6 @@ sub BossCard2_at2(int m)
 
 sub BossDead()
 {
-	var A;
 	setFlags(140);
 	anmScrSlot(0, 79);
 	playSE(5);
@@ -635,14 +634,11 @@ sub BossDead()
 	cardEnd();
 	if (TIMEOUT == 0) {
 		itemClear();
-	!ENH
 		itemMain(0);
-	!L
-		itemMain(6);
-	!*
 		itemDrop();
 		ItemDrop(30, 48f, 48f);
 	}
+	if (RANK == 3) Give1Up();
 	shake(30, 12, 0);
 	anmScrSlot(0, 79);
 	anmScrSlot(0, 130);

@@ -161,12 +161,10 @@ sub MBossDead()
 		etClear_ni(640f);
 	itemClear();
 	itemMain(7);
-!ENH
-	itemEx(6, 1);
-!*
 	itemArea(48f, 48f);
 	itemDrop();
 	ItemDrop2(30, 48f, 48f);
+	if (RANK == 2) Give1Up();
 	anmScrNoMove(0, 0);
 	wait(120);
 	boss(-1);
@@ -183,11 +181,7 @@ sub MBossEscape()
 		etClear(640f);
 	else
 		etClear_ni(640f);
-	if (RANK < 3) {
-		itemClear();
-		itemMain(6);
-		itemDrop();
-	}
+	if (RANK == 2) Give1Up();
 	anmScrNoMove(0, 0);
 	boss(-1);
 	setFlags(16);

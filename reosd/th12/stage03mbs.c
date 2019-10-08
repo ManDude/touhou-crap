@@ -238,9 +238,6 @@ sub MBossDead()
 	life(100000);
 	boss(-1);
 	ItemDrop2(45, 48f, 48f);
-	itemClear();
-	itemMain(6);
-	itemDrop();
 	MBossEscape();
 	delete();
 	delete();
@@ -248,6 +245,7 @@ sub MBossDead()
 
 sub MBossEscape()
 {
+	Give1Up();
 	interrupt(0, -1, 0, "");
 	interrupt(1, -1, 0, "");
 	cardEnd();

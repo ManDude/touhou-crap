@@ -112,6 +112,7 @@ sub Boss2()
 	ins_529(0);
 	resetBossParam();
 	playSE(28);
+	if (RANK != 2) Give1Up();
 !EN
 	interrupt(0, 0, 2400, "Boss3");
 	lifebar(0, 0f, -24448);
