@@ -92,3 +92,17 @@ global[SHOT_SANAE_B] = 5;
 
 global[IT_2X_I] = 4; //y=-x^2+2x
 global[IT_SIN_DI] = 21; //y=sin(x/(2/pi))
+
+global[ENEMY_NO_HURT] = 0x1;
+global[ENEMY_NO_KILL] = 0x2;
+global[ENEMY_NO_LR] = 0x4;
+global[ENEMY_NO_UD] = 0x8;
+global[ENEMY_HIDE_LIFE] = 0x10;
+global[ENEMY_HIDE] = 0x20;
+global[ENEMY_BOSS] = 0x40;
+global[ENEMY_NO_AUTOKILL] = 0x80;
+global[ENEMY_WILL_AUTOKILL] = 0x100;
+global[ENEMY_CAN_GRAZE] = 0x200;
+global[ENEMY_MSG_DO_KILL] = 0x400;
+global[ENEMY_ET_AUTOKILL] = 0x800;
+global[ENEMY_NO_OOB] = 0xC;
