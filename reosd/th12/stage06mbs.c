@@ -9,21 +9,21 @@ sub MBoss()
     $CAPTURED = 1;
     enmClear();
     resetBoss();
-    enmNewRel("Ecl_EtBreak_ni", 0.0f, 0.0f, 9999, 0, 0);
+    enmNewRel("Ecl_EtBreak_ni", 0f, 0f, 9999, 0, 0);
     boss(-1);
     anm(2);
     anmScr(0, 46);
     anmScr(1, 47);
     enmClear();
-    enmNewRel("Ecl_EtBreak", 0.0f, 0.0f, 9999, 0, 0);
+    enmNewRel("Ecl_EtBreak", 0f, 0f, 9999, 0, 0);
     setFlags(13);
-    killbox(67.0f, 67.0f);
+    killbox(67f, 67f);
     life(8500);
     stageProg(6);
-    enmPos(320.0f, 128.0f);
-    enmBezier2(240, -2000.0f, -1000.0f, 0.0f, 128.0f, 0.0f, 0.0f);
+    enmPos(320f, 128f);
+    enmBezier2(240, -2000f, -1000f, 0f, 128f, 0f, 0f);
     wait(240);
-    setBossFog(160.0f, 9408511);
+    setBossFog(160f, 9408511);
     @MBoss1();
     goto MBoss_688 @ 0;
 MBoss_668:
@@ -38,60 +38,60 @@ sub MBoss1()
     var A, B, C, D, E, F;
     %F0 = %RDEG / _f(16);
     seti_rank($I0, 2, 4, 5, 6);
-    setf_rank(%F1, 2.0f, 2.0f, 3.0f, 3.5f);
+    setf_rank(%F1, 2f, 2f, 3f, 3.5f);
     $C = 16;
     goto MBoss1_428 @ 0;
 MBoss1_248:
-    ins_81(%A, %B, %F0, 48.0f);
+    ins_81(%A, %B, %F0, 48f);
     enmNewRel("MbossGirl00", %A, %B, 200, 1000, 0);
     %F0 = %F0 + 0.392699f;
     wait(5);
 MBoss1_428:
     if $C-- goto MBoss1_248 @ 0;
-    enmBezier2(240, %RF2 * _f(400), %RF2 * _f(400), 0.0f, 128.0f, 0.0f, 0.0f);
+    enmBezier2(240, %RF2 * _f(400), %RF2 * _f(400), 0f, 128f, 0f, 0f);
     wait(200);
     %F0 = 3.1415927f + (%RDEG / _f(16));
     seti_rank($I0, 2, 4, 5, 6);
-    setf_rank(%F1, 2.0f, 2.5f, 3.5f, 4.0f);
+    setf_rank(%F1, 2f, 2.5f, 3.5f, 4f);
     $D = 16;
     goto MBoss1_1076 @ 0;
 MBoss1_896:
-    ins_81(%A, %B, %F0, 48.0f);
+    ins_81(%A, %B, %F0, 48f);
     enmNewRel("MbossGirl01", %A, %B, 200, 1000, 0);
     %F0 = %F0 - 0.392699f;
     wait(5);
 MBoss1_1076:
     if $D-- goto MBoss1_896 @ 0;
-    enmBezier2(240, %RF2 * _f(400), %RF2 * _f(400), 0.0f, 128.0f, 0.0f, 0.0f);
+    enmBezier2(240, %RF2 * _f(400), %RF2 * _f(400), 0f, 128f, 0f, 0f);
     wait(180);
     %F0 = %RDEG / _f(16);
     seti_rank($I0, 3, 5, 6, 7);
-    setf_rank(%F1, 2.5f, 3.0f, 3.8f, 4.3f);
+    setf_rank(%F1, 2.5f, 3f, 3.8f, 4.3f);
     $E = 16;
     goto MBoss1_1688 @ 0;
 MBoss1_1508:
-    ins_81(%A, %B, %F0, 48.0f);
+    ins_81(%A, %B, %F0, 48f);
     enmNewRel("MbossGirl00", %A, %B, 200, 1000, 0);
     %F0 = %F0 + 0.392699f;
     wait(5);
 MBoss1_1688:
     if $E-- goto MBoss1_1508 @ 0;
-    enmBezier2(240, %RF2 * _f(400), %RF2 * _f(400), 0.0f, 128.0f, 0.0f, 0.0f);
+    enmBezier2(240, %RF2 * _f(400), %RF2 * _f(400), 0f, 128f, 0f, 0f);
     wait(160);
     %F0 = 3.1415927f + (%RDEG / _f(16));
     seti_rank($I0, 4, 6, 7, 7);
-    setf_rank(%F1, 2.5f, 3.5f, 4.0f, 4.5f);
+    setf_rank(%F1, 2.5f, 3.5f, 4f, 4.5f);
     $F = 16;
     goto MBoss1_2336 @ 0;
 MBoss1_2156:
-    ins_81(%A, %B, %F0, 48.0f);
+    ins_81(%A, %B, %F0, 48f);
     enmNewRel("MbossGirl01", %A, %B, 200, 1000, 0);
     %F0 = %F0 - 0.392699f;
     wait(5);
 MBoss1_2336:
     if $F-- goto MBoss1_2156 @ 0;
     wait(20);
-    enmBezier2(240, 700.0f, -300.0f, -320.0f, 128.0f, -2000.0f, 0.0f);
+    enmBezier2(240, 700f, -300f, -320f, 128f, -2000f, 0f);
     @MbossGirl00Item() async;
     wait(190);
     unless (($BOMB_COUNT == 0) && ($MISS_COUNT == 0)) goto MBoss1_2728 @ 0;
@@ -122,10 +122,10 @@ sub MBossGirl00_at()
     etSpr(0, 9, 6);
     etAmt(0, $I0, 1);
     etAng(0, %F0, 0.5235988f);
-    etSpd(0, %F1, 1.0f);
-    etEx(0, 0, 1, 2, 1, -999999, -999999.0f, -999999.0f);
-    etEx(0, 1, 1, 1, -999999, -999999, -999999.0f, -999999.0f);
-    etEx(0, 2, 0, 1024, 60, 0, -999999.0f, -999999.0f);
+    etSpd(0, %F1, 1f);
+    etEx(0, 0, 1, 2, 1, -999999, -999999f, -999999f);
+    etEx(0, 1, 1, 1, -999999, -999999, -999999f, -999999f);
+    etEx(0, 2, 0, 1024, 60, 0, -999999f, -999999f);
     $A = 2;
     goto MBossGirl00_at_568 @ 0;
 MBossGirl00_at_400:
@@ -150,10 +150,10 @@ sub MBossGirl01_at()
     etSpr(0, 9, 2);
     etAmt(0, $I0, 1);
     etAng(0, %F0, 0.5235988f);
-    etSpd(0, %F1, 1.0f);
-    etEx(0, 0, 1, 2, 1, -999999, -999999.0f, -999999.0f);
-    etEx(0, 1, 1, 1, -999999, -999999, -999999.0f, -999999.0f);
-    etEx(0, 2, 0, 1024, 60, 0, -999999.0f, -999999.0f);
+    etSpd(0, %F1, 1f);
+    etEx(0, 0, 1, 2, 1, -999999, -999999f, -999999f);
+    etEx(0, 1, 1, 1, -999999, -999999, -999999f, -999999f);
+    etEx(0, 2, 0, 1024, 60, 0, -999999f, -999999f);
     $A = 2;
     goto MBossGirl01_at_568 @ 0;
 MBossGirl01_at_400:
@@ -181,10 +181,10 @@ sub MbossGirl00()
     anm(2);
     anmScrNoMove(0, 26);
     setFlags(76);
-    hitbox(24.0f, 24.0f);
-    killbox(16.0f, 16.0f);
-    enmDir(%F0, 1.0f);
-    enmDirTime(60, 0, %F0 + (3.1415927f / _f(2)), 2.0f);
+    hitbox(24f, 24f);
+    killbox(16f, 16f);
+    enmDir(%F0, 1f);
+    enmDirTime(60, 0, %F0 + (3.1415927f / _f(2)), 2f);
     @MBossGirl00_at() async;
     wait(240);
     delete();
@@ -222,10 +222,10 @@ sub MbossGirl01()
     anm(2);
     anmScrNoMove(0, 26);
     setFlags(76);
-    hitbox(24.0f, 24.0f);
-    killbox(16.0f, 16.0f);
-    enmDir(%F0, 1.0f);
-    enmDirTime(60, 0, %F0 - (3.1415927f / _f(2)), 2.0f);
+    hitbox(24f, 24f);
+    killbox(16f, 16f);
+    enmDir(%F0, 1f);
+    enmDirTime(60, 0, %F0 - (3.1415927f / _f(2)), 2f);
     @MBossGirl01_at() async;
     wait(240);
     delete();
