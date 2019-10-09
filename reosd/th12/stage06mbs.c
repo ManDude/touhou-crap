@@ -144,7 +144,7 @@ sub MBossCard1()
 	etAmt(1, 12, 1);
 	etAng(1, [R_R], 0f-[R_L]);
 	etSpd(1, 5.5f, 3.25f);
-	etEx(0, 1, 0, 4, 999999, [NEG], 0.06f, [NEGF]);
+	//etEx(0, 1, 0, 4, 999999, [NEG], 0.06f, [NEGF]);
 	while 1 {
 		etOn(0);
 		etOn(1);
