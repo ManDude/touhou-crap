@@ -380,15 +380,16 @@ sub LogoEnemy()
 
 sub MainBossDebug()
 {
-10:
-	ins_700(3);
-	enmNew("Boss", -144f, -16f, 40, 1000, 1);
+	msgBegin(0);
+	enmNew("Boss", 160f, -96f, 40, 300000, 1);
++60:
++1:
 	msgWait();
++1:
 	killWait();
-70:
 	msgBegin(1);
++1:
 	msgWait();
-	return();
 	return();
 }
 
@@ -825,15 +826,15 @@ sub main()
 5414:
 	MainSub12() async;
 5854:
-	enmNew("Boss", 160f, -96f, 40, 300000, 1);
-5914:
 	msgBegin(0);
-5915:
+	enmNew("Boss", 160f, -96f, 40, 300000, 1);
++60:
++1:
 	msgWait();
-5917:
++1:
 	killWait();
 	msgBegin(1);
-5918:
++1:
 	msgWait();
 	while 1 wait(1000);
 	delete();
