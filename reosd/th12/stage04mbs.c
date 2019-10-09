@@ -10,7 +10,7 @@ sub MBoss()
 	CAPTURED = 1;
 	enmClear();
 	resetBoss();
-	enmNewRel("Ecl_EtBreak_ni", 0f, 0f, 9999, 0, 0);
+	//enmNewRel("Ecl_EtBreak_ni", 0f, 0f, 9999, 0, 0);
 	etClear(640f);
 	anm(2);
 	anmScr(0, 28);
@@ -94,7 +94,7 @@ sub MBoss1_enemy()
 
 sub MBossDead()
 {
-	setFlags(140);
+	setFlags(172);
 	cardEnd();
 	unsetMoveArea();
 	interrupt(0, -1, 0, "");
@@ -113,8 +113,11 @@ sub MBossDead()
 	itemMain(7);
 	itemDrop();
 	ItemDrop2(60, 48f, 48f);
-	wait(60);
-	if (RANK == 3) Give1Up();
+	if (RANK == 3) {
+		setBossFog(0f, 0);
+		wait(60);
+		Give1Up();
+	}
 	delete();
 	delete();
 }
@@ -136,6 +139,7 @@ sub MBossEscape()
 	enmClear();
 	life(100000);
 	boss(-1);
+	if (RANK == 3) Give1Up();
 	delete();
 	delete();
 }
