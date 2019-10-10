@@ -127,6 +127,7 @@ sub MBossCard1()
 	enmPosTime(0, 0, 0f, 0f);
 	MISS_COUNT = 0;
 	BOMB_COUNT = 0;
+	CAPTURED = 1;
 	enmPosTime(120, 4, 0f, 144f);
 	interrupt(0, 0, 900, "MBossDead");
 	timeoutAt(0, "MBossEscape");
@@ -174,6 +175,10 @@ sub MBossDead()
 	ItemDrop2(90, 64f, 64f);
 	itemClear();
 	itemMain(7);
+	if (CAPTURED)
+		itemEx([ITEM_FULL_POWER], 1);
+	else
+		itemEx([ITEM_BIG_POWER], 1);
 	itemDrop();
 	playSE(28);
 	MBossEscape();
