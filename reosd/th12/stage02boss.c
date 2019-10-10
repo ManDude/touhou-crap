@@ -233,7 +233,7 @@ sub Boss2_at2()
 	etNew(0);
 	etOfs(0, 0f, -12f);
 	etSpd(0, 4f, 0f);
-	laserSetSize(0, 0f, 192f, 0f, 6f);
+	laserSize(0, 0f, 192f, 0f, 6f);
 	etSE(0, 19, -1);
 	etEx(0, 0, 0, 268435456, 1, [NEG], [NEGF], [NEGF]);
 	wait(50);
@@ -243,12 +243,12 @@ sub Boss2_at2()
 !*
 		etSpr(0, 30, 6);
 		etAng(0, AIM, 0f);
-		laserShoot(0);
+		laserOn(0);
 		etSpr(0, 30, 5);
 		etAng(0, AIM + rad(22.5f), 0f);
-		laserShoot(0);
+		laserOn(0);
 		etAng(0, AIM - rad(22.5f), 0f);
-		laserShoot(0);
+		laserOn(0);
 		wait(50);
 	}
 	BOSS1 += 1;

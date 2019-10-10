@@ -96,7 +96,7 @@ sub Boss1()
 	etNew(1);
 	etSE(1, 19, -1);
 	etSpd(1, 32f, 32f);
-	laserSetSize(1, 500f, 500f, 0f, 48f);
+	laserSize(1, 500f, 500f, 0f, 48f);
 	etNew(2);
 	etMode(2, [ETON_CIR_AIM]);
 	etSpr(2, [ET_BALL], [RED16]);
@@ -143,24 +143,24 @@ sub Boss1At(int m)
 	seti_rank(e, 60, 60, 50, 40);
 	int i = 0, laser_start = 0, laser_end = 0;
 !EN
-	laserSetTime(1, 0, 20, 50, 20, 14);
+	laserTime(1, 0, 20, 50, 20, 14);
 !H
-	laserSetTime(1, 0, 16, 42, 16, 14);
+	laserTime(1, 0, 16, 42, 16, 14);
 !L
-	laserSetTime(1, 0, 15, 39, 15, 14);
+	laserTime(1, 0, 15, 39, 15, 14);
 !*
 	etAng(1, rad(45f), 0f);
-	laserShootStatic(1, 1);
+	laserOn2(1, 1);
 	etAng(1, rad(225f), 0f);
-	laserShootStatic(1, 2);
+	laserOn2(1, 2);
 	etAng(1, rad(-225f), 0f);
-	laserShootStatic(1, 3);
+	laserOn2(1, 3);
 	etAng(1, rad(-45f), 0f);
-	laserShootStatic(1, 4);
-	laserSetRotSpeed(1, inc);
-	laserSetRotSpeed(2, inc);
-	laserSetRotSpeed(3, inc);
-	laserSetRotSpeed(4, inc);
+	laserOn2(1, 4);
+	laserRot(1, inc);
+	laserRot(2, inc);
+	laserRot(3, inc);
+	laserRot(4, inc);
 	laser_start = 1;
 	float stupid = 0f;
 	while (i < dur) {
@@ -170,20 +170,20 @@ sub Boss1At(int m)
 		}
 		if (i == f2) {
 !EN
-			laserSetTime(1, 30, 20, 70, 20, 14);
+			laserTime(1, 30, 20, 70, 20, 14);
 !H
-			laserSetTime(1, 25, 16, 59, 16, 14);
+			laserTime(1, 25, 16, 59, 16, 14);
 !L
-			laserSetTime(1, 23, 15, 55, 15, 14);
+			laserTime(1, 23, 15, 55, 15, 14);
 !*
 			etAng(1, rad(45f), 0f);
-			laserShootStatic(1, 5);
+			laserOn2(1, 5);
 			etAng(1, rad(225f), 0f);
-			laserShootStatic(1, 6);
+			laserOn2(1, 6);
 			etAng(1, rad(-225f), 0f);
-			laserShootStatic(1, 7);
+			laserOn2(1, 7);
 			etAng(1, rad(-45f), 0f);
-			laserShootStatic(1, 8);
+			laserOn2(1, 8);
 			laser_end = 1;
 		}
 		if (((i % e) == 0) && BOSS1) {
@@ -220,38 +220,38 @@ sub Boss1At(int m)
 		if (laser_start) {
 			lAng = rad(45f) + (inc * _f(i));
 			ins_81(x, y, lAng, 64f);
-			laserSetAngle(1, lAng);
-			laserSetOffset(1, x + sx, y + sy);
+			laserAng(1, lAng);
+			laserOfs(1, x + sx, y + sy);
 			lAng = rad(225f) + (inc * _f(i));
 			ins_81(x, y, lAng, 64f);
-			laserSetAngle(2, lAng);
-			laserSetOffset(2, x + sx, y + sy);
+			laserAng(2, lAng);
+			laserOfs(2, x + sx, y + sy);
 			lAng = rad(-225f) + (inc * _f(i));
 			ins_81(x, y, lAng, 64f);
-			laserSetAngle(3, lAng);
-			laserSetOffset(3, x + sx, y + sy);
+			laserAng(3, lAng);
+			laserOfs(3, x + sx, y + sy);
 			lAng = rad(-45f) + (inc * _f(i));
 			ins_81(x, y, lAng, 64f);
-			laserSetAngle(4, lAng);
-			laserSetOffset(4, x + sx, y + sy);
+			laserAng(4, lAng);
+			laserOfs(4, x + sx, y + sy);
 		}
 		if (laser_end) {
 			lAng = rad(45f) - (inc * _f(i-f2));
 			ins_81(x, y, lAng, 64f);
-			laserSetAngle(5, lAng);
-			laserSetOffset(5, x + sx, y + sy);
+			laserAng(5, lAng);
+			laserOfs(5, x + sx, y + sy);
 			lAng = rad(225f) - (inc * _f(i-f2));
 			ins_81(x, y, lAng, 64f);
-			laserSetAngle(6, lAng);
-			laserSetOffset(6, x + sx, y + sy);
+			laserAng(6, lAng);
+			laserOfs(6, x + sx, y + sy);
 			lAng = rad(-225f) - (inc * _f(i-f2));
 			ins_81(x, y, lAng, 64f);
-			laserSetAngle(7, lAng);
-			laserSetOffset(7, x + sx, y + sy);
+			laserAng(7, lAng);
+			laserOfs(7, x + sx, y + sy);
 			lAng = rad(-45f) - (inc * _f(i-f2));
 			ins_81(x, y, lAng, 64f);
-			laserSetAngle(8, lAng);
-			laserSetOffset(8, x + sx, y + sy);
+			laserAng(8, lAng);
+			laserOfs(8, x + sx, y + sy);
 		}
 		i += 1;
 		wait(1);
@@ -382,7 +382,7 @@ sub Boss2()
 	etNew(1);
 	etSE(1, 19, -1);
 	etSpd(1, 32f, 32f);
-	laserSetSize(1, 500f, 500f, 0f, 48f);
+	laserSize(1, 500f, 500f, 0f, 48f);
 	BOSS1 = 0;
 	while 1 {
 		ins_269(0);
@@ -1629,11 +1629,11 @@ sub BossCardWaterBury_LaserAt(float ang_off)
 	etSpr(1, 30, 6);
 	etAng(1, AIM + ang_off, 0f);
 	etSpd(1, 24f, 0f);
-	laserSetSize(1, 0f, 640f, 0f, 8f);
-	laserSetTime(1, 20, 10, 50, 10, 0);
+	laserSize(1, 0f, 640f, 0f, 8f);
+	laserTime(1, 20, 10, 50, 10, 0);
 	etEx(1, 0, 0, 268435456, 1, [NEG], [NEGF], [NEGF]);
 	etSE(1, 19, -1);
-	laserShootStatic(1, 1);
+	laserOn2(1, 1);
 	return();
 }
 
@@ -1913,10 +1913,10 @@ sub BossCardWaterUndine_LaserAt(float ang_off)
 	etSpr(1, 30, 6);
 	etAng(1, AIM + ang_off, 0f);
 	etSpd(1, 4f, 0f);
-	laserSetSize(1, 0f, 96f, 0f, 6f);
+	laserSize(1, 0f, 96f, 0f, 6f);
 	etSE(1, 19, -1);
 	etEx(1, 0, 0, 268435456, 1, [NEG], [NEGF], [NEGF]);
-	laserShoot(1);
+	laserOn(1);
 	return();
 }
 
@@ -2013,8 +2013,8 @@ sub BossCardWoMe()
 	etMode(0, 3);
 	etSpr(0, 0, 0);
 	etSpd(0, 1f, 1f);
-	laserSetSize(0, -1f, -1f, -1f, 20f);
-	laserSetTime(0, 30:40:50:60, -1, -1, -1, -1);
+	laserSize(0, -1f, -1f, -1f, 20f);
+	laserTime(0, 30:40:50:60, -1, -1, -1, -1);
 	etSE(0, 19, -1);
 	etEx(0, 0, 0, 268435456, 0, [NEG], [NEGF], [NEGF]);
 	etEx(0, 1, 0, 8, 45, 1, 0.02f, 0f);
@@ -2030,8 +2030,8 @@ sub BossCardWoMe()
 	etNew(1);
 	etSpr(1, 30, 11);
 	etSE(1, 19, -1);
-	laserSetTime(1, 50, 30, 75, 15, 14);
-	laserSetSize(1, 0f, 500f, 0f, 12f);
+	laserTime(1, 50, 30, 75, 15, 14);
+	laserSize(1, 0f, 500f, 0f, 12f);
 	etNew(2);
 	etMode(2, 0);
 !EN
@@ -2079,7 +2079,7 @@ sub BossCardWoMe_at1(float ang)
 	times (2:4:7:10) {
 		etAng(1, laser_ang + ang, 0f);
 		etSpd(1, (RF * 8f) + 11.111111f, 0f);
-		laserShootStatic(1, lID);
+		laserOn2(1, lID);
 		min_variance = (min_variance + max_variance);
 		if ((i % 2) == 1)
 			min_variance *= -1f;
@@ -2151,7 +2151,7 @@ sub BossCardWoMe_atLaser()
 				newcurve *= -1f;
 			etEx(0, 9, 0, 8, 10, 1, 0.06f, newcurve);
 		!*
-			laserCurvedShoot(0);
+			laserOn3(0);
 		}
 		wait_rank(80, 70, 60, 60);
 	}

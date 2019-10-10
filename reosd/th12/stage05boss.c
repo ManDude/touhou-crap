@@ -312,8 +312,8 @@ sub Boss2_at1b()
 	etSpr(0, 0, 13);
 	etAng(0, -0.7853982f, -0.7853982f);
 	etSpd(0, 6f, 6f);
-	laserSetSize(0, -1f, -1f, -1f, 16f);
-	laserSetTime(0, 42, -1, -1, -1, 0);
+	laserSize(0, -1f, -1f, -1f, 16f);
+	laserTime(0, 42, -1, -1, -1, 0);
 	etSE(0, 19, -1);
 	etEx(0, 0, 0, 1024, 120, 0, [NEGF], [NEGF]);
 	etEx(0, 1, 1, 8, 60, [NEG], -0.083333336f, 0.05235988f);
@@ -323,7 +323,7 @@ sub Boss2_at1b()
 	goto Boss2_at1b_604 @ 0;
 Boss2_at1b_480:
 	etAng(0, %A, 0f);
-	laserCurvedShoot(0);
+	laserOn3(0);
 	%A = %A - 0.261799f;
 Boss2_at1b_604:
 	if $B-- goto Boss2_at1b_480 @ 0;
@@ -337,8 +337,8 @@ sub Boss2_at2()
 	etSpr(0, 0, 13);
 	etAng(0, -0.7853982f, -0.7853982f);
 	etSpd(0, 6f, 6f);
-	laserSetSize(0, -1f, -1f, -1f, 16f);
-	laserSetTime(0, 42, -1, -1, -1, 0);
+	laserSize(0, -1f, -1f, -1f, 16f);
+	laserTime(0, 42, -1, -1, -1, 0);
 	etSE(0, 19, -1);
 	etEx(0, 0, 0, 1024, 120, 0, [NEGF], [NEGF]);
 	etEx(0, 1, 1, 8, 60, [NEG], -0.083333336f, -0.05235988f);
@@ -348,7 +348,7 @@ sub Boss2_at2()
 	goto Boss2_at2_828 @ 0;
 Boss2_at2_476:
 	etAng(0, %A, 0f);
-	laserCurvedShoot(0);
+	laserOn3(0);
 !E
 	%A = %A + 0.392699f;
 !N
@@ -370,8 +370,8 @@ sub Boss2_at2b()
 	etSpr(0, 0, 13);
 	etAng(0, -0.7853982f, -0.7853982f);
 	etSpd(0, 6f, 6f);
-	laserSetSize(0, -1f, -1f, -1f, 16f);
-	laserSetTime(0, 42, -1, -1, -1, 0);
+	laserSize(0, -1f, -1f, -1f, 16f);
+	laserTime(0, 42, -1, -1, -1, 0);
 	etSE(0, 19, -1);
 	etEx(0, 0, 0, 1024, 120, 0, [NEGF], [NEGF]);
 	etEx(0, 1, 1, 8, 60, [NEG], -0.083333336f, -0.05235988f);
@@ -381,7 +381,7 @@ sub Boss2_at2b()
 	goto Boss2_at2b_604 @ 0;
 Boss2_at2b_480:
 	etAng(0, %A, 0f);
-	laserCurvedShoot(0);
+	laserOn3(0);
 	%A = %A + 0.261799f;
 Boss2_at2b_604:
 	if $B-- goto Boss2_at2b_480 @ 0;
@@ -482,8 +482,8 @@ sub Boss3_at1(var A, var B, var C, var D)
 	etSpr($A, 0, $B);
 	etAng($A, -0.7853982f, -0.7853982f);
 	etSpd($A, 5.1f, 5.1f);
-	laserSetSize($A, -1f, -1f, -1f, 16f);
-	laserSetTime($A, 32, -1, -1, -1, 0);
+	laserSize($A, -1f, -1f, -1f, 16f);
+	laserTime($A, 32, -1, -1, -1, 0);
 	etSE(0, 19, -1);
 	etEx($A, 0, 0, 1024, 120, 0, [NEGF], [NEGF]);
 	etEx($A, 2, 1, 8, 60, [NEG], 0.083333336f, 0f);
@@ -501,7 +501,7 @@ Boss3_at1_708:
 	etEx($A, 1, 1, 8, 60, [NEG], -0.083333336f, %D);
 Boss3_at1_784:
 	etAng($A, %C, 0f);
-	laserCurvedShoot($A);
+	laserOn3($A);
 !E
 	%C = %C - 0.785398f;
 !N
@@ -1095,8 +1095,8 @@ BossCard3LaserAt2_60:
 	etSpr(1, 0, 13);
 	etAng(1, %A, %A);
 	etSpd(1, 8f, 8f);
-	laserSetSize(1, -1f, -1f, -1f, 16f);
-	laserSetTime(1, 42, -1, -1, -1, 0);
+	laserSize(1, -1f, -1f, -1f, 16f);
+	laserTime(1, 42, -1, -1, -1, 0);
 	etSE(0, 19, -1);
 	etEx(1, 0, 0, 8, 5, [NEG], 0f, 0.15707964f);
 	etEx(1, 1, 0, 8, 10, [NEG], 0f, -0.15707964f);
@@ -1110,13 +1110,13 @@ BossCard3LaserAt2_60:
 	etEx(1, 9, 0, 8, 10, [NEG], 0f, -0.15707964f);
 	etEx(1, 10, 0, 8, 10, [NEG], 0f, 0.15707964f);
 	etSE(0, 19, -1);
-	laserCurvedShoot(1);
+	laserOn3(1);
 	etNew(2);
 	etSpr(2, 0, 13);
 	etAng(2, %A, %A);
 	etSpd(2, 8f, 8f);
-	laserSetSize(2, -1f, -1f, -1f, 16f);
-	laserSetTime(2, 42, -1, -1, -1, 0);
+	laserSize(2, -1f, -1f, -1f, 16f);
+	laserTime(2, 42, -1, -1, -1, 0);
 	etSE(0, 19, -1);
 	etEx(2, 0, 0, 8, 5, [NEG], 0f, -0.15707964f);
 	etEx(2, 1, 0, 8, 10, [NEG], 0f, 0.15707964f);
@@ -1130,7 +1130,7 @@ BossCard3LaserAt2_60:
 	etEx(2, 9, 0, 8, 10, [NEG], 0f, 0.15707964f);
 	etEx(2, 10, 0, 8, 10, [NEG], 0f, -0.15707964f);
 	etSE(0, 19, -1);
-	laserCurvedShoot(2);
+	laserOn3(2);
 	wait(180);
 BossCard3LaserAt2_1648:
 	if 1 goto BossCard3LaserAt2_60 @ 0;
@@ -1347,8 +1347,8 @@ sub BossCard4LaserAt2()
 	etSpr(1, 0, 13);
 	etAng(1, %A, %A);
 	etSpd(1, 8f, 8f);
-	laserSetSize(1, -1f, -1f, -1f, 16f);
-	laserSetTime(1, 42, -1, -1, -1, 0);
+	laserSize(1, -1f, -1f, -1f, 16f);
+	laserTime(1, 42, -1, -1, -1, 0);
 	etSE(0, 19, -1);
 	etEx(1, 0, 0, 8, 5, [NEG], 0f, 0.15707964f);
 	etEx(1, 1, 0, 8, 10, [NEG], 0f, -0.15707964f);
@@ -1362,13 +1362,13 @@ sub BossCard4LaserAt2()
 	etEx(1, 9, 0, 8, 10, [NEG], 0f, -0.15707964f);
 	etEx(1, 10, 0, 8, 10, [NEG], 0f, 0.15707964f);
 	etSE(0, 19, -1);
-	laserCurvedShoot(1);
+	laserOn3(1);
 	etNew(2);
 	etSpr(2, 0, 13);
 	etAng(2, %A, %A);
 	etSpd(2, 8f, 8f);
-	laserSetSize(2, -1f, -1f, -1f, 16f);
-	laserSetTime(2, 42, -1, -1, -1, 0);
+	laserSize(2, -1f, -1f, -1f, 16f);
+	laserTime(2, 42, -1, -1, -1, 0);
 	etSE(0, 19, -1);
 	etEx(2, 0, 0, 8, 5, [NEG], 0f, -0.15707964f);
 	etEx(2, 1, 0, 8, 10, [NEG], 0f, 0.15707964f);
@@ -1382,7 +1382,7 @@ sub BossCard4LaserAt2()
 	etEx(2, 9, 0, 8, 10, [NEG], 0f, 0.15707964f);
 	etEx(2, 10, 0, 8, 10, [NEG], 0f, -0.15707964f);
 	etSE(0, 19, -1);
-	laserCurvedShoot(2);
+	laserOn3(2);
 	return();
 }
 
@@ -1393,14 +1393,14 @@ sub BossCard4LaserAt3()
 	etSpr(3, 7, 13);
 	etAng(3, 0f, 0f);
 	etSpd(3, 2f, 2f);
-	laserSetSize(3, 0f, 128f, 0f, 14f);
+	laserSize(3, 0f, 128f, 0f, 14f);
 	etSE(0, 19, -1);
 	wait(120);
 	seti_rank($B, 32, 32, 64, 56);
 	goto BossCard4LaserAt3_408 @ 0;
 BossCard4LaserAt3_284:
 	etAng(3, %A, %A);
-	laserShoot(3);
+	laserOn(3);
 	%A = %A + 0.19635f;
 BossCard4LaserAt3_408:
 	if $B-- goto BossCard4LaserAt3_284 @ 0;

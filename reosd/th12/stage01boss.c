@@ -325,14 +325,14 @@ sub Boss2_at1()
 	etOfs(1, 0f, -12f);
 	etSpr(1, 30, 6);
 	etSpd(1, 32f, 32f);
-	laserSetSize(1, 500f, 500f, 0f, 16f);
-	laserSetTime(1, 120, 16, 60, 14, 0);
+	laserSize(1, 500f, 500f, 0f, 16f);
+	laserTime(1, 120, 16, 60, 14, 0);
 	etSE(1, 19, -1);
 	etEx(1, 0, 0, 268435456, 1, [NEG], [NEGF], [NEGF]);
 	int lID = 0;
 	times (6) {
 		etAng(1, AIM, 0f);
-		laserShootStatic(1, lID);
+		laserOn2(1, lID);
 		lID += 1;
 		wait(8);
 	}

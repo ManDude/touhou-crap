@@ -224,24 +224,24 @@ sub MBossCard1_at2()
 	etNew(0);
 	etSpr(0, 30, 6);
 	etSpd(0, 14f, 14f);
-	laserSetSize(0, 500f, 500f, 0f, 32f);
-	laserSetTime(0, 0, 30, 120, 16, 0);
+	laserSize(0, 500f, 500f, 0f, 32f);
+	laserTime(0, 0, 30, 120, 16, 0);
 	etOfs(0, 0f, -12f);
 	etSE(0, 19, -1);
 	etEx(0, 0, 0, 0x10000000, 1, [NEG], [NEGF], [NEGF]);
 	float l1Ang = rad(22.5f);
 	etAng(0, l1Ang, 0f);
-	laserShootStatic(0, 1);
+	laserOn2(0, 1);
 	float l2Ang = rad(157.5f);
 	etAng(0, l2Ang, 0f);
-	laserShootStatic(0, 2);
+	laserOn2(0, 2);
 	wait(30);
 	times (120) {
 		wait(1);
 		l1Ang += rad(0.47368421052631578947368421052632f);
-		laserSetAngle(1, l1Ang);
+		laserAng(1, l1Ang);
 		l2Ang -= rad(0.47368421052631578947368421052632f);
-		laserSetAngle(2, l2Ang);
+		laserAng(2, l2Ang);
 	}
 	return();
 }

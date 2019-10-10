@@ -369,33 +369,33 @@ sub Boss2_at1()
     etSpr(0, 7, 2);
     etAng(0, 0f, 0f);
     etSpd(0, 8f, 8f);
-    laserSetSize(0, 0f, 512f, 16f, 16f);
-    laserSetTime(0, 60, 16, 60, 15, 0);
+    laserSize(0, 0f, 512f, 16f, 16f);
+    laserTime(0, 60, 16, 60, 15, 0);
     etSE(0, 19, -1);
     etOfs(0, -114f, 54f);
     %B = %FINAL_X + _f(-114);
     %C = %FINAL_Y + _f(54);
     angleToPlayer(%A, %B, %C);
     etAng(0, %A, 0f);
-    laserShootStatic(0, 0);
+    laserOn2(0, 0);
     etOfs(0, 114f, 54f);
     %B = %FINAL_X + _f(114);
     %C = %FINAL_Y + _f(54);
     angleToPlayer(%A, %B, %C);
     etAng(0, %A, 0f);
-    laserShootStatic(0, 0);
+    laserOn2(0, 0);
     etOfs(0, -64f, -80f);
     %B = %FINAL_X + _f(-64);
     %C = %FINAL_Y + _f(-80);
     angleToPlayer(%A, %B, %C);
     etAng(0, %A, 0f);
-    laserShootStatic(0, 0);
+    laserOn2(0, 0);
     etOfs(0, 64f, -80f);
     %B = %FINAL_X + _f(64);
     %C = %FINAL_Y + _f(-80);
     angleToPlayer(%A, %B, %C);
     etAng(0, %A, 0f);
-    laserShootStatic(0, 0);
+    laserOn2(0, 0);
     return();
 }
 
@@ -406,8 +406,8 @@ sub Boss2_at1h(var A)
     etSpr(0, 7, 2);
     etAng(0, 0f, 0f);
     etSpd(0, 8f, 8f);
-    laserSetSize(0, 0f, 512f, 16f, 16f);
-    laserSetTime(0, 60, 16, 60, 15, 0);
+    laserSize(0, 0f, 512f, 16f, 16f);
+    laserTime(0, 60, 16, 60, 15, 0);
     etSE(0, 19, -1);
     etOfs(0, -114f, 54f);
     %C = %FINAL_X + _f(-114);
@@ -415,28 +415,28 @@ sub Boss2_at1h(var A)
     angleToPlayer(%B, %C, %D);
     %B = %B + (%A * %RF2);
     etAng(0, %B, 0f);
-    laserShootStatic(0, 0);
+    laserOn2(0, 0);
     etOfs(0, 114f, 54f);
     %C = %FINAL_X + _f(114);
     %D = %FINAL_Y + _f(54);
     angleToPlayer(%B, %C, %D);
     %B = %B + (%A * %RF2);
     etAng(0, %B, 0f);
-    laserShootStatic(0, 0);
+    laserOn2(0, 0);
     etOfs(0, -64f, -80f);
     %C = %FINAL_X + _f(-64);
     %D = %FINAL_Y + _f(-80);
     angleToPlayer(%B, %C, %D);
     %B = %B + (%A * %RF2);
     etAng(0, %B, 0f);
-    laserShootStatic(0, 0);
+    laserOn2(0, 0);
     etOfs(0, 64f, -80f);
     %C = %FINAL_X + _f(64);
     %D = %FINAL_Y + _f(-80);
     angleToPlayer(%B, %C, %D);
     %B = %B + (%A * %RF2);
     etAng(0, %B, 0f);
-    laserShootStatic(0, 0);
+    laserOn2(0, 0);
     return();
 }
 
@@ -1495,15 +1495,15 @@ sub BossCard2_at2()
     etSpr(0, 7, 4);
     etAng(0, 0f, 0f);
     etSpd(0, 8f, 8f);
-    laserSetSize(0, 0f, 512f, 16f, 16f);
-    laserSetTime(0, 60, 16, 30, 15, 0);
+    laserSize(0, 0f, 512f, 16f, 16f);
+    laserTime(0, 60, 16, 30, 15, 0);
     etSE(0, 19, -1);
     %A = %AIM;
     $D = 16;
     goto BossCard2_at2_476 @ 0;
 BossCard2_at2_348:
     etAng(0, %A, 0f);
-    laserShootStatic(0, 0);
+    laserOn2(0, 0);
     %A = %A + 0.392699f;
 BossCard2_at2_476:
     if $D-- goto BossCard2_at2_348 @ 0;
@@ -1594,8 +1594,8 @@ sub BossCard3_at2()
     etSpr(0, 0, 13);
     etAng(0, -0.7853982f, -0.7853982f);
     etSpd(0, 4f, 4f);
-    laserSetSize(0, -1f, -1f, -1f, 16f);
-    laserSetTime(0, 32, -1, -1, -1, 0);
+    laserSize(0, -1f, -1f, -1f, 16f);
+    laserTime(0, 32, -1, -1, -1, 0);
     etSE(0, 19, -1);
     etEx(0, 0, 0, 512, 10, -999999, -999999f, -999999f);
     etEx(0, 1, 0, 1024, 120, 0, -999999f, -999999f);
@@ -1614,7 +1614,7 @@ BossCard3_at2_712:
     %C = (%RF * %E) + %D;
     etOfs_abs(0, %B, %C);
     etAng(0, %A, 0f);
-    laserCurvedShoot(0);
+    laserOn3(0);
     wait_rank(14, 14, 12, 10);
     %D = %D + %E;
 !NHL
@@ -1630,7 +1630,7 @@ BossCard3_at2_1348:
     %C = (%RF * %E) + %D;
     etOfs_abs(0, %B, %C);
     etAng(0, %A, 0f);
-    laserCurvedShoot(0);
+    laserOn3(0);
     wait_rank(14, 14, 12, 10);
     %D = %D + %E;
 !NHL
@@ -1650,8 +1650,8 @@ sub BossCard3_at2b()
     etSpr(0, 0, 13);
     etAng(0, -0.7853982f, -0.7853982f);
     etSpd(0, 4f, 4f);
-    laserSetSize(0, -1f, -1f, -1f, 16f);
-    laserSetTime(0, 32, -1, -1, -1, 0);
+    laserSize(0, -1f, -1f, -1f, 16f);
+    laserTime(0, 32, -1, -1, -1, 0);
     etSE(0, 19, -1);
     etEx(0, 0, 0, 512, 10, -999999, -999999f, -999999f);
     etEx(0, 1, 0, 1024, 120, 0, -999999f, -999999f);
@@ -1670,7 +1670,7 @@ BossCard3_at2b_692:
     %C = (%RF * %E) + %D;
     etOfs_abs(0, %B, %C);
     etAng(0, %A, 0f);
-    laserCurvedShoot(0);
+    laserOn3(0);
     wait_rank(14, 14, 12, 10);
     %D = %D + %E;
 !NHL
@@ -1686,7 +1686,7 @@ BossCard3_at2b_1328:
     %C = (%RF * %E) + %D;
     etOfs_abs(0, %B, %C);
     etAng(0, %A, 0f);
-    laserCurvedShoot(0);
+    laserOn3(0);
     wait_rank(14, 14, 12, 10);
     %D = %D + %E;
 !NHL

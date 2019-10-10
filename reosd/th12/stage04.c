@@ -603,9 +603,9 @@ sub Girl04Shooter()
 	etAng(1, 1.5707964f, 0f);
 	etSE(1, 19, -1);
 	etSpd(1, 32f, 32f);
-	laserSetSize(1, 500f, 500f, 0f, 64f);
-	laserSetTime(1, 90, 16, 104, 16, 14);
-	laserShootStatic(1, 0);
+	laserSize(1, 500f, 500f, 0f, 64f);
+	laserTime(1, 90, 16, 104, 16, 14);
+	laserOn2(1, 0);
 440:
 	delete();
 }
