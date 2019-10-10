@@ -211,7 +211,7 @@ sub MBossDead()
 	life(100000);
 	boss(-1);
 	itemClear();
-	itemMain(7);
+	itemMain([ITEM_1UP]);
 	itemDrop();
 	ItemDrop2(75, 48f, 48f);
 	MBossEscape();
