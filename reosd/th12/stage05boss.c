@@ -1,7 +1,9 @@
 
 #include "th12_globalvar.txt"
 #include "default.h"
-sub MBossCard1LaserHit();
+sub MBossCard1LaserHit()
+{
+}
 
 sub Boss()
 {
@@ -17,7 +19,9 @@ sub Boss()
 	enmPos(-224f, 128f);
 	enmPosTime(60, 4, 0f, 128f);
 	stageProg(24);
-+60: //60
++59: //59
+	msgWait();
++1: //60
 	msgWait();
 	setMoveArea(0f, 90f, 320f, 84f);
 	anm(0);

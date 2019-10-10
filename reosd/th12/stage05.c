@@ -81,7 +81,7 @@ sub MainGirlFuncManager()
 sub Girl00Dead()
 {
 	itemDrop();
-	ItemDrop(15, 32f, 32f);
+	ItemDrop2(15, 32f, 32f);
 	wait(1);
 }
 
@@ -154,7 +154,7 @@ sub Girl01_at()
 sub Girl02Dead()
 {
 	itemDrop();
-	ItemDrop2(5, 32f, 32f);
+	ItemDrop2(8, 32f, 32f);
 	wait(1);
 }
 
@@ -184,7 +184,7 @@ sub Girl02_at()
 sub Girl03Dead()
 {
 	itemDrop();
-	ItemDrop2(15, 32f, 32f);
+	ItemDrop2(18, 32f, 32f);
 	wait(1);
 }
 	
@@ -270,7 +270,7 @@ sub Girl04_at()
 sub Girl05Dead()
 {
 	itemDrop();
-	ItemDrop(8, 32f, 32f);
+	ItemDrop(14, 32f, 32f);
 	wait(1);
 }
 
@@ -335,15 +335,15 @@ sub Girl05At_c()
 sub MainSub00()
 {
 	I0 = 0;
-	enmNew("BigGirlMain", -32f, -48f, 900, 2000, 1);
-	enmNew("BigGirlMain", 32f, -48f, 900, 2000, 1);
+	enmNewNoBoss("BigGirlMain", -32f, -48f, 900, 2000, 1);
+	enmNewNoBoss("BigGirlMain", 32f, -48f, 900, 2000, 1);
 }
 
 sub MainSub00b()
 {
 	I0 = 0;
-	enmNew("BigGirlMain", -64f, -48f, 900, 2000, 1);
-	enmNew("BigGirlMain", 64f, -48f, 900, 2000, 1);
+	enmNewNoBoss("BigGirlMain", -64f, -48f, 900, 2000, 1);
+	enmNewNoBoss("BigGirlMain", 64f, -48f, 900, 2000, 1);
 }
 
 sub MainSub01(int ystart)
@@ -351,7 +351,7 @@ sub MainSub01(int ystart)
 	I0 = 2;
 	float y = _f(ystart);
 	times (8) {
-		enmNew("RGirlMain", -224f, y, 200, 2000, 2);
+		enmNewNoBoss("RGirlMain", -224f, y, 200, 2000, 2);
 +20:
 		y += 8f;
 	}
@@ -362,7 +362,7 @@ sub MainSub01m(int ystart)
 	I0 = 2;
 	float y = _f(ystart);
 	times (8) {
-		enmNewMir("BGirlMain", 160f, y, 200, 2000, 2);
+		enmNewMirNoBoss("BGirlMain", 160f, y, 200, 2000, 2);
 +20:
 		y += 8f;
 	}
@@ -371,33 +371,33 @@ sub MainSub01m(int ystart)
 sub MainSub02(int xoff)
 {
 	I0 = 1;
-	enmNew("BigGirlMain", 0f-_f(xoff), -48f, 900, 1000, 1);
-	enmNew("BigGirlMain", _f(xoff), -48f, 900, 1000, 1);
+	enmNewNoBoss("BigGirlMain", 0f-_f(xoff), -48f, 900, 1000, 1);
+	enmNewNoBoss("BigGirlMain", _f(xoff), -48f, 900, 1000, 1);
 }
 
 sub MainSub03()
 {
 	I0 = 3;
-	enmNew("BGirlMain", -160f, -48f, 900, 2000, 1);
-	enmNew("BGirlMain", 160f, -48f, 900, 2000, 1);
+	enmNewNoBoss("BGirlMain", -160f, -48f, 900, 2000, 1);
+	enmNewNoBoss("BGirlMain", 160f, -48f, 900, 2000, 1);
 +90:
-	enmNew("RGirlMain", -64f, -48f, 900, 2000, 1);
-	enmNew("RGirlMain", 64f, -48f, 900, 2000, 1);
+	enmNewNoBoss("RGirlMain", -64f, -48f, 900, 2000, 1);
+	enmNewNoBoss("RGirlMain", 64f, -48f, 900, 2000, 1);
 +90:
-	enmNew("GGirlMain", -32f, -48f, 900, 2000, 1);
-	enmNew("GGirlMain", 32f, -48f, 900, 2000, 1);
+	enmNewNoBoss("GGirlMain", -32f, -48f, 900, 2000, 1);
+	enmNewNoBoss("GGirlMain", 32f, -48f, 900, 2000, 1);
 }
 
 sub MainSub04()
 {
 	I0 = 4;
-	enmNew("YGirlMain", 0f, -48f, 900, 2000, 1);
+	enmNewNoBoss("YGirlMain", 0f, -48f, 900, 2000, 1);
 +110:
-	enmNew("YGirlMain", -160f, -48f, 900, 2000, 1);
+	enmNewNoBoss("YGirlMain", -160f, -48f, 900, 2000, 1);
 +110:
-	enmNew("YGirlMain", 160f, -48f, 900, 2000, 1);
+	enmNewNoBoss("YGirlMain", 160f, -48f, 900, 2000, 1);
 +100:
-	enmNew("YGirlMain", -32f, -48f, 900, 2000, 1);
+	enmNewNoBoss("YGirlMain", -32f, -48f, 900, 2000, 1);
 }
 
 sub MainSub05()
@@ -444,25 +444,25 @@ sub MainSub05()
 sub MainSub06()
 {
 	I0 = 1;
-	enmNew("BigGirlMain", -160f, -48f, 900, 1000, 1);
+	enmNewNoBoss("BigGirlMain", -160f, -48f, 900, 1000, 1);
 +10:
-	enmNew("BigGirlMain", 160f, -48f, 900, 1000, 1);
+	enmNewNoBoss("BigGirlMain", 160f, -48f, 900, 1000, 1);
 +10:
-	enmNew("BigGirlMain", -128f, -48f, 900, 1000, 1);
+	enmNewNoBoss("BigGirlMain", -128f, -48f, 900, 1000, 1);
 +10:
-	enmNew("BigGirlMain", 128f, -48f, 900, 1000, 1);
+	enmNewNoBoss("BigGirlMain", 128f, -48f, 900, 1000, 1);
 +10:
-	enmNew("BigGirlMain", -96f, -48f, 900, 1000, 1);
+	enmNewNoBoss("BigGirlMain", -96f, -48f, 900, 1000, 1);
 +10:
-	enmNew("BigGirlMain", 96f, -48f, 900, 1000, 1);
+	enmNewNoBoss("BigGirlMain", 96f, -48f, 900, 1000, 1);
 +10:
-	enmNew("BigGirlMain", -64f, -48f, 900, 1000, 1);
+	enmNewNoBoss("BigGirlMain", -64f, -48f, 900, 1000, 1);
 +10:
-	enmNew("BigGirlMain", 64f, -48f, 900, 1000, 1);
+	enmNewNoBoss("BigGirlMain", 64f, -48f, 900, 1000, 1);
 +10:
-	enmNew("BigGirlMain", -48f, -48f, 900, 1000, 1);
+	enmNewNoBoss("BigGirlMain", -48f, -48f, 900, 1000, 1);
 +10:
-	enmNew("BigGirlMain", 48f, -48f, 900, 1000, 1);
+	enmNewNoBoss("BigGirlMain", 48f, -48f, 900, 1000, 1);
 }
 
 //main
@@ -500,7 +500,7 @@ sub main()
 2652:
 	MainSub04() async;
 3372:
-	enmNew("MBoss", -192f, 0f, 15000, 200000, 0);
+	enmNewNoBoss("MBoss", -192f, 0f, 15000, 200000, 0);
 	msgBegin(2);
 +1:
 	msgWait();
@@ -513,10 +513,10 @@ sub main()
 	MainSub02(128);
 +90:
 	MainSub02(96);
-7214:
++200:
 	MainSub06() async;
 7704:
-	enmNew("Boss", -192f, 0f, 15000, 200000, 0);
+	enmNewNoBoss("Boss", -192f, 0f, 15000, 200000, 0);
 	msgBegin(0);
 +1:
 	msgWait();
@@ -556,7 +556,7 @@ sub MainBossDebug()
 {
 +10: //10
 	ins_700(3);
-	enmNew("Boss", -144f, -16f, 40, 1000, 1);
+	enmNewNoBoss("Boss", -144f, -16f, 40, 1000, 1);
 	msgWait();
 	killWait();
 +60: //70
@@ -569,7 +569,7 @@ sub MainBossDebug()
 sub MainMBossDebug()
 {
 	ins_700(3);
-	enmNew("MBoss", -128f, -32f, 200000, 15000, 1);
+	enmNewNoBoss("MBoss", -128f, -32f, 200000, 15000, 1);
 	while 1 wait(1000);
 	return();
 }
@@ -580,7 +580,7 @@ sub MainMsgDebug()
 +120: //120
 	msgBegin(0);
 	msgWait();
-	enmNew("Boss", 128f, -32f, 40, 1000, 1);
+	enmNewNoBoss("Boss", 128f, -32f, 40, 1000, 1);
 +1: //121
 	msgWait();
 +60: //181
@@ -597,7 +597,7 @@ sub MainMsgDebugMBoss()
 	ins_700(100);
 +120: //120
 	msgBegin(2);
-	enmNew("MBoss", 128f, -32f, 40, 1000, 1);
+	enmNewNoBoss("MBoss", 128f, -32f, 40, 1000, 1);
 +1: //121
 	msgWait();
 	while 1 {

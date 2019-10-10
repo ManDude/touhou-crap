@@ -72,12 +72,12 @@ sub MBossCard1()
 	invinc(120);
 	enmPosTime(120, 4, 0f, 144f);
 	setMoveArea(0f, 128f, 280f, 64f);
-	interrupt(0, 0, 2800, "MBossDead");
+	interrupt(0, 0, 1800, "MBossDead");
 	timeoutAt(0, "MBossEscape");
 !EN
-	cardE(57, 2400, 500000, "奇術「ミスディレクション」");
+	cardE(57, 1800, 500000, "奇術「ミスディレクション」");
 !HL
-	cardH(59, 2400, 500000, "奇術「幻惑ミスディレクション」");
+	cardH(59, 1800, 500000, "奇術「幻惑ミスディレクション」");
 !*
 	stageProg(43);
 120:
@@ -99,7 +99,7 @@ sub MBossCard1_at1()
 	etMode(0, 2);
 	etSpr(0, 8, 2);
 	etAng(0, 0f, 0f);
-	etEx(0, 0, 0, 2, 1, [NEG], [NEGF], [NEGF]);
+	etEx(0, 0, 0, 2, 2, [NEG], [NEGF], [NEGF]);
 !HL
 	etEx(0, 1, 0, 256, 1, 13, [NEGF], [NEGF]);
 !*
@@ -117,7 +117,7 @@ sub MBossCard1_at1()
 	etMode(0, 0);
 	etSpr(0, 20, 3);
 	etAmt(0, 11, 4);
-	etEx(0, 0, 0, 2, 1, [NEG], [NEGF], [NEGF]);
+	etEx(0, 0, 0, 2, 2, [NEG], [NEGF], [NEGF]);
 	etAng(0, 0f, rad(12f):rad(12f):rad(18f));
 	etSpd(0, 4f:5f:6f:7f, 1.45f);
 	times (3) {
@@ -149,7 +149,7 @@ sub MBossCard1_at2()
 	etMode(0, 2);
 	etSpr(0, 8, 2);
 	etAng(0, 0f, 0f);
-	etEx(0, 0, 0, 2, 1, [NEG], [NEGF], [NEGF]);
+	etEx(0, 0, 0, 2, 2, [NEG], [NEGF], [NEGF]);
 !HL
 	etEx(0, 1, 0, 256, 1, 13, [NEGF], [NEGF]);
 !*
@@ -167,7 +167,7 @@ sub MBossCard1_at2()
 	etMode(0, 0);
 	etSpr(0, 20, 3);
 	etAmt(0, 11, 4);
-	etEx(0, 0, 0, 2, 1, [NEG], [NEGF], [NEGF]);
+	etEx(0, 0, 0, 2, 2, [NEG], [NEGF], [NEGF]);
 	etAng(0, 0f, rad(12f):rad(12f):rad(18f));
 	etSpd(0, 4f:5f:6f:7f, 1.45f);
 	times (3) {
