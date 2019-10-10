@@ -7,7 +7,6 @@ sub MBossCard1LaserHit()
 
 sub Boss()
 {
-	var A;
 	boss(0);
 	anm(2);
 	anmScrNoMove(0, 0);
@@ -30,6 +29,7 @@ sub Boss()
 	anm(2);
 	setBossFog(160f, 16728031);
 	Boss1();
+	while 1 wait(1000);
 	delete();
 }
 
