@@ -54,8 +54,8 @@ sub MBoss1()
 			lifebar(0, 1100f, -24448);
 			break;
 		case [SHOT_SANAE_A]:	
-			interrupt(0, 1100, 1020, "MBossCard1");
-			lifebar(0, 1100f, -24448);
+			interrupt(0, 1000, 1020, "MBossCard1");
+			lifebar(0, 1000f, -24448);
 			break;
 		case [SHOT_SANAE_B]:	
 			interrupt(0, 1000, 1020, "MBossCard1");
