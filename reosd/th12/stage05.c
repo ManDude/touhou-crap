@@ -72,6 +72,9 @@ sub MainGirlFuncManager()
 		case 4:
 			Girl04();
 			break;
+		case 5:
+			Girl05();
+			break;
 	}
 }
 
@@ -264,6 +267,70 @@ sub Girl04_at()
 	}
 }
 
+sub Girl05Dead()
+{
+	itemDrop();
+	ItemDrop(8, 32f, 32f);
+	wait(1);
+}
+
+sub Girl05()
+{
+	interrupt(0, 0, -1, "Girl05Dead");
+	hitbox(28f, 28f);
+	killbox(28f, 28f);
+	enmDir([R_R], 2.5f);
+	switch (I2) {
+		case 0:
+			Girl05At_a();
+			break;
+		case 1:
+			Girl05At_b();
+			break;
+		case 2:
+			Girl05At_c();
+			break;
+	}
+10000:
+	return();
+}
+
+sub Girl05At_a()
+{
+	etNew(0);
+	etMode(0, 0);
+	etSpr(0, 0, 6);
+	etAmt(0, 6, 1);
+	etSpd(0, 2f, 1.05f);
+	etAng(0, 0f, rad(11.25f));
+	etEx(0, 0, 0, 2, 2, [NEG], [NEGF], [NEGF]);
+	et_on_rate(0, 33, 1) async 1;
+}
+
+sub Girl05At_b()
+{
+	etNew(0);
+	etMode(0, 0);
+	etSpr(0, [ET_KUNAI], 2);
+	etAmt(0, 4, 1);
+	etSpd(0, 2f, 1.05f);
+	etAng(0, 0f, rad(15f));
+	etEx(0, 0, 0, 2, 2, [NEG], [NEGF], [NEGF]);
+	et_on_rate(0, 25, 1) async 1;
+}
+
+sub Girl05At_c()
+{
+	etNew(0);
+	etMode(0, 8);
+	etSpr(0, 3, 2);
+	etAmt(0, 4, 1);
+	etSpd(0, 2f, 1.05f);
+	etAng(0, [NPI], [PI]);
+	etEx(0, 0, 0, 2, 2, [NEG], [NEGF], [NEGF]);
+	et_on_rate(0, 9, 1) async 1;
+}
+
 //front
 sub MainSub00()
 {
@@ -301,11 +368,11 @@ sub MainSub01m(int ystart)
 	}
 }
 
-sub MainSub02()
+sub MainSub02(int xoff)
 {
 	I0 = 1;
-	enmNew("BigGirlMain", -160f, -48f, 900, 1000, 2);
-	enmNew("BigGirlMain", 160f, -48f, 900, 1000, 2);
+	enmNew("BigGirlMain", 0f-_f(xoff), -48f, 900, 1000, 1);
+	enmNew("BigGirlMain", _f(xoff), -48f, 900, 1000, 1);
 }
 
 sub MainSub03()
@@ -333,6 +400,71 @@ sub MainSub04()
 	enmNew("YGirlMain", -32f, -48f, 900, 2000, 1);
 }
 
+sub MainSub05()
+{
+	I0 = 2;	enmNewNoBoss("RGirlMain", -224f, 80f, 150, 2000, 2);
++15:I0 = 2;			enmNewMirNoBoss("BGirlMain", 224f, 80f, 150, 2000, 2);
++15:I0 = 5; I2 = 0;	enmNewNoBoss("GGirlMain", -224f, 96f, 150, 2000, 2);
++15:I0 = 5; I2 = 1;	enmNewMirNoBoss("YGirlMain", 224f, 64f, 150, 2000, 2);
++15:I0 = 5; I2 = 2;	enmNewNoBoss("RGirlMain", -224f, 64f, 150, 2000, 2);
++15:I0 = 5; I2 = 0;	enmNewMirNoBoss("BGirlMain", 224f, 64f, 150, 2000, 2);
++15:I0 = 5; I2 = 1;	enmNewNoBoss("GGirlMain", -224f, 64f, 150, 2000, 2);
++15:I0 = 5; I2 = 2;	enmNewMirNoBoss("YGirlMain", 224f, 96f, 150, 200, 2);
++15:I0 = 2;			enmNewNoBoss("RGirlMain", -224f, 64f, 150, 2000, 2);
++15:I0 = 2;			enmNewMirNoBoss("BGirlMain", 224f, 64f, 150, 2000, 2);
++15:I0 = 5; I2 = 2;	enmNewNoBoss("GGirlMain", -224f, 96f, 150, 2000, 2);
++15:I0 = 5; I2 = 0;	enmNewMirNoBoss("YGirlMain", 224f, 72f, 150, 2000, 2);
++15:I0 = 5; I2 = 1;	enmNewNoBoss("RGirlMain", -224f, 80f, 150, 2000, 2);
++15:I0 = 5; I2 = 0;	enmNewMirNoBoss("BGirlMain", 224f, 32f, 150, 2000, 2);
++15:I0 = 2;			enmNewNoBoss("GGirlMain", -224f, 80f, 150, 2000, 2);
++15:I0 = 5; I2 = 2;	enmNewMirNoBoss("YGirlMain", 224f, 64f, 150, 2000, 2);
++15:I0 = 5; I2 = 1;	enmNewNoBoss("RGirlMain", -224f, 80f, 150, 2000, 2);
++90:
+	times (9) {
+		I0 = 2;			enmNewMirNoBoss("BGirlMain", 224f, 80f, 150, 2000, 2);
++15:	I0 = 5; I2 = 0;	enmNewNoBoss("GGirlMain", -224f, 96f, 150, 2000, 2);
++15:	I0 = 5; I2 = 1;	enmNewMirNoBoss("YGirlMain", 224f, 64f, 150, 2000, 1);
++15:	I0 = 5; I2 = 2;	enmNewNoBoss("RGirlMain", -224f, 64f, 150, 2000, 1);
++15:	I0 = 5; I2 = 0;	enmNewMirNoBoss("BGirlMain", 224f, 64f, 150, 2000, 2);
++15:	I0 = 5; I2 = 1;	enmNewNoBoss("GGirlMain", -224f, 64f, 150, 2000, 2);
++15:	I0 = 5; I2 = 2;	enmNewMirNoBoss("YGirlMain", 224f, 96f, 150, 200, 1);
++15:	I0 = 2;			enmNewNoBoss("RGirlMain", -224f, 64f, 150, 2000, 1);
++15:	I0 = 2;			enmNewMirNoBoss("BGirlMain", 224f, 64f, 150, 2000, 2);
++15:	I0 = 5; I2 = 2;	enmNewNoBoss("GGirlMain", -224f, 96f, 150, 2000, 2);
++15:	I0 = 5; I2 = 0;	enmNewMirNoBoss("YGirlMain", 224f, 72f, 150, 2000, 1);
++15:	I0 = 5; I2 = 1;	enmNewNoBoss("RGirlMain", -224f, 80f, 150, 2000, 1);
++15:	I0 = 5; I2 = 0;	enmNewMirNoBoss("BGirlMain", 224f, 32f, 150, 2000, 2);
++15:	I0 = 2;			enmNewNoBoss("GGirlMain", -224f, 80f, 150, 2000, 2);
++15:	I0 = 5; I2 = 2;	enmNewMirNoBoss("YGirlMain", 224f, 64f, 150, 2000, 1);
++15:	I0 = 5; I2 = 1;	enmNewNoBoss("RGirlMain", -224f, 80f, 150, 2000, 1);
++90:
+	}
+}
+
+sub MainSub06()
+{
+	I0 = 1;
+	enmNew("BigGirlMain", -160f, -48f, 900, 1000, 1);
++10:
+	enmNew("BigGirlMain", 160f, -48f, 900, 1000, 1);
++10:
+	enmNew("BigGirlMain", -128f, -48f, 900, 1000, 1);
++10:
+	enmNew("BigGirlMain", 128f, -48f, 900, 1000, 1);
++10:
+	enmNew("BigGirlMain", -96f, -48f, 900, 1000, 1);
++10:
+	enmNew("BigGirlMain", 96f, -48f, 900, 1000, 1);
++10:
+	enmNew("BigGirlMain", -64f, -48f, 900, 1000, 1);
++10:
+	enmNew("BigGirlMain", 64f, -48f, 900, 1000, 1);
++10:
+	enmNew("BigGirlMain", -48f, -48f, 900, 1000, 1);
++10:
+	enmNew("BigGirlMain", 48f, -48f, 900, 1000, 1);
+}
+
 //main
 sub main()
 {
@@ -348,7 +480,7 @@ sub main()
 690:
 	MainSub01(128) async;
 850:
-	MainSub02();
+	MainSub02(160);
 1042:
 	MainSub01m(128) async;
 1442:
@@ -358,7 +490,7 @@ sub main()
 1622:
 	MainSub01m(64) async;
 1782:
-	MainSub02();
+	MainSub02(160);
 1802:
 	MainSub01(64) async;
 1962:
@@ -373,8 +505,26 @@ sub main()
 +1:
 	msgWait();
 +1:
-+5000:
+3874:
+	MainSub05() async;
+6834:
+	MainSub02(160);
++90:
+	MainSub02(128);
++90:
+	MainSub02(96);
+7214:
+	MainSub06() async;
+7704:
+	enmNew("Boss", -192f, 0f, 15000, 200000, 0);
+	msgBegin(0);
++1:
+	msgWait();
++1:
++1:
+	killWait();
 	msgBegin(1);
++1:
 	msgWait();
 	while 1 wait(1000);
 	delete();
