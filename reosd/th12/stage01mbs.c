@@ -30,7 +30,7 @@ sub MBoss()
 	interrupt(1, 0, 1440, "MBossDead");
 !*
 	timeoutAt(0, "MBossEscape");
-	setBossFog(160f, 3190703);
+	fog(160f, 3190703);
 	stageProg(6);
 	enmPosTime(60, 4, 128f, 128f);
 	wait(60);

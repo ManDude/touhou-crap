@@ -36,7 +36,7 @@ sub MBoss()
 
 sub MBoss1()
 {
-	setBossFog(160f, 11497327);
+	fog(160f, 11497327);
 30:
 !HL
 	etNew(0);

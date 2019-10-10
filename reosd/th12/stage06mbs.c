@@ -27,7 +27,7 @@ sub MBoss()
 	unsetFlags([ENEMY_NO_HURT]);
     hitbox(40f, 56f);
     killbox(40f, 56f);
-    setBossFog(160f, 9408511);
+    fog(160f, 9408511);
     MBoss1();
 	while 1 wait(1000);
     delete();

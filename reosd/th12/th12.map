@@ -149,13 +149,13 @@ eclmap
 517 ? etAmt_d3
 518 ? etAmt_d5
 519 ? etAmt_d2
-520 ? angleToPlayer
+520 ? getAim
 521 ? etSpd_rank
 522 ? etAmt_rank
 523 ? etOfs_rad
 524 ? etDist
 525 ? etOfs_abs
-526 ? setBossFog
+526 ? fog
 600 ? laserSize
 601 ? laserTime
 602 ? laserOn

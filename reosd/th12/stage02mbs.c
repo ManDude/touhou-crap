@@ -26,7 +26,7 @@ sub MBoss()
 	anmFile(0);
 	anmAt(1, 95);
 	anmAt(2, 158);
-	setBossFog(160f, 15675535);
+	fog(160f, 15675535);
 	wait(70);
 	setMoveArea(0f, 128f, 280f, 64f);
 	MBoss1();
@@ -55,14 +55,14 @@ sub MBoss1_at()
 	anmFile(0);
 	anmAt(1, -1);
 	anmAt(2, -1);
-	setBossFog(0f, 15675535);
+	fog(0f, 15675535);
 	float newpos = 192f - (32f + (RF * 320f));
 	wait(40);
 	unsetFlags(32);
 	anmFile(0);
 	anmAt(1, 95);
 	anmAt(2, 158);
-	setBossFog(160f, 15675535);
+	fog(160f, 15675535);
 	enmPos(newpos, 96f);
 	wait(40);
 	return();

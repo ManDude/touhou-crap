@@ -32,7 +32,7 @@ sub MBoss()
 	resetBoss();
 	interrupt(0, 710, 2400, "MBossCard1");
 	timeoutAt(0, "MBossEscape");
-	setBossFog(160f, 11497327);
+	fog(160f, 11497327);
 	stageProg(6);
 	wait(30);
 	MBoss1();

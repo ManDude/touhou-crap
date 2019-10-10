@@ -42,7 +42,7 @@ sub Boss1()
 	anmFile(0);
 	anmAt(1, 95);
 	anmAt(2, 158);
-	setBossFog(160f, 15675535);
+	fog(160f, 15675535);
 	wait(50);
 	while 1 {
 		Boss1_at1();

@@ -27,7 +27,7 @@ sub Boss()
 	anmAt(1, 95);
 	anmAt(2, 158);
 	anmFile(2);
-	setBossFog(160f, 16728031);
+	fog(160f, 16728031);
 	Boss1();
 	while 1 wait(1000);
 	delete();
@@ -134,6 +134,8 @@ sub Boss1_at1()
 	%E = %F0;
 	$F = $I0;
 	setFlags(3);
+	anmFile(1);
+	anmAt(0, 50);
 	hitbox(28f, 28f);
 	enmDir(%E, 0.8f);
 	enmDirTime(370, 4, [NEGF], 0f);
@@ -237,6 +239,8 @@ Boss2_1620:
 sub Boss2_Enemy()
 {
 	var A, B, C;
+	anmFile(1);
+	anmAt(0, 50);
 	setFlags(3);
 	hitbox(28f, 28f);
 	killbox(28f, 28f);

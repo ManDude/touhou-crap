@@ -19,7 +19,7 @@ sub Boss()
 	anmAt(1, 95);
 	anmAt(2, 158);
 	anmFile(2);
-	setBossFog(160f, 16728031);
+	fog(160f, 16728031);
 	Boss1();
 	delete();
 }

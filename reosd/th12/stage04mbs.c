@@ -21,7 +21,7 @@ sub MBoss()
 	life(7000);
 	stageProg(6);
 	enmPos(0f, 128f);
-	setBossFog(160f, 9408511);
+	fog(160f, 9408511);
 	wait(30);
 	unsetFlags(1);
 	MBoss1();
@@ -114,7 +114,7 @@ sub MBossDead()
 	itemDrop();
 	ItemDrop2(60, 48f, 48f);
 	if (RANK == 3) {
-		setBossFog(0f, 0);
+		fog(0f, 0);
 		wait(60);
 		Give1Up();
 	}
