@@ -233,6 +233,7 @@ sub MainSub02()
 
 sub Girl00(int anm1, int anm2)
 {
+	itemClear();
     anm(2);
     anmScrNoMove(0, anm1);
     hitbox(28f, 28f);
@@ -265,6 +266,7 @@ sub Girl00Dead()
 
 sub Girl01(int anm1, int anm2)
 {
+	itemClear();
     anm(2);
     anmScrNoMove(0, anm1);
     hitbox(28f, 28f);
