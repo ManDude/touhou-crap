@@ -11,9 +11,9 @@ sub MBoss()
     enmClear();
     resetBoss();
     enmNewRel("Ecl_EtBreak_ni", 0f, 0f, 9999, 0, 0);
-    anm(2);
-    anmScr(0, 46);
-    anmScr(1, 47);
+    anmFile(2);
+    anmAt(0, 46);
+    anmAt(1, 47);
     enmClear();
     enmNewRel("Ecl_EtBreak", 0f, 0f, 9999, 0, 0);
     setFlags([ENEMY_NO_HURT]);

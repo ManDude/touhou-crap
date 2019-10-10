@@ -5,8 +5,8 @@ sub Boss()
     var A;
     stageProg(24);
     boss(0);
-    anm(2);
-    anmScrNoMove(0, 0);
+    anmFile(2);
+    anmMoveAt(0, 0);
     setFlags(76);
     hitbox(64f, 64f);
     killbox(64f, 64f);
@@ -16,24 +16,24 @@ sub Boss()
 +60:
     msgWait();
     setMoveArea(0f, 112f, 280f, 64f);
-    anm(0);
-    anmScr(1, 95);
-    anmScr(2, 158);
-    anm(2);
+    anmFile(0);
+    anmAt(1, 95);
+    anmAt(2, 158);
+    anmFile(2);
     setBossFog(160f, 16748543);
     life(5000);
     lifebar(0, 5000f, -24448);
     playSE(58);
-    anmScr(3, 48);
-    anmScr(4, 57);
-    anmScr(5, 49);
-    anmScr(6, 50);
-    anmScr(7, 51);
-    anmScr(8, 52);
-    anmScr(9, 53);
-    anmScr(10, 54);
-    anmScr(11, 55);
-    anmScr(12, 56);
+    anmAt(3, 48);
+    anmAt(4, 57);
+    anmAt(5, 49);
+    anmAt(6, 50);
+    anmAt(7, 51);
+    anmAt(8, 52);
+    anmAt(9, 53);
+    anmAt(10, 54);
+    anmAt(11, 55);
+    anmAt(12, 56);
     ins_281(3, 0);
     ins_281(4, 0);
     ins_281(5, 0);
@@ -62,8 +62,8 @@ sub Boss1()
     lifebar(0, 2200f, -24448);
     stageProg(24);
     lives(5);
-    anm(2);
-    anmScrSlot(0, 119);
+    anmFile(2);
+    anmAt2(0, 119);
     wait(10);
     %F3 = 0.098175f;
     goto Boss1_636 @ 0;
@@ -304,20 +304,20 @@ Boss2_784:
     setMoveArea(0f, 112f, 280f, 64f);
     enmPosTime(60, 0, 0f, 128f);
     wait(90);
-    anmScrSlot(0, 119);
+    anmAt2(0, 119);
     playSE(31);
     wait(90);
     playSE(58);
-    anmScr(3, 48);
-    anmScr(4, 57);
-    anmScr(5, 49);
-    anmScr(6, 50);
-    anmScr(7, 51);
-    anmScr(8, 52);
-    anmScr(9, 53);
-    anmScr(10, 54);
-    anmScr(11, 55);
-    anmScr(12, 56);
+    anmAt(3, 48);
+    anmAt(4, 57);
+    anmAt(5, 49);
+    anmAt(6, 50);
+    anmAt(7, 51);
+    anmAt(8, 52);
+    anmAt(9, 53);
+    anmAt(10, 54);
+    anmAt(11, 55);
+    anmAt(12, 56);
     ins_281(3, 0);
     ins_281(4, 0);
     ins_281(5, 0);
@@ -472,16 +472,16 @@ sub Boss3()
 {
     var A, B, C, D;
     life(12500);
-    anmScr(3, -1);
-    anmScr(4, -1);
-    anmScr(5, -1);
-    anmScr(6, -1);
-    anmScr(7, -1);
-    anmScr(8, -1);
-    anmScr(9, -1);
-    anmScr(10, -1);
-    anmScr(11, -1);
-    anmScr(12, -1);
+    anmAt(3, -1);
+    anmAt(4, -1);
+    anmAt(5, -1);
+    anmAt(6, -1);
+    anmAt(7, -1);
+    anmAt(8, -1);
+    anmAt(9, -1);
+    anmAt(10, -1);
+    anmAt(11, -1);
+    anmAt(12, -1);
     resetBoss();
     ins_21();
     enmClear();
@@ -543,16 +543,16 @@ Boss3_2128:
     playSE(28);
     wait(120);
     playSE(58);
-    anmScr(3, 48);
-    anmScr(4, 57);
-    anmScr(5, 49);
-    anmScr(6, 50);
-    anmScr(7, 51);
-    anmScr(8, 52);
-    anmScr(9, 53);
-    anmScr(10, 54);
-    anmScr(11, 55);
-    anmScr(12, 56);
+    anmAt(3, 48);
+    anmAt(4, 57);
+    anmAt(5, 49);
+    anmAt(6, 50);
+    anmAt(7, 51);
+    anmAt(8, 52);
+    anmAt(9, 53);
+    anmAt(10, 54);
+    anmAt(11, 55);
+    anmAt(12, 56);
     ins_281(3, 0);
     ins_281(4, 0);
     ins_281(5, 0);
@@ -568,9 +568,9 @@ Boss3_2128:
     wait(60);
     playSE(28);
     setMoveArea(0f, 96f, 144f, 48f);
-    anm(2);
-    anmScrNoMove(0, 0);
-    anmScrSlot(0, 119);
+    anmFile(2);
+    anmMoveAt(0, 0);
+    anmAt2(0, 119);
     playSE(31);
     wait(60);
     goto Boss3_3176 @ 0;
@@ -748,16 +748,16 @@ sub Boss4()
 {
     var A, B, C, D, E;
     life(22000);
-    anmScr(3, -1);
-    anmScr(4, -1);
-    anmScr(5, -1);
-    anmScr(6, -1);
-    anmScr(7, -1);
-    anmScr(8, -1);
-    anmScr(9, -1);
-    anmScr(10, -1);
-    anmScr(11, -1);
-    anmScr(12, -1);
+    anmAt(3, -1);
+    anmAt(4, -1);
+    anmAt(5, -1);
+    anmAt(6, -1);
+    anmAt(7, -1);
+    anmAt(8, -1);
+    anmAt(9, -1);
+    anmAt(10, -1);
+    anmAt(11, -1);
+    anmAt(12, -1);
     setFlags(2);
     resetBoss();
     ins_21();
@@ -820,16 +820,16 @@ Boss4_2148:
     playSE(28);
     wait(120);
     playSE(58);
-    anmScr(3, 48);
-    anmScr(4, 57);
-    anmScr(5, 49);
-    anmScr(6, 50);
-    anmScr(7, 51);
-    anmScr(8, 52);
-    anmScr(9, 53);
-    anmScr(10, 54);
-    anmScr(11, 55);
-    anmScr(12, 56);
+    anmAt(3, 48);
+    anmAt(4, 57);
+    anmAt(5, 49);
+    anmAt(6, 50);
+    anmAt(7, 51);
+    anmAt(8, 52);
+    anmAt(9, 53);
+    anmAt(10, 54);
+    anmAt(11, 55);
+    anmAt(12, 56);
     ins_281(3, 0);
     ins_281(4, 0);
     ins_281(5, 0);
@@ -844,9 +844,9 @@ Boss4_2148:
     enmPosTime(120, 0, 0f, 96f);
     wait(60);
     playSE(28);
-    anm(2);
-    anmScrNoMove(0, 0);
-    anmScrSlot(0, 119);
+    anmFile(2);
+    anmMoveAt(0, 0);
+    anmAt2(0, 119);
     playSE(31);
     wait(60);
     wait(60);
@@ -1085,16 +1085,16 @@ sub Boss5()
 !H
     life(2200);
 !*
-    anmScr(3, -1);
-    anmScr(4, -1);
-    anmScr(5, -1);
-    anmScr(6, -1);
-    anmScr(7, -1);
-    anmScr(8, -1);
-    anmScr(9, -1);
-    anmScr(10, -1);
-    anmScr(11, -1);
-    anmScr(12, -1);
+    anmAt(3, -1);
+    anmAt(4, -1);
+    anmAt(5, -1);
+    anmAt(6, -1);
+    anmAt(7, -1);
+    anmAt(8, -1);
+    anmAt(9, -1);
+    anmAt(10, -1);
+    anmAt(11, -1);
+    anmAt(12, -1);
     setFlags(2);
     resetBoss();
     ins_21();
@@ -1170,16 +1170,16 @@ sub Boss6()
 {
     var A, B, C, D;
     life(7000);
-    anmScr(3, -1);
-    anmScr(4, -1);
-    anmScr(5, -1);
-    anmScr(6, -1);
-    anmScr(7, -1);
-    anmScr(8, -1);
-    anmScr(9, -1);
-    anmScr(10, -1);
-    anmScr(11, -1);
-    anmScr(12, -1);
+    anmAt(3, -1);
+    anmAt(4, -1);
+    anmAt(5, -1);
+    anmAt(6, -1);
+    anmAt(7, -1);
+    anmAt(8, -1);
+    anmAt(9, -1);
+    anmAt(10, -1);
+    anmAt(11, -1);
+    anmAt(12, -1);
     setFlags(2);
     resetBoss();
     ins_21();
@@ -1249,9 +1249,9 @@ sub BossCard1()
     stageProg(43);
     enmPosTime(60, 4, 0f, 160f);
     setMoveArea(0f, 128f, 200f, 64f);
-    anmScrNoMove(0, 0);
+    anmMoveAt(0, 0);
 +60:
-    anmScrSlot(0, 119);
+    anmAt2(0, 119);
     wait(60);
     enmPosTime(200, 4, 0f, 128f);
     goto BossCard1_1060 @ 60;
@@ -1453,7 +1453,7 @@ sub BossCard2()
     invinc(60);
     stageProg(44);
     unsetMoveArea();
-    anmScrSlot(0, 119);
+    anmAt2(0, 119);
 +60:
     ins_269(0);
 +30:
@@ -1540,7 +1540,7 @@ sub BossCard3()
     stageProg(44);
     unsetMoveArea();
 +60:
-    anmScrSlot(0, 119);
+    anmAt2(0, 119);
 +60:
     ins_269(0);
     @BossCard3_at() async;
@@ -1732,7 +1732,7 @@ sub BossCard4()
     stageProg(44);
     unsetMoveArea();
 +60:
-    anmScrSlot(0, 119);
+    anmAt2(0, 119);
 +60:
     ins_269(0);
     shake(120, 0, 1);
@@ -1773,8 +1773,8 @@ BossCard4_1844:
 sub BossCard4Laser()
 {
     var A, B;
-    anm(2);
-    anmScr(0, $I3);
+    anmFile(2);
+    anmAt(0, $I3);
     ins_277(0, %F0);
     %B = %F0;
     setFlags(797);
@@ -1796,8 +1796,8 @@ sub BossCard4Laser()
 sub BossCard4Laser2()
 {
     var A, B;
-    anm(2);
-    anmScr(0, $I3);
+    anmFile(2);
+    anmAt(0, $I3);
     ins_277(0, %F0);
     %B = %F0;
     setFlags(797);
@@ -2188,7 +2188,7 @@ sub BossCard5()
     wait(60);
     goto BossCard5_4676 @ 360;
 BossCard5_748:
-    anmScrSlot(0, 119);
+    anmAt2(0, 119);
     playSE(31);
     ins_269(0);
 +60:
@@ -2215,7 +2215,7 @@ BossCard5_1428:
 BossCard5_1600:
     if $G-- goto BossCard5_1008 @ 60;
     wait_rank(60, 120, 90, 30);
-    anmScrSlot(0, 119);
+    anmAt2(0, 119);
     playSE(31);
     ins_269(0);
 +60:
@@ -2248,7 +2248,7 @@ BossCard5_2636:
     if $H-- goto BossCard5_1936 @ 120;
     wait_rank(60, 120, 90, 30);
 +60:
-    anmScrSlot(0, 119);
+    anmAt2(0, 119);
     playSE(31);
     ins_269(0);
 +60:
@@ -2276,7 +2276,7 @@ BossCard5_3564:
     if $I-- goto BossCard5_2972 @ 240;
     wait_rank(60, 120, 90, 30);
 +60:
-    anmScrSlot(0, 119);
+    anmAt2(0, 119);
     playSE(31);
     ins_269(0);
 +60:
@@ -2317,7 +2317,7 @@ sub BossCard5ShadowL()
 {
     goto BossCard5ShadowL_104 @ 0;
 BossCard5ShadowL_60:
-    anmScrSlot(2, 8);
+    anmAt2(2, 8);
     wait(1);
 BossCard5ShadowL_104:
     if 1 goto BossCard5ShadowL_60 @ 0;
@@ -2328,7 +2328,7 @@ sub BossCard5ShadowR()
 {
     goto BossCard5ShadowR_104 @ 0;
 BossCard5ShadowR_60:
-    anmScrSlot(2, 7);
+    anmAt2(2, 7);
     wait(1);
 BossCard5ShadowR_104:
     if 1 goto BossCard5ShadowR_60 @ 0;
@@ -2407,16 +2407,16 @@ sub BossCard6()
     unsetMoveArea();
     wait(60);
     playSE(58);
-    anmScr(3, 48);
-    anmScr(4, 57);
-    anmScr(5, 49);
-    anmScr(6, 50);
-    anmScr(7, 51);
-    anmScr(8, 52);
-    anmScr(9, 53);
-    anmScr(10, 54);
-    anmScr(11, 55);
-    anmScr(12, 56);
+    anmAt(3, 48);
+    anmAt(4, 57);
+    anmAt(5, 49);
+    anmAt(6, 50);
+    anmAt(7, 51);
+    anmAt(8, 52);
+    anmAt(9, 53);
+    anmAt(10, 54);
+    anmAt(11, 55);
+    anmAt(12, 56);
     ins_281(3, 0);
     ins_281(4, 0);
     ins_281(5, 0);
@@ -2526,7 +2526,7 @@ sub BossCard6HPPhase()
 {
     goto BossCard6HPPhase_104 @ 0;
 BossCard6HPPhase_60:
-    anmScrSlot(2, 8);
+    anmAt2(2, 8);
     wait(1);
 BossCard6HPPhase_104:
     if 1 goto BossCard6HPPhase_60 @ 0;
@@ -2569,8 +2569,8 @@ BossCard6_at_676:
 sub BossCard6_atLine()
 {
     var A;
-    anm(2);
-    anmScr(0, 82);
+    anmFile(2);
+    anmAt(0, 82);
     setFlags(271);
     wait(14);
     enmDir(%F0, %F1);
@@ -2594,9 +2594,9 @@ sub BossDead()
 {
     var A, B;
     setFlags(140);
-    anmScrSlot(0, 79);
+    anmAt2(0, 79);
     playSE(5);
-    anmScrSlot(0, 129);
+    anmAt2(0, 129);
     enmDir(%RDEG, 0.4f);
     unless ($TIMEOUT == 0) goto BossDead_308 @ 0;
     enmNewRel("Ecl_EtBreak2", 0f, 0f, 9999, 0, 0);
@@ -2613,8 +2613,8 @@ BossDead_364:
     boss(-1);
     itemMain(0);
     shake(30, 12, 0);
-    anmScrSlot(0, 79);
-    anmScrSlot(0, 130);
+    anmAt2(0, 79);
+    anmAt2(0, 130);
     playSE(5);
     setFlags(32);
     enmDir(0f, 0f);

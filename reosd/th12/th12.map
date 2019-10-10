@@ -49,12 +49,12 @@ eclmap
 85 ? negf
 256 ? enmNewRel
 257 ? enmNew
-258 ? anm
-259 ? anmScr
+258 ? anmFile
+259 ? anmAt
 260 ? enmNewRelMir
 261 ? enmNewMir
-262 ? anmScrNoMove
-263 ? anmScrSlot
+262 ? anmMoveAt
+263 ? anmAt2
 265 ? enmNewRelNoBoss
 266 ? enmNewNoBoss
 267 ? enmNewRelMirNoBoss

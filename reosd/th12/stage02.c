@@ -26,8 +26,8 @@ sub MainBossDebug()
 
 sub MainGirl00()
 {
-	anm(1);
-	anmScrNoMove(0, 0);
+	anmFile(1);
+	anmMoveAt(0, 0);
 	setFlags(64);
 	hitbox(36f, 36f);
 	killbox(28f, 28f);
@@ -69,8 +69,8 @@ sub MainGirl00_at()
 
 sub MainGirl01()
 {
-	anm(1);
-	anmScrNoMove(0, 0);
+	anmFile(1);
+	anmMoveAt(0, 0);
 	setFlags(64);
 	hitbox(36f, 36f);
 	killbox(28f, 28f);
@@ -259,8 +259,8 @@ sub MainSub04b()
 
 sub Particle00()
 {
-	anm(1);
-	anmScr(0, 92);
+	anmFile(1);
+	anmAt(0, 92);
 	hitbox(16f, 16f);
 	killbox(16f, 16f);
 	enmDir(0.7853982f + (RF * 1.5707964f), 3f);
@@ -272,8 +272,8 @@ sub Particle00()
 
 sub Particle01()
 {
-	anm(1);
-	anmScr(0, 89);
+	anmFile(1);
+	anmAt(0, 89);
 	hitbox(22f, 22f);
 	killbox(22f, 22f);
 	enmDir(0.7853982f + (RF * 1.5707964f), 5f);
@@ -285,8 +285,8 @@ sub Particle01()
 
 sub Thing00(int anm, float dir)
 {
-	anm(1);
-	anmScrNoMove(0, anm);
+	anmFile(1);
+	anmMoveAt(0, anm);
 	setFlags(64);
 	hitbox(36f, 36f);
 	killbox(28f, 28f);

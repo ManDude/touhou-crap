@@ -56,8 +56,8 @@ sub BGirl01()
 {
 	itemEx(1, 1);
 	itemEx(2, 1);
-	anm(1);
-	anmScr(1, 50);
+	anmFile(1);
+	anmAt(1, 50);
 	Girl01(0, 1);
 	delete();
 }
@@ -66,8 +66,8 @@ sub BGirl04()
 {
 	itemEx(1, 1);
 	itemEx(2, 1);
-	anm(1);
-	anmScr(1, 50);
+	anmFile(1);
+	anmAt(1, 50);
 	Girl04(0, 1);
 	delete();
 }
@@ -76,16 +76,16 @@ sub Book00()
 {
 	itemEx(1, 1);
 	itemEx(2, 1);
-	anm(1);
-	anmScr(1, 53);
+	anmFile(1);
+	anmAt(1, 53);
 	Book00_at(15, 1);
 	delete();
 }
 
 sub Book00_at(int anm, int anm2)
 {
-	anm(1);
-	anmScr(0, anm);
+	anmFile(1);
+	anmAt(0, anm);
 	hitbox(28f, 28f);
 	killbox(28f, 28f);
 	ins_275(0, 1);
@@ -122,16 +122,16 @@ sub Book01()
 {
 	itemEx(1, 10);
 	itemEx(2, 10);
-	anm(1);
-	anmScr(1, 53);
+	anmFile(1);
+	anmAt(1, 53);
 	Book01_at(15, 1);
 	delete();
 }
 
 sub Book01_at(int anm, int anm2)
 {
-	anm(1);
-	anmScr(0, anm);
+	anmFile(1);
+	anmAt(0, anm);
 	hitbox(28f, 28f);
 	killbox(28f, 28f);
 	ins_275(0, 1);
@@ -159,16 +159,16 @@ sub Book02()
 {
 	itemEx(1, 10);
 	itemEx(2, 10);
-	anm(1);
-	anmScr(1, 53);
+	anmFile(1);
+	anmAt(1, 53);
 	Book02_at(15, 1);
 	delete();
 }
 
 sub Book02_at(int anm, int anm2)
 {
-	anm(1);
-	anmScr(0, anm);
+	anmFile(1);
+	anmAt(0, anm);
 	hitbox(28f, 28f);
 	killbox(28f, 28f);
 	ins_275(0, 1);
@@ -197,8 +197,8 @@ sub Book02_at(int anm, int anm2)
 
 sub Cir00(int anm, int anm2, int m)
 {
-	anm(1);
-	anmScr(0, anm);
+	anmFile(1);
+	anmAt(0, anm);
 	hitbox(28f, 28f);
 	killbox(28f, 28f);
 	etNew(0);
@@ -226,8 +226,8 @@ sub Cir00(int anm, int anm2, int m)
 
 sub Cir01(int anm, int anm2, int m)
 {
-	anm(1);
-	anmScr(0, anm);
+	anmFile(1);
+	anmAt(0, anm);
 	hitbox(28f, 28f);
 	killbox(28f, 28f);
 	etNew(0);
@@ -257,8 +257,8 @@ sub Cir01(int anm, int anm2, int m)
 
 sub Cir02(int anm, int anm2, int m)
 {
-	anm(1);
-	anmScr(0, anm);
+	anmFile(1);
+	anmAt(0, anm);
 	hitbox(28f, 28f);
 	killbox(28f, 28f);
 	etNew(0);
@@ -286,8 +286,8 @@ sub Cir02(int anm, int anm2, int m)
 
 sub Cir03(int anm, int anm2, int m)
 {
-	anm(1);
-	anmScr(0, anm);
+	anmFile(1);
+	anmAt(0, anm);
 	hitbox(28f, 28f);
 	killbox(28f, 28f);
 	etNew(0);
@@ -317,8 +317,8 @@ sub Cir03(int anm, int anm2, int m)
 
 sub Cir04(int anm, int anm2, int m)
 {
-	anm(1);
-	anmScr(0, anm);
+	anmFile(1);
+	anmAt(0, anm);
 	hitbox(28f, 28f);
 	killbox(28f, 28f);
 	enmDir(0f, 4.5f);
@@ -331,8 +331,8 @@ sub Cir04(int anm, int anm2, int m)
 
 sub Cir05(int anm, int anm2, int m)
 {
-	anm(1);
-	anmScr(0, anm);
+	anmFile(1);
+	anmAt(0, anm);
 	hitbox(28f, 28f);
 	killbox(28f, 28f);
 	enmDir(-1.0471976f, 4.5f);
@@ -347,8 +347,8 @@ sub Cir05(int anm, int anm2, int m)
 
 sub Cir06(int anm, int anm2, int m)
 {
-	anm(1);
-	anmScr(0, anm);
+	anmFile(1);
+	anmAt(0, anm);
 	hitbox(28f, 28f);
 	killbox(28f, 28f);
 	enmDir(1.5707964f, 4.5f);
@@ -369,8 +369,8 @@ sub Cir06(int anm, int anm2, int m)
 
 sub Cir07(int anm, int anm2, int m)
 {
-	anm(1);
-	anmScr(0, anm);
+	anmFile(1);
+	anmAt(0, anm);
 	hitbox(28f, 28f);
 	killbox(28f, 28f);
 	enmDir(0f, 4.5f);
@@ -424,8 +424,8 @@ sub GGirl01()
 {
 	itemEx(1, 1);
 	itemEx(2, 1);
-	anm(1);
-	anmScr(1, 52);
+	anmFile(1);
+	anmAt(1, 52);
 	Girl01(10, 1);
 	delete();
 }
@@ -434,8 +434,8 @@ sub GGirl02()
 {
 	itemEx(1, 1);
 	itemEx(2, 1);
-	anm(1);
-	anmScr(1, 52);
+	anmFile(1);
+	anmAt(1, 52);
 	Girl02(10, 1);
 	delete();
 }
@@ -444,16 +444,16 @@ sub GGirl04()
 {
 	itemEx(1, 1);
 	itemEx(2, 1);
-	anm(1);
-	anmScr(1, 52);
+	anmFile(1);
+	anmAt(1, 52);
 	Girl04(10, 1);
 	delete();
 }
 
 sub Girl00(int anm, int anm2)
 {
-	anm(1);
-	anmScr(0, anm);
+	anmFile(1);
+	anmAt(0, anm);
 	hitbox(28f, 28f);
 	killbox(28f, 28f);
 	enmDir(1.5707964f, 2f);
@@ -469,8 +469,8 @@ sub Girl00(int anm, int anm2)
 
 sub Girl01(int anm, int anm2)
 {
-	anm(1);
-	anmScr(0, anm);
+	anmFile(1);
+	anmAt(0, anm);
 	hitbox(28f, 28f);
 	killbox(28f, 28f);
 	enmDir(0f, 2f);
@@ -487,8 +487,8 @@ sub Girl01(int anm, int anm2)
 sub Girl02(int anm, int anm2)
 {
 	interrupt(0, 0, -1, "Girl02Dead");
-	anm(1);
-	anmScr(0, anm);
+	anmFile(1);
+	anmAt(0, anm);
 	hitbox(28f, 28f);
 	killbox(28f, 28f);
 	enmDir(1.5707964f, 2f);
@@ -531,8 +531,8 @@ sub Girl02Dead()
 sub Girl03(int anm, int anm2)
 {
 	interrupt(0, 0, -1, "Girl02Dead");
-	anm(1);
-	anmScr(0, anm);
+	anmFile(1);
+	anmAt(0, anm);
 	hitbox(28f, 28f);
 	killbox(28f, 28f);
 	enmDir(0f, 2f);
@@ -565,8 +565,8 @@ sub Girl03(int anm, int anm2)
 
 sub Girl04(int anm, int anm2)
 {
-	anm(1);
-	anmScr(0, anm);
+	anmFile(1);
+	anmAt(0, anm);
 	hitbox(28f, 28f);
 	killbox(28f, 28f);
 	enmDir(1.5707964f, 2f);
@@ -1065,8 +1065,8 @@ sub RGirl00()
 {
 	itemEx(1, 1);
 	itemEx(2, 1);
-	anm(1);
-	anmScr(1, 51);
+	anmFile(1);
+	anmAt(1, 51);
 	Girl00(5, 1);
 	delete();
 }
@@ -1075,8 +1075,8 @@ sub RGirl01()
 {
 	itemEx(1, 1);
 	itemEx(2, 1);
-	anm(1);
-	anmScr(1, 51);
+	anmFile(1);
+	anmAt(1, 51);
 	Girl01(5, 1);
 	delete();
 }
@@ -1085,8 +1085,8 @@ sub RGirl04()
 {
 	itemEx(1, 1);
 	itemEx(2, 1);
-	anm(1);
-	anmScr(1, 51);
+	anmFile(1);
+	anmAt(1, 51);
 	Girl04(5, 1);
 	delete();
 }
@@ -1095,8 +1095,8 @@ sub YGirl00()
 {
 	itemEx(1, 1);
 	itemEx(2, 1);
-	anm(1);
-	anmScr(1, 53);
+	anmFile(1);
+	anmAt(1, 53);
 	Girl00(15, 1);
 	delete();
 }
@@ -1105,8 +1105,8 @@ sub YGirl02()
 {
 	itemEx(1, 1);
 	itemEx(2, 1);
-	anm(1);
-	anmScr(1, 53);
+	anmFile(1);
+	anmAt(1, 53);
 	Girl02(15, 1);
 	delete();
 }
@@ -1115,8 +1115,8 @@ sub YGirl03()
 {
 	itemEx(1, 1);
 	itemEx(2, 1);
-	anm(1);
-	anmScr(1, 53);
+	anmFile(1);
+	anmAt(1, 53);
 	Girl03(15, 1);
 	delete();
 }

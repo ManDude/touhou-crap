@@ -7,8 +7,8 @@ ecli { "default.ecl"; "stage05mbs.ecl"; "stage05boss.ecl"; }
 //enemies
 sub BigGirlMain()
 {
-	anm(2);
-	anmScrNoMove(0, 39);
+	anmFile(2);
+	anmMoveAt(0, 39);
 	setFlags([ENEMY_LIFE_WARN]);
 	MainGirlFuncManager();
 	delete();
@@ -16,9 +16,9 @@ sub BigGirlMain()
 
 sub RGirlMain()
 {
-	anm(1);
-	anmScr(1, 51);
-	anmScr(0, 5);
+	anmFile(1);
+	anmAt(1, 51);
+	anmAt(0, 5);
 	I1 = 2;
 	MainGirlFuncManager();
 	delete();
@@ -26,9 +26,9 @@ sub RGirlMain()
 
 sub BGirlMain()
 {
-	anm(1);
-	anmScr(1, 50);
-	anmScr(0, 0);
+	anmFile(1);
+	anmAt(1, 50);
+	anmAt(0, 0);
 	I1 = 6;
 	MainGirlFuncManager();
 	delete();
@@ -36,9 +36,9 @@ sub BGirlMain()
 
 sub GGirlMain()
 {
-	anm(1);
-	anmScr(1, 52);
-	anmScr(0, 10);
+	anmFile(1);
+	anmAt(1, 52);
+	anmAt(0, 10);
 	I1 = 10;
 	MainGirlFuncManager();
 	delete();
@@ -46,9 +46,9 @@ sub GGirlMain()
 
 sub YGirlMain()
 {
-	anm(1);
-	anmScr(1, 53);
-	anmScr(0, 15);
+	anmFile(1);
+	anmAt(1, 53);
+	anmAt(0, 15);
 	I1 = 14;
 	MainGirlFuncManager();
 	delete();

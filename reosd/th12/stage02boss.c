@@ -13,12 +13,12 @@ sub Boss()
 	msgWait();
 1:
 	unsetFlags(32);
-	anm(2);
-	anmScrNoMove(0, 0);
+	anmFile(2);
+	anmMoveAt(0, 0);
 	enmPos(0f, 96f);
 	msgWait();
 	setMoveArea(0f, 91f, 320f, 86f);
-	anm(2);
+	anmFile(2);
 	Boss1();
 	delete();
 }
@@ -35,13 +35,13 @@ sub Boss1()
 	lifebar(0, 1500f, -24448);
 	stageProg(24);
 	lives(1);
-	anmScrSlot(0, 119);
+	anmAt2(0, 119);
 	playSE(31);
 	invinc(20);
 	wait(20);
-	anm(0);
-	anmScr(1, 95);
-	anmScr(2, 158);
+	anmFile(0);
+	anmAt(1, 95);
+	anmAt(2, 158);
 	setBossFog(160f, 15675535);
 	wait(50);
 	while 1 {
@@ -174,7 +174,7 @@ sub Boss2()
 	invinc(200);
 	ItemDrop(35, 64f, 64f);
 	playSE(28);
-	anmScrSlot(0, 119);
+	anmAt2(0, 119);
 	playSE(31);
 200:
 	noop();
@@ -275,7 +275,7 @@ sub BossCard1EN()
 	cardE(10, 1800, 500000, "氷符「アイシクルフォール」");
 	stageProg(43);
 	enmPosTime(120, 4, 0f, 96f);
-	anmScrSlot(0, 119);
+	anmAt2(0, 119);
 	invinc(120);
 	etNew(0);
 	etOfs(0, 0f, -12f);
@@ -563,9 +563,9 @@ sub BossCard3()
 sub BossDead()
 {
 	setFlags(140);
-	anmScrSlot(0, 79);
+	anmAt2(0, 79);
 	playSE(5);
-	anmScrSlot(0, 129);
+	anmAt2(0, 129);
 	enmDir(RDEG, 0.6f);
 	if (TIMEOUT == 0)
 		enmNewRel("Ecl_EtBreak2", 0f, 0f, 9999, 0, 0);
@@ -576,8 +576,8 @@ sub BossDead()
 	etClear_ni(1000f);
 	cardEnd();
 	shake(30, 12, 0);
-	anmScrSlot(0, 79);
-	anmScrSlot(0, 130);
+	anmAt2(0, 79);
+	anmAt2(0, 130);
 	playSE(5);
 	ItemDrop2(45, 64f, 64f);
 	boss(-1);

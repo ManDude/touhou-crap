@@ -184,8 +184,8 @@ sub ResetMovement()
 sub UFO_Blue()
 {
 	var A, B, C, D;
-	anm(1);
-	anmScr(0, 136);
+	anmFile(1);
+	anmAt(0, 136);
 	callSep("UFO_EtBreak");
 	setMoveArea(0f, 128f, 280f, 128f);
 	setFlags(1090);
@@ -270,8 +270,8 @@ UFO_EtBreak2_216:
 sub UFO_Green()
 {
 	var A, B, C, D;
-	anm(1);
-	anmScr(0, 137);
+	anmFile(1);
+	anmAt(0, 137);
 	callSep("UFO_EtBreak");
 	setMoveArea(0f, 128f, 280f, 128f);
 	setFlags(1090);
@@ -321,8 +321,8 @@ UFO_Green_1280:
 sub UFO_Rainbow()
 {
 	var A, B, C, D;
-	anm(1);
-	anmScr(0, 138);
+	anmFile(1);
+	anmAt(0, 138);
 	callSep("UFO_EtBreak");
 	setMoveArea(0f, 128f, 280f, 128f);
 	setFlags(1090);
@@ -372,8 +372,8 @@ UFO_Rainbow_1280:
 sub UFO_Red()
 {
 	var A, B, C, D;
-	anm(1);
-	anmScr(0, 135);
+	anmFile(1);
+	anmAt(0, 135);
 	callSep("UFO_EtBreak");
 	setMoveArea(0f, 128f, 280f, 128f);
 	setFlags(1090);

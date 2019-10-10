@@ -8,8 +8,8 @@ sub MBossCard1LaserHit()
 sub Boss()
 {
 	boss(0);
-	anm(2);
-	anmScrNoMove(0, 0);
+	anmFile(2);
+	anmMoveAt(0, 0);
 	setFlags(64);
 	hitbox(56f, 56f);
 	killbox(56f, 56f);
@@ -23,10 +23,10 @@ sub Boss()
 +1: //60
 	msgWait();
 	setMoveArea(0f, 90f, 320f, 84f);
-	anm(0);
-	anmScr(1, 95);
-	anmScr(2, 158);
-	anm(2);
+	anmFile(0);
+	anmAt(1, 95);
+	anmAt(2, 158);
+	anmFile(2);
 	setBossFog(160f, 16728031);
 	Boss1();
 	while 1 wait(1000);
@@ -42,8 +42,8 @@ sub Boss1()
 	lifebar(0, 1400f, -24448);
 	stageProg(24);
 	lives(2);
-	anm(2);
-	anmScrNoMove(0, 0);
+	anmFile(2);
+	anmMoveAt(0, 0);
 +100: //100
 	etNew(0);
 	etMode(0, 2);
@@ -61,7 +61,7 @@ sub Boss1()
 	etOfs(1, 0f, -12f);
 	goto Boss1_2704 @ 300;
 Boss1_736:
-	anmScrSlot(0, 119);
+	anmAt2(0, 119);
 	%F0 = 0.7853982f;
 	%F1 = 0.62831855f;
 	$I0 = 6;
@@ -454,12 +454,12 @@ Boss3_876:
 	setMoveArea(0f, 112f, 280f, 64f);
 	enmPosTime(60, 0, 0f, 128f);
 	wait(90);
-	anm(2);
-	anmScrNoMove(0, 0);
+	anmFile(2);
+	anmMoveAt(0, 0);
 	$C = 60;
 	goto Boss3_1680 @ 0;
 Boss3_1088:
-	anmScrSlot(0, 119);
+	anmAt2(0, 119);
 	playSE(31);
 	wait($C);
 	ins_269(0);
@@ -611,7 +611,7 @@ sub BossCard1()
 +120: //120
 	goto BossCard1_2160 @ 194;
 BossCard1_1356:
-	anmScrSlot(0, 119);
+	anmAt2(0, 119);
 	playSE(31);
 	ins_269(0);
 	wait(128);
@@ -795,7 +795,7 @@ sub BossCard2()
 	enmPosTime(120, 4, 0f, 112f);
 	invinc(120);
 	$I3 = 5;
-	anmScrSlot(0, 119);
+	anmAt2(0, 119);
 +120: //120
 	noop();
 !NHL
@@ -981,7 +981,7 @@ sub BossCard3()
 	stageProg(44);
 	unsetMoveArea();
 +60: //60
-	anmScrSlot(0, 119);
+	anmAt2(0, 119);
 +30: //90
 	ins_269(0);
 +30: //120
@@ -1063,8 +1063,8 @@ BossCard3AtH_536:
 sub BossCard3Laser()
 {
 	var A, B;
-	anm(2);
-	anmScr(0, $I3);
+	anmFile(2);
+	anmAt(0, $I3);
 	ins_277(0, %F0);
 	%B = %F0;
 	setFlags(797);
@@ -1140,8 +1140,8 @@ BossCard3LaserAt2_1648:
 sub BossCard3LaserMark()
 {
 	var A;
-	anm(0);
-	anmScr(0, 95);
+	anmFile(0);
+	anmAt(0, 95);
 	setFlags(259);
 	wait(200);
 	delete();
@@ -1224,7 +1224,7 @@ sub BossCard4()
 	invinc(60);
 	unsetMoveArea();
 +60: //60
-	anmScrSlot(0, 119);
+	anmAt2(0, 119);
 +30: //90
 	ins_269(0);
 +30: //120
@@ -1279,8 +1279,8 @@ BossCard4_2060:
 sub BossCard4Laser()
 {
 	var A, B;
-	anm(2);
-	anmScr(0, $I3);
+	anmFile(2);
+	anmAt(0, $I3);
 	ins_277(0, %F0);
 	%B = %F0;
 	setFlags(797);
@@ -1411,9 +1411,9 @@ sub BossDead()
 {
 	var A;
 	setFlags(140);
-	anmScrSlot(0, 79);
+	anmAt2(0, 79);
 	playSE(5);
-	anmScrSlot(0, 129);
+	anmAt2(0, 129);
 	enmDir(%RDEG, 0.4f);
 	unless ($TIMEOUT == 0) goto BossDead_308 @ 0;
 	enmNewRel("Ecl_EtBreak2", 0f, 0f, 9999, 0, 0);
@@ -1434,8 +1434,8 @@ BossDead_364:
 	itemDrop();
 BossDead_616:
 	shake(30, 12, 0);
-	anmScrSlot(0, 79);
-	anmScrSlot(0, 130);
+	anmAt2(0, 79);
+	anmAt2(0, 130);
 	playSE(5);
 	boss(-1);
 	delete();

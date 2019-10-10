@@ -14,8 +14,8 @@ sub BGirl00()
 sub BGirl02()
 {
 	itemEx(2, 2);
-	anm(1);
-	anmScrNoMove(1, 50);
+	anmFile(1);
+	anmMoveAt(1, 50);
 	Girl02(0, 1);
 	delete();
 }
@@ -36,9 +36,9 @@ sub BGirl04()
 
 sub Ball00(int anm, int anm2, int m)
 {
-	anm(1);
-	anmScrSlot(1, 103);
-	anmScr(0, anm);
+	anmFile(1);
+	anmAt2(1, 103);
+	anmAt(0, anm);
 	hitbox(28f, 28f);
 	killbox(28f, 28f);
 	itemEx(1, 1);
@@ -117,9 +117,9 @@ sub Ball00atL()
 
 sub Ball01(int anm, int anm2, int m)
 {
-	anm(1);
-	anmScrSlot(1, 103);
-	anmScr(0, anm);
+	anmFile(1);
+	anmAt2(1, 103);
+	anmAt(0, anm);
 	hitbox(28f, 28f);
 	killbox(28f, 28f);
 	itemEx(1, 1);
@@ -202,8 +202,8 @@ sub GGirl04()
 
 sub Girl00(int anm, int anm2)
 {
-	anm(1);
-	anmScrNoMove(0, anm);
+	anmFile(1);
+	anmMoveAt(0, anm);
 	setFlags(64);
 	hitbox(28f, 28f);
 	killbox(28f, 28f);
@@ -245,8 +245,8 @@ sub Girl00(int anm, int anm2)
 
 sub Girl01()
 {
-	anm(1);
-	anmScrNoMove(0, 45);
+	anmFile(1);
+	anmMoveAt(0, 45);
 	setFlags(64);
 	hitbox(28f, 28f);
 	killbox(28f, 28f);
@@ -270,8 +270,8 @@ sub Girl01()
 
 sub Girl02(int anm, int anm2)
 {
-	anm(1);
-	anmScrNoMove(0, anm);
+	anmFile(1);
+	anmMoveAt(0, anm);
 	setFlags(64);
 	hitbox(28f, 28f);
 	killbox(28f, 28f);
@@ -305,8 +305,8 @@ sub Girl02(int anm, int anm2)
 
 sub Girl03(int anm, int anm2)
 {
-	anm(1);
-	anmScrNoMove(0, anm);
+	anmFile(1);
+	anmMoveAt(0, anm);
 	hitbox(28f, 28f);
 	killbox(28f, 28f);
 	enmDir(1.5707964f, 1.5f);
@@ -347,8 +347,8 @@ sub Girl03(int anm, int anm2)
 
 sub Girl04(int anm, int anm2)
 {
-	anm(1);
-	anmScrNoMove(0, anm);
+	anmFile(1);
+	anmMoveAt(0, anm);
 	hitbox(28f, 28f);
 	killbox(28f, 28f);
 	enmDir(1.5707964f, 2.5f);
@@ -694,8 +694,8 @@ sub RGirl00()
 
 sub RGirl02()
 {
-	anm(1);
-	anmScrNoMove(1, 51);
+	anmFile(1);
+	anmMoveAt(1, 51);
 	itemEx(1, 2);
 	Girl02(5, 1);
 	delete();

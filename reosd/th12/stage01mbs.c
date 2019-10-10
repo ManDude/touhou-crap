@@ -12,11 +12,11 @@ sub MBoss()
 	enmClear();
 	resetBoss();
 	enmNewRel("Ecl_EtBreak_ni", 0f, 0f, 9999, 0, 0);
-	anm(0);
-	anmScr(1, 95);
-	anmScr(2, 158);
-	anm(2);
-	anmScrNoMove(0, 0);
+	anmFile(0);
+	anmAt(1, 95);
+	anmAt(2, 158);
+	anmFile(2);
+	anmMoveAt(0, 0);
 	setFlags(68);
 	hitbox(56f, 64f);
 	killbox(48f, 56f);
@@ -187,7 +187,7 @@ sub MBossCard1()
 	enmPosTime(120, 4, 0f, 96f);
 	setMoveArea(0f, 96f, 320f, 96f);
 120:
-	anmScrSlot(0, 119);
+	anmAt2(0, 119);
 	MBossCard1_at() async;
 	while (1) {
 		noop();
@@ -272,7 +272,7 @@ sub MBossDead()
 		enmPosTime(60, 4, 0f, -64f);
 	}
 	ItemDrop2(15, 48f, 48f);
-	anmScrNoMove(0, 0);
+	anmMoveAt(0, 0);
 	life(100000);
 	invinc(120);
 	wait(120);
@@ -292,7 +292,7 @@ sub MBossEscape()
 	etClear_ni(640f);
 	ins_529(0);
 	resetBossParam();
-	anmScrNoMove(0, 0);
+	anmMoveAt(0, 0);
 	boss(-1);
 	setFlags(16);
 	enmPosTime(60, 4, 0f, -32f);

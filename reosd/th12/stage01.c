@@ -6,8 +6,8 @@ ecli { "default.ecl"; "stage01mbs.ecl"; "stage01boss.ecl"; }
 
 sub AGirl00()
 {
-	anm(1);
-	anmScrNoMove(1, 51);
+	anmFile(1);
+	anmMoveAt(1, 51);
 	rand(3, 3);
 	itemEx(I3, 1);
 	call("Fairy00");
@@ -16,8 +16,8 @@ sub AGirl00()
 
 sub AGirl01()
 {
-	anm(1);
-	anmScrNoMove(1, 51);
+	anmFile(1);
+	anmMoveAt(1, 51);
 	rand(3, 3);
 	itemEx(I3, 1);
 	call("Fairy01");
@@ -26,8 +26,8 @@ sub AGirl01()
 
 sub ARGirl01()
 {
-	anm(1);
-	anmScrNoMove(1, 51);
+	anmFile(1);
+	anmMoveAt(1, 51);
 	rand(2, 3);
 	I3 += 1;
 	itemMain(I3);
@@ -39,8 +39,8 @@ sub ARGirl01()
 
 sub ARGirl02()
 {
-	anm(1);
-	anmScrNoMove(1, 51);
+	anmFile(1);
+	anmMoveAt(1, 51);
 	rand(2, 3);
 	I3 += 1;
 	itemMain(I3);
@@ -52,8 +52,8 @@ sub ARGirl02()
 
 sub Fairy00()
 {
-	anm(1);
-	anmScrNoMove(0, 0);
+	anmFile(1);
+	anmMoveAt(0, 0);
 	hitbox(28f, 28f);
 	killbox(28f, 28f);
 	enmDir(1.5707964f, 2f);
@@ -70,8 +70,8 @@ sub Fairy00()
 
 sub Fairy01()
 {
-	anm(1);
-	anmScrNoMove(0, 0);
+	anmFile(1);
+	anmMoveAt(0, 0);
 	hitbox(28f, 28f);
 	killbox(28f, 28f);
 	enmDir(1.5707964f, 2f);
@@ -86,8 +86,8 @@ sub Fairy01()
 
 sub Fairy02()
 {
-	anm(1);
-	anmScrNoMove(0, 0);
+	anmFile(1);
+	anmMoveAt(0, 0);
 	hitbox(28f, 28f);
 	killbox(28f, 28f);
 	enmDir(1.5707964f, 2f);
@@ -105,8 +105,8 @@ sub Fairy02()
 
 sub Fairy03()
 {
-	anm(1);
-	anmScrNoMove(0, 0);
+	anmFile(1);
+	anmMoveAt(0, 0);
 	hitbox(28f, 28f);
 	killbox(28f, 28f);
 	enmDir(1.5707964f, 2f);

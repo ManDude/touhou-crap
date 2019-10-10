@@ -26,8 +26,8 @@ sub Cir00(int anm1, int anm2, int anmfile)
 {
     setFlags(3);
     playSE(40);
-    anm(1);
-    anmScr(0, anm1);
+    anmFile(1);
+    anmAt(0, anm1);
     unsetFlags(3);
     hitbox(28f, 28f);
     killbox(28f, 28f);
@@ -63,8 +63,8 @@ sub Cir01(int anm1, int anm2, int anmfile)
 {
     setFlags(3);
     playSE(40);
-    anm(1);
-    anmScr(0, anm1);
+    anmFile(1);
+    anmAt(0, anm1);
     unsetFlags(3);
     hitbox(28f, 28f);
     killbox(28f, 28f);
@@ -235,8 +235,8 @@ sub MainSub02()
 sub Girl00(int anm1, int anm2)
 {
 	itemClear();
-    anm(2);
-    anmScrNoMove(0, anm1);
+    anmFile(2);
+    anmMoveAt(0, anm1);
     hitbox(28f, 28f);
     killbox(28f, 28f);
     enmDir([R_R], 2f);
@@ -269,8 +269,8 @@ sub Girl00Dead()
 sub Girl01(int anm1, int anm2)
 {
 	itemClear();
-    anm(2);
-    anmScrNoMove(0, anm1);
+    anmFile(2);
+    anmMoveAt(0, anm1);
     hitbox(28f, 28f);
     killbox(28f, 28f);
     enmDir([R_D], 2f);
@@ -298,8 +298,8 @@ sub RGirl00()
 {
     itemClear();
     itemEx(1, 27);
-    anm(1);
-    anmScrNoMove(1, 51);
+    anmFile(1);
+    anmMoveAt(1, 51);
     Girl00(26, 1);
     delete();
 }
@@ -308,8 +308,8 @@ sub RGirl01()
 {
     itemClear();
     itemEx(1, 27);
-    anm(1);
-    anmScrNoMove(1, 51);
+    anmFile(1);
+    anmMoveAt(1, 51);
     Girl01(26, 1);
     delete();
 }
@@ -319,8 +319,8 @@ sub GGirl00()
     itemClear();
     itemEx(1, 9);
     itemEx(2, 18);
-    anm(1);
-    anmScrNoMove(1, 52);
+    anmFile(1);
+    anmMoveAt(1, 52);
     Girl00(31, 1);
     delete();
 }
@@ -330,8 +330,8 @@ sub GGirl01()
     itemClear();
     itemEx(1, 9);
     itemEx(2, 18);
-    anm(1);
-    anmScrNoMove(1, 52);
+    anmFile(1);
+    anmMoveAt(1, 52);
     Girl01(31, 1);
     delete();
 }
@@ -340,8 +340,8 @@ sub BGirl00()
 {
     itemClear();
     itemEx(2, 27);
-    anm(1);
-    anmScrNoMove(1, 50);
+    anmFile(1);
+    anmMoveAt(1, 50);
     Girl00(21, 1);
     delete();
 }
@@ -350,8 +350,8 @@ sub BGirl01()
 {
     itemClear();
     itemEx(2, 27);
-    anm(1);
-    anmScrNoMove(1, 50);
+    anmFile(1);
+    anmMoveAt(1, 50);
     Girl01(21, 1);
     delete();
 }
@@ -361,8 +361,8 @@ sub YGirl00()
     itemClear();
     itemEx(1, 18);
     itemEx(2, 9);
-    anm(1);
-    anmScrNoMove(1, 53);
+    anmFile(1);
+    anmMoveAt(1, 53);
     Girl00(36, 1);
     delete();
 }
@@ -372,8 +372,8 @@ sub YGirl01()
     itemClear();
     itemEx(1, 18);
     itemEx(2, 9);
-    anm(1);
-    anmScrNoMove(1, 53);
+    anmFile(1);
+    anmMoveAt(1, 53);
     Girl01(36, 1);
     delete();
 }

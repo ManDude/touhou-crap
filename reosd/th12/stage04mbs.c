@@ -12,9 +12,9 @@ sub MBoss()
 	resetBoss();
 	//enmNewRel("Ecl_EtBreak_ni", 0f, 0f, 9999, 0, 0);
 	etClear(640f);
-	anm(2);
-	anmScr(0, 28);
-	anmScr(1, 29);
+	anmFile(2);
+	anmAt(0, 28);
+	anmAt(1, 29);
 	hitbox(40f, 56f);
 	killbox(40f, 56f);
 	setFlags(1);

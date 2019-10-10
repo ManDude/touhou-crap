@@ -5,8 +5,8 @@
 sub Boss()
 {
 	boss(0);
-	anm(2);
-	anmScrNoMove(0, 0);
+	anmFile(2);
+	anmMoveAt(0, 0);
 	setFlags(64);
 	hitbox(56f, 64f);
 	killbox(48f, 56f);
@@ -15,10 +15,10 @@ sub Boss()
 60:
 	msgWait();
 	setMoveArea(0f, 96f, 320f, 48f);
-	anm(0);
-	anmScr(1, 95);
-	anmScr(2, 158);
-	anm(2);
+	anmFile(0);
+	anmAt(1, 95);
+	anmAt(2, 158);
+	anmFile(2);
 	setBossFog(160f, 16728031);
 	Boss1();
 	delete();
@@ -86,9 +86,9 @@ sub Boss1()
 	}
 	stageProg(24);
 	lives(2);
-	anm(2);
-	anmScrNoMove(0, 0);
-	anmScrSlot(0, 119);
+	anmFile(2);
+	anmMoveAt(0, 0);
+	anmAt2(0, 119);
 	playSE(31);
 40:
 	etNew(0);
@@ -367,9 +367,9 @@ sub Boss2()
 	}
 	stageProg(24);
 	lives(1);
-	anm(2);
-	anmScrNoMove(0, 0);
-	anmScrSlot(0, 119);
+	anmFile(2);
+	anmMoveAt(0, 0);
+	anmAt2(0, 119);
 	playSE(31);
 	if (TIMEOUT == 0)
 		ItemDrop2(65, 64f, 64f);
@@ -555,7 +555,7 @@ sub Boss3()
 	interrupt(3, 0, time, "BossDead");
 !*
 	stageProg(25);
-	anmScrSlot(0, 119);
+	anmAt2(0, 119);
 	while 1 wait(1000);
 	return();
 }
@@ -580,7 +580,7 @@ sub BossCardEaMe()
 	invinc(120);
 	stageProg(43);
 	enmPosTime(120, 4, 0f, 80f);
-	anmScrNoMove(0, 0);
+	anmMoveAt(0, 0);
 	etNew(0);
 	etMode(0, 1);
 	etSpr(0, 26, 2);
@@ -635,7 +635,7 @@ sub BossCardEarthTrilithon()
 	invinc(120);
 	stageProg(43);
 	enmPosTime(60, 4, 0f, 80f);
-	anmScrNoMove(0, 0);
+	anmMoveAt(0, 0);
 	etNew(0);
 	etMode(0, 8);
 	etSpr(0, 5, 13);
@@ -682,7 +682,7 @@ sub BossCardEarthTrilithonHL()
 	invinc(120);
 	stageProg(43);
 	enmPosTime(60, 4, 0f, 80f);
-	anmScrNoMove(0, 0);
+	anmMoveAt(0, 0);
 	etNew(0);
 	etMode(0, 8);
 	etSpr(0, 5, 12);
@@ -729,7 +729,7 @@ sub BossCardEarthTrilithonShake()
 	invinc(120);
 	stageProg(43);
 	enmPosTime(120, 4, 0f, 80f);
-	anmScrNoMove(0, 0);
+	anmMoveAt(0, 0);
 	int i = 0;
 	etNew(0);
 	etMode(0, 8);
@@ -787,7 +787,7 @@ sub BossCardFiEa()
 	invinc(120);
 	stageProg(43);
 	enmPosTime(120, 4, 0f, 80f);
-	anmScrNoMove(0, 0);
+	anmMoveAt(0, 0);
 	etNew(0);
 	etMode(0, 3);
 	etSpr(0, 24, 0);
@@ -843,7 +843,7 @@ sub BossCardFireAgni()
 	invinc(120);
 	stageProg(43);
 	enmPosTime(60, 4, 0f, 80f);
-	anmScrNoMove(0, 0);
+	anmMoveAt(0, 0);
 	etNew(0);
 	etMode(0, 3);
 	etSpr(0, 24, 0);
@@ -896,7 +896,7 @@ sub BossCardFireAgniHL()
 	invinc(120);
 	stageProg(43);
 	enmPosTime(60, 4, 0f, 80f);
-	anmScrNoMove(0, 0);
+	anmMoveAt(0, 0);
 	etNew(0);
 	etMode(0, 3);
 	etSpr(0, 24, 0);
@@ -944,7 +944,7 @@ sub BossCardFireAgniRad()
 	invinc(120);
 	stageProg(43);
 	enmPosTime(120, 4, 0f, 80f);
-	anmScrNoMove(0, 0);
+	anmMoveAt(0, 0);
 	etNew(1);
 	etMode(1, 8);
 	etSpr(1, 26, 0);
@@ -1008,7 +1008,7 @@ sub BossCardMeWa()
 	invinc(120);
 	stageProg(43);
 	enmPosTime(120, 4, 0f, 80f);
-	anmScrNoMove(0, 0);
+	anmMoveAt(0, 0);
 	etNew(0);
 	etMode(0, 2);
 	etSpd(0, 2f, 1.05f);
@@ -1060,7 +1060,7 @@ sub BossCardMetalDragon()
 	invinc(120);
 	stageProg(43);
 	enmPosTime(120, 4, 0f, 80f);
-	anmScrNoMove(0, 0);
+	anmMoveAt(0, 0);
 	etNew(0);
 	etMode(0, 2);
 	etSpr(0, 3, 15);
@@ -1097,7 +1097,7 @@ sub BossCardMetalFatigue()
 	invinc(120);
 	stageProg(43);
 	enmPosTime(60, 4, 0f, 80f);
-	anmScrNoMove(0, 0);
+	anmMoveAt(0, 0);
 	etNew(0);
 	etMode(0, 2);
 	etSpr(0, 17, 6);
@@ -1139,7 +1139,7 @@ sub BossCardMetalGold()
 	invinc(120);
 	stageProg(43);
 	enmPosTime(60, 4, 0f, 80f);
-	anmScrNoMove(0, 0);
+	anmMoveAt(0, 0);
 	etNew(0);
 	etMode(0, 2);
 	etSpr(0, 26, 3);
@@ -1223,7 +1223,7 @@ sub BossCardMetalMemory()
 	invinc(120);
 	stageProg(43);
 	enmPosTime(60, 4, 0f, 112f);
-	anmScrNoMove(0, 0);
+	anmMoveAt(0, 0);
 	etNew(0);
 	etMode(0, 3);
 	etSpr(0, 3, 0);
@@ -1277,7 +1277,7 @@ sub BossCardMetalMemoryHL()
 	invinc(120);
 	stageProg(43);
 	enmPosTime(60, 4, 0f, 112f);
-	anmScrNoMove(0, 0);
+	anmMoveAt(0, 0);
 	etNew(0);
 	etMode(0, 3);
 	etSpr(0, 3, 0);
@@ -1502,7 +1502,7 @@ sub BossCardWaWo()
 	invinc(120);
 	stageProg(43);
 	enmPosTime(120, 4, 0f, 80f);
-	anmScrNoMove(0, 0);
+	anmMoveAt(0, 0);
 	int i = 0;
 	etNew(0);
 	etMode(0, 2);
@@ -1573,7 +1573,7 @@ sub BossCardWaterBury()
 	invinc(120);
 	stageProg(43);
 	enmPosTime(60, 4, 0f, 80f);
-	anmScrNoMove(0, 0);
+	anmMoveAt(0, 0);
 	etNew(0);
 	etMode(0, 3);
 	etSpr(0, 24, 0);
@@ -1661,7 +1661,7 @@ sub BossCardWaterMonsoon()
 	invinc(120);
 	stageProg(43);
 	enmPosTime(60, 4, 0f, 80f);
-	anmScrNoMove(0, 0);
+	anmMoveAt(0, 0);
 	etNew(0);
 	etMode(0, 3);
 	etSpr(0, 24, 0);
@@ -1846,7 +1846,7 @@ sub BossCardWaterUndine()
 	invinc(120);
 	stageProg(43);
 	enmPosTime(60, 4, 0f, 80f);
-	anmScrNoMove(0, 0);
+	anmMoveAt(0, 0);
 	etNew(0);
 	etMode(0, 3);
 	etSpr(0, 24, 0);
@@ -1940,7 +1940,7 @@ sub BossCardWoFi()
 	invinc(120);
 	stageProg(43);
 	enmPosTime(120, 4, 0f, 80f);
-	anmScrNoMove(0, 0);
+	anmMoveAt(0, 0);
 	etNew(0);
 	etMode(0, 8);
 	etSpr(0, 24, 0);
@@ -2008,7 +2008,7 @@ sub BossCardWoMe()
 	stageProg(43);
 	enmPosTime(120, 4, 0f, 160f);
 	unsetMoveArea();
-	anmScrNoMove(0, 0);
+	anmMoveAt(0, 0);
 	etNew(0);
 	etMode(0, 3);
 	etSpr(0, 0, 0);
@@ -2178,7 +2178,7 @@ sub BossCardWoodGreen()
 	invinc(120);
 	stageProg(43);
 	enmPosTime(120, 4, 0f, 80f);
-	anmScrNoMove(0, 0);
+	anmMoveAt(0, 0);
 	int i = 0;
 	etNew(0);
 	etMode(0, 3);
@@ -2246,7 +2246,7 @@ sub BossCardWoodLeaf()
 	invinc(120);
 	stageProg(43);
 	enmPosTime(60, 4, 0f, 96f);
-	anmScrNoMove(0, 0);
+	anmMoveAt(0, 0);
 	int i = 5 * 4;
 	float sp_mod = 1f;
 	int layer_c = 3;
@@ -2296,7 +2296,7 @@ sub BossCardWoodSylphy()
 	invinc(120);
 	stageProg(43);
 	enmPosTime(60, 4, 0f, 80f);
-	anmScrNoMove(0, 0);
+	anmMoveAt(0, 0);
 	etNew(0);
 	etMode(0, 3);
 	etSpr(0, 24, 0);
@@ -2364,7 +2364,7 @@ sub BossCardWoodSylphyHL()
 	invinc(120);
 	stageProg(43);
 	enmPosTime(60, 4, 0f, 80f);
-	anmScrNoMove(0, 0);
+	anmMoveAt(0, 0);
 	etNew(0);
 	etMode(0, 3);
 	etSpr(0, 24, 0);
@@ -2442,9 +2442,9 @@ sub BossDead()
 {
 	enmClear();
 	setFlags(140);
-	anmScrSlot(0, 79);
+	anmAt2(0, 79);
 	playSE(5);
-	anmScrSlot(0, 129);
+	anmAt2(0, 129);
 	enmDir(RDEG, 0.4f);
 	if (TIMEOUT == 0)
 		enmNewRel("Ecl_EtBreak2", 0f, 0f, 9999, 0, 0);
@@ -2459,8 +2459,8 @@ sub BossDead()
 	itemMain(4);
 	itemDrop();
 	shake(30, 12, 0);
-	anmScrSlot(0, 79);
-	anmScrSlot(0, 130);
+	anmAt2(0, 79);
+	anmAt2(0, 130);
 	playSE(5);
 	boss(-1);
 	delete();

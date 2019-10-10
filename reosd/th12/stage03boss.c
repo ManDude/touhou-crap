@@ -4,8 +4,8 @@
 
 sub Boss()
 {
-	anm(2);
-	anmScrNoMove(0, 0);
+	anmFile(2);
+	anmMoveAt(0, 0);
 	setFlags(64);
 	hitbox(56f, 56f);
 	killbox(56f, 56f);
@@ -18,10 +18,10 @@ sub Boss()
 	invinc(61);
 61:
 	msgWait();
-	anm(0);
-	anmScr(1, 95);
-	anmScr(2, 158);
-	anm(2);
+	anmFile(0);
+	anmAt(1, 95);
+	anmAt(2, 158);
+	anmFile(2);
 	setBossFog(160f, 16728031);
 	life(14000);
 	Boss1();
@@ -36,9 +36,9 @@ sub Boss1()
 	stageProg(24);
 	lives(2);
 	setMoveArea(0f, 96f, 320f, 96f);
-	anm(2);
-	anmScrNoMove(0, 0);
-	anmScrSlot(0, 119);
+	anmFile(2);
+	anmMoveAt(0, 0);
+	anmAt2(0, 119);
 	playSE(31);
 	wait(50);
 	I0 = 0;
@@ -243,8 +243,8 @@ sub Boss2_enm_GGirl()
 
 sub Boss2_enm_Girl(int anm, int anm2)
 {
-	anm(1);
-	anmScrNoMove(0, anm);
+	anmFile(1);
+	anmMoveAt(0, anm);
 	setFlags(64);
 	hitbox(28f, 28f);
 	killbox(28f, 28f);
@@ -523,7 +523,7 @@ sub BossCard2()
 	invinc(120);
 	wait(120);
 	stageProg(44);
-	anmScrSlot(0, 119);
+	anmAt2(0, 119);
 	enmPosTime(2000, 4, 0f, 160f);
 	ins_269(0);
 	noop();
@@ -835,9 +835,9 @@ sub BossCard4()
 sub BossDead()
 {
 	setFlags(140);
-	anmScrSlot(0, 79);
+	anmAt2(0, 79);
 	playSE(5);
-	anmScrSlot(0, 129);
+	anmAt2(0, 129);
 	enmDir(RDEG, 0.4f);
 	if (TIMEOUT == 0)
 		enmNewRel("Ecl_EtBreak2", 0f, 0f, 9999, 0, 0);
@@ -854,8 +854,8 @@ sub BossDead()
 		ItemDrop2(60, 48f, 48f);
 	}
 	shake(30, 12, 0);
-	anmScrSlot(0, 79);
-	anmScrSlot(0, 130);
+	anmAt2(0, 79);
+	anmAt2(0, 130);
 	playSE(5);
 	boss(-1);
 	delete();

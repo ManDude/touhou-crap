@@ -13,8 +13,8 @@ sub MBoss()
 	resetBoss();
 	enmNewRel("Ecl_EtBreak_ni", 0f, 0f, 9999, 0, 0);
 	invinc(60);
-	anm(3);
-	anmScrNoMove(0, 0);
+	anmFile(3);
+	anmMoveAt(0, 0);
 	setFlags(64);
 	hitbox(48f, 48f);
 	killbox(48f, 48f);
@@ -25,10 +25,10 @@ sub MBoss()
 	setMoveArea(0f, 128f, 320f, 96f);
 	msgWait();
 	lifebar(0, 710f, -32640);
-	anm(0);
-	anmScr(1, 95);
-	anmScr(2, 158);
-	anm(3);
+	anmFile(0);
+	anmAt(1, 95);
+	anmAt(2, 158);
+	anmFile(3);
 	resetBoss();
 	interrupt(0, 710, 2400, "MBossCard1");
 	timeoutAt(0, "MBossEscape");
