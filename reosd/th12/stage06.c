@@ -18,7 +18,8 @@ sub BCir01()
 
 sub Cir00Dead()
 {
-	ItemDrop2(10, 48f, 48f);
+	ItemDrop2(9, 48f, 48f);
+	wait(1);
 }
 
 sub Cir00(int anm1, int anm2, int anmfile)
@@ -262,6 +263,7 @@ sub Girl00_at()
 sub Girl00Dead()
 {
 	ItemDrop2(48, 64f, 64f);
+	wait(1);
 }
 
 sub Girl01(int anm1, int anm2)
