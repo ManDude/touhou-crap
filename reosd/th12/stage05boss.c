@@ -1,7 +1,7 @@
 
-
-global[NEG] = -999999;
-global[NEGF] = -999999.f;
+#include "th12_globalvar.txt"
+#include "default.h"
+sub MBossCard1LaserHit();
 
 sub Boss()
 {
@@ -17,7 +17,7 @@ sub Boss()
 	enmPos(-224.0f, 128.0f);
 	enmPosTime(60, 4, 0.0f, 128.0f);
 	stageProg(24);
-60:
++60: //60
 	msgWait();
 	setMoveArea(0.0f, 90.0f, 320.0f, 84.0f);
 	anm(0);
@@ -25,13 +25,13 @@ sub Boss()
 	anmScr(2, 158);
 	anm(2);
 	setBossFog(160.0f, 16728031);
-	call("Boss1");
+	Boss1();
 	delete();
 }
 
 sub Boss1()
 {
-	var A B C;
+	var A, B, C;
 	life(19000);
 	resetBoss();
 	interrupt(0, 1400, 2700, "BossCard1");
@@ -40,13 +40,13 @@ sub Boss1()
 	lives(2);
 	anm(2);
 	anmScrNoMove(0, 0);
-100:
++100: //100
 	etNew(0);
 	etMode(0, 2);
 	etSpr(0, 20, 3);
 	etAmt_rank(0, 8, 16, 16, 16, 1, 1, 2, 2);
 	etSpd_rank(0, 2.3f, 2.5f, 3.0f, 3.5f, 1.25f, 1.25f, 1.25f, 1.25f);
-	etAng(0, 0.0f, 0.15707963267948966192313216916398f);
+	etAng(0, 0.0f, 0.15707964f);
 	etEx(0, 0, 0, 2, 1, [NEG], [NEGF], [NEGF]);
 	etOfs(0, 0.0f, -12.0f);
 	etNew(1);
@@ -55,76 +55,76 @@ sub Boss1()
 	etAmt_rank(1, 2, 2, 4, 4, 6, 8, 8, 8);
 	etSpd_rank(1, 3.5f, 4.5f, 4.5f, 4.5f, 1.45f, 1.45f, 1.45f, 1.45f);
 	etOfs(1, 0.0f, -12.0f);
-	goto Boss1_856 @ 300;
-Boss1_232:
+	goto Boss1_2704 @ 300;
+Boss1_736:
 	anmScrSlot(0, 119);
-	%F0 = 0.78539816339744830961566084581988f;
-	%F1 = 0.6283185307179586476925286766559f;
+	%F0 = 0.7853982f;
+	%F1 = 0.62831855f;
 	$I0 = 6;
 	enmNewRel("Boss1_at1", 0.0f, 0.0f, 100, 0, 0);
 	%F0 = 0.0f;
-	%F1 = -0.31415926535897932384626433832795f;
+	%F1 = -0.31415927f;
 	$I0 = 10;
 	enmNewRel("Boss1_at1", 0.0f, 0.0f, 100, 0, 0);
-	%F0 = 2.3561944901923449288469825374596f;
-	%F1 = -0.6283185307179586476925286766559f;
+	%F0 = 2.3561945f;
+	%F1 = -0.62831855f;
 	$I0 = 10;
 	enmNewRel("Boss1_at1", 0.0f, 0.0f, 100, 0, 0);
-	%F0 = 3.1415926535897932384626433832795f;
-	%F1 = 0.31415926535897932384626433832795f;
+	%F0 = 3.1415927f;
+	%F1 = 0.31415927f;
 	$I0 = 6;
 	enmNewRel("Boss1_at1", 0.0f, 0.0f, 100, 0, 0);
 !L
-	%F0 = 1.1780972450961724644234912687298f;
-	%F1 = 0.6283185307179586476925286766559f;
+	%F0 = 1.1780972f;
+	%F1 = 0.62831855f;
 	$I0 = 6;
 	enmNewRel("Boss1_at1", 0.0f, 0.0f, 100, 0, 0);
-	%F0 = 1.9634954084936207740391521145497f;
-	%F1 = -0.6283185307179586476925286766559f;
+	%F0 = 1.9634954f;
+	%F1 = -0.62831855f;
 	$I0 = 10;
 	enmNewRel("Boss1_at1", 0.0f, 0.0f, 100, 0, 0);
 !HL
-	%F0 = 0.39269908169872415480783042290994f;
-	%F1 = -0.31415926535897932384626433832795f;
+	%F0 = 0.3926991f;
+	%F1 = -0.31415927f;
 	$I0 = 10;
 	enmNewRel("Boss1_at1", 0.0f, 0.0f, 100, 0, 0);
-	%F0 = 2.7488935718910690836548129603696f;
-	%F1 = 0.31415926535897932384626433832795f;
+	%F0 = 2.7488935f;
+	%F1 = 0.31415927f;
 	$I0 = 6;
 	enmNewRel("Boss1_at1", 0.0f, 0.0f, 100, 0, 0);
 !*
 	wait(60);
 	seti_rank($C, 60, 50, 50, 40);
-	callSlot("et_on_rate", 1, _SS 0, _SS $C, _SS 1);
+	et_on_rate(0, $C, 1) async 1;
 	enmRand(60, 4, 1.7f);
-160:
++60: //160
 	enmRand(60, 4, 1.7f);
-220:
++60: //220
 	enmRand(60, 4, 1.7f);
 	endSlot(1);
 	wait(170);
 	$A = 12;
-	%B = 0.04908738521234051935097880286374f;
-	goto LOOP_END @ 220;
-LOOP_START:
-	etAng(1, 1.5707963267948966192313216916398f, %B);
+	%B = 0.049087387f;
+	goto Boss1_2624 @ 220;
+Boss1_2480:
+	etAng(1, 1.5707964f, %B);
 	etOn(1);
-	%B = %B + 0.31415926535897932384626433832795f;
+	%B = %B + 0.31415927f;
 	wait(8);
-LOOP_END:
-	if $A-- goto LOOP_START @ 220;
+Boss1_2624:
+	if $A-- goto Boss1_2480 @ 220;
 	wait(60);
-290:
++70: //290
 	noop();
-300:
-Boss1_856:
-	if 1 goto Boss1_232 @ 100;
+Boss1_2704:
++10: //300
+	if 1 goto Boss1_736 @ 100;
 	return();
 }
 
 sub Boss1_at1()
 {
-	var A B C D E F;
+	var A, B, C, D, E, F;
 	%C = %RDEG;
 	%D = %F1;
 	%E = %F0;
@@ -138,37 +138,36 @@ sub Boss1_at1()
 	etSpr(0, 7, $F);
 	etAmt_rank(0, 4, 5, 5, 5, 1, 1, 1, 1);
 	etSpd_rank(0, 1.7f, 2.1f, 2.3f, 2.5f, 1.45f, 1.45f, 1.45f, 1.45f);
-50:
-	$A = 240 / 6;
-	goto END @ 56;
-START:
-	etAng(0, %C, 0.02617993877991494365385536152733f);
++50: //50
+	$A = 40;
+	goto Boss1_at1_736 @ 56;
+Boss1_at1_536:
+	etAng(0, %C, 0.02617994f);
 	etOn(0);
 	$B = $A % 16;
 	%C = %C + %D;
-56:
-END:
-	if $A-- goto START @ 50;
-116:
+Boss1_at1_736:
++6: //56
+	if $A-- goto Boss1_at1_536 @ 50;
++60: //116
 	delete();
 }
 
 sub Boss1_at2()
 {
-	var;
 	noop();
-	goto END @ 0;
-START:
+	goto Boss1_at2_128 @ 0;
+Boss1_at2_76:
 	wait_rank(60, 50, 50, 40);
 	etOn(0);
-END:
-	goto START @ 0;
+Boss1_at2_128:
+	goto Boss1_at2_76 @ 0;
 	return();
 }
 
 sub Boss2()
 {
-	var A B C;
+	var A, B, C;
 	life(16000);
 	resetBoss();
 	ins_21();
@@ -207,33 +206,33 @@ Boss2_784:
 	etSpr(0, 20, 3);
 	etAmt_rank(0, 8, 16, 16, 16, 1, 1, 2, 2);
 	etSpd_rank(0, 2.3f, 2.5f, 3.0f, 3.0f, 1.25f, 1.25f, 1.25f, 1.25f);
-	etAng(0, 0.0f, 0.15707963267948966192313216916398f);
+	etAng(0, 0.0f, 0.15707964f);
 	etOfs(0, 0.0f, -12.0f);
 	etEx(0, 0, 0, 2, 1, [NEG], [NEGF], [NEGF]);
 	$I0 = 0;
-	goto Boss2_1920 @ 0;
-Boss2_992:
-	call("Boss2_at");
+	goto Boss2_1620 @ 0;
+Boss2_1200:
+	Boss2_at();
 	seti_rank($A, 60, 50, 50, 40);
-	callSlot("et_on_rate", 1, _SS 0, _SS $A, _SS 1);
+	et_on_rate(0, $A, 1) async 1;
 	enmRand(60, 4, 1.5f);
 	wait(60);
 	enmRand(60, 4, 1.5f);
 	wait(60);
 	enmRand(60, 4, 1.5f);
 	endSlot(1);
-	call("Boss2_at1");
+	Boss2_at1();
 	wait(70);
 	$I0 = $I0 + 1;
 	wait(10);
-Boss2_1920:
-	if 1 goto Boss2_992 @ 0;
+Boss2_1620:
+	if 1 goto Boss2_1200 @ 0;
 	return();
 }
 
 sub Boss2_Enemy()
 {
-	var A B C;
+	var A, B, C;
 	setFlags(3);
 	hitbox(28.0f, 28.0f);
 	killbox(28.0f, 28.0f);
@@ -245,68 +244,66 @@ sub Boss2_Enemy()
 	etAmt_rank(0, 4, 6, 5, 5, 1, 1, 1, 1);
 	etSpd_rank(0, 1.9f, 2.1f, 2.3f, 2.7f, 1.45f, 1.45f, 1.45f, 1.45f);
 !EN
-	etEx(0, 0, 0, 0x100, 1, 13, [NEGF], [NEGF]);
+	etEx(0, 0, 0, 256, 1, 13, [NEGF], [NEGF]);
 !HL
-	etEx(0, 0, 0, 0x100, 2, 13, [NEGF], [NEGF]);
+	etEx(0, 0, 0, 256, 2, 13, [NEGF], [NEGF]);
 !*
 	%A = %F1;
-50:
++50: //50
 	%C = %RDEG;
-	$B = 250 / 14;
-	goto END @ 50;
-START:
-	etAng(0, %C, 0.0157079632679489661923132169164f);
+	$B = 17;
+	goto Boss2_Enemy_720 @ 50;
+Boss2_Enemy_576:
+	etAng(0, %C, 0.015707964f);
 	etOn(0);
 	%C = %C + %A;
 	wait(14);
-END:
-	if $B-- goto START @ 50;
+Boss2_Enemy_720:
+	if $B-- goto Boss2_Enemy_576 @ 50;
 	wait(120);
 	delete();
 }
 
 sub Boss2_at()
 {
-	var;
 	$I1 = 2;
-	%F0 = 0.78539816339744830961566084581988f;
-	%F1 = 0.6283185307179586476925286766559f;
+	%F0 = 0.7853982f;
+	%F1 = 0.62831855f;
 	enmNewRel("Boss2_Enemy", 0.0f, 0.0f, 100, 0, 0);
 	$I1 = 6;
 	%F0 = 0.0f;
-	%F1 = -0.19634954084936207740391521145497f;
+	%F1 = -0.19634955f;
 	enmNewRel("Boss2_Enemy", 0.0f, 0.0f, 100, 0, 0);
 	$I1 = 6;
-	%F0 = 2.3561944901923449288469825374596f;
-	%F1 = -0.6283185307179586476925286766559f;
+	%F0 = 2.3561945f;
+	%F1 = -0.62831855f;
 	enmNewRel("Boss2_Enemy", 0.0f, 0.0f, 100, 0, 0);
 	$I1 = 2;
-	%F0 = 3.1415926535897932384626433832795f;
-	%F1 = 0.19634954084936207740391521145497f;
+	%F0 = 3.1415927f;
+	%F1 = 0.19634955f;
 	enmNewRel("Boss2_Enemy", 0.0f, 0.0f, 100, 0, 0);
-60:
++60: //60
 	return();
 }
 
 sub Boss2_at1()
 {
-	var;
-100:
++100: //100
 	etNew(1);
 	etMode(1, 3);
 	etSpr(1, 20, 3);
 	etAmt(1, 24, 1);
 	etSpd(1, 2.5f, 1.45f);
-	etAng(1, 1.5707963267948966192313216916398f, 0.04908738521234051935097880286374f);
+	etAng(1, 1.5707964f, 0.049087387f);
 	etOfs(1, 0.0f, -12.0f);
 	etOn(1);
-160:
++60: //160
 	return();
 }
 
-sub Boss2_at1b(A)
+sub Boss2_at1b()
 {
-	var B;
+	var A, B;
 	etNew(0);
 	etSpr(0, 0, 13);
 	etAng(0, -0.7853982f, -0.7853982f);
@@ -323,15 +320,15 @@ sub Boss2_at1b(A)
 Boss2_at1b_480:
 	etAng(0, %A, 0.0f);
 	laserCurvedShoot(0);
-	%A = (%A - 0.261799f);
+	%A = %A - 0.261799f;
 Boss2_at1b_604:
 	if $B-- goto Boss2_at1b_480 @ 0;
 	return();
 }
 
-sub Boss2_at2(A)
+sub Boss2_at2()
 {
-	var B;
+	var A, B;
 	etNew(0);
 	etSpr(0, 0, 13);
 	etAng(0, -0.7853982f, -0.7853982f);
@@ -349,22 +346,22 @@ Boss2_at2_476:
 	etAng(0, %A, 0.0f);
 	laserCurvedShoot(0);
 !E
-	%A = (%A + 0.392699f);
+	%A = %A + 0.392699f;
 !N
-	%A = (%A + 0.261799f);
+	%A = %A + 0.261799f;
 !H
-	%A = (%A + 0.19635f);
+	%A = %A + 0.19635f;
 !L
-	%A = (%A + 0.174533f);
+	%A = %A + 0.174533f;
 Boss2_at2_828:
 !*
 	if $B-- goto Boss2_at2_476 @ 0;
 	return();
 }
 
-sub Boss2_at2b(A)
+sub Boss2_at2b()
 {
-	var B;
+	var A, B;
 	etNew(0);
 	etSpr(0, 0, 13);
 	etAng(0, -0.7853982f, -0.7853982f);
@@ -381,7 +378,7 @@ sub Boss2_at2b(A)
 Boss2_at2b_480:
 	etAng(0, %A, 0.0f);
 	laserCurvedShoot(0);
-	%A = (%A + 0.261799f);
+	%A = %A + 0.261799f;
 Boss2_at2b_604:
 	if $B-- goto Boss2_at2b_480 @ 0;
 	return();
@@ -407,7 +404,7 @@ sub Boss2_at3()
 
 sub Boss3()
 {
-	var A B C;
+	var A, B, C;
 !E
 	life(10900);
 !NHL
@@ -462,10 +459,10 @@ Boss3_1088:
 	playSE(31);
 	wait($C);
 	ins_269(0);
-	callSep("Boss3_at1", _SS 0, _SS 10, _ff 0.0f, _ff 0.05235988f);
-	callSep("Boss3_at1", _SS 1, _SS 10, _ff 3.1415927f, _ff -0.05235988f);
-	callSep("Boss3_at1", _SS 2, _SS 6, _ff (-1.5707964f + (%RDEG / _f(4))), _ff 0.05235988f);
-	callSep("Boss3_at1", _SS 3, _SS 6, _ff (-1.5707964f + (%RDEG / _f(4))), _ff -0.05235988f);
+	Boss3_at1(0, 10, 0.0f, 0.05235988f) async;
+	Boss3_at1(1, 10, 3.1415927f, -0.05235988f) async;
+	Boss3_at1(2, 6, -1.5707964f + (%RDEG / _f(4)), 0.05235988f) async;
+	Boss3_at1(3, 6, -1.5707964f + (%RDEG / _f(4)), -0.05235988f) async;
 	wait(200);
 	enmRand(60, 4, 2.0f);
 	wait(61);
@@ -474,9 +471,9 @@ Boss3_1680:
 	return();
 }
 
-sub Boss3_at1(A B C D)
+sub Boss3_at1(var A, var B, var C, var D)
 {
-	var E F;
+	var E, F;
 	etNew($A);
 	etSpr($A, 0, $B);
 	etAng($A, -0.7853982f, -0.7853982f);
@@ -488,38 +485,38 @@ sub Boss3_at1(A B C D)
 	etEx($A, 2, 1, 8, 60, [NEG], 0.083333336f, 0.0f);
 	etSE($A, 19, -1);
 	seti_rank($F, 10, 20, 30, 40);
-	goto Boss3_at1_1260 @ 0;
+	goto Boss3_at1_1188 @ 0;
 Boss3_at1_428:
 	ins_89(%E, %C, %AIM);
-	unless ((%E < (3.1415927f / _f(3))) && (%E > (-3.1415927f / _f(3)))) goto Boss3_at1_780 @ 0;
+	unless ((%E < 1.0471976f) && (%E > -1.0471976f)) goto Boss3_at1_708 @ 0;
 	etSpr($A, 0, 6);
 	etEx($A, 1, 1, 8, 60, [NEG], -0.083333336f, 0.0f);
-	goto Boss3_at1_856 @ 0;
-Boss3_at1_780:
+	goto Boss3_at1_784 @ 0;
+Boss3_at1_708:
 	etSpr($A, 0, 10);
 	etEx($A, 1, 1, 8, 60, [NEG], -0.083333336f, %D);
-Boss3_at1_856:
+Boss3_at1_784:
 	etAng($A, %C, 0.0f);
 	laserCurvedShoot($A);
 !E
-	%C = (%C - 0.785398f);
+	%C = %C - 0.785398f;
 !N
-	%C = (%C - 0.392699f);
+	%C = %C - 0.392699f;
 !H
-	%C = (%C - 0.261799f);
+	%C = %C - 0.261799f;
 !L
-	%C = (%C - 0.19635f);
+	%C = %C - 0.19635f;
 !*
 	normRad(%C);
 	wait_rank(20, 10, 10, 10);
-Boss3_at1_1260:
+Boss3_at1_1188:
 	if $F-- goto Boss3_at1_428 @ 0;
 	return();
 }
 
 sub Boss4()
 {
-	var A B;
+	var A, B;
 	life(3100);
 	resetBoss();
 	ins_21();
@@ -553,13 +550,13 @@ Boss4_740:
 	enmPosTime(60, 0, 0.0f, 128.0f);
 	wait(120);
 	setMoveArea(0.0f, 112.0f, 280.0f, 64.0f);
-	call("BossCard4");
+	BossCard4();
 	return();
 }
 
 sub BossCard1()
 {
-	var A B C;
+	var A, B, C;
 	resetBoss();
 	ins_21();
 	enmClear();
@@ -588,63 +585,63 @@ sub BossCard1()
 	etAmt(0, 1, 1);
 !EN
 	etSpr(0, 7, 6);
-	etAng(0, 3.1415926535897932384626433832795f, -3.1415926535897932384626433832795f);
+	etAng(0, 3.1415927f, -3.1415927f);
 !HL
 	etSpr(0, 26, 0);
-	etAng(0, 3.1415926535897932384626433832795f, 0.0f);
+	etAng(0, 3.1415927f, 0.0f);
 !E
-	etEx(0, 0, 0, 0x1000, 70, [NEG], [NEGF], [NEGF]);
+	etEx(0, 0, 0, 4096, 70, [NEG], [NEGF], [NEGF]);
 !N
-	etEx(0, 0, 0, 0x1000, 50, [NEG], [NEGF], [NEGF]);
+	etEx(0, 0, 0, 4096, 50, [NEG], [NEGF], [NEGF]);
 !HL
-	etEx(0, 0, 0, 0x1000, 50, [NEG], [NEGF], [NEGF]);
+	etEx(0, 0, 0, 4096, 50, [NEG], [NEGF], [NEGF]);
 !*
-	etEx(0, 1, 0, 0x10, 0, 1, 0.0f, 0.0f);
-	etEx(0, 2, 0, 0x1000, _S(153 / $I3), [NEG], [NEGF], [NEGF]);
+	etEx(0, 1, 0, 16, 0, 1, 0.0f, 0.0f);
+	etEx(0, 2, 0, 4096, 153 / $I3, [NEG], [NEGF], [NEGF]);
 	etNew(1);
 	etMode(1, 0);
 	etSpr(1, 20, 3);
 	etAmt_rank(1, 1, 1, 3, 3, 1, 1, 1, 1);
 	etSpd(1, 0.0f, 0.0f);
-	etEx(1, 1, 0, 0x10, 0, 1, 0.0f, 2.0f);
-120:
-	goto BossCard1_2812 @ 194;
-BossCard1_904:
+	etEx(1, 1, 0, 16, 0, 1, 0.0f, 2.0f);
++120: //120
+	goto BossCard1_2160 @ 194;
+BossCard1_1356:
 	anmScrSlot(0, 119);
 	playSE(31);
 	ins_269(0);
-	wait(_S(32 * 4));
-140:
+	wait(128);
++20: //140
 !EHL
-	call("BossCard1_at1");
+	BossCard1_at1();
 !EN
 	wait(20);
 !N
-	call("BossCard1_at1");
-190:
+	BossCard1_at1();
++50: //190
 !*
 	noop();
-	speed(_f(1.0f / _f($I3)));
+	speed(1.0f / _f($I3));
 	setFlags(3);
 	$A = 0;
 	noop();
-	enmRand(_S(90 / $I3), 4, 2.5f);
-	callSep("BossCard1_at");
-	wait(_S(90 / $I3));
-	wait(_S(32 / $I3));
-	wait(_S(30 / $I3));
+	enmRand(90 / $I3, 4, 2.5f);
+	BossCard1_at() async;
+	wait(90 / $I3);
+	wait(32 / $I3);
+	wait(30 / $I3);
 	wait(1);
 	speed(1.0f);
 	unsetFlags(3);
 	wait_rank(30, 30, 100, 100);
-BossCard1_2812:
-	if 1 goto BossCard1_904 @ 120;
+BossCard1_2160:
+	if 1 goto BossCard1_1356 @ 120;
 	return();
 }
 
-sub BossCard1LaserAt(A)
+sub BossCard1LaserAt(var A)
 {
-	var B C D E;
+	var B, C, D, E;
 	unless ($I3 == 55) goto BossCard1LaserAt_296 @ 0;
 	etNew(0);
 	etMode(0, 2);
@@ -671,16 +668,16 @@ BossCard1LaserAt_452:
 BossCard1LaserAt_720:
 	ins_81(%C, %D, %A, %B);
 !E
-	%B = (%B + _f(20));
+	%B = %B + _f(20);
 !N
-	%B = (%B + _f(16));
+	%B = %B + _f(16);
 !H
-	%B = (%B + _f(14));
+	%B = %B + _f(14);
 !L
-	%B = (%B + _f(14));
+	%B = %B + _f(14);
 !*
 	etAng(0, %E, 0.0f);
-	%E = (%E + %F2);
+	%E = %E + %F2;
 	etOfs(0, %C, %D);
 	etOn(0);
 	wait(1);
@@ -691,86 +688,86 @@ BossCard1LaserAt_1228:
 
 sub BossCard1_at()
 {
-	var A B C D E F G H I J X Y cnt amt startAng angInc;
-	$amt = 9;
-	%startAng = 0.78539816339744830961566084581988f;
-	%angInc = -0.17453292519943295769236907684886f;
-	$A = 90 / 9;
+	var A, B, C, D, E, F, G, H, I, J, K, L, M, N, O, P;
+	$N = 9;
+	%O = 0.7853982f;
+	%P = -0.17453294f;
+	$A = 10;
 	$B = 0;
-	goto END @ 0;
-START:
-	unless (($TIME % 1) == 0) goto SKIP_ALL @ 0;
-	etAng(1, 0.0f, 0.52359877559829887307710723054658f);
-	%C = _f(0.5f - ((_f($B) * 0.5f) / 9.0f));
-	unless ($B % 2) goto JMP1 @ 0;
+	goto BossCard1_at_2536 @ 0;
+BossCard1_at_260:
+	unless (($TIME % 1) == 0) goto BossCard1_at_2516 @ 0;
+	etAng(1, 0.0f, 0.5235988f);
+	%C = 0.5f - ((_f($B) * 0.5f) / 9.0f);
+	unless ($B % 2) goto BossCard1_at_696 @ 0;
 	%D = -256.0f;
-	goto JMP1_END @ 0;
-JMP1:
+	goto BossCard1_at_736 @ 0;
+BossCard1_at_696:
 	%D = 256.0f;
-JMP1_END:
-	unless (%D < 0.0f) goto JMP2 @ 0;
-	%F = %startAng;
-	%G = %angInc;
-	goto JMP2_END @ 0;
-JMP2:
-	%F = %startAng - 3.1415926535897932384626433832795f;
-	%G = %angInc;
-JMP2_END:
-	%F = (%F + %AIM) - 1.5707963267948966192313216916398f;
-	%J = -0.78539816339744830961566084581988f;
-	$E = $amt;
-	goto SHOOT_END @ 0;
-SHOOT_START:
-	unless (%D < 0.0f) goto JMP3 @ 0;
-	ins_81(%H, %I, %AIM, _f((%C * %DIST) + %D));
-	ins_81(%X, %Y, %F, _f(%D * -1.0f));
-	goto JMP3_END @ 0;
-JMP3:
-	ins_81(%H, %I, %AIM, _f((%C * %DIST) + %D));
-	ins_81(%X, %Y, %F, %D);
-JMP3_END:
-	unless ($B % 2) goto JMP4 @ 0;
+BossCard1_at_736:
+	unless (%D < 0.0f) goto BossCard1_at_920 @ 0;
+	%F = %O;
+	%G = %P;
+	goto BossCard1_at_1036 @ 0;
+BossCard1_at_920:
+	%F = %O - 3.1415927f;
+	%G = %P;
+BossCard1_at_1036:
+	%F = (%F + %AIM) - 1.5707964f;
+	%J = -0.7853982f;
+	$E = $N;
+	goto BossCard1_at_2396 @ 0;
+BossCard1_at_1252:
+	unless (%D < 0.0f) goto BossCard1_at_1568 @ 0;
+	ins_81(%H, %I, %AIM, (%C * %DIST) + %D);
+	ins_81(%K, %L, %F, %D * -1.0f);
+	goto BossCard1_at_1724 @ 0;
+BossCard1_at_1568:
+	ins_81(%H, %I, %AIM, (%C * %DIST) + %D);
+	ins_81(%K, %L, %F, %D);
+BossCard1_at_1724:
+	unless ($B % 2) goto BossCard1_at_1832 @ 0;
 !EN
-	etAng(1, %J, 0.52359877559829887307710723054658f);
-JMP4:
+	etAng(1, %J, 0.5235988f);
+BossCard1_at_1832:
 !*
-	%X = %X + %H;
-	%Y = %Y + %I;
-	etOfs(1, %X, %Y);
-	etEx(1, 0, 0, 0x1000, _S(((90 - ($B * $I3)) + 63) / $I3), [NEG], [NEGF], [NEGF]);
+	%K = %K + %H;
+	%L = %L + %I;
+	etOfs(1, %K, %L);
+	etEx(1, 0, 0, 4096, ((90 - ($B * $I3)) + 63) / $I3, [NEG], [NEGF], [NEGF]);
 	etOn(1);
 	%F = %F - %G;
-	%J = %J + 0.17453292519943295769236907684886f;
-SHOOT_END:
-	if $E-- goto SHOOT_START @ 0;
+	%J = %J + 0.17453294f;
+BossCard1_at_2396:
+	if $E-- goto BossCard1_at_1252 @ 0;
 	$B = $B + 1;
-SKIP_ALL:
+BossCard1_at_2516:
 	wait(1);
-END:
-	if $A-- goto START @ 0;
+BossCard1_at_2536:
+	if $A-- goto BossCard1_at_260 @ 0;
 	return();
 }
 
 sub BossCard1_at1()
 {
-	var A B C D;
+	var A, B, C, D;
 	setf_rank(%B, 4.5f, 4.5f, 4.9f, 5.5f);
 	setf_rank(%C, 1.45f, 1.45f, 2.45f, 1.45f);
 	seti_rank($A, 32, 128, 20, 35);
-	goto END @ 0;
-START:
+	goto BossCard1_at1_412 @ 0;
+BossCard1_at1_168:
 	%D = (%RF * (%B - %C)) + %C;
 	etSpd(0, %D, %D);
-	etEx(0, 3, 0, 0x10, 0, 1, 0.0f, %D);
+	etEx(0, 3, 0, 16, 0, 1, 0.0f, %D);
 	etOn(0);
-END:
-	if $A-- goto START @ 0;
+BossCard1_at1_412:
+	if $A-- goto BossCard1_at1_168 @ 0;
 	return();
 }
 
 sub BossCard2()
 {
-	var A B;
+	var A, B;
 	resetBoss();
 	ins_21();
 	enmClear();
@@ -795,15 +792,15 @@ sub BossCard2()
 	invinc(120);
 	$I3 = 5;
 	anmScrSlot(0, 119);
-120:
++120: //120
 	noop();
 !NHL
 	etNew(0);
 	etMode(0, 3);
 	etAmt(0, 1, 1);
-	etEx(0, 0, 1, 0x10000000, 0, [NEG], [NEGF], [NEGF]);
-	etEx(0, 1, 0, 0x1000, 50, [NEG], [NEGF], [NEGF]);
-	etEx(0, 2, 0, 0x10, 0, 1, 0.0f, 0.0f);
+	etEx(0, 0, 1, 268435456, 0, [NEG], [NEGF], [NEGF]);
+	etEx(0, 1, 0, 4096, 50, [NEG], [NEGF], [NEGF]);
+	etEx(0, 2, 0, 16, 0, 1, 0.0f, 0.0f);
 !N
 	etSpr(0, 7, 6);
 !HL
@@ -813,141 +810,141 @@ sub BossCard2()
 	etMode(1, 0);
 	etSpr(1, 20, 3);
 	etAmt(1, 1, 1);
-	etEx(1, 0, 0, 0x10, 0, 1, 0.0f, 0.0f);
-	goto BossCard2_1312 @ 190;
-BossCard2_776:
+	etEx(1, 0, 0, 16, 0, 1, 0.0f, 0.0f);
+	goto BossCard2_2176 @ 190;
+BossCard2_1124:
 	ins_269(0);
 	wait(128);
-140:
++20: //140
 !N
-	call("BossCard2_at", _SS 0, _SS 7, _SS 32, _SS 4, _ff 3.5f, _ff 1.45f, _ff 0.09817477042468103870195760572748f, _ff 0.19634954084936207740391521145497f, _SS 3, _SS 9);
+	BossCard2_at(0, 7, 32, 4, 3.5f, 1.45f, 0.09817477f, 0.19634955f, 3, 9);
 !HL
-	call("BossCard2_at", _SS 0, _SS 24, _SS 12, _SS 4, _ff 2.7f, _ff 1.45f, _ff 0.26179938779914943653855361527329f, _ff 0.52359877559829887307710723054658f, _SS 3, _SS 9);
+	BossCard2_at(0, 24, 12, 4, 2.7f, 1.45f, 0.2617994f, 0.5235988f, 3, 9);
 !L
-	call("BossCard2_at", _SS 0, _SS 24, _SS 14, _SS 4, _ff 2.7f, _ff 1.45f, _ff 0.22439947525641380274733167023425f, _ff 0.4487989505128276054946633404685f, _SS 3, _SS 9);
-190:
+	BossCard2_at(0, 24, 14, 4, 2.7f, 1.45f, 0.22439948f, 0.44879895f, 3, 9);
++50: //190
 !*
 	$I3 = 9;
-	speed(_f(1.0f / _f($I3)));
+	speed(1.0f / _f($I3));
 	setFlags(3);
-	callSep("BossCard2_at2");
+	BossCard2_at2() async;
 	enmRand(7, 4, 2.5f);
 	wait(7);
 	$I3 = 5;
-	speed(_f(1.0f / _f($I3)));
-	wait(_S(30 / $I3));
+	speed(1.0f / _f($I3));
+	wait(30 / $I3);
 	$I3 = 9;
-	speed(_f(1.0f / _f($I3)));
-	wait(_S(30 / $I3));
+	speed(1.0f / _f($I3));
+	wait(30 / $I3);
 	speed(1.0f);
 	unsetFlags(3);
 	wait(100);
-BossCard2_1312:
-	if 1 goto BossCard2_776 @ 120;
+BossCard2_2176:
+	if 1 goto BossCard2_1124 @ 120;
 	return();
 }
 
-sub BossCard2_at(Et O A B C D J K L M)
+sub BossCard2_at(var A, var B, var C, var D, var E, var F, var G, var H, var I, var J)
 {
-	var E F G H I N;
-	%H = %C;
-	$F = $B;
-	goto END1 @ 0;
-START1:
-	%G = %J;
-	$E = $A;
-	goto END2 @ 0;
-START2:
-	etSpd($Et, %H, %D);
-	etAng($Et, %G, 0.0f);
-	unless ($RAND % 100) < 60 goto NO_RAND @ 0;
-	$N = $RAND % 6;
-	etEx($Et, $L, 0, 0x1000, _S($M + $N), [NEG], [NEGF], [NEGF]);
-	etEx($Et, _S($L + 1), 0, 0x10, 0, 1, %RDEG, 0.0f);
-	etEx($Et, _S($L + 2), 0, 0x1000000, $O, 5, [NEGF], [NEGF]);
-	etEx($Et, _S($L + 3), 0, 0x1000, _S(7 - $N), [NEG], [NEGF], [NEGF]);
-	etEx($Et, _S($L + 4), 0, 0x10, 0, 1, 0.0f, %H);
-	goto RAND_SKIP @ 0;
-NO_RAND:
-	etEx($Et, $L, 0, 0x1000, _S($M + 6), [NEG], [NEGF], [NEGF]);
-	etEx($Et, _S($L + 1), 0, 0x10, 0, 1, 0.0f, %H);
-	etEx($Et, _S($L + 2), 0, 0, [NEG], [NEG], [NEGF], [NEGF]);
-	etEx($Et, _S($L + 3), 0, 0, [NEG], [NEG], [NEGF], [NEGF]);
-	etEx($Et, _S($L + 4), 0, 0, [NEG], [NEG], [NEGF], [NEGF]);
-RAND_SKIP:
-	etOn($Et);
-	%G = %G + %K;
-END2:
-	if $E-- goto START2 @ 0;
-	%H = %H - ((%C - %D) / _f($B));
-END1:
-	if $F-- goto START1 @ 0;
+	var K, L, M, N, O, P;
+	%N = %E;
+	$L = $D;
+	goto BossCard2_at_1900 @ 0;
+BossCard2_at_140:
+	%M = %G;
+	$K = $C;
+	goto BossCard2_at_1708 @ 0;
+BossCard2_at_244:
+	etSpd($A, %N, %F);
+	etAng($A, %M, 0.0f);
+	unless (($RAND % 100) < 60) goto BossCard2_at_1092 @ 0;
+	$P = $RAND % 6;
+	etEx($A, $I, 0, 4096, $J + $P, [NEG], [NEGF], [NEGF]);
+	etEx($A, $I + 1, 0, 16, 0, 1, %RDEG, 0.0f);
+	etEx($A, $I + 2, 0, 16777216, $B, 5, [NEGF], [NEGF]);
+	etEx($A, $I + 3, 0, 4096, 7 - $P, [NEG], [NEGF], [NEGF]);
+	etEx($A, $I + 4, 0, 16, 0, 1, 0.0f, %N);
+	goto BossCard2_at_1612 @ 0;
+BossCard2_at_1092:
+	etEx($A, $I, 0, 4096, $J + 6, [NEG], [NEGF], [NEGF]);
+	etEx($A, $I + 1, 0, 16, 0, 1, 0.0f, %N);
+	etEx($A, $I + 2, 0, 0, [NEG], [NEG], [NEGF], [NEGF]);
+	etEx($A, $I + 3, 0, 0, [NEG], [NEG], [NEGF], [NEGF]);
+	etEx($A, $I + 4, 0, 0, [NEG], [NEG], [NEGF], [NEGF]);
+BossCard2_at_1612:
+	etOn($A);
+	%M = %M + %H;
+BossCard2_at_1708:
+	if $K-- goto BossCard2_at_244 @ 0;
+	%N = %N - ((%E - %F) / _f($D));
+BossCard2_at_1900:
+	if $L-- goto BossCard2_at_140 @ 0;
 	return();
 }
 
 sub BossCard2_at2()
 {
-	var A B C D E F G H I J X Y cnt amt startAng angInc;
-	$amt = 9;
-	%startAng = 0.78539816339744830961566084581988f;
-	%angInc = -0.17453292519943295769236907684886f;
+	var A, B, C, D, E, F, G, H, I, J, K, L, M, N, O, P;
+	$N = 9;
+	%O = 0.7853982f;
+	%P = -0.17453294f;
 	$A = 7;
 	$B = 0;
-	goto END @ 0;
-START:
-	unless (($TIME % 1) == 0) goto SKIP_ALL @ 0;
-	etAng(1, 0.0f, 0.52359877559829887307710723054658f);
-	%C = _f(0.5f - ((_f($B) * 0.5f) / 9.0f));
-	unless ($B % 2) goto JMP1 @ 0;
+	goto BossCard2_at2_2696 @ 0;
+BossCard2_at2_260:
+	unless (($TIME % 1) == 0) goto BossCard2_at2_2676 @ 0;
+	etAng(1, 0.0f, 0.5235988f);
+	%C = 0.5f - ((_f($B) * 0.5f) / 9.0f);
+	unless ($B % 2) goto BossCard2_at2_696 @ 0;
 	%D = -256.0f;
-	goto JMP1_END @ 0;
-JMP1:
+	goto BossCard2_at2_736 @ 0;
+BossCard2_at2_696:
 	%D = 256.0f;
-JMP1_END:
-	unless (%D < 0.0f) goto JMP2 @ 0;
-	%F = %startAng;
-	%G = %angInc;
-	goto JMP2_END @ 0;
-JMP2:
-	%F = %startAng - 3.1415926535897932384626433832795f;
-	%G = %angInc;
-JMP2_END:
-	%F = (%F + %AIM) - 1.5707963267948966192313216916398f;
-	%J = -0.78539816339744830961566084581988f;
-	$E = $amt;
-	goto SHOOT_END @ 0;
-SHOOT_START:
-	unless (%D < 0.0f) goto JMP3 @ 0;
-	ins_81(%H, %I, %AIM, _f((%C * %DIST) + %D));
-	ins_81(%X, %Y, %F, _f(%D * -1.0f));
-	goto JMP3_END @ 0;
-JMP3:
-	ins_81(%H, %I, %AIM, _f((%C * %DIST) + %D));
-	ins_81(%X, %Y, %F, %D);
-JMP3_END:
-	unless ($B % 2) goto JMP4 @ 0;
+BossCard2_at2_736:
+	unless (%D < 0.0f) goto BossCard2_at2_920 @ 0;
+	%F = %O;
+	%G = %P;
+	goto BossCard2_at2_1036 @ 0;
+BossCard2_at2_920:
+	%F = %O - 3.1415927f;
+	%G = %P;
+BossCard2_at2_1036:
+	%F = (%F + %AIM) - 1.5707964f;
+	%J = -0.7853982f;
+	$E = $N;
+	goto BossCard2_at2_2556 @ 0;
+BossCard2_at2_1252:
+	unless (%D < 0.0f) goto BossCard2_at2_1568 @ 0;
+	ins_81(%H, %I, %AIM, (%C * %DIST) + %D);
+	ins_81(%K, %L, %F, %D * -1.0f);
+	goto BossCard2_at2_1724 @ 0;
+BossCard2_at2_1568:
+	ins_81(%H, %I, %AIM, (%C * %DIST) + %D);
+	ins_81(%K, %L, %F, %D);
+BossCard2_at2_1724:
+	unless ($B % 2) goto BossCard2_at2_1832 @ 0;
 !EN
-	etAng(1, %J, 0.52359877559829887307710723054658f);
-JMP4:
+	etAng(1, %J, 0.5235988f);
+BossCard2_at2_1832:
 !*
-	%X = %X + %H;
-	%Y = %Y + %I;
-	etOfs(1, %X, %Y);
-	etEx(1, 0, 0, 0x10, 0, 1, 0.0f, 0.0f);
+	%K = %K + %H;
+	%L = %L + %I;
+	etOfs(1, %K, %L);
+	etEx(1, 0, 0, 16, 0, 1, 0.0f, 0.0f);
 !EN
-	call("BossCard2_at", _SS 1, _SS 20, _SS 1, _SS 1, _ff 2.0f, _ff 0.0f, _ff 0.0f, _ff 0.0f, _SS 1, _SS (9 - $B));
+	BossCard2_at(1, 20, 1, 1, 2.0f, 0.0f, 0.0f, 0.0f, 1, 9 - $B);
 !HL
-	call("BossCard2_at", _SS 1, _SS 20, _SS 3, _SS 1, _ff 2.0f, _ff 0.0f, _ff -0.52359877559829887307710723054658f, _ff 0.52359877559829887307710723054658f, _SS 1, _SS (9 - $B));
+	BossCard2_at(1, 20, 3, 1, 2.0f, 0.0f, -0.5235988f, 0.5235988f, 1, 9 - $B);
 !*
 	%F = %F - %G;
-	%J = %J + 0.17453292519943295769236907684886f;
-SHOOT_END:
-	if $E-- goto SHOOT_START @ 0;
+	%J = %J + 0.17453294f;
+BossCard2_at2_2556:
+	if $E-- goto BossCard2_at2_1252 @ 0;
 	$B = $B + 1;
-SKIP_ALL:
+BossCard2_at2_2676:
 	wait(1);
-END:
-	if $A-- goto START @ 0;
+BossCard2_at2_2696:
+	if $A-- goto BossCard2_at2_260 @ 0;
 	return();
 }
 
@@ -973,17 +970,17 @@ sub BossCard3()
 !H
 	cardH(71, 2880, 500000, "法灯「隙間無い法の独鈷杵」");
 !L
-	ins_422(72, 2880, 500000, "法灯「隙間無い法の独鈷杵」");
+	card(72, 2880, 500000, "法灯「隙間無い法の独鈷杵」");
 !*
 	enmPosTime(60, 4, 0.0f, 224.0f);
 	invinc(60);
 	stageProg(44);
 	unsetMoveArea();
-60:
++60: //60
 	anmScrSlot(0, 119);
-90:
++30: //90
 	ins_269(0);
-120:
++30: //120
 	noop();
 	goto BossCard3_1420 @ 120;
 BossCard3_764:
@@ -1000,11 +997,11 @@ BossCard3_764:
 	enmNewRel("BossCard3Laser", 0.0f, 0.0f, 100, 10, 0);
 BossCard3_1300:
 !EN
-	callSep("BossCard3At");
+	BossCard3At() async;
 !HL
-	callSep("BossCard3AtH");
+	BossCard3AtH() async;
 !L
-	callSep("BossCard3At");
+	BossCard3At() async;
 !*
 	wait(16000);
 BossCard3_1420:
@@ -1051,7 +1048,7 @@ BossCard3AtH_120:
 	etEx(2, 0, 1, 2, 1, [NEG], [NEGF], [NEGF]);
 	etEx(2, 1, 0, 268435456, 1, [NEG], [NEGF], [NEGF]);
 	etEx(2, 2, 0, 4, 120, [NEG], 0.025f, [NEGF]);
-	%A = (%A + 0.242701f);
+	%A = %A + 0.242701f;
 	etOn(2);
 	wait(6);
 BossCard3AtH_536:
@@ -1061,23 +1058,23 @@ BossCard3AtH_536:
 
 sub BossCard3Laser()
 {
-	var A B;
+	var A, B;
 	anm(2);
 	anmScr(0, $I3);
 	ins_277(0, %F0);
 	%B = %F0;
 	setFlags(797);
 	killbox(20.0f, 20.0f);
-	callSep("BossCard3LaserRot", _ff %B);
-	callSep("MBossCard1LaserHit");
-	callSep("BossCard3LaserMove");
+	BossCard3LaserRot(%B) async;
+	MBossCard1LaserHit() async;
+	BossCard3LaserMove() async;
 	playSE(52);
 	wait(60);
 	ins_275(0, 1);
 	$I0 = 1;
 	playSE(19);
 	wait(60000);
-	callSep("BossCard1LaserAt", _ff %B);
+	BossCard1LaserAt(%B) async;
 	ins_275(0, 2);
 	$I0 = 2;
 	wait(30);
@@ -1149,8 +1146,8 @@ sub BossCard3LaserMark()
 
 sub BossCard3LaserMove()
 {
-	var A B;
-	goto BossCard3LaserMove_836 @ 0;
+	var A, B;
+	goto BossCard3LaserMove_800 @ 0;
 BossCard3LaserMove_60:
 	wait(300);
 	playSE(31);
@@ -1165,28 +1162,27 @@ BossCard3LaserMove_324:
 BossCard3LaserMove_444:
 	unless (%B < _f(64)) goto BossCard3LaserMove_588 @ 0;
 	%B = _f(64);
-	goto BossCard3LaserMove_744 @ 0;
+	goto BossCard3LaserMove_708 @ 0;
 BossCard3LaserMove_588:
-	unless (%B > (_f(448) - _f(64))) goto BossCard3LaserMove_744 @ 0;
+	unless (%B > 384.0f) goto BossCard3LaserMove_708 @ 0;
 	%B = _f(384);
-BossCard3LaserMove_744:
+BossCard3LaserMove_708:
 	enmNew("BossCard3LaserMark", %A, %B, 10, 10, 0);
 	enmPosTime(200, 1, %A, %B);
-BossCard3LaserMove_836:
+BossCard3LaserMove_800:
 	if 1 goto BossCard3LaserMove_60 @ 0;
 	return();
 }
 
-sub BossCard3LaserRot(A)
+sub BossCard3LaserRot(var A)
 {
-	var;
 	goto BossCard3LaserRot_296 @ 0;
 BossCard3LaserRot_60:
 	ins_277(0, %A);
 !EN
-	%A = (%A + 0.01309f);
+	%A = %A + 0.01309f;
 !HL
-	%A = (%A - 0.01309f);
+	%A = %A - 0.01309f;
 !*
 	%F3 = %A;
 	wait(1);
@@ -1197,7 +1193,7 @@ BossCard3LaserRot_296:
 
 sub BossCard4()
 {
-	var A B C D E;
+	var A, B, C, D, E;
 	resetBoss();
 	ins_21();
 	enmClear();
@@ -1219,15 +1215,15 @@ sub BossCard4()
 !H
 	cardH(75, 3000, 500000, "光符「浄化の魔」");
 !L
-	ins_422(76, 3000, 500000, "「コンプリートクラリフィケイション」");
+	card(76, 3000, 500000, "「コンプリートクラリフィケイション」");
 !*
 	invinc(60);
 	unsetMoveArea();
-60:
++60: //60
 	anmScrSlot(0, 119);
-90:
++30: //90
 	ins_269(0);
-120:
++30: //120
 	noop();
 	%B = _f(32);
 	setf_rank(%C, 100.0f, 60.0f, 50.0f, 36.0f);
@@ -1237,7 +1233,7 @@ BossCard4_844:
 	%F0 = 3.141593f;
 	%B = _f(32);
 !N
-	%B = (%B - _f(5));
+	%B = %B - _f(5);
 !*
 	playSE(58);
 	%F2 = 0.628319f;
@@ -1246,7 +1242,7 @@ BossCard4_844:
 BossCard4_1160:
 	enmNew("BossCard4Laser", 192.0f, %B, 100, 10, 0);
 	wait(10);
-	%B = (%B + %C);
+	%B = %B + %C;
 BossCard4_1312:
 	if $D-- goto BossCard4_1160 @ 120;
 	wait(300);
@@ -1254,11 +1250,11 @@ BossCard4_1312:
 	%F0 = 0.0f;
 	%B = _f(7);
 !E
-	%B = (%B - _f(25));
+	%B = %B - _f(25);
 !N
-	%B = (%B - _f(10));
+	%B = %B - _f(10);
 !L
-	%B = (%B + _f(7));
+	%B = %B + _f(7);
 !*
 	playSE(58);
 	%F2 = 0.628319f;
@@ -1267,7 +1263,7 @@ BossCard4_1312:
 BossCard4_1844:
 	enmNew("BossCard4Laser", -192.0f, %B, 100, 10, 0);
 	wait(10);
-	%B = (%B + %C);
+	%B = %B + %C;
 BossCard4_1996:
 	if $E-- goto BossCard4_1844 @ 120;
 	wait(300);
@@ -1278,20 +1274,20 @@ BossCard4_2060:
 
 sub BossCard4Laser()
 {
-	var A B;
+	var A, B;
 	anm(2);
 	anmScr(0, $I3);
 	ins_277(0, %F0);
 	%B = %F0;
 	setFlags(797);
 	killbox(60.0f, 60.0f);
-	callSep("MBossCard1LaserHit");
+	MBossCard1LaserHit() async;
 	wait(60);
 	ins_275(0, 1);
 	$I0 = 1;
 	playSE(19);
 	wait(60);
-	callSep("BossCard4LaserAt", _ff %B);
+	BossCard4LaserAt(%B) async;
 	ins_275(0, 2);
 	$I0 = 2;
 	wait(30);
@@ -1299,9 +1295,9 @@ sub BossCard4Laser()
 	delete();
 }
 
-sub BossCard4LaserAt(A)
+sub BossCard4LaserAt(var A)
 {
-	var B C D E;
+	var B, C, D, E;
 	unless ($I3 == 67) goto BossCard4LaserAt_296 @ 0;
 	etNew(0);
 	etMode(0, 2);
@@ -1329,9 +1325,9 @@ BossCard4LaserAt_452:
 	goto BossCard4LaserAt_1076 @ 0;
 BossCard4LaserAt_796:
 	ins_81(%C, %D, %A, %B);
-	%B = (%B + _f(16));
+	%B = %B + _f(16);
 	etAng(0, %E, 0.0f);
-	%E = (%E + %F2);
+	%E = %E + %F2;
 	etOfs(0, %C, %D);
 	etOn(0);
 	wait(1);
@@ -1388,7 +1384,7 @@ sub BossCard4LaserAt2()
 
 sub BossCard4LaserAt3()
 {
-	var A B;
+	var A, B;
 	etNew(3);
 	etSpr(3, 7, 13);
 	etAng(3, 0.0f, 0.0f);
@@ -1401,7 +1397,7 @@ sub BossCard4LaserAt3()
 BossCard4LaserAt3_284:
 	etAng(3, %A, %A);
 	laserShoot(3);
-	%A = (%A + 0.19635f);
+	%A = %A + 0.19635f;
 BossCard4LaserAt3_408:
 	if $B-- goto BossCard4LaserAt3_284 @ 0;
 	return();
@@ -1422,7 +1418,7 @@ BossDead_308:
 	enmNewRel("Ecl_EtBreak2_ni", 0.0f, 0.0f, 9999, 0, 0);
 BossDead_364:
 	enmClear();
-60:
++60: //60
 	etClear_all();
 	cardEnd();
 	unless ($TIMEOUT == 0) goto BossDead_616 @ 60;
