@@ -36,7 +36,6 @@ sub MBoss()
 sub MBoss1()
 {
 	setMoveArea(0f, 84f, 320f, 72f);
-	timeoutAt(0, "MBossEscape");
 	switch (SHOT_TYPE) {
 		case [SHOT_REIMU_A]:	
 			interrupt(0, 1000, 1020, "MBossCard1");
@@ -63,6 +62,7 @@ sub MBoss1()
 			lifebar(0, 1000f, -24448);
 			break;
 	}
+	timeoutAt(0, "MBossEscape");
 	enmPos(0f, 128f);
 	invinc(30);
 +30:
