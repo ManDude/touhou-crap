@@ -91,7 +91,7 @@ sub Boss1_at1()
 180:
 	int next = RAND % 3;
 	if (next < 0)
-		next = -next;
+		next *= -1;
 	if (next == 0)
 		Boss1_at2();
 	else if (next == 1)
@@ -175,7 +175,7 @@ sub Boss1_at2()
 228:
 	int next = RAND % 3;
 	if (next < 0)
-		next = -next;
+		next *= -1;
 	if (next == 0)
 		Boss1_at1();
 	else if (next == 1)
@@ -214,7 +214,7 @@ sub Boss1_at3()
 !*
 	int next = RAND % 3;
 	if (next < 0)
-		next = -next;
+		next *= -1;
 	if (next == 0)
 		Boss1_at2();
 	else if (next == 1)
@@ -229,7 +229,7 @@ sub Boss1_at4()
 	enmRand(60, 4, 3f);
 	float spd = 1f + 0.5f, ang, angI;
 	int m = RAND % 2;
-	if (m < 0) m = -m;
+	if (m < 0) m *= -1;
 	etNew(0);
 	etOfs(0, 0f, -12f);
 	etMode(0, 0);
@@ -255,7 +255,7 @@ sub Boss1_at4()
 120:
 	int next = RAND % 3;
 	if (next < 0)
-		next = -next;
+		next *= -1;
 	if (next == 0)
 		Boss1_at2();
 	else if (next == 1)
@@ -338,7 +338,7 @@ sub Boss2_at1()
 176:
 	int next = RAND % 3;
 	if (next < 0)
-		next = -next;
+		next *= -1;
 	if (next == 0)
 		Boss2_at2();
 	else if (next == 1)
@@ -376,7 +376,7 @@ sub Boss2_at2()
 240:
 	int next = RAND % 3;
 	if (next < 0)
-		next = -next;
+		next *= -1;
 	if (next == 0)
 		Boss2_at1();
 	else if (next == 1)
@@ -408,7 +408,7 @@ sub Boss2_at3()
 220:
 	int next = RAND % 3;
 	if (next < 0)
-		next = -next;
+		next *= -1;
 	if (next == 0)
 		Boss2_at2();
 	else if (next == 1)
@@ -423,7 +423,7 @@ sub Boss2_at4()
 	enmRand(60, 4, 3f);
 	float spd = 1f + 0.5f, ang, angI;
 	int m = RAND % 2;
-	if (m < 0) m = -m;
+	if (m < 0) m *= -1;
 	etNew(0);
 	etOfs(0, 0f, -12f);
 	etMode(0, 0);
@@ -449,7 +449,7 @@ sub Boss2_at4()
 120:
 	int next = RAND % 3;
 	if (next < 0)
-		next = -next;
+		next *= -1;
 	if (next == 0)
 		Boss2_at2();
 	else if (next == 1)

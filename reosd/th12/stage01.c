@@ -510,6 +510,33 @@ sub MainSub11()
 	return;
 }
 
+sub test1()
+{
+	wait(60);
+	etNew(0);
+	etMode(0, 1);
+	etSpr(0, 5, 1);
+	etAmt(0, 5, 1);
+	etSpd(0, 2f, 0f);
+	etAng(0, R_D, rad(3));
+	etOfs_abs(0, -60f, 100f);
+	etEx(0, 0, 0, 2, 0, NEG, NEGF, NEGF);
+	etOn(0);
+	etOfs_abs(0, -30f, 100f);
+	etEx(0, 0, 0, 2, 1, NEG, NEGF, NEGF);
+	etOn(0);
+	etOfs_abs(0, 0f, 100f);
+	etEx(0, 0, 0, 2, 2, NEG, NEGF, NEGF);
+	etOn(0);
+	etOfs_abs(0, 30f, 100f);
+	etEx(0, 0, 0, 2, 3, NEG, NEGF, NEGF);
+	etOn(0);
+	etOfs_abs(0, 60f, 100f);
+	etEx(0, 0, 0, 2, 4, NEG, NEGF, NEGF);
+	etOn(0);
+	return;
+}
+
 sub main()
 {
 	setFlags(32);

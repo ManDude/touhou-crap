@@ -6,7 +6,7 @@ sub rand(int max, int addr)
 {
 	int r = RAND % max;
 	if (r < 0)
-		r = -r;
+		r *= -1;
 	if (addr == 0)
 		I0 = r;
 	else if (addr == 1)

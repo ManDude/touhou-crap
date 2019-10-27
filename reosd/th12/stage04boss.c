@@ -2074,7 +2074,7 @@ sub BossCardWoMe_at1(float ang)
 {
 	float max_variance = rad(18f);
 	float laser_ang = 0f;
-	float min_variance = -max_variance;
+	float min_variance = max_variance * -1f;
 	int i = 0, lID = 1;
 	times (2:4:7:10) {
 		etAng(1, laser_ang + ang, 0f);

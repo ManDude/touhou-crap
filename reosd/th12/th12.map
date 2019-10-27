@@ -40,13 +40,11 @@ eclmap
 73 ? or			#or() ors the two topmost values on the stack, pops the operands and pushes the result
 74 ? and		#and() ands the two topmost values on the stack, pops the operands and pushes the result
 75 ? xor		#xor() xors the two topmost values on the stack, pops the operands and pushes the result
-76 ? and_b		#and_b() binary ands the two topmost values on the stack, pops the operands and pushes the result
-77 ? or_b		#or_b() binary ors the two topmost values on the stack, pops the operands and pushes the result
+76 ? or_b		#or_b() bitwise ors the two topmost values on the stack, pops the operands and pushes the result
+77 ? and_b		#and_b() bitwise ands the two topmost values on the stack, pops the operands and pushes the result
 78 ? dec		#dec(v) pushes the variable v and then decreases its value by 1
 82 ? normRad	#normRad(v) wraps the value of v into the [-pi, pi] range
 83 ? wait		#wait(t) waits t frames
-84 ? negi		#negi() negates the topmost value on the stack
-85 ? negf		#negf()
 
 256 ? enmNew				#enmNew(func, x, y, l, s, i) creates a new enemy at the current coordinates + xy, the enemy has life l and the main item dropped on death is i. s is score reward on death, but is non-functional
 257 ? enmNewAbs				#enmNewAbs(func, x, y, l, s, i) creates a new enemy at the coordinates xy
