@@ -1,5 +1,5 @@
 {
-	"contact": "videomendude@gmail.com",
+	"contact": "The Peepee Poopoo Man#6783 on discord",
 	"id": "dass7",
 	"patches": {
 		"reosd": "EoSD patch for UFO (EARLY ACCESS) (NOTE: The scorefile is named \"scoreosd12.dat\" while the replay folder is called \"reosdreplay\")",
