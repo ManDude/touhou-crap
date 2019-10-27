@@ -11,7 +11,7 @@ sub MBoss()
 	CAPTURED = 1;
 	enmClear();
 	resetBoss();
-	enmNewAbs("Ecl_EtBreak_ni", 0f, 0f, 9999, 0, 0);
+	enmNew("Ecl_EtBreak_ni", 0f, 0f, 9999, 0, 0);
 	anmFile(0);
 	anmAt(1, 95);
 	anmAt(2, 158);
@@ -168,7 +168,7 @@ sub MBossCard1()
 	resetBoss();
 	ins_21();
 	enmClear();
-	enmNewAbs("Ecl_EtBreak", 0f, 0f, 9999, 0, 0);
+	enmNew("Ecl_EtBreak", 0f, 0f, 9999, 0, 0);
 	cardEnd();
 	ins_529(0);
 	resetBossParam();
@@ -255,7 +255,7 @@ sub MBossDead()
 	cardEnd();
 	unsetMoveArea();
 	ins_21();
-	enmNewAbs("Ecl_EtBreak", 0f, 0f, 9999, 0, 0);
+	enmNew("Ecl_EtBreak", 0f, 0f, 9999, 0, 0);
 	ins_529(0);
 	resetBossParam();
 	interrupt(0, -1, 0, "");
@@ -288,7 +288,7 @@ sub MBossEscape()
 	unsetMoveArea();
 	ins_21();
 	enmClear();
-	enmNewAbs("Ecl_EtBreak", 0f, 0f, 9999, 0, 0);
+	enmNew("Ecl_EtBreak", 0f, 0f, 9999, 0, 0);
 	etClear_ni(640f);
 	ins_529(0);
 	resetBossParam();
