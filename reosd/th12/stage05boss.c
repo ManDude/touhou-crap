@@ -251,11 +251,8 @@ sub Boss2_Enemy()
 	etSpr(0, 8, $I1);
 	etAmt_rank(0, 4, 6, 5, 5, 1, 1, 1, 1);
 	etSpd_rank(0, 1.9f, 2.1f, 2.3f, 2.7f, 1.45f, 1.45f, 1.45f, 1.45f);
-!EN
-	etEx(0, 0, 0, 256, 1, 13, NEGF, NEGF);
-!HL
-	etEx(0, 0, 0, 256, 2, 13, NEGF, NEGF);
-!*
+!EN:etEx(0, 0, 0, 256, 1, 13, NEGF, NEGF);
+!HL:etEx(0, 0, 0, 256, 2, 13, NEGF, NEGF);
 	%A = %F1;
 +50: //50
 	%C = %RDEG;
