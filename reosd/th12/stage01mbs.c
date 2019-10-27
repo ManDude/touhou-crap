@@ -11,7 +11,7 @@ sub MBoss()
 	CAPTURED = 1;
 	enmClear();
 	resetBoss();
-	enmNewRel("Ecl_EtBreak_ni", 0f, 0f, 9999, 0, 0);
+	enmNewAbs("Ecl_EtBreak_ni", 0f, 0f, 9999, 0, 0);
 	anmFile(0);
 	anmAt(1, 95);
 	anmAt(2, 158);
@@ -42,19 +42,19 @@ sub MBoss()
 
 sub MBoss1()
 {
-	noop();
+	nop();
 20:
-	noop();
+	nop();
 40:
-	noop();
+	nop();
 70:
 	playSE(28);
 100:
 	MBoss1_at1(6);
 132:
-	noop();
+	nop();
 	times (2) {
-		noop();
+		nop();
 142:
 		enmPosTime(60, 4, 0f, 64f);
 202:
@@ -68,19 +68,19 @@ sub MBoss1()
 234:
 		MBoss1_at2(14, rad(15f));
 264:
-		noop();
+		nop();
 324:
 		enmPosTime(60, 4, -128f, 96f);
 334:
-		noop();
+		nop();
 354:
 		MBoss1_at1(10);
 384:
 		MBoss1_at1(13);
 416:
-		noop();
+		nop();
 456:
-		noop();
+		nop();
 466:
 		enmPosTime(60, 4, 0f, 80f);
 526:
@@ -94,7 +94,7 @@ sub MBoss1()
 558:
 		MBoss1_at3(14);
 588:
-		noop();
+		nop();
 648:
 		enmPosTime(60, 4, 128f, 64f);
 658:
@@ -104,12 +104,12 @@ sub MBoss1()
 		MBoss1_at1(2);
 740:
 780:
-		noop();
+		nop();
 	}
 790:
 	enmPosTime(60, 4, 0f, -64f);
 850:
-	return();
+	return;
 }
 
 sub MBoss1_at1(int col)
@@ -121,10 +121,10 @@ sub MBoss1_at1(int col)
 	etSpd(0, 2.5f, (1.5f:1.5f:1.2f:1f) + 0.25f);
 	etAng(0, 0f, 0f);
 	etOfs(0, 0f, -12f);
-	etEx(0, 0, 0, 2, 1, [NEG], [NEGF], [NEGF]);
-	etEx(0, 1, 1, 1, [NEG], [NEG], [NEGF], [NEGF]);
+	etEx(0, 0, 0, 2, 1, NEG, NEGF, NEGF);
+	etEx(0, 1, 1, 1, NEG, NEG, NEGF, NEGF);
 	etOn(0);
-	return();
+	return;
 }
 
 sub MBoss1_at2(int col, float ang)
@@ -136,12 +136,12 @@ sub MBoss1_at2(int col, float ang)
 	etSpd(0, 0.5f, 0.25f);
 	etAng(0, ang, 0f);
 	etOfs(0, 0f, -12f);
-	etEx(0, 0, 2, 2, 1, [NEG], [NEGF], [NEGF]);
-	etEx(0, 1, 1, 1, [NEG], [NEG], [NEGF], [NEGF]);
-	etEx(0, 2, 0, 4096, 15, [NEG], [NEGF], [NEGF]);
-	etEx(0, 3, 0, 4, 999999, [NEG], 0.02f, [NEGF]);
+	etEx(0, 0, 2, 2, 1, NEG, NEGF, NEGF);
+	etEx(0, 1, 1, 1, NEG, NEG, NEGF, NEGF);
+	etEx(0, 2, 0, 4096, 15, NEG, NEGF, NEGF);
+	etEx(0, 3, 0, 4, 999999, NEG, 0.02f, NEGF);
 	etOn(0);
-	return();
+	return;
 }
 
 sub MBoss1_at3(int col)
@@ -150,17 +150,17 @@ sub MBoss1_at3(int col)
 	etMode(0, 3);
 	etOfs(0, 0f, -12f);
 	etAmt(0, 4:8:12:24, 1);
-	etEx(0, 0, 0, 2, 2, [NEG], [NEGF], [NEGF]);
-	etEx(0, 1, 0, 1, [NEG], [NEG], [NEGF], [NEGF]);
+	etEx(0, 0, 0, 2, 2, NEG, NEGF, NEGF);
+	etEx(0, 1, 0, 1, NEG, NEG, NEGF, NEGF);
 	etSpr(0, 0, col);
 	etSpd(0, (RF * 3f) + 1f, 0.95f);
-	etAng(0, RDEG - [PI], 0f);
+	etAng(0, RDEG - PI, 0f);
 	etOn(0);
 	etSpr(0, 7, col);
 	etSpd(0, (RF * 3f) + 1f, 0.95f);
-	etAng(0, RDEG - [PI], 0f);
+	etAng(0, RDEG - PI, 0f);
 	etOn(0);
-	return();
+	return;
 }
 
 sub MBossCard1()
@@ -168,7 +168,7 @@ sub MBossCard1()
 	resetBoss();
 	ins_21();
 	enmClear();
-	enmNewRel("Ecl_EtBreak", 0f, 0f, 9999, 0, 0);
+	enmNewAbs("Ecl_EtBreak", 0f, 0f, 9999, 0, 0);
 	cardEnd();
 	ins_529(0);
 	resetBossParam();
@@ -190,7 +190,7 @@ sub MBossCard1()
 	anmAt2(0, 119);
 	MBossCard1_at() async;
 	while (1) {
-		noop();
+		nop();
 150:
 		MBossCard1_at2() async;
 		wait(120);
@@ -199,7 +199,7 @@ sub MBossCard1()
 350:
 	}
 	while (1) wait(1000);
-	return();
+	return;
 }
 
 sub MBossCard1_at()
@@ -210,13 +210,13 @@ sub MBossCard1_at()
 	etAng(1, 0f, 0f);
 	etAmt(1, 42:42:42:48, 1);
 	etSpd(1, (2.5f:2.5f:2.5f:2.8f) + 0.5f, 0.25f);
-	etEx(1, 0, 0, 2, 2, [NEG], [NEGF], [NEGF]);
+	etEx(1, 0, 0, 2, 2, NEG, NEGF, NEGF);
 	etOfs(1, 0f, -12f);
 	while (1) {
 		etOn(1);
 		wait_rank(0, 0, 33, 21);
 	}
-	return();
+	return;
 }
 
 sub MBossCard1_at2()
@@ -228,7 +228,7 @@ sub MBossCard1_at2()
 	laserTime(0, 0, 30, 120, 16, 0);
 	etOfs(0, 0f, -12f);
 	etSE(0, 19, -1);
-	etEx(0, 0, 0, 0x10000000, 1, [NEG], [NEGF], [NEGF]);
+	etEx(0, 0, 0, 0x10000000, 1, NEG, NEGF, NEGF);
 	float l1Ang = rad(22.5f);
 	etAng(0, l1Ang, 0f);
 	laserOn2(0, 1);
@@ -243,7 +243,7 @@ sub MBossCard1_at2()
 		l2Ang -= rad(0.47368421052631578947368421052632f);
 		laserAng(2, l2Ang);
 	}
-	return();
+	return;
 }
 
 sub MBossDead()
@@ -255,7 +255,7 @@ sub MBossDead()
 	cardEnd();
 	unsetMoveArea();
 	ins_21();
-	enmNewRel("Ecl_EtBreak", 0f, 0f, 9999, 0, 0);
+	enmNewAbs("Ecl_EtBreak", 0f, 0f, 9999, 0, 0);
 	ins_529(0);
 	resetBossParam();
 	interrupt(0, -1, 0, "");
@@ -288,7 +288,7 @@ sub MBossEscape()
 	unsetMoveArea();
 	ins_21();
 	enmClear();
-	enmNewRel("Ecl_EtBreak", 0f, 0f, 9999, 0, 0);
+	enmNewAbs("Ecl_EtBreak", 0f, 0f, 9999, 0, 0);
 	etClear_ni(640f);
 	ins_529(0);
 	resetBossParam();

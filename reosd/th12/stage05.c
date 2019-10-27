@@ -9,7 +9,7 @@ sub BigGirlMain()
 {
 	anmFile(2);
 	anmMoveAt(0, 39);
-	setFlags([ENEMY_LIFE_WARN]);
+	setFlags(ENEMY_LIFE_WARN);
 	MainGirlFuncManager();
 	delete();
 }
@@ -90,24 +90,24 @@ sub Girl00()
 	interrupt(0, 0, -1, "Girl00Dead");
 	hitbox(28f, 28f);
 	killbox(28f, 28f);
-	enmDir([R_D], 2f);
+	enmDir(R_D, 2f);
 +40:
-	enmDirTime(30, 0, [NEGF], 0f);
+	enmDirTime(30, 0, NEGF, 0f);
 +30:
 	Girl00_at();
-	enmDir([R_D], 1.8f);
+	enmDir(R_D, 1.8f);
 10000:
-	return();
+	return;
 }
 
 sub Girl00_at()
 {
 	etNew(0);
 	etMode(0, 2);
-	etSpr(0, [ET_BALL], 6);
+	etSpr(0, ET_BALL, 6);
 	etAmt(0, 16:30:40, 1);
 	etAng(0, 0f, 0f);
-	etEx(0, 0, 0, 2, 2, [NEG], [NEGF], [NEGF]);
+	etEx(0, 0, 0, 2, 2, NEG, NEGF, NEGF);
 	float sp = 1.5f;
 	times (8) {
 		etSpd(0, sp + 0.5f, 1.25f);
@@ -123,24 +123,24 @@ sub Girl01()
 	interrupt(0, 0, -1, "Girl00Dead");
 	hitbox(28f, 28f);
 	killbox(28f, 28f);
-	enmDir([R_D], 2f);
+	enmDir(R_D, 2f);
 +40:
-	enmDirTime(30, 0, [NEGF], 0f);
+	enmDirTime(30, 0, NEGF, 0f);
 +30:
 	Girl01_at();
-	enmDir([R_D], 1.8f);
+	enmDir(R_D, 1.8f);
 10000:
-	return();
+	return;
 }
 
 sub Girl01_at()
 {
 	etNew(0);
 	etMode(0, 2);
-	etSpr(0, [ET_BALL], 6);
+	etSpr(0, ET_BALL, 6);
 	etAmt(0, 12:24:32, 1);
 	etAng(0, 0f, 0f);
-	etEx(0, 0, 0, 2, 2, [NEG], [NEGF], [NEGF]);
+	etEx(0, 0, 0, 2, 2, NEG, NEGF, NEGF);
 	float sp = 1.5f;
 	times (5) {
 		etSpd(0, sp + 0.5f, 1.25f);
@@ -163,21 +163,21 @@ sub Girl02()
 	interrupt(0, 0, -1, "Girl02Dead");
 	hitbox(28f, 28f);
 	killbox(28f, 28f);
-	enmDir([R_R], 2.5f);
+	enmDir(R_R, 2.5f);
 	Girl02_at();
 10000:
-	return();
+	return;
 }
 
 sub Girl02_at()
 {
 	etNew(0);
 	etMode(0, 8);
-	etSpr(0, [ET_PETAL], 6);
+	etSpr(0, ET_PETAL, 6);
 	etAmt(0, 3:3:4:5, 1:2);
 	etSpd(0, 2.3f, 1.05f);
-	etAng(0, [R_R], [R_L]);
-	etEx(0, 0, 0, 2, 2, [NEG], [NEGF], [NEGF]);
+	etAng(0, R_R, R_L);
+	etEx(0, 0, 0, 2, 2, NEG, NEGF, NEGF);
 	et_on_rate(0, 49:49:33:25, 1) async 1;
 }
 
@@ -193,15 +193,15 @@ sub Girl03()
 	interrupt(0, 0, -1, "Girl03Dead");
 	hitbox(28f, 28f);
 	killbox(28f, 28f);
-	setFlags([ENEMY_LIFE_WARN]);
-	enmDir([R_D], 2f);
+	setFlags(ENEMY_LIFE_WARN);
+	enmDir(R_D, 2f);
 +40:
-	enmDirTime(30, 0, [NEGF], 0f);
+	enmDirTime(30, 0, NEGF, 0f);
 +30:
 	Girl03_at();
-	enmDir([R_D], 1.8f);
+	enmDir(R_D, 1.8f);
 10000:
-	return();
+	return;
 }
 
 sub Girl03_at()
@@ -209,10 +209,10 @@ sub Girl03_at()
 	float sp = 1.5f;
 	etNew(0);
 	etMode(0, 2);
-	etSpr(0, [ET_BALL], I1);
+	etSpr(0, ET_BALL, I1);
 	etAmt(0, 24, 1:1:1:2);
-	etAng(0, [PI] / _f(24), 0f);
-	etEx(0, 0, 0, 2, 2, [NEG], [NEGF], [NEGF]);
+	etAng(0, PI / _f(24), 0f);
+	etEx(0, 0, 0, 2, 2, NEG, NEGF, NEGF);
 	etCopy(1, 0);
 	etAng(0, 0f, 0f);
 	etAmt(0, 24, 1);
@@ -241,27 +241,27 @@ sub Girl04()
 	interrupt(0, 0, -1, "Girl03Dead");
 	hitbox(28f, 28f);
 	killbox(28f, 28f);
-	setFlags([ENEMY_LIFE_WARN]);
-	enmDir([R_D], 2f);
+	setFlags(ENEMY_LIFE_WARN);
+	enmDir(R_D, 2f);
 +40:
-	enmDirTime(30, 0, [NEGF], 0f);
+	enmDirTime(30, 0, NEGF, 0f);
 +30:
 	Girl04_at();
-	enmDir([R_D], 1.8f);
+	enmDir(R_D, 1.8f);
 10000:
-	return();
+	return;
 }
 
 sub Girl04_at()
 {
 	etNew(0);
 	etMode(0, 1);
-	etSpr(0, [ET_OLDBALL], 6);
+	etSpr(0, ET_OLDBALL, 6);
 	etAmt(0, 5:5:5:7, 1:1:2);
-	etEx(0, 0, 0, 2, 2, [NEG], [NEGF], [NEGF]);
+	etEx(0, 0, 0, 2, 2, NEG, NEGF, NEGF);
 	times (20:40) {
 		etSpd(0, RF * 2f + 1.5f, 1.25f);
-		etAng(0, rad(112.5f) * RF2 + [R_D], rad(2.25f));
+		etAng(0, rad(112.5f) * RF2 + R_D, rad(2.25f));
 		etOn(0);
 		wait(3);
 	}
@@ -279,7 +279,7 @@ sub Girl05()
 	interrupt(0, 0, -1, "Girl05Dead");
 	hitbox(28f, 28f);
 	killbox(28f, 28f);
-	enmDir([R_R], 2.5f);
+	enmDir(R_R, 2.5f);
 	switch (I2) {
 		case 0:
 			Girl05At_a();
@@ -292,7 +292,7 @@ sub Girl05()
 			break;
 	}
 10000:
-	return();
+	return;
 }
 
 sub Girl05At_a()
@@ -303,7 +303,7 @@ sub Girl05At_a()
 	etAmt(0, 6, 1);
 	etSpd(0, 2f, 1.05f);
 	etAng(0, 0f, rad(11.25f));
-	etEx(0, 0, 0, 2, 2, [NEG], [NEGF], [NEGF]);
+	etEx(0, 0, 0, 2, 2, NEG, NEGF, NEGF);
 	et_on_rate(0, 33, 1) async 1;
 }
 
@@ -311,11 +311,11 @@ sub Girl05At_b()
 {
 	etNew(0);
 	etMode(0, 0);
-	etSpr(0, [ET_KUNAI], 2);
+	etSpr(0, ET_KUNAI, 2);
 	etAmt(0, 4, 1);
 	etSpd(0, 2f, 1.05f);
 	etAng(0, 0f, rad(15f));
-	etEx(0, 0, 0, 2, 2, [NEG], [NEGF], [NEGF]);
+	etEx(0, 0, 0, 2, 2, NEG, NEGF, NEGF);
 	et_on_rate(0, 25, 1) async 1;
 }
 
@@ -326,8 +326,8 @@ sub Girl05At_c()
 	etSpr(0, 3, 2);
 	etAmt(0, 4, 1);
 	etSpd(0, 2f, 1.05f);
-	etAng(0, [NPI], [PI]);
-	etEx(0, 0, 0, 2, 2, [NEG], [NEGF], [NEGF]);
+	etAng(0, NPI, PI);
+	etEx(0, 0, 0, 2, 2, NEG, NEGF, NEGF);
 	et_on_rate(0, 9, 1) async 1;
 }
 
@@ -471,7 +471,7 @@ sub main()
 	if (RANK < 3) Give1Up();
 	setFlags(32);
 	enmPos(PLAYER_X, PLAYER_Y);
-	itemMain([ITEM_FULL_POWER]);
+	itemMain(ITEM_FULL_POWER);
 	itemDrop();
 	ins_280("MapleEnemy", 0, 0, 100, 1000, 0);
 	LogoEnemy() async;
@@ -534,12 +534,12 @@ sub LogoEnemy()
 {
 	//wait(460);
 	logoShow();
-	return();
+	return;
 }
 
 sub MapleEnemy()
 {
-	setFlags([ENEMY_HIDE]);
+	setFlags(ENEMY_HIDE);
 	times (2580) {
 		ins_264(0, 212);
 		wait(1);
@@ -562,8 +562,8 @@ sub MainBossDebug()
 +60: //70
 	msgBegin(1);
 	msgWait();
-	return();
-	return();
+	return;
+	return;
 }
 
 sub MainMBossDebug()
@@ -571,7 +571,7 @@ sub MainMBossDebug()
 	ins_700(3);
 	enmNewAbsNoBoss("MBoss", -128f, -32f, 200000, 15000, 1);
 	while 1 wait(1000);
-	return();
+	return;
 }
 
 sub MainMsgDebug()
@@ -589,7 +589,7 @@ sub MainMsgDebug()
 	while 1 {
 +4000: 	nop(); //4181
 	}
-	return();
+	return;
 }
 
 sub MainMsgDebugMBoss()
@@ -603,6 +603,6 @@ sub MainMsgDebugMBoss()
 	while 1 {
 +4000: 	nop(); //4121
 	}
-	return();
+	return;
 }
 

@@ -4,14 +4,14 @@ ecli { "default.ecl"; "stage06boss.ecl"; "stage06mbs.ecl"; }
 #include "th12_globalvar.txt"
 #include "default.h"
 
-global[CIR_ITEM_L] = 3;
-global[CIR_ITEM_H] = 9;
-global[CIR_ITEM_TOTAL] = 12;
+global CIR_ITEM_L = 3;
+global CIR_ITEM_H = 9;
+global CIR_ITEM_TOTAL = 12;
 
 sub BCir01()
 {
     itemClear();
-    itemEx(2, [CIR_ITEM_TOTAL]);
+    itemEx(2, CIR_ITEM_TOTAL);
     Cir01(92, 50, 1);
     delete();
 }
@@ -41,18 +41,18 @@ sub Cir00(int anm1, int anm2, int anmfile)
 +85:
 	endSlot(1);
 10000:
-    return();
+    return;
 }
 
 sub Cir00_at()
 {
 	etNew(0);
 	etMode(0, 8);
-	etSpr(0, [ET_PETAL], 6);
+	etSpr(0, ET_PETAL, 6);
 	etAmt(0, 6, 2);
 	etSpd(0, 2.1f, 1.25f);
-	etAng(0, [NPI], [PI]);
-	etEx(0, 0, 0, 2, 2, [NEG], [NEGF], [NEGF]);
+	etAng(0, NPI, PI);
+	etEx(0, 0, 0, 2, 2, NEG, NEGF, NEGF);
 	while 1 {
 		etOn(0);
 		wait_rank(129, 65, 41, 25);
@@ -76,18 +76,18 @@ sub Cir01(int anm1, int anm2, int anmfile)
 +60:
 	endSlot(1);
 10000:
-    return();
+    return;
 }
 
 sub Cir01_at()
 {
 	etNew(0);
 	etMode(0, 8);
-	etSpr(0, [ET_PETAL], 2);
+	etSpr(0, ET_PETAL, 2);
 	etAmt(0, 9, 1);
 	etSpd(0, 2.5f, 1.25f);
-	etAng(0, [NPI], [PI]);
-	etEx(0, 0, 0, 2, 2, [NEG], [NEGF], [NEGF]);
+	etAng(0, NPI, PI);
+	etEx(0, 0, 0, 2, 2, NEG, NEGF, NEGF);
 	while 1 {
 		etOn(0);
 		wait_rank(129, 65, 41, 25);
@@ -97,8 +97,8 @@ sub Cir01_at()
 sub GCir00()
 {
 	itemClear();
-	itemEx(1, [CIR_ITEM_L]);
-	itemEx(2, [CIR_ITEM_H]);
+	itemEx(1, CIR_ITEM_L);
+	itemEx(2, CIR_ITEM_H);
     Cir00(89, 52, 1);
     delete();
 }
@@ -107,7 +107,7 @@ sub LogoEnemy()
 {
     wait(620);
     logoShow();
-    return();
+    return;
 }
 
 sub MainBossDebug()
@@ -121,8 +121,8 @@ sub MainBossDebug()
 +60:
     msgBegin(1);
     msgWait();
-    return();
-    return();
+    return;
+    return;
 }
 
 sub MainMBossDebug()
@@ -134,7 +134,7 @@ MainMBossDebug_128:
     wait(1000);
 MainMBossDebug_148:
     if 1 goto MainMBossDebug_128 @ 0;
-    return();
+    return;
 }
 
 sub MainMsgDebug()
@@ -155,7 +155,7 @@ MainMsgDebug_216: //181
     nop();
 MainMsgDebug_232: //4181
     if 1 goto MainMsgDebug_216 @ 181;
-    return();
+    return;
 }
 
 sub MainSub00()
@@ -173,7 +173,7 @@ sub MainSub00()
 +8:
 	}
 	I0 = 0;
-    return();
+    return;
 }
 
 sub MainSub01()
@@ -185,7 +185,7 @@ sub MainSub01()
 	enmNewAbs("EffEnemy", -32f, -48f, 900, 1000, 2);
 +10:
 	enmNewAbs("EffEnemy", -32f, -48f, 900, 1000, 2);
-    return();
+    return;
 }
 
 sub EffEnemy()
@@ -239,24 +239,24 @@ sub Girl00(int anm1, int anm2)
     anmMoveAt(0, anm1);
     hitbox(28f, 28f);
     killbox(28f, 28f);
-    enmDir([R_R], 2f);
+    enmDir(R_R, 2f);
 +40:
 	interrupt(0, 0, -1, "Girl00Dead");
 	Girl00_at();
 	enmDir(RF2 * rad(45f) + rad(90f), 1.8f);
 10000:
-    return();
+    return;
 }
 
 sub Girl00_at()
 {
 	etNew(0);
-	etMode(0, [ETON_CIR_AIM]);
-	etSpr(0, [ET_PETAL], 6);
+	etMode(0, ETON_CIR_AIM);
+	etSpr(0, ET_PETAL, 6);
 	etAmt(0, 40:60, 1:1:1:2);
 	etSpd(0, 2.1f:2.1f:3.3f:3.7f, 1.25f);
 	etAng(0, 0f, 0f);
-	etEx(0, 0, 0, 2, 2, [NEG], [NEGF], [NEGF]);
+	etEx(0, 0, 0, 2, 2, NEG, NEGF, NEGF);
 	etOn(0);
 }
 
@@ -273,24 +273,24 @@ sub Girl01(int anm1, int anm2)
     anmMoveAt(0, anm1);
     hitbox(28f, 28f);
     killbox(28f, 28f);
-    enmDir([R_D], 2f);
+    enmDir(R_D, 2f);
 +40:
 	interrupt(0, 0, -1, "Girl00Dead");
 	Girl01_at();
 	enmDir(RF2 * rad(45f) + rad(90f), 1.8f);
 10000:
-    return();
+    return;
 }
 
 sub Girl01_at()
 {
 	etNew(0);
-	etMode(0, [ETON_CIR_AIM]);
-	etSpr(0, [ET_PETAL], 6);
+	etMode(0, ETON_CIR_AIM);
+	etSpr(0, ET_PETAL, 6);
 	etAmt(0, 60, 1);
 	etSpd(0, 2.1f, 1.25f);
 	etAng(0, 0f, 0f);
-	etEx(0, 0, 0, 2, 2, [NEG], [NEGF], [NEGF]);
+	etEx(0, 0, 0, 2, 2, NEG, NEGF, NEGF);
 	etOn(0);
 }
 
@@ -394,8 +394,8 @@ MapleEnemy_124:
 sub PCir01()
 {
     itemClear();
-    itemEx(1, [CIR_ITEM_H]);
-    itemEx(2, [CIR_ITEM_L]);
+    itemEx(1, CIR_ITEM_H);
+    itemEx(2, CIR_ITEM_L);
     Cir01(95, 53, 1);
     delete();
 }
@@ -403,7 +403,7 @@ sub PCir01()
 sub RCir00()
 {
     itemClear();
-    itemEx(1, [CIR_ITEM_TOTAL]);
+    itemEx(1, CIR_ITEM_TOTAL);
     Cir00(86, 51, 1);
     delete();
 }
@@ -484,7 +484,7 @@ sub test_EnmPoint()
 		itemDrop();
 		wait(1);
 	}
-    return();
+    return;
 }
 
 sub test_EnmPointVal()
@@ -497,7 +497,7 @@ sub test_EnmPointVal()
 		itemDrop();
 		wait(1);
 	}
-    return();
+    return;
 }
 
 sub test_EnmPower()
@@ -519,7 +519,7 @@ sub test_EnmPower()
 			wait(1);
 		}
 	}
-    return();
+    return;
 }
 
 sub test_EnmUFOBlue()
@@ -531,7 +531,7 @@ sub test_EnmUFOBlue()
 		itemDrop();
 		wait(3);
 	}
-    return();
+    return;
 }
 
 sub test_Enm_Follow()
@@ -541,13 +541,13 @@ sub test_Enm_Follow()
 		enmPos(PLAYER_X, PLAYER_Y);
 		wait(1);
 	}
-    return();
+    return;
 }
 */
 sub testfunc(int a, float b)
 {
     nop();
-    return();
+    return;
 }
 
 sub testfunc2()
@@ -558,5 +558,5 @@ sub testfunc2()
 		testfunc(a, b);
 		wait(1);
 	}
-    return();
+    return;
 }

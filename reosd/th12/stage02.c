@@ -7,7 +7,7 @@ ecli { "default.ecl"; "stage02mbs.ecl"; "stage02boss.ecl"; }
 sub LogoEnemy()
 {
 	logoShow();
-	return();
+	return;
 }
 
 sub MainBossDebug()
@@ -21,7 +21,7 @@ sub MainBossDebug()
 70:
 	msgBegin(1);
 	msgWait();
-	return();
+	return;
 }
 
 sub MainGirl00()
@@ -40,16 +40,16 @@ sub MainGirl00()
 	enmDir(dir, 2.4f);
 	dir -= 2.454369f;
 180:
-	enmDirTime(100, 0, dir, [NEGF]);
+	enmDirTime(100, 0, dir, NEGF);
 10000:
-	return();
+	return;
 }
 
 sub MainGirl00_at()
 {
 !ENH
 	wait(10000);
-	return();
+	return;
 !L
 	etNew(0);
 	etMode(0, 0);
@@ -57,14 +57,14 @@ sub MainGirl00_at()
 	etAmt(0, 3, 1);
 	etSpd(0, 3.5f, 0.25f);
 	etAng(0, 0f, 0.1963495f);
-	etEx(0, 0, 0, 2, 2, [NEG], [NEGF], [NEGF]);
+	etEx(0, 0, 0, 2, 2, NEG, NEGF, NEGF);
 	rand(97, 0);
 	wait(I0);
 	while (1) {
 		etOn(0);
 		wait(97);
 	}
-	return();
+	return;
 }
 
 sub MainGirl01()
@@ -87,7 +87,7 @@ sub MainGirl01()
 190:
 	enmDirTime(9810, 0, 4.712389f, 493.5f);
 10000:
-	return();
+	return;
 }
 
 sub MainGirl01_at()
@@ -99,10 +99,10 @@ sub MainGirl01_at()
 	etAmt_rank(0, 3, 7, 9, 11, 1, 2, 3, 5);
 	etSpd(0, (1.9f:1.9f:1.9f:2.9f) + 0.5f, 1.05f);
 	etAng(0, 0f, rad(45f) : rad(36f) : rad(22.5f) : rad(15f));
-	etEx(0, 0, 0, 2, 1, [NEG], [NEGF], [NEGF]);
-	etEx(0, 1, 0, 1, [NEG], [NEG], [NEGF], [NEGF]);
+	etEx(0, 0, 0, 2, 1, NEG, NEGF, NEGF);
+	etEx(0, 1, 0, 1, NEG, NEG, NEGF, NEGF);
 	etOn(0);
-	return();
+	return;
 }
 
 sub MainMBossDebug()
@@ -110,7 +110,7 @@ sub MainMBossDebug()
 	ins_700(1);
 	enmNewAbs("MBoss", -128f, -32f, 40, 1000, 1);
 	while 1 wait(1000);
-	return();
+	return;
 }
 
 sub MainMsgDebug()
@@ -125,7 +125,7 @@ sub MainMsgDebug()
 	msgBegin(1);
 	msgWait();
 	while 1 wait(4000);
-	return();
+	return;
 }
 
 sub MainSub00()
@@ -152,7 +152,7 @@ sub MainSub00()
 		Thing01_Make(2.356194f, 2, 1);
 		wait(6);
 	}
-	return();
+	return;
 }
 
 sub MainSub01a()
@@ -169,7 +169,7 @@ sub MainSub01a()
 		x += _f(16);
 		wait(16);
 	}
-	return();
+	return;
 }
 
 sub MainSub01b()
@@ -186,7 +186,7 @@ sub MainSub01b()
 		x -= _f(16);
 		wait(16);
 	}
-	return();
+	return;
 }
 
 sub MainSub02()
@@ -202,7 +202,7 @@ sub MainSub02()
 	Thing01_Make(1.963495f, 1, 0);
 	wait(16);
 	Thing01_Make(0.7853982f, 1, 1);
-	return();
+	return;
 }
 
 sub MainSub03()
@@ -213,7 +213,7 @@ sub MainSub03()
 		enmNewNoBoss("Particle00", RF2 * 192f, -32f, 30, 350, I3);
 		wait(5);
 	}
-	return();
+	return;
 }
 
 sub MainSub04()
@@ -226,7 +226,7 @@ sub MainSub04()
 		enmNewNoBoss("Particle01", RF2 * 192f, -32f, 50, 350, I3);
 		wait(10);
 	}
-	return();
+	return;
 }
 
 sub MainSub04a()
@@ -240,7 +240,7 @@ sub MainSub04a()
 		x += _f(32);
 		wait(40);
 	}
-	return();
+	return;
 }
 
 sub MainSub04b()
@@ -254,7 +254,7 @@ sub MainSub04b()
 		x -= _f(32);
 		wait(40);
 	}
-	return();
+	return;
 }
 
 sub Particle00()
@@ -293,18 +293,18 @@ sub Thing00(int anm, float dir)
 	if I0 interrupt(0, 0, -1, "Thing00_dead");
 	Thing00_at() async 1;
 	enmDir(dir, 3f);
-	enmDirTime(10000, 0, [NEGF], -147f);
+	enmDirTime(10000, 0, NEGF, -147f);
 200:
 	endSlot(1);
 10000:
-	return();
+	return;
 }
 
 sub Thing00_at()
 {
 !E
 	wait(10000);
-	return();
+	return;
 !NHL
 	etNew(0);
 	etSpr(0, 8, 11);
@@ -318,14 +318,14 @@ sub Thing00_at()
 	etSpd(0, 3.5f, 0.25f);
 !NHL
 	etAng(0, 0f, 0f);
-	etEx(0, 0, 0, 2, 2, [NEG], [NEGF], [NEGF]);
+	etEx(0, 0, 0, 2, 2, NEG, NEGF, NEGF);
 	rand(145, 0);
 	wait(I0);
 	while 1 {
 		etOn(0);
 		wait(145);
 	}
-	return();
+	return;
 }
 
 sub Thing00_dead()
@@ -336,10 +336,10 @@ sub Thing00_dead()
 	etAmt(1, 2:4:6:10, 1);
 	etSpd(1, (1.7f : 1.7f : 2.3f : 2.5f) + 0.5f, 0.25f);
 	etAng(1, 0f, 0f);
-	etEx(1, 0, 0, 2, 2, [NEG], [NEGF], [NEGF]);
+	etEx(1, 0, 0, 2, 2, NEG, NEGF, NEGF);
 	etOn(1);
 	wait(1);
-	return();
+	return;
 }
 
 sub Thing01()
@@ -355,7 +355,7 @@ sub Thing01_Make(float dir, int item, int dead_at)
 	I3 = item;
 	I0 = dead_at;
 	enmNew("Thing01", RF2 * 192f, -32f, 70, 700, item);
-	return();
+	return;
 }
 
 sub main()

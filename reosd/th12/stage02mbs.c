@@ -45,7 +45,7 @@ sub MBoss1()
 		MBoss1_at();
 		wait(80);
 	}
-	return();
+	return;
 }
 
 sub MBoss1_at()
@@ -65,7 +65,7 @@ sub MBoss1_at()
 	fog(160f, 15675535);
 	enmPos(newpos, 96f);
 	wait(40);
-	return();
+	return;
 }
 
 sub MBoss1_at1()
@@ -76,8 +76,8 @@ sub MBoss1_at1()
 	etMode(0, 3);
 	etSpr(0, 8, 10);
 	etAmt_rank(0, 1, 1, 2, 4, 1, 2, 2, 2);
-	etEx(0, 0, 0, 2, 2, [NEG], [NEGF], [NEGF]);
-	etEx(0, 1, 0, 1, [NEG], [NEG], [NEGF], [NEGF]);
+	etEx(0, 0, 0, 2, 2, NEG, NEGF, NEGF);
+	etEx(0, 1, 0, 1, NEG, NEG, NEGF, NEGF);
 	times (48) {
 		etSpd(0, sp1 + 0.5f, sp2 + 0.25f);
 		etAng(0, ang, 0f);
@@ -87,7 +87,7 @@ sub MBoss1_at1()
 		sp2 -= 0.02f;
 		ang += rad(7.5f);
 	}
-	return();
+	return;
 }
 
 sub MBoss1_at2()
@@ -98,8 +98,8 @@ sub MBoss1_at2()
 	etMode(0, 3);
 	etSpr(0, 8, 2);
 	etAmt_rank(0, 1, 1, 2, 4, 1, 2, 2, 2);
-	etEx(0, 0, 0, 2, 2, [NEG], [NEGF], [NEGF]);
-	etEx(0, 1, 0, 1, [NEG], [NEG], [NEGF], [NEGF]);
+	etEx(0, 0, 0, 2, 2, NEG, NEGF, NEGF);
+	etEx(0, 1, 0, 1, NEG, NEG, NEGF, NEGF);
 	times (48) {
 		etSpd(0, sp1 + 0.5f, sp2 + 0.25f);
 		etAng(0, ang, 0f);
@@ -109,7 +109,7 @@ sub MBoss1_at2()
 		sp2 -= 0.02f;
 		ang -= rad(7.5f);
 	}
-	return();
+	return;
 }
 
 sub MBoss1_at3()
@@ -133,15 +133,15 @@ sub MBoss1_at3()
 !*
 	etAng(0, 0f, rad(30f) : rad(30f) : rad(18f) : rad(11.25f));
 	etAng(1, 0f, rad(30f) : rad(30f) : rad(18f) : rad(11.25f));
-	etEx(0, 0, 0, 2, 2, [NEG], [NEGF], [NEGF]);
+	etEx(0, 0, 0, 2, 2, NEG, NEGF, NEGF);
 	etEx(0, 1, 0, 32, 40, 1, 0f, 4f);
-	etEx(1, 0, 0, 2, 2, [NEG], [NEGF], [NEGF]);
+	etEx(1, 0, 0, 2, 2, NEG, NEGF, NEGF);
 	times (16) {
 		etOn(0);
 		etOn(1);
 		wait(10);
 	}
-	return();
+	return;
 }
 
 sub MBossDead()
@@ -153,7 +153,7 @@ sub MBossDead()
 	interrupt(0, -1, 0, "");
 	enmPosTime(0, 0, 0f, 0f);
 	enmDir(0f, 0f);
-	enmDirTime(60, 4, [NEGF], 0f);
+	enmDirTime(60, 4, NEGF, 0f);
 	playSE(28);
 	if (TIMEOUT == 0)
 		etClear(640f);

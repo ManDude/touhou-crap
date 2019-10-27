@@ -42,7 +42,7 @@ sub MBoss1()
 		MBoss1_at2();
 		wait(1);
 	}
-	return();
+	return;
 }
 
 sub MBoss1_at1(float angI)
@@ -53,15 +53,15 @@ sub MBoss1_at1(float angI)
 	etSpr(0, 26, 1);
 	etAmt(0, 8, 1);
 	etSpd(0, 1.7f, 1.25f);
-	etEx(0, 0, 0, 2, 2, [NEG], [NEGF], [NEGF]);
-	etEx(0, 1, 0, 4, 999999, [NEG], 0.024f, -999f);
+	etEx(0, 0, 0, 2, 2, NEG, NEGF, NEGF);
+	etEx(0, 1, 0, 4, 999999, NEG, 0.024f, -999f);
 	times (8) {
 		etAng(0, an, 0f);
 		etOn(0);
 		an += angI;
 		wait(20);
 	}
-	return();
+	return;
 }
 
 sub MBoss1_at2()
@@ -69,7 +69,7 @@ sub MBoss1_at2()
 	enmNew("MBoss1_enemy", 0f, 0f, 1000, 10, 0);
 30:
 	enmNew("MBoss1_enemy", 0f, 0f, 1000, 10, 0);
-	return();
+	return;
 }
 
 sub MBoss1_enemy()
@@ -79,7 +79,7 @@ sub MBoss1_enemy()
 	etMode(1, 3);
 	etSpr(1, 8, 6);
 	etAmt(1, 2:4:8:16, 1);
-	etEx(1, 0, 0, 2, 2, [NEG], [NEGF], [NEGF]);
+	etEx(1, 0, 0, 2, 2, NEG, NEGF, NEGF);
 30:
 	times (12) {
 		etOfs(1, RF2 * 40f, RF2 * 40f);

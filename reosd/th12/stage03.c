@@ -47,7 +47,7 @@ sub Ball00(int anm, int anm2, int m)
 	etNew(0);
 	etSpr(0, 8, 6);
 	etAng(0, 0f, 0.1308997f);
-	etEx(0, 0, 0, 2, 1, [NEG], [NEGF], [NEGF]);
+	etEx(0, 0, 0, 2, 1, NEG, NEGF, NEGF);
 !H
 	etMode(0, 0);
 	etAmt(0, 1, 1);
@@ -68,7 +68,7 @@ sub Ball00(int anm, int anm2, int m)
 115:
 	endSlot(1);
 10000:
-	return();
+	return;
 }
 
 sub Ball00_Blue()
@@ -101,7 +101,7 @@ sub Ball00atH()
 		etOn(0);
 		wait(49);
 	}
-	return();
+	return;
 }
 
 sub Ball00atL()
@@ -112,7 +112,7 @@ sub Ball00atL()
 		etOn(0);
 		wait(161);
 	}
-	return();
+	return;
 }
 
 sub Ball01(int anm, int anm2, int m)
@@ -128,7 +128,7 @@ sub Ball01(int anm, int anm2, int m)
 	etNew(0);
 	etSpr(0, 8, 6);
 	etAng(0, 0f, 0.1308997f);
-	etEx(0, 0, 0, 2, 1, [NEG], [NEGF], [NEGF]);
+	etEx(0, 0, 0, 2, 1, NEG, NEGF, NEGF);
 !H
 	etMode(0, 0);
 	etAmt(0, 1, 1);
@@ -149,7 +149,7 @@ sub Ball01(int anm, int anm2, int m)
 90:
 	endSlot(1);
 10000:
-	return();
+	return;
 }
 
 sub Ball01_Blue()
@@ -209,14 +209,14 @@ sub Girl00(int anm, int anm2)
 	killbox(28f, 28f);
 	enmDir(1.5707964f, 1.5f);
 40:
-	enmDirTime(30, 0, [NEGF], 0f);
+	enmDirTime(30, 0, NEGF, 0f);
 70:
 	float aim = AIM;
 	etNew(0);
 	etMode(0, 1);
 	etSpr(0, 8, 6);
 	etAmt_rank(0, 1, 1, 3, 5, 1, 1, 1, 1);
-	etEx(0, 0, 0, 2, 1, [NEG], [NEGF], [NEGF]);
+	etEx(0, 0, 0, 2, 1, NEG, NEGF, NEGF);
 !HL
 	etNew(1);
 	etMode(1, 2);
@@ -224,7 +224,7 @@ sub Girl00(int anm, int anm2)
 	etAmt(1, 16, 1);
 	etSpd(1, 1.6f + 0.5f, 0.25f);
 	etAng(1, aim, rad(22.5f));
-	etEx(1, 0, 0, 2, 1, [NEG], [NEGF], [NEGF]);
+	etEx(1, 0, 0, 2, 1, NEG, NEGF, NEGF);
 	etOn(1);
 !*
 	int i;
@@ -252,7 +252,7 @@ sub Girl01()
 	killbox(28f, 28f);
 	enmDir(1.5707964f, 1.5f);
 40:
-	enmDirTime(30, 0, [NEGF], 0f);
+	enmDirTime(30, 0, NEGF, 0f);
 70:
 	etNew(0);
 	etMode(0, 0);
@@ -260,7 +260,7 @@ sub Girl01()
 	etAmt_rank(0, 8, 16, 24, 24, 1, 1, 1, 3);
 	etSpd(0, RF + 1.5f, 0.25f : 0.25f : 1.25f : 1.25f);
 	etAng(0, 0f, rad(30f) : rad(15f) : rad(12f) : rad(12.857142857142857142857142857143f));
-	etEx(0, 0, 0, 2, 1, [NEG], [NEGF], [NEGF]);
+	etEx(0, 0, 0, 2, 1, NEG, NEGF, NEGF);
 	etOn(0);
 100:
 	enmDir(0.7853982f + (RF * 1.5707964f), -1.5f);
@@ -282,7 +282,7 @@ sub Girl02(int anm, int anm2)
 	etAmt_rank(0, 1, 3, 3, 7, 1, 1, 1, 1);
 	etSpd(0, 2f : 2f : 3f : 3f, 0.25f);
 	etAng(0, 0f, rad(3f) : rad(3f) : rad(3f) : rad(2f));
-	etEx(0, 0, 0, 2, 1, [NEG], [NEGF], [NEGF]);
+	etEx(0, 0, 0, 2, 1, NEG, NEGF, NEGF);
 	int c;
 	seti_rank(c, 241, 153, 97, 73);
 	et_on_rate(0, c, 1) async 1;
@@ -311,21 +311,21 @@ sub Girl03(int anm, int anm2)
 	killbox(28f, 28f);
 	enmDir(1.5707964f, 1.5f);
 40:
-	enmDirTime(30, 0, [NEGF], 0f);
+	enmDirTime(30, 0, NEGF, 0f);
 70:
 	float ang = 1.5707964f;
 	etNew(0);
 	etMode(0, 1);
 	etSpr(0, 8, 6);
 	etAmt_rank(0, 1, 1, 1, 5, 1, 1, 1, 1);
-	etEx(0, 0, 0, 2, 1, [NEG], [NEGF], [NEGF]);
+	etEx(0, 0, 0, 2, 1, NEG, NEGF, NEGF);
 !H
 	etNew(1);
 	etMode(1, 2);
 	etSpr(1, 3, 6);
 	etAmt(1, 16, 1);
 	etSpd(1, 2.1f, 0.25f);
-	etEx(1, 0, 0, 2, 1, [NEG], [NEGF], [NEGF]);
+	etEx(1, 0, 0, 2, 1, NEG, NEGF, NEGF);
 	etAng(1, ang, rad(22.5f));
 	etOn(1);
 !*
@@ -342,7 +342,7 @@ sub Girl03(int anm, int anm2)
 	}
 	enmDir(0.7853982f + (RF * 1.5707964f), -1.5f);
 10000:
-	return();
+	return;
 }
 
 sub Girl04(int anm, int anm2)
@@ -353,7 +353,7 @@ sub Girl04(int anm, int anm2)
 	killbox(28f, 28f);
 	enmDir(1.5707964f, 2.5f);
 40:
-	enmDirTime(30, 0, [NEGF], 0f);
+	enmDirTime(30, 0, NEGF, 0f);
 70:
 	etNew(0);
 	etMode(0, 8);
@@ -361,21 +361,21 @@ sub Girl04(int anm, int anm2)
 	etAmt_rank(0, 8, 14, 20, 22, 1, 1, 1, 1);
 	etSpd(0, 2f, 0.3f);
 	etAng(0, 0f, -3.1415927f);
-	etEx(0, 0, 0, 2, 2, [NEG], [NEGF], [NEGF]);
-	etEx(0, 1, 0, 1, [NEG], [NEG], [NEGF], [NEGF]);
-	etEx(0, 2, 0, 4, 999999, [NEG], 0.025f, 1.5707964f);
+	etEx(0, 0, 0, 2, 2, NEG, NEGF, NEGF);
+	etEx(0, 1, 0, 1, NEG, NEG, NEGF, NEGF);
+	etEx(0, 2, 0, 4, 999999, NEG, 0.025f, 1.5707964f);
 	etOn(0);
 	enmDir(0.7853982f + (RF * 1.5707964f), -1.5f);
 10000:
 	nop();
-	return();
+	return;
 }
 
 sub LogoEnemy()
 {
 120:
 	logoShow();
-	return();
+	return;
 }
 
 sub MainBossDebug()
@@ -390,7 +390,7 @@ sub MainBossDebug()
 	msgBegin(1);
 +1:
 	msgWait();
-	return();
+	return;
 }
 
 sub MainMBossDebug()
@@ -398,7 +398,7 @@ sub MainMBossDebug()
 	ins_700(3);
 	enmNewAbs("MBoss", -128f, -32f, 40, 1000, 1);
 	while 1 wait(1000);
-	return();
+	return;
 }
 
 sub MainMsgDebug()
@@ -416,7 +416,7 @@ sub MainMsgDebug()
 4181:
 	nop();
 	}
-	return();
+	return;
 }
 
 sub MainSub00a()
@@ -429,7 +429,7 @@ sub MainSub00a()
 		enmNew("Ball00_Blue", -224f, 64f, 30, 500, I0 + 1);
 		wait(8);
 	}
-	return();
+	return;
 }
 
 sub MainSub00b()
@@ -442,7 +442,7 @@ sub MainSub00b()
 		enmNewMir("Ball00_Red", 224f, 64f, 30, 500, I0 + 1);
 		wait(8);
 	}
-	return();
+	return;
 }
 
 sub MainSub01a()
@@ -455,7 +455,7 @@ sub MainSub01a()
 		enmNew("Ball01_Purple", -224f, 192f, 30, 500, I0 + 1);
 		wait(8);
 	}
-	return();
+	return;
 }
 
 sub MainSub01b()
@@ -468,7 +468,7 @@ sub MainSub01b()
 		enmNewMir("Ball01_Purple", 224f, 192f, 30, 500, I0 + 1);
 		wait(8);
 	}
-	return();
+	return;
 }
 
 sub MainSub02()
@@ -493,7 +493,7 @@ sub MainSub02()
 	wait(60);
 	enmNew("BGirl00", 128f, -32f, 400, 1000, 1);
 	enmNew("BGirl00", -128f, -32f, 400, 1000, 1);
-	return();
+	return;
 }
 
 sub MainSub03()
@@ -502,7 +502,7 @@ sub MainSub03()
 		enmNew("Girl01", RF2 * 192f, -32f, 400, 1000, 1);
 		wait(20);
 	}
-	return();
+	return;
 }
 
 sub MainSub04a()
@@ -514,7 +514,7 @@ sub MainSub04a()
 		enmNew("BGirl02", -96f, -32f, 30, 300, I0 + 1);
 		wait(12);
 	}
-	return();
+	return;
 }
 
 sub MainSub04b()
@@ -526,7 +526,7 @@ sub MainSub04b()
 		enmNewMir("BGirl02", 96f, -32f, 30, 300, I0 + 1);
 		wait(12);
 	}
-	return();
+	return;
 }
 
 sub MainSub05()
@@ -539,7 +539,7 @@ sub MainSub05()
 	wait(10);
 	enmNew("BGirl00", 128f, -32f, 400, 1000, 1);
 	enmNew("BGirl00", -128f, -32f, 400, 1000, 1);
-	return();
+	return;
 }
 
 sub MainSub06a()
@@ -552,7 +552,7 @@ sub MainSub06a()
 		enmNew("Ball01_Purple", -224f, 192f, 30, 500, I0 + 1);
 		wait(8);
 	}
-	return();
+	return;
 }
 
 sub MainSub06b()
@@ -565,7 +565,7 @@ sub MainSub06b()
 		enmNewMir("Ball01_Purple", 224f, 192f, 30, 500, I0 + 1);
 		wait(8);
 	}
-	return();
+	return;
 }
 
 sub MainSub07(float off)
@@ -585,7 +585,7 @@ sub MainSub07(float off)
 	rand(2, 0);
 	enmNewMir("GGirl03", 0f + off, -32f, 450, 1000, I0 + 1);
 	wait(30);
-	return();
+	return;
 }
 
 sub MainSub08()
@@ -601,7 +601,7 @@ sub MainSub08()
 		enmNewMir("Ball01_Purple", 224f, 192f, 30, 500, I0 + 1);
 		wait(8);
 	}
-	return();
+	return;
 }
 
 sub MainSub08b()
@@ -617,7 +617,7 @@ sub MainSub08b()
 		enmNewMir("Ball01_Purple", 224f, 192f, 30, 500, I0 + 1);
 		wait(4);
 	}
-	return();
+	return;
 }
 
 sub MainSub09(float off)
@@ -637,7 +637,7 @@ sub MainSub09(float off)
 	rand(2, 0);
 	enmNewMir("RGirl04", 0f + off, -32f, 350, 1000, I0 + 1);
 	wait(30);
-	return();
+	return;
 }
 
 sub MainSub10()
@@ -645,14 +645,14 @@ sub MainSub10()
 	enmNew("RGirl04", -132f, -32f, 350, 1000, 1);
 	wait(30);
 	enmNew("RGirl04", -4f, -32f, 350, 1000, 1);
-	return();
+	return;
 }
 
 sub MainSub11()
 {
 	enmNew("RGirl04", -132f, -32f, 350, 1000, 1);
 	enmNewMir("RGirl04", 132f, -32f, 350, 1000, 1);
-	return();
+	return;
 }
 
 sub MainSub12()
@@ -672,7 +672,7 @@ sub MainSub12()
 	enmNew("BGirl03", 32f, -32f, 450, 1000, 1);
 	enmNewMir("BGirl03", -32f, -32f, 450, 1000, 1);
 	wait(10);
-	return();
+	return;
 }
 
 sub MapleEnemy()

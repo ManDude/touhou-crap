@@ -43,7 +43,7 @@ sub MBoss1()
 	etMode(0, 2);
 	etSpr(0, 7, 2);
 	etAng(0, 0f, 0.034906585f);
-	etEx(0, 0, 0, 2, 1, [NEG], [NEGF], [NEGF]);
+	etEx(0, 0, 0, 2, 1, NEG, NEGF, NEGF);
 !H
 	etAmt(0, 24, 1);
 	etSpd(0, 2.5f, 0f);
@@ -66,7 +66,7 @@ sub MBoss1()
 		endSlot(1);
 90: nop();
 	}
-	return();
+	return;
 }
 
 sub MBoss1_at1()
@@ -80,7 +80,7 @@ sub MBoss1_at1()
 	etAmt(1, 12:16:20:24, 1);
 	etSpd(1, 3.5f, 1.95f);
 	etAng(1, 0f, 0f);
-	etEx(1, 0, 0, 2, 2, [NEG], [NEGF], [NEGF]);
+	etEx(1, 0, 0, 2, 2, NEG, NEGF, NEGF);
 	times (8) {
 		etOfs(1, x, y);
 		etOn(1);
@@ -89,7 +89,7 @@ sub MBoss1_at1()
 28: nop();
 	}
 68:
-	return();
+	return;
 }
 
 sub MBoss1_at2()
@@ -100,10 +100,10 @@ sub MBoss1_at2()
 	etAng(1, 0f, 0f);
 	etSpd(1, 1.6f, 0.85f);
 	etAmt(1, 64:76:88:96, 1);
-	etEx(1, 0, 0, 2, 2, [NEG], [NEGF], [NEGF]);
+	etEx(1, 0, 0, 2, 2, NEG, NEGF, NEGF);
 	etOn(1);
 10:
-	return();
+	return;
 }
 
 sub MBossCard1()
@@ -139,7 +139,7 @@ sub MBossCard1()
 	MBossCard1H();
 !*
 	wait(10000);
-	return();
+	return;
 }
 
 sub MBossCard1E()
@@ -150,14 +150,14 @@ sub MBossCard1E()
 	etMode(0, 3);
 	etSpr(0, 9, 13);
 	etSpd(0, 2.5f, 0.85f);
-	etEx(0, 0, 0, 2, 1, [NEG], [NEGF], [NEGF]);
+	etEx(0, 0, 0, 2, 1, NEG, NEGF, NEGF);
 	etAmt(0, 5:6, 1);
 	etNew(1);
 	etMode(1, 2);
 	etSpr(1, 9, 2);
 	etSpd(1, 1.7f, 0.85f);
 	etAng(1, 0f, 0f);
-	etEx(1, 0, 0, 2, 1, [NEG], [NEGF], [NEGF]);
+	etEx(1, 0, 0, 2, 1, NEG, NEGF, NEGF);
 	etAmt(1, 32:42, 1);
 	float ang1 = RDEG, ang2 = RDEG;
 	while 1 {
@@ -178,7 +178,7 @@ sub MBossCard1E()
 1:			nop();
 		}
 	}
-	return();
+	return;
 }
 
 sub MBossCard1H()
@@ -189,13 +189,13 @@ sub MBossCard1H()
 	etMode(0, 3);
 	etSpr(0, 9, 13);
 	etSpd(0, 4.5f, 0.85f);
-	etEx(0, 0, 0, 2, 1, [NEG], [NEGF], [NEGF]);
+	etEx(0, 0, 0, 2, 1, NEG, NEGF, NEGF);
 	etAmt(0, 5:5:5:6, 1);
 	etNew(1);
 	etMode(1, 2);
 	etSpr(1, 9, 2);
 	etAng(1, 0f, 0f);
-	etEx(1, 0, 0, 2, 1, [NEG], [NEGF], [NEGF]);
+	etEx(1, 0, 0, 2, 1, NEG, NEGF, NEGF);
 	etAmt(1, 48:48:48:52, 1);
 	etSpd(1, (1.3f:1.3f:1.3f:1.6f) + 0.5f, 0.85f);
 	float ang1 = 0f, ang2 = 0f;
@@ -216,7 +216,7 @@ sub MBossCard1H()
 1:			nop();
 		}
 	}
-	return();
+	return;
 }
 
 sub MBossDead()
@@ -226,7 +226,7 @@ sub MBossDead()
 	unsetMoveArea();
 	interrupt(0, -1, 0, "");
 	interrupt(1, -1, 0, "");
-	enmDir([NEGF], 0f);
+	enmDir(NEGF, 0f);
 	playSE(28);
 	if (TIMEOUT == 0) {
 		etClear(640f);
@@ -250,7 +250,7 @@ sub MBossEscape()
 	interrupt(1, -1, 0, "");
 	cardEnd();
 	unsetMoveArea();
-	enmDir([NEGF], 0f);
+	enmDir(NEGF, 0f);
 	if (TIMEOUT == 0) {
 		etClear(640f);
 	}

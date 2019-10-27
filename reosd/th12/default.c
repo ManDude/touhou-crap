@@ -147,7 +147,7 @@ sub ItemDrop(int count, float w, float h)
 		itemEx(2, count);
 	}
 	itemDrop();
-	return();
+	return;
 }
 
 sub ItemDrop2(int count, float w, float h)
@@ -157,7 +157,7 @@ sub ItemDrop2(int count, float w, float h)
 	itemArea(w, h);
 	itemEx(2, count / 2);
 	itemDrop();
-	return();
+	return;
 }
 
 sub ItemDropBasic(int count)
@@ -170,7 +170,7 @@ sub ItemDropBasic(int count)
 		itemEx(2, count);
 	}
 	itemDrop();
-	return();
+	return;
 }
 
 sub ResetMovement()
@@ -178,7 +178,7 @@ sub ResetMovement()
 	enmDir(0f, 0f);
 	enmDirTime(0, 0, 0f, 0f);
 	enmPosTime(0, 0, 0f, 0f);
-	return();
+	return;
 }
 
 sub UFO_Blue()
@@ -229,7 +229,7 @@ UFO_Blue_1124:
 UFO_Blue_1280:
 	if $D-- goto UFO_Blue_1124 @ 60;
 	delete();
-	return();
+	return;
 }
 
 sub UFO_EtBreak()
@@ -246,7 +246,7 @@ UFO_EtBreak_100:
 	setf(%A);
 UFO_EtBreak_196:
 	if (%A < 112f) goto UFO_EtBreak_100 @ 0;
-	return();
+	return;
 }
 
 sub UFO_EtBreak2()
@@ -315,7 +315,7 @@ UFO_Green_1124:
 UFO_Green_1280:
 	if $D-- goto UFO_Green_1124 @ 60;
 	delete();
-	return();
+	return;
 }
 
 sub UFO_Rainbow()
@@ -366,7 +366,7 @@ UFO_Rainbow_1124:
 UFO_Rainbow_1280:
 	if $D-- goto UFO_Rainbow_1124 @ 60;
 	delete();
-	return();
+	return;
 }
 
 sub UFO_Red()
@@ -417,7 +417,7 @@ UFO_Red_1124:
 UFO_Red_1280:
 	if $D-- goto UFO_Red_1124 @ 60;
 	delete();
-	return();
+	return;
 }
 
 sub enm_rot_spd(float rot_spd, int time)
@@ -425,10 +425,10 @@ sub enm_rot_spd(float rot_spd, int time)
 	float ang = ANGLE_ABS;
 	times (time) {
 		ang += rot_spd;
-		enmDir(ang, [NEGF]);
+		enmDir(ang, NEGF);
 		wait(1);
 	}
-	return();
+	return;
 }
 
 sub enm_rot_spd_m(float rot_spd, int time)
@@ -436,10 +436,10 @@ sub enm_rot_spd_m(float rot_spd, int time)
 	float ang = 3.1415927f - ANGLE_ABS;
 	times (time) {
 		ang += rot_spd;
-		enmDir(ang, [NEGF]);
+		enmDir(ang, NEGF);
 		wait(1);
 	}
-	return();
+	return;
 }
 
 sub et_ofs_r(int et, float range)
@@ -447,7 +447,7 @@ sub et_ofs_r(int et, float range)
 	float x, y;
 	ins_81(x, y, RDEG, range * RF);
 	etOfs(et, x, y);
-	return();
+	return;
 }
 
 sub et_on_rate(int et, int rate, int delay)
@@ -460,7 +460,7 @@ sub et_on_rate(int et, int rate, int delay)
 		etOn(et);
 		wait(rate);
 	}
-	return();
+	return;
 }
 
 sub test()
@@ -469,5 +469,5 @@ sub test()
 	$A = 4;
 	$A = 1;
 	%B = _f($A + 7);
-	return();
+	return;
 }

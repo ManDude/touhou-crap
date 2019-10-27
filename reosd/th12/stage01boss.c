@@ -50,7 +50,7 @@ sub Boss1()
 		ins_269(0);
 		Boss1_at1();
 	}
-	return();
+	return;
 }
 
 sub Boss1_at1()
@@ -60,7 +60,7 @@ sub Boss1_at1()
 	etOfs(0, 0f, -12f);
 	etMode(0, 0);
 	etAng(0, 0f, rad(5.625f));
-	etEx(0, 0, 0, 2, 2, [NEG], [NEGF], [NEGF]);
+	etEx(0, 0, 0, 2, 2, NEG, NEGF, NEGF);
 12:
 	etSpr(0, 3, 2);
 	etAmt(0, 1, 10);
@@ -99,7 +99,7 @@ sub Boss1_at1()
 		Boss1_at3();
 	else
 		Boss1_at4();
-	return();
+	return;
 }
 
 sub Boss1_at2()
@@ -117,14 +117,14 @@ sub Boss1_at2()
 !L
 	etAng(0, 0.1308997f, 0f);
 !*
-	etEx(0, 0, 0, 2, 2, [NEG], [NEGF], [NEGF]);
+	etEx(0, 0, 0, 2, 2, NEG, NEGF, NEGF);
 	etOn(0);
 68:
 	etSpr(0, 0, 5);
 	etAmt_rank(0, 6, 12, 32, 24, 1, 1, 1, 1);
 	etAng(0, 0f, 0f);
 	etSpd(0, 3.5f, 1.25f);
-	etEx(0, 0, 0, 2, 1, [NEG], [NEGF], [NEGF]);
+	etEx(0, 0, 0, 2, 1, NEG, NEGF, NEGF);
 	etOn(0);
 76:
 	etSpr(0, 5, 6);
@@ -135,14 +135,14 @@ sub Boss1_at2()
 	etAng(0, -0.1308997f, 0f);
 !*
 	etSpd(0, 2.5f, 1.25f);
-	etEx(0, 0, 0, 2, 2, [NEG], [NEGF], [NEGF]);
+	etEx(0, 0, 0, 2, 2, NEG, NEGF, NEGF);
 	etOn(0);
 84:
 	etSpr(0, 0, 5);
 	etAmt_rank(0, 6, 12, 32, 24, 1, 1, 1, 1);
 	etAng(0, 0f, 0f);
 	etSpd(0, 3.5f, 1.25f);
-	etEx(0, 0, 0, 2, 1, [NEG], [NEGF], [NEGF]);
+	etEx(0, 0, 0, 2, 1, NEG, NEGF, NEGF);
 	etOn(0);
 92:
 	etSpr(0, 5, 6);
@@ -153,14 +153,14 @@ sub Boss1_at2()
 	etAng(0, 0.1308997f, 0f);
 !*
 	etSpd(0, 4.5f, 1.25f);
-	etEx(0, 0, 0, 2, 2, [NEG], [NEGF], [NEGF]);
+	etEx(0, 0, 0, 2, 2, NEG, NEGF, NEGF);
 	etOn(0);
 100:
 	etSpr(0, 0, 5);
 	etAmt_rank(0, 6, 12, 32, 24, 1, 1, 1, 1);
 	etAng(0, 0f, 0f);
 	etSpd(0, 3.5f, 1.25f);
-	etEx(0, 0, 0, 2, 1, [NEG], [NEGF], [NEGF]);
+	etEx(0, 0, 0, 2, 1, NEG, NEGF, NEGF);
 	etOn(0);
 108:
 	etSpr(0, 5, 6);
@@ -171,7 +171,7 @@ sub Boss1_at2()
 	etAng(0, 0.1308997f, 0f);
 !*
 	etSpd(0, 2.5f, 1.25f);
-	etEx(0, 0, 0, 2, 2, [NEG], [NEGF], [NEGF]);
+	etEx(0, 0, 0, 2, 2, NEG, NEGF, NEGF);
 	etOn(0);
 228:
 	int next = RAND % 3;
@@ -183,7 +183,7 @@ sub Boss1_at2()
 		Boss1_at3();
 	else
 		Boss1_at4();
-	return();
+	return;
 }
 
 sub Boss1_at3()
@@ -197,7 +197,7 @@ sub Boss1_at3()
 	etAmt_rank(0, 2, 3, 5, 5, 16, 16, 16, 16);
 	etSpd(0, 5.5f, 1.25f);
 	etAng(0, 0f, 0.06544985f);
-	etEx(0, 0, 0, 2, 3, [NEG], [NEGF], [NEGF]);
+	etEx(0, 0, 0, 2, 3, NEG, NEGF, NEGF);
 	etOn(0);
 110:
 	nop();
@@ -209,7 +209,7 @@ sub Boss1_at3()
 !NH
 	etAng(0, 0f, 0f);
 !NHL
-	etEx(0, 0, 0, 2, 3, [NEG], [NEGF], [NEGF]);
+	etEx(0, 0, 0, 2, 3, NEG, NEGF, NEGF);
 	etOn(0);
 200:
 !*
@@ -222,7 +222,7 @@ sub Boss1_at3()
 		Boss1_at1();
 	else
 		Boss1_at4();
-	return();
+	return;
 }
 
 sub Boss1_at4()
@@ -236,7 +236,7 @@ sub Boss1_at4()
 	etMode(0, 0);
 	etSpr(0, 5, 10);
 	etAmt_rank(0, 1, 1, 2, 3, 1, 1, 2, 3);
-	etEx(0, 0, 0, 2, 2, [NEG], [NEGF], [NEGF]);
+	etEx(0, 0, 0, 2, 2, NEG, NEGF, NEGF);
 	if (m) {
 		ang = rad(-15f);
 		angI = rad(3.75f);
@@ -263,7 +263,7 @@ sub Boss1_at4()
 		Boss1_at3();
 	else
 		Boss1_at1();
-	return();
+	return;
 }
 
 sub Boss2()
@@ -304,7 +304,7 @@ sub Boss2()
 200:
 	nop();
 	Boss2_at1();
-	return();
+	return;
 }
 
 sub Boss2_at1()
@@ -318,7 +318,7 @@ sub Boss2_at1()
 	etAmt(0, 1:2:5:7, 8);
 	etSpd(0, 3.5f, 1.25f);
 	etAng(0, 0f, rad(5.625f));
-	etEx(0, 0, 0, 2, 2, [NEG], [NEGF], [NEGF]);
+	etEx(0, 0, 0, 2, 2, NEG, NEGF, NEGF);
 	etOn(0);
 20:
 	etNew(1);
@@ -328,7 +328,7 @@ sub Boss2_at1()
 	laserSize(1, 500f, 500f, 0f, 16f);
 	laserTime(1, 120, 16, 60, 14, 0);
 	etSE(1, 19, -1);
-	etEx(1, 0, 0, 268435456, 1, [NEG], [NEGF], [NEGF]);
+	etEx(1, 0, 0, 268435456, 1, NEG, NEGF, NEGF);
 	int lID = 0;
 	times (6) {
 		etAng(1, AIM, 0f);
@@ -347,7 +347,7 @@ sub Boss2_at1()
 		Boss2_at3();
 	else
 		Boss2_at4();
-	return();
+	return;
 }
 
 sub Boss2_at2()
@@ -367,8 +367,8 @@ sub Boss2_at2()
 	etSpd(1, 3.1f : 3.1f : 3.1f : 4.1f, 1.25f : 1.25f : 1.25f : 1.75f);
 	etAng(0, 0f, 0f);
 	etAng(1, 0f, 0f);
-	etEx(0, 0, 0, 2, 2, [NEG], [NEGF], [NEGF]);
-	etEx(1, 0, 0, 2, 2, [NEG], [NEGF], [NEGF]);
+	etEx(0, 0, 0, 2, 2, NEG, NEGF, NEGF);
+	etEx(1, 0, 0, 2, 2, NEG, NEGF, NEGF);
 60:
 	etOn(0);
 90:
@@ -385,7 +385,7 @@ sub Boss2_at2()
 		Boss2_at3();
 	else
 		Boss2_at4();
-	return();
+	return;
 }
 
 sub Boss2_at3()
@@ -397,7 +397,7 @@ sub Boss2_at3()
 	etSpr(0, 7, 13);
 	etSpd(0, 3.5f, 1.25f);
 	etAng(0, 0f, rad(30f) : rad(15f) : rad(11.25f) : rad(7.5f));
-	etEx(0, 0, 0, 2, 2, [NEG], [NEGF], [NEGF]);
+	etEx(0, 0, 0, 2, 2, NEG, NEGF, NEGF);
 60:
 	etAmt_rank(0, 4, 8, 12, 16, 2, 2, 2, 2);
 	etOn(0);
@@ -417,7 +417,7 @@ sub Boss2_at3()
 		Boss2_at1();
 	else
 		Boss2_at4();
-	return();
+	return;
 }
 
 sub Boss2_at4()
@@ -431,7 +431,7 @@ sub Boss2_at4()
 	etMode(0, 0);
 	etSpr(0, 5, 10);
 	etAmt_rank(0, 2, 2, 3, 4, 1, 1, 2, 3);
-	etEx(0, 0, 0, 2, 2, [NEG], [NEGF], [NEGF]);
+	etEx(0, 0, 0, 2, 2, NEG, NEGF, NEGF);
 	if (m) {
 		ang = rad(-40.909090909090909090909090909091f);
 		angI = rad(8.1818181818181816567f);
@@ -458,7 +458,7 @@ sub Boss2_at4()
 		Boss2_at3();
 	else
 		Boss2_at1();
-	return();
+	return;
 }
 
 sub BossCard1()
@@ -505,7 +505,7 @@ sub BossCard1()
 		wait(100);
 		enmRand(120, 4, 2f);
 	}
-	return();
+	return;
 }
 
 sub BossCard1_atZ(int col, float ang, float angI)
@@ -516,7 +516,7 @@ sub BossCard1_atZ(int col, float ang, float angI)
 	etMode(0, 0);
 	etSpr(0, 5, col);
 	etAmt_rank(0, 1, 1, 1, 1, 1, 1, 2, 3);
-	etEx(0, 0, 0, 2, 2, [NEG], [NEGF], [NEGF]);
+	etEx(0, 0, 0, 2, 2, NEG, NEGF, NEGF);
 	times (16) {
 		wait(2);
 		etSpd(0, spd, 0.25f : 0.25f : 1.05f);
@@ -525,7 +525,7 @@ sub BossCard1_atZ(int col, float ang, float angI)
 		spd += 0.2f;
 		ang += angI;
 	}
-	return();
+	return;
 }
 
 sub BossCard2()
@@ -568,7 +568,7 @@ sub BossCard2()
 		wait(60);
 		nop();
 	}
-	return();
+	return;
 }
 
 sub BossCard2_at1(int col, int m)
@@ -582,14 +582,14 @@ sub BossCard2_at1(int col, int m)
 		amtH = 26;
 	etAmt_rank(0, 18, 22, amtH, 34, 1, 1, 1, 2);
 	etSpd(0, 4f, 1.5f);
-	etEx(0, 0, 0, 2, 2, [NEG], [NEGF], [NEGF]);
+	etEx(0, 0, 0, 2, 2, NEG, NEGF, NEGF);
 	etEx(0, 1, 1, 16, 40, 1, 1.570796f * _f(m), 1.5f);
 	etAng(0, 0f, 0f);
 	etOn(0);
 	etEx(0, 1, 1, 16, 40, 1, -1.570796f * _f(m), 1.5f);
 	etAng(0, rad(15f) : rad(11.25f) : rad(9f) : rad(6.4285714285714285714285714285714f), 0f);
 	etOn(0);
-	return();
+	return;
 }
 
 sub BossCard2_at2(int m)
@@ -600,7 +600,7 @@ sub BossCard2_at2(int m)
 	etMode(0, 0);
 	etSpr(0, 5, 6);
 	etAmt(0, 7, 1);
-	etEx(0, 0, 0, 2, 2, [NEG], [NEGF], [NEGF]);
+	etEx(0, 0, 0, 2, 2, NEG, NEGF, NEGF);
 	etEx(0, 1, 1, 32, 40, 1, 0f, 3f : 3f : 4f);
 	float spd = 1f;
 	times (12) {
@@ -611,7 +611,7 @@ sub BossCard2_at2(int m)
 		ang += angI;
 		etOn(0);
 	}
-	return();
+	return;
 }
 
 sub BossDead()

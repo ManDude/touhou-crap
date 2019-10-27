@@ -33,7 +33,7 @@ sub Boss1()
 	if (RANK == 0) {
 		interrupt(0, 0, time, "Boss2");
 	}
-	else if (SHOT_TYPE == [SHOT_REIMU_A]) {
+	else if (SHOT_TYPE == SHOT_REIMU_A) {
 !N
 		interrupt(0, 1600, time, "BossCardWaterUndine");
 !HL
@@ -41,7 +41,7 @@ sub Boss1()
 !*
 		lifebar(0, 1600f, -8347393);
 	}
-	else if (SHOT_TYPE == [SHOT_REIMU_B]) {
+	else if (SHOT_TYPE == SHOT_REIMU_B) {
 !N
 		interrupt(0, 1600, time, "BossCardFireAgni");
 		lifebar(0, 1600f, -24448);
@@ -50,7 +50,7 @@ sub Boss1()
 		lifebar(0, 1700f, -24448);
 !*
 	}
-	else if (SHOT_TYPE == [SHOT_MARISA_A]) {
+	else if (SHOT_TYPE == SHOT_MARISA_A) {
 !N
 		interrupt(0, 1600, time, "BossCardWoodSylphy");
 !HL
@@ -58,7 +58,7 @@ sub Boss1()
 !*
 		lifebar(0, 1600f, -8323200);
 	}
-	else if (SHOT_TYPE == [SHOT_MARISA_B]) {
+	else if (SHOT_TYPE == SHOT_MARISA_B) {
 !N
 		interrupt(0, 1800, time, "BossCardEarthTrilithon");
 !HL
@@ -66,7 +66,7 @@ sub Boss1()
 !*
 		lifebar(0, 1800f, -128);
 	}
-	else if (SHOT_TYPE == [SHOT_SANAE_A]) {
+	else if (SHOT_TYPE == SHOT_SANAE_A) {
 !N
 		interrupt(0, 1600, time, "BossCardMetalMemory");
 		lifebar(0, 1600f, -6250336);
@@ -75,7 +75,7 @@ sub Boss1()
 		lifebar(0, 1800f, -8347393);
 !*
 	}
-	else if (SHOT_TYPE == [SHOT_SANAE_B]) {
+	else if (SHOT_TYPE == SHOT_SANAE_B) {
 !N
 		interrupt(0, 2000, time, "BossCardWaterMonsoon");
 		lifebar(0, 2000f, -8347393);
@@ -92,17 +92,17 @@ sub Boss1()
 	playSE(31);
 40:
 	etNew(0);
-	etEx(0, 0, 0, 2, 2, [NEG], [NEGF], [NEGF]);
+	etEx(0, 0, 0, 2, 2, NEG, NEGF, NEGF);
 	etNew(1);
 	etSE(1, 19, -1);
 	etSpd(1, 32f, 32f);
 	laserSize(1, 500f, 500f, 0f, 48f);
 	etNew(2);
-	etMode(2, [ETON_CIR_AIM]);
-	etSpr(2, [ET_BALL], [RED16]);
+	etMode(2, ETON_CIR_AIM);
+	etSpr(2, ET_BALL, RED16);
 	etSpd(2, 3f:4f, 1.45f);
 	etAng(2, 0f, 0f);
-	etEx(2, 0, 0, 2, 2, [NEG], [NEGF], [NEGF]);
+	etEx(2, 0, 0, 2, 2, NEG, NEGF, NEGF);
 	BOSS1 = 0;
 	while 1 {
 		ins_269(0);
@@ -112,22 +112,22 @@ sub Boss1()
 		BOSS1 += 1;
 	}
 9100:
-	return();
+	return;
 }
 
 sub Boss1At(int m)
 {
 	if (!m) {
-		etMode(0, [ETON_CIR_AIM]);
-		etSpr(0, [ET_BALL], [RED16]);
+		etMode(0, ETON_CIR_AIM);
+		etSpr(0, ET_BALL, RED16);
 		etAmt_rank(0, 8, 10, 14, 10, 1, 1, 1, 2);
 		etSpd(0, 2f:2.5f:2.9f:3.5f, 1.45f);
 		etAng(0, 0f, 0f);
 		etSpr(1, 7, 6);
 	}
 	else {
-		etMode(0, [ETON_CIR_AIM] : [ETON_CIR_AIM] : [ETON_FAN_AIM]);
-		etSpr(0, [ET_BALL], [RED16]);
+		etMode(0, ETON_CIR_AIM : ETON_CIR_AIM : ETON_FAN_AIM);
+		etSpr(0, ET_BALL, RED16);
 		etAmt(0, 1:1:2, 2);
 		etSpd(0, 2.5f:2.5f:2.5f:3f, 1.45f);
 		etAng(0, 0f, 0f:0f:rad(5.625f));
@@ -187,7 +187,6 @@ sub Boss1At(int m)
 			laser_end = 1;
 		}
 		if (((i % e) == 0) && BOSS1) {
-			float x, y;
 			if (laser_start) {
 				lAng = rad(45f) + (inc * _f(i));
 				etOfs(0, cos(lAng) * 64f, 0f - (sin(lAng) * (cos(lAng) * 64f)));
@@ -217,6 +216,7 @@ sub Boss1At(int m)
 				etOn(0);
 			}
 		}
+		float x, y;
 		if (laser_start) {
 			lAng = rad(45f) + (inc * _f(i));
 			ins_81(x, y, lAng, 64f);
@@ -267,7 +267,7 @@ sub Boss1_at()
 	enmPosTime(90, 4, 0f, 128f);
 180:
 	endSlot(1);
-	return();
+	return;
 }
 
 sub Boss2()
@@ -293,7 +293,7 @@ sub Boss2()
 	playSE(28);
 	int time = 2400;
 	BOSS4 = 1;
-	if (SHOT_TYPE == [SHOT_REIMU_A]) {
+	if (SHOT_TYPE == SHOT_REIMU_A) {
 !E
 	interrupt(0, 1600, time, "BossCardWaterUndine");
 	lifebar(0, 1600f, -8347393);
@@ -305,7 +305,7 @@ sub Boss2()
 	lifebar(0, 1600f, -8323200);
 !*
 	}
-	else if (SHOT_TYPE == [SHOT_REIMU_B]) {
+	else if (SHOT_TYPE == SHOT_REIMU_B) {
 !E
 	interrupt(0, 1600, time, "BossCardFireAgni");
 	lifebar(0, 1600f, -24448);
@@ -317,7 +317,7 @@ sub Boss2()
 	lifebar(0, 1800f, -128);
 !*
 	}
-	else if (SHOT_TYPE == [SHOT_MARISA_A]) {
+	else if (SHOT_TYPE == SHOT_MARISA_A) {
 !E
 	interrupt(0, 1600, time, "BossCardWoodSylphy");
 	lifebar(0, 1600f, -8323200);
@@ -329,7 +329,7 @@ sub Boss2()
 	lifebar(0, 1800f, -24448);
 !*
 	}
-	else if (SHOT_TYPE == [SHOT_MARISA_B]) {
+	else if (SHOT_TYPE == SHOT_MARISA_B) {
 !E
 	interrupt(0, 1800, time, "BossCardEarthTrilithon");
 	lifebar(0, 1800f, -128);
@@ -341,7 +341,7 @@ sub Boss2()
 	lifebar(0, 1800f, -6250336);
 !*
 	}
-	else if (SHOT_TYPE == [SHOT_SANAE_A]) {
+	else if (SHOT_TYPE == SHOT_SANAE_A) {
 !E
 	interrupt(0, 1600, time, "BossCardMetalMemory");
 	lifebar(0, 1600f, -6250336);
@@ -353,7 +353,7 @@ sub Boss2()
 	lifebar(0, 1600f, -8323200);
 !*
 	}
-	else if (SHOT_TYPE == [SHOT_SANAE_B]) {
+	else if (SHOT_TYPE == SHOT_SANAE_B) {
 !E
 	interrupt(0, 1800, time, "BossCardWaterMonsoon");
 	lifebar(0, 1800f, -8347393);
@@ -378,7 +378,7 @@ sub Boss2()
 	ins_269(0);
 120:
 	etNew(0);
-	etEx(0, 0, 0, 2, 2, [NEG], [NEGF], [NEGF]);
+	etEx(0, 0, 0, 2, 2, NEG, NEGF, NEGF);
 	etNew(1);
 	etSE(1, 19, -1);
 	etSpd(1, 32f, 32f);
@@ -392,19 +392,19 @@ sub Boss2()
 		BOSS1 += 1;
 	}
 9180:
-	return();
+	return;
 }
 
 sub Boss2_at()
 {
 	enmRand(90, 4, 2.5f);
 	etNew(2);
-	etMode(2, [ETON_CIR_AIM]);
-	etSpr(2, [ET_BALL], [BLUE16]);
+	etMode(2, ETON_CIR_AIM);
+	etSpr(2, ET_BALL, BLUE16);
 	etSpd(2, 4.5f:4.5f:6f, 1.75f);
 	etAng(2, 0f, 0f);
 	etAmt(2, BOSS1 + 10, 2:3:4:5);
-	etEx(2, 0, 0, 2, 2, [NEG], [NEGF], [NEGF]);
+	etEx(2, 0, 0, 2, 2, NEG, NEGF, NEGF);
 	et_on_rate(2, 17:13:13:9, 0) async 1;
 90:
 	enmPosTime(90, 4, 0f, 128f);
@@ -414,7 +414,7 @@ sub Boss2_at()
 	etSpd(2, 1.5f:2f, 1.25f);
 	etOn(2);
 	//et_on_rate(2, 57:49, 0) async 1;
-	return();
+	return;
 }
 
 sub Boss3()
@@ -459,7 +459,7 @@ sub Boss3()
 	else
 		ItemDrop(65, 64f, 64f);
 	playSE(28);
-	if (SHOT_TYPE == [SHOT_REIMU_A]) {
+	if (SHOT_TYPE == SHOT_REIMU_A) {
 	lifebar(0, lifepos, -8335168);
 !NHL
 	lifebar(1, lifepos - 1700f, -7298864);
@@ -474,7 +474,7 @@ sub Boss3()
 	interrupt(2, lifeval - 3400, time, "BossCardEaMe");
 !*
 	}
-	else if (SHOT_TYPE == [SHOT_REIMU_B]) {
+	else if (SHOT_TYPE == SHOT_REIMU_B) {
 	lifebar(0, lifepos, -12160);
 !NHL
 	lifebar(1, lifepos - 1700f, -7298864);
@@ -489,7 +489,7 @@ sub Boss3()
 	interrupt(2, lifeval - 3400, time, "BossCardWoFi");
 !*
 	}
-	else if (SHOT_TYPE == [SHOT_MARISA_A]) {
+	else if (SHOT_TYPE == SHOT_MARISA_A) {
 	lifebar(0, lifepos, -4140928);
 !NHL
 	lifebar(1, lifepos - 1700f, -3092336);
@@ -504,7 +504,7 @@ sub Boss3()
 	interrupt(2, lifeval - 3400, time, "BossCardFiEa");
 !*
 	}
-	else if (SHOT_TYPE == [SHOT_MARISA_B]) {
+	else if (SHOT_TYPE == SHOT_MARISA_B) {
 	lifebar(0, lifepos, -3092336);
 !NHL
 	lifebar(1, lifepos - 1700f, -8335168);
@@ -519,7 +519,7 @@ sub Boss3()
 	interrupt(2, lifeval - 3400, time, "BossCardMeWa");
 !*
 	}
-	else if (SHOT_TYPE == [SHOT_SANAE_A]) {
+	else if (SHOT_TYPE == SHOT_SANAE_A) {
 	lifebar(0, lifepos, -4153152);
 !NHL
 	lifebar(1, lifepos - 1700f, -7286640);
@@ -534,7 +534,7 @@ sub Boss3()
 	interrupt(2, lifeval - 3400, time, "BossCardFiEa");
 !*
 	}
-	else if (SHOT_TYPE == [SHOT_SANAE_B]) {
+	else if (SHOT_TYPE == SHOT_SANAE_B) {
 	lifebar(0, lifepos, -7298864);
 !NHL
 	lifebar(1, lifepos - 1700f, -8335168);
@@ -557,7 +557,7 @@ sub Boss3()
 	stageProg(25);
 	anmAt2(0, 119);
 	while 1 wait(1000);
-	return();
+	return;
 }
 
 sub BossCardEaMe()
@@ -586,14 +586,14 @@ sub BossCardEaMe()
 	etSpr(0, 26, 2);
 	etAmt(0, 1:1:1:3, 1);
 	etAng(0, 1.5707964f, rad(30f));
-	etEx(0, 0, 0, 2, 2, [NEG], [NEGF], [NEGF]);
+	etEx(0, 0, 0, 2, 2, NEG, NEGF, NEGF);
 	etNew(1);
 	etMode(1, 8);
 	etSpr(1, 5, 11);
 	etAmt(1, 4:12:18:24, 1);
 	etSpd(1, (1.8f:1.8f:2.4f) + 0.5f, 1.25f);
 	etAng(1, 3.1415927f, -3.1415927f);
-	etEx(1, 0, 0, 2, 1, [NEG], [NEGF], [NEGF]);
+	etEx(1, 0, 0, 2, 1, NEG, NEGF, NEGF);
 	int i = 0;
 120:
 	while 1 {
@@ -612,7 +612,7 @@ sub BossCardEaMe()
 	i += 1;
 140:
 	}
-	return();
+	return;
 }
 
 sub BossCardEarthTrilithon()
@@ -642,15 +642,15 @@ sub BossCardEarthTrilithon()
 	etAmt(0, 7:10, 1);
 	etSpd(0, 2.9f, 1.25f);
 	etAng(0, 0f, 3.1415927f);
-	etEx(0, 0, 0, 2, 1, [NEG], [NEGF], [NEGF]);
-	etEx(0, 1, 0, 1, [NEG], [NEG], [NEGF], [NEGF]);
+	etEx(0, 0, 0, 2, 1, NEG, NEGF, NEGF);
+	etEx(0, 1, 0, 1, NEG, NEG, NEGF, NEGF);
 	etNew(1);
 	etMode(1, 0);
 	etSpr(1, 3, 6);
 	etAmt(1, 7, 2);
 	etSpd(1, 3.3f, 1.45f);
 	etAng(1, 0f, 0.3490658f);
-	etEx(1, 0, 0, 2, 2, [NEG], [NEGF], [NEGF]);
+	etEx(1, 0, 0, 2, 2, NEG, NEGF, NEGF);
 120:
 	while 1 {
 		etEx(0, 2, 1, 16, 180, 1, RF2 * 1.5707964f, 1.4f);
@@ -659,7 +659,7 @@ sub BossCardEarthTrilithon()
 			etOn(1);
 132:
 	}
-	return();
+	return;
 }
 
 sub BossCardEarthTrilithonHL()
@@ -689,15 +689,15 @@ sub BossCardEarthTrilithonHL()
 	etAmt(0, 10:12:15, 1);
 	etSpd(0, 3.8f, 2.55f);
 	etAng(0, 0f, 3.1415927f);
-	etEx(0, 0, 0, 2, 2, [NEG], [NEGF], [NEGF]);
-	etEx(0, 1, 0, 1, [NEG], [NEG], [NEGF], [NEGF]);
+	etEx(0, 0, 0, 2, 2, NEG, NEGF, NEGF);
+	etEx(0, 1, 0, 1, NEG, NEG, NEGF, NEGF);
 	etNew(1);
 	etMode(1, 0);
 	etSpr(1, 3, 6);
 	etAmt(1, 7, 2);
 	etSpd(1, 3.3f, 1.45f);
 	etAng(1, 0f, 0.3490658f);
-	etEx(1, 0, 0, 2, 2, [NEG], [NEGF], [NEGF]);
+	etEx(1, 0, 0, 2, 2, NEG, NEGF, NEGF);
 120:
 	while 1 {
 		etEx(0, 2, 1, 16, 50, 2, RF2 * 1.5707964f, 2.2f);
@@ -706,7 +706,7 @@ sub BossCardEarthTrilithonHL()
 			etOn(1);
 132:
 	}
-	return();
+	return;
 }
 
 sub BossCardEarthTrilithonShake()
@@ -737,22 +737,22 @@ sub BossCardEarthTrilithonShake()
 	etAmt(0, 12:12:12:18, 1);
 	etSpd(0, 2.9f, 1.25f);
 	etAng(0, 0f, 3.1415927f);
-	etEx(0, 0, 0, 2, 2, [NEG], [NEGF], [NEGF]);
-	etEx(0, 1, 0, 1, [NEG], [NEG], [NEGF], [NEGF]);
+	etEx(0, 0, 0, 2, 2, NEG, NEGF, NEGF);
+	etEx(0, 1, 0, 1, NEG, NEG, NEGF, NEGF);
 	etNew(1);
 	etMode(1, 0);
 	etSpr(1, 3, 6);
 	etAmt(1, 7, 2);
 	etSpd(1, 3.3f, 1.45f);
 	etAng(1, 0f, 0.3490658f);
-	etEx(1, 0, 0, 2, 2, [NEG], [NEGF], [NEGF]);
+	etEx(1, 0, 0, 2, 2, NEG, NEGF, NEGF);
 	etNew(2);
 	etMode(2, 2);
 	etSpr(2, 26, 3);
 	etAmt(2, 7, 1);
 	etSpd(2, 3.9f, 1.45f);
 	etAng(2, 0f, 0.3490658f);
-	etEx(2, 0, 0, 2, 2, [NEG], [NEGF], [NEGF]);
+	etEx(2, 0, 0, 2, 2, NEG, NEGF, NEGF);
 120:
 	while 1 {
 		etEx(0, 2, 1, 16, 90, 1, RF2 * 1.5707964f, 1.8f);
@@ -764,7 +764,7 @@ sub BossCardEarthTrilithonShake()
 		i += 1;
 132:
 	}
-	return();
+	return;
 }
 
 sub BossCardFiEa()
@@ -794,14 +794,14 @@ sub BossCardFiEa()
 	etAmt(0, 8:12:16:20, 2);
 	etSpd(0, 3f, 0.95f);
 	etSE(0, 24, -1);
-	etEx(0, 0, 0, 268435456, 0, [NEG], [NEGF], [NEGF]);
+	etEx(0, 0, 0, 268435456, 0, NEG, NEGF, NEGF);
 	etNew(1);
 	etMode(1, 8);
 	etSpr(1, 5, 13);
 	etSpd(1, 2.9f, 1.25f);
 	etAng(1, 3.1415927f, 0f);
-	etEx(1, 0, 0, 2, 1, [NEG], [NEGF], [NEGF]);
-	etEx(1, 1, 0, 1, [NEG], [NEG], [NEGF], [NEGF]);
+	etEx(1, 0, 0, 2, 1, NEG, NEGF, NEGF);
+	etEx(1, 1, 0, 1, NEG, NEG, NEGF, NEGF);
 	int i = 0;
 120:
 	while 1 {
@@ -820,7 +820,7 @@ sub BossCardFiEa()
 198:
 		}
 	}
-	return();
+	return;
 }
 
 sub BossCardFireAgni()
@@ -848,7 +848,7 @@ sub BossCardFireAgni()
 	etMode(0, 3);
 	etSpr(0, 24, 0);
 	etSE(0, 24, -1);
-	etEx(0, 0, 0, 268435456, 0, [NEG], [NEGF], [NEGF]);
+	etEx(0, 0, 0, 268435456, 0, NEG, NEGF, NEGF);
 	int i = 0;
 120:
 	while 1 {
@@ -856,15 +856,15 @@ sub BossCardFireAgni()
 		times (5) {
 			etSpd(0, 2.7f, 0.95f);
 			etAng(0, RDEG, 0.1308997f);
-			etEx(0, 1, 0, 8, 128, [NEG], 0f, 0.02454369f);
+			etEx(0, 1, 0, 8, 128, NEG, 0f, 0.02454369f);
 			etOn(0);
 			etSpd(0, 2f, 0.95f);
 			etAng(0, RDEG, 0.1308997f);
-			etEx(0, 1, 0, 8, 128, [NEG], 0f, -0.02454369f);
+			etEx(0, 1, 0, 8, 128, NEG, 0f, -0.02454369f);
 			etOn(0);
 			etSpd(0, 1.2f, 0.95f);
 			etAng(0, RDEG, 0.1308997f);
-			etEx(0, 1, 0, 8, 128, [NEG], 0f, 0.02454369f);
+			etEx(0, 1, 0, 8, 128, NEG, 0f, 0.02454369f);
 			etOn(0);
 128:
 		}
@@ -873,7 +873,7 @@ sub BossCardFireAgni()
 		i += 1;
 258:
 	}
-	return();
+	return;
 }
 
 sub BossCardFireAgniHL()
@@ -901,7 +901,7 @@ sub BossCardFireAgniHL()
 	etMode(0, 3);
 	etSpr(0, 24, 0);
 	etSE(0, 24, -1);
-	etEx(0, 0, 0, 268435456, 0, [NEG], [NEGF], [NEGF]);
+	etEx(0, 0, 0, 268435456, 0, NEG, NEGF, NEGF);
 	int i = 0;
 120:
 	while 1 {
@@ -909,10 +909,10 @@ sub BossCardFireAgniHL()
 		etSpd(0, 2.5f:2.5f:2.5f:3f, 1.45f);
 		times (5) {
 			etAng(0, RDEG, 0.1308997f);
-			etEx(0, 1, 0, 8, 128, [NEG], 0f, 0.02454369f);
+			etEx(0, 1, 0, 8, 128, NEG, 0f, 0.02454369f);
 			etOn(0);
 			etAng(0, RDEG, 0.1308997f);
-			etEx(0, 1, 0, 8, 128, [NEG], 0f, -0.02454369f);
+			etEx(0, 1, 0, 8, 128, NEG, 0f, -0.02454369f);
 			etOn(0);
 128:
 		}
@@ -921,7 +921,7 @@ sub BossCardFireAgniHL()
 		i += 1;
 258:
 	}
-	return();
+	return;
 }
 
 sub BossCardFireAgniRad()
@@ -960,7 +960,7 @@ sub BossCardFireAgniRad()
 	etMode(0, 3);
 	etSpr(0, 24, 0);
 	etSE(0, 24, -1);
-	etEx(0, 0, 0, 268435456, 0, [NEG], [NEGF], [NEGF]);
+	etEx(0, 0, 0, 268435456, 0, NEG, NEGF, NEGF);
 	int i = 0;
 120:
 	while 1 {
@@ -972,10 +972,10 @@ sub BossCardFireAgniRad()
 !*
 		times (8) {
 			etAng(0, RDEG, 0.1308997f);
-			etEx(0, 1, 0, 8, 128, [NEG], 0f, 0.02454369f);
+			etEx(0, 1, 0, 8, 128, NEG, 0f, 0.02454369f);
 			etOn(0);
 			etAng(0, RDEG, 0.1308997f);
-			etEx(0, 1, 0, 8, 128, [NEG], 0f, -0.02454369f);
+			etEx(0, 1, 0, 8, 128, NEG, 0f, -0.02454369f);
 			etOn(0);
 			etOn(1);
 	128:
@@ -985,7 +985,7 @@ sub BossCardFireAgniRad()
 		i += 1;
 258:
 	}
-	return();
+	return;
 }
 
 sub BossCardMeWa()
@@ -1012,8 +1012,8 @@ sub BossCardMeWa()
 	etNew(0);
 	etMode(0, 2);
 	etSpd(0, 2f, 1.05f);
-	etEx(0, 0, 0, 2, 2, [NEG], [NEGF], [NEGF]);
-	etEx(0, 1, 0, 1, [NEG], [NEG], [NEGF], [NEGF]);
+	etEx(0, 0, 0, 2, 2, NEG, NEGF, NEGF);
+	etEx(0, 1, 0, 1, NEG, NEG, NEGF, NEGF);
 	etNew(1);
 	etMode(1, 2);
 	int i = 0;
@@ -1037,7 +1037,7 @@ sub BossCardMeWa()
 		i += 1;
 210:
 	}
-	return();
+	return;
 }
 
 sub BossCardMetalDragon()
@@ -1066,7 +1066,7 @@ sub BossCardMetalDragon()
 	etSpr(0, 3, 15);
 	etAmt(0, 8:10:8:10, 2:2:3);
 	etSpd(0, 6.5f, 0.75f);
-	etEx(0, 0, 0, 1, [NEG], [NEG], [NEGF], [NEGF]);
+	etEx(0, 0, 0, 1, NEG, NEG, NEGF, NEGF);
 120:
 	while 1 {
 		etEx(0, 1, 1, 64, 60, 1, AIM, (RF * 2.5f) + 1f);
@@ -1074,7 +1074,7 @@ sub BossCardMetalDragon()
 		etOn(0);
 170:
 	}
-	return();
+	return;
 }
 
 sub BossCardMetalFatigue()
@@ -1103,8 +1103,8 @@ sub BossCardMetalFatigue()
 	etSpr(0, 17, 6);
 	etAmt(0, 8, 1);
 	etSpd(0, 4.5f, 1.25f);
-	etEx(0, 0, 0, 1, [NEG], [NEG], [NEGF], [NEGF]);
-	//etEx(0, 0, 1, 268435456, 1, [NEG], [NEGF], [NEGF]);
+	etEx(0, 0, 0, 1, NEG, NEG, NEGF, NEGF);
+	//etEx(0, 0, 1, 268435456, 1, NEG, NEGF, NEGF);
 120:
 	while 1 {
 		float ang = RDEG;
@@ -1116,7 +1116,7 @@ sub BossCardMetalFatigue()
 		}
 160:
 	}
-	return();
+	return;
 }
 
 sub BossCardMetalGold()
@@ -1144,25 +1144,25 @@ sub BossCardMetalGold()
 	etMode(0, 2);
 	etSpr(0, 26, 3);
 	etAmt(0, 3, 1);
-	etEx(0, 0, 1, 1, [NEG], [NEG], [NEGF], [NEGF]);
-	etEx(0, 1, 0, 64, 60, 1, [NEGF], 0f);
-	etEx(0, 2, 0, 8192, [NEG], [NEG], [NEGF], [NEGF]);
+	etEx(0, 0, 1, 1, NEG, NEG, NEGF, NEGF);
+	etEx(0, 1, 0, 64, 60, 1, NEGF, 0f);
+	etEx(0, 2, 0, 8192, NEG, NEG, NEGF, NEGF);
 	etNew(1);
 	etMode(1, 2);
 	etSpr(1, 17, 6);
 	etAmt(1, 3, 1);
-	etEx(1, 0, 1, 1, [NEG], [NEG], [NEGF], [NEGF]);
-	etEx(1, 1, 1, 268435456, 1, [NEG], [NEGF], [NEGF]);
-	etEx(1, 3, 0, 268435456, 0, [NEG], [NEGF], [NEGF]);
-	etEx(1, 4, 0, 64, 60, 1, [NEGF], 0f);
-	etEx(1, 5, 0, 8192, [NEG], [NEG], [NEGF], [NEGF]);
+	etEx(1, 0, 1, 1, NEG, NEG, NEGF, NEGF);
+	etEx(1, 1, 1, 268435456, 1, NEG, NEGF, NEGF);
+	etEx(1, 3, 0, 268435456, 0, NEG, NEGF, NEGF);
+	etEx(1, 4, 0, 64, 60, 1, NEGF, 0f);
+	etEx(1, 5, 0, 8192, NEG, NEG, NEGF, NEGF);
 	etNew(2);
 	etMode(2, 2);
 	etSpr(2, 3, 13);
 	etAmt(2, 3, 1);
-	etEx(2, 0, 1, 1, [NEG], [NEG], [NEGF], [NEGF]);
-	etEx(2, 1, 1, 268435456, 1, [NEG], [NEGF], [NEGF]);
-	etEx(2, 4, 0, 268435456, 0, [NEG], [NEGF], [NEGF]);
+	etEx(2, 0, 1, 1, NEG, NEG, NEGF, NEGF);
+	etEx(2, 1, 1, 268435456, 1, NEG, NEGF, NEGF);
+	etEx(2, 4, 0, 268435456, 0, NEG, NEGF, NEGF);
 	int i = 0;
 120:
 	while 1 {
@@ -1200,7 +1200,7 @@ sub BossCardMetalGold()
 		wait_rank(60, 60, 48, 45);
 		i += 1;
 	}
-	return();
+	return;
 }
 
 sub BossCardMetalMemory()
@@ -1231,8 +1231,8 @@ sub BossCardMetalMemory()
 	etSpd(0, 1.9f, 1f);
 	float ang = RDEG;
 	etDist(0, 16f);
-	etEx(0, 0, 0, 2, 2, [NEG], [NEGF], [NEGF]);
-	etEx(0, 1, 0, 256, RANK + 1, 13, [NEGF], [NEGF]);
+	etEx(0, 0, 0, 2, 2, NEG, NEGF, NEGF);
+	etEx(0, 1, 0, 256, RANK + 1, 13, NEGF, NEGF);
 	int i = 1;
 120:
 	while 1 {
@@ -1244,7 +1244,7 @@ sub BossCardMetalMemory()
 		wait(10);
 140:
 	}
-	return();
+	return;
 }
 
 sub BossCardMetalMemory_At(float ang)
@@ -1254,7 +1254,7 @@ sub BossCardMetalMemory_At(float ang)
 		etOn(0);
 		wait(4);
 	}
-	return();
+	return;
 }
 
 sub BossCardMetalMemoryHL()
@@ -1285,8 +1285,8 @@ sub BossCardMetalMemoryHL()
 	etSpd(0, 2f:2.1f:2.2f:2.3f, 1.25f);
 	float angle = RDEG;
 	etDist(0, 16f);
-	etEx(0, 0, 0, 2, 2, [NEG], [NEGF], [NEGF]);
-	etEx(0, 1, 0, 256, RANK, 13, [NEGF], [NEGF]);
+	etEx(0, 0, 0, 2, 2, NEG, NEGF, NEGF);
+	etEx(0, 1, 0, 256, RANK, 13, NEGF, NEGF);
 	etEx(0, 2, 1, 8, 40, 0, 0f, 0f);
 	int i = 0;
 120:
@@ -1298,7 +1298,7 @@ sub BossCardMetalMemoryHL()
 		i += 1;
 140:
 	}
-	return();
+	return;
 }
 
 sub BossCardMetalMemoryHL_at(float ang, int m)
@@ -1314,7 +1314,7 @@ sub BossCardMetalMemoryHL_at(float ang, int m)
 		etOn(0);
 4:
 	}
-	return();
+	return;
 }
 
 sub BossCardWaFi()
@@ -1343,25 +1343,25 @@ sub BossCardWaFi()
 	etSE(0, 26, -1);
 	etSpd(0, 2f, 0.5f);
 	etAng(0, -1.2566371f, -1.8849556f);
-	etEx(0, 0, 0, 2, 2, [NEG], [NEGF], [NEGF]);
-	etEx(0, 1, 1, 4, 999, [NEG], 0.05f, 1.5707964f);
+	etEx(0, 0, 0, 2, 2, NEG, NEGF, NEGF);
+	etEx(0, 1, 1, 4, 999, NEG, 0.05f, 1.5707964f);
 	etNew(1);
 	etMode(1, 8);
 	etSpd(1, 2f, 1.6f);
 	etAng(1, -2.3561945f, -0.7853982f);
 	etDist(1, 32f);
-	etEx(1, 0, 0, 2, 2, [NEG], [NEGF], [NEGF]);
-	etEx(1, 1, 0, 4, 165 : 165 : 180 : 180, [NEG], 0.03f, 1.5707964f);
-	etEx(1, 2, 0, 256, 1, 2, [NEGF], [NEGF]);
+	etEx(1, 0, 0, 2, 2, NEG, NEGF, NEGF);
+	etEx(1, 1, 0, 4, 165 : 165 : 180 : 180, NEG, 0.03f, 1.5707964f);
+	etEx(1, 2, 0, 256, 1, 2, NEGF, NEGF);
 	etEx(1, 3, 0, 524288, 135921926, 1, 1.3f, 0.8f);
-	etEx(1, 5, 0, 8192, [NEG], [NEG], [NEGF], [NEGF]);
+	etEx(1, 5, 0, 8192, NEG, NEG, NEGF, NEGF);
 	etNew(2);
 	etDist(2, 20f);
-	etMode(2, [ETON_FAN_AIM]);
-	etSpr(2, [ET_BIG_BALL], [BLUE32]);
+	etMode(2, ETON_FAN_AIM);
+	etSpr(2, ET_BIG_BALL, BLUE32);
 	etSpd(2, 1.7f:2f:2.2f:2.5f, 0.25f);
 	etAmt(2, 3:5:7:7, 1);
-	etEx(2, 0, 0, 2, 2, [NEG], [NEGF], [NEGF]);
+	etEx(2, 0, 0, 2, 2, NEG, NEGF, NEGF);
 	int i = 0;
 120:
 	playSE(29);
@@ -1376,7 +1376,7 @@ sub BossCardWaFi()
 330:
 		i += 1;
 	}
-	return();
+	return;
 }
 
 sub BossCardWaFi_at(int i)
@@ -1388,7 +1388,7 @@ sub BossCardWaFi_at(int i)
 		etEx(1, 4, 0, 1048576, 1, 0, -1.2566371f, -1.8849556f);
 		etOn(1);
 		etAmt(1, 2:2:3:4, 1);
-		etEx(1, 4, 0, 8192, [NEG], [NEG], [NEGF], [NEGF]);
+		etEx(1, 4, 0, 8192, NEG, NEG, NEGF, NEGF);
 		etOn(1);
 		etSpd(1, 3.3f, 2.5f);
 		etOn(1);
@@ -1411,7 +1411,7 @@ sub BossCardWaFi_at(int i)
 !*
 		wait_rank(6, 5, 5, 5);
 	}
-	return();
+	return;
 }
 
 sub BossCardWaFi_at2()
@@ -1468,7 +1468,7 @@ sub BossCardWaFi_at2()
 		wait(2);
 		i += 1;
 	}
-	return();
+	return;
 }
 
 sub BossCardWaFi_at3()
@@ -1479,7 +1479,7 @@ sub BossCardWaFi_at3()
 		etOn(2);
 40:
 	}
-	return();
+	return;
 }
 
 sub BossCardWaWo()
@@ -1510,7 +1510,7 @@ sub BossCardWaWo()
 	etAmt(0, 18:24:30:32, 2);
 	etSpd(0, 3.3f, 1.45f);
 	etAng(0, 3.1415927f, 0.34906584f);
-	etEx(0, 0, 0, 2, 2, [NEG], [NEGF], [NEGF]);
+	etEx(0, 0, 0, 2, 2, NEG, NEGF, NEGF);
 	etNew(1);
 	etMode(1, 0);
 !EN
@@ -1550,7 +1550,7 @@ sub BossCardWaWo()
 		ang = 0f;
 190:
 	}
-	return();
+	return;
 }
 
 sub BossCardWaterBury()
@@ -1581,7 +1581,7 @@ sub BossCardWaterBury()
 120:
 	while 1 {
 		BossCardWaterBury_At() async 1;
-		float ang = [PI] / 8f;
+		float ang = PI / 8f;
 		times (12) {
 			BossCardWaterBury_LaserAt(ang);
 			BossCardWaterBury_LaserAt(0f-ang);
@@ -1604,7 +1604,7 @@ sub BossCardWaterBury()
 		i += 1;
 190:
 	}
-	return();
+	return;
 }
 
 sub BossCardWaterBury_At()
@@ -1615,12 +1615,12 @@ sub BossCardWaterBury_At()
 	etAmt(0, 24:24:24:30, 2);
 	etSpd(0, 3.5f, 2.05f);
 	etAng(0, 0f, 0.3490658f);
-	etEx(0, 0, 0, 2, 2, [NEG], [NEGF], [NEGF]);
+	etEx(0, 0, 0, 2, 2, NEG, NEGF, NEGF);
 	while 1 {
 		etOn(0);
 		wait(19);
 	}
-	return();
+	return;
 }
 
 sub BossCardWaterBury_LaserAt(float ang_off)
@@ -1631,10 +1631,10 @@ sub BossCardWaterBury_LaserAt(float ang_off)
 	etSpd(1, 24f, 0f);
 	laserSize(1, 0f, 640f, 0f, 8f);
 	laserTime(1, 20, 10, 50, 10, 0);
-	etEx(1, 0, 0, 268435456, 1, [NEG], [NEGF], [NEGF]);
+	etEx(1, 0, 0, 268435456, 1, NEG, NEGF, NEGF);
 	etSE(1, 19, -1);
 	laserOn2(1, 1);
-	return();
+	return;
 }
 
 sub BossCardWaterMonsoon()
@@ -1703,7 +1703,7 @@ sub BossCardWaterMonsoon()
 540:
 !*
 	}
-	return();
+	return;
 }
 
 sub BossCardWaterMonsoon_rain()
@@ -1713,9 +1713,9 @@ sub BossCardWaterMonsoon_rain()
 	etAmt(0, 1, 1);
 	etSpd(0, 2.3f, 1.7f);
 	etAng(0, 1.6421962f, 1.4993964f);
-	etEx(0, 0, 0, 2, 2, [NEG], [NEGF], [NEGF]);
-	etEx(0, 1, 1, 1024, 600, 1, [NEGF], [NEGF]);
-	etEx(0, 2, 0, 4, 9999, [NEG], 0.016f, 1.3089969f);
+	etEx(0, 0, 0, 2, 2, NEG, NEGF, NEGF);
+	etEx(0, 1, 1, 1024, 600, 1, NEGF, NEGF);
+	etEx(0, 2, 0, 4, 9999, NEG, 0.016f, 1.3089969f);
 	while 1 {
 		etOfs_abs(0, RF2 * 208f, 0f);
 		etSpr(0, 28, 7);
@@ -1730,7 +1730,7 @@ sub BossCardWaterMonsoon_rain()
 !*
 		wait_rank(15, 12, 6, 6);
 	}
-	return();
+	return;
 }
 
 sub BossCardWaterMonsoon_rainH()
@@ -1741,15 +1741,15 @@ sub BossCardWaterMonsoon_rainH()
 	etAmt(3, 1, 1);
 	etSpd(3, 2.1f, 1.7f);
 	etAng(3, 1.6421962f, 1.4993964f);
-	etEx(3, 0, 0, 2, 2, [NEG], [NEGF], [NEGF]);
-	etEx(3, 1, 1, 1024, 600, 1, [NEGF], [NEGF]);
-	etEx(3, 2, 0, 4, 9999, [NEG], 0.016f, 1.8325957f);
+	etEx(3, 0, 0, 2, 2, NEG, NEGF, NEGF);
+	etEx(3, 1, 1, 1024, 600, 1, NEGF, NEGF);
+	etEx(3, 2, 0, 4, 9999, NEG, 0.016f, 1.8325957f);
 	while 1 {
 		etOfs_abs(3, RF2 * 208f, 0f);
 		etOn(3);
 		wait(21);
 	}
-	return();
+	return;
 }
 
 sub BossCardWaterMonsoon_wave1()
@@ -1760,20 +1760,20 @@ sub BossCardWaterMonsoon_wave1()
 	etAmt(1, 1, 1);
 	etSpd(1, 1.6f, 1f);
 	etAng(1, -1.5707964f, 0f);
-	etEx(1, 0, 0, 1024, 540, 0, [NEGF], [NEGF]);
-	etEx(1, 1, 1, 268435456, 1, [NEG], [NEGF], [NEGF]);
-	etEx(1, 2, 2, 8, 45, [NEG], 0f, -0.034906585f);
-	etEx(1, 3, 2, 8, 45, [NEG], 0f, 0.034906585f);
-	etEx(1, 4, 2, 8, 45, [NEG], 0f, -0.034906585f);
-	etEx(1, 5, 2, 8, 45, [NEG], 0f, 0.034906585f);
-	etEx(1, 6, 2, 8, 45, [NEG], 0f, -0.034906585f);
-	etEx(1, 7, 2, 8, 45, [NEG], 0f, 0.034906585f);
-	etEx(1, 8, 2, 8, 45, [NEG], 0f, -0.034906585f);
-	etEx(1, 9, 2, 8, 45, [NEG], 0f, 0.034906585f);
-	etEx(1, 10, 2, 8, 45, [NEG], 0f, -0.034906585f);
-	etEx(1, 11, 2, 8, 45, [NEG], 0f, 0.034906585f);
-	etEx(1, 12, 2, 8, 45, [NEG], 0f, -0.034906585f);
-	etEx(1, 13, 2, 8, 45, [NEG], 0f, 0.034906585f);
+	etEx(1, 0, 0, 1024, 540, 0, NEGF, NEGF);
+	etEx(1, 1, 1, 268435456, 1, NEG, NEGF, NEGF);
+	etEx(1, 2, 2, 8, 45, NEG, 0f, -0.034906585f);
+	etEx(1, 3, 2, 8, 45, NEG, 0f, 0.034906585f);
+	etEx(1, 4, 2, 8, 45, NEG, 0f, -0.034906585f);
+	etEx(1, 5, 2, 8, 45, NEG, 0f, 0.034906585f);
+	etEx(1, 6, 2, 8, 45, NEG, 0f, -0.034906585f);
+	etEx(1, 7, 2, 8, 45, NEG, 0f, 0.034906585f);
+	etEx(1, 8, 2, 8, 45, NEG, 0f, -0.034906585f);
+	etEx(1, 9, 2, 8, 45, NEG, 0f, 0.034906585f);
+	etEx(1, 10, 2, 8, 45, NEG, 0f, -0.034906585f);
+	etEx(1, 11, 2, 8, 45, NEG, 0f, 0.034906585f);
+	etEx(1, 12, 2, 8, 45, NEG, 0f, -0.034906585f);
+	etEx(1, 13, 2, 8, 45, NEG, 0f, 0.034906585f);
 	float wave_dist;
 	setf_rank(wave_dist, 64f, 52f, 48f, 48f);
 	float startpos = (RF * wave_dist) - 192f;
@@ -1786,7 +1786,7 @@ sub BossCardWaterMonsoon_wave1()
 		}
 12:
 	}
-	return();
+	return;
 }
 
 sub BossCardWaterMonsoon_wave2()
@@ -1797,20 +1797,20 @@ sub BossCardWaterMonsoon_wave2()
 	etAmt(2, 1, 1);
 	etSpd(2, 1.6f, 1f);
 	etAng(2, 1.5707964f, 0f);
-	etEx(2, 0, 0, 1024, 540, 0, [NEGF], [NEGF]);
-	etEx(2, 1, 1, 268435456, 1, [NEG], [NEGF], [NEGF]);
-	etEx(2, 2, 2, 8, 45, [NEG], 0f, -0.034906585f);
-	etEx(2, 3, 2, 8, 45, [NEG], 0f, 0.034906585f);
-	etEx(2, 4, 2, 8, 45, [NEG], 0f, -0.034906585f);
-	etEx(2, 5, 2, 8, 45, [NEG], 0f, 0.034906585f);
-	etEx(2, 6, 2, 8, 45, [NEG], 0f, -0.034906585f);
-	etEx(2, 7, 2, 8, 45, [NEG], 0f, 0.034906585f);
-	etEx(2, 8, 2, 8, 45, [NEG], 0f, -0.034906585f);
-	etEx(2, 9, 2, 8, 45, [NEG], 0f, 0.034906585f);
-	etEx(2, 10, 2, 8, 45, [NEG], 0f, -0.034906585f);
-	etEx(2, 11, 2, 8, 45, [NEG], 0f, 0.034906585f);
-	etEx(2, 12, 2, 8, 45, [NEG], 0f, -0.034906585f);
-	etEx(2, 13, 2, 8, 45, [NEG], 0f, 0.034906585f);
+	etEx(2, 0, 0, 1024, 540, 0, NEGF, NEGF);
+	etEx(2, 1, 1, 268435456, 1, NEG, NEGF, NEGF);
+	etEx(2, 2, 2, 8, 45, NEG, 0f, -0.034906585f);
+	etEx(2, 3, 2, 8, 45, NEG, 0f, 0.034906585f);
+	etEx(2, 4, 2, 8, 45, NEG, 0f, -0.034906585f);
+	etEx(2, 5, 2, 8, 45, NEG, 0f, 0.034906585f);
+	etEx(2, 6, 2, 8, 45, NEG, 0f, -0.034906585f);
+	etEx(2, 7, 2, 8, 45, NEG, 0f, 0.034906585f);
+	etEx(2, 8, 2, 8, 45, NEG, 0f, -0.034906585f);
+	etEx(2, 9, 2, 8, 45, NEG, 0f, 0.034906585f);
+	etEx(2, 10, 2, 8, 45, NEG, 0f, -0.034906585f);
+	etEx(2, 11, 2, 8, 45, NEG, 0f, 0.034906585f);
+	etEx(2, 12, 2, 8, 45, NEG, 0f, -0.034906585f);
+	etEx(2, 13, 2, 8, 45, NEG, 0f, 0.034906585f);
 	float wave_dist;
 	setf_rank(wave_dist, 64f, 52f, 48f, 48f);
 	float startpos = (RF * wave_dist) + 192f;
@@ -1823,7 +1823,7 @@ sub BossCardWaterMonsoon_wave2()
 		}
 12:
 	}
-	return();
+	return;
 }
 
 sub BossCardWaterUndine()
@@ -1888,7 +1888,7 @@ sub BossCardWaterUndine()
 		i += 1;
 190:	nop();
 	}
-	return();
+	return;
 }
 
 sub BossCardWaterUndine_At()
@@ -1899,12 +1899,12 @@ sub BossCardWaterUndine_At()
 	etAmt(0, 16, 2);
 	etSpd(0, 4f, 1.45f);
 	etAng(0, 3.141593f, 0.3490658f);
-	etEx(0, 0, 0, 2, 2, [NEG], [NEGF], [NEGF]);
+	etEx(0, 0, 0, 2, 2, NEG, NEGF, NEGF);
 	while 1 {
 		etOn(0);
 		wait(19);
 	}
-	return();
+	return;
 }
 
 sub BossCardWaterUndine_LaserAt(float ang_off)
@@ -1915,9 +1915,9 @@ sub BossCardWaterUndine_LaserAt(float ang_off)
 	etSpd(1, 4f, 0f);
 	laserSize(1, 0f, 96f, 0f, 6f);
 	etSE(1, 19, -1);
-	etEx(1, 0, 0, 268435456, 1, [NEG], [NEGF], [NEGF]);
+	etEx(1, 0, 0, 268435456, 1, NEG, NEGF, NEGF);
 	laserOn(1);
-	return();
+	return;
 }
 
 sub BossCardWoFi()
@@ -1948,18 +1948,18 @@ sub BossCardWoFi()
 	etSpd(0, (2f:2f:2.5f) + 0.5f, 0.55f);
 	etAng(0, 3.1415927f, -3.1415927f);
 	etSE(0, 24, -1);
-	etEx(0, 0, 0, 2, 1, [NEG], [NEGF], [NEGF]);
-	etEx(0, 1, 0, 268435456, 0, [NEG], [NEGF], [NEGF]);
-	etEx(0, 2, 0, 1, [NEG], [NEG], [NEGF], [NEGF]);
-	etEx(0, 3, 0, 4, 9999, [NEG], 0.012f, 2.3561945f);
+	etEx(0, 0, 0, 2, 1, NEG, NEGF, NEGF);
+	etEx(0, 1, 0, 268435456, 0, NEG, NEGF, NEGF);
+	etEx(0, 2, 0, 1, NEG, NEG, NEGF, NEGF);
+	etEx(0, 3, 0, 4, 9999, NEG, 0.012f, 2.3561945f);
 	etNew(1);
 	etMode(1, 8);
 	etSpr(1, 9, 2);
 	etAng(1, 2.635447f, 2.076942f);
-	etEx(1, 0, 0, 2, 1, [NEG], [NEGF], [NEGF]);
-	etEx(1, 1, 0, 1, [NEG], [NEG], [NEGF], [NEGF]);
-	etEx(1, 2, 1, 1024, 60, [NEG], [NEGF], [NEGF]);
-	etEx(1, 3, 0, 4, 60, [NEG], 0.012f, 2.3561945f);
+	etEx(1, 0, 0, 2, 1, NEG, NEGF, NEGF);
+	etEx(1, 1, 0, 1, NEG, NEG, NEGF, NEGF);
+	etEx(1, 2, 1, 1024, 60, NEG, NEGF, NEGF);
+	etEx(1, 3, 0, 4, 60, NEG, 0.012f, 2.3561945f);
 	int i = 0;
 120:
 	while 1 {
@@ -1984,7 +1984,7 @@ sub BossCardWoFi()
 		i += 1;
 132:
 	}
-	return();
+	return;
 }
 
 sub BossCardWoMe()
@@ -2016,9 +2016,9 @@ sub BossCardWoMe()
 	laserSize(0, -1f, -1f, -1f, 20f);
 	laserTime(0, 30:40:50:60, -1, -1, -1, -1);
 	etSE(0, 19, -1);
-	etEx(0, 0, 0, 268435456, 0, [NEG], [NEGF], [NEGF]);
+	etEx(0, 0, 0, 268435456, 0, NEG, NEGF, NEGF);
 	etEx(0, 1, 0, 8, 45, 1, 0.02f, 0f);
-	etEx(0, 2, 0, 4096, 30, [NEG], [NEGF], [NEGF]);
+	etEx(0, 2, 0, 4096, 30, NEG, NEGF, NEGF);
 	etEx(0, 4, 0, 8, 10, 1, -0.06f, 0f);
 !NHL
 	etEx(0, 6, 0, 8, 10, 1, -0.06f, 0f);
@@ -2041,9 +2041,9 @@ sub BossCardWoMe()
 !*
 	etAmt_rank(2, 1, 2, 1, 2, 1, 1, 1, 2);
 !EN
-	etEx(2, 0, 0, 2, 2, [NEG], [NEGF], [NEGF]);
+	etEx(2, 0, 0, 2, 2, NEG, NEGF, NEGF);
 !HL
-	etEx(2, 0, 0, 2, 1, [NEG], [NEGF], [NEGF]);
+	etEx(2, 0, 0, 2, 1, NEG, NEGF, NEGF);
 !*
 	int i = 0;
 60:
@@ -2062,12 +2062,12 @@ sub BossCardWoMe()
 		float ang = AIM;
 		times (5) {
 			BossCardWoMe_at1(ang) async;
-			ang += [PI] / 2.5f;
+			ang += PI / 2.5f;
 		}
 335:
 		i += 1;
 	}
-	return();
+	return;
 }
 
 sub BossCardWoMe_at1(float ang)
@@ -2088,7 +2088,7 @@ sub BossCardWoMe_at1(float ang)
 		wait_rank(8, 8, 7, 6);
 		i += 1;
 	}
-	return();
+	return;
 }
 
 sub BossCardWoMe_at2()
@@ -2112,7 +2112,7 @@ sub BossCardWoMe_at2()
 		etOn(2);
 		wait_rank(5, 4, 3, 2);
 	}
-	return();
+	return;
 }
 
 sub BossCardWoMe_atLaser()
@@ -2155,7 +2155,7 @@ sub BossCardWoMe_atLaser()
 		}
 		wait_rank(80, 70, 60, 60);
 	}
-	return();
+	return;
 }
 
 sub BossCardWoodGreen()
@@ -2189,9 +2189,9 @@ sub BossCardWoodGreen()
 	etAmt(0, 30, 1);
 	etSpd(0, 2.5f, 0.55f);
 	etAng(0, -3.1415927f, 3.1415927f);
-	etEx(0, 0, 0, 2, 2, [NEG], [NEGF], [NEGF]);
-	etEx(0, 1, 0, 1, [NEG], [NEG], [NEGF], [NEGF]);
-	etEx(0, 2, 0, 4, 9999, [NEG], 0.008f, 1.570796f);
+	etEx(0, 0, 0, 2, 2, NEG, NEGF, NEGF);
+	etEx(0, 1, 0, 1, NEG, NEG, NEGF, NEGF);
+	etEx(0, 2, 0, 4, 9999, NEG, 0.008f, 1.570796f);
 	etNew(1);
 	etMode(1, 8);
 	etSpr(1, 9, 10);
@@ -2202,28 +2202,28 @@ sub BossCardWoodGreen()
 	etSpd(1, 2.5f, 0.55f);
 !*
 	etAng(1, 1.064651f, 0.5061455f);
-	etEx(1, 0, 0, 2, 2, [NEG], [NEGF], [NEGF]);
-	etEx(1, 1, 0, 1, [NEG], [NEG], [NEGF], [NEGF]);
+	etEx(1, 0, 0, 2, 2, NEG, NEGF, NEGF);
+	etEx(1, 1, 0, 1, NEG, NEG, NEGF, NEGF);
 120:
 	while 1 {
 		if ((i % (8:8:8:5)) == 0)
 			etOn(0);
 		if ((i % 2) == 0) {
 			etOfs(1, (396f - ABS_X) - 192f, (RF * 384f) - ABS_Y);
-			etEx(1, 2, 0, 4, 9999, [NEG], 0.008f, 2.356194f);
+			etEx(1, 2, 0, 4, 9999, NEG, 0.008f, 2.356194f);
 			etAng(1, 2.635447f, 2.076942f);
 			etOn(1);
 		}
 		else {
 			etOfs(1, (-12f - ABS_X) - 192f, (RF * 384f) - ABS_Y);
-			etEx(1, 2, 0, 4, 9999, [NEG], 0.008f, 0.7853982f);
+			etEx(1, 2, 0, 4, 9999, NEG, 0.008f, 0.7853982f);
 			etAng(1, 1.064651f, 0.5061455f);
 			etOn(1);
 		}
 		i += 1;
 125:
 	}
-	return();
+	return;
 }
 
 sub BossCardWoodLeaf()
@@ -2254,15 +2254,15 @@ sub BossCardWoodLeaf()
 	etMode(0, 3);
 	etSpr(0, 7, 9);
 	etSpd(0, 2.5f, 0.8f);
-	etEx(0, 0, 0, 2, 1, [NEG], [NEGF], [NEGF]);
-	etEx(0, 1, 1, 160, 1, [NEG], [NEGF], [NEGF]);
+	etEx(0, 0, 0, 2, 1, NEG, NEGF, NEGF);
+	etEx(0, 1, 1, 160, 1, NEG, NEGF, NEGF);
 120:
 	while 1 {
 		etAmt(0, i / 4, layer_c);
-		float ang1 = RDEG, ang2 = (6.2831855f / _f(i / 4)) / _f(layer_c), newang = [PI];
+		float ang1 = RDEG, ang2 = (6.2831855f / _f(i / 4)) / _f(layer_c), newang = PI;
 		times (15) {
 			etAng(0, ang1, ang2);
-			etEx(0, 2, 1, 16, 60, 1, newang, [NEGF]);
+			etEx(0, 2, 1, 16, 60, 1, newang, NEGF);
 			etOn(0);
 			newang -= rad(12f) * sp_mod;
 			ang1 -= 0.10471976f * sp_mod;
@@ -2273,7 +2273,7 @@ sub BossCardWoodLeaf()
 		i += 1;
 		sp_mod *= -1f;
 	}
-	return();
+	return;
 }
 
 sub BossCardWoodSylphy()
@@ -2300,7 +2300,7 @@ sub BossCardWoodSylphy()
 	etNew(0);
 	etMode(0, 3);
 	etSpr(0, 24, 0);
-	etEx(0, 0, 0, 268435456, 0, [NEG], [NEGF], [NEGF]);
+	etEx(0, 0, 0, 268435456, 0, NEG, NEGF, NEGF);
 	int i = 0;
 	etNew(0);
 	etMode(0, 8);
@@ -2308,23 +2308,23 @@ sub BossCardWoodSylphy()
 	etAmt(0, 4:10, 1);
 	etSpd(0, 2.5f, 0.55f);
 	etAng(0, -3.1415927f, 3.1415927f);
-	etEx(0, 0, 0, 2, 2, [NEG], [NEGF], [NEGF]);
-	etEx(0, 1, 0, 1, [NEG], [NEG], [NEGF], [NEGF]);
-	etEx(0, 2, 0, 4, 9999, [NEG], 0.012f, 2.356194f);
+	etEx(0, 0, 0, 2, 2, NEG, NEGF, NEGF);
+	etEx(0, 1, 0, 1, NEG, NEG, NEGF, NEGF);
+	etEx(0, 2, 0, 4, 9999, NEG, 0.012f, 2.356194f);
 	etNew(1);
 	etMode(1, 8);
 	etAmt(1, 1, 1);
 	etSpd(1, 1.7f, 0.55f);
 	etAng(1, 2.635447f, 2.076942f);
-	etEx(1, 0, 0, 2, 2, [NEG], [NEGF], [NEGF]);
-	etEx(1, 1, 0, 1, [NEG], [NEG], [NEGF], [NEGF]);
+	etEx(1, 0, 0, 2, 2, NEG, NEGF, NEGF);
+	etEx(1, 1, 0, 1, NEG, NEG, NEGF, NEGF);
 120:
 	while 1 {
 		if ((i % 6) == 0)
 			etOn(0);
 		etOfs(1, ((RF * 384f) - ABS_X) - 192f, 32f - ABS_Y);
 		etSpr(1, 9, 10);
-		etEx(1, 2, 0, 4, 9999, [NEG], 0.012f, 2.356194f);
+		etEx(1, 2, 0, 4, 9999, NEG, 0.012f, 2.356194f);
 		etOn(1);
 		float y;
 		if ((i % 2) == 0) {
@@ -2336,12 +2336,12 @@ sub BossCardWoodSylphy()
 		}
 		etOfs(1, (396f - ABS_X) - 192f, y);
 		etSpr(1, 9, 11);
-		etEx(1, 2, 0, 4, 9999, [NEG], 0f, 2.356194f);
+		etEx(1, 2, 0, 4, 9999, NEG, 0f, 2.356194f);
 		etOn(1);
 		i += 1;
 126:
 	}
-	return();
+	return;
 }
 
 sub BossCardWoodSylphyHL()
@@ -2368,21 +2368,21 @@ sub BossCardWoodSylphyHL()
 	etNew(0);
 	etMode(0, 3);
 	etSpr(0, 24, 0);
-	etEx(0, 0, 0, 268435456, 0, [NEG], [NEGF], [NEGF]);
+	etEx(0, 0, 0, 268435456, 0, NEG, NEGF, NEGF);
 	etNew(0);
 	etMode(0, 8);
 	etSpr(0, 9, 13);
 	etAmt(0, 15:15:35:27, 1);
 	etSpd(0, 2.5f, 0.55f);
 	etAng(0, -3.1415927f, 3.1415927f);
-	etEx(0, 0, 0, 2, 2, [NEG], [NEGF], [NEGF]);
-	etEx(0, 1, 0, 1, [NEG], [NEG], [NEGF], [NEGF]);
-	etEx(0, 2, 0, 4, 9999, [NEG], 0.012f, 0.7853982f);
+	etEx(0, 0, 0, 2, 2, NEG, NEGF, NEGF);
+	etEx(0, 1, 0, 1, NEG, NEG, NEGF, NEGF);
+	etEx(0, 2, 0, 4, 9999, NEG, 0.012f, 0.7853982f);
 	etNew(1);
 	etMode(1, 8);
 	etAng(1, 1.064651f, 0.5061455f);
-	etEx(1, 0, 0, 2, 2, [NEG], [NEGF], [NEGF]);
-	etEx(1, 1, 0, 1, [NEG], [NEG], [NEGF], [NEGF]);
+	etEx(1, 0, 0, 2, 2, NEG, NEGF, NEGF);
+	etEx(1, 1, 0, 1, NEG, NEG, NEGF, NEGF);
 120:
 	int i = 0;
 	while 1 {
@@ -2393,7 +2393,7 @@ sub BossCardWoodSylphyHL()
 		etSpr(1, 9, 10);
 		etAmt(1, 1, 1);
 		etSpd(1, 1.7f, 0.55f);
-		etEx(1, 2, 0, 4, 60, [NEG], 0.012f, 0.7853982f);
+		etEx(1, 2, 0, 4, 60, NEG, 0.012f, 0.7853982f);
 		etOn(1);
 		if ((i % 2) == 0) {
 122:
@@ -2408,12 +2408,12 @@ sub BossCardWoodSylphyHL()
 		etAmt(1, 2, 1);
 		etSpd(1, 2f, 0.55f);
 	!*
-		etEx(1, 2, 0, 4, 0, [NEG], 0f, 2.356194f);
+		etEx(1, 2, 0, 4, 0, NEG, 0f, 2.356194f);
 		etOn(1);
 		i += 1;
 126:
 	}
-	return();
+	return;
 }
 
 sub BossCheckItems()
@@ -2435,7 +2435,7 @@ sub BossCheckItems()
 			etClear_ni(640f);
 		BOSS4 = 1;
 	}
-	return();
+	return;
 }
 
 sub BossDead()
@@ -2471,10 +2471,10 @@ sub BossSetNextNon(int life)
 {
 	if (BOSS4) {
 		interrupt(0, 0, life, "Boss3");
-		return();
+		return;
 	}
 	else {
 		interrupt(0, 0, life, "Boss2");
-		return();
+		return;
 	}
 }

@@ -45,13 +45,13 @@ sub MBoss1()
 	while 1 {
 		MBoss_at1(rad(18f), 0f);
 		enmRand(90, 4, 1.5f);
-		MBoss_at2(rad(-18f), [PI]);
+		MBoss_at2(rad(-18f), PI);
 60:
-		MBoss_at1(rad(-18f), [PI]);
+		MBoss_at1(rad(-18f), PI);
 		MBoss_at2(rad(18f), 0f);
 61:
 	}
-	return();
+	return;
 }
 
 sub MBossCard1()
@@ -89,7 +89,7 @@ sub MBossCard1()
 			MBossCard1_at2();
 		I3 = 1 - I3;
 	}
-	return();
+	return;
 }
 
 sub MBossCard1_at1()
@@ -99,9 +99,9 @@ sub MBossCard1_at1()
 	etMode(0, 2);
 	etSpr(0, 8, 2);
 	etAng(0, 0f, 0f);
-	etEx(0, 0, 0, 2, 2, [NEG], [NEGF], [NEGF]);
+	etEx(0, 0, 0, 2, 2, NEG, NEGF, NEGF);
 !HL
-	etEx(0, 1, 0, 256, 1, 13, [NEGF], [NEGF]);
+	etEx(0, 1, 0, 256, 1, 13, NEGF, NEGF);
 !*
 	etAmt_rank(0, 16, 24, 15, 19, 1, 3, 2, 2);
 	etSpd(0, 3.5f:3.5f:2f, 1.45f:1.45f:1.05f);
@@ -117,7 +117,7 @@ sub MBossCard1_at1()
 	etMode(0, 0);
 	etSpr(0, 20, 3);
 	etAmt(0, 11, 4);
-	etEx(0, 0, 0, 2, 2, [NEG], [NEGF], [NEGF]);
+	etEx(0, 0, 0, 2, 2, NEG, NEGF, NEGF);
 	etAng(0, 0f, rad(12f):rad(12f):rad(18f));
 	etSpd(0, 4f:5f:6f:7f, 1.45f);
 	times (3) {
@@ -130,7 +130,7 @@ sub MBossCard1_at1()
 	nop();
 	enmPos(0f, 144f);
 248:
-	return();
+	return;
 }
 
 sub MBossCard1_at1_et0()
@@ -139,7 +139,7 @@ sub MBossCard1_at1_et0()
 		etOn(0);
 6:
 	}
-	return();
+	return;
 }
 
 sub MBossCard1_at2()
@@ -149,9 +149,9 @@ sub MBossCard1_at2()
 	etMode(0, 2);
 	etSpr(0, 8, 2);
 	etAng(0, 0f, 0f);
-	etEx(0, 0, 0, 2, 2, [NEG], [NEGF], [NEGF]);
+	etEx(0, 0, 0, 2, 2, NEG, NEGF, NEGF);
 !HL
-	etEx(0, 1, 0, 256, 1, 13, [NEGF], [NEGF]);
+	etEx(0, 1, 0, 256, 1, 13, NEGF, NEGF);
 !*
 	etAmt_rank(0, 16, 24, 15, 19, 1, 3, 2, 2);
 	etSpd(0, 3.5f:3.5f:2f, 1.45f:1.45f:1.05f);
@@ -167,7 +167,7 @@ sub MBossCard1_at2()
 	etMode(0, 0);
 	etSpr(0, 20, 3);
 	etAmt(0, 11, 4);
-	etEx(0, 0, 0, 2, 2, [NEG], [NEGF], [NEGF]);
+	etEx(0, 0, 0, 2, 2, NEG, NEGF, NEGF);
 	etAng(0, 0f, rad(12f):rad(12f):rad(18f));
 	etSpd(0, 4f:5f:6f:7f, 1.45f);
 	times (3) {
@@ -180,7 +180,7 @@ sub MBossCard1_at2()
 	nop();
 	enmPos(0f, 144f);
 248:
-	return();
+	return;
 }
 
 sub MBossCard1_at2_et0()
@@ -189,7 +189,7 @@ sub MBossCard1_at2_et0()
 		etOn(0);
 6:
 	}
-	return();
+	return;
 }
 
 sub MBossDead()
@@ -211,7 +211,7 @@ sub MBossDead()
 	life(100000);
 	boss(-1);
 	itemClear();
-	itemMain([ITEM_1UP]);
+	itemMain(ITEM_1UP);
 	itemDrop();
 	ItemDrop2(75, 48f, 48f);
 	MBossEscape();
@@ -259,7 +259,7 @@ sub MBoss_at1(float inc, float start)
 		etOn(0);
 		wait(8);
 	}
-	return();
+	return;
 }
 
 sub MBoss_at2(float inc, float start)
@@ -277,5 +277,5 @@ sub MBoss_at2(float inc, float start)
 		etOn(0);
 		wait(3);
 	}
-	return();
+	return;
 }

@@ -95,8 +95,8 @@ sub Book00_at(int anm, int anm2)
 	etNew(0);
 	etMode(0, 2);
 	etSpd_rank(0, 1.7f, 1.7f, 2.1f, 3f, 1.25f, 1.25f, 1.25f, 1.25f);
-	etEx(0, 0, 0, 2, 2, [NEG], [NEGF], [NEGF]);
-	etEx(0, 1, 0, 1, [NEG], [NEG], [NEGF], [NEGF]);
+	etEx(0, 0, 0, 2, 2, NEG, NEGF, NEGF);
+	etEx(0, 1, 0, 1, NEG, NEG, NEGF, NEGF);
 	times (60) {
 		float an = RDEG;
 		etSpr(0, 0, 10);
@@ -115,7 +115,7 @@ sub Book00_at(int anm, int anm2)
 	}
 	setFlags(2);
 110:
-	return();
+	return;
 }
 
 sub Book01()
@@ -144,15 +144,15 @@ sub Book01_at(int anm, int anm2)
 	etAmt_rank(0, 8, 16, 24, 32, 1, 1, 2, 3);
 	etSpd(0, 1.9f:1.9f:2.9f:3.5f, 1.25f);
 	etAng(0, 0f, 0f);
-	etEx(0, 0, 0, 2, 2, [NEG], [NEGF], [NEGF]);
-	etEx(0, 1, 0, 1, [NEG], [NEG], [NEGF], [NEGF]);
+	etEx(0, 0, 0, 2, 2, NEG, NEGF, NEGF);
+	etEx(0, 1, 0, 1, NEG, NEG, NEGF, NEGF);
 	times (10) {
 		etOn(0);
 80:		nop();
 	}
 	setFlags(2);
 110:
-	return();
+	return;
 }
 
 sub Book02()
@@ -179,8 +179,8 @@ sub Book02_at(int anm, int anm2)
 	etAmt(0, 11, 1);
 	etSpd(0, 1.7f, 1.25f);
 	etAng(0, 0f, 0f);
-	etEx(0, 0, 0, 2, 2, [NEG], [NEGF], [NEGF]);
-	etEx(0, 1, 0, 1, [NEG], [NEG], [NEGF], [NEGF]);
+	etEx(0, 0, 0, 2, 2, NEG, NEGF, NEGF);
+	etEx(0, 1, 0, 1, NEG, NEG, NEGF, NEGF);
 	times (6) {
 		etMode(0, 4);
 		etSpr(0, 0, 10);
@@ -192,7 +192,7 @@ sub Book02_at(int anm, int anm2)
 	}
 	setFlags(2);
 110:
-	return();
+	return;
 }
 
 sub Cir00(int anm, int anm2, int m)
@@ -211,17 +211,17 @@ sub Cir00(int anm, int anm2, int m)
 !L
 	etAng(0, 0f, rad(15f));
 !*
-	etEx(0, 0, 0, 2, 2, [NEG], [NEGF], [NEGF]);
+	etEx(0, 0, 0, 2, 2, NEG, NEGF, NEGF);
 	etOn(0);
 	et_on_rate(0, 41, 1) async 1;
 	enmDir(0f, 4.2f);
 	setFlags(4);
 30:
-	enmDirTime(40, 0, rad(-150f), [NEGF]);
+	enmDirTime(40, 0, rad(-150f), NEGF);
 70:
 	endSlot(1);
 10000:
-	return();
+	return;
 }
 
 sub Cir01(int anm, int anm2, int m)
@@ -240,19 +240,19 @@ sub Cir01(int anm, int anm2, int m)
 !L
 	etAng(0, 0f, rad(15f));
 !*
-	etEx(0, 0, 0, 2, 2, [NEG], [NEGF], [NEGF]);
+	etEx(0, 0, 0, 2, 2, NEG, NEGF, NEGF);
 	etOn(0);
 	et_on_rate(0, 41, 1) async 1;
 	enmDir(-1.0471976f, 4.2f);
 	setFlags(4);
 30:
-	enmDirTime(40, 0, 1.5707964f, [NEGF]);
+	enmDirTime(40, 0, 1.5707964f, NEGF);
 70:
-	enmDirTime(80, 0, -8.901179f, [NEGF]);
+	enmDirTime(80, 0, -8.901179f, NEGF);
 150:
 	endSlot(1);
 10000:
-	return();
+	return;
 }
 
 sub Cir02(int anm, int anm2, int m)
@@ -271,17 +271,17 @@ sub Cir02(int anm, int anm2, int m)
 !L
 	etAng(0, 0f, rad(15f));
 !*
-	etEx(0, 0, 0, 2, 2, [NEG], [NEGF], [NEGF]);
+	etEx(0, 0, 0, 2, 2, NEG, NEGF, NEGF);
 	etOn(0);
 	et_on_rate(0, 104, 1) async 1;
 	enmDir(0f, 4.2f);
 	setFlags(4);
 30:
-	enmDirTime(40, 0, -2.6179938f, [NEGF]);
+	enmDirTime(40, 0, -2.6179938f, NEGF);
 70:
 	endSlot(1);
 10000:
-	return();
+	return;
 }
 
 sub Cir03(int anm, int anm2, int m)
@@ -300,19 +300,19 @@ sub Cir03(int anm, int anm2, int m)
 !L
 	etAng(0, 0f, rad(15f));
 !*
-	etEx(0, 0, 0, 2, 2, [NEG], [NEGF], [NEGF]);
+	etEx(0, 0, 0, 2, 2, NEG, NEGF, NEGF);
 	etOn(0);
 	et_on_rate(0, 104, 1) async 1;
 	enmDir(-1.0471976f, 4.5f);
 	setFlags(4);
 30:
-	enmDirTime(40, 0, 1.5707964f, [NEGF]);
+	enmDirTime(40, 0, 1.5707964f, NEGF);
 70:
-	enmDirTime(80, 0, -8.901179f, [NEGF]);
+	enmDirTime(80, 0, -8.901179f, NEGF);
 150:
 	endSlot(1);
 10000:
-	return();
+	return;
 }
 
 sub Cir04(int anm, int anm2, int m)
@@ -324,9 +324,9 @@ sub Cir04(int anm, int anm2, int m)
 	enmDir(0f, 4.5f);
 	setFlags(4);
 30:
-	enmDirTime(40, 0, -2.6179938f, [NEGF]);
+	enmDirTime(40, 0, -2.6179938f, NEGF);
 10000:
-	return();
+	return;
 }
 
 sub Cir05(int anm, int anm2, int m)
@@ -338,11 +338,11 @@ sub Cir05(int anm, int anm2, int m)
 	enmDir(-1.0471976f, 4.5f);
 	setFlags(4);
 30:
-	enmDirTime(40, 0, 1.5707964f, [NEGF]);
+	enmDirTime(40, 0, 1.5707964f, NEGF);
 70:
-	enmDirTime(40, 0, 4.1887903f, [NEGF]);
+	enmDirTime(40, 0, 4.1887903f, NEGF);
 10000:
-	return();
+	return;
 }
 
 sub Cir06(int anm, int anm2, int m)
@@ -359,12 +359,12 @@ sub Cir06(int anm, int anm2, int m)
 	etAmt(0, 2:3:5:9, 2);
 	etSpd(0, 2.5f:2.5f:2.8f:2.8f, 1.45f);
 	etAng(0, 0f, rad(10f));
-	etEx(0, 0, 0, 2, 2, [NEG], [NEGF], [NEGF]);
+	etEx(0, 0, 0, 2, 2, NEG, NEGF, NEGF);
 	et_on_rate(0, 41, 1) async 1;
 100:
 	endSlot(1);
 10000:
-	return();
+	return;
 }
 
 sub Cir07(int anm, int anm2, int m)
@@ -381,12 +381,12 @@ sub Cir07(int anm, int anm2, int m)
 	etAmt(0, 2:3:5:9, 2);
 	etSpd(0, 2.5f:2.5f:2.8f:2.8f, 1.45f);
 	etAng(0, 0f, rad(10f));
-	etEx(0, 0, 0, 2, 1, [NEG], [NEGF], [NEGF]);
+	etEx(0, 0, 0, 2, 1, NEG, NEGF, NEGF);
 	et_on_rate(0, 41, 1) async 1;
 100:
 	endSlot(1);
 10000:
-	return();
+	return;
 }
 
 sub GCir00()
@@ -459,12 +459,12 @@ sub Girl00(int anm, int anm2)
 	enmDir(1.5707964f, 2f);
 	ins_275(0, 1);
 40:
-	enmDirTime(30, 0, [NEGF], 0f);
+	enmDirTime(30, 0, NEGF, 0f);
 70:
 	enmNew("MBoss1_enemy", 0f, 0f, 10, 1000, 0);
 	enmDir((RF * 1.5707964f) + 0.7853982f, 1.8f);
 10000:
-	return();
+	return;
 }
 
 sub Girl01(int anm, int anm2)
@@ -476,12 +476,12 @@ sub Girl01(int anm, int anm2)
 	enmDir(0f, 2f);
 	ins_275(0, 1);
 40:
-	enmDirTime(30, 0, [NEGF], 0f);
+	enmDirTime(30, 0, NEGF, 0f);
 70:
 	enmNew("MBoss1_enemy", 0f, 0f, 10, 1000, 0);
 	enmDir((RF * 1.5707964f) + 0.7853982f, 1.8f);
 10000:
-	return();
+	return;
 }
 
 sub Girl02(int anm, int anm2)
@@ -494,7 +494,7 @@ sub Girl02(int anm, int anm2)
 	enmDir(1.5707964f, 2f);
 	ins_275(0, 1);
 40:
-	enmDirTime(30, 0, [NEGF], 0f);
+	enmDirTime(30, 0, NEGF, 0f);
 70:
 	float an = RDEG, angI;
 	rand(2, 0);
@@ -507,7 +507,7 @@ sub Girl02(int anm, int anm2)
 	etSpr(0, 7, 6);
 	etAmt_rank(0, 1, 3, 5, 9, 1, 2, 3, 3);
 	etSpd(0, 3.1f:3.1f:3.5f:3.7f, 2.05f);
-	etEx(0, 0, 0, 2, 2, [NEG], [NEGF], [NEGF]);
+	etEx(0, 0, 0, 2, 2, NEG, NEGF, NEGF);
 	times (64) {
 		etAng(0, an, 0f);
 		etOn(0);
@@ -516,7 +516,7 @@ sub Girl02(int anm, int anm2)
 	}
 	enmDir(-1.5707964f, 2f);
 10000:
-	return();
+	return;
 }
 
 sub Girl02Dead()
@@ -525,7 +525,7 @@ sub Girl02Dead()
 	itemDrop();
 	ItemDropBasic(20);
 	wait(1);
-	return();
+	return;
 }
 
 sub Girl03(int anm, int anm2)
@@ -538,7 +538,7 @@ sub Girl03(int anm, int anm2)
 	enmDir(0f, 2f);
 	ins_275(0, 1);
 40:
-	enmDirTime(30, 0, [NEGF], 0f);
+	enmDirTime(30, 0, NEGF, 0f);
 70:
 	float an = RDEG, angI;
 	rand(2, 0);
@@ -551,7 +551,7 @@ sub Girl03(int anm, int anm2)
 	etSpr(0, 7, 6);
 	etAmt(0, 3, 2);
 	etSpd(0, 2.6f, 1.65f);
-	etEx(0, 0, 0, 2, 2, [NEG], [NEGF], [NEGF]);
+	etEx(0, 0, 0, 2, 2, NEG, NEGF, NEGF);
 	times (64) {
 		etAng(0, an, 0f);
 		etOn(0);
@@ -560,7 +560,7 @@ sub Girl03(int anm, int anm2)
 	}
 	enmDir(-1.5707964f, 2f);
 10000:
-	return();
+	return;
 }
 
 sub Girl04(int anm, int anm2)
@@ -572,12 +572,12 @@ sub Girl04(int anm, int anm2)
 	enmDir(1.5707964f, 2f);
 	ins_275(0, 1);
 40:
-	enmDirTime(30, 0, [NEGF], 0f);
+	enmDirTime(30, 0, NEGF, 0f);
 70:
 	enmNew("Girl04Shooter", 0f, 0f, 1000, 0, 10);
 	enmDir((RF * 1.5707964f) + 0.7853982f, 1.8f);
 10000:
-	return();
+	return;
 }
 
 sub Girl04Shooter()
@@ -595,7 +595,7 @@ sub Girl04Shooter()
 !HL
 	etSpd(0, 1.7f, 0.25f);
 	etAng(0, 0f, rad(5.625f));
-	etEx(0, 0, 0, 2, 2, [NEG], [NEGF], [NEGF]);
+	etEx(0, 0, 0, 2, 2, NEG, NEGF, NEGF);
 	etOn(0);
 !*
 	etNew(1);
@@ -613,7 +613,7 @@ sub Girl04Shooter()
 sub LogoEnemy()
 {
 	logoShow();
-	return();
+	return;
 }
 
 sub MainBossDebug()
@@ -627,8 +627,8 @@ sub MainBossDebug()
 61:
 	msgBegin(1);
 	msgWait();
-	return();
-	return();
+	return;
+	return;
 }
 
 sub MainMBossDebug()
@@ -639,7 +639,7 @@ sub MainMBossDebug()
 	killWait();
 	MainBossDebug();
 	while 1 wait(1000);
-	return();
+	return;
 }
 
 sub MainMsgDebug()
@@ -660,7 +660,7 @@ MainMsgDebug_216:
 	nop();
 MainMsgDebug_232:
 	if 1 goto MainMsgDebug_216 @ 181;
-	return();
+	return;
 }
 
 sub MainSub00()
@@ -673,7 +673,7 @@ sub MainSub00()
 	wait(32);
 	enmNew("RGirl00", 64f, -16f, 400, 2000, 1);
 	enmNew("RGirl00", -64f, -16f, 400, 2000, 1);
-	return();
+	return;
 }
 
 sub MainSub01()
@@ -686,7 +686,7 @@ sub MainSub01()
 		enmNewMir("RCir00", 224f, 170f, 40, 500, I0 + 1);
 		wait(10);
 	}
-	return();
+	return;
 }
 
 sub MainSub02()
@@ -699,7 +699,7 @@ sub MainSub02()
 		enmNewMir("GCir01", 224f, 170f, 40, 500, I0 + 1);
 		wait(10);
 	}
-	return();
+	return;
 }
 
 sub MainSub02b()
@@ -712,7 +712,7 @@ sub MainSub02b()
 		enmNewMir("GCir01", 224f, 170f, 40, 500, I0 + 1);
 		wait(10);
 	}
-	return();
+	return;
 }
 
 sub MainSub03()
@@ -725,7 +725,7 @@ sub MainSub03()
 	wait(32);
 	enmNew("BGirl01", -224f, 160f, 400, 2000, 2);
 	enmNewMir("BGirl01", 224f, 160f, 400, 2000, 2);
-	return();
+	return;
 }
 
 sub MainSub04()
@@ -736,7 +736,7 @@ sub MainSub04()
 	wait(24);
 	enmNew("YGirl03", -224f, 96f, 2000, 2000, 2);
 	enmNewMir("YGirl03", 224f, 96f, 2000, 2000, 2);
-	return();
+	return;
 }
 
 sub MainSub05()
@@ -749,7 +749,7 @@ sub MainSub05()
 		enmNewMir("BCir02", 224f, 170f, 40, 500, I0 + 1);
 		wait(10);
 	}
-	return();
+	return;
 }
 
 sub MainSub06()
@@ -762,7 +762,7 @@ sub MainSub06()
 		enmNewMir("GCir03", 224f, 170f, 40, 500, I0 + 1);
 		wait(10);
 	}
-	return();
+	return;
 }
 
 sub MainSub07()
@@ -779,7 +779,7 @@ sub MainSub07()
 	wait(60);
 	enmNew("Book00", RF2 * 192f, 96f, 4500, 2000, 2);
 	wait(60);
-	return();
+	return;
 }
 
 sub MainSub08()
@@ -792,7 +792,7 @@ sub MainSub08()
 		enmNewMirNoBoss("BCir04", 224f, 170f, 40, 500, I0 + 1);
 		wait(10);
 	}
-	return();
+	return;
 }
 
 sub MainSub09()
@@ -805,7 +805,7 @@ sub MainSub09()
 		enmNewMirNoBoss("GCir05", 224f, 170f, 40, 500, I0 + 1);
 		wait(10);
 	}
-	return();
+	return;
 }
 
 sub MainSub10()
@@ -833,7 +833,7 @@ sub MainSub10()
 	wait(32);
 	enmNew("RGirl04", -32f, -16f, 400, 2000, 1);
 	enmNew("RGirl04", 32f, -16f, 400, 2000, 1);
-	return();
+	return;
 }
 
 sub MainSub11()
@@ -846,7 +846,7 @@ sub MainSub11()
 	wait(32);
 	enmNew("GGirl04", -48f, -16f, 400, 2000, 1);
 	enmNew("GGirl04", 48f, -16f, 400, 2000, 1);
-	return();
+	return;
 }
 
 sub MainSub12()
@@ -854,7 +854,7 @@ sub MainSub12()
 	enmNew("YGirl02", -96f, -32f, 2500, 2000, 2);
 	enmNew("Book02", 94f, 48f, 1500, 2000, 2);
 	enmNew("Book02", 62f, 48f, 1500, 2000, 2);
-	return();
+	return;
 }
 
 sub MainSub12b()
@@ -862,7 +862,7 @@ sub MainSub12b()
 	enmNew("YGirl02", 96f, -32f, 2500, 2000, 2);
 	enmNew("Book02", -94f, 48f, 1500, 2000, 2);
 	enmNew("Book02", -62f, 48f, 1500, 2000, 2);
-	return();
+	return;
 }
 
 sub MainSub13()
@@ -872,7 +872,7 @@ sub MainSub13()
 		enmNewMir("RCir01", 224f, 170f, 40, 500, I0 + 1);
 		wait(10);
 	}
-	return();
+	return;
 }
 
 sub MainSub13b()
@@ -882,7 +882,7 @@ sub MainSub13b()
 		enmNew("GCir01", -224f, 170f, 40, 500, I0 + 1);
 		wait(10);
 	}
-	return();
+	return;
 }
 
 sub MainSub14()
@@ -898,7 +898,7 @@ sub MainSub14()
 		enmNew("PCir06", 4f, -32f, 40, 500, I0 + 1);
 		wait(10);
 	}
-	return();
+	return;
 }
 
 sub MainSub15()
@@ -938,7 +938,7 @@ sub MainSub15()
 		enmNew("BCir07", -224f, 96f, 40, 500, I0 + 1);
 		wait(10);
 	}
-	return();
+	return;
 }
 
 sub MainSub16()
@@ -948,7 +948,7 @@ sub MainSub16()
 	enmNew("GGirl02", -128f, -32f, 1200, 2000, 2);
 	wait(10);
 	enmNew("GGirl02", 128f, -32f, 1200, 2000, 2);
-	return();
+	return;
 }
 
 sub MainSub17()
@@ -960,7 +960,7 @@ sub MainSub17()
 		enmNewMir("BCir07", 160f, 96f, 40, 500, I0 + 1);
 		wait(10);
 	}
-	return();
+	return;
 }
 
 sub MapleEnemy()

@@ -65,7 +65,7 @@ sub Fairy00()
 120:
 	enmDirTime(100, 0, 1.5707964f, 2f);
 10000:
-	return();
+	return;
 }
 
 sub Fairy01()
@@ -81,7 +81,7 @@ sub Fairy01()
 !*
 	enmDirTime(100, 0, 3.5342917f, 2f);
 10000:
-	return();
+	return;
 }
 
 sub Fairy02()
@@ -100,7 +100,7 @@ sub Fairy02()
 190:
 	enmDirTime(9810, 0, 4.712389f, 495.5f);
 1000:
-	return();
+	return;
 }
 
 sub Fairy03()
@@ -121,7 +121,7 @@ sub Fairy03()
 190:
 	enmDirTime(9810, 0, 4.712389f, 495.5f);
 1000:
-	return();
+	return;
 }
 
 sub FairyBasicShoot00()
@@ -134,12 +134,12 @@ sub FairyBasicShoot00()
 	etOfs(0, 3.5f, 1.25f);
 	etAng(0, 0f, 0f);
 	etSE(0, -1, -1);
-	etEx(0, 0, 0, 2, 1, [NEG], [NEGF], [NEGF]);
+	etEx(0, 0, 0, 2, 1, NEG, NEGF, NEGF);
 FairyBasicShoot00_316:
 	etOn(0);
 	wait(97);
 	goto FairyBasicShoot00_316 @ 0;
-	return();
+	return;
 }
 
 sub FairyRedShoot00()
@@ -150,10 +150,10 @@ sub FairyRedShoot00()
 	etAmt_rank(0, 3, 7, 9, 11, 1, 1, 2, 2);
 	etSpd(0, 1.9f, 0.25f : 0.25f : 0.75f : 0.75f);
 	etAng(0, 0f, 0.7853982f : 0.62831855f : rad(22.5f) : rad(9f));
-	etEx(0, 0, 0, 2, 0, [NEG], [NEGF], [NEGF]);
-	etEx(0, 1, 0, 1, [NEG], [NEG], [NEGF], [NEGF]);
+	etEx(0, 0, 0, 2, 0, NEG, NEGF, NEGF);
+	etEx(0, 1, 0, 1, NEG, NEG, NEGF, NEGF);
 	etOn(0);
-	return();
+	return;
 }
 
 sub FairyRedShoot01()
@@ -164,17 +164,17 @@ sub FairyRedShoot01()
 	etSpd(0, 1.9f, 0.25f);
 	etAmt(0, 5, 1);
 	etAng(0, 0f, rad(15f));
-	etEx(0, 0, 0, 2, 0, [NEG], [NEGF], [NEGF]);
-	etEx(0, 1, 0, 1, [NEG], [NEG], [NEGF], [NEGF]);
+	etEx(0, 0, 0, 2, 0, NEG, NEGF, NEGF);
+	etEx(0, 1, 0, 1, NEG, NEG, NEGF, NEGF);
 	etOn(0);
-	return();
+	return;
 }
 
 sub LogoEnemy()
 {
 	wait(0);
 	logoShow();
-	return();
+	return;
 }
 
 sub MainSub00()
@@ -187,7 +187,7 @@ sub MainSub00()
 		x += _f(8);
 		wait(16);
 	}
-	return();
+	return;
 }
 
 sub MainSub01()
@@ -200,7 +200,7 @@ sub MainSub01()
 		x -= _f(8);
 		wait(16);
 	}
-	return();
+	return;
 }
 
 sub MainSub02()
@@ -213,7 +213,7 @@ sub MainSub02()
 		x -= _f(16);
 		wait(16);
 	}
-	return();
+	return;
 }
 
 sub MainSub03()
@@ -226,7 +226,7 @@ sub MainSub03()
 		x += _f(16);
 		wait(16);
 	}
-	return();
+	return;
 }
 
 sub MainSub04()
@@ -262,18 +262,18 @@ sub MainSub04()
 	MainSub04b(-160f, 0) async;
 	wait(10);
 	MainSub04a(48f, 1) async;
-	return();
+	return;
 }
 
 sub MainSub04a(float x, int mirror)
 {
 	if (!mirror) {
 		enmNew("ARGirl01", x, -32f, 80, 700, 1);
-		return();
+		return;
 	}
 	else {
 		enmNewMir("ARGirl01", x, -32f, 80, 700, 1);
-		return();
+		return;
 	}
 }
 
@@ -281,11 +281,11 @@ sub MainSub04b(float x, int mirror)
 {
 	if (!mirror) {
 		enmNew("ARGirl02", x, -32f, 80, 700, 1);
-		return();
+		return;
 	}
 	else {
 		enmNewMir("ARGirl02", x, -32f, 80, 700, 1);
-		return();
+		return;
 	}
 }
 
@@ -329,7 +329,7 @@ sub MainSub05()
 	wait(10);
 	MainSub05b(0) async;
 	wait(10);
-	return();
+	return;
 }
 
 sub MainSub05a(int mirror)
@@ -339,11 +339,11 @@ sub MainSub05a(int mirror)
 	I3 += 1;
 	if (!mirror) {
 		enmNew("ARGirl00", x, -32f, 32, 300, I3);
-		return();
+		return;
 	}
 	else {
 		enmNewMir("ARGirl00", x, -32f, 32, 300, I3);
-		return();
+		return;
 	}
 }
 
@@ -354,11 +354,11 @@ sub MainSub05b(int mirror)
 	I3 += 1;
 	if (!mirror) {
 		enmNew("ARGirl01", x, -32f, 32, 300, I3);
-		return();
+		return;
 	}
 	else {
 		enmNewMir("ARGirl01", x, -32f, 32, 300, I3);
-		return();
+		return;
 	}
 }
 
@@ -376,7 +376,7 @@ sub MainSub06()
 		x2 -= _f(8);
 		wait(16);
 	}
-	return();
+	return;
 }
 
 sub MainSub07()
@@ -393,7 +393,7 @@ sub MainSub07()
 		x2 += _f(8);
 		wait(16);
 	}
-	return();
+	return;
 }
 
 sub MainSub08()
@@ -432,18 +432,18 @@ sub MainSub08()
 		MainSub08a(48f, 1) async;
 		wait(30);
 	}
-	return();
+	return;
 }
 
 sub MainSub08a(float x, int mirror)
 {
 	if (!mirror) {
 		enmNewNoBoss("ARGirl01", x, -32f, 80, 700, 1);
-		return();
+		return;
 	}
 	else {
 		enmNewMirNoBoss("ARGirl01", x, -32f, 80, 700, 1);
-		return();
+		return;
 	}
 }
 
@@ -451,11 +451,11 @@ sub MainSub08b(float x, int mirror)
 {
 	if (!mirror) {
 		enmNewNoBoss("ARGirl02", x, -32f, 80, 700, 1);
-		return();
+		return;
 	}
 	else {
 		enmNewMirNoBoss("ARGirl02", x, -32f, 80, 700, 1);
-		return();
+		return;
 	}
 }
 
@@ -473,7 +473,7 @@ sub MainSub09()
 		x2 += _f(8);
 		wait(16);
 	}
-	return();
+	return;
 }
 
 sub MainSub10()
@@ -490,7 +490,7 @@ sub MainSub10()
 		x2 -= _f(8);
 		wait(16);
 	}
-	return();
+	return;
 }
 
 sub MainSub11()
@@ -507,7 +507,7 @@ sub MainSub11()
 		x2 += _f(8);
 		wait(16);
 	}
-	return();
+	return;
 }
 
 sub main()

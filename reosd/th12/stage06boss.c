@@ -84,7 +84,7 @@ Boss1_292:
     wait(70);
 Boss1_636:
     if 1 goto Boss1_292 @ 0;
-    return();
+    return;
 }
 
 sub Boss1_at1()
@@ -174,7 +174,7 @@ Boss1_at1_1292:
 Boss1_at1_3288:
 !*
     if $D-- goto Boss1_at1_1292 @ 0;
-    return();
+    return;
 }
 
 sub Boss1_at1b()
@@ -264,7 +264,7 @@ Boss1_at1b_1292:
 Boss1_at1b_3288:
 !*
     if $D-- goto Boss1_at1b_1292 @ 0;
-    return();
+    return;
 }
 
 sub Boss2()
@@ -359,7 +359,7 @@ Boss2_2076:
     wait(70);
 Boss2_2116:
     if 1 goto Boss2_1640 @ 0;
-    return();
+    return;
 }
 
 sub Boss2_at1()
@@ -396,7 +396,7 @@ sub Boss2_at1()
     getAim(%A, %B, %C);
     etAng(0, %A, 0f);
     laserOn2(0, 0);
-    return();
+    return;
 }
 
 sub Boss2_at1h(var A)
@@ -437,7 +437,7 @@ sub Boss2_at1h(var A)
     %B = %B + (%A * %RF2);
     etAng(0, %B, 0f);
     laserOn2(0, 0);
-    return();
+    return;
 }
 
 sub Boss2_at2()
@@ -465,7 +465,7 @@ Boss2_at2_520:
     %C = %C - 0.15708f;
 Boss2_at2_836:
     if $F-- goto Boss2_at2_520 @ 0;
-    return();
+    return;
 }
 
 sub Boss3()
@@ -587,7 +587,7 @@ Boss3_2936:
     wait_rank(90, 90, 80, 80);
 Boss3_3176:
     if 1 goto Boss3_2936 @ 0;
-    return();
+    return;
 }
 
 sub Boss3_at1()
@@ -613,7 +613,7 @@ Boss3_at1_392:
     wait(1);
 Boss3_at1_652:
     if $D-- goto Boss3_at1_392 @ 0;
-    return();
+    return;
 }
 
 sub Boss3_at1e1()
@@ -644,7 +644,7 @@ Boss3_at1e1_508:
     wait_rank(2, 1, 1, 1);
 Boss3_at1e1_996:
     if $D-- goto Boss3_at1e1_508 @ 0;
-    return();
+    return;
 }
 
 sub Boss3_at1e2()
@@ -675,7 +675,7 @@ Boss3_at1e2_508:
     wait_rank(2, 1, 1, 1);
 Boss3_at1e2_996:
     if $D-- goto Boss3_at1e2_508 @ 0;
-    return();
+    return;
 }
 
 sub Boss3_at1e3()
@@ -708,7 +708,7 @@ Boss3_at1e3_508:
     wait_rank(2, 1, 1, 1);
 Boss3_at1e3_1072:
     if $D-- goto Boss3_at1e3_508 @ 0;
-    return();
+    return;
 }
 
 sub Boss3_at1e4()
@@ -741,7 +741,7 @@ Boss3_at1e4_508:
     wait_rank(2, 1, 1, 1);
 Boss3_at1e4_1072:
     if $D-- goto Boss3_at1e4_508 @ 0;
-    return();
+    return;
 }
 
 sub Boss4()
@@ -878,7 +878,7 @@ Boss4_3352:
     wait(40);
 Boss4_3560:
     if 1 goto Boss4_3352 @ 0;
-    return();
+    return;
 }
 
 sub Boss4_at1()
@@ -904,7 +904,7 @@ Boss4_at1_392:
     wait(1);
 Boss4_at1_652:
     if $D-- goto Boss4_at1_392 @ 0;
-    return();
+    return;
 }
 
 sub Boss4_at1e1()
@@ -946,7 +946,7 @@ Boss4_at1e1_1252:
     etEx(1, 1, 0, 1024, 100, 0, -999999f, -999999f);
     etOfs_abs(1, _f(-114) + %FINAL_X, _f(54) + %FINAL_Y);
     etOn(1);
-    return();
+    return;
 }
 
 sub Boss4_at1e2()
@@ -988,7 +988,7 @@ Boss4_at1e2_1252:
     etEx(2, 1, 0, 1024, 100, 0, -999999f, -999999f);
     etOfs_abs(2, _f(114) + %FINAL_X, _f(54) + %FINAL_Y);
     etOn(2);
-    return();
+    return;
 }
 
 sub Boss4_at1e3()
@@ -1030,7 +1030,7 @@ Boss4_at1e3_1252:
     etEx(3, 1, 0, 1024, 100, 0, -999999f, -999999f);
     etOfs_abs(3, _f(-64) + %FINAL_X, _f(-80) + %FINAL_Y);
     etOn(3);
-    return();
+    return;
 }
 
 sub Boss4_at1e4()
@@ -1072,7 +1072,7 @@ Boss4_at1e4_1252:
     etEx(4, 1, 0, 1024, 100, 0, -999999f, -999999f);
     etOfs_abs(4, _f(64) + %FINAL_X, _f(-80) + %FINAL_Y);
     etOn(4);
-    return();
+    return;
 }
 
 sub Boss5()
@@ -1163,7 +1163,7 @@ Boss5_2176:
     wait(120);
     setMoveArea(0f, 112f, 280f, 64f);
     @BossCard5();
-    return();
+    return;
 }
 
 sub Boss6()
@@ -1216,7 +1216,7 @@ Boss6_1036:
     wait(120);
     setMoveArea(0f, 112f, 280f, 64f);
     @BossCard6();
-    return();
+    return;
 }
 
 sub BossCard1()
@@ -1274,7 +1274,7 @@ BossCard1_1128:
     wait(1000);
 BossCard1_1148:
     if 1 goto BossCard1_1128 @ 60;
-    return();
+    return;
 }
 
 sub BossCard1_at1()
@@ -1312,7 +1312,7 @@ BossCard1_at1_904:
     wait(1);
 BossCard1_at1_1148:
     if $D-- goto BossCard1_at1_904 @ 0;
-    return();
+    return;
 }
 
 sub BossCard1_at1h()
@@ -1350,7 +1350,7 @@ BossCard1_at1h_904:
     wait(1);
 BossCard1_at1h_1148:
     if $D-- goto BossCard1_at1h_904 @ 0;
-    return();
+    return;
 }
 
 sub BossCard1_at2()
@@ -1387,7 +1387,7 @@ BossCard1_at2_856:
     wait(1);
 BossCard1_at2_1100:
     if $D-- goto BossCard1_at2_856 @ 0;
-    return();
+    return;
 }
 
 sub BossCard1_at2h()
@@ -1424,7 +1424,7 @@ BossCard1_at2h_856:
     wait(1);
 BossCard1_at2h_1100:
     if $D-- goto BossCard1_at2h_856 @ 0;
-    return();
+    return;
 }
 
 sub BossCard2()
@@ -1470,7 +1470,7 @@ BossCard2_872:
     wait(1000);
 BossCard2_892:
     if 1 goto BossCard2_872 @ 90;
-    return();
+    return;
 }
 
 sub BossCard2_at1(var A, var B, var C)
@@ -1485,7 +1485,7 @@ sub BossCard2_at1(var A, var B, var C)
     etDist(0, 16f);
     etOfs_abs(0, %B, %C);
     etOn(0);
-    return();
+    return;
 }
 
 sub BossCard2_at2()
@@ -1507,7 +1507,7 @@ BossCard2_at2_348:
     %A = %A + 0.392699f;
 BossCard2_at2_476:
     if $D-- goto BossCard2_at2_348 @ 0;
-    return();
+    return;
 }
 
 sub BossCard3()
@@ -1551,7 +1551,7 @@ BossCard3_880:
     wait(160);
 BossCard3_900:
     if 1 goto BossCard3_880 @ 120;
-    return();
+    return;
 }
 
 sub BossCard3_at()
@@ -1584,7 +1584,7 @@ BossCard3_at_952:
     $A = $A - 5;
 BossCard3_at_1208:
     if 1 goto BossCard3_at_952 @ 0;
-    return();
+    return;
 }
 
 sub BossCard3_at2()
@@ -1640,7 +1640,7 @@ BossCard3_at2_1720:
     if $H-- goto BossCard3_at2_1348 @ 0;
 BossCard3_at2_1764:
     if $F-- goto BossCard3_at2_608 @ 0;
-    return();
+    return;
 }
 
 sub BossCard3_at2b()
@@ -1696,7 +1696,7 @@ BossCard3_at2b_1700:
     if $H-- goto BossCard3_at2b_1328 @ 0;
 BossCard3_at2b_1744:
     if $F-- goto BossCard3_at2b_588 @ 0;
-    return();
+    return;
 }
 
 sub BossCard4()
@@ -1767,7 +1767,7 @@ BossCard4_1824:
     wait(160);
 BossCard4_1844:
     if 1 goto BossCard4_1824 @ 120;
-    return();
+    return;
 }
 
 sub BossCard4Laser()
@@ -1824,7 +1824,7 @@ BossCard4LaserMove_60:
     wait(1);
 BossCard4LaserMove_216:
     if 1 goto BossCard4LaserMove_60 @ 0;
-    return();
+    return;
 }
 
 sub BossCard4LaserMove2(var A, var B, var C)
@@ -1846,7 +1846,7 @@ BossCard4LaserMove2_700:
     wait(1);
 BossCard4LaserMove2_744:
     if 1 goto BossCard4LaserMove2_60 @ 0;
-    return();
+    return;
 }
 
 sub BossCard4_at()
@@ -1920,7 +1920,7 @@ BossCard4_at_3068:
     wait(3);
 BossCard4_at_3168:
     if 1 goto BossCard4_at_1604 @ 0;
-    return();
+    return;
 }
 
 sub BossCard4_at2()
@@ -1987,7 +1987,7 @@ BossCard4_at2_1936:
     wait(120);
 BossCard4_at2_2080:
     if 1 goto BossCard4_at2_528 @ 0;
-    return();
+    return;
 }
 
 sub BossCard4_at3()
@@ -2008,7 +2008,7 @@ BossCard4_at3_376:
     wait_rank(240, 120, 100, 60);
 BossCard4_at3_428:
     if 1 goto BossCard4_at3_376 @ 0;
-    return();
+    return;
 }
 
 sub BossCard4_at4()
@@ -2041,7 +2041,7 @@ BossCard4_at4_124:
     wait(32000);
 BossCard4_at4_988:
     if 1 goto BossCard4_at4_124 @ 0;
-    return();
+    return;
 }
 
 sub BossCard4_at5()
@@ -2087,7 +2087,7 @@ BossCard4_at5_1284:
     wait_rank(6, 4, 2, 2);
 BossCard4_at5_1336:
     if 1 goto BossCard4_at5_456 @ 0;
-    return();
+    return;
 }
 
 sub BossCard4_at6()
@@ -2108,7 +2108,7 @@ BossCard4_at6_124:
     wait(20);
 BossCard4_at6_368:
     if 1 goto BossCard4_at6_124 @ 0;
-    return();
+    return;
 }
 
 sub BossCard4_at7()
@@ -2153,7 +2153,7 @@ BossCard4_at7_308:
     wait(10);
 BossCard4_at7_1856:
     if 1 goto BossCard4_at7_308 @ 0;
-    return();
+    return;
 }
 
 sub BossCard5()
@@ -2310,7 +2310,7 @@ BossCard5_4600:
     wait_rank(60, 120, 90, 30);
 BossCard5_4676:
     if 1 goto BossCard5_748 @ 0;
-    return();
+    return;
 }
 
 sub BossCard5ShadowL()
@@ -2321,7 +2321,7 @@ BossCard5ShadowL_60:
     wait(1);
 BossCard5ShadowL_104:
     if 1 goto BossCard5ShadowL_60 @ 0;
-    return();
+    return;
 }
 
 sub BossCard5ShadowR()
@@ -2332,7 +2332,7 @@ BossCard5ShadowR_60:
     wait(1);
 BossCard5ShadowR_104:
     if 1 goto BossCard5ShadowR_60 @ 0;
-    return();
+    return;
 }
 
 sub BossCard5_at(var A, var B, var C, var D)
@@ -2374,7 +2374,7 @@ BossCard5_at_1340:
     %K = %K + %I;
 BossCard5_at_1692:
     if $L-- goto BossCard5_at_1340 @ 0;
-    return();
+    return;
 }
 
 sub BossCard6()
@@ -2519,7 +2519,7 @@ BossCard6_6024:
     $I = 5;
 BossCard6_6512:
     if 1 goto BossCard6_1752 @ 0;
-    return();
+    return;
 }
 
 sub BossCard6HPPhase()
@@ -2530,7 +2530,7 @@ BossCard6HPPhase_60:
     wait(1);
 BossCard6HPPhase_104:
     if 1 goto BossCard6HPPhase_60 @ 0;
-    return();
+    return;
 }
 
 sub BossCard6_at(var A, var B, var C, var D, var E, var F, var G)
@@ -2563,7 +2563,7 @@ BossCard6_at_676:
     etOn($A);
     $I2 = $G;
     enmNewAbs("BossCard6_atLine", %B, %C, 100, 100, 0);
-    return();
+    return;
 }
 
 sub BossCard6_atLine()
@@ -2587,7 +2587,7 @@ sub BossCard6_atLineDead()
 {
     setFlags(32);
     delete();
-    return();
+    return;
 }
 
 sub BossDead()
@@ -2658,7 +2658,7 @@ BossEyes_60:
     wait(1);
 BossEyes_1040:
     if 1 goto BossEyes_60 @ 0;
-    return();
+    return;
 }
 
 sub BossEyes2()
@@ -2710,7 +2710,7 @@ BossEyes2_2140:
     $G = $G + 1;
 BossEyes2_2332:
     if 1 goto BossEyes2_460 @ 0;
-    return();
+    return;
 }
 
 sub HPWait(var A, var B)
@@ -2724,7 +2724,7 @@ HPWait_164:
 HPWait_184:
     if $B-- goto HPWait_60 @ 0;
 HPWait_228:
-    return();
+    return;
 }
 
 sub MBossCard1LaserHit()
@@ -2766,6 +2766,6 @@ MBossCard1LaserHit_864:
     wait(1);
 MBossCard1LaserHit_960:
     if $B-- goto MBossCard1LaserHit_864 @ 0;
-    return();
+    return;
 }
 
