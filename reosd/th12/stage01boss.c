@@ -461,20 +461,7 @@ sub Boss2_at4()
 
 sub BossCard1()
 {
-	resetBoss();
-	ins_21();
-	enmClear();
-	enmNew("Ecl_EtBreak", 0f, 0f, 9999, 0, 0);
-	cardEnd();
-	ins_529(0);
-	resetBossParam();
-	invinc(120);
-	playSE(28);
-	enmDir(0f, 0f);
-	enmDirTime(0, 0, 0f, 0f);
-	enmPosTime(0, 0, 0f, 0f);
-	MISS_COUNT = 0;
-	BOMB_COUNT = 0;
+	CardStart();
 	interrupt(0, 0, 1500, "Boss2");
 	cardE(2, 1500, 700000, "夜符「ナイトバード」");
 	stageProg(43);
@@ -528,19 +515,7 @@ sub BossCard1_atZ(int col, float ang, float angI)
 
 sub BossCard2()
 {
-	resetBoss();
-	ins_21();
-	enmClear();
-	enmNew("Ecl_EtBreak", 0f, 0f, 9999, 0, 0);
-	cardEnd();
-	ins_529(0);
-	resetBossParam();
-	playSE(28);
-	enmDir(0f, 0f);
-	enmDirTime(0, 0, 0f, 0f);
-	enmPosTime(0, 0, 0f, 0f);
-	MISS_COUNT = 0;
-	BOMB_COUNT = 0;
+	CardStart();
 	interrupt(0, 0, 1500, "BossDead");
 	cardE(6, 1500, 700000, "闇符「ディマーケイション」");
 	enmPosTime(120, 4, 0f, 96f);

@@ -29,7 +29,7 @@ sub Cir00(int anm1, int anm2, int anmfile)
     anmFile(1);
     anmAt(0, anm1);
     unsetFlags(3);
-    hitbox(28f, 28f);
+    hitbox(28, 28f);
     killbox(28f, 28f);
 	interrupt(0, 0, -1, "Cir00Dead");
     Cir00_at() async 1;

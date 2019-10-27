@@ -562,19 +562,7 @@ Boss4_740:
 sub BossCard1()
 {
 	var A, B, C;
-	resetBoss();
-	ins_21();
-	enmClear();
-	enmNew("Ecl_EtBreak", 0f, 0f, 9999, 0, 0);
-	cardEnd();
-	ins_529(0);
-	resetBossParam();
-	playSE(28);
-	enmDir(0f, 0f);
-	enmDirTime(0, 0, 0f, 0f);
-	enmPosTime(0, 0, 0f, 0f);
-	$MISS_COUNT = 0;
-	$BOMB_COUNT = 0;
+	CardStart();
 	interrupt(0, 0, 1800, "Boss2");
 !EN
 	cardE(61, 2700, 500000, "幻在「クロックコープス」");
@@ -773,19 +761,7 @@ BossCard1_at1_412:
 sub BossCard2()
 {
 	var A, B;
-	resetBoss();
-	ins_21();
-	enmClear();
-	enmNew("Ecl_EtBreak", 0f, 0f, 9999, 0, 0);
-	cardEnd();
-	ins_529(0);
-	resetBossParam();
-	playSE(28);
-	enmDir(0f, 0f);
-	enmDirTime(0, 0, 0f, 0f);
-	enmPosTime(0, 0, 0f, 0f);
-	$MISS_COUNT = 0;
-	$BOMB_COUNT = 0;
+	CardStart();
 	stageProg(44);
 	interrupt(0, 0, 1800, "Boss3");
 !EN
@@ -956,19 +932,7 @@ BossCard2_at2_2696:
 sub BossCard3()
 {
 	var A;
-	resetBoss();
-	ins_21();
-	enmClear();
-	enmNew("Ecl_EtBreak", 0f, 0f, 9999, 0, 0);
-	cardEnd();
-	ins_529(0);
-	resetBossParam();
-	playSE(28);
-	enmDir(0f, 0f);
-	enmDirTime(0, 0, 0f, 0f);
-	enmPosTime(0, 0, 0f, 0f);
-	$MISS_COUNT = 0;
-	$BOMB_COUNT = 0;
+	CardStart();
 	interrupt(0, 0, 2880, "Boss4");
 !EN
 	cardE(69, 2880, 500000, "法力「至宝の独鈷杵」");
@@ -1199,19 +1163,7 @@ BossCard3LaserRot_296:
 sub BossCard4()
 {
 	var A, B, C, D, E;
-	resetBoss();
-	ins_21();
-	enmClear();
-	enmNew("Ecl_EtBreak", 0f, 0f, 9999, 0, 0);
-	cardEnd();
-	ins_529(0);
-	resetBossParam();
-	playSE(28);
-	enmDir(0f, 0f);
-	enmDirTime(0, 0, 0f, 0f);
-	enmPosTime(0, 0, 0f, 0f);
-	$MISS_COUNT = 0;
-	$BOMB_COUNT = 0;
+	CardStart();
 	stageProg(44);
 	enmPosTime(60, 4, 0f, 224f);
 	interrupt(0, 0, 3000, "BossDead");

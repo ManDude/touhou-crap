@@ -562,19 +562,7 @@ sub Boss3()
 
 sub BossCardEaMe()
 {
-	resetBoss();
-	ins_21();
-	enmClear();
-	enmNew("Ecl_EtBreak", 0f, 0f, 9999, 0, 0);
-	cardEnd();
-	ins_529(0);
-	resetBossParam();
-	playSE(28);
-	enmDir(0f, 0f);
-	enmDirTime(0, 0, 0f, 0f);
-	enmPosTime(0, 0, 0f, 0f);
-	MISS_COUNT = 0;
-	BOMB_COUNT = 0;
+	CardStart();
 	BossCheckItems();
 	cardE(94, 2400, 500000, "土＆金符「エメラルドメガリス」");
 	invinc(120);
@@ -617,20 +605,8 @@ sub BossCardEaMe()
 
 sub BossCardEarthTrilithon()
 {
-	resetBoss();
-	ins_21();
-	enmClear();
-	enmNew("Ecl_EtBreak", 0f, 0f, 9999, 0, 0);
-	cardEnd();
-	ins_529(0);
-	resetBossParam();
-	playSE(28);
-	enmDir(0f, 0f);
-	enmDirTime(0, 0, 0f, 0f);
-	enmPosTime(0, 0, 0f, 0f);
-	MISS_COUNT = 0;
-	BOMB_COUNT = 0;
-	BossSetNextNon(2100);
+	CardStart();
+	BossSetNext(2100);
 	cardE(44, 2100, 500000, "土符「レイジィトリリトン」");
 	invinc(120);
 	stageProg(43);
@@ -664,20 +640,8 @@ sub BossCardEarthTrilithon()
 
 sub BossCardEarthTrilithonHL()
 {
-	resetBoss();
-	ins_21();
-	enmClear();
-	enmNew("Ecl_EtBreak", 0f, 0f, 9999, 0, 0);
-	cardEnd();
-	ins_529(0);
-	resetBossParam();
-	playSE(28);
-	enmDir(0f, 0f);
-	enmDirTime(0, 0, 0f, 0f);
-	enmPosTime(0, 0, 0f, 0f);
-	MISS_COUNT = 0;
-	BOMB_COUNT = 0;
-	BossSetNextNon(2100);
+	CardStart();
+	BossSetNext(2100);
 	cardN(58, 2100, 500000, "土符「レイジィトリリトン上級」");
 	invinc(120);
 	stageProg(43);
@@ -711,20 +675,8 @@ sub BossCardEarthTrilithonHL()
 
 sub BossCardEarthTrilithonShake()
 {
-	resetBoss();
-	ins_21();
-	enmClear();
-	enmNew("Ecl_EtBreak", 0f, 0f, 9999, 0, 0);
-	cardEnd();
-	ins_529(0);
-	resetBossParam();
-	playSE(28);
-	enmDir(0f, 0f);
-	enmDirTime(0, 0, 0f, 0f);
-	enmPosTime(0, 0, 0f, 0f);
-	MISS_COUNT = 0;
-	BOMB_COUNT = 0;
-	BossSetNextNon(2100);
+	CardStart();
+	BossSetNext(2100);
 	cardH(70, 2100, 500000, "土符「トリリトンシェイク」");
 	invinc(120);
 	stageProg(43);
@@ -769,19 +721,7 @@ sub BossCardEarthTrilithonShake()
 
 sub BossCardFiEa()
 {
-	resetBoss();
-	ins_21();
-	enmClear();
-	enmNew("Ecl_EtBreak", 0f, 0f, 9999, 0, 0);
-	cardEnd();
-	ins_529(0);
-	resetBossParam();
-	playSE(28);
-	enmDir(0f, 0f);
-	enmDirTime(0, 0, 0f, 0f);
-	enmPosTime(0, 0, 0f, 0f);
-	MISS_COUNT = 0;
-	BOMB_COUNT = 0;
+	CardStart();
 	BossCheckItems();
 	cardE(78, 2400, 500000, "火＆土符「ラーヴァクロムレク」");
 	invinc(120);
@@ -825,20 +765,8 @@ sub BossCardFiEa()
 
 sub BossCardFireAgni()
 {
-	resetBoss();
-	ins_21();
-	enmClear();
-	enmNew("Ecl_EtBreak", 0f, 0f, 9999, 0, 0);
-	cardEnd();
-	ins_529(0);
-	resetBossParam();
-	playSE(28);
-	enmDir(0f, 0f);
-	enmDirTime(0, 0, 0f, 0f);
-	enmPosTime(0, 0, 0f, 0f);
-	MISS_COUNT = 0;
-	BOMB_COUNT = 0;
-	BossSetNextNon(1800);
+	CardStart();
+	BossSetNext(1800);
 	cardE(38, 1800, 500000, "火符「アグニシャイン」");
 	invinc(120);
 	stageProg(43);
@@ -878,20 +806,8 @@ sub BossCardFireAgni()
 
 sub BossCardFireAgniHL()
 {
-	resetBoss();
-	ins_21();
-	enmClear();
-	enmNew("Ecl_EtBreak", 0f, 0f, 9999, 0, 0);
-	cardEnd();
-	ins_529(0);
-	resetBossParam();
-	playSE(28);
-	enmDir(0f, 0f);
-	enmDirTime(0, 0, 0f, 0f);
-	enmPosTime(0, 0, 0f, 0f);
-	MISS_COUNT = 0;
-	BOMB_COUNT = 0;
-	BossSetNextNon(1800);
+	CardStart();
+	BossSetNext(1800);
 	cardN(52, 1800, 500000, "火符「アグニシャイン上級」");
 	invinc(120);
 	stageProg(43);
@@ -926,20 +842,8 @@ sub BossCardFireAgniHL()
 
 sub BossCardFireAgniRad()
 {
-	resetBoss();
-	ins_21();
-	enmClear();
-	enmNew("Ecl_EtBreak", 0f, 0f, 9999, 0, 0);
-	cardEnd();
-	ins_529(0);
-	resetBossParam();
-	playSE(28);
-	enmDir(0f, 0f);
-	enmDirTime(0, 0, 0f, 0f);
-	enmPosTime(0, 0, 0f, 0f);
-	MISS_COUNT = 0;
-	BOMB_COUNT = 0;
-	BossSetNextNon(1800);
+	CardStart();
+	BossSetNext(1800);
 	cardH(64, 1800, 500000, "火符「アグニレイディアンス」");
 	invinc(120);
 	stageProg(43);
@@ -990,19 +894,7 @@ sub BossCardFireAgniRad()
 
 sub BossCardMeWa()
 {
-	resetBoss();
-	ins_21();
-	enmClear();
-	enmNew("Ecl_EtBreak", 0f, 0f, 9999, 0, 0);
-	cardEnd();
-	ins_529(0);
-	resetBossParam();
-	playSE(28);
-	enmDir(0f, 0f);
-	enmDirTime(0, 0, 0f, 0f);
-	enmPosTime(0, 0, 0f, 0f);
-	MISS_COUNT = 0;
-	BOMB_COUNT = 0;
+	CardStart();
 	BossCheckItems();
 	cardE(90, 2400, 500000, "金＆水符「マーキュリポイズン」");
 	invinc(120);
@@ -1042,20 +934,8 @@ sub BossCardMeWa()
 
 sub BossCardMetalDragon()
 {
-	resetBoss();
-	ins_21();
-	enmClear();
-	enmNew("Ecl_EtBreak", 0f, 0f, 9999, 0, 0);
-	cardEnd();
-	ins_529(0);
-	resetBossParam();
-	playSE(28);
-	enmDir(0f, 0f);
-	enmDirTime(0, 0, 0f, 0f);
-	enmPosTime(0, 0, 0f, 0f);
-	MISS_COUNT = 0;
-	BOMB_COUNT = 0;
-	BossSetNextNon(2100);
+	CardStart();
+	BossSetNext(2100);
 	cardH(72, 2100, 500000, "金符「シルバードラゴン」");
 	invinc(120);
 	stageProg(43);
@@ -1079,20 +959,8 @@ sub BossCardMetalDragon()
 
 sub BossCardMetalFatigue()
 {
-	resetBoss();
-	ins_21();
-	enmClear();
-	enmNew("Ecl_EtBreak", 0f, 0f, 9999, 0, 0);
-	cardEnd();
-	ins_529(0);
-	resetBossParam();
-	playSE(28);
-	enmDir(0f, 0f);
-	enmDirTime(0, 0, 0f, 0f);
-	enmPosTime(0, 0, 0f, 0f);
-	MISS_COUNT = 0;
-	BOMB_COUNT = 0;
-	BossSetNextNon(2100);
+	CardStart();
+	BossSetNext(2100);
 	card(51, 2100, 500000, "金符「メタルファティーグ」");
 	invinc(120);
 	stageProg(43);
@@ -1121,20 +989,8 @@ sub BossCardMetalFatigue()
 
 sub BossCardMetalGold()
 {
-	resetBoss();
-	ins_21();
-	enmClear();
-	enmNew("Ecl_EtBreak", 0f, 0f, 9999, 0, 0);
-	cardEnd();
-	ins_529(0);
-	resetBossParam();
-	playSE(28);
-	enmDir(0f, 0f);
-	enmDirTime(0, 0, 0f, 0f);
-	enmPosTime(0, 0, 0f, 0f);
-	MISS_COUNT = 0;
-	BOMB_COUNT = 0;
-	BossSetNextNon(2100);
+	CardStart();
+	BossSetNext(2100);
 	cardH(76, 2100, 500000, "金符「エレメンタアウレア」");
 	invinc(120);
 	stageProg(43);
@@ -1205,20 +1061,8 @@ sub BossCardMetalGold()
 
 sub BossCardMetalMemory()
 {
-	resetBoss();
-	ins_21();
-	enmClear();
-	enmNew("Ecl_EtBreak", 0f, 0f, 9999, 0, 0);
-	cardEnd();
-	ins_529(0);
-	resetBossParam();
-	playSE(28);
-	enmDir(0f, 0f);
-	enmDirTime(0, 0, 0f, 0f);
-	enmPosTime(0, 0, 0f, 0f);
-	MISS_COUNT = 0;
-	BOMB_COUNT = 0;
-	BossSetNextNon(1800);
+	CardStart();
+	BossSetNext(1800);
 	cardE(46, 1800, 500000, "金符「メモリーアロイー」");
 	invinc(120);
 	stageProg(43);
@@ -1259,20 +1103,8 @@ sub BossCardMetalMemory_At(float ang)
 
 sub BossCardMetalMemoryHL()
 {
-	resetBoss();
-	ins_21();
-	enmClear();
-	enmNew("Ecl_EtBreak", 0f, 0f, 9999, 0, 0);
-	cardEnd();
-	ins_529(0);
-	resetBossParam();
-	playSE(28);
-	enmDir(0f, 0f);
-	enmDirTime(0, 0, 0f, 0f);
-	enmPosTime(0, 0, 0f, 0f);
-	MISS_COUNT = 0;
-	BOMB_COUNT = 0;
-	BossSetNextNon(1800);
+	CardStart();
+	BossSetNext(1800);
 	cardN(61, 1800, 500000, "金符「メモリーアロイー上級」");
 	invinc(120);
 	stageProg(43);
@@ -1319,19 +1151,7 @@ sub BossCardMetalMemoryHL_at(float ang, int m)
 
 sub BossCardWaFi()
 {
-	resetBoss();
-	ins_21();
-	enmClear();
-	enmNew("Ecl_EtBreak", 0f, 0f, 9999, 0, 0);
-	cardEnd();
-	ins_529(0);
-	resetBossParam();
-	playSE(28);
-	enmDir(0f, 0f);
-	enmDirTime(0, 0, 0f, 0f);
-	enmPosTime(0, 0, 0f, 0f);
-	MISS_COUNT = 0;
-	BOMB_COUNT = 0;
+	CardStart();
 	BossCheckItems();
 	cardE(98, 2400, 500000, "水＆火符「テンペレートガイザー」");
 	invinc(120);
@@ -1484,19 +1304,7 @@ sub BossCardWaFi_at3()
 
 sub BossCardWaWo()
 {
-	resetBoss();
-	ins_21();
-	enmClear();
-	enmNew("Ecl_EtBreak", 0f, 0f, 9999, 0, 0);
-	cardEnd();
-	ins_529(0);
-	resetBossParam();
-	playSE(28);
-	enmDir(0f, 0f);
-	enmDirTime(0, 0, 0f, 0f);
-	enmPosTime(0, 0, 0f, 0f);
-	MISS_COUNT = 0;
-	BOMB_COUNT = 0;
+	CardStart();
 	BossCheckItems();
 	cardE(86, 2400, 500000, "水＆木符「ウォーターエルフ」");
 	invinc(120);
@@ -1555,20 +1363,8 @@ sub BossCardWaWo()
 
 sub BossCardWaterBury()
 {
-	resetBoss();
-	ins_21();
-	enmClear();
-	enmNew("Ecl_EtBreak", 0f, 0f, 9999, 0, 0);
-	cardEnd();
-	ins_529(0);
-	resetBossParam();
-	playSE(28);
-	enmDir(0f, 0f);
-	enmDirTime(0, 0, 0f, 0f);
-	enmPosTime(0, 0, 0f, 0f);
-	MISS_COUNT = 0;
-	BOMB_COUNT = 0;
-	BossSetNextNon(2100);
+	CardStart();
+	BossSetNext(2100);
 	cardH(66, 2100, 500000, "水符「ベリーインレイク」");
 	invinc(120);
 	stageProg(43);
@@ -1639,20 +1435,8 @@ sub BossCardWaterBury_LaserAt(float ang_off)
 
 sub BossCardWaterMonsoon()
 {
-	resetBoss();
-	ins_21();
-	enmClear();
-	enmNew("Ecl_EtBreak", 0f, 0f, 9999, 0, 0);
-	cardEnd();
-	ins_529(0);
-	resetBossParam();
-	playSE(28);
-	enmDir(0f, 0f);
-	enmDirTime(0, 0, 0f, 0f);
-	enmPosTime(0, 0, 0f, 0f);
-	MISS_COUNT = 0;
-	BOMB_COUNT = 0;
-	BossSetNextNon(2100);
+	CardStart();
+	BossSetNext(2100);
 !EN
 	cardE(48, 2100, 500000, "水符「タイダルウェイブ」");
 !HL
@@ -1828,20 +1612,8 @@ sub BossCardWaterMonsoon_wave2()
 
 sub BossCardWaterUndine()
 {
-	resetBoss();
-	ins_21();
-	enmClear();
-	enmNew("Ecl_EtBreak", 0f, 0f, 9999, 0, 0);
-	cardEnd();
-	ins_529(0);
-	resetBossParam();
-	playSE(28);
-	enmDir(0f, 0f);
-	enmDirTime(0, 0, 0f, 0f);
-	enmPosTime(0, 0, 0f, 0f);
-	MISS_COUNT = 0;
-	BOMB_COUNT = 0;
-	BossSetNextNon(2100);
+	CardStart();
+	BossSetNext(2100);
 	cardE(40, 2100, 500000, "水符「プリンセスウンディネ」");
 	invinc(120);
 	stageProg(43);
@@ -1922,19 +1694,7 @@ sub BossCardWaterUndine_LaserAt(float ang_off)
 
 sub BossCardWoFi()
 {
-	resetBoss();
-	ins_21();
-	enmClear();
-	enmNew("Ecl_EtBreak", 0f, 0f, 9999, 0, 0);
-	cardEnd();
-	ins_529(0);
-	resetBossParam();
-	playSE(28);
-	enmDir(0f, 0f);
-	enmDirTime(0, 0, 0f, 0f);
-	enmPosTime(0, 0, 0f, 0f);
-	MISS_COUNT = 0;
-	BOMB_COUNT = 0;
+	CardStart();
 	BossCheckItems();
 	cardE(82, 2400, 500000, "木＆火符「フォレストブレイズ」");
 	invinc(120);
@@ -1989,19 +1749,7 @@ sub BossCardWoFi()
 
 sub BossCardWoMe()
 {
-	resetBoss();
-	ins_21();
-	enmClear();
-	enmNew("Ecl_EtBreak", 0f, 0f, 9999, 0, 0);
-	cardEnd();
-	ins_529(0);
-	resetBossParam();
-	playSE(28);
-	enmDir(0f, 0f);
-	enmDirTime(0, 0, 0f, 0f);
-	enmPosTime(0, 0, 0f, 0f);
-	MISS_COUNT = 0;
-	BOMB_COUNT = 0;
+	CardStart();
 	BossCheckItems();
 	cardN(102, 999999, 500000, "木＆金符「チルクイトスバイタ」");
 	invinc(120);
@@ -2160,20 +1908,8 @@ sub BossCardWoMe_atLaser()
 
 sub BossCardWoodGreen()
 {
-	resetBoss();
-	ins_21();
-	enmClear();
-	enmNew("Ecl_EtBreak", 0f, 0f, 9999, 0, 0);
-	cardEnd();
-	ins_529(0);
-	resetBossParam();
-	playSE(28);
-	enmDir(0f, 0f);
-	enmDirTime(0, 0, 0f, 0f);
-	enmPosTime(0, 0, 0f, 0f);
-	MISS_COUNT = 0;
-	BOMB_COUNT = 0;
-	BossSetNextNon(2100);
+	CardStart();
+	BossSetNext(2100);
 	cardH(68, 2100, 500000, "木符「グリーンストーム」");
 	invinc(120);
 	stageProg(43);
@@ -2228,20 +1964,8 @@ sub BossCardWoodGreen()
 
 sub BossCardWoodLeaf()
 {
-	resetBoss();
-	ins_21();
-	enmClear();
-	enmNew("Ecl_EtBreak", 0f, 0f, 9999, 0, 0);
-	cardEnd();
-	ins_529(0);
-	resetBossParam();
-	playSE(28);
-	enmDir(0f, 0f);
-	enmDirTime(0, 0, 0f, 0f);
-	enmPosTime(0, 0, 0f, 0f);
-	MISS_COUNT = 0;
-	BOMB_COUNT = 0;
-	BossSetNextNon(2100);
+	CardStart();
+	BossSetNext(2100);
 	card(50, 2100, 500000, "木符「リーフゲール」");
 	invinc(120);
 	stageProg(43);
@@ -2278,20 +2002,8 @@ sub BossCardWoodLeaf()
 
 sub BossCardWoodSylphy()
 {
-	resetBoss();
-	ins_21();
-	enmClear();
-	enmNew("Ecl_EtBreak", 0f, 0f, 9999, 0, 0);
-	cardEnd();
-	ins_529(0);
-	resetBossParam();
-	playSE(28);
-	enmDir(0f, 0f);
-	enmDirTime(0, 0, 0f, 0f);
-	enmPosTime(0, 0, 0f, 0f);
-	MISS_COUNT = 0;
-	BOMB_COUNT = 0;
-	BossSetNextNon(2100);
+	CardStart();
+	BossSetNext(2100);
 	cardE(42, 2100, 500000, "木符「シルフィホルン」");
 	invinc(120);
 	stageProg(43);
@@ -2346,20 +2058,8 @@ sub BossCardWoodSylphy()
 
 sub BossCardWoodSylphyHL()
 {
-	resetBoss();
-	ins_21();
-	enmClear();
-	enmNew("Ecl_EtBreak", 0f, 0f, 9999, 0, 0);
-	cardEnd();
-	ins_529(0);
-	resetBossParam();
-	playSE(28);
-	enmDir(0f, 0f);
-	enmDirTime(0, 0, 0f, 0f);
-	enmPosTime(0, 0, 0f, 0f);
-	MISS_COUNT = 0;
-	BOMB_COUNT = 0;
-	BossSetNextNon(2100);
+	CardStart();
+	BossSetNext(2100);
 	cardN(55, 2100, 500000, "木符「シルフィホルン上級」");
 	invinc(120);
 	stageProg(43);
@@ -2467,7 +2167,7 @@ sub BossDead()
 	delete();
 }
 
-sub BossSetNextNon(int life)
+sub BossSetNext(int life)
 {
 	if (BOSS4) {
 		interrupt(0, 0, life, "Boss3");

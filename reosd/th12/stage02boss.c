@@ -258,19 +258,7 @@ sub Boss2_at2()
 
 sub BossCard1EN()
 {
-	resetBoss();
-	ins_21();
-	enmClear();
-	enmNew("Ecl_EtBreak", 0f, 0f, 9999, 0, 0);
-	cardEnd();
-	ins_529(0);
-	resetBossParam();
-	playSE(28);
-	enmDir(0f, 0f);
-	enmDirTime(0, 0, 0f, 0f);
-	enmPosTime(0, 0, 0f, 0f);
-	MISS_COUNT = 0;
-	BOMB_COUNT = 0;
+	CardStart();
 	interrupt(0, 0, 1800, "Boss2");
 	cardE(10, 1800, 500000, "氷符「アイシクルフォール」");
 	stageProg(43);
@@ -344,20 +332,7 @@ sub BossCard1EN()
 
 sub BossCard1HL()
 {
-	resetBoss();
-	ins_21();
-	enmClear();
-	enmNew("Ecl_EtBreak", 0f, 0f, 9999, 0, 0);
-	cardEnd();
-	ins_529(0);
-	resetBossParam();
-	playSE(28);
-	enmDir(0f, 0f);
-	enmDirTime(0, 0, 0f, 0f);
-	enmPosTime(0, 0, 0f, 0f);
-	MISS_COUNT = 0;
-	BOMB_COUNT = 0;
-	CAPTURED = 1;
+	CardStart();
 	interrupt(0, 0, 2100, "Boss2");
 	cardH(12, 2100, 500000, "雹符「ヘイルストーム」");
 	stageProg(43);
@@ -397,17 +372,7 @@ sub BossCard1HL()
 
 sub BossCard2()
 {
-	resetBoss();
-	ins_21();
-	enmClear();
-	enmNew("Ecl_EtBreak", 0f, 0f, 9999, 0, 0);
-	cardEnd();
-	ins_529(0);
-	resetBossParam();
-	playSE(28);
-	ResetMovement();
-	MISS_COUNT = 0;
-	BOMB_COUNT = 0;
+	CardStart();
 	cardE(14, 2400, 500000, "凍符「パーフェクトフリーズ」");
 	enmPosTime(120, 4, 0f, 96f);
 	invinc(120);
@@ -522,19 +487,7 @@ sub BossCard3()
 	playSE(28);
 	if (RANK != 2) Give1Up();
 120:
-	resetBoss();
-	ins_21();
-	enmClear();
-	enmNew("Ecl_EtBreak", 0f, 0f, 9999, 0, 0);
-	cardEnd();
-	ins_529(0);
-	resetBossParam();
-	playSE(28);
-	enmDir(0f, 0f);
-	enmDirTime(0, 0, 0f, 0f);
-	enmPosTime(0, 0, 0f, 0f);
-	MISS_COUNT = 0;
-	BOMB_COUNT = 0;
+	CardStart();
 	cardN(18, 2400, 500000, "雪符「ダイアモンドブリザード」");
 	enmPosTime(120, 4, 0f, 96f);
 	stageProg(44);

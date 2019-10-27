@@ -410,19 +410,7 @@ sub Boss3_at2()
 
 sub BossCard1()
 {
-	resetBoss();
-	ins_21();
-	enmClear();
-	enmNew("Ecl_EtBreak", 0f, 0f, 9999, 0, 0);
-	cardEnd();
-	ins_529(0);
-	resetBossParam();
-	playSE(28);
-	enmDir(0f, 0f);
-	enmDirTime(0, 0, 0f, 0f);
-	enmPosTime(0, 0, 0f, 0f);
-	MISS_COUNT = 0;
-	BOMB_COUNT = 0;
+	CardStart();
 	interrupt(0, 0, 1800, "Boss2");
 	cardE(25, 1800, 500000, "虹符「彩虹の風鈴」");
 	stageProg(43);
@@ -503,20 +491,7 @@ sub BossCard1()
 
 sub BossCard2()
 {
-	resetBoss();
-	ins_21();
-	enmClear();
-	wait(1);
-	enmNew("Ecl_EtBreak", 0f, 0f, 9999, 0, 0);
-	cardEnd();
-	ins_529(0);
-	resetBossParam();
-	playSE(28);
-	enmDir(0f, 0f);
-	enmDirTime(0, 0, 0f, 0f);
-	enmPosTime(0, 0, 0f, 0f);
-	MISS_COUNT = 0;
-	BOMB_COUNT = 0;
+	CardStart();
 	interrupt(0, 0, 2400, "Boss3");
 	cardH(29, 2400, 500000, "幻符「華想夢葛」");
 	enmPosTime(120, 4, 0f, 64f);
@@ -587,19 +562,7 @@ sub BossCard2At(int dur, float range)
 
 sub BossCard3()
 {
-	resetBoss();
-	ins_21();
-	enmClear();
-	enmNew("Ecl_EtBreak", 0f, 0f, 9999, 0, 0);
-	cardEnd();
-	ins_529(0);
-	resetBossParam();
-	playSE(28);
-	enmDir(0f, 0f);
-	enmDirTime(0, 0, 0f, 0f);
-	enmPosTime(0, 0, 0f, 0f);
-	MISS_COUNT = 0;
-	BOMB_COUNT = 0;
+	CardStart();
 	cardE(31, 2400, 500000, "彩符「彩雨」");
 	enmPosTime(120, 4, 0f, 64f);
 	invinc(120);
@@ -652,19 +615,7 @@ sub BossCard3()
 
 sub BossCard3H()
 {
-	resetBoss();
-	ins_21();
-	enmClear();
-	enmNew("Ecl_EtBreak", 0f, 0f, 9999, 0, 0);
-	cardEnd();
-	ins_529(0);
-	resetBossParam();
-	playSE(28);
-	enmDir(0f, 0f);
-	enmDirTime(0, 0, 0f, 0f);
-	enmPosTime(0, 0, 0f, 0f);
-	MISS_COUNT = 0;
-	BOMB_COUNT = 0;
+	CardStart();
 	cardH(33, 2400, 500000, "彩符「彩光乱舞」");
 	enmPosTime(120, 4, 0f, 64f);
 	invinc(120);

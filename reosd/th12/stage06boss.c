@@ -1,4 +1,6 @@
 
+#include "th12_globalvar.txt"
+#include "default.h"
 
 sub Boss()
 {
@@ -1222,19 +1224,7 @@ Boss6_1036:
 sub BossCard1()
 {
     var A, B, C, D;
-    resetBoss();
-    ins_21();
-    enmClear();
-    enmNew("Ecl_EtBreak", 0f, 0f, 9999, 0, 0);
-    cardEnd();
-    ins_529(0);
-    resetBossParam();
-    playSE(28);
-    enmDir(0f, 0f);
-    enmDirTime(0, 0, 0f, 0f);
-    enmPosTime(0, 0, 0f, 0f);
-    $MISS_COUNT = 0;
-    $BOMB_COUNT = 0;
+	CardStart();
 !EN
     interrupt(0, 0, 2700, "Boss2");
 !HL
@@ -1430,19 +1420,7 @@ BossCard1_at2h_1100:
 sub BossCard2()
 {
     var A;
-    resetBoss();
-    ins_21();
-    enmClear();
-    enmNew("Ecl_EtBreak", 0f, 0f, 9999, 0, 0);
-    cardEnd();
-    ins_529(0);
-    resetBossParam();
-    playSE(28);
-    enmDir(0f, 0f);
-    enmDirTime(0, 0, 0f, 0f);
-    enmPosTime(0, 0, 0f, 0f);
-    $MISS_COUNT = 0;
-    $BOMB_COUNT = 0;
+	CardStart();
     interrupt(0, 0, 2700, "Boss3");
 !EN
     cardE(81, 2700, 500000, "魔法「魔界蝶の妖香」");
@@ -1513,19 +1491,7 @@ BossCard2_at2_476:
 sub BossCard3()
 {
     var A;
-    resetBoss();
-    ins_21();
-    enmClear();
-    enmNew("Ecl_EtBreak", 0f, 0f, 9999, 0, 0);
-    cardEnd();
-    ins_529(0);
-    resetBossParam();
-    playSE(28);
-    enmDir(0f, 0f);
-    enmDirTime(0, 0, 0f, 0f);
-    enmPosTime(0, 0, 0f, 0f);
-    $MISS_COUNT = 0;
-    $BOMB_COUNT = 0;
+	CardStart();
     @BossEyes() async;
     interrupt(0, 0, 3000, "Boss4");
 !EN
@@ -1702,19 +1668,7 @@ BossCard3_at2b_1744:
 sub BossCard4()
 {
     var A;
-    resetBoss();
-    ins_21();
-    enmClear();
-    enmNew("Ecl_EtBreak", 0f, 0f, 9999, 0, 0);
-    cardEnd();
-    ins_529(0);
-    resetBossParam();
-    playSE(28);
-    enmDir(0f, 0f);
-    enmDirTime(0, 0, 0f, 0f);
-    enmPosTime(0, 0, 0f, 0f);
-    $MISS_COUNT = 0;
-    $BOMB_COUNT = 0;
+	CardStart();
     @BossEyes() async;
 !E
     interrupt(0, 0, 4200, "Boss6");
@@ -2159,19 +2113,7 @@ BossCard4_at7_1856:
 sub BossCard5()
 {
     var A, B, C, D, E, F, G, H, I, J;
-    resetBoss();
-    ins_21();
-    enmClear();
-    enmNew("Ecl_EtBreak", 0f, 0f, 9999, 0, 0);
-    cardEnd();
-    ins_529(0);
-    resetBossParam();
-    playSE(28);
-    enmDir(0f, 0f);
-    enmDirTime(0, 0, 0f, 0f);
-    enmPosTime(0, 0, 0f, 0f);
-    $MISS_COUNT = 0;
-    $BOMB_COUNT = 0;
+	CardStart();
     stageProg(44);
     enmPosTime(120, 4, 160f, 128f);
     interrupt(0, 0, 4800, "Boss6");
@@ -2380,19 +2322,7 @@ BossCard5_at_1692:
 sub BossCard6()
 {
     var A, B, C, D, E, F, G, H, I, J, K, L, M;
-    resetBoss();
-    ins_21();
-    enmClear();
-    enmNew("Ecl_EtBreak", 0f, 0f, 9999, 0, 0);
-    cardEnd();
-    ins_529(0);
-    resetBossParam();
-    playSE(28);
-    enmDir(0f, 0f);
-    enmDirTime(0, 0, 0f, 0f);
-    enmPosTime(0, 0, 0f, 0f);
-    $MISS_COUNT = 0;
-    $BOMB_COUNT = 0;
+	CardStart();
     stageProg(44);
     enmPosTime(120, 4, 0f, 128f);
     interrupt(0, 0, 7200, "BossDead");

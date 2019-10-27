@@ -114,20 +114,7 @@ sub MBoss1_at2()
 
 sub MBossCard1()
 {
-	resetBoss();
-	ins_21();
-	enmClear();
-	enmNew("Ecl_EtBreak", 0f, 0f, 9999, 0, 0);
-	cardEnd();
-	ins_529(0);
-	resetBossParam();
-	playSE(28);
-	enmDir(0f, 0f);
-	enmDirTime(0, 0, 0f, 0f);
-	enmPosTime(0, 0, 0f, 0f);
-	MISS_COUNT = 0;
-	BOMB_COUNT = 0;
-	CAPTURED = 1;
+	CardStart();
 	enmPosTime(120, 4, 0f, 144f);
 	interrupt(0, 0, 900, "MBossDead");
 	timeoutAt(0, "MBossEscape");
