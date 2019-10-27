@@ -1,7 +1,7 @@
 eclmap
 0 ? nop			#nop() do nothing
 1 ? delete		#delete() delete self
-10 ? return		#return() return from function
+#10 ? return	#return() return from function
 11 ? call		#call(func, args...) call func with args
 12 ? jmp		#jmp(s, t) branch to position s in current func and set time to t
 13 ? je			#je(s, t) branches if stack top is equal to 0
