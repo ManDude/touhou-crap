@@ -565,7 +565,7 @@ sub BossCardEaMe()
 	resetBoss();
 	ins_21();
 	enmClear();
-	enmNewRel("Ecl_EtBreak", 0f, 0f, 9999, 0, 0);
+	enmNew("Ecl_EtBreak", 0f, 0f, 9999, 0, 0);
 	cardEnd();
 	ins_529(0);
 	resetBossParam();
@@ -620,7 +620,7 @@ sub BossCardEarthTrilithon()
 	resetBoss();
 	ins_21();
 	enmClear();
-	enmNewRel("Ecl_EtBreak", 0f, 0f, 9999, 0, 0);
+	enmNew("Ecl_EtBreak", 0f, 0f, 9999, 0, 0);
 	cardEnd();
 	ins_529(0);
 	resetBossParam();
@@ -667,7 +667,7 @@ sub BossCardEarthTrilithonHL()
 	resetBoss();
 	ins_21();
 	enmClear();
-	enmNewRel("Ecl_EtBreak", 0f, 0f, 9999, 0, 0);
+	enmNew("Ecl_EtBreak", 0f, 0f, 9999, 0, 0);
 	cardEnd();
 	ins_529(0);
 	resetBossParam();
@@ -714,7 +714,7 @@ sub BossCardEarthTrilithonShake()
 	resetBoss();
 	ins_21();
 	enmClear();
-	enmNewRel("Ecl_EtBreak", 0f, 0f, 9999, 0, 0);
+	enmNew("Ecl_EtBreak", 0f, 0f, 9999, 0, 0);
 	cardEnd();
 	ins_529(0);
 	resetBossParam();
@@ -772,7 +772,7 @@ sub BossCardFiEa()
 	resetBoss();
 	ins_21();
 	enmClear();
-	enmNewRel("Ecl_EtBreak", 0f, 0f, 9999, 0, 0);
+	enmNew("Ecl_EtBreak", 0f, 0f, 9999, 0, 0);
 	cardEnd();
 	ins_529(0);
 	resetBossParam();
@@ -828,7 +828,7 @@ sub BossCardFireAgni()
 	resetBoss();
 	ins_21();
 	enmClear();
-	enmNewRel("Ecl_EtBreak", 0f, 0f, 9999, 0, 0);
+	enmNew("Ecl_EtBreak", 0f, 0f, 9999, 0, 0);
 	cardEnd();
 	ins_529(0);
 	resetBossParam();
@@ -881,7 +881,7 @@ sub BossCardFireAgniHL()
 	resetBoss();
 	ins_21();
 	enmClear();
-	enmNewRel("Ecl_EtBreak", 0f, 0f, 9999, 0, 0);
+	enmNew("Ecl_EtBreak", 0f, 0f, 9999, 0, 0);
 	cardEnd();
 	ins_529(0);
 	resetBossParam();
@@ -929,7 +929,7 @@ sub BossCardFireAgniRad()
 	resetBoss();
 	ins_21();
 	enmClear();
-	enmNewRel("Ecl_EtBreak", 0f, 0f, 9999, 0, 0);
+	enmNew("Ecl_EtBreak", 0f, 0f, 9999, 0, 0);
 	cardEnd();
 	ins_529(0);
 	resetBossParam();
@@ -993,7 +993,7 @@ sub BossCardMeWa()
 	resetBoss();
 	ins_21();
 	enmClear();
-	enmNewRel("Ecl_EtBreak", 0f, 0f, 9999, 0, 0);
+	enmNew("Ecl_EtBreak", 0f, 0f, 9999, 0, 0);
 	cardEnd();
 	ins_529(0);
 	resetBossParam();
@@ -1045,7 +1045,7 @@ sub BossCardMetalDragon()
 	resetBoss();
 	ins_21();
 	enmClear();
-	enmNewRel("Ecl_EtBreak", 0f, 0f, 9999, 0, 0);
+	enmNew("Ecl_EtBreak", 0f, 0f, 9999, 0, 0);
 	cardEnd();
 	ins_529(0);
 	resetBossParam();
@@ -1082,7 +1082,7 @@ sub BossCardMetalFatigue()
 	resetBoss();
 	ins_21();
 	enmClear();
-	enmNewRel("Ecl_EtBreak", 0f, 0f, 9999, 0, 0);
+	enmNew("Ecl_EtBreak", 0f, 0f, 9999, 0, 0);
 	cardEnd();
 	ins_529(0);
 	resetBossParam();
@@ -1124,7 +1124,7 @@ sub BossCardMetalGold()
 	resetBoss();
 	ins_21();
 	enmClear();
-	enmNewRel("Ecl_EtBreak", 0f, 0f, 9999, 0, 0);
+	enmNew("Ecl_EtBreak", 0f, 0f, 9999, 0, 0);
 	cardEnd();
 	ins_529(0);
 	resetBossParam();
@@ -1208,7 +1208,7 @@ sub BossCardMetalMemory()
 	resetBoss();
 	ins_21();
 	enmClear();
-	enmNewRel("Ecl_EtBreak", 0f, 0f, 9999, 0, 0);
+	enmNew("Ecl_EtBreak", 0f, 0f, 9999, 0, 0);
 	cardEnd();
 	ins_529(0);
 	resetBossParam();
@@ -1262,7 +1262,7 @@ sub BossCardMetalMemoryHL()
 	resetBoss();
 	ins_21();
 	enmClear();
-	enmNewRel("Ecl_EtBreak", 0f, 0f, 9999, 0, 0);
+	enmNew("Ecl_EtBreak", 0f, 0f, 9999, 0, 0);
 	cardEnd();
 	ins_529(0);
 	resetBossParam();
@@ -1322,7 +1322,7 @@ sub BossCardWaFi()
 	resetBoss();
 	ins_21();
 	enmClear();
-	enmNewRel("Ecl_EtBreak", 0f, 0f, 9999, 0, 0);
+	enmNew("Ecl_EtBreak", 0f, 0f, 9999, 0, 0);
 	cardEnd();
 	ins_529(0);
 	resetBossParam();
@@ -1487,7 +1487,7 @@ sub BossCardWaWo()
 	resetBoss();
 	ins_21();
 	enmClear();
-	enmNewRel("Ecl_EtBreak", 0f, 0f, 9999, 0, 0);
+	enmNew("Ecl_EtBreak", 0f, 0f, 9999, 0, 0);
 	cardEnd();
 	ins_529(0);
 	resetBossParam();
@@ -1558,7 +1558,7 @@ sub BossCardWaterBury()
 	resetBoss();
 	ins_21();
 	enmClear();
-	enmNewRel("Ecl_EtBreak", 0f, 0f, 9999, 0, 0);
+	enmNew("Ecl_EtBreak", 0f, 0f, 9999, 0, 0);
 	cardEnd();
 	ins_529(0);
 	resetBossParam();
@@ -1642,7 +1642,7 @@ sub BossCardWaterMonsoon()
 	resetBoss();
 	ins_21();
 	enmClear();
-	enmNewRel("Ecl_EtBreak", 0f, 0f, 9999, 0, 0);
+	enmNew("Ecl_EtBreak", 0f, 0f, 9999, 0, 0);
 	cardEnd();
 	ins_529(0);
 	resetBossParam();
@@ -1831,7 +1831,7 @@ sub BossCardWaterUndine()
 	resetBoss();
 	ins_21();
 	enmClear();
-	enmNewRel("Ecl_EtBreak", 0f, 0f, 9999, 0, 0);
+	enmNew("Ecl_EtBreak", 0f, 0f, 9999, 0, 0);
 	cardEnd();
 	ins_529(0);
 	resetBossParam();
@@ -1861,7 +1861,7 @@ sub BossCardWaterUndine()
 			BossCardWaterUndine_LaserAt(an1);
 			BossCardWaterUndine_LaserAt(0f-an1);
 			an1 -= rad(1.5f);
-130:		noop();
+130:		nop();
 		}
 		endSlot(1);
 		enmRand(90, 4, 1.5f);
@@ -1882,11 +1882,11 @@ sub BossCardWaterUndine()
 			etOn(0);
 			etOn(1);
 			an1 -= ((RDEG + 3.1415927f) / 18.666666f) - 0.1121997f;
-140:		noop();
+140:		nop();
 		}
 		enmRand(90, 4, 1.5f);
 		i += 1;
-190:	noop();
+190:	nop();
 	}
 	return();
 }
@@ -1925,7 +1925,7 @@ sub BossCardWoFi()
 	resetBoss();
 	ins_21();
 	enmClear();
-	enmNewRel("Ecl_EtBreak", 0f, 0f, 9999, 0, 0);
+	enmNew("Ecl_EtBreak", 0f, 0f, 9999, 0, 0);
 	cardEnd();
 	ins_529(0);
 	resetBossParam();
@@ -1992,7 +1992,7 @@ sub BossCardWoMe()
 	resetBoss();
 	ins_21();
 	enmClear();
-	enmNewRel("Ecl_EtBreak", 0f, 0f, 9999, 0, 0);
+	enmNew("Ecl_EtBreak", 0f, 0f, 9999, 0, 0);
 	cardEnd();
 	ins_529(0);
 	resetBossParam();
@@ -2163,7 +2163,7 @@ sub BossCardWoodGreen()
 	resetBoss();
 	ins_21();
 	enmClear();
-	enmNewRel("Ecl_EtBreak", 0f, 0f, 9999, 0, 0);
+	enmNew("Ecl_EtBreak", 0f, 0f, 9999, 0, 0);
 	cardEnd();
 	ins_529(0);
 	resetBossParam();
@@ -2231,7 +2231,7 @@ sub BossCardWoodLeaf()
 	resetBoss();
 	ins_21();
 	enmClear();
-	enmNewRel("Ecl_EtBreak", 0f, 0f, 9999, 0, 0);
+	enmNew("Ecl_EtBreak", 0f, 0f, 9999, 0, 0);
 	cardEnd();
 	ins_529(0);
 	resetBossParam();
@@ -2281,7 +2281,7 @@ sub BossCardWoodSylphy()
 	resetBoss();
 	ins_21();
 	enmClear();
-	enmNewRel("Ecl_EtBreak", 0f, 0f, 9999, 0, 0);
+	enmNew("Ecl_EtBreak", 0f, 0f, 9999, 0, 0);
 	cardEnd();
 	ins_529(0);
 	resetBossParam();
@@ -2349,7 +2349,7 @@ sub BossCardWoodSylphyHL()
 	resetBoss();
 	ins_21();
 	enmClear();
-	enmNewRel("Ecl_EtBreak", 0f, 0f, 9999, 0, 0);
+	enmNew("Ecl_EtBreak", 0f, 0f, 9999, 0, 0);
 	cardEnd();
 	ins_529(0);
 	resetBossParam();
@@ -2447,9 +2447,9 @@ sub BossDead()
 	anmAt2(0, 129);
 	enmDir(RDEG, 0.4f);
 	if (TIMEOUT == 0)
-		enmNewRel("Ecl_EtBreak2", 0f, 0f, 9999, 0, 0);
+		enmNew("Ecl_EtBreak2", 0f, 0f, 9999, 0, 0);
 	else
-		enmNewRel("Ecl_EtBreak2_ni", 0f, 0f, 9999, 0, 0);
+		enmNew("Ecl_EtBreak2_ni", 0f, 0f, 9999, 0, 0);
 60:
 	etClear_ni(10000f);
 	cardEnd();

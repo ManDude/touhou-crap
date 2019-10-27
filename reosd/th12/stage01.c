@@ -183,7 +183,7 @@ sub MainSub00()
 	times (5) {
 		rand(2, 3);
 		I3 += 1;
-		enmNewRel("AGirl00", x, -32f, 32, 300, I3);
+		enmNew("AGirl00", x, -32f, 32, 300, I3);
 		x += _f(8);
 		wait(16);
 	}
@@ -196,7 +196,7 @@ sub MainSub01()
 	times (8) {
 		rand(2, 3);
 		I3 += 1;
-		enmNewRelMir("AGirl00", x, -32f, 32, 300, I3);
+		enmNewMir("AGirl00", x, -32f, 32, 300, I3);
 		x -= _f(8);
 		wait(16);
 	}
@@ -209,7 +209,7 @@ sub MainSub02()
 	times (8) {
 		rand(2, 3);
 		I3 += 1;
-		enmNewRelMir("AGirl01", x, -32f, 32, 300, I3);
+		enmNewMir("AGirl01", x, -32f, 32, 300, I3);
 		x -= _f(16);
 		wait(16);
 	}
@@ -222,7 +222,7 @@ sub MainSub03()
 	times (8) {
 		rand(2, 3);
 		I3 += 1;
-		enmNewRel("AGirl01", x, -32f, 32, 300, I3);
+		enmNew("AGirl01", x, -32f, 32, 300, I3);
 		x += _f(16);
 		wait(16);
 	}
@@ -268,11 +268,11 @@ sub MainSub04()
 sub MainSub04a(float x, int mirror)
 {
 	if (!mirror) {
-		enmNewRel("ARGirl01", x, -32f, 80, 700, 1);
+		enmNew("ARGirl01", x, -32f, 80, 700, 1);
 		return();
 	}
 	else {
-		enmNewRelMir("ARGirl01", x, -32f, 80, 700, 1);
+		enmNewMir("ARGirl01", x, -32f, 80, 700, 1);
 		return();
 	}
 }
@@ -280,11 +280,11 @@ sub MainSub04a(float x, int mirror)
 sub MainSub04b(float x, int mirror)
 {
 	if (!mirror) {
-		enmNewRel("ARGirl02", x, -32f, 80, 700, 1);
+		enmNew("ARGirl02", x, -32f, 80, 700, 1);
 		return();
 	}
 	else {
-		enmNewRelMir("ARGirl02", x, -32f, 80, 700, 1);
+		enmNewMir("ARGirl02", x, -32f, 80, 700, 1);
 		return();
 	}
 }
@@ -338,11 +338,11 @@ sub MainSub05a(int mirror)
 	rand(2, 3);
 	I3 += 1;
 	if (!mirror) {
-		enmNewRel("ARGirl00", x, -32f, 32, 300, I3);
+		enmNew("ARGirl00", x, -32f, 32, 300, I3);
 		return();
 	}
 	else {
-		enmNewRelMir("ARGirl00", x, -32f, 32, 300, I3);
+		enmNewMir("ARGirl00", x, -32f, 32, 300, I3);
 		return();
 	}
 }
@@ -353,11 +353,11 @@ sub MainSub05b(int mirror)
 	rand(2, 3);
 	I3 += 1;
 	if (!mirror) {
-		enmNewRel("ARGirl01", x, -32f, 32, 300, I3);
+		enmNew("ARGirl01", x, -32f, 32, 300, I3);
 		return();
 	}
 	else {
-		enmNewRelMir("ARGirl01", x, -32f, 32, 300, I3);
+		enmNewMir("ARGirl01", x, -32f, 32, 300, I3);
 		return();
 	}
 }
@@ -368,10 +368,10 @@ sub MainSub06()
 	times (6) {
 		rand(2, 3);
 		I3 += 1;
-		enmNewRelMir("AGirl00", x1, -32f, 32, 300, I3);
+		enmNewMir("AGirl00", x1, -32f, 32, 300, I3);
 		rand(2, 3);
 		I3 += 1;
-		enmNewRelMir("AGirl00", x2, -32f, 32, 300, I3);
+		enmNewMir("AGirl00", x2, -32f, 32, 300, I3);
 		x1 -= _f(8);
 		x2 -= _f(8);
 		wait(16);
@@ -385,10 +385,10 @@ sub MainSub07()
 	times (6) {
 		rand(2, 3);
 		I3 += 1;
-		enmNewRel("AGirl00", x1, -32f, 32, 300, I3);
+		enmNew("AGirl00", x1, -32f, 32, 300, I3);
 		rand(2, 3);
 		I3 += 1;
-		enmNewRel("AGirl00", x2, -32f, 32, 300, I3);
+		enmNew("AGirl00", x2, -32f, 32, 300, I3);
 		x1 += _f(8);
 		x2 += _f(8);
 		wait(16);
@@ -438,11 +438,11 @@ sub MainSub08()
 sub MainSub08a(float x, int mirror)
 {
 	if (!mirror) {
-		enmNewRelNoBoss("ARGirl01", x, -32f, 80, 700, 1);
+		enmNewNoBoss("ARGirl01", x, -32f, 80, 700, 1);
 		return();
 	}
 	else {
-		enmNewRelMirNoBoss("ARGirl01", x, -32f, 80, 700, 1);
+		enmNewMirNoBoss("ARGirl01", x, -32f, 80, 700, 1);
 		return();
 	}
 }
@@ -450,11 +450,11 @@ sub MainSub08a(float x, int mirror)
 sub MainSub08b(float x, int mirror)
 {
 	if (!mirror) {
-		enmNewRelNoBoss("ARGirl02", x, -32f, 80, 700, 1);
+		enmNewNoBoss("ARGirl02", x, -32f, 80, 700, 1);
 		return();
 	}
 	else {
-		enmNewRelMirNoBoss("ARGirl02", x, -32f, 80, 700, 1);
+		enmNewMirNoBoss("ARGirl02", x, -32f, 80, 700, 1);
 		return();
 	}
 }
@@ -465,10 +465,10 @@ sub MainSub09()
 	times (7) {
 		rand(2, 3);
 		I3 += 1;
-		enmNewRel("AGirl00", x1, -32f, 32, 300, I3);
+		enmNew("AGirl00", x1, -32f, 32, 300, I3);
 		rand(2, 3);
 		I3 += 1;
-		enmNewRel("AGirl00", x2, -32f, 32, 300, I3);
+		enmNew("AGirl00", x2, -32f, 32, 300, I3);
 		x1 += _f(8);
 		x2 += _f(8);
 		wait(16);
@@ -482,10 +482,10 @@ sub MainSub10()
 	times (8) {
 		rand(2, 3);
 		I3 += 1;
-		enmNewRelMir("AGirl00", x1, -32f, 32, 300, I3);
+		enmNewMir("AGirl00", x1, -32f, 32, 300, I3);
 		rand(2, 3);
 		I3 += 1;
-		enmNewRelMir("AGirl00", x2, -32f, 32, 300, I3);
+		enmNewMir("AGirl00", x2, -32f, 32, 300, I3);
 		x1 -= _f(8);
 		x2 -= _f(8);
 		wait(16);
@@ -499,10 +499,10 @@ sub MainSub11()
 	times (8) {
 		rand(2, 3);
 		I3 += 1;
-		enmNewRel("AGirl00", x1, -32f, 32, 300, I3);
+		enmNew("AGirl00", x1, -32f, 32, 300, I3);
 		rand(2, 3);
 		I3 += 1;
-		enmNewRel("AGirl00", x2, -32f, 32, 300, I3);
+		enmNew("AGirl00", x2, -32f, 32, 300, I3);
 		x1 += _f(8);
 		x2 += _f(8);
 		wait(16);
@@ -516,7 +516,7 @@ sub main()
 	wait(120);
 	LogoEnemy() async;
 128:
-	noop();
+	nop();
 	MainSub00() async;
 256:
 	MainSub01() async;
@@ -532,7 +532,7 @@ sub main()
 1696:
 	MainSub07() async;
 2008:
-	enmNew("MBoss", 0f, -32f, 40, 1000, 1);
+	enmNewAbs("MBoss", 0f, -32f, 40, 1000, 1);
 2408:
 	MainSub08() async;
 4498:
@@ -547,7 +547,7 @@ sub main()
 	msgBegin(0);
 5279:
 	msgWait();
-	enmNew("Boss", -144f, -16f, 40, 1000, 1);
+	enmNewAbs("Boss", -144f, -16f, 40, 1000, 1);
 5280:
 	msgWait();
 5281:

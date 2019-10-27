@@ -1225,7 +1225,7 @@ sub BossCard1()
     resetBoss();
     ins_21();
     enmClear();
-    enmNewRel("Ecl_EtBreak", 0f, 0f, 9999, 0, 0);
+    enmNew("Ecl_EtBreak", 0f, 0f, 9999, 0, 0);
     cardEnd();
     ins_529(0);
     resetBossParam();
@@ -1433,7 +1433,7 @@ sub BossCard2()
     resetBoss();
     ins_21();
     enmClear();
-    enmNewRel("Ecl_EtBreak", 0f, 0f, 9999, 0, 0);
+    enmNew("Ecl_EtBreak", 0f, 0f, 9999, 0, 0);
     cardEnd();
     ins_529(0);
     resetBossParam();
@@ -1457,7 +1457,7 @@ sub BossCard2()
 +60:
     ins_269(0);
 +30:
-    noop();
+    nop();
     @BossEyes2() async;
     goto BossCard2_804 @ 90;
 BossCard2_736:
@@ -1516,7 +1516,7 @@ sub BossCard3()
     resetBoss();
     ins_21();
     enmClear();
-    enmNewRel("Ecl_EtBreak", 0f, 0f, 9999, 0, 0);
+    enmNew("Ecl_EtBreak", 0f, 0f, 9999, 0, 0);
     cardEnd();
     ins_529(0);
     resetBossParam();
@@ -1705,7 +1705,7 @@ sub BossCard4()
     resetBoss();
     ins_21();
     enmClear();
-    enmNewRel("Ecl_EtBreak", 0f, 0f, 9999, 0, 0);
+    enmNew("Ecl_EtBreak", 0f, 0f, 9999, 0, 0);
     cardEnd();
     ins_529(0);
     resetBossParam();
@@ -1741,16 +1741,16 @@ sub BossCard4()
     %F0 = 1.570796f;
     %F1 = _f(-114);
     %F2 = _f(54);
-    enmNewRel("BossCard4Laser", -114f, 54f, 100, 10, 0);
+    enmNew("BossCard4Laser", -114f, 54f, 100, 10, 0);
     %F1 = _f(114);
     %F2 = _f(54);
-    enmNewRel("BossCard4Laser", 114f, 54f, 100, 10, 0);
+    enmNew("BossCard4Laser", 114f, 54f, 100, 10, 0);
     %F1 = _f(-64);
     %F2 = _f(-80);
-    enmNewRel("BossCard4Laser", -64f, -80f, 100, 10, 0);
+    enmNew("BossCard4Laser", -64f, -80f, 100, 10, 0);
     %F1 = _f(64);
     %F2 = _f(-80);
-    enmNewRel("BossCard4Laser", 64f, -80f, 100, 10, 0);
+    enmNew("BossCard4Laser", 64f, -80f, 100, 10, 0);
     wait(120);
     playSE(52);
     shake(60, 4, 0);
@@ -2025,19 +2025,19 @@ BossCard4_at4_124:
     %F2 = _f(54);
     %F3 = 0.001164f;
     $I0 = 0;
-    enmNewRel("BossCard4Laser2", -114f, 54f, 100, 10, 0);
+    enmNew("BossCard4Laser2", -114f, 54f, 100, 10, 0);
     %F1 = _f(114);
     %F2 = _f(54);
     $I0 = 1;
-    enmNewRel("BossCard4Laser2", 114f, 54f, 100, 10, 0);
+    enmNew("BossCard4Laser2", 114f, 54f, 100, 10, 0);
     %F1 = _f(-64);
     %F2 = _f(-80);
     $I0 = 1;
-    enmNewRel("BossCard4Laser2", -64f, -80f, 100, 10, 0);
+    enmNew("BossCard4Laser2", -64f, -80f, 100, 10, 0);
     %F1 = _f(64);
     %F2 = _f(-80);
     $I0 = 0;
-    enmNewRel("BossCard4Laser2", 64f, -80f, 100, 10, 0);
+    enmNew("BossCard4Laser2", 64f, -80f, 100, 10, 0);
     wait(32000);
 BossCard4_at4_988:
     if 1 goto BossCard4_at4_124 @ 0;
@@ -2162,7 +2162,7 @@ sub BossCard5()
     resetBoss();
     ins_21();
     enmClear();
-    enmNewRel("Ecl_EtBreak", 0f, 0f, 9999, 0, 0);
+    enmNew("Ecl_EtBreak", 0f, 0f, 9999, 0, 0);
     cardEnd();
     ins_529(0);
     resetBossParam();
@@ -2192,7 +2192,7 @@ BossCard5_748:
     playSE(31);
     ins_269(0);
 +60:
-    noop();
+    nop();
     %C = _f(-160);
     %B = _f(64);
     seti_rank($F, 80, 80, 40, 26);
@@ -2219,7 +2219,7 @@ BossCard5_1600:
     playSE(31);
     ins_269(0);
 +60:
-    noop();
+    nop();
     %C = _f(128);
     %B = _f(64);
     seti_rank($F, 80, 80, 40, 26);
@@ -2252,7 +2252,7 @@ BossCard5_2636:
     playSE(31);
     ins_269(0);
 +60:
-    noop();
+    nop();
     %C = _f(160);
     %B = _f(288);
     seti_rank($F, 80, 80, 40, 26);
@@ -2280,7 +2280,7 @@ BossCard5_3564:
     playSE(31);
     ins_269(0);
 +60:
-    noop();
+    nop();
     %C = _f(-128);
     %B = _f(320);
     seti_rank($F, 80, 80, 40, 26);
@@ -2383,7 +2383,7 @@ sub BossCard6()
     resetBoss();
     ins_21();
     enmClear();
-    enmNewRel("Ecl_EtBreak", 0f, 0f, 9999, 0, 0);
+    enmNew("Ecl_EtBreak", 0f, 0f, 9999, 0, 0);
     cardEnd();
     ins_529(0);
     resetBossParam();
@@ -2562,7 +2562,7 @@ BossCard6_at_676:
     etOfs_abs($A, %B, %C);
     etOn($A);
     $I2 = $G;
-    enmNew("BossCard6_atLine", %B, %C, 100, 100, 0);
+    enmNewAbs("BossCard6_atLine", %B, %C, 100, 100, 0);
     return();
 }
 
@@ -2599,10 +2599,10 @@ sub BossDead()
     anmAt2(0, 129);
     enmDir(%RDEG, 0.4f);
     unless ($TIMEOUT == 0) goto BossDead_308 @ 0;
-    enmNewRel("Ecl_EtBreak2", 0f, 0f, 9999, 0, 0);
+    enmNew("Ecl_EtBreak2", 0f, 0f, 9999, 0, 0);
     goto BossDead_364 @ 0;
 BossDead_308:
-    enmNewRel("Ecl_EtBreak2_ni", 0f, 0f, 9999, 0, 0);
+    enmNew("Ecl_EtBreak2_ni", 0f, 0f, 9999, 0, 0);
 BossDead_364:
     speed(0.5f);
 +60:

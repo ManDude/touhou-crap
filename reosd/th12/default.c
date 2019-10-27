@@ -133,7 +133,7 @@ sub Enemy_1up()
 
 sub Give1Up()
 {
-	enmNew("Enemy_1up", PLAYER_X, PLAYER_Y, 99999, 1, 1);
+	enmNewAbs("Enemy_1up", PLAYER_X, PLAYER_Y, 99999, 1, 1);
 }
 
 sub ItemDrop(int count, float w, float h)

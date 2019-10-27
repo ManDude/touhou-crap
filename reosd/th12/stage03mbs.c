@@ -10,7 +10,7 @@ sub MBoss()
 	CAPTURED = 1;
 	enmClear();
 	resetBoss();
-	enmNewRel("Ecl_EtBreak_ni", 0f, 0f, 9999, 0, 0);
+	enmNew("Ecl_EtBreak_ni", 0f, 0f, 9999, 0, 0);
 	anmFile(0);
 	anmAt(1, 95);
 	anmAt(2, 158);
@@ -64,7 +64,7 @@ sub MBoss1()
 		wait(50);
 !HL
 		endSlot(1);
-90: noop();
+90: nop();
 	}
 	return();
 }
@@ -86,7 +86,7 @@ sub MBoss1_at1()
 		etOn(1);
 		x += RF2 * 16f;
 		y += RF * 24f;
-28: noop();
+28: nop();
 	}
 68:
 	return();
@@ -128,7 +128,7 @@ sub MBossCard1()
 	invinc(120);
 	enmPosTime(120, 4, 0f, 144f);
 	setMoveArea(0f, 128f, 280f, 64f);
-	enmNewRel("Ecl_EtBreak", 0f, 0f, 9999, 0, 0);
+	enmNew("Ecl_EtBreak", 0f, 0f, 9999, 0, 0);
 	interrupt(0, 0, 1200, "MBossDead");
 	timeoutAt(0, "MBossEscape");
 !EN
@@ -175,7 +175,7 @@ sub MBossCard1E()
 			if ((TIME % (160:80)) == 0) {
 				etOn(1);
 			}
-1:			noop();
+1:			nop();
 		}
 	}
 	return();
@@ -213,7 +213,7 @@ sub MBossCard1H()
 		times (6) {
 			if ((TIME % 120) == 0)
 				etOn(1);
-1:			noop();
+1:			nop();
 		}
 	}
 	return();

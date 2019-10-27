@@ -10,12 +10,12 @@ sub MBoss()
     CAPTURED = 1;
     enmClear();
     resetBoss();
-    enmNewRel("Ecl_EtBreak_ni", 0f, 0f, 9999, 0, 0);
+    enmNew("Ecl_EtBreak_ni", 0f, 0f, 9999, 0, 0);
     anmFile(2);
     anmAt(0, 46);
     anmAt(1, 47);
     enmClear();
-    enmNewRel("Ecl_EtBreak", 0f, 0f, 9999, 0, 0);
+    enmNew("Ecl_EtBreak", 0f, 0f, 9999, 0, 0);
     setFlags([ENEMY_NO_HURT]);
     hitbox(56f, 56f);
     killbox(56f, 56f);
@@ -117,7 +117,7 @@ sub MBossCard1()
 	resetBoss();
 	ins_21();
 	enmClear();
-	enmNewRel("Ecl_EtBreak", 0f, 0f, 9999, 0, 0);
+	enmNew("Ecl_EtBreak", 0f, 0f, 9999, 0, 0);
 	cardEnd();
 	ins_529(0);
 	resetBossParam();

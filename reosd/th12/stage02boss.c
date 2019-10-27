@@ -177,7 +177,7 @@ sub Boss2()
 	anmAt2(0, 119);
 	playSE(31);
 200:
-	noop();
+	nop();
 	BOSS1 = 0;
 	while 1 {
 		Boss2_at1();
@@ -252,7 +252,7 @@ sub Boss2_at2()
 		wait(50);
 	}
 	BOSS1 += 1;
-	while (BOSS1 >= 12) noop();
+	while (BOSS1 >= 12) nop();
 	return();
 }
 
@@ -261,7 +261,7 @@ sub BossCard1EN()
 	resetBoss();
 	ins_21();
 	enmClear();
-	enmNewRel("Ecl_EtBreak", 0f, 0f, 9999, 0, 0);
+	enmNew("Ecl_EtBreak", 0f, 0f, 9999, 0, 0);
 	cardEnd();
 	ins_529(0);
 	resetBossParam();
@@ -347,7 +347,7 @@ sub BossCard1HL()
 	resetBoss();
 	ins_21();
 	enmClear();
-	enmNewRel("Ecl_EtBreak", 0f, 0f, 9999, 0, 0);
+	enmNew("Ecl_EtBreak", 0f, 0f, 9999, 0, 0);
 	cardEnd();
 	ins_529(0);
 	resetBossParam();
@@ -400,7 +400,7 @@ sub BossCard2()
 	resetBoss();
 	ins_21();
 	enmClear();
-	enmNewRel("Ecl_EtBreak", 0f, 0f, 9999, 0, 0);
+	enmNew("Ecl_EtBreak", 0f, 0f, 9999, 0, 0);
 	cardEnd();
 	ins_529(0);
 	resetBossParam();
@@ -413,7 +413,7 @@ sub BossCard2()
 	invinc(120);
 	stageProg(44);
 120:
-	noop();
+	nop();
 	etNew(0);
 	etOfs(0, 0f, -12f);
 	etMode(0, 1);
@@ -525,7 +525,7 @@ sub BossCard3()
 	resetBoss();
 	ins_21();
 	enmClear();
-	enmNewRel("Ecl_EtBreak", 0f, 0f, 9999, 0, 0);
+	enmNew("Ecl_EtBreak", 0f, 0f, 9999, 0, 0);
 	cardEnd();
 	ins_529(0);
 	resetBossParam();
@@ -568,9 +568,9 @@ sub BossDead()
 	anmAt2(0, 129);
 	enmDir(RDEG, 0.6f);
 	if (TIMEOUT == 0)
-		enmNewRel("Ecl_EtBreak2", 0f, 0f, 9999, 0, 0);
+		enmNew("Ecl_EtBreak2", 0f, 0f, 9999, 0, 0);
 	else
-		enmNewRel("Ecl_EtBreak2_ni", 0f, 0f, 9999, 0, 0);
+		enmNew("Ecl_EtBreak2_ni", 0f, 0f, 9999, 0, 0);
 	enmClear();
 60:
 	etClear_ni(1000f);

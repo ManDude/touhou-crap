@@ -10,7 +10,7 @@ sub MBoss()
 	CAPTURED = 1;
 	enmClear();
 	resetBoss();
-	//enmNewRel("Ecl_EtBreak_ni", 0f, 0f, 9999, 0, 0);
+	//enmNew("Ecl_EtBreak_ni", 0f, 0f, 9999, 0, 0);
 	etClear(640f);
 	anmFile(2);
 	anmAt(0, 28);
@@ -66,9 +66,9 @@ sub MBoss1_at1(float angI)
 
 sub MBoss1_at2()
 {
-	enmNewRel("MBoss1_enemy", 0f, 0f, 1000, 10, 0);
+	enmNew("MBoss1_enemy", 0f, 0f, 1000, 10, 0);
 30:
-	enmNewRel("MBoss1_enemy", 0f, 0f, 1000, 10, 0);
+	enmNew("MBoss1_enemy", 0f, 0f, 1000, 10, 0);
 	return();
 }
 

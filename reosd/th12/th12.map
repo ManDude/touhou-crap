@@ -1,70 +1,71 @@
 eclmap
-0 ? noop
-1 ? delete
-10 ? return
-11 ? call
-12 ? jmp
-13 ? je
-14 ? jne
-15 ? callSep
-16 ? callSlot
-17 ? endSlot
-40 ? alloc
-42 ? pushi
-43 ? seti
-44 ? pushf
-45 ? setf
-50 ? addi
-51 ? addf
-52 ? subi
-53 ? subf
-54 ? muli
-55 ? mulf
-56 ? divi
-57 ? divf
-58 ? mod
-59 ? eqi
-60 ? eqf
-61 ? neqi
-62 ? neqf
-63 ? lessi
-64 ? lessf
-65 ? leqi
-66 ? leqf
-67 ? greati
-68 ? greatf
-69 ? geqi
-70 ? geqf
-71 ? noti
-72 ? notf
-73 ? or
-74 ? and
-75 ? xor
-76 ? and_b
-77 ? or_b
-78 ? decrement
-82 ? normRad
-83 ? wait
-84 ? neg
-85 ? negf
-256 ? enmNewRel
-257 ? enmNew
-258 ? anmFile
-259 ? anmAt
-260 ? enmNewRelMir
-261 ? enmNewMir
-262 ? anmMoveAt
-263 ? anmAt2
-265 ? enmNewRelNoBoss
-266 ? enmNewNoBoss
-267 ? enmNewRelMirNoBoss
-268 ? enmNewMirNoBoss
-300 ? enmPos
-301 ? enmPosTime
+0 ? nop			#nop() do nothing
+1 ? delete		#delete() delete self
+10 ? return		#return() return from function
+11 ? call		#call(func, args...) call func with args
+12 ? jmp		#jmp(s, t) branch to position s in current func and set time to t
+13 ? je			#je(s, t) branches if stack top is equal to 0
+14 ? jne		#jne(s, t) branches if stack top is not equal to 0
+15 ? callSep	#callSep(func, args...) call func with args on a separate thread. runs immediately on call
+16 ? callSlot	#callSlot(func, slot, args...) call func with args on thread slot. runs immediately on call
+17 ? endSlot	#endSlot(slot) terminates specified thread
+40 ? alloc		#alloc(size) allocates size bytes on the stack for variables
+42 ? pushi		#pushi(a) push a into the stack
+43 ? seti		#seti(a) store stack top into variable a and pop it
+44 ? pushf		#pushf(a) same as pushi but for floats
+45 ? setf		#setf(a) same as pushf but for floats
+50 ? addi		#addi() adds the two topmost values on the stack, pops the operands and pushes the result
+51 ? addf		#addf()
+52 ? subi		#subi() subtracts the two topmost values on the stack, pops the operands and pushes the result
+53 ? subf		#subf()
+54 ? muli		#muli() multiplies the two topmost values on the stack, pops the operands and pushes the result
+55 ? mulf		#mulf()
+56 ? divi		#divi() divides the two topmost values on the stack, pops the operands and pushes the result
+57 ? divf		#divf()
+58 ? mod		#mod() gets the integer remainder from the division of the two topmost values on the stack, pops the operands and pushes the result
+59 ? eqi		#eqi() tests if the two topmost values on the stack are equal, pops the operands and pushes the result
+60 ? eqf		#eqf()
+61 ? neqi		#eqi() tests if the two topmost values on the stack are not equal, pops the operands and pushes the result
+62 ? neqf		#eqf()
+63 ? lessi		#lessi() tests if the second topmost value on the stack is lower than the topmost value on the stack, pops the operands and pushes the result
+64 ? lessf		#lessf()
+65 ? leqi		#leqi() tests if the second topmost value on the stack is lower than or equal to the topmost value on the stack, pops the operands and pushes the result
+66 ? leqf		#leqf()
+67 ? greati		#greati() tests if the second topmost value on the stack is greater than the topmost value on the stack, pops the operands and pushes the result
+68 ? greatf		#greatf()
+69 ? geqi		#geqi() tests if the second topmost value on the stack is greater than or equal to the topmost value on the stack, pops the operands and pushes the result
+70 ? geqf		#geqf()
+71 ? noti		#noti() tests if the topmost value on the stack is zero, pops the operand and pushes the result
+72 ? notf		#notf()
+73 ? or			#or() ors the two topmost values on the stack, pops the operands and pushes the result
+74 ? and		#and() ands the two topmost values on the stack, pops the operands and pushes the result
+75 ? xor		#xor() xors the two topmost values on the stack, pops the operands and pushes the result
+76 ? and_b		#and_b() binary ands the two topmost values on the stack, pops the operands and pushes the result
+77 ? or_b		#or_b() binary ors the two topmost values on the stack, pops the operands and pushes the result
+78 ? dec		#dec(v) pushes the variable v and then decreases its value by 1
+82 ? normRad	#normRad(v) wraps the value of v into the [-pi, pi] range
+83 ? wait		#wait(t) waits t frames
+84 ? negi		#negi() negates the topmost value on the stack
+85 ? negf		#negf()
+
+256 ? enmNew				#enmNew(func, x, y, l, s, i) creates a new enemy at the current coordinates + xy, the enemy has life l and the main item dropped on death is i. s is score reward on death, but is non-functional
+257 ? enmNewAbs				#enmNewAbs(func, x, y, l, s, i) creates a new enemy at the coordinates xy
+258 ? anmFile				#anmFile(f) selects an anm file from an indexed list that this enemy will use for anmAt
+259 ? anmAt					#anmAt(slot, i) plays the anm script i from the file selected by anmFile in the specified slot
+260 ? enmNewMir				#enmNewMir(func, x, y, l, s, i) creates a new enemy at the current coordinates + xy, with mirrored movement
+261 ? enmNewAbsMir			#enmNewAbsMir(func, x, y, l, s, i) creates a new enemy at the coordinates xy, with mirrored movement
+262 ? anmMoveAt				#anmMoveAt(slot, i) selects the anm scripts, starting from i to i+4, which will be used according enemy movement for the specified slot
+263 ? anmAt2				#anmAt2(f, i) plays the anm script i from file f independent from its caller
+265 ? enmNewNoBoss			#enmNewNoBoss(func, x, y, l, s, i) creates a new enemy at the current coordinates + xy only if boss mode is disabled
+266 ? enmNewAbsNoBoss		#enmNewAbs(func, x, y, l, s, i) creates a new enemy at the coordinates xy only if boss mode is disabled
+267 ? enmNewMirNoBoss		#enmNewMirNoBoss(func, x, y, l, s, i) creates a new enemy at the current coordinates + xy, with mirrored movement, only if boss mode is disabled
+268 ? enmNewAbsMirNoBoss	#enmNewAbsMirNoBoss(func, x, y, l, s, i) creates a new enemy at the coordinates xy, with mirrored movement, only if boss mode is disabled
+300 ? enmPos				#enmPos(x, y) sets the current position to xy
+301 ? enmPosTime			#enmPos(t, f, x, y) changes the current position into xy according the specified function(s) in t frames
 302 ? enmPos2
 303 ? enmPosTime2
-304 ? enmDir
-305 ? enmDirTime
+304 ? enmDir				#enmDir(r, s) sets the current movement direction to r at speed s
+305 ? enmDirTime			#enmDirTime(t, f, r, s)
 306 ? enmDir2
 307 ? enmDirTime2
 308 ? enmCir

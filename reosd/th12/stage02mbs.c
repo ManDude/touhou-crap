@@ -10,7 +10,7 @@ sub MBoss()
 	CAPTURED = 1;
 	enmClear();
 	resetBoss();
-	enmNewRel("Ecl_EtBreak_ni", 0f, 0f, 9999, 0, 0);
+	enmNew("Ecl_EtBreak_ni", 0f, 0f, 9999, 0, 0);
 	anmFile(2);
 	anmMoveAt(0, 0);
 	setFlags(64);

@@ -15,7 +15,7 @@ sub MainBossDebug()
 10:
 	msgBegin(0);
 	ins_700(3);
-	enmNew("Boss", -144f, -16f, 40, 1000, 1);
+	enmNewAbs("Boss", -144f, -16f, 40, 1000, 1);
 	msgWait();
 	killWait();
 70:
@@ -108,7 +108,7 @@ sub MainGirl01_at()
 sub MainMBossDebug()
 {
 	ins_700(1);
-	enmNew("MBoss", -128f, -32f, 40, 1000, 1);
+	enmNewAbs("MBoss", -128f, -32f, 40, 1000, 1);
 	while 1 wait(1000);
 	return();
 }
@@ -159,13 +159,13 @@ sub MainSub01a()
 {
 	float x = _f(-160);
 	times (13) {
-		enmNewRel("MainGirl00", x, -32f, 60, 500, 0);
+		enmNew("MainGirl00", x, -32f, 60, 500, 0);
 		x += _f(16);
 		wait(16);
 	}
 	x += _f(16);
 	times (4) {
-		enmNewRel("MainGirl00", x, -32f, 60, 500, 0);
+		enmNew("MainGirl00", x, -32f, 60, 500, 0);
 		x += _f(16);
 		wait(16);
 	}
@@ -176,13 +176,13 @@ sub MainSub01b()
 {
 	float x = _f(160);
 	times (13) {
-		enmNewRel("MainGirl00", x, -32f, 60, 500, 0);
+		enmNew("MainGirl00", x, -32f, 60, 500, 0);
 		x -= _f(16);
 		wait(16);
 	}
 	x -= _f(16);
 	times (4) {
-		enmNewRel("MainGirl00", x, -32f, 60, 500, 0);
+		enmNew("MainGirl00", x, -32f, 60, 500, 0);
 		x -= _f(16);
 		wait(16);
 	}
@@ -210,7 +210,7 @@ sub MainSub03()
 	times (184) {
 		rand(2, 3);
 		I3 += 1;
-		enmNewRelNoBoss("Particle00", RF2 * 192f, -32f, 30, 350, I3);
+		enmNewNoBoss("Particle00", RF2 * 192f, -32f, 30, 350, I3);
 		wait(5);
 	}
 	return();
@@ -223,7 +223,7 @@ sub MainSub04()
 		rand(2, 3);
 		I3 += 1;
 		I2 = (I2 + 1) % 4;
-		enmNewRelNoBoss("Particle01", RF2 * 192f, -32f, 50, 350, I3);
+		enmNewNoBoss("Particle01", RF2 * 192f, -32f, 50, 350, I3);
 		wait(10);
 	}
 	return();
@@ -236,7 +236,7 @@ sub MainSub04a()
 	times (11) {
 		rand(2, 3);
 		I3 += 1;
-		enmNewRelNoBoss("MainGirl01", x, -32f, 30, 350, I3);
+		enmNewNoBoss("MainGirl01", x, -32f, 30, 350, I3);
 		x += _f(32);
 		wait(40);
 	}
@@ -250,7 +250,7 @@ sub MainSub04b()
 	times (11) {
 		rand(2, 3);
 		I3 += 1;
-		enmNewRelNoBoss("MainGirl01", x, -32f, 30, 350, I3);
+		enmNewNoBoss("MainGirl01", x, -32f, 30, 350, I3);
 		x -= _f(32);
 		wait(40);
 	}
@@ -354,7 +354,7 @@ sub Thing01_Make(float dir, int item, int dead_at)
 	F3 = dir;
 	I3 = item;
 	I0 = dead_at;
-	enmNewRel("Thing01", RF2 * 192f, -32f, 70, 700, item);
+	enmNew("Thing01", RF2 * 192f, -32f, 70, 700, item);
 	return();
 }
 
@@ -363,7 +363,7 @@ sub main()
 	setFlags(32);
 	LogoEnemy() async;
 330:
-	noop();
+	nop();
 	MainSub00() async;
 984:
 	MainSub01a() async;
@@ -382,7 +382,7 @@ sub main()
 2074:
 	MainSub02() async;
 2588:
-	enmNew("MBoss", 0f, -32f, 10000, 100000, 1);
+	enmNewAbs("MBoss", 0f, -32f, 10000, 100000, 1);
 3588:
 	MainSub03() async;
 4623:
@@ -395,7 +395,7 @@ sub main()
 	msgBegin(0);
 5984:
 	msgWait();
-	enmNew("Boss", 0f, -32f, 1, 200000, 0);
+	enmNewAbs("Boss", 0f, -32f, 1, 200000, 0);
 5987:
 	killWait();
 	msgBegin(1);

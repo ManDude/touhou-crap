@@ -11,7 +11,7 @@ sub MBoss()
 	CAPTURED = 1;
 	enmClear();
 	resetBoss();
-	enmNewRel("Ecl_EtBreak_ni", 0f, 0f, 9999, 0, 0);
+	enmNew("Ecl_EtBreak_ni", 0f, 0f, 9999, 0, 0);
 	invinc(60);
 	anmFile(3);
 	anmMoveAt(0, 0);
@@ -59,7 +59,7 @@ sub MBossCard1()
 	resetBoss();
 	ins_21();
 	enmClear();
-	enmNewRel("Ecl_EtBreak", 0f, 0f, 9999, 0, 0);
+	enmNew("Ecl_EtBreak", 0f, 0f, 9999, 0, 0);
 	cardEnd();
 	ins_529(0);
 	resetBossParam();
@@ -107,9 +107,9 @@ sub MBossCard1_at1()
 	etSpd(0, 3.5f:3.5f:2f, 1.45f:1.45f:1.05f);
 	MBossCard1_at1_et0() async 1;
 30:
-	noop();
+	nop();
 60:
-	noop();
+	nop();
 	enmPos(96f, 96f);
 	endSlot(1);
 80:
@@ -125,9 +125,9 @@ sub MBossCard1_at1()
 98:
 	}
 158:
-	noop();
+	nop();
 218:
-	noop();
+	nop();
 	enmPos(0f, 144f);
 248:
 	return();
@@ -157,9 +157,9 @@ sub MBossCard1_at2()
 	etSpd(0, 3.5f:3.5f:2f, 1.45f:1.45f:1.05f);
 	MBossCard1_at1_et0() async 1;
 30:
-	noop();
+	nop();
 60:
-	noop();
+	nop();
 	enmPos(-96f, 96f);
 	endSlot(1);
 80:
@@ -175,9 +175,9 @@ sub MBossCard1_at2()
 98:
 	}
 158:
-	noop();
+	nop();
 218:
-	noop();
+	nop();
 	enmPos(0f, 144f);
 248:
 	return();

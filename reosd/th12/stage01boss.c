@@ -45,7 +45,7 @@ sub Boss1()
 	anmAt2(0, 119);
 	playSE(31);
 100:
-	noop();
+	nop();
 	while (1) {
 		ins_269(0);
 		Boss1_at1();
@@ -200,7 +200,7 @@ sub Boss1_at3()
 	etEx(0, 0, 0, 2, 3, [NEG], [NEGF], [NEGF]);
 	etOn(0);
 110:
-	noop();
+	nop();
 !NHL
 	etMode(0, 2);
 	etSpr(0, 5, 6);
@@ -302,7 +302,7 @@ sub Boss2()
 	anmAt2(0, 119);
 	playSE(31);
 200:
-	noop();
+	nop();
 	Boss2_at1();
 	return();
 }
@@ -466,7 +466,7 @@ sub BossCard1()
 	resetBoss();
 	ins_21();
 	enmClear();
-	enmNewRel("Ecl_EtBreak", 0f, 0f, 9999, 0, 0);
+	enmNew("Ecl_EtBreak", 0f, 0f, 9999, 0, 0);
 	cardEnd();
 	ins_529(0);
 	resetBossParam();
@@ -533,7 +533,7 @@ sub BossCard2()
 	resetBoss();
 	ins_21();
 	enmClear();
-	enmNewRel("Ecl_EtBreak", 0f, 0f, 9999, 0, 0);
+	enmNew("Ecl_EtBreak", 0f, 0f, 9999, 0, 0);
 	cardEnd();
 	ins_529(0);
 	resetBossParam();
@@ -551,7 +551,7 @@ sub BossCard2()
 	anmAt2(0, 119);
 120:
 	ins_269(0);
-	noop();
+	nop();
 	while(1) {
 		BossCard2_at1(6, 1);
 		wait(60);
@@ -566,7 +566,7 @@ sub BossCard2()
 		BossCard2_at2(-1);
 		enmRand(60, 4, 2f);
 		wait(60);
-		noop();
+		nop();
 	}
 	return();
 }
@@ -625,9 +625,9 @@ sub BossDead()
 	enmPosTime(0, 0, 0f, 0f);
 	enmRand(60, 4, 0.6f);
 	if (TIMEOUT == 0)
-		enmNewRel("Ecl_EtBreak2", 0f, 0f, 9999, 0, 0);
+		enmNew("Ecl_EtBreak2", 0f, 0f, 9999, 0, 0);
 	else
-		enmNewRel("Ecl_EtBreak2_ni", 0f, 0f, 9999, 0, 0);
+		enmNew("Ecl_EtBreak2_ni", 0f, 0f, 9999, 0, 0);
 	enmClear();
 60:
 	etClear_ni(1000f);

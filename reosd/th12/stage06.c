@@ -115,7 +115,7 @@ sub MainBossDebug()
 +10:
     msgBegin(-1);
     ins_700(3);
-    enmNew("Boss", -144f, -16f, 40, 1000, 1);
+    enmNewAbs("Boss", -144f, -16f, 40, 1000, 1);
     msgWait();
     killWait();
 +60:
@@ -128,7 +128,7 @@ sub MainBossDebug()
 sub MainMBossDebug()
 {
     ins_700(4);
-    enmNew("MBoss", -128f, -32f, 40, 1000, 1);
+    enmNewAbs("MBoss", -128f, -32f, 40, 1000, 1);
     goto MainMBossDebug_148 @ 0;
 MainMBossDebug_128:
     wait(1000);
@@ -143,7 +143,7 @@ sub MainMsgDebug()
 +120:
     msgBegin(0);
     msgWait();
-    enmNew("Boss", -144f, -16f, 40, 1000, 1);
+    enmNewAbs("Boss", -144f, -16f, 40, 1000, 1);
 +1:
     msgWait();
 +60:
@@ -152,7 +152,7 @@ sub MainMsgDebug()
     goto MainMsgDebug_232 @ 4181;
 MainMsgDebug_216: //181
 +4000:
-    noop();
+    nop();
 MainMsgDebug_232: //4181
     if 1 goto MainMsgDebug_216 @ 181;
     return();
@@ -162,14 +162,14 @@ sub MainSub00()
 {
 	times (26) {
 		I0 = 0;
-		enmNew("RCir00", -224f, 128f, 80, 1000, 2);
+		enmNewAbs("RCir00", -224f, 128f, 80, 1000, 2);
 +8:
-		enmNew("BCir01", -224f, 192f, 80, 1000, 1);
+		enmNewAbs("BCir01", -224f, 192f, 80, 1000, 1);
 +8:
 		I0 = 1;
-		enmNewMir("GCir00", 224f, 128f, 80, 1000, 1);
+		enmNewAbsMir("GCir00", 224f, 128f, 80, 1000, 1);
 +8:
-		enmNewMir("PCir01", 224f, 192f, 80, 1000, 2);
+		enmNewAbsMir("PCir01", 224f, 192f, 80, 1000, 2);
 +8:
 	}
 	I0 = 0;
@@ -178,13 +178,13 @@ sub MainSub00()
 
 sub MainSub01()
 {
-	enmNew("EffEnemy", -32f, -48f, 900, 1000, 2);
+	enmNewAbs("EffEnemy", -32f, -48f, 900, 1000, 2);
 +10:
-	enmNew("EffEnemy", -32f, -48f, 900, 1000, 2);
+	enmNewAbs("EffEnemy", -32f, -48f, 900, 1000, 2);
 +10:
-	enmNew("EffEnemy", -32f, -48f, 900, 1000, 2);
+	enmNewAbs("EffEnemy", -32f, -48f, 900, 1000, 2);
 +10:
-	enmNew("EffEnemy", -32f, -48f, 900, 1000, 2);
+	enmNewAbs("EffEnemy", -32f, -48f, 900, 1000, 2);
     return();
 }
 
@@ -207,29 +207,29 @@ sub EffEnemy()
 
 sub MainSub02()
 {
-	enmNewMir("YGirl00", 224f, 92f, 500, 1000, 2);
-	enmNew("RGirl00", -224f, 92f, 500, 1000, 2);
+	enmNewAbsMir("YGirl00", 224f, 92f, 500, 1000, 2);
+	enmNewAbs("RGirl00", -224f, 92f, 500, 1000, 2);
 +120:
-	enmNew("BGirl01", -64f, -32f, 500, 1000, 2);
-	enmNew("GGirl01", 64f, -32f, 500, 1000, 2);
+	enmNewAbs("BGirl01", -64f, -32f, 500, 1000, 2);
+	enmNewAbs("GGirl01", 64f, -32f, 500, 1000, 2);
 +120:
-	enmNewMir("RGirl00", 224f, 144f, 500, 1000, 2);
-	enmNew("YGirl00", -224f, 144f, 500, 1000, 2);
+	enmNewAbsMir("RGirl00", 224f, 144f, 500, 1000, 2);
+	enmNewAbs("YGirl00", -224f, 144f, 500, 1000, 2);
 +300:
-	enmNewMir("GGirl00", 224f, 92f, 500, 1000, 2);
-	enmNew("RGirl00", -224f, 92f, 500, 1000, 2);
+	enmNewAbsMir("GGirl00", 224f, 92f, 500, 1000, 2);
+	enmNewAbs("RGirl00", -224f, 92f, 500, 1000, 2);
 +20:
-	enmNewMir("YGirl00", 224f, 192f, 500, 1000, 2);
-	enmNew("BGirl00", -224f, 192f, 500, 1000, 2);
+	enmNewAbsMir("YGirl00", 224f, 192f, 500, 1000, 2);
+	enmNewAbs("BGirl00", -224f, 192f, 500, 1000, 2);
 +20:
-	enmNewMir("RGirl00", 224f, 128f, 500, 1000, 2);
-	enmNew("BGirl00", -224f, 128f, 500, 1000, 2);
+	enmNewAbsMir("RGirl00", 224f, 128f, 500, 1000, 2);
+	enmNewAbs("BGirl00", -224f, 128f, 500, 1000, 2);
 +20:
-	enmNewMir("YGirl00", 224f, 64f, 500, 1000, 2);
-	enmNew("GGirl00", -224f, 64f, 500, 1000, 2);
+	enmNewAbsMir("YGirl00", 224f, 64f, 500, 1000, 2);
+	enmNewAbs("GGirl00", -224f, 64f, 500, 1000, 2);
 +20:
-	enmNewMir("GGirl00", 224f, 48f, 500, 1000, 2);
-	enmNew("BGirl00", -224f, 48f, 500, 1000, 2);
+	enmNewAbsMir("GGirl00", 224f, 48f, 500, 1000, 2);
+	enmNewAbs("BGirl00", -224f, 48f, 500, 1000, 2);
 }
 
 sub Girl00(int anm1, int anm2)
@@ -424,7 +424,7 @@ sub main()
 1544:
 	MainSub02() async;
 2564:
-	enmNew("MBoss", 0f, 0f, 6000, 200000, 0);
+	enmNewAbs("MBoss", 0f, 0f, 6000, 200000, 0);
 	//msgBegin(2);
 +1:
 	msgWait();
@@ -439,7 +439,7 @@ sub main()
 	while 1 wait(1000);
 	delete();
 +60:
-    noop();
+    nop();
     wait(60);
     MainSub00() async;
     wait(820);
@@ -447,11 +447,11 @@ sub main()
     wait(540);
     MainSub02();
     wait(400);
-    enmNew("MBoss", -128f, -32f, 40, 1000, 1);
+    enmNewAbs("MBoss", -128f, -32f, 40, 1000, 1);
     wait(1860);
     msgBegin(0);
     msgWait();
-    enmNew("Boss", -144f, -16f, 40, 1000, 8);
+    enmNewAbs("Boss", -144f, -16f, 40, 1000, 8);
     msgWait();
     killWait();
 +60:
@@ -536,7 +536,7 @@ sub test_EnmUFOBlue()
 
 sub test_Enm_Follow()
 {
-    noop();
+    nop();
 	while 1 {
 		enmPos(PLAYER_X, PLAYER_Y);
 		wait(1);
@@ -546,7 +546,7 @@ sub test_Enm_Follow()
 */
 sub testfunc(int a, float b)
 {
-    noop();
+    nop();
     return();
 }
 

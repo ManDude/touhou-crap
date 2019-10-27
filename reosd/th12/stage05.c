@@ -335,15 +335,15 @@ sub Girl05At_c()
 sub MainSub00()
 {
 	I0 = 0;
-	enmNewNoBoss("BigGirlMain", -32f, -48f, 900, 2000, 1);
-	enmNewNoBoss("BigGirlMain", 32f, -48f, 900, 2000, 1);
+	enmNewAbsNoBoss("BigGirlMain", -32f, -48f, 900, 2000, 1);
+	enmNewAbsNoBoss("BigGirlMain", 32f, -48f, 900, 2000, 1);
 }
 
 sub MainSub00b()
 {
 	I0 = 0;
-	enmNewNoBoss("BigGirlMain", -64f, -48f, 900, 2000, 1);
-	enmNewNoBoss("BigGirlMain", 64f, -48f, 900, 2000, 1);
+	enmNewAbsNoBoss("BigGirlMain", -64f, -48f, 900, 2000, 1);
+	enmNewAbsNoBoss("BigGirlMain", 64f, -48f, 900, 2000, 1);
 }
 
 sub MainSub01(int ystart)
@@ -351,7 +351,7 @@ sub MainSub01(int ystart)
 	I0 = 2;
 	float y = _f(ystart);
 	times (8) {
-		enmNewNoBoss("RGirlMain", -224f, y, 200, 2000, 2);
+		enmNewAbsNoBoss("RGirlMain", -224f, y, 200, 2000, 2);
 +20:
 		y += 8f;
 	}
@@ -362,7 +362,7 @@ sub MainSub01m(int ystart)
 	I0 = 2;
 	float y = _f(ystart);
 	times (8) {
-		enmNewMirNoBoss("BGirlMain", 160f, y, 200, 2000, 2);
+		enmNewAbsMirNoBoss("BGirlMain", 160f, y, 200, 2000, 2);
 +20:
 		y += 8f;
 	}
@@ -371,72 +371,72 @@ sub MainSub01m(int ystart)
 sub MainSub02(int xoff)
 {
 	I0 = 1;
-	enmNewNoBoss("BigGirlMain", 0f-_f(xoff), -48f, 900, 1000, 1);
-	enmNewNoBoss("BigGirlMain", _f(xoff), -48f, 900, 1000, 1);
+	enmNewAbsNoBoss("BigGirlMain", 0f-_f(xoff), -48f, 900, 1000, 1);
+	enmNewAbsNoBoss("BigGirlMain", _f(xoff), -48f, 900, 1000, 1);
 }
 
 sub MainSub03()
 {
 	I0 = 3;
-	enmNewNoBoss("BGirlMain", -160f, -48f, 900, 2000, 1);
-	enmNewNoBoss("BGirlMain", 160f, -48f, 900, 2000, 1);
+	enmNewAbsNoBoss("BGirlMain", -160f, -48f, 900, 2000, 1);
+	enmNewAbsNoBoss("BGirlMain", 160f, -48f, 900, 2000, 1);
 +90:
-	enmNewNoBoss("RGirlMain", -64f, -48f, 900, 2000, 1);
-	enmNewNoBoss("RGirlMain", 64f, -48f, 900, 2000, 1);
+	enmNewAbsNoBoss("RGirlMain", -64f, -48f, 900, 2000, 1);
+	enmNewAbsNoBoss("RGirlMain", 64f, -48f, 900, 2000, 1);
 +90:
-	enmNewNoBoss("GGirlMain", -32f, -48f, 900, 2000, 1);
-	enmNewNoBoss("GGirlMain", 32f, -48f, 900, 2000, 1);
+	enmNewAbsNoBoss("GGirlMain", -32f, -48f, 900, 2000, 1);
+	enmNewAbsNoBoss("GGirlMain", 32f, -48f, 900, 2000, 1);
 }
 
 sub MainSub04()
 {
 	I0 = 4;
-	enmNewNoBoss("YGirlMain", 0f, -48f, 900, 2000, 1);
+	enmNewAbsNoBoss("YGirlMain", 0f, -48f, 900, 2000, 1);
 +110:
-	enmNewNoBoss("YGirlMain", -160f, -48f, 900, 2000, 1);
+	enmNewAbsNoBoss("YGirlMain", -160f, -48f, 900, 2000, 1);
 +110:
-	enmNewNoBoss("YGirlMain", 160f, -48f, 900, 2000, 1);
+	enmNewAbsNoBoss("YGirlMain", 160f, -48f, 900, 2000, 1);
 +100:
-	enmNewNoBoss("YGirlMain", -32f, -48f, 900, 2000, 1);
+	enmNewAbsNoBoss("YGirlMain", -32f, -48f, 900, 2000, 1);
 }
 
 sub MainSub05()
 {
-	I0 = 2;	enmNewNoBoss("RGirlMain", -224f, 80f, 150, 2000, 2);
-+15:I0 = 2;			enmNewMirNoBoss("BGirlMain", 224f, 80f, 150, 2000, 2);
-+15:I0 = 5; I2 = 0;	enmNewNoBoss("GGirlMain", -224f, 96f, 150, 2000, 2);
-+15:I0 = 5; I2 = 1;	enmNewMirNoBoss("YGirlMain", 224f, 64f, 150, 2000, 2);
-+15:I0 = 5; I2 = 2;	enmNewNoBoss("RGirlMain", -224f, 64f, 150, 2000, 2);
-+15:I0 = 5; I2 = 0;	enmNewMirNoBoss("BGirlMain", 224f, 64f, 150, 2000, 2);
-+15:I0 = 5; I2 = 1;	enmNewNoBoss("GGirlMain", -224f, 64f, 150, 2000, 2);
-+15:I0 = 5; I2 = 2;	enmNewMirNoBoss("YGirlMain", 224f, 96f, 150, 200, 2);
-+15:I0 = 2;			enmNewNoBoss("RGirlMain", -224f, 64f, 150, 2000, 2);
-+15:I0 = 2;			enmNewMirNoBoss("BGirlMain", 224f, 64f, 150, 2000, 2);
-+15:I0 = 5; I2 = 2;	enmNewNoBoss("GGirlMain", -224f, 96f, 150, 2000, 2);
-+15:I0 = 5; I2 = 0;	enmNewMirNoBoss("YGirlMain", 224f, 72f, 150, 2000, 2);
-+15:I0 = 5; I2 = 1;	enmNewNoBoss("RGirlMain", -224f, 80f, 150, 2000, 2);
-+15:I0 = 5; I2 = 0;	enmNewMirNoBoss("BGirlMain", 224f, 32f, 150, 2000, 2);
-+15:I0 = 2;			enmNewNoBoss("GGirlMain", -224f, 80f, 150, 2000, 2);
-+15:I0 = 5; I2 = 2;	enmNewMirNoBoss("YGirlMain", 224f, 64f, 150, 2000, 2);
-+15:I0 = 5; I2 = 1;	enmNewNoBoss("RGirlMain", -224f, 80f, 150, 2000, 2);
+	I0 = 2;	enmNewAbsNoBoss("RGirlMain", -224f, 80f, 150, 2000, 2);
++15:I0 = 2;			enmNewAbsMirNoBoss("BGirlMain", 224f, 80f, 150, 2000, 2);
++15:I0 = 5; I2 = 0;	enmNewAbsNoBoss("GGirlMain", -224f, 96f, 150, 2000, 2);
++15:I0 = 5; I2 = 1;	enmNewAbsMirNoBoss("YGirlMain", 224f, 64f, 150, 2000, 2);
++15:I0 = 5; I2 = 2;	enmNewAbsNoBoss("RGirlMain", -224f, 64f, 150, 2000, 2);
++15:I0 = 5; I2 = 0;	enmNewAbsMirNoBoss("BGirlMain", 224f, 64f, 150, 2000, 2);
++15:I0 = 5; I2 = 1;	enmNewAbsNoBoss("GGirlMain", -224f, 64f, 150, 2000, 2);
++15:I0 = 5; I2 = 2;	enmNewAbsMirNoBoss("YGirlMain", 224f, 96f, 150, 200, 2);
++15:I0 = 2;			enmNewAbsNoBoss("RGirlMain", -224f, 64f, 150, 2000, 2);
++15:I0 = 2;			enmNewAbsMirNoBoss("BGirlMain", 224f, 64f, 150, 2000, 2);
++15:I0 = 5; I2 = 2;	enmNewAbsNoBoss("GGirlMain", -224f, 96f, 150, 2000, 2);
++15:I0 = 5; I2 = 0;	enmNewAbsMirNoBoss("YGirlMain", 224f, 72f, 150, 2000, 2);
++15:I0 = 5; I2 = 1;	enmNewAbsNoBoss("RGirlMain", -224f, 80f, 150, 2000, 2);
++15:I0 = 5; I2 = 0;	enmNewAbsMirNoBoss("BGirlMain", 224f, 32f, 150, 2000, 2);
++15:I0 = 2;			enmNewAbsNoBoss("GGirlMain", -224f, 80f, 150, 2000, 2);
++15:I0 = 5; I2 = 2;	enmNewAbsMirNoBoss("YGirlMain", 224f, 64f, 150, 2000, 2);
++15:I0 = 5; I2 = 1;	enmNewAbsNoBoss("RGirlMain", -224f, 80f, 150, 2000, 2);
 +90:
 	times (9) {
-		I0 = 2;			enmNewMirNoBoss("BGirlMain", 224f, 80f, 150, 2000, 2);
-+15:	I0 = 5; I2 = 0;	enmNewNoBoss("GGirlMain", -224f, 96f, 150, 2000, 2);
-+15:	I0 = 5; I2 = 1;	enmNewMirNoBoss("YGirlMain", 224f, 64f, 150, 2000, 1);
-+15:	I0 = 5; I2 = 2;	enmNewNoBoss("RGirlMain", -224f, 64f, 150, 2000, 1);
-+15:	I0 = 5; I2 = 0;	enmNewMirNoBoss("BGirlMain", 224f, 64f, 150, 2000, 2);
-+15:	I0 = 5; I2 = 1;	enmNewNoBoss("GGirlMain", -224f, 64f, 150, 2000, 2);
-+15:	I0 = 5; I2 = 2;	enmNewMirNoBoss("YGirlMain", 224f, 96f, 150, 200, 1);
-+15:	I0 = 2;			enmNewNoBoss("RGirlMain", -224f, 64f, 150, 2000, 1);
-+15:	I0 = 2;			enmNewMirNoBoss("BGirlMain", 224f, 64f, 150, 2000, 2);
-+15:	I0 = 5; I2 = 2;	enmNewNoBoss("GGirlMain", -224f, 96f, 150, 2000, 2);
-+15:	I0 = 5; I2 = 0;	enmNewMirNoBoss("YGirlMain", 224f, 72f, 150, 2000, 1);
-+15:	I0 = 5; I2 = 1;	enmNewNoBoss("RGirlMain", -224f, 80f, 150, 2000, 1);
-+15:	I0 = 5; I2 = 0;	enmNewMirNoBoss("BGirlMain", 224f, 32f, 150, 2000, 2);
-+15:	I0 = 2;			enmNewNoBoss("GGirlMain", -224f, 80f, 150, 2000, 2);
-+15:	I0 = 5; I2 = 2;	enmNewMirNoBoss("YGirlMain", 224f, 64f, 150, 2000, 1);
-+15:	I0 = 5; I2 = 1;	enmNewNoBoss("RGirlMain", -224f, 80f, 150, 2000, 1);
+		I0 = 2;			enmNewAbsMirNoBoss("BGirlMain", 224f, 80f, 150, 2000, 2);
++15:	I0 = 5; I2 = 0;	enmNewAbsNoBoss("GGirlMain", -224f, 96f, 150, 2000, 2);
++15:	I0 = 5; I2 = 1;	enmNewAbsMirNoBoss("YGirlMain", 224f, 64f, 150, 2000, 1);
++15:	I0 = 5; I2 = 2;	enmNewAbsNoBoss("RGirlMain", -224f, 64f, 150, 2000, 1);
++15:	I0 = 5; I2 = 0;	enmNewAbsMirNoBoss("BGirlMain", 224f, 64f, 150, 2000, 2);
++15:	I0 = 5; I2 = 1;	enmNewAbsNoBoss("GGirlMain", -224f, 64f, 150, 2000, 2);
++15:	I0 = 5; I2 = 2;	enmNewAbsMirNoBoss("YGirlMain", 224f, 96f, 150, 200, 1);
++15:	I0 = 2;			enmNewAbsNoBoss("RGirlMain", -224f, 64f, 150, 2000, 1);
++15:	I0 = 2;			enmNewAbsMirNoBoss("BGirlMain", 224f, 64f, 150, 2000, 2);
++15:	I0 = 5; I2 = 2;	enmNewAbsNoBoss("GGirlMain", -224f, 96f, 150, 2000, 2);
++15:	I0 = 5; I2 = 0;	enmNewAbsMirNoBoss("YGirlMain", 224f, 72f, 150, 2000, 1);
++15:	I0 = 5; I2 = 1;	enmNewAbsNoBoss("RGirlMain", -224f, 80f, 150, 2000, 1);
++15:	I0 = 5; I2 = 0;	enmNewAbsMirNoBoss("BGirlMain", 224f, 32f, 150, 2000, 2);
++15:	I0 = 2;			enmNewAbsNoBoss("GGirlMain", -224f, 80f, 150, 2000, 2);
++15:	I0 = 5; I2 = 2;	enmNewAbsMirNoBoss("YGirlMain", 224f, 64f, 150, 2000, 1);
++15:	I0 = 5; I2 = 1;	enmNewAbsNoBoss("RGirlMain", -224f, 80f, 150, 2000, 1);
 +90:
 	}
 }
@@ -444,25 +444,25 @@ sub MainSub05()
 sub MainSub06()
 {
 	I0 = 1;
-	enmNewNoBoss("BigGirlMain", -160f, -48f, 900, 1000, 1);
+	enmNewAbsNoBoss("BigGirlMain", -160f, -48f, 900, 1000, 1);
 +10:
-	enmNewNoBoss("BigGirlMain", 160f, -48f, 900, 1000, 1);
+	enmNewAbsNoBoss("BigGirlMain", 160f, -48f, 900, 1000, 1);
 +10:
-	enmNewNoBoss("BigGirlMain", -128f, -48f, 900, 1000, 1);
+	enmNewAbsNoBoss("BigGirlMain", -128f, -48f, 900, 1000, 1);
 +10:
-	enmNewNoBoss("BigGirlMain", 128f, -48f, 900, 1000, 1);
+	enmNewAbsNoBoss("BigGirlMain", 128f, -48f, 900, 1000, 1);
 +10:
-	enmNewNoBoss("BigGirlMain", -96f, -48f, 900, 1000, 1);
+	enmNewAbsNoBoss("BigGirlMain", -96f, -48f, 900, 1000, 1);
 +10:
-	enmNewNoBoss("BigGirlMain", 96f, -48f, 900, 1000, 1);
+	enmNewAbsNoBoss("BigGirlMain", 96f, -48f, 900, 1000, 1);
 +10:
-	enmNewNoBoss("BigGirlMain", -64f, -48f, 900, 1000, 1);
+	enmNewAbsNoBoss("BigGirlMain", -64f, -48f, 900, 1000, 1);
 +10:
-	enmNewNoBoss("BigGirlMain", 64f, -48f, 900, 1000, 1);
+	enmNewAbsNoBoss("BigGirlMain", 64f, -48f, 900, 1000, 1);
 +10:
-	enmNewNoBoss("BigGirlMain", -48f, -48f, 900, 1000, 1);
+	enmNewAbsNoBoss("BigGirlMain", -48f, -48f, 900, 1000, 1);
 +10:
-	enmNewNoBoss("BigGirlMain", 48f, -48f, 900, 1000, 1);
+	enmNewAbsNoBoss("BigGirlMain", 48f, -48f, 900, 1000, 1);
 }
 
 //main
@@ -500,7 +500,7 @@ sub main()
 2652:
 	MainSub04() async;
 3372:
-	enmNewNoBoss("MBoss", -192f, 0f, 15000, 200000, 0);
+	enmNewAbsNoBoss("MBoss", -192f, 0f, 15000, 200000, 0);
 	msgBegin(2);
 +1:
 	msgWait();
@@ -516,7 +516,7 @@ sub main()
 +200:
 	MainSub06() async;
 7704:
-	enmNewNoBoss("Boss", -192f, 0f, 15000, 200000, 0);
+	enmNewAbsNoBoss("Boss", -192f, 0f, 15000, 200000, 0);
 	msgBegin(0);
 +1:
 	msgWait();
@@ -556,7 +556,7 @@ sub MainBossDebug()
 {
 +10: //10
 	ins_700(3);
-	enmNewNoBoss("Boss", -144f, -16f, 40, 1000, 1);
+	enmNewAbsNoBoss("Boss", -144f, -16f, 40, 1000, 1);
 	msgWait();
 	killWait();
 +60: //70
@@ -569,7 +569,7 @@ sub MainBossDebug()
 sub MainMBossDebug()
 {
 	ins_700(3);
-	enmNewNoBoss("MBoss", -128f, -32f, 200000, 15000, 1);
+	enmNewAbsNoBoss("MBoss", -128f, -32f, 200000, 15000, 1);
 	while 1 wait(1000);
 	return();
 }
@@ -580,14 +580,14 @@ sub MainMsgDebug()
 +120: //120
 	msgBegin(0);
 	msgWait();
-	enmNewNoBoss("Boss", 128f, -32f, 40, 1000, 1);
+	enmNewAbsNoBoss("Boss", 128f, -32f, 40, 1000, 1);
 +1: //121
 	msgWait();
 +60: //181
 	msgBegin(1);
 	msgWait();
 	while 1 {
-+4000: 	noop(); //4181
++4000: 	nop(); //4181
 	}
 	return();
 }
@@ -597,11 +597,11 @@ sub MainMsgDebugMBoss()
 	ins_700(100);
 +120: //120
 	msgBegin(2);
-	enmNewNoBoss("MBoss", 128f, -32f, 40, 1000, 1);
+	enmNewAbsNoBoss("MBoss", 128f, -32f, 40, 1000, 1);
 +1: //121
 	msgWait();
 	while 1 {
-+4000: 	noop(); //4121
++4000: 	nop(); //4121
 	}
 	return();
 }

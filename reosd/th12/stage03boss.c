@@ -152,14 +152,14 @@ sub Boss2()
 
 sub Boss2_Enm()
 {
-	enmNew("Boss2_enm_GGirl", -160f, -32f, 2000, 2000, 1);
-	enmNew("Boss2_enm_BGirl", 160f, -32f, 1000, 2000, 1);
+	enmNewAbs("Boss2_enm_GGirl", -160f, -32f, 2000, 2000, 1);
+	enmNewAbs("Boss2_enm_BGirl", 160f, -32f, 1000, 2000, 1);
 30:
-	enmNew("Boss2_enm_RGirl", -96f, -32f, 500, 2000, 1);
-	enmNew("Boss2_enm_YGirl", 96f, -32f, 2000, 2000, 1);
+	enmNewAbs("Boss2_enm_RGirl", -96f, -32f, 500, 2000, 1);
+	enmNewAbs("Boss2_enm_YGirl", 96f, -32f, 2000, 2000, 1);
 60:
-	enmNew("Boss2_enm_BGirl", -32f, -32f, 1000, 2000, 1);
-	enmNew("Boss2_enm_RGirl", 32f, -32f, 500, 2000, 1);
+	enmNewAbs("Boss2_enm_BGirl", -32f, -32f, 1000, 2000, 1);
+	enmNewAbs("Boss2_enm_RGirl", 32f, -32f, 500, 2000, 1);
 	return();
 }
 
@@ -274,9 +274,9 @@ sub Boss2_enm_Girl(int anm, int anm2)
 			etSpd(0, sp + 0.5f, 0.25f);
 			etOn(0);
 			sp += 0.18f;
-72:			noop();
+72:			nop();
 		}
-232:	noop();
+232:	nop();
 	}
 	enmDir(0.7853982f + (RF * 1.5707964f), 1.5f);
 10000:
@@ -351,7 +351,7 @@ sub Boss3()
 		enmRand(80, 1, 4f);
 		wait(80);
 		I0 += 1;
-280:	noop();
+280:	nop();
 	}
 	return();
 }
@@ -393,7 +393,7 @@ sub Boss3_at2()
 		wait(1);
 	}
 20:
-	noop();
+	nop();
 70:
 	etSpr(1, 8, 2);
 	etEx(1, 2, 1, 16, 60, 1, rad(166f) : rad(166f) : rad(156f) : rad(140f), 3f : 3f : 4f : 4f);
@@ -413,7 +413,7 @@ sub BossCard1()
 	resetBoss();
 	ins_21();
 	enmClear();
-	enmNewRel("Ecl_EtBreak", 0f, 0f, 9999, 0, 0);
+	enmNew("Ecl_EtBreak", 0f, 0f, 9999, 0, 0);
 	cardEnd();
 	ins_529(0);
 	resetBossParam();
@@ -496,7 +496,7 @@ sub BossCard1()
 			startAng -= rad(7.5f);
 		normRad(startAng);
 		I0 += 1;
-7:		noop();
+7:		nop();
 	}
 	return();
 }
@@ -507,7 +507,7 @@ sub BossCard2()
 	ins_21();
 	enmClear();
 	wait(1);
-	enmNewRel("Ecl_EtBreak", 0f, 0f, 9999, 0, 0);
+	enmNew("Ecl_EtBreak", 0f, 0f, 9999, 0, 0);
 	cardEnd();
 	ins_529(0);
 	resetBossParam();
@@ -526,7 +526,7 @@ sub BossCard2()
 	anmAt2(0, 119);
 	enmPosTime(2000, 4, 0f, 160f);
 	ins_269(0);
-	noop();
+	nop();
 	BOSS1 = 1;
 	etNew(0);
 	etMode(0, [ETON_FAN_AIM]);
@@ -581,7 +581,7 @@ sub BossCard2At(int dur, float range)
 			}
 		}
 		I1 += 1;
-1:		noop();
+1:		nop();
 	}
 }
 
@@ -590,7 +590,7 @@ sub BossCard3()
 	resetBoss();
 	ins_21();
 	enmClear();
-	enmNewRel("Ecl_EtBreak", 0f, 0f, 9999, 0, 0);
+	enmNew("Ecl_EtBreak", 0f, 0f, 9999, 0, 0);
 	cardEnd();
 	ins_529(0);
 	resetBossParam();
@@ -655,7 +655,7 @@ sub BossCard3H()
 	resetBoss();
 	ins_21();
 	enmClear();
-	enmNewRel("Ecl_EtBreak", 0f, 0f, 9999, 0, 0);
+	enmNew("Ecl_EtBreak", 0f, 0f, 9999, 0, 0);
 	cardEnd();
 	ins_529(0);
 	resetBossParam();
@@ -840,9 +840,9 @@ sub BossDead()
 	anmAt2(0, 129);
 	enmDir(RDEG, 0.4f);
 	if (TIMEOUT == 0)
-		enmNewRel("Ecl_EtBreak2", 0f, 0f, 9999, 0, 0);
+		enmNew("Ecl_EtBreak2", 0f, 0f, 9999, 0, 0);
 	else
-		enmNewRel("Ecl_EtBreak2_ni", 0f, 0f, 9999, 0, 0);
+		enmNew("Ecl_EtBreak2_ni", 0f, 0f, 9999, 0, 0);
 	enmClear();
 60:
 	etClear_all();
