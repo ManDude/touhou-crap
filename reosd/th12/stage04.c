@@ -654,12 +654,9 @@ sub MainMsgDebug()
 181:
 	msgBegin(1);
 	msgWait();
-	goto MainMsgDebug_232 @ 4181;
-MainMsgDebug_216:
-4181:
-	nop();
-MainMsgDebug_232:
-	if 1 goto MainMsgDebug_216 @ 181;
+	while 1 {
++4000: nop();
+	}
 	return;
 }
 

@@ -4,7 +4,6 @@
 
 sub MBoss()
 {
-	var A;
 	boss(0);
 	MISS_COUNT = 0;
 	BOMB_COUNT = 0;

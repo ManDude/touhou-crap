@@ -4,7 +4,6 @@
 
 sub Boss()
 {
-	var A;
 	boss(0);
 	anmFile(2);
 	anmMoveAt(0, 0);
@@ -268,7 +267,6 @@ sub Boss1_at4()
 
 sub Boss2()
 {
-	var A, B;
 	life(7500);
 	resetBoss();
 	ins_21();

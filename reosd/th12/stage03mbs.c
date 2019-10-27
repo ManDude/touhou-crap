@@ -144,7 +144,6 @@ sub MBossCard1()
 
 sub MBossCard1E()
 {
-	var A, B, C, D;
 	wait(120);
 	etNew(0);
 	etMode(0, 3);
@@ -183,7 +182,6 @@ sub MBossCard1E()
 
 sub MBossCard1H()
 {
-	var A, B, C, D;
 	wait(120);
 	etNew(0);
 	etMode(0, 3);

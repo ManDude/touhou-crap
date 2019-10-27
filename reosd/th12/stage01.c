@@ -135,10 +135,10 @@ sub FairyBasicShoot00()
 	etAng(0, 0f, 0f);
 	etSE(0, -1, -1);
 	etEx(0, 0, 0, 2, 1, NEG, NEGF, NEGF);
-FairyBasicShoot00_316:
-	etOn(0);
-	wait(97);
-	goto FairyBasicShoot00_316 @ 0;
+	while 1 {
+		etOn(0);
+		wait(97);
+	}
 	return;
 }
 

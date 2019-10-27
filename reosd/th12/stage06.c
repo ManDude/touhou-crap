@@ -129,11 +129,7 @@ sub MainMBossDebug()
 {
     ins_700(4);
     enmNewAbs("MBoss", -128f, -32f, 40, 1000, 1);
-    goto MainMBossDebug_148 @ 0;
-MainMBossDebug_128:
-    wait(1000);
-MainMBossDebug_148:
-    if 1 goto MainMBossDebug_128 @ 0;
+    while 1 wait(1000);
     return;
 }
 
@@ -149,12 +145,9 @@ sub MainMsgDebug()
 +60:
     msgBegin(1);
     msgWait();
-    goto MainMsgDebug_232 @ 4181;
-MainMsgDebug_216: //181
-+4000:
-    nop();
-MainMsgDebug_232: //4181
-    if 1 goto MainMsgDebug_216 @ 181;
+	while 1 {
++4000: nop();
+	}
     return;
 }
 
@@ -380,14 +373,11 @@ sub YGirl01()
 
 sub MapleEnemy()
 {
-    var A;
     setFlags(32);
-    goto MapleEnemy_124 @ 0;
-MapleEnemy_80:
-    ins_264(0, 102);
-    wait(1);
-MapleEnemy_124:
-    if 1 goto MapleEnemy_80 @ 0;
+	while 1 {
+		ins_264(0, 102);
+		wait(1);
+	}
     delete();
 }
 
