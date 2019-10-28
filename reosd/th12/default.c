@@ -16,13 +16,13 @@ sub rand(int max, int addr)
 	else if (addr == 3)
 		I3 = r;
 	else if (addr == 4)
-		BOSS1 = r;
+		BI0 = r;
 	else if (addr == 5)
-		BOSS2 = r;
+		BI1 = r;
 	else if (addr == 6)
-		BOSS3 = r;
+		BI2 = r;
 	else if (addr == 7)
-		BOSS4 = r;
+		BI3 = r;
 }
 
 sub Ecl_EtBreak()

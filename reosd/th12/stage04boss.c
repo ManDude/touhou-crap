@@ -27,7 +27,7 @@ sub Boss()
 sub Boss1()
 {
 	int time = 2400;
-	BOSS4 = 0;
+	BI3 = 0;
 	resetBoss();
 	life(17000);
 	if (RANK == 0) {
@@ -103,13 +103,13 @@ sub Boss1()
 	etSpd(2, 3f:4f, 1.45f);
 	etAng(2, 0f, 0f);
 	etEx(2, 0, 0, 2, 2, NEG, NEGF, NEGF);
-	BOSS1 = 0;
+	BI0 = 0;
 	while 1 {
 		ins_269(0);
 100:
-		Boss1At(BOSS1 % 2);
+		Boss1At(BI0 % 2);
 		Boss1_at();
-		BOSS1 += 1;
+		BI0 += 1;
 	}
 9100:
 	return;
@@ -186,7 +186,7 @@ sub Boss1At(int m)
 			laserOn2(1, 8);
 			laser_end = 1;
 		}
-		if (((i % e) == 0) && BOSS1) {
+		if (((i % e) == 0) && BI0) {
 			if (laser_start) {
 				lAng = rad(45f) + (inc * _f(i));
 				etOfs(0, cos(lAng) * 64f, 0f - (sin(lAng) * (cos(lAng) * 64f)));
@@ -261,7 +261,7 @@ sub Boss1At(int m)
 sub Boss1_at()
 {
 	enmRand(90, 4, 2.5f);
-	etAmt(2, BOSS1 + (12:16:24), 3:4);
+	etAmt(2, BI0 + (12:16:24), 3:4);
 	et_on_rate(2, 33, 0) async 1;
 90:
 	enmPosTime(90, 4, 0f, 128f);
@@ -292,7 +292,7 @@ sub Boss2()
 	resetBossParam();
 	playSE(28);
 	int time = 2400;
-	BOSS4 = 1;
+	BI3 = 1;
 	if (SHOT_TYPE == SHOT_REIMU_A) {
 !E
 	interrupt(0, 1600, time, "BossCardWaterUndine");
@@ -383,13 +383,13 @@ sub Boss2()
 	etSE(1, 19, -1);
 	etSpd(1, 32f, 32f);
 	laserSize(1, 500f, 500f, 0f, 48f);
-	BOSS1 = 0;
+	BI0 = 0;
 	while 1 {
 		ins_269(0);
 180:
-		Boss1At(BOSS1 % 2);
+		Boss1At(BI0 % 2);
 		Boss2_at();
-		BOSS1 += 1;
+		BI0 += 1;
 	}
 9180:
 	return;
@@ -403,7 +403,7 @@ sub Boss2_at()
 	etSpr(2, ET_BALL, BLUE16);
 	etSpd(2, 4.5f:4.5f:6f, 1.75f);
 	etAng(2, 0f, 0f);
-	etAmt(2, BOSS1 + 10, 2:3:4:5);
+	etAmt(2, BI0 + 10, 2:3:4:5);
 	etEx(2, 0, 0, 2, 2, NEG, NEGF, NEGF);
 	et_on_rate(2, 17:13:13:9, 0) async 1;
 90:
@@ -419,7 +419,7 @@ sub Boss2_at()
 
 sub Boss3()
 {
-	BOSS4 = 0;
+	BI3 = 0;
 	int lifeval;
 	float lifepos;
 	int time = 2400;
@@ -2119,7 +2119,7 @@ sub BossCardWoodSylphyHL()
 sub BossCheckItems()
 {
 	setMoveArea(0f, 96f, 320f, 48f);
-	if (BOSS4) {
+	if (BI3) {
 		etClear(640f);
 		if (TIMEOUT == 0)
 			ItemDrop2(65, 64f, 64f);
@@ -2133,7 +2133,7 @@ sub BossCheckItems()
 			etClear(640f);
 		else
 			etClear_ni(640f);
-		BOSS4 = 1;
+		BI3 = 1;
 	}
 	return;
 }
@@ -2169,7 +2169,7 @@ sub BossDead()
 
 sub BossSetNext(int life)
 {
-	if (BOSS4) {
+	if (BI3) {
 		interrupt(0, 0, life, "Boss3");
 		return;
 	}

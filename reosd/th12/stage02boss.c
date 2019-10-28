@@ -26,7 +26,7 @@ sub Boss()
 sub Boss1()
 {
 	resetBoss();
-	BOSS4 = 0;
+	BI3 = 0;
 !EN
 	interrupt(0, 1500, 1500, "BossCard1EN");
 !HL
@@ -46,7 +46,7 @@ sub Boss1()
 	wait(50);
 	while 1 {
 		Boss1_at1();
-		BOSS4 += 1;
+		BI3 += 1;
 	}
 	return;
 }
@@ -129,13 +129,13 @@ sub Boss1_at2()
 		etAmt_rank(0, 12, 20, 28, 28, 1, 1, 1, 2);
 		etSpd(0, 2.3f, 1f);
 		etOn(0);
-		wait(20 - (BOSS4 * 3));
+		wait(20 - (BI3 * 3));
 		etOn(1);
-		wait(20 - (BOSS4 * 3));
+		wait(20 - (BI3 * 3));
 		etAmt_rank(0, 10, 18, 20, 20, 1, 1, 1, 2);
 		etSpd(0, 4.3f : 2.3f, 1f);
 		etOn(0);
-		wait(40 - (BOSS4 * 5));
+		wait(40 - (BI3 * 5));
 	}
 	return;
 }
@@ -178,7 +178,7 @@ sub Boss2()
 	playSE(31);
 200:
 	nop();
-	BOSS1 = 0;
+	BI0 = 0;
 	while 1 {
 		Boss2_at1();
 		Boss2_at2();
@@ -194,7 +194,7 @@ sub Boss2_at1()
 	etMode(0, 2);
 	etOfs(0, 0f, -12f);
 	etSpr(0, 5, 6);
-	etAmt(0, BOSS1 + (5:8:14:20), 1:1:1:2);
+	etAmt(0, BI0 + (5:8:14:20), 1:1:1:2);
 	etSpd(0, 2.5f : 3.5f : 4.5f, 1f);
 	etAng(0, 0f, 0f);
 	etEx(0, 0, 0, 2, 2, NEG, NEGF, NEGF);
@@ -251,8 +251,8 @@ sub Boss2_at2()
 		laserOn(0);
 		wait(50);
 	}
-	BOSS1 += 1;
-	while (BOSS1 >= 12) nop();
+	BI0 += 1;
+	while (BI0 >= 12) nop();
 	return;
 }
 
@@ -383,8 +383,8 @@ sub BossCard2()
 	etOfs(0, 0f, -12f);
 	etMode(0, 1);
 	etAmt(0, 1, 1);
-	BOSS1F = 4f;
-	BOSS2F = 1f;
+	BF0 = 4f;
+	BF1 = 1f;
 	etAng(0, 0f, 0f);
 	etEx(0, 0, 1, 2, 2, NEG, NEGF, NEGF);
 	etEx(0, 2, 0, 2048, 5, 15, NEGF, NEGF);
@@ -398,24 +398,24 @@ sub BossCard2()
 	int i = 0;
 	while 1 {
 		enmRand(120, 4, 2f);
-		BOSS1 = i + (9:12:15:21);
-		BOSS2 = 190;
+		BI0 = i + (9:12:15:21);
+		BI1 = 190;
 		times (6) {
 			wait(5);
 			BossCard2_at(0, 6);
-			BOSS2 = BOSS2 - 5;
+			BI1 = BI1 - 5;
 			wait(5);
 			BossCard2_at(0, 2);
-			BOSS2 = BOSS2 - 5;
+			BI1 = BI1 - 5;
 			wait(5);
 			BossCard2_at(0, 10);
-			BOSS2 = BOSS2 - 5;
+			BI1 = BI1 - 5;
 			wait(5);
 			BossCard2_at(0, 13);
-			BOSS2 = BOSS2 - 5;
+			BI1 = BI1 - 5;
 			wait(5);
 			BossCard2_at(0, 14);
-			BOSS2 = BOSS2 - 5;
+			BI1 = BI1 - 5;
 		}
 		wait(120);
 		enmRand(120, 4, 2f);
@@ -452,10 +452,10 @@ sub BossCard2()
 sub BossCard2_at(int et, int col)
 {
 	etSpr(et, 5, col);
-	etEx(et, 1, 0, 4, BOSS2, NEG, 0f, 0f);
-	int count = BOSS1;
+	etEx(et, 1, 0, 4, BI1, NEG, 0f, 0f);
+	int count = BI0;
 	while (count--) {
-		etSpd(et, (BOSS1F * RF) + BOSS2F, BOSS2F);
+		etSpd(et, (BF0 * RF) + BF1, BF1);
 		etAng(et, RDEG, 0f);
 		etEx(et, 5, 0, 4, 220, NEG, 0.01f, RDEG);
 		etOn(et);

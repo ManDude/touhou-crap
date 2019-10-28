@@ -319,7 +319,7 @@ sub Boss3()
 	ins_529(0);
 	resetBossParam();
 	playSE(28);
-	BOSS1 = 0;
+	BI0 = 0;
 !E
 	interrupt(0, 1400, 2400, "BossCard3");
 	lifebar(0, 1400f, -24448);
@@ -502,7 +502,7 @@ sub BossCard2()
 	enmPosTime(2000, 4, 0f, 160f);
 	ins_269(0);
 	nop();
-	BOSS1 = 1;
+	BI0 = 1;
 	etNew(0);
 	etMode(0, ETON_FAN_AIM);
 	etSpr(0, ET_BALL, 6);
