@@ -33,11 +33,11 @@ sub Cir00(int anm1, int anm2, int anmfile)
     killbox(28f, 28f);
 	interrupt(0, 0, -1, "Cir00Dead");
     Cir00_at() async 1;
-	enmDir(rad(30f), 4.5f);
+	enmDir(rad(30), 4.5f);
 +30:
-	//enmDirTime(60, 0, rad(30f) + rad(-3.75f), 4f);
-	if (I0) enm_rot_spd_m(rad(-3.75f), 85) async;
-	else enm_rot_spd(rad(-3.75f), 85) async;
+	//enmDirTime(60, 0, rad(30) + rad(-3.75), 4f);
+	if (I0) enm_rot_spd_m(rad(-3.75), 85) async;
+	else enm_rot_spd(rad(-3.75), 85) async;
 +85:
 	endSlot(1);
 10000:
@@ -70,9 +70,9 @@ sub Cir01(int anm1, int anm2, int anmfile)
     killbox(28f, 28f);
 	interrupt(0, 0, -1, "Cir00Dead");
     Cir01_at() async 1;
-	enmDir(rad(-60f), 4f);
+	enmDir(rad(-60), 4f);
 +30:
-	enmDirTime(60, 0, rad(-60f) + rad(120f), 4f);
+	enmDirTime(60, 0, rad(-60) + rad(120), 4f);
 +60:
 	endSlot(1);
 10000:
@@ -236,7 +236,7 @@ sub Girl00(int anm1, int anm2)
 +40:
 	interrupt(0, 0, -1, "Girl00Dead");
 	Girl00_at();
-	enmDir(RF2 * rad(45f) + rad(90f), 1.8f);
+	enmDir(RF2 * rad(45) + rad(90), 1.8f);
 10000:
     return;
 }
@@ -270,7 +270,7 @@ sub Girl01(int anm1, int anm2)
 +40:
 	interrupt(0, 0, -1, "Girl00Dead");
 	Girl01_at();
-	enmDir(RF2 * rad(45f) + rad(90f), 1.8f);
+	enmDir(RF2 * rad(45) + rad(90), 1.8f);
 10000:
     return;
 }

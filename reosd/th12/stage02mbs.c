@@ -71,7 +71,7 @@ sub MBoss1_at()
 sub MBoss1_at1()
 {
 	wait(40);
-	float sp1 = 2f, sp2 = 1.4f, ang = rad(90f);
+	float sp1 = 2f, sp2 = 1.4f, ang = rad(90);
 	etNew(0);
 	etMode(0, 3);
 	etSpr(0, 8, 10);
@@ -85,7 +85,7 @@ sub MBoss1_at1()
 		sp1 += 0.05f;
 		wait(1);
 		sp2 -= 0.02f;
-		ang += rad(7.5f);
+		ang += rad(7.5);
 	}
 	return;
 }
@@ -93,7 +93,7 @@ sub MBoss1_at1()
 sub MBoss1_at2()
 {
 	wait(40);
-	float sp1 = 2f, sp2 = 1.4f, ang = rad(90f);
+	float sp1 = 2f, sp2 = 1.4f, ang = rad(90);
 	etNew(0);
 	etMode(0, 3);
 	etSpr(0, 8, 2);
@@ -107,7 +107,7 @@ sub MBoss1_at2()
 		sp1 += 0.05f;
 		wait(1);
 		sp2 -= 0.02f;
-		ang -= rad(7.5f);
+		ang -= rad(7.5);
 	}
 	return;
 }
@@ -131,8 +131,8 @@ sub MBoss1_at3()
 	etSpd(0, 6.5f, 2.25f);
 	etSpd(1, 4.5f, 2.25f);
 !*
-	etAng(0, 0f, rad(30f) : rad(30f) : rad(18f) : rad(11.25f));
-	etAng(1, 0f, rad(30f) : rad(30f) : rad(18f) : rad(11.25f));
+	etAng(0, 0f, rad(30) : rad(30) : rad(18) : rad(11.25));
+	etAng(1, 0f, rad(30) : rad(30) : rad(18) : rad(11.25));
 	etEx(0, 0, 0, 2, 2, NEG, NEGF, NEGF);
 	etEx(0, 1, 0, 32, 40, 1, 0f, 4f);
 	etEx(1, 0, 0, 2, 2, NEG, NEGF, NEGF);

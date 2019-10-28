@@ -4,13 +4,7 @@
 
 sub MBoss()
 {
-	boss(0);
-	MISS_COUNT = 0;
-	BOMB_COUNT = 0;
-	CAPTURED = 1;
-	enmClear();
-	resetBoss();
-	enmNew("Ecl_EtBreak_ni", 0f, 0f, 9999, 0, 0);
+	BossInit(0);
 	anmFile(0);
 	anmAt(1, 95);
 	anmAt(2, 158);
@@ -65,7 +59,7 @@ sub MBoss1()
 226:
 		MBoss1_at2(13, 0.1963495f);
 234:
-		MBoss1_at2(14, rad(15f));
+		MBoss1_at2(14, rad(15));
 264:
 		nop();
 324:
@@ -113,51 +107,35 @@ sub MBoss1()
 
 sub MBoss1_at1(int col)
 {
-	etNew(0);
-	etMode(0, 2);
-	etSpr(0, 5, col);
-	etAmt(0, 16, 1:3:5:7);
-	etSpd(0, 2.5f, (1.5f:1.5f:1.2f:1f) + 0.25f);
-	etAng(0, 0f, 0f);
+	et_set(0, 2, 5, col, 16, 1:3:5:7, 0f, 0f, 2.5f, (1.5f:1.5f:1.2f:1f) + 0.25f);
+	ex_effon2(0, 0);
+	ex_spdown(0, 1);
 	etOfs(0, 0f, -12f);
-	etEx(0, 0, 0, 2, 1, NEG, NEGF, NEGF);
-	etEx(0, 1, 1, 1, NEG, NEG, NEGF, NEGF);
 	etOn(0);
 	return;
 }
 
 sub MBoss1_at2(int col, float ang)
 {
-	etNew(0);
-	etMode(0, 3);
-	etSpr(0, 0, col);
-	etAmt(0, 8:14:20:28, 1);
-	etSpd(0, 0.5f, 0.25f);
-	etAng(0, ang, 0f);
+	et_set(0, 3, 0, col, 8:14:20:28, 1, ang, 0f, 0.5f, 0.25f);
+	ex_effon1(0, 0);
+	ex_spdown(0, 1);
+	ex_spup(0, 2, EX_WAIT, 9999, 0.02f, NEGF);
 	etOfs(0, 0f, -12f);
-	etEx(0, 0, 2, 2, 1, NEG, NEGF, NEGF);
-	etEx(0, 1, 1, 1, NEG, NEG, NEGF, NEGF);
-	etEx(0, 2, 0, 4096, 15, NEG, NEGF, NEGF);
-	etEx(0, 3, 0, 4, 999999, NEG, 0.02f, NEGF);
 	etOn(0);
 	return;
 }
 
 sub MBoss1_at3(int col)
 {
-	etNew(0);
-	etMode(0, 3);
+	et_set(0, ETON_CIR, 0, col, 4:8:12:24, 1, RDEG, 0f, (RF * 3f) + 1f, 0.95f);
+	ex_effon1(0, 0);
+	ex_spdown(0, 1);
 	etOfs(0, 0f, -12f);
-	etAmt(0, 4:8:12:24, 1);
-	etEx(0, 0, 0, 2, 2, NEG, NEGF, NEGF);
-	etEx(0, 1, 0, 1, NEG, NEG, NEGF, NEGF);
-	etSpr(0, 0, col);
-	etSpd(0, (RF * 3f) + 1f, 0.95f);
-	etAng(0, RDEG - PI, 0f);
 	etOn(0);
 	etSpr(0, 7, col);
 	etSpd(0, (RF * 3f) + 1f, 0.95f);
-	etAng(0, RDEG - PI, 0f);
+	etAng(0, RDEG, 0f);
 	etOn(0);
 	return;
 }
@@ -167,9 +145,7 @@ sub MBossCard1()
 	CardStart();
 	interrupt(0, 0, 1320, "MBossDead");
 	timeoutAt(0, "MBossEscape");
-!HL
 	cardH(0, 1320, 640000, "月符「ムーンライトレイ」");
-!*
 	enmPosTime(120, 4, 0f, 96f);
 	setMoveArea(0f, 96f, 320f, 96f);
 120:
@@ -190,17 +166,12 @@ sub MBossCard1()
 
 sub MBossCard1_at()
 {
-	etNew(1);
-	etMode(1, 2);
-	etSpr(1, 0, 6);
-	etAng(1, 0f, 0f);
-	etAmt(1, 42:42:42:48, 1);
-	etSpd(1, (2.5f:2.5f:2.5f:2.8f) + 0.5f, 0.25f);
-	etEx(1, 0, 0, 2, 2, NEG, NEGF, NEGF);
+	et_set(1, ETON_CIR_AIM, 0, 6, 0:0:42:48, 1, 0f, 0f, (0f:0f:2.5f:2.8f) + 0.5f, 0.25f);
+	ex_effon1(1, 0);
 	etOfs(1, 0f, -12f);
 	while (1) {
 		etOn(1);
-		wait_rank(0, 0, 33, 21);
+		wait_rank(999999, 999999, 33, 21);
 	}
 	return;
 }
@@ -215,18 +186,18 @@ sub MBossCard1_at2()
 	etOfs(0, 0f, -12f);
 	etSE(0, 19, -1);
 	etEx(0, 0, 0, 0x10000000, 1, NEG, NEGF, NEGF);
-	float l1Ang = rad(22.5f);
+	float l1Ang = rad(22.5);
 	etAng(0, l1Ang, 0f);
 	laserOn2(0, 1);
-	float l2Ang = rad(157.5f);
+	float l2Ang = rad(157.5);
 	etAng(0, l2Ang, 0f);
 	laserOn2(0, 2);
 	wait(30);
 	times (120) {
 		wait(1);
-		l1Ang += rad(0.47368421052631578947368421052632f);
+		l1Ang += rad(0.47368421052631578947368421052632);
 		laserAng(1, l1Ang);
-		l2Ang -= rad(0.47368421052631578947368421052632f);
+		l2Ang -= rad(0.47368421052631578947368421052632);
 		laserAng(2, l2Ang);
 	}
 	return;

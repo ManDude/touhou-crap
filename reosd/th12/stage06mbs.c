@@ -80,11 +80,11 @@ sub MBoss1()
 	etOfs(1, 0f, -12f);
 	etEx(1, 0, 0, 2, 1, NEG, NEGF, NEGF);
 	while 1 {
-		MBoss1_at1(R_R, rad(15f));
+		MBoss1_at1(R_R, rad(15));
 		enmRand(90, 4, 1.5f);
 		MBoss1_at2();
 +1:
-		MBoss1_at1(R_L, rad(-15f));
+		MBoss1_at1(R_L, rad(-15));
 		MBoss1_at2();
 +1:
 	}
@@ -95,7 +95,7 @@ sub MBoss1()
 sub MBoss1_at1(float ang, float inc)
 {
 	times (12) {
-		etAng(0, ang, rad(15f));
+		etAng(0, ang, rad(15));
 		etOn(0);
 		ang += inc;
 +4:
@@ -107,7 +107,7 @@ sub MBoss1_at2()
 	times (16) {
 +1:
 		etEx(1, 1, 0, 0x10, 60, 1, RDEG, NEGF);
-		etAng(1, RDEG, rad(3.6f):rad(2.5714285714285714285714285714286f):rad(2.25f):rad(2f));//rad(18f/7f)
+		etAng(1, RDEG, rad(3.6):rad(2.5714285714285714285714285714286):rad(2.25):rad(2));//rad(18f/7f)
 		etOn(1);
 	}
 }

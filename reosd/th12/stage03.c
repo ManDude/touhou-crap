@@ -59,7 +59,7 @@ sub Ball00(int anm, int anm2, int m)
 	etSpd(0, 3.5f, 1.25f);
 	Ball00atL() async 1;
 !*
-	enmDir(rad(30f), 4.5f);
+	enmDir(rad(30), 4.5f);
 30:
 	if (ANGLE_ABS < 1.5707964f)
 		enm_rot_spd(-0.06544985f, 85) async;
@@ -223,7 +223,7 @@ sub Girl00(int anm, int anm2)
 	etSpr(1, 3, 6);
 	etAmt(1, 16, 1);
 	etSpd(1, 1.6f + 0.5f, 0.25f);
-	etAng(1, aim, rad(22.5f));
+	etAng(1, aim, rad(22.5));
 	etEx(1, 0, 0, 2, 1, NEG, NEGF, NEGF);
 	etOn(1);
 !*
@@ -232,7 +232,7 @@ sub Girl00(int anm, int anm2)
 	float sp = 1.6f;
 	times (i) {
 		etSpd(0, sp + 0.5f, 0.25f);
-		etAng(0, aim, rad(7.5f) : rad(7.5f) : rad(22.5f) : rad(15f));
+		etAng(0, aim, rad(7.5) : rad(7.5) : rad(22.5) : rad(15));
 		etOn(0);
 		sp += 0.21f;
 72:
@@ -259,7 +259,7 @@ sub Girl01()
 	etSpr(0, 5, 2);
 	etAmt_rank(0, 8, 16, 24, 24, 1, 1, 1, 3);
 	etSpd(0, RF + 1.5f, 0.25f : 0.25f : 1.25f : 1.25f);
-	etAng(0, 0f, rad(30f) : rad(15f) : rad(12f) : rad(12.857142857142857142857142857143f));
+	etAng(0, 0f, rad(30) : rad(15) : rad(12) : rad(12.857142857142857142857142857143));
 	etEx(0, 0, 0, 2, 1, NEG, NEGF, NEGF);
 	etOn(0);
 100:
@@ -281,21 +281,21 @@ sub Girl02(int anm, int anm2)
 	etSpr(0, 0, 1);
 	etAmt_rank(0, 1, 3, 3, 7, 1, 1, 1, 1);
 	etSpd(0, 2f : 2f : 3f : 3f, 0.25f);
-	etAng(0, 0f, rad(3f) : rad(3f) : rad(3f) : rad(2f));
+	etAng(0, 0f, rad(3) : rad(3) : rad(3) : rad(2));
 	etEx(0, 0, 0, 2, 1, NEG, NEGF, NEGF);
 	int c;
 	seti_rank(c, 241, 153, 97, 73);
 	et_on_rate(0, c, 1) async 1;
 40:
 	if (ABS_X < 0f)
-		enm_rot_spd(rad(-1.40625f), 80) async 2;
+		enm_rot_spd(rad(-1.40625), 80) async 2;
 	else
-		enm_rot_spd_m(rad(-1.40625f), 80) async 2;
+		enm_rot_spd_m(rad(-1.40625), 80) async 2;
 120:
 	if (ABS_X < 0f)
-		enm_rot_spd(rad(1.125f), 100) async 2;
+		enm_rot_spd(rad(1.125), 100) async 2;
 	else
-		enm_rot_spd(rad(1.125f), 100) async 2;
+		enm_rot_spd(rad(1.125), 100) async 2;
 220:
 	endSlot(1);
 	endSlot(2);
@@ -326,7 +326,7 @@ sub Girl03(int anm, int anm2)
 	etAmt(1, 16, 1);
 	etSpd(1, 2.1f, 0.25f);
 	etEx(1, 0, 0, 2, 1, NEG, NEGF, NEGF);
-	etAng(1, ang, rad(22.5f));
+	etAng(1, ang, rad(22.5));
 	etOn(1);
 !*
 	float sp = 1.6f;
@@ -334,7 +334,7 @@ sub Girl03(int anm, int anm2)
 	seti_rank(i, 12, 16, 16, 16);
 	times (i) {
 		etSpd(0, sp + 0.5f, 0.25f);
-		etAng(0, ang, rad(7.5f) : rad(7.5f) : rad(22.5f) : rad(30f));
+		etAng(0, ang, rad(7.5) : rad(7.5) : rad(22.5) : rad(30));
 		etOn(0);
 		sp += 0.3f;
 	72:

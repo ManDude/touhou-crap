@@ -173,14 +173,6 @@ sub ItemDropBasic(int count)
 	return;
 }
 
-sub ResetMovement()
-{
-	enmDir(0f, 0f);
-	enmDirTime(0, 0, 0f, 0f);
-	enmPosTime(0, 0, 0f, 0f);
-	return;
-}
-
 sub UFO_Blue()
 {
 	var A, B, C, D;

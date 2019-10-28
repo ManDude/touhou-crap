@@ -41,6 +41,23 @@ inline sub CardStart() {
 	CAPTURED = 1;
 }
 
+inline sub CardEnd() {
+	resetBoss();
+	ins_21();
+	enmClear();
+	if (TIMEOUT == 0) etClear(640f);
+	else etClear_ni(640f);
+	MISS_COUNT = 0;
+	BOMB_COUNT = 0;
+	enmDir(0f, 0f);
+	enmDirTime(0, 0, 0f, 0f);
+	enmPosTime(0, 0, 0f, 0f);
+	cardEnd();
+	ins_529(0);
+	resetBossParam();
+	playSE(28);
+}
+
 inline sub et_set(int et, int mode, int spr, int col, int am1, int am2, float r1, float r2, float sp1, float sp2) {
 	etNew(et);
 	etMode(et, mode);
@@ -48,6 +65,29 @@ inline sub et_set(int et, int mode, int spr, int col, int am1, int am2, float r1
 	etAmt(et, am1, am2);
 	etAng(et, r1, r2);
 	etSpd(et, sp1, sp2);
+}
+
+inline sub BossInit(int id) {
+	boss(id);
+	MISS_COUNT = 0;
+	BOMB_COUNT = 0;
+	CAPTURED = 1;
+	enmClear();
+	resetBoss();
+	enmNew("Ecl_EtBreak_ni", 0f, 0f, 9999, 0, 0);
+}
+
+inline sub MBossEnd() {
+	setFlags(140);
+	interrupt(0, -1, 0, "");
+	interrupt(1, -1, 0, "");
+	cardEnd();
+	unsetMoveArea();
+	if (TIMEOUT == 0) etClear(640f);
+	else etClear_ni(640f);
+	enmClear();
+	life(100000);
+	boss(-1);
 }
 
 #include "th12_globalvar.txt"

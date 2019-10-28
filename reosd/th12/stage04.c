@@ -106,9 +106,9 @@ sub Book00_at(int anm, int anm2)
 		etSpr(0, 3, 10);
 		etAmt_rank(0, 7, 11, 12, 15, 1, 1, 1, 2);
 	!E
-		etAng(0, an + rad(25.714285714285714285714285714286f), 0f);
+		etAng(0, an + rad(25.714285714285714285714285714286), 0f);
 	!NHL
-		etAng(0, an + rad(16.363636363636363636363636363636f), 0f);
+		etAng(0, an + rad(16.363636363636363636363636363636), 0f);
 	!*
 		etOn(0);
 80:		nop();
@@ -207,9 +207,9 @@ sub Cir00(int anm, int anm2, int m)
 	etAmt(0, 1:3:5:8, 2);
 	etSpd(0, 2.3f, 1.25f);
 !ENH
-	etAng(0, 0f, rad(9f));
+	etAng(0, 0f, rad(9));
 !L
-	etAng(0, 0f, rad(15f));
+	etAng(0, 0f, rad(15));
 !*
 	etEx(0, 0, 0, 2, 2, NEG, NEGF, NEGF);
 	etOn(0);
@@ -217,7 +217,7 @@ sub Cir00(int anm, int anm2, int m)
 	enmDir(0f, 4.2f);
 	setFlags(4);
 30:
-	enmDirTime(40, 0, rad(-150f), NEGF);
+	enmDirTime(40, 0, rad(-150), NEGF);
 70:
 	endSlot(1);
 10000:
@@ -236,9 +236,9 @@ sub Cir01(int anm, int anm2, int m)
 	etAmt(0, 1:3:5:9, 2);
 	etSpd(0, 2.3f, 1.25f);
 !ENH
-	etAng(0, 0f, rad(9f));
+	etAng(0, 0f, rad(9));
 !L
-	etAng(0, 0f, rad(15f));
+	etAng(0, 0f, rad(15));
 !*
 	etEx(0, 0, 0, 2, 2, NEG, NEGF, NEGF);
 	etOn(0);
@@ -267,9 +267,9 @@ sub Cir02(int anm, int anm2, int m)
 	etAmt_rank(0, 1, 1, 3, 5, 1, 3, 2, 3);
 	etSpd(0, 2f, 0.95f);
 !ENH
-	etAng(0, 0f, rad(9f));
+	etAng(0, 0f, rad(9));
 !L
-	etAng(0, 0f, rad(15f));
+	etAng(0, 0f, rad(15));
 !*
 	etEx(0, 0, 0, 2, 2, NEG, NEGF, NEGF);
 	etOn(0);
@@ -296,9 +296,9 @@ sub Cir03(int anm, int anm2, int m)
 	etAmt(0, 1:1:2:5, 3);
 	etSpd(0, 2f, 0.95f);
 !ENH
-	etAng(0, 0f, rad(10f));
+	etAng(0, 0f, rad(10));
 !L
-	etAng(0, 0f, rad(15f));
+	etAng(0, 0f, rad(15));
 !*
 	etEx(0, 0, 0, 2, 2, NEG, NEGF, NEGF);
 	etOn(0);
@@ -358,7 +358,7 @@ sub Cir06(int anm, int anm2, int m)
 	etSpr(0, 7, 6);
 	etAmt(0, 2:3:5:9, 2);
 	etSpd(0, 2.5f:2.5f:2.8f:2.8f, 1.45f);
-	etAng(0, 0f, rad(10f));
+	etAng(0, 0f, rad(10));
 	etEx(0, 0, 0, 2, 2, NEG, NEGF, NEGF);
 	et_on_rate(0, 41, 1) async 1;
 100:
@@ -380,7 +380,7 @@ sub Cir07(int anm, int anm2, int m)
 	etSpr(0, 7, 6);
 	etAmt(0, 2:3:5:9, 2);
 	etSpd(0, 2.5f:2.5f:2.8f:2.8f, 1.45f);
-	etAng(0, 0f, rad(10f));
+	etAng(0, 0f, rad(10));
 	etEx(0, 0, 0, 2, 1, NEG, NEGF, NEGF);
 	et_on_rate(0, 41, 1) async 1;
 100:
@@ -499,9 +499,9 @@ sub Girl02(int anm, int anm2)
 	float an = RDEG, angI;
 	rand(2, 0);
 	if (I0 % 2)
-		angI = rad(13.846153846153846153846153846154f);
+		angI = rad(13.846153846153846153846153846154);
 	else
-		angI = rad(-13.846153846153846153846153846154f);
+		angI = rad(-13.846153846153846153846153846154);
 	etNew(0);
 	etMode(0, 3);
 	etSpr(0, 7, 6);
@@ -543,9 +543,9 @@ sub Girl03(int anm, int anm2)
 	float an = RDEG, angI;
 	rand(2, 0);
 	if (I0 % 2)
-		angI = rad(13.846153846153846153846153846154f);
+		angI = rad(13.846153846153846153846153846154);
 	else
-		angI = rad(-13.846153846153846153846153846154f);
+		angI = rad(-13.846153846153846153846153846154);
 	etNew(0);
 	etMode(0, 3);
 	etSpr(0, 7, 6);
@@ -594,7 +594,7 @@ sub Girl04Shooter()
 	etAmt(0, 32, 2);
 !HL
 	etSpd(0, 1.7f, 0.25f);
-	etAng(0, 0f, rad(5.625f));
+	etAng(0, 0f, rad(5.625));
 	etEx(0, 0, 0, 2, 2, NEG, NEGF, NEGF);
 	etOn(0);
 !*

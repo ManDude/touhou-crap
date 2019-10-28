@@ -261,7 +261,7 @@ sub Girl04_at()
 	etEx(0, 0, 0, 2, 2, NEG, NEGF, NEGF);
 	times (20:40) {
 		etSpd(0, RF * 2f + 1.5f, 1.25f);
-		etAng(0, rad(112.5f) * RF2 + R_D, rad(2.25f));
+		etAng(0, rad(112.5) * RF2 + R_D, rad(2.25));
 		etOn(0);
 		wait(3);
 	}
@@ -302,7 +302,7 @@ sub Girl05At_a()
 	etSpr(0, 0, 6);
 	etAmt(0, 6, 1);
 	etSpd(0, 2f, 1.05f);
-	etAng(0, 0f, rad(11.25f));
+	etAng(0, 0f, rad(11.25));
 	etEx(0, 0, 0, 2, 2, NEG, NEGF, NEGF);
 	et_on_rate(0, 33, 1) async 1;
 }
@@ -314,7 +314,7 @@ sub Girl05At_b()
 	etSpr(0, ET_KUNAI, 2);
 	etAmt(0, 4, 1);
 	etSpd(0, 2f, 1.05f);
-	etAng(0, 0f, rad(15f));
+	etAng(0, 0f, rad(15));
 	etEx(0, 0, 0, 2, 2, NEG, NEGF, NEGF);
 	et_on_rate(0, 25, 1) async 1;
 }

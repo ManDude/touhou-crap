@@ -43,12 +43,12 @@ sub MBoss()
 sub MBoss1()
 {
 	while 1 {
-		MBoss_at1(rad(18f), 0f);
+		MBoss_at1(rad(18), 0f);
 		enmRand(90, 4, 1.5f);
-		MBoss_at2(rad(-18f), PI);
+		MBoss_at2(rad(-18), PI);
 60:
-		MBoss_at1(rad(-18f), PI);
-		MBoss_at2(rad(18f), 0f);
+		MBoss_at1(rad(-18), PI);
+		MBoss_at2(rad(18), 0f);
 61:
 	}
 	return;
@@ -106,7 +106,7 @@ sub MBossCard1_at1()
 	etSpr(0, 20, 3);
 	etAmt(0, 11, 4);
 	etEx(0, 0, 0, 2, 2, NEG, NEGF, NEGF);
-	etAng(0, 0f, rad(12f):rad(12f):rad(18f));
+	etAng(0, 0f, rad(12):rad(12):rad(18));
 	etSpd(0, 4f:5f:6f:7f, 1.45f);
 	times (3) {
 		etOn(0);
@@ -156,7 +156,7 @@ sub MBossCard1_at2()
 	etSpr(0, 20, 3);
 	etAmt(0, 11, 4);
 	etEx(0, 0, 0, 2, 2, NEG, NEGF, NEGF);
-	etAng(0, 0f, rad(12f):rad(12f):rad(18f));
+	etAng(0, 0f, rad(12):rad(12):rad(18));
 	etSpd(0, 4f:5f:6f:7f, 1.45f);
 	times (3) {
 		etOn(0);
@@ -242,7 +242,7 @@ sub MBoss_at1(float inc, float start)
 	etOfs(0, 0f, -12f);
 	float ang = start;
 	times (10) {
-		etAng(0, ang, rad(16.363636363636363636363636363636f)); //rad(180f / 11f)
+		etAng(0, ang, rad(16.363636363636363636363636363636)); //rad(180f / 11f)
 		ang += inc;
 		etOn(0);
 		wait(8);
@@ -260,7 +260,7 @@ sub MBoss_at2(float inc, float start)
 	etOfs(0, 0f, -12f);
 	float ang = start;
 	times (10) {
-		etAng(0, ang, rad(2.5714285714285714285714285714286f)); //rad(18f / 7f)
+		etAng(0, ang, rad(2.5714285714285714285714285714286)); //rad(18f / 7f)
 		ang += inc;
 		etOn(0);
 		wait(3);

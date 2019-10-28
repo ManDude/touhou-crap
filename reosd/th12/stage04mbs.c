@@ -34,11 +34,11 @@ sub MBoss1()
 	interrupt(0, 0, 2400, "MBossDead");
 	timeoutAt(0, "MBossEscape");
 	while 1 {
-		MBoss1_at1(rad(11.25f));
+		MBoss1_at1(rad(11.25));
 		enmRand(90, 4, 1.5f);
 		MBoss1_at2();
 		wait(60);
-		MBoss1_at1(rad(-11.25f));
+		MBoss1_at1(rad(-11.25));
 		MBoss1_at2();
 		wait(1);
 	}
@@ -84,7 +84,7 @@ sub MBoss1_enemy()
 	times (12) {
 		etOfs(1, RF2 * 40f, RF2 * 40f);
 		etSpd(1, RF + 1.5f, 0.25f);
-		etAng(1, %RDEG, rad(5.625f));
+		etAng(1, %RDEG, rad(5.625));
 		etOn(1);
 		wait(6);
 	}

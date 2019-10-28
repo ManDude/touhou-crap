@@ -166,8 +166,8 @@ sub MBossCard1E()
 			etAng(0, ang2, 0f);
 			etOn(0);
 		}
-		ang1 += rad(6.5f);
-		ang2 -= rad(7.5f);
+		ang1 += rad(6.5);
+		ang2 -= rad(7.5);
 		normRad(ang1);
 		normRad(ang2);
 		times (6) {
@@ -204,8 +204,8 @@ sub MBossCard1H()
 		etEx(0, 1, 0, 16, 60, 2, -3.6651914f, 1.6f);
 		etAng(0, ang2, 0f);
 		etOn(0);
-		ang1 += rad(8.5f);
-		ang2 -= rad(9.5f);
+		ang1 += rad(8.5);
+		ang2 -= rad(9.5);
 		normRad(ang1);
 		normRad(ang2);
 		times (6) {

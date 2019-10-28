@@ -10,7 +10,7 @@ sub AGirl00()
 	anmMoveAt(1, 51);
 	rand(3, 3);
 	itemEx(I3, 1);
-	call("Fairy00");
+	Fairy00();
 	delete();
 }
 
@@ -20,7 +20,7 @@ sub AGirl01()
 	anmMoveAt(1, 51);
 	rand(3, 3);
 	itemEx(I3, 1);
-	call("Fairy01");
+	Fairy01();
 	delete();
 }
 
@@ -33,7 +33,7 @@ sub ARGirl01()
 	itemMain(I3);
 	rand(3, 3);
 	itemEx(I3, 1);
-	call("Fairy02");
+	Fairy02();
 	delete();
 }
 
@@ -46,7 +46,7 @@ sub ARGirl02()
 	itemMain(I3);
 	rand(3, 3);
 	itemEx(I3, 1);
-	call("Fairy03");
+	Fairy03();
 	delete();
 }
 
@@ -57,11 +57,9 @@ sub Fairy00()
 	hitbox(28f, 28f);
 	killbox(28f, 28f);
 	enmDir(1.5707964f, 2f);
-!L
-	FairyBasicShoot00() async;
+!L:	FairyBasicShoot00() async;
 40:
-!*
-	enmDirTime(80, 0, rad(-22.5f), 2f);
+	enmDirTime(80, 0, rad(-22.5), 2f);
 120:
 	enmDirTime(100, 0, 1.5707964f, 2f);
 10000:
@@ -75,10 +73,8 @@ sub Fairy01()
 	hitbox(28f, 28f);
 	killbox(28f, 28f);
 	enmDir(1.5707964f, 2f);
-!L
-	FairyBasicShoot00() async;
+!L:	FairyBasicShoot00() async;
 100:
-!*
 	enmDirTime(100, 0, 3.5342917f, 2f);
 10000:
 	return;
@@ -98,8 +94,8 @@ sub Fairy02()
 130:
 	enmDirTime(60, 0, 4.712389f, 5f);
 190:
-	enmDirTime(9810, 0, 4.712389f, 495.5f);
-1000:
+	enmDirTime(10000 - 190, 0, 4.712389f, 495.5f);
+10000:
 	return;
 }
 
@@ -113,14 +109,12 @@ sub Fairy03()
 60:
 	enmDir(1.5707964f, 0f);
 70:
-!L
-	FairyRedShoot01() async;
+!L:	FairyRedShoot01() async;
 130:
-!*
 	enmDirTime(60, 0, 4.712389f, 5f);
 190:
-	enmDirTime(9810, 0, 4.712389f, 495.5f);
-1000:
+	enmDirTime(10000 - 190, 0, 4.712389f, 495.5f);
+10000:
 	return;
 }
 
@@ -128,13 +122,9 @@ sub FairyBasicShoot00()
 {
 	rand(97, 0);
 	wait(I0);
-	etNew(0);
-	etMode(0, 0);
-	etSpr(0, 0, 6);
-	etOfs(0, 3.5f, 1.25f);
-	etAng(0, 0f, 0f);
-	etSE(0, -1, -1);
-	etEx(0, 0, 0, 2, 1, NEG, NEGF, NEGF);
+	et_set(0, 0, 0, 6, 1, 1, 0f, 0f, 3.5f, 1.25f);
+	//etSE(0, -1, -1);
+	ex_effon1(0, 0);
 	while 1 {
 		etOn(0);
 		wait(97);
@@ -144,28 +134,18 @@ sub FairyBasicShoot00()
 
 sub FairyRedShoot00()
 {
-	etNew(0);
-	etMode(0, 0);
-	etSpr(0, 5, 2);
-	etAmt_rank(0, 3, 7, 9, 11, 1, 1, 2, 2);
-	etSpd(0, 1.9f, 0.25f : 0.25f : 0.75f : 0.75f);
-	etAng(0, 0f, 0.7853982f : 0.62831855f : rad(22.5f) : rad(9f));
-	etEx(0, 0, 0, 2, 0, NEG, NEGF, NEGF);
-	etEx(0, 1, 0, 1, NEG, NEG, NEGF, NEGF);
+	et_set(0, 0, 5, 2, 3:7:9:11, 1:1:2:2, 0f, rad(45):rad(36):rad(22.5):rad(9), 1.9f, 0.25f:0.25f:0.75f:0.75f);
+	ex_effon0(0, 0);
+	ex_spdown(0, 1);
 	etOn(0);
 	return;
 }
 
 sub FairyRedShoot01()
 {
-	etNew(0);
-	etMode(0, 0);
-	etSpr(0, 5, 2);
-	etSpd(0, 1.9f, 0.25f);
-	etAmt(0, 5, 1);
-	etAng(0, 0f, rad(15f));
-	etEx(0, 0, 0, 2, 0, NEG, NEGF, NEGF);
-	etEx(0, 1, 0, 1, NEG, NEG, NEGF, NEGF);
+	et_set(0, 0, 5, 2, 5, 1, 0f, rad(15), 1.9f, 0.25f);
+	ex_effon0(0, 0);
+	ex_spdown(0, 1);
 	etOn(0);
 	return;
 }

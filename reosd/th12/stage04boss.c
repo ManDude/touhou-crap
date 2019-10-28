@@ -130,12 +130,12 @@ sub Boss1At(int m)
 		etSpr(0, ET_BALL, RED16);
 		etAmt(0, 1:1:2, 2);
 		etSpd(0, 2.5f:2.5f:2.5f:3f, 1.45f);
-		etAng(0, 0f, 0f:0f:rad(5.625f));
+		etAng(0, 0f, 0f:0f:rad(5.625));
 		etSpr(1, 7, 2);
 	}
 	float sx = ABS_X, sy = ABS_Y;
 	float inc;
-	setf_rank(inc, rad(0.34615384615384615384615384615385f), rad(0.39130434782608695652173913043478f), rad(0.46956521739130434782608695652174f), rad(0.50310559006211180124223602484472f));
+	setf_rank(inc, rad(0.34615384615384615384615384615385), rad(0.39130434782608695652173913043478), rad(0.46956521739130434782608695652174), rad(0.50310559006211180124223602484472));
 	int dur, f1, f2, e;
 	seti_rank(dur, 180, 180, 150, 140);
 	seti_rank(f1, 120, 120, 100, 93);
@@ -149,13 +149,13 @@ sub Boss1At(int m)
 !L
 	laserTime(1, 0, 15, 39, 15, 14);
 !*
-	etAng(1, rad(45f), 0f);
+	etAng(1, rad(45), 0f);
 	laserOn2(1, 1);
-	etAng(1, rad(225f), 0f);
+	etAng(1, rad(225), 0f);
 	laserOn2(1, 2);
-	etAng(1, rad(-225f), 0f);
+	etAng(1, rad(-225), 0f);
 	laserOn2(1, 3);
-	etAng(1, rad(-45f), 0f);
+	etAng(1, rad(-45), 0f);
 	laserOn2(1, 4);
 	laserRot(1, inc);
 	laserRot(2, inc);
@@ -176,79 +176,79 @@ sub Boss1At(int m)
 !L
 			laserTime(1, 23, 15, 55, 15, 14);
 !*
-			etAng(1, rad(45f), 0f);
+			etAng(1, rad(45), 0f);
 			laserOn2(1, 5);
-			etAng(1, rad(225f), 0f);
+			etAng(1, rad(225), 0f);
 			laserOn2(1, 6);
-			etAng(1, rad(-225f), 0f);
+			etAng(1, rad(-225), 0f);
 			laserOn2(1, 7);
-			etAng(1, rad(-45f), 0f);
+			etAng(1, rad(-45), 0f);
 			laserOn2(1, 8);
 			laser_end = 1;
 		}
 		if (((i % e) == 0) && BI0) {
 			if (laser_start) {
-				lAng = rad(45f) + (inc * _f(i));
+				lAng = rad(45) + (inc * _f(i));
 				etOfs(0, cos(lAng) * 64f, 0f - (sin(lAng) * (cos(lAng) * 64f)));
 				etOn(0);
-				lAng = rad(225f) + (inc * _f(i));
+				lAng = rad(225) + (inc * _f(i));
 				etOfs(0, cos(lAng) * 64f, 0f - (sin(lAng) * (cos(lAng) * 64f)));
 				etOn(0);
-				lAng = rad(-225f) + (inc * _f(i));
+				lAng = rad(-225) + (inc * _f(i));
 				etOfs(0, cos(lAng) * 64f, 0f - (sin(lAng) * (cos(lAng) * 64f)));
 				etOn(0);
-				lAng = rad(-45f) + (inc * _f(i));
+				lAng = rad(-45) + (inc * _f(i));
 				etOfs(0, cos(lAng) * 64f, 0f - (sin(lAng) * (cos(lAng) * 64f)));
 				etOn(0);
 			}
 			if (laser_end) {
-				lAng = rad(45f) - (inc * _f(i-f2));
+				lAng = rad(45) - (inc * _f(i-f2));
 				etOfs(0, cos(lAng) * 64f, 0f - (sin(lAng) * (cos(lAng) * 64f)));
 				etOn(0);
-				lAng = rad(225f) - (inc * _f(i-f2));
+				lAng = rad(225) - (inc * _f(i-f2));
 				etOfs(0, cos(lAng) * 64f, 0f - (sin(lAng) * (cos(lAng) * 64f)));
 				etOn(0);
-				lAng = rad(-225f) - (inc * _f(i-f2));
+				lAng = rad(-225) - (inc * _f(i-f2));
 				etOfs(0, cos(lAng) * 64f, 0f - (sin(lAng) * (cos(lAng) * 64f)));
 				etOn(0);
-				lAng = rad(-45f) - (inc * _f(i-f2));
+				lAng = rad(-45) - (inc * _f(i-f2));
 				etOfs(0, cos(lAng) * 64f, 0f - (sin(lAng) * (cos(lAng) * 64f)));
 				etOn(0);
 			}
 		}
 		float x, y;
 		if (laser_start) {
-			lAng = rad(45f) + (inc * _f(i));
+			lAng = rad(45) + (inc * _f(i));
 			ins_81(x, y, lAng, 64f);
 			laserAng(1, lAng);
 			laserOfs(1, x + sx, y + sy);
-			lAng = rad(225f) + (inc * _f(i));
+			lAng = rad(225) + (inc * _f(i));
 			ins_81(x, y, lAng, 64f);
 			laserAng(2, lAng);
 			laserOfs(2, x + sx, y + sy);
-			lAng = rad(-225f) + (inc * _f(i));
+			lAng = rad(-225) + (inc * _f(i));
 			ins_81(x, y, lAng, 64f);
 			laserAng(3, lAng);
 			laserOfs(3, x + sx, y + sy);
-			lAng = rad(-45f) + (inc * _f(i));
+			lAng = rad(-45) + (inc * _f(i));
 			ins_81(x, y, lAng, 64f);
 			laserAng(4, lAng);
 			laserOfs(4, x + sx, y + sy);
 		}
 		if (laser_end) {
-			lAng = rad(45f) - (inc * _f(i-f2));
+			lAng = rad(45) - (inc * _f(i-f2));
 			ins_81(x, y, lAng, 64f);
 			laserAng(5, lAng);
 			laserOfs(5, x + sx, y + sy);
-			lAng = rad(225f) - (inc * _f(i-f2));
+			lAng = rad(225) - (inc * _f(i-f2));
 			ins_81(x, y, lAng, 64f);
 			laserAng(6, lAng);
 			laserOfs(6, x + sx, y + sy);
-			lAng = rad(-225f) - (inc * _f(i-f2));
+			lAng = rad(-225) - (inc * _f(i-f2));
 			ins_81(x, y, lAng, 64f);
 			laserAng(7, lAng);
 			laserOfs(7, x + sx, y + sy);
-			lAng = rad(-45f) - (inc * _f(i-f2));
+			lAng = rad(-45) - (inc * _f(i-f2));
 			ins_81(x, y, lAng, 64f);
 			laserAng(8, lAng);
 			laserOfs(8, x + sx, y + sy);
@@ -434,24 +434,7 @@ sub Boss3()
 	lifepos = 5100f;
 !*
 	life(lifeval);
-	resetBoss();
-	ins_21();
-	enmClear();
-	if (TIMEOUT == 0) {
-		etClear(640f);
-	}
-	else {
-		etClear_ni(640f);
-	}
-	MISS_COUNT = 0;
-	BOMB_COUNT = 0;
-	enmDir(0f, 0f);
-	enmDirTime(0, 0, 0f, 0f);
-	enmPosTime(0, 0, 0f, 0f);
-	cardEnd();
-	ins_529(0);
-	resetBossParam();
-	playSE(28);
+	CardEnd();
 	lives(0);
 	invinc(120);
 	if (TIMEOUT == 0)
@@ -573,7 +556,7 @@ sub BossCardEaMe()
 	etMode(0, 1);
 	etSpr(0, 26, 2);
 	etAmt(0, 1:1:1:3, 1);
-	etAng(0, 1.5707964f, rad(30f));
+	etAng(0, 1.5707964f, rad(30));
 	etEx(0, 0, 0, 2, 2, NEG, NEGF, NEGF);
 	etNew(1);
 	etMode(1, 8);
@@ -1027,10 +1010,10 @@ sub BossCardMetalGold()
 		enmRand(80, 4, 1.5f);
 		times (7:7:7:8) {
 			if ((i % 2) == 0) {
-				ang += rad(15f) : rad(15f) : rad(15f) : rad(11.25f);
+				ang += rad(15) : rad(15) : rad(15) : rad(11.25);
 			}
 			else {
-				ang -= rad(15f) : rad(15f) : rad(15f) : rad(11.25f);
+				ang -= rad(15) : rad(15) : rad(15) : rad(11.25);
 			}
 			etAng(0, ang, 0f);
 			etAng(1, ang, 0f);
@@ -1083,7 +1066,7 @@ sub BossCardMetalMemory()
 		if (((i % 6) == 0) && (i > 0))
 			enmRand(60, 4, 1.5f);
 		BossCardMetalMemory_At(ang) async;
-		ang += rad(13.846153846153846153846153846154f);
+		ang += rad(13.846153846153846153846153846154);
 		i += 1;
 		wait(10);
 140:
@@ -1126,7 +1109,7 @@ sub BossCardMetalMemoryHL()
 		if (((i % 8) == 0) && (i > 0))
 			enmRand(60, 4, 1.5f);
 		BossCardMetalMemoryHL_at(angle, i % 2) async;
-		angle += rad(13.846153846153846153846153846154f);
+		angle += rad(13.846153846153846153846153846154);
 		i += 1;
 140:
 	}
@@ -1135,7 +1118,7 @@ sub BossCardMetalMemoryHL()
 
 sub BossCardMetalMemoryHL_at(float ang, int m)
 {
-	float curve = rad(1.8f) : rad(1.9f) : rad(2.1f) : rad(2.2f);
+	float curve = rad(1.8) : rad(1.9) : rad(2.1) : rad(2.2);
 	if (!m)
 		curve = 0f-curve;
 	times (6) {
@@ -1295,7 +1278,7 @@ sub BossCardWaFi_at3()
 {
 	wait(120);
 	while 1 {
-		etAng(2, RF2 * rad(8f), rad(24f) : rad(20f) : rad(18f) : rad(16f));
+		etAng(2, RF2 * rad(8), rad(24) : rad(20) : rad(18) : rad(16));
 		etOn(2);
 40:
 	}
@@ -1381,7 +1364,7 @@ sub BossCardWaterBury()
 		times (12) {
 			BossCardWaterBury_LaserAt(ang);
 			BossCardWaterBury_LaserAt(0f-ang);
-			ang -= rad(1.5f);
+			ang -= rad(1.5);
 130:	}
 		endSlot(1);
 		enmRand(90, 4, 1.5f);
@@ -1392,9 +1375,9 @@ sub BossCardWaterBury()
 		etAmt(0, 10, 1);
 		etSpd(0, (3.5f:3.5f:3.5f:3.8f) + 0.5f, 0.95f);
 		times (8) {
-			etAng(0, ang, rad(22.5f) : rad(22.5f) : rad(22.5f) : rad(18f));
+			etAng(0, ang, rad(22.5) : rad(22.5) : rad(22.5) : rad(18));
 			etOn(0);
-			ang -= (RF * rad(10f)) - 0.08726646f;
+			ang -= (RF * rad(10)) - 0.08726646f;
 140:	}
 		enmRand(90, 4, 1.5f);
 		i += 1;
@@ -1632,7 +1615,7 @@ sub BossCardWaterUndine()
 			BossCardWaterUndine_LaserAt(0f);
 			BossCardWaterUndine_LaserAt(an1);
 			BossCardWaterUndine_LaserAt(0f-an1);
-			an1 -= rad(1.5f);
+			an1 -= rad(1.5);
 130:		nop();
 		}
 		endSlot(1);
@@ -1650,7 +1633,7 @@ sub BossCardWaterUndine()
 		times (8) {
 			etAng(0, an1, 0.2243995f);
 			etAmt(1, i + 1, 1);
-			etAng(1, an1, rad(20f));
+			etAng(1, an1, rad(20));
 			etOn(0);
 			etOn(1);
 			an1 -= ((RDEG + 3.1415927f) / 18.666666f) - 0.1121997f;
@@ -1820,7 +1803,7 @@ sub BossCardWoMe()
 
 sub BossCardWoMe_at1(float ang)
 {
-	float max_variance = rad(18f);
+	float max_variance = rad(18);
 	float laser_ang = 0f;
 	float min_variance = max_variance * -1f;
 	int i = 0, lID = 1;
@@ -1866,7 +1849,7 @@ sub BossCardWoMe_at2()
 sub BossCardWoMe_atLaser()
 {
 	float curve;
-	setf_rank(curve, rad(4.5f), rad(6f), rad(7.5f), rad(9f));
+	setf_rank(curve, rad(4.5), rad(6), rad(7.5), rad(9));
 	while 1 {
 		int laser_c;
 		seti_rank(laser_c, 10, 10, 12, 14);
@@ -1988,7 +1971,7 @@ sub BossCardWoodLeaf()
 			etAng(0, ang1, ang2);
 			etEx(0, 2, 1, 16, 60, 1, newang, NEGF);
 			etOn(0);
-			newang -= rad(12f) * sp_mod;
+			newang -= rad(12) * sp_mod;
 			ang1 -= 0.10471976f * sp_mod;
 			wait(4);
 		}

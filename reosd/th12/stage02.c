@@ -98,7 +98,7 @@ sub MainGirl01_at()
 	etSpr(0, 5, 1);
 	etAmt_rank(0, 3, 7, 9, 11, 1, 2, 3, 5);
 	etSpd(0, (1.9f:1.9f:1.9f:2.9f) + 0.5f, 1.05f);
-	etAng(0, 0f, rad(45f) : rad(36f) : rad(22.5f) : rad(15f));
+	etAng(0, 0f, rad(45) : rad(36) : rad(22.5) : rad(15));
 	etEx(0, 0, 0, 2, 1, NEG, NEGF, NEGF);
 	etEx(0, 1, 0, 1, NEG, NEG, NEGF, NEGF);
 	etOn(0);
